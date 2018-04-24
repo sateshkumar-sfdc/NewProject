@@ -1,0 +1,76 @@
+<aura:component controller="YETI_ExtractDataController" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId">
+    <!-- STYLES -->
+    <ltng:require styles="{!$Resource.SLDS_Winter_17 + '/assets/styles/salesforce-lightning-design-system-ltng.min.css'}"/>
+    <!-- / STYLES -->
+
+    <!-- ATTRIBUTES -->
+    <aura:attribute name="recordId" type="Id"/>
+    <aura:attribute type="String" name="errorMessage"/>
+	<aura:attribute type="YETI_ExtractDataController.CaseCommentsWrapper[]" name="caseComments"/>
+    <!-- / ATTRIBUTES -->
+
+    <!-- EVENTS -->
+    <aura:handler name="init" action="{!c.loadCaseComments}" value="{!this}"/>
+    <!-- / EVENTS -->
+
+    <!-- BODY -->
+    <div class="yeti">
+        <!-- PAGE HEADER -->
+        <div class="slds-m-top--large slds-m-bottom--large hideSection" aura:id="pageHeaderSection">
+        	<h2 class="slds-text-heading--medium">
+				{!$Label.c.YETI_CaseComments_ComponentHeaderText}
+            </h2>
+        </div>
+        <!-- / PAGE HEADER -->
+
+        <!-- ERROR MESSAGE -->
+        <div class="error-message" aura:id="errorMessageDiv">
+            <ui:message severity="error" closable="false">
+                <ui:outputText value="{!v.errorMessage}"/>
+            </ui:message>
+        </div>
+        <!-- / ERROR MESSAGE -->
+
+		<!-- CONTENT -->
+        <aura:if isTrue="{!v.caseComments.length > 0}">
+            <div class="case-comments-section">
+                <aura:iteration items="{!v.caseComments}" var="theComment">
+                    <article class="slds-card slds-card--narrow">
+                        <div class="slds-card__header slds-grid">
+                            <header class="slds-media slds-media--center slds-has-flexi-truncate">
+                                <div class="slds-media__body">
+                                    <h2>
+                                        <span class="slds-text-heading--small createdByName">
+                                            {!theComment.createByName}
+                                        </span>
+                                    </h2>
+                                </div>
+								<div>									
+									<div class="slds-form-element">
+									  <div class="slds-form-element__control">
+										<div >
+										 
+										    <ui:inputSelect aura:id="settingpublic" value="{!theComment.publish}" change="{!c.onChangeFunction}">
+												<ui:inputSelectOption text="{!theComment.ccid+'-public'}" label="public"/>
+												<ui:inputSelectOption text="{!theComment.ccid+'-private'}" label="private"/>
+											</ui:inputSelect>
+                                            </div>
+									  </div>
+									</div>
+								</div>
+                            </header>
+                        </div>
+                        <div class="slds-card__body">{!theComment.caseCommentBody}</div>
+                        <div class="slds-card__footer">{!theComment.createDate}</div>
+                    </article>
+                </aura:iteration>
+            </div>
+            <aura:set attribute="else">
+                <div class="no-case-comments">
+                    {!$Label.c.YETI_CaseComments_NoCaseCommentsFoundMessageText}
+                </div>
+            </aura:set>
+        </aura:if>
+        <!-- / CONTENT -->
+    </div>
+</aura:component>

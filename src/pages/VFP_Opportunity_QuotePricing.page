@@ -1,0 +1,179 @@
+<apex:page id="VFP_Opportunity_QuotePricing" showHeader="true" sidebar="true" docType="html-5.0"
+           controller="CTRL_Opportunity_QuotePricing">
+<!--
+LINKS:
+Opportunity | 'SAP Quote Materials' | LNK_Opportunity_Quote_Materials | /apex/VFP_Opportunity_QuotePricing?SF_OppId={!Opportunity.Id}
+-->
+
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"/>
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"/>
+    <apex:includeScript value="{!URLFOR($Resource.enosix, 'js/jqdates.js')}"/>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
+    <apex:form >
+    <apex:pageBlock title="Opportunity Pricing" id="mainform">
+        <c:CMP_Status />
+            <apex:pageBlockSection title="Opportunity Information">
+                <apex:outputField value="{!opp.Name}" label="Opportunity Name"/>
+                <apex:outputField value="{!opp.CloseDate}" label="Close Date"/>
+                <apex:outputField value="{!opp.NextStep}" label="Next Step"/>
+                <apex:outputField value="{!opp.Probability}" label="Probability"/>
+                <apex:outputField value="{!opp.StageName}" label="Stage"/>
+                <br/>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection title="Customer Information" rendered="{! null != selectedSAPCustomer }">
+              <apex:outputText value="{!selectedSAPCustomer.Name}" label="Name"/>
+              <apex:outputText value="{!selectedSAPCustomer.CustomerNumber}" label="Customer Number"/>
+              <apex:outputText value="{!selectedSAPCustomer.BusinessPartnerTypeDescription}" label="Partner Type"/>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection title="Sales Information" rendered="{! canQuotePrices && isOpportunitySalesInfoEnabled }">
+                <apex:selectList value="{!quoteDetail.SalesDocument}" size="1" label="Order Type:">
+                    <apex:actionSupport event="onchange" action="{!updateSalesAreas}" rerender="mainform"
+                                        status="status"/>
+                    <apex:selectOptions value="{!OrderTypes}"></apex:selectOptions>
+                </apex:selectList>
+                <apex:selectList value="{!salesData.SalesOrganization}" label="Sales Organization:" size="1">
+                    <apex:actionSupport event="onchange" action="{!updateSalesAreas}" rerender="mainform"
+                                        status="status"/>
+                    <apex:selectOptions value="{!SalesOrganizations}"/>
+                </apex:selectList>
+
+                <apex:selectList value="{!salesData.DistributionChannel}" label="Distribution Channel:"
+                                 size="1">
+                    <apex:actionSupport event="onchange" action="{!updateSalesAreas}" rerender="mainform"
+                                        status="status"/>
+                    <apex:selectOptions value="{!DistributionChannels}"/>
+                </apex:selectList>
+
+                <apex:selectList value="{!salesData.Division}" label="Division:" size="1">
+                    <apex:actionSupport event="onchange" action="{!updateSalesAreas}" rerender="mainform"
+                                        status="status"/>
+                    <apex:selectOptions value="{!Divisions}"/>
+                </apex:selectList>
+
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Partner Information" rendered="{! canQuotePrices }">
+                <apex:selectList value="{!SoldToPartner.CustomerNumber}" label="Sold To:" size="1">
+                    <apex:actionSupport event="onchange" rerender="mainform" status="status"/>
+                    <apex:selectOptions value="{!SoldToPartners}"/>
+                </apex:selectList>
+
+                <apex:pageBlockSectionItem labelTitle="Ship To:" id="shipToDiv">
+                    <apex:outputLabel value="Ship To:"/>
+                    <apex:outputPanel >
+                        <apex:selectList value="{!ShipToPartner.CustomerNumber}" label="Ship To:" size="1">
+                            <apex:actionSupport event="onchange"
+                                                action="{!SimulateOpportunityQuote}"
+                                                rerender="mainform"
+                                                status="status"/>
+                            <apex:selectOptions value="{!ShipToPartners}"/>
+                        </apex:selectList>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection title="Added Materials:" columns="1" collapsible="false"
+                                   rendered="{!null != displayedMaterialItems}">
+
+                <apex:actionFunction name="removeItem" action="{!removeItem}" reRender="mainform" status="status">
+                    <apex:param name="i" value=""/>
+                </apex:actionFunction>
+
+                <apex:pageMessages id="messagediv"/>
+
+                <apex:pageBlockTable value="{!displayedMaterialItems}" var="m">
+                    <apex:column headerValue="Action">
+                        <apex:commandButton onclick="removeItem('{!m.item.ItemNumber}');return false;"
+                                            reRender="mainform"
+                                            status="status" value="Remove"/>
+                    </apex:column>
+                    <apex:column headerValue="Item Number" value="{!m.item.ItemNumber}"/>
+                    <apex:column value="{!m.item.Material}" headerValue="Product Name"/>
+                    <apex:column value="{!m.item.ItemDescription}" headerValue="Description"/>
+                    <apex:column value="{!m.item.ProductHierarchyDescription}" headerValue="Category"/>
+                    <apex:column value="{!m.item.ScheduleLineDate}" headerValue="Schedule Date"/>
+                    <apex:column headerValue="ATP" rendered="{!isOpportunityATPEnabled}">
+                        <apex:outputText value="{0,date,MM/dd/yyyy}">
+                            <apex:param value="{!m.maxItemSchedule.ScheduleLineDate}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column value="{!m.item.OrderQuantity}" headerValue="Quantity"/>
+                    <apex:column value="{!m.item.NetItemPrice}" headerValue="Item Price"/>
+                    <apex:column value="{!m.item.NetOrderValue}" headerValue="Net Order Value"/>
+
+                </apex:pageBlockTable>
+
+                <apex:commandButton onclick="showMaterialsPopup();return false;" value="Add Materials"/>
+
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection columns="1" title="Create Opportunity Pricing:">
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Net Order Value"/>
+                    <apex:outputText value="{0, number, ###,##0.00}">
+                        <apex:param value="{!netOpportunityPrice}"/>
+                    </apex:outputText>
+                </apex:pageBlockSectionItem>
+
+                <apex:commandButton rendered="{! canQuotePrices }" value="Save Opportunity Line Items" action="{!UpdateOpportunity}"/>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockButtons >
+                <c:CMP_NavButtons />
+            </apex:pageBlockButtons>
+    </apex:pageBlock>
+    </apex:form>
+    <c:CMP_Footer />
+
+    <div id="materialsPopup" style="display:none">
+        <apex:form id="materialsForm">
+            <c:CMP_MaterialSearch id="matSearch"
+                receiver="{!receiver}"
+                jsCallback="hideMaterialsPopup"
+                jsSearchCallback="fixMaterialsPopupSize"
+                addButtonLabel="Add Selected Materials"
+                dateSelect="true"
+                salesOrganization="{!salesData.SalesOrganization}"
+                distributionChannel="{!salesData.DistributionChannel}"
+                defaultMaterialTypes="{!defaultOpportunityMaterialTypes}"
+                defaultProductAttributes="{!defaultOpportunityProductAttributes}"
+                autoSearch="{!isOpportunityMaterialAutoSearchEnabled}"
+                rerender="mainform,materialsForm"/>
+        </apex:form>
+    </div>
+
+    <script>
+        function showDialog(id) {
+            $(id).dialog({
+                modal: true,
+                position: {my: 'top', at: 'top+10%'},
+                width: $(window).width() * .9,
+                height: 'auto',
+                open: function(event, ui) {
+                    $('.ui-widget-overlay').bind('click', function() {
+                        $(this).siblings('.ui-dialog').find('.ui-dialog-content').dialog('close');
+                    });
+                }
+            });
+        }
+        function showMaterialsPopup() {
+            showDialog('#materialsPopup');
+        }
+
+        function hideDialog(id) {
+            $(id).dialog('close');
+        }
+        function hideMaterialsPopup() {
+            hideDialog('#materialsPopup');
+        }
+
+        function fixDialogSize(id) {
+            $(id).dialog('option', 'height', 'auto');
+        }
+        function fixMaterialsPopupSize() {
+            fixDialogSize('#materialsPopup');
+        }
+    </script>
+</apex:page>

@@ -1,0 +1,214 @@
+<aura:component controller="YETI_ExtractDataController" implements="forceCommunity:availableForAllPageTypes">
+    <!-- STYLES -->
+    <ltng:require styles="{!$Resource.SLDS_Winter_17 + '/assets/styles/salesforce-lightning-design-system-ltng.min.css'}"/>
+    <!-- / STYLES -->
+
+    <!-- ATTRIBUTES -->
+    <aura:attribute type="String" name="currentPassword"/>
+    <aura:attribute type="String" name="newPassword"/>
+    <aura:attribute type="String" name="verifyNewPassword"/>
+    <aura:attribute type="Boolean" name="isModalBoxDisplayed" default="false"/>
+	<aura:attribute type="YETI_ExtractDataController.MyProfileWrapper" name="userData"/>
+    <!-- / ATTRIBUTES -->
+
+    <!-- EVENTS -->
+    <aura:handler name="init" action="{!c.getUserData}" value="{!this}"/>
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
+    <!-- / EVENTS -->
+
+    <!-- SPINNER -->
+    <center>
+        <ui:spinner aura:id="spinner"/>
+    </center>
+    <!-- / SPINNER -->
+
+    <!-- BODY -->
+    <div class="yeti">
+        <!-- MY SETTINGS -->
+        <div class="slds-m-top--large slds-m-bottom--large header-text-color" aura:id="mySettings">
+        	<h2 class="slds-text-heading--medium">
+				{!$Label.c.YETI_MyProfile_MySettingsHeaderText}
+            </h2>
+        </div>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-p-horizontal--small slds-size--1-of-2 slds-p-bottom--x-small">
+                <div class="slds-text-align--left">
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__label">Username</div>
+                    </div>
+                </div>
+                <div class="slds-text-align--left">
+                    <div class="slds-form-element">
+                        <ui:outputText value="{!v.userData.theUserData.Username}"/>
+                    </div>
+                </div>
+			</div>
+            <div class="slds-p-horizontal--small slds-size--1-of-2 slds-p-bottom--x-small">
+                <div class="slds-text-align--left">
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__label">Email Address</div>
+                    </div>
+                </div>
+                <div class="slds-text-align--left">
+                    <div class="slds-form-element">
+                        <ui:outputText value="{!v.userData.theUserData.Email}"/>
+                    </div>
+                </div>
+			</div>
+            <div class="slds-p-horizontal--small slds-size--1-of-2 slds-p-bottom--x-small">
+                <div class="slds-text-align--left">
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__label">Password</div>
+                    </div>
+                </div>
+                <div class="slds-text-align--left">
+                    <div class="slds-form-element">
+						<button class="slds-button" onclick="{!c.showModalBox}">Change Password</button>
+                    </div>
+                </div>
+			</div>
+            <div class="slds-p-horizontal--small slds-size--1-of-2 slds-p-bottom--x-small">
+                <div class="slds-text-align--left">
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__label">Phone</div>
+                    </div>
+                </div>
+                <div class="slds-text-align--left">
+                    <div class="slds-form-element">
+                        <ui:outputText value="{!v.userData.phoneNumber}"/>
+                    </div>
+                </div>
+			</div>
+        </div>
+        <br/>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-p-horizontal--small slds-size--1-of-2 slds-p-bottom--x-small">
+                <div class="slds-text-align--left">
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__label">Language</div>
+                    </div>
+                </div>
+                <div class="slds-text-align--left">
+                    <div class="slds-form-element">
+                        <ui:outputText value="{!v.userData.userLanguage}"/>
+                    </div>
+                </div>
+			</div>
+            <div class="slds-p-horizontal--small slds-size--1-of-2 slds-p-bottom--x-small">
+                <div class="slds-text-align--left">
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__label">Locale</div>
+                    </div>
+                </div>
+                <div class="slds-text-align--left">
+                    <div class="slds-form-element">
+                        <ui:outputText value="{!v.userData.userLocale}"/>
+                    </div>
+                </div>
+			</div>
+            <div class="slds-p-horizontal--small slds-size--1-of-2 slds-p-bottom--x-small">
+                <div class="slds-text-align--left">
+                    <div class="slds-form-element">
+                        <div class="slds-form-element__label">Time Zone</div>
+                    </div>
+                </div>
+                <div class="slds-text-align--left">
+                    <div class="slds-form-element">
+                        <ui:inputSelect aura:id="userTimeZones">
+                            <aura:iteration items="{!v.userData.timezoneSelectOptions}" var="theMap">
+                                <ui:inputSelectOption label="{!theMap.label}" text="{!theMap.value}"/>
+                            </aura:iteration>
+                        </ui:inputSelect>
+                    </div>
+                </div>
+			</div>
+        </div>
+        <!-- / MY SETTINGS -->
+
+        <!-- SAVE BUTTON -->
+        <div class="slds-grid slds-wrap">
+            <ui:button class="slds-button slds-button--neutral save-button" press="{!c.updateUserTimeZone}">
+                Save
+            </ui:button>
+        </div>
+        <!-- / SAVE BUTTON -->
+    </div>
+
+    <!-- MODAL BOX -->
+    <div class="yeti">
+        <div aria-hidden="true" role="dialog" class="slds-modal slds-modal--prompt slds-fade-in-hide" aura:id="modaldialog">
+            <div class="slds-modal__container">
+                <div class="slds-modal__header slds-theme--info">
+                    <button class="slds-button slds-button--icon-inverse slds-notify__close" onclick="{!c.hideModalBox}">
+						<lightning:icon iconName="action:close" size="xx-small" alternativeText="Close"/>
+                    </button>
+                    <h2 class="slds-text-heading--medium">Change My Password</h2>
+                </div>
+                <div class="slds-modal__content slds-p-around--medium">
+                    <div class="slds-text-title valid-password-message" aura:id="invalidPasswordMessage">
+                        You must adhere to the following password rules:<br/><br/>
+                        *Your password must be atleast 8 characters long.<br/>
+						*Your password must contain only underscore, digits and alphabets.
+                    </div>
+                    <br/>
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-p-horizontal--small slds-size--1-of-2 slds-p-bottom--x-small">
+                            <div class="slds-text-align--left">
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__label">Current Password*</div>
+                                </div>
+                            </div>
+                            <div class="slds-text-align--left">
+                                <div class="slds-form-element">
+                                    <ui:inputSecret value="{!v.currentPassword}" aura:id="currentPasswordField"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-p-horizontal--small slds-size--1-of-2 slds-p-bottom--x-small"></div>
+                        <div class="slds-p-horizontal--small slds-size--1-of-2 slds-p-bottom--x-small">
+                            <div class="slds-text-align--left">
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__label">New Password*</div>
+                                </div>
+                            </div>
+                            <div class="slds-text-align--left">
+                                <div class="slds-form-element">
+                                    <ui:inputSecret value="{!v.newPassword}" aura:id="newPasswordField"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-p-horizontal--small slds-size--1-of-2 slds-p-bottom--x-small"></div>
+                        <div class="slds-p-horizontal--small slds-size--1-of-2 slds-p-bottom--x-small">
+                            <div class="slds-text-align--left">
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__label">Verify New Password*</div>
+                                </div>
+                            </div>
+                            <div class="slds-text-align--left">
+                                <div class="slds-form-element">
+                                    <ui:inputSecret value="{!v.verifyNewPassword}" aura:id="verifyNewPasswordField"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- SAVE AND CANCEL BUTTONS -->
+                    <div class="slds-grid slds-wrap">
+						<ui:spinner aura:id="processing" class="update-password-status"/>
+                        <div class="update-password-buttons" aura:id="updatePasswordButtons">
+                            <ui:button class="slds-button slds-button--neutral" press="{!c.updateUserPassword}">
+                                Save
+                            </ui:button>
+                            <ui:button class="slds-button" press="{!c.hideModalBox}">
+                                Cancel
+                            </ui:button>
+                        </div>
+                    </div>
+                    <!-- / SAVE AND CANCEL BUTTONS -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slds-backdrop slds-backdrop--hide" aura:id="backdrop"></div>
+    <!-- / MODAL BOX -->
+</aura:component>

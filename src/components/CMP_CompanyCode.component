@@ -1,0 +1,23 @@
+<apex:component controller="CTRL_CompanyCode">
+	<apex:attribute name="DataSource" type="DS_CompanyCode" assignTo="{!myDataSource}" required="true" description=""/>
+
+	<apex:pageBlock title="Finance" >
+		<apex:pageBlockSection columns="2" collapsible="false">
+			 <apex:outputText label="Company Code:" value="{!CompanyData.CompanyCode}"/>
+
+			 <apex:outputText label="Reconciliation Account:" value="{!CompanyData.ReconciliationAccount}"/>
+
+			 <apex:outputText label="Payment Terms:" value="{0} - {1}">
+			 	<apex:param value="{!CompanyData.TermsofPaymentKey}" />
+			 	<apex:param value="{!CompanyData.TermsOfPaymentDescription}" />
+			 </apex:outputText>
+			 <!--
+			 <apex:selectList size="1" label="Payment Terms:" value="{!CompanyData.TermsofPaymentKey}">
+			 	<apex:selectOptions value="{!PaymentTerms}"/>
+             </apex:selectList>
+             -->
+
+		</apex:pageBlockSection>
+	</apex:pageBlock>
+
+</apex:component>

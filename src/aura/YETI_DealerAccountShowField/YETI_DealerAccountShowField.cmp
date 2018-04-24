@@ -1,0 +1,43 @@
+<aura:component >
+    <!-- ATTRIBUTES -->
+    <aura:attribute type="String" name="fieldType" required="true"/>
+    <aura:attribute type="String" name="fieldLabel" required="true"/>
+    <aura:attribute type="String" name="fieldValue" required="true"/>
+    <!-- /ATTRIBUTES -->
+    
+    <!-- CONTENT -->
+    <div class="slds-text-align--left">
+        <div class="slds-form-element">
+            <div class="slds-form-element__label">{!v.fieldLabel}</div>
+        </div>
+    </div>
+    <div class="slds-text-align--left">
+        <div class="slds-form-element">
+            <aura:if isTrue="{!v.fieldType == 'Text'}">
+                <ui:outputText value="{!v.fieldValue}"/>
+            </aura:if>
+            <aura:if isTrue="{!v.fieldType == 'Email'}">
+                <ui:outputEmail value="{!v.fieldValue}"/>
+            </aura:if>
+            <aura:if isTrue="{!v.fieldType == 'Phone'}">
+                <ui:outputPhone value="{!v.fieldValue}"/>
+            </aura:if>
+            <aura:if isTrue="{!v.fieldType == 'Date'}">
+                <ui:outputDate value="{!v.fieldValue}"/>
+            </aura:if>
+            <aura:if isTrue="{!v.fieldType == 'DateTime'}">
+                <ui:outputDateTime value="{!v.fieldValue}"/>
+            </aura:if>
+            <aura:if isTrue="{!v.fieldType == 'URL'}">
+                <ui:outputURL value="{!v.fieldValue}"/>
+            </aura:if>
+            <aura:if isTrue="{!v.fieldType == 'Currency'}">
+                <ui:outputCurrency value="{!v.fieldValue}"/>
+            </aura:if>
+            <aura:if isTrue="{!v.fieldType == 'Checkbox'}">
+                <ui:outputCheckbox value="{!v.fieldValue}"/>
+            </aura:if>
+        </div>
+    </div>
+    <!-- /CONTENT -->
+</aura:component>

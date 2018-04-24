@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>Contact Layout</layout>
+        <sections>
+            <label><!-- Contact Role --></label>
+            <section>Contact Role</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Dealer Contact Layout - Dealers Community</layout>
+        <sections>
+            <label><!-- Address Information --></label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>ERP Contact</layout>
+        <sections>
+            <label><!-- Marketing Cloud Subscriptions --></label>
+            <section>Marketing Cloud Subscriptions</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

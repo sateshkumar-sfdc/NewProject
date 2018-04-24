@@ -1,0 +1,1398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>ADDITIONAL_DOCS_1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ADDITIONAL DOCS 1:</shortDescription>
+        <value>ADDITIONAL DOCS 1:</value>
+    </labels>
+    <labels>
+        <fullName>ADDITIONAL_DOCS_2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ADDITIONAL DOCS 2:</shortDescription>
+        <value>ADDITIONAL DOCS 2:</value>
+    </labels>
+    <labels>
+        <fullName>ADDITIONAL_DOCS_3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ADDITIONAL DOCS 3:</shortDescription>
+        <value>ADDITIONAL DOCS 3:</value>
+    </labels>
+    <labels>
+        <fullName>ADDRESS_LINE_2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ADDRESS LINE 2</shortDescription>
+        <value>ADDRESS LINE 2</value>
+    </labels>
+    <labels>
+        <fullName>Attachment_Uploaded_No_need_to_reattach_the_file</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Attachment Uploaded. No need to reattach the file.</shortDescription>
+        <value>ATTACHMENT UPLOADED. No need to reattach the file.</value>
+    </labels>
+    <labels>
+        <fullName>BARBECUE_COMPETITIONS_ATTENDED_ATTENDING_AND_YEAR</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BARBECUE COMPETITIONS ATTENDED/ATTENDING AND YEAR</shortDescription>
+        <value>BARBECUE COMPETITIONS ATTENDED/ATTENDING AND YEAR</value>
+    </labels>
+    <labels>
+        <fullName>CITY</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CITY</shortDescription>
+        <value>CITY</value>
+    </labels>
+    <labels>
+        <fullName>COMMENTS</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>COMMENTS</shortDescription>
+        <value>COMMENTS</value>
+    </labels>
+    <labels>
+        <fullName>COMPANY</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>COMPANY:</shortDescription>
+        <value>COMPANY:</value>
+    </labels>
+    <labels>
+        <fullName>COMPANY_NAME</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>COMPANY NAME</shortDescription>
+        <value>COMPANY NAME</value>
+    </labels>
+    <labels>
+        <fullName>COMPANY_NAME_OR_OTHER</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>COMPANY NAME OR OTHER :</shortDescription>
+        <value>COMPANY NAME OR OTHER</value>
+    </labels>
+    <labels>
+        <fullName>CONFIRM_EMAIL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CONFIRM EMAIL</shortDescription>
+        <value>CONFIRM EMAIL</value>
+    </labels>
+    <labels>
+        <fullName>CONFIRM_EMAIL_YOUR_EMAIL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CONFIRM EMAIL (YOUR EMAIL)</shortDescription>
+        <value>CONFIRM EMAIL (YOUR EMAIL)</value>
+    </labels>
+    <labels>
+        <fullName>CONTACT_PERSON_S_FIRST_NAME</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CONTACT PERSON&apos;S FIRST NAME</shortDescription>
+        <value>CONTACT PERSON&apos;S FIRST NAME</value>
+    </labels>
+    <labels>
+        <fullName>CONTACT_PERSON_S_LAST_NAME</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CONTACT PERSON&apos;S LAST NAME</shortDescription>
+        <value>CONTACT PERSON&apos;S LAST NAME</value>
+    </labels>
+    <labels>
+        <fullName>COOLER_PHOTO_SHOWING_WARRANTY_ISSUE</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>COOLER PHOTO SHOWING WARRANTY ISSUE</shortDescription>
+        <value>COOLER PHOTO SHOWING WARRANTY ISSUE</value>
+    </labels>
+    <labels>
+        <fullName>COUNTRY</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>COUNTRY</shortDescription>
+        <value>COUNTRY</value>
+    </labels>
+    <labels>
+        <fullName>CUSTOM_LOGO_REQUEST</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CUSTOM LOGO REQUEST</shortDescription>
+        <value>CUSTOM LOGO REQUEST</value>
+    </labels>
+    <labels>
+        <fullName>Case_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Case Information</shortDescription>
+        <value>Case Information</value>
+    </labels>
+    <labels>
+        <fullName>Case_Successfully_Created</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Case Successfully Created.</shortDescription>
+        <value>Case Successfully Created.</value>
+    </labels>
+    <labels>
+        <fullName>Catalog_Label</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Catalog Label</shortDescription>
+        <value>We&apos;ve got it! Please allow 5-10 business days for us to process your request. All stickers and catalogs will arrive via USPS.</value>
+    </labels>
+    <labels>
+        <fullName>Custom_Logo_Request_Form</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Custom Logo Request Form</shortDescription>
+        <value>Custom Logo Request Form</value>
+    </labels>
+    <labels>
+        <fullName>DATE_OF_PURCHASE_OR_YEARS_OWNED</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DATE OF PURCHASE OR YEARS OWNED</shortDescription>
+        <value>DATE OF PURCHASE OR YEARS OWNED</value>
+    </labels>
+    <labels>
+        <fullName>DEALER_STORE_NAME_STORE_YOU_WORK_AT</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DEALER / STORE NAME (STORE YOU WORK AT)</shortDescription>
+        <value>DEALER / STORE NAME (STORE YOU WORK AT)</value>
+    </labels>
+    <labels>
+        <fullName>Dealer_Employee_Purchase_Program_Request</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dealer Employee Purchase Program Request</shortDescription>
+        <value>DEALER EMPLOYEE PURCHASE PROGRAM REQUEST FORM</value>
+    </labels>
+    <labels>
+        <fullName>Dealer_Employee_Purchase_Program_Request_Form</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dealer Employee Purchase Program Request Form</shortDescription>
+        <value>Dealer Employee Purchase Program Request Form</value>
+    </labels>
+    <labels>
+        <fullName>EMAIL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMAIL</shortDescription>
+        <value>EMAIL</value>
+    </labels>
+    <labels>
+        <fullName>EMAIL_ADDRESS_OF_YETI_EMPLOYEE</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMAIL ADDRESS OF YETI EMPLOYEE</shortDescription>
+        <value>EMAIL ADDRESS OF YETI EMPLOYEE</value>
+    </labels>
+    <labels>
+        <fullName>EMPLOYEE_FIRST_NAME</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMPLOYEE FIRST NAME</shortDescription>
+        <value>YETI EMPLOYEE CONTACT FIRST NAME</value>
+    </labels>
+    <labels>
+        <fullName>EMPLOYEE_FIRST_NAME_YOUR_NAME</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMPLOYEE FIRST NAME (YOUR NAME)</shortDescription>
+        <value>EMPLOYEE FIRST NAME (YOUR NAME)</value>
+    </labels>
+    <labels>
+        <fullName>EMPLOYEE_IDENTIFICATION_NUMBER_EMPLOYEE_ID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMPLOYEE IDENTIFICATION NUMBER (EMPLOYEE ID)</shortDescription>
+        <value>EMPLOYEE IDENTIFICATION NUMBER (EMPLOYEE ID)</value>
+    </labels>
+    <labels>
+        <fullName>EMPLOYEE_LAST_NAME</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMPLOYEE LAST NAME</shortDescription>
+        <value>YETI EMPLOYEE CONTACT LAST NAME</value>
+    </labels>
+    <labels>
+        <fullName>EMPLOYEE_S_EMAIL_YOUR_EMAIL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMPLOYEE&apos;S EMAIL (YOUR EMAIL)</shortDescription>
+        <value>EMPLOYEE&apos;S EMAIL (YOUR EMAIL)</value>
+    </labels>
+    <labels>
+        <fullName>EMPLOYEE_S_LAST_NAME</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMPLOYEE&apos;S LAST NAME</shortDescription>
+        <value>EMPLOYEE&apos;S LAST NAME</value>
+    </labels>
+    <labels>
+        <fullName>EMPLOYEE_s_FIRST_NAME</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EMPLOYEE&apos;s FIRST NAME</shortDescription>
+        <value>EMPLOYEE&apos;S FIRST NAME</value>
+    </labels>
+    <labels>
+        <fullName>ESTIMATED_COST_OF_SPONSORSHIP</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ESTIMATED COST OF SPONSORSHIP</shortDescription>
+        <value>ESTIMATED COST OF SPONSORSHIP OR MARKETING OPPORTUNITY</value>
+    </labels>
+    <labels>
+        <fullName>Email_Address_Mismatch</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email Address Mismatch</shortDescription>
+        <value>Email Address Mismatch</value>
+    </labels>
+    <labels>
+        <fullName>Error_creating_new_case</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error creating new case.</shortDescription>
+        <value>Form not submitted.</value>
+    </labels>
+    <labels>
+        <fullName>FIRST_AND_LAST_NAME</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FIRST AND LAST NAME</shortDescription>
+        <value>FIRST AND LAST NAME</value>
+    </labels>
+    <labels>
+        <fullName>FIRST_NAME</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FIRST NAME</shortDescription>
+        <value>FIRST NAME</value>
+    </labels>
+    <labels>
+        <fullName>FRIENDS_FAMILY_PURCHASE_PROGRAM_REQUEST</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FRIENDS FAMILY PURCHASE PROGRAM REQUEST</shortDescription>
+        <value>FRIENDS FAMILY PURCHASE PROGRAM REQUEST</value>
+    </labels>
+    <labels>
+        <fullName>Friends_Family_Purchase_Program_Request_Form</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Friends Family Purchase Program Request Form</shortDescription>
+        <value>Friends Family Purchase Program Request Form</value>
+    </labels>
+    <labels>
+        <fullName>HEAD_COOK_S_NAME</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>HEAD COOK&apos;S NAME</shortDescription>
+        <value>HEAD COOK&apos;S NAME</value>
+    </labels>
+    <labels>
+        <fullName>HOW_DID_YOU_HEAR_ABOUT_YETI</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>HOW DID YOU HEAR ABOUT YETI?</shortDescription>
+        <value>HOW DID YOU HEAR ABOUT YETI?</value>
+    </labels>
+    <labels>
+        <fullName>INDUSTRY_PROGRAM_FORM</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INDUSTRY PROGRAM FORM</shortDescription>
+        <value>INDUSTRY PROGRAM FORM</value>
+    </labels>
+    <labels>
+        <fullName>INTERESTS</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>INTERESTS</shortDescription>
+        <value>INTERESTS</value>
+    </labels>
+    <labels>
+        <fullName>I_AGREE_WITH_THE_YETI_FRIENDS_AND_FAMILY_PROGRAM_TERMS_AND_CONDITIONS</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>I AGREE WITH THE YETI FRIENDS AND FAMILY PROGRAM TERMS AND CONDITIONS</shortDescription>
+        <value>I AGREE WITH THE YETI FRIENDS AND FAMILY PROGRAM TERMS AND CONDITIONS</value>
+    </labels>
+    <labels>
+        <fullName>I_agree_with_the_YETI_Industry_Program_Terms_and_Conditions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>I agree with the YETI Industry Program Terms and Conditions</shortDescription>
+        <value>I agree with the YETI Industry Program Terms and Conditions</value>
+    </labels>
+    <labels>
+        <fullName>I_agree_with_the_YETI_Supplier_Vendor_Program_Terms_and_Conditions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>I agree with the YETI Supplier/Vendor Program Terms and Conditions</shortDescription>
+        <value>I agree with the YETI Supplier/Vendor Program Terms and Conditions</value>
+    </labels>
+    <labels>
+        <fullName>Industry_Program_Request_Form</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Industry Program Request Form</shortDescription>
+        <value>Industry Program Request Form</value>
+    </labels>
+    <labels>
+        <fullName>Interested_in_a_digital_catalog</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Interested in a digital catalog?</shortDescription>
+        <value>Interested in a digital catalog?</value>
+    </labels>
+    <labels>
+        <fullName>LAST_NAME</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LAST NAME</shortDescription>
+        <value>LAST NAME</value>
+    </labels>
+    <labels>
+        <fullName>LICENSE_ID_NUMBER_IF_APPLICABLE</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LICENSE / ID NUMBER (IF APPLICABLE):</shortDescription>
+        <value>LICENSE / ID NUMBER (IF APPLICABLE):</value>
+    </labels>
+    <labels>
+        <fullName>LOCATION_OF_PURCHASE</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LOCATION OF PURCHASE</shortDescription>
+        <value>LOCATION OF PURCHASE</value>
+    </labels>
+    <labels>
+        <fullName>Limit_one_sticker_per_person_Please_allow_5_7_business_days_for_processing</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Limit one sticker per person. Please allow 5-7 business days for processing.</shortDescription>
+        <value>Limit one sticker per person. Please allow 5-7 business days for processing.</value>
+    </labels>
+    <labels>
+        <fullName>MANAGER_S_EMAIL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MANAGER&apos;S EMAIL</shortDescription>
+        <value>MANAGER&apos;S EMAIL</value>
+    </labels>
+    <labels>
+        <fullName>MANAGER_S_FIRST_NAME</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MANAGER&apos;S FIRST NAME</shortDescription>
+        <value>MANAGER&apos;S FIRST NAME</value>
+    </labels>
+    <labels>
+        <fullName>MANAGER_S_LAST_NAME</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MANAGER&apos;S LAST NAME</shortDescription>
+        <value>MANAGER&apos;S LAST NAME</value>
+    </labels>
+    <labels>
+        <fullName>MILITARY_BRANCH</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MILITARY BRANCH</shortDescription>
+        <value>MILITARY BRANCH</value>
+    </labels>
+    <labels>
+        <fullName>NAME_OF_EVENT_MARKETING_OPPORTUNITY</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NAME OF EVENT / MARKETING OPPORTUNITY</shortDescription>
+        <value>NAME OF EVENT / MARKETING OPPORTUNITY</value>
+    </labels>
+    <labels>
+        <fullName>NRA_User</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NRA_User</shortDescription>
+        <value>Logan Retzer</value>
+    </labels>
+    <labels>
+        <fullName>NUMBER_OF_COOLERS_REQUIRING_CUSTOM_LOGO</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NUMBER OF COOLERS REQUIRING CUSTOM LOGO*</shortDescription>
+        <value>NUMBER OF COOLERS REQUIRING CUSTOM LOGO*</value>
+    </labels>
+    <labels>
+        <fullName>ORGANIZATION</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ORGANIZATION</shortDescription>
+        <value>ORGANIZATION</value>
+    </labels>
+    <labels>
+        <fullName>OrderOncePricebook</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OrderOncePricebook</shortDescription>
+        <value>01s0H0000041rTb</value>
+    </labels>
+    <labels>
+        <fullName>Order_minimums_apply</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>* Order minimums apply</shortDescription>
+        <value>* Order minimums apply</value>
+    </labels>
+    <labels>
+        <fullName>PHONE</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PHONE</shortDescription>
+        <value>PHONE</value>
+    </labels>
+    <labels>
+        <fullName>PHONE_NUMBER</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PHONE NUMBER</shortDescription>
+        <value>PHONE NUMBER</value>
+    </labels>
+    <labels>
+        <fullName>PHONE_NUMBER_TO_CONTACT_YOU</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PHONE NUMBER TO CONTACT YOU</shortDescription>
+        <value>PHONE NUMBER TO CONTACT YOU</value>
+    </labels>
+    <labels>
+        <fullName>PLEASE_SELECT_THE_INDUSTRY_PROGRAM_FOR_WHICH_YOU_QUALIFY</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PLEASE SELECT THE INDUSTRY PROGRAM FOR WHICH YOU QUALIFY:</shortDescription>
+        <value>PLEASE SELECT THE INDUSTRY PROGRAM FOR WHICH YOU QUALIFY:</value>
+    </labels>
+    <labels>
+        <fullName>PLEASE_SELECT_THE_ITEM_YOU_ARE_REQUESTING</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PLEASE SELECT THE ITEM YOU ARE REQUESTING</shortDescription>
+        <value>PLEASE SELECT THE ITEM YOU ARE REQUESTING</value>
+    </labels>
+    <labels>
+        <fullName>PLEASE_UPLOAD_ADDITIONAL_DOCUMENTATION</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PLEASE UPLOAD ADDITIONAL DOCUMENTATION</shortDescription>
+        <value>PLEASE UPLOAD ADDITIONAL DOCUMENTATION (PROPOSAL, MEDIA KITS, ETC) :</value>
+    </labels>
+    <labels>
+        <fullName>PLEASE_UPLOAD_SUPPORTING_DOCUMENTATION_I_E_LICENSE_CREDENTIALS_RESUME</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PLEASE UPLOAD SUPPORTING DOCUMENTATION (I.E. LICENSE, CREDENTIALS, RESUME</shortDescription>
+        <value>PLEASE UPLOAD SUPPORTING DOCUMENTATION (I.E. LICENSE, CREDENTIALS, RESUME, BROCHURE, ETC.):</value>
+    </labels>
+    <labels>
+        <fullName>Please_accept_terms_and_conditions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please accept terms and conditions</shortDescription>
+        <value>Please accept terms and conditions.</value>
+    </labels>
+    <labels>
+        <fullName>Please_choose_file_before_save</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please choose file before save.</shortDescription>
+        <value>Please choose file before save.</value>
+    </labels>
+    <labels>
+        <fullName>Please_enter_BBQ_Competitions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please enter BBQ Competitions</shortDescription>
+        <value>Please enter BBQ Competitions.</value>
+    </labels>
+    <labels>
+        <fullName>Please_enter_Company_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please enter Company Name</shortDescription>
+        <value>Please enter Company Name</value>
+    </labels>
+    <labels>
+        <fullName>Please_enter_Head_Cook</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please enter Head Cook</shortDescription>
+        <value>Please enter Head Cook</value>
+    </labels>
+    <labels>
+        <fullName>Please_enter_Military_Branch</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please enter Military Branch</shortDescription>
+        <value>Please enter Military Branch</value>
+    </labels>
+    <labels>
+        <fullName>Please_enter_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please enter Name</shortDescription>
+        <value>Please enter Name</value>
+    </labels>
+    <labels>
+        <fullName>Please_enter_Shipping_Address</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please enter Shipping Address</shortDescription>
+        <value>Please enter Shipping Address</value>
+    </labels>
+    <labels>
+        <fullName>Please_enter_Street_Address</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please enter Street Address</shortDescription>
+        <value>Please enter Street Address.</value>
+    </labels>
+    <labels>
+        <fullName>Please_enter_a_valid_10_digit_phone_number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please enter a valid 10 digit phone number.</shortDescription>
+        <value>Please enter a valid 10 digit phone number.</value>
+    </labels>
+    <labels>
+        <fullName>Please_enter_a_valid_City</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please enter a valid City</shortDescription>
+        <value>Please enter a valid City.</value>
+    </labels>
+    <labels>
+        <fullName>Please_enter_a_valid_Zip_Code</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please enter a valid Zip Code</shortDescription>
+        <value>Please enter a valid Zip Code</value>
+    </labels>
+    <labels>
+        <fullName>Please_enter_a_valid_email_address</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please enter a valid email address.</shortDescription>
+        <value>Please enter a valid email address.</value>
+    </labels>
+    <labels>
+        <fullName>Please_enter_relation_to_Yeti_Employee</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please enter relation to Yeti Employee.</shortDescription>
+        <value>Please enter relation to Yeti Employee.</value>
+    </labels>
+    <labels>
+        <fullName>Please_enter_team_name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please enter team name</shortDescription>
+        <value>Please enter team name.</value>
+    </labels>
+    <labels>
+        <fullName>Please_enter_the_Company_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please enter the Company Name.</shortDescription>
+        <value>Please enter the Company Name.</value>
+    </labels>
+    <labels>
+        <fullName>Please_enter_the_First_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please enter the First Name.</shortDescription>
+        <value>Please enter the First Name.</value>
+    </labels>
+    <labels>
+        <fullName>Please_enter_the_Last_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please enter the Last Name.</shortDescription>
+        <value>Please enter the Last Name.</value>
+    </labels>
+    <labels>
+        <fullName>Please_enter_the_Organisation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please enter the Organisation.</shortDescription>
+        <value>Please enter the Organisation.</value>
+    </labels>
+    <labels>
+        <fullName>Please_enter_valid_email_address_of_Yeti_Employee</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please enter valid email address of Yeti Employee</shortDescription>
+        <value>Please enter valid email address of Yeti Employee</value>
+    </labels>
+    <labels>
+        <fullName>Please_enter_valid_web_address_for_the_website</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please enter valid web address for the website</shortDescription>
+        <value>Please enter valid web address for the website.</value>
+    </labels>
+    <labels>
+        <fullName>Please_select_a_country</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please select a country</shortDescription>
+        <value>Please select a country.</value>
+    </labels>
+    <labels>
+        <fullName>Postal_Code_must_be_6_characters_with_a_space_between_the_3rd_and_4th_characters</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Postal Code must be of 6 characters with a space between the 3rd and 4th charact</shortDescription>
+        <value>Postal Code must be of 6 characters with a space between the 3rd and 4th characters</value>
+    </labels>
+    <labels>
+        <fullName>Postcode_must_be_between_5_and_9_numeric_digits_in_length</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Postcode must be between 5 and 9 numeric digits in length.</shortDescription>
+        <value>Postcode must be between 5 and 9 numeric digits in length.</value>
+    </labels>
+    <labels>
+        <fullName>REASON_FOR_REQUESTING_WARRANTY_CLAIM</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>REASON FOR REQUESTING WARRANTY CLAIM</shortDescription>
+        <value>REASON FOR REQUESTING WARRANTY CLAIM</value>
+    </labels>
+    <labels>
+        <fullName>RELATION_TO_YETI_EMPLOYEE</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>RELATION TO YETI EMPLOYEE</shortDescription>
+        <value>RELATION TO YETI EMPLOYEE</value>
+    </labels>
+    <labels>
+        <fullName>REQUEST_CATALOG_OR_STICKER</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>REQUEST CATALOG OR STICKER</shortDescription>
+        <value>REQUEST CATALOG OR STICKER</value>
+    </labels>
+    <labels>
+        <fullName>Request_Catalog_Sticker_Form</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Request Catalog / Sticker Form</shortDescription>
+        <value>Request Catalog / Sticker Form</value>
+    </labels>
+    <labels>
+        <fullName>Return_Warranty_Request_Form</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Return Warranty Request Form</shortDescription>
+        <value>Return Warranty Request Form</value>
+    </labels>
+    <labels>
+        <fullName>SECURITY_BADGE_SCAN_PLEASE_UPLOAD_AN_IMAGE_OF_YOUR_EMPLOYEE_BADGE_IF_APPLICABLE</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SECURITY BADGE SCAN: PLEASE UPLOAD AN IMAGE OF YOUR EMPLOYEE BADGE IF APPLICABLE</shortDescription>
+        <value>SECURITY BADGE SCAN: PLEASE UPLOAD AN IMAGE OF YOUR EMPLOYEE BADGE IF APPLICABLE</value>
+    </labels>
+    <labels>
+        <fullName>SHIPPING_ADDRESS</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SHIPPING ADDRESS</shortDescription>
+        <value>SHIPPING ADDRESS</value>
+    </labels>
+    <labels>
+        <fullName>SPONSORSHIP_MARKETING_REQUESTS</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SPONSORSHIP / MARKETING REQUESTS</shortDescription>
+        <value>SPONSORSHIP / MARKETING REQUESTS</value>
+    </labels>
+    <labels>
+        <fullName>STATE</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>STATE</shortDescription>
+        <value>STATE</value>
+    </labels>
+    <labels>
+        <fullName>STATE_PROVINCE_REGION</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>STATE / PROVINCE / REGION</shortDescription>
+        <value>STATE / PROVINCE / REGION</value>
+    </labels>
+    <labels>
+        <fullName>STORE_INFORMATION_BELOW</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>STORE INFORMATION BELOW</shortDescription>
+        <value>STORE INFORMATION BELOW</value>
+    </labels>
+    <labels>
+        <fullName>STORE_S_PHONE_NUMBER</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>STORE&apos;S PHONE NUMBER</shortDescription>
+        <value>STORE&apos;S PHONE NUMBER</value>
+    </labels>
+    <labels>
+        <fullName>STREET_ADDRESS</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>STREET ADDRESS</shortDescription>
+        <value>STREET ADDRESS</value>
+    </labels>
+    <labels>
+        <fullName>Select_a_web_form</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select a web form</shortDescription>
+        <value>Select a web form</value>
+    </labels>
+    <labels>
+        <fullName>Sponsorship_Marketing_Requests_Form</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sponsorship / Marketing Requests Form</shortDescription>
+        <value>Sponsorship / Marketing Requests Form</value>
+    </labels>
+    <labels>
+        <fullName>Submit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Submit</shortDescription>
+        <value>Submit</value>
+    </labels>
+    <labels>
+        <fullName>Supplier_Vendor_Application_Form</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Supplier Vendor Application Form</shortDescription>
+        <value>Supplier Vendor Application Form</value>
+    </labels>
+    <labels>
+        <fullName>TEAM_NAME</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TEAM NAME</shortDescription>
+        <value>TEAM NAME</value>
+    </labels>
+    <labels>
+        <fullName>Terms_and_Conditions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Terms and Conditions</shortDescription>
+        <value>All information provided in the application is true and current. YETI will review all information provided to determine compliance with the YETI Friends and Family program requirements. YETI reserves the right to deny a request based on the information, or lack of information, provided. Please understand qualifications will continue to evolve with company needs, market concerns, or other issues within the industry. Resale of any products purchased through this program is strictly prohibited.</value>
+    </labels>
+    <labels>
+        <fullName>Terms_and_Conditions_Industry_Form</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Terms and Conditions Industry Form</shortDescription>
+        <value>All information provided in the application is true and current. YETI will review all information provided to determine compliance with the YETI Industry program requirements. YETI reserves the right to deny a request based on the information, or lack of information, provided. Please understand qualifications will continue to evolve with company needs, market concerns, or other issues within the industry. Resale of any products purchased through this program is strictly prohibited.</value>
+    </labels>
+    <labels>
+        <fullName>Terms_and_Conditions_Vendor_Form</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Terms and Conditions Vendor Form</shortDescription>
+        <value>All information provided in the application is true and current. YETI will review all information provided to determine compliance with the YETI Supplier/Vendor Program requirements. YETI reserves the right to deny a request based on the information, or lack of information, provided. Please understand qualifications will continue to evolve with company needs, market concerns, or other issues within the industry. Resale of any products purchased through this program is strictly prohibited.</value>
+    </labels>
+    <labels>
+        <fullName>Thank_you_for_your_submission</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Thank you for your submission.</shortDescription>
+        <value>Thank you for your submission.</value>
+    </labels>
+    <labels>
+        <fullName>Unable_to_create_the_document_Please_contact_your_Administrator</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Unable to create the document. Please contact your Administrator.</shortDescription>
+        <value>Unable to create the document. Please contact your Administrator.</value>
+    </labels>
+    <labels>
+        <fullName>WARRANTY_REQUEST_FORM</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WARRANTY REQUEST FORM</shortDescription>
+        <value>WARRANTY REQUEST FORM</value>
+    </labels>
+    <labels>
+        <fullName>WEBSITE</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WEBSITE</shortDescription>
+        <value>WEBSITE</value>
+    </labels>
+    <labels>
+        <fullName>WEB_FORM</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WEB FORM</shortDescription>
+        <value>WEB FORM</value>
+    </labels>
+    <labels>
+        <fullName>WHAT_KIND_OF_SPONSORSHIP_ARE_YOU_LOOKING_FOR</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WHAT KIND OF SPONSORSHIP ARE YOU LOOKING FOR</shortDescription>
+        <value>WHAT KIND OF SPONSORSHIP ARE YOU LOOKING FOR</value>
+    </labels>
+    <labels>
+        <fullName>Wait_Label</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Wait Label</shortDescription>
+        <value>Loading...</value>
+    </labels>
+    <labels>
+        <fullName>WebToCaseAttachmentFileTypeError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WebToCaseAttachmentFileTypeError</shortDescription>
+        <value>Please choose a sales-force supported file type.</value>
+    </labels>
+    <labels>
+        <fullName>Web_Form_Names</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Web Form Names</shortDescription>
+        <value>Web Form Names</value>
+    </labels>
+    <labels>
+        <fullName>YETI_Account_ShipToRecordTypeName</fullName>
+        <categories>YETI - Dealer Community</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YETI_Account_ShipToRecordTypeName</shortDescription>
+        <value>Ship To</value>
+    </labels>
+    <labels>
+        <fullName>YETI_CaseComments_ComponentHeaderText</fullName>
+        <categories>YETI - Dealer Community</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YETI_CaseComments_ComponentHeaderText</shortDescription>
+        <value>Case Comments</value>
+    </labels>
+    <labels>
+        <fullName>YETI_CaseComments_NoCaseCommentsFoundMessageText</fullName>
+        <categories>YETI - Dealer Community</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YETI_CaseComments_NoCaseCommentsFoundMessageText</shortDescription>
+        <value>No case comments found.</value>
+    </labels>
+    <labels>
+        <fullName>YETI_DealerAccountDetails_AccountInformation</fullName>
+        <categories>YETI - Dealer Community</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YETI_DealerAccountDetails_AccountInformation</shortDescription>
+        <value>Account Information</value>
+    </labels>
+    <labels>
+        <fullName>YETI_DealerAccountDetails_NoAccountFound</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YETI_DealerAccountDetails_NoAccountFound</shortDescription>
+        <value>No account record associated with logged-in user.</value>
+    </labels>
+    <labels>
+        <fullName>YETI_DealerAccountDetails_OutsideAndInsideRepInformation</fullName>
+        <categories>YETI - Dealer Community</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YETI_DealerAccountDetails_OutsideAndInsideRepInformation</shortDescription>
+        <value>YOUR YETI REPS</value>
+    </labels>
+    <labels>
+        <fullName>YETI_DealerCorporateProfileName</fullName>
+        <categories>YETI - Dealer Community</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YETI_DealerCorporateProfileName</shortDescription>
+        <value>Dealer - Corporate</value>
+    </labels>
+    <labels>
+        <fullName>YETI_MODEL_AND_COLOR</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YETI MODEL AND COLOR</shortDescription>
+        <value>YETI MODEL AND COLOR</value>
+    </labels>
+    <labels>
+        <fullName>YETI_MyProfile_MySettingsHeaderText</fullName>
+        <categories>YETI - Dealer Community</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YETI_MyProfile_MySettingsHeaderText</shortDescription>
+        <value>My Settings</value>
+    </labels>
+    <labels>
+        <fullName>YETI_OpportunityTrigger_RejectionMessageText</fullName>
+        <categories>YETI - Dealer Community</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YETI_OpportunityTrigger_RejectionMessageText</shortDescription>
+        <value>Please provide a rejection reason before rejecting the record.</value>
+    </labels>
+    <labels>
+        <fullName>YETI_PrintButtonCommunityURLSuffix</fullName>
+        <categories>YETI - Dealer Community</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YETI_PrintButtonCommunityURLSuffix</shortDescription>
+        <value>dealers</value>
+    </labels>
+    <labels>
+        <fullName>YETI_SUPPLIER_VENDOR_APPLICATION</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>YETI SUPPLIER/VENDOR APPLICATION</shortDescription>
+        <value>YETI SUPPLIER/VENDOR APPLICATION</value>
+    </labels>
+    <labels>
+        <fullName>Yes_please_add_me_to_your_email_list_I_would_like_to_be_kept_up_to_date_on_all</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yes, please add me to your email list. I would like to be kept up-to-date on all</shortDescription>
+        <value>Yes, please add me to your email list. I would like to be kept up-to-date on all things YETI - new products, company news, special offers</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_BillingAddress</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_BillingAddress</shortDescription>
+        <value>BILLING ADDRESS</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_CallUsAt</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_CallUsAt</shortDescription>
+        <value>Call us at 512-394-0222 or email</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_CityState</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_CityState</shortDescription>
+        <value>Austin, TX 78716</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_ContactInformation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_ContactInformation</shortDescription>
+        <value>Contact Information</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_CustomerID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_CustomerID</shortDescription>
+        <value>Customer ID:</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_DateOrdered</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_DateOrdered</shortDescription>
+        <value>Date Ordered:</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_Discount</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_Discount</shortDescription>
+        <value>Discount</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_DueDate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_DueDate</shortDescription>
+        <value>Due Date:</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_Email</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_Email</shortDescription>
+        <value>sales@yeti.com</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_GrandTotal</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_GrandTotal</shortDescription>
+        <value>GRAND TOTAL:</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_Invoice</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_Invoice</shortDescription>
+        <value>Invoice</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_InvoiceBalance</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_InvoiceBalance</shortDescription>
+        <value>INVOICE BALANCE:</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_InvoiceDate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_InvoiceDate</shortDescription>
+        <value>Invoice Date:</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_Invoicenumber</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_Invoicenumber</shortDescription>
+        <value>Invoice #:</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_ItemsOrdered</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_ItemsOrdered</shortDescription>
+        <value>ITEMS ORDERED</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_ItemsShipped</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_ItemsShipped</shortDescription>
+        <value>ITEMS SHIPPED</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_MasterTrackingNumbers</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_MasterTrackingNumbers</shortDescription>
+        <value>Master Tracking Number(s):</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_NeedByDate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_NeedByDate</shortDescription>
+        <value>Need By Date:</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_OrderConfirmation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_OrderConfirmation</shortDescription>
+        <value>Order Confirmation</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_OrderConfirmationNote</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_OrderConfirmationNote</shortDescription>
+        <value>Thanks you for your order. We will send you a confirmation email with tracking information once your order has shipped. If you ordered multiple items, they may come in separate shipments</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_OrderDetails</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_OrderDetails</shortDescription>
+        <value>ORDER DETAILS</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_OrderStatus</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_OrderStatus</shortDescription>
+        <value>Order Status:</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_OrderSummary</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_OrderSummary</shortDescription>
+        <value>ORDER SUMMARY</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_PO</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_PO</shortDescription>
+        <value>PO :</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_POBox</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_POBox</shortDescription>
+        <value>PO Box 163686</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_PackingSlipNumber</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_PackingSlipNumber</shortDescription>
+        <value>Packing Slip #:</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_Payment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_Payment</shortDescription>
+        <value>PAYMENT:</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_PaymentMethod</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_PaymentMethod</shortDescription>
+        <value>PAYMENT METHOD</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_PhoneFooter</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_PhoneFooter</shortDescription>
+        <value>Phone:512.394.0222</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_Price</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_Price</shortDescription>
+        <value>Price</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_Product</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_Product</shortDescription>
+        <value>Product</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_Quantity</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_Quantity</shortDescription>
+        <value>Quantity Ordered</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_QuantityShipped</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_QuantityShipped</shortDescription>
+        <value>Quantity Shipped</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_Questionsabtorder</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_Questionsabtorder</shortDescription>
+        <value>Questions about your order ?</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_RemittanceAddress</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_RemittanceAddress</shortDescription>
+        <value>Remittance Address</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_SKUNumber</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_SKUNumber</shortDescription>
+        <value>SKU Number</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_SalesOrderNumber</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_SalesOrderNumber</shortDescription>
+        <value>Sales Order#:</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_SeeOrderDetails</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_SeeOrderDetails</shortDescription>
+        <value>Please see your order details below.</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_ShipmentDetail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_ShipmentDetail</shortDescription>
+        <value>Shipment Detail</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_ShipmentNotification</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_ShipmentNotification</shortDescription>
+        <value>Shipment Notification</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_ShipmentNotificationNote</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_ShipmentNotificationNote</shortDescription>
+        <value>Your shipment is on its way. Any shipment that haven&apos;t shipped will be shipped separately.You&apos;ll get a separate email once they ship and you wont be charged until they do.</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_Shipping</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_Shipping</shortDescription>
+        <value>Shipping :</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_ShippingAddress</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_ShippingAddress</shortDescription>
+        <value>SHIPPING ADDRESS</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_ShippingDate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_ShippingDate</shortDescription>
+        <value>Shipping Date:</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_ShippingMethod</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_ShippingMethod</shortDescription>
+        <value>SHIPPING METHOD</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_ShippingMethodsmall</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_ShippingMethodsmall</shortDescription>
+        <value>Shipping Method:</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_Status</shortDescription>
+        <value>Status:</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_Subtotal</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_Subtotal</shortDescription>
+        <value>Subtotal</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_Tax</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_Tax</shortDescription>
+        <value>Tax:</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_TotalBeforeDiscount</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_TotalBeforeDiscount</shortDescription>
+        <value>Total before discount:</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_TotalDiscount</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_TotalDiscount</shortDescription>
+        <value>Total Product Discount on this order :</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_TrackYourShipment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_TrackYourShipment</shortDescription>
+        <value>TRACK YOUR SHIPMENT</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_UPC</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_UPC</shortDescription>
+        <value>UPC</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_YetiHeader</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_YetiHeader</shortDescription>
+        <value>YETI</value>
+    </labels>
+    <labels>
+        <fullName>Yeti_monFri</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yeti_monFri</shortDescription>
+        <value>Mon-Fri 8AM - 5PM CST</value>
+    </labels>
+    <labels>
+        <fullName>ZIP</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ZIP</shortDescription>
+        <value>ZIP</value>
+    </labels>
+    <labels>
+        <fullName>ZIP_CODE</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ZIP CODE</shortDescription>
+        <value>ZIP CODE</value>
+    </labels>
+    <labels>
+        <fullName>ZIP_POSTAL_CODE</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ZIP / POSTAL CODE</shortDescription>
+        <value>ZIP / POSTAL CODE</value>
+    </labels>
+    <labels>
+        <fullName>dealercorporateprofile</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>dealercorporateprofile</shortDescription>
+        <value>Dealer - Corporate</value>
+    </labels>
+</CustomLabels>

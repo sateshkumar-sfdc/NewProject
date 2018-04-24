@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>Account</layout>
+        <sections>
+            <label><!-- Accounting Information --></label>
+            <section>Accounting Information</section>
+        </sections>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Docs --></label>
+            <section>Dealer Docs</section>
+        </sections>
+        <sections>
+            <label><!-- Location Status --></label>
+            <section>Location Status</section>
+        </sections>
+        <sections>
+            <label><!-- Overview --></label>
+            <section>Overview</section>
+        </sections>
+        <sections>
+            <label><!-- YETI Team --></label>
+            <section>YETI Team</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Account Canada Layout</layout>
+        <sections>
+            <label><!-- Accounting Information --></label>
+            <section>Accounting Information</section>
+        </sections>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Dealer Docs --></label>
+            <section>Dealer Docs</section>
+        </sections>
+        <sections>
+            <label><!-- Location Status --></label>
+            <section>Location Status</section>
+        </sections>
+        <sections>
+            <label><!-- Overview --></label>
+            <section>Overview</section>
+        </sections>
+        <sections>
+            <label><!-- YETI Team --></label>
+            <section>YETI Team</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Account Layout - Dealers Community</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Account Layout Ship To</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Location Status --></label>
+            <section>Location Status</section>
+        </sections>
+        <sections>
+            <label><!-- Retail Details --></label>
+            <section>Retail Details</section>
+        </sections>
+        <sections>
+            <label><!-- YETI Team --></label>
+            <section>YETI Team</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Outfitter Person Account Layout</layout>
+        <layoutType>PersonAccount</layoutType>
+        <sections>
+            <label><!-- Demandware Information --></label>
+            <section>Demandware Information</section>
+        </sections>
+    </layouts>
+    <workflowTasks>
+        <name>Complete_Tax_Exempt_Documentation</name>
+        <subject><!-- Complete Tax Exempt Documentation --></subject>
+    </workflowTasks>
+</CustomObjectTranslation>

@@ -1,0 +1,33 @@
+<aura:component controller="YETI_ExtractDataController" implements="forceCommunity:availableForAllPageTypes">
+    <!-- STYLES -->
+    <ltng:require styles="{!$Resource.SLDS_Winter_17 + '/assets/styles/salesforce-lightning-design-system-ltng.min.css'}"/>
+    <!-- / STYLES -->
+
+    <!-- ATTRIBUTES -->
+    <aura:attribute type="String" name="errorMessage"/>
+    <!-- / ATTRIBUTES -->
+
+    <!-- EVENTS -->
+    <aura:handler name="init" value="{!this}" action="{!c.redirectToAccount}"/>
+    <aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
+    <aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
+    <!-- / EVENTS -->
+
+    <!-- SPINNER -->
+    <center class="show-processing">
+        <ui:spinner aura:id="spinner"/>
+    </center>
+    <!-- / SPINNER -->
+
+    <!-- BODY -->
+    <div class="yeti">
+        <!-- ERROR MESSAGE -->
+        <div class="error-message" aura:id="errorMessageDiv">
+            <ui:message severity="error" closable="false">
+                <ui:outputText value="{!v.errorMessage}"/>
+            </ui:message>
+        </div>
+        <!-- / ERROR MESSAGE -->
+    </div>
+    <!-- / BODY -->
+</aura:component>

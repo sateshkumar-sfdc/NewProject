@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>All_Internal_Users_to_Inside_Sales</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>All Internal Users to Inside Sales</label>
+        <sharedTo>
+            <role>Inside_Sales</role>
+        </sharedTo>
+        <sharedFrom>
+            <allInternalUsers></allInternalUsers>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Custom_Logo</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Custom Logo</label>
+        <sharedTo>
+            <role>Custom_Logo_Support_User</role>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Custom_Logo_Support_Manager</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Support_Team</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Allow all support team members to view/edit all lead records.</description>
+        <label>Support Team</label>
+        <sharedTo>
+            <roleAndSubordinates>Customer_Experience_Director</roleAndSubordinates>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Executive</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

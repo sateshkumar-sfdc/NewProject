@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>User Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Marketing Cloud Permissions --></label>
+            <section>Marketing Cloud Permissions</section>
+        </sections>
+        <sections>
+            <label><!-- Target Information --></label>
+            <section>Target Information</section>
+        </sections>
+        <sections>
+            <label><!-- UnifyCommerce-OOB --></label>
+            <section>UnifyCommerce-OOB</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

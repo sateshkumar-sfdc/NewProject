@@ -1,0 +1,9 @@
+.THIS {
+}
+
+/*Fit the iframe correctly on the page*/
+.THIS.vsp_iframe{
+    height:100vh;
+    width:100%;
+    border:none;
+}

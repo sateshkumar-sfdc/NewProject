@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>Business Development</layout>
+        <sections>
+            <label><!-- Product of Interest --></label>
+            <section>Product of Interest</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Lead Layout</layout>
+        <sections>
+            <label><!-- Dealer Qualification Information --></label>
+            <section>Dealer Qualification Information</section>
+        </sections>
+        <sections>
+            <label><!-- Product of Interest --></label>
+            <section>Product of Interest</section>
+        </sections>
+    </layouts>
+    <workflowTasks>
+        <name>Call_New_Lead</name>
+        <subject><!-- Call New Lead --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <name>Schedule_Onsite_Visit</name>
+        <subject><!-- Schedule Onsite Visit --></subject>
+    </workflowTasks>
+</CustomObjectTranslation>

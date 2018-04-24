@@ -1,0 +1,29 @@
+<apex:page docType="html-5.0" showHeader="true" controller="CTRL_CreditCardEntry_Test" title="Customer Create" sidebar="true" >
+<!-- Test Card#: 5105105105105100 - MC -->
+<apex:form id="mainform">
+	<c:CMP_Status />
+
+	<apex:pageMessages id="messagediv" />
+
+	<apex:pageBlock title="Credit Card Entry:" >
+
+        <apex:pageBlockSection columns="1" collapsible="false">
+            <c:CMP_CreditCardEntry receiver="{!receiver}" initAction="addCardDetails" submitAction="lookupCardDetails" rerender="mainform" />
+            <apex:commandButton rendered="{! !displayCaptureButton }" value="Show Form" onclick="addCardDetails(); return false;" />
+            <apex:commandButton rendered="{! displayCaptureButton }" value="Capture" onclick="lookupCardDetails(); return false;" />
+        </apex:pageBlockSection>
+
+	</apex:pageBlock>
+	<apex:pageBlock title="Card Details:">
+		 <apex:pageBlockSection columns="1" collapsible="false">
+			<apex:outputText value="{!cardDetails.CreditCardNumber}" label="Credit Card Number:" />
+			<apex:outputText value="{!cardDetails.CreditCardHolder}" label="Credit Card Holder:" />
+            <apex:outputText value="{!cardDetails.PaymetricCardType}" label="Credit Card Type:" />
+			<apex:outputText value="{!cardDetails.ValidToMonth}" label="Month:" />
+			<apex:outputText value="{!cardDetails.ValidToYear}" label="Year:" />
+			<apex:outputText value="{!cardDetails.CardVerificationValue}" label="CVV:" />
+		</apex:pageBlockSection>
+	</apex:pageBlock>
+</apex:form>
+<c:CMP_Footer />
+</apex:page>

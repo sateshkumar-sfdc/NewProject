@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HomePageComponent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <links>Catalog_Sticker_Request</links>
+    <links>Friends_Family_Purchase_Program</links>
+    <links>Industry_Program_Request</links>
+    <links>Marketing_Request</links>
+    <links>Vendor_Supplier_Purchase_Program</links>
+    <links>Warranty_Request</links>
+    <links>Dealer_Employee_Purchase_Program</links>
+    <links>Dealer_Images_Videos</links>
+    <links>Dealer_Forms</links>
+    <pageComponentType>links</pageComponentType>
+</HomePageComponent>

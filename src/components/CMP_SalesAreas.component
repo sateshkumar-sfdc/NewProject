@@ -1,0 +1,117 @@
+<apex:component controller="CTRL_SalesAreas">
+	<apex:attribute name="DataSource" type="DS_SalesArea" assignTo="{!myDataSource}" required="true" description=""/>
+	<apex:attribute name="CreateMode" type="boolean" description=""/>
+	<apex:attribute name="EditMode" type="boolean" description=""/>
+    <apex:attribute name="rerender" type="string" description=""/>
+
+    <apex:pageBlock title="Sales Area" id="salesarea">
+    	<apex:pageBlockSection columns="1" collapsible="false" id="salesdiv" rendered="{!CreateMode}" >
+
+            <apex:selectList size="1" label="Sales Organization:" value="{!SalesData.SalesOrganization}">
+                 <apex:actionSupport event="onchange" rerender="{!rerender}" action="{!updateSalesArea}" status="status"/>
+	             <apex:selectOptions value="{!SalesOrganizations}"/>
+            </apex:selectList>
+
+            <apex:selectList size="1" label="Distribution Channel:" value="{!SalesData.DistributionChannel}">
+                 <apex:actionSupport event="onchange" rerender="{!rerender}" action="{!updateSalesArea}" status="status"/>
+	             <apex:selectOptions value="{!DistributionChannels}"/>
+            </apex:selectList>
+
+            <apex:selectList size="1" label="Division:" value="{!SalesData.Division}">
+                 <apex:actionSupport event="onchange" rerender="{!rerender}" action="{!updateSalesArea}" status="status"/>
+	             <apex:selectOptions value="{!Divisions}"/>
+            </apex:selectList>
+        </apex:pageBlockSection>
+
+        <apex:pageBlockSection columns="1" collapsible="false" rendered="{!EditMode}">
+
+            <apex:outputText label="Sales Organization:" value="{0} - {1}">
+            	<apex:param value="{!SalesData.SalesOrganization}" />
+            	<apex:param value="{!SalesData.SalesOrganizationName}" />
+            </apex:outputText>
+
+            <apex:outputText label="Distribution Channel:" value="{0} - {1}">
+            	<apex:param value="{!SalesData.DistributionChannel}" />
+            	<apex:param value="{!SalesData.DistributionChannelName}" />
+            </apex:outputText>
+
+            <apex:outputText label="Division:" value="{0} - {1}">
+            	<apex:param value="{!SalesData.Division}" />
+            	<apex:param value="{!SalesData.DivisionName}" />
+            </apex:outputText>
+        </apex:pageBlockSection>
+
+        <br/>
+
+		<apex:pageBlockSection columns="2" collapsible="false" rendered="{!CreateMode}" >
+			 <apex:selectList size="1" label="Sales Office:" value="{!SalesData.SalesOffice}">
+			    <apex:actionSupport event="onchange" rerender="{!rerender}" action="{!updateSalesArea}" status="status"/>
+	         	<apex:selectOptions value="{!SalesOffices}"/>
+             </apex:selectList>
+
+			 <apex:selectList size="1" label="Sales Group:" value="{!SalesData.SalesGroup}">
+                 <apex:actionSupport event="onchange" rerender="{!rerender}" action="{!updateSalesArea}" status="status"/>
+                 <apex:selectOptions value="{!SalesGroups}"/>
+			 </apex:selectList>
+
+             <apex:selectList size="1" label="Sales District:" value="{!SalesData.SalesDistrict}">
+             	<apex:actionSupport event="onchange" rerender="{!rerender}" action="{!updateSalesArea}" status="status"/>
+			 	<apex:selectOptions value="{!SalesDistricts}"/>
+			 </apex:selectList>
+        </apex:pageBlockSection>
+
+        <apex:pageBlockSection columns="2" collapsible="false" rendered="{!EditMode}">
+
+            <apex:outputText label="Sales Office:" value="{0} - {1}">
+            	<apex:param value="{!SalesData.SalesOffice}" />
+            	<apex:param value="{!SalesData.SalesOfficeName}" />
+            </apex:outputText>
+
+            <apex:outputText label="Sales Group:" value="{0} - {1}">
+            	<apex:param value="{!SalesData.SalesGroup}" />
+            	<apex:param value="{!SalesData.SalesGroupName}" />
+            </apex:outputText>
+
+            <apex:outputText label="Sales District:" value="{0} - {1}">
+            	<apex:param value="{!SalesData.SalesDistrict}" />
+            	<apex:param value="{!SalesData.SalesDistrictName}" />
+            </apex:outputText>
+
+        </apex:pageBlockSection>
+
+        <br />
+
+        <apex:pageBlockSection columns="2" collapsible="false" rendered="{!CreateMode}" >
+        	<apex:selectList size="1" label="Price Group:" value="{!SalesData.PriceGroup}">
+             	<apex:selectOptions value="{!PriceGroups}"/>
+             </apex:selectList>
+
+             <apex:selectList size="1" label="Price Procedure:" value="{!SalesData.CustomerPricingProcedure}">
+             	<apex:selectOptions value="{!PriceProcedures}"/>
+             </apex:selectList>
+
+             <apex:selectList size="1" label="Price List:" value="{!SalesData.PriceListType}">
+             	<apex:selectOptions value="{!PriceLists}"/>
+             </apex:selectList>
+        </apex:pageBlockSection>
+
+        <br />
+
+        <apex:pageBlockSection columns="2" collapsible="false" rendered="{!CreateMode || EditMode}" >
+
+             <apex:selectList size="1" label="Shipping Conditions:" value="{!SalesData.ShippingConditions}">
+             	<apex:selectOptions value="{!ShippingConditions}"/>
+             </apex:selectList>
+
+             <apex:selectList size="1" label="Payment Terms:" value="{!SalesData.TermsofPaymentKey}"
+                disabled="{! !IsPaymentTermsEditEnabled }">
+                <apex:actionSupport event="onchange" rerender="{!rerender}" action="{!updateSalesArea}" status="status"/>
+             	<apex:selectOptions value="{!PaymentTerms}"/>
+             </apex:selectList>
+
+             <apex:outputText label="Order Block:" value="{!SalesData.CustomerBlock}"/>
+
+		</apex:pageBlockSection>
+	</apex:pageBlock>
+
+</apex:component>

@@ -1,0 +1,228 @@
+<apex:page showHeader="true" docType="html-5.0" sidebar="false" title="Orders" controller="CTRL_EnosixOrder_List"
+           id="pagediv">
+    <!--
+LINKS:
+Account | 'SAP Orders' | LNK_Account_OrderList | /apex/VFP_OrderList?SF_AcctId={!Account.Id}
+-->
+
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"/>
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"/>
+    <link rel="stylesheet"
+          href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css"/>
+    <apex:includeScript value="{!URLFOR($Resource.tablesorter, 'jquery.tablesorter.min.js')}"/>
+    <link rel="stylesheet" href="{!URLFOR($Resource.tablesorter, 'themes/blue/style.css')}"/>
+
+    <style type="text/css">
+        body .pbBody table.list tr th {
+            padding: 5px 2px 4px 5px;
+            border-width: 0 0 1px 1px;
+            border-color: #e0e3e5;
+        }
+
+        .paginator select {
+            background-color: transparent;
+            border: 0px;
+        }
+    </style>
+
+    <apex:form id="formdiv">
+        <c:CMP_Status />
+        <apex:pageBlock title="Orders" id="pbdiv" rendered="{!showsearch}">
+            <apex:pageMessages id="messagediv"/>
+            <apex:pageBlockSection title="Search" columns="2" collapsible="false" id="pbsdiv">
+                <apex:pageBlockSectionItem >Order Number:</apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
+
+                <apex:inputText value="{!os.SearchContext.SEARCHPARAMS.FromSalesDocumentNumber}" label="From Order:"
+                                id="fromorder"/>
+                <apex:inputText value="{!os.SearchContext.SEARCHPARAMS.ToSalesDocumentNumber}" label="To Order:"/>
+
+                <apex:inputText value="{!os.SearchContext.SEARCHPARAMS.SoldToParty}" label="Sold To:"/>
+                <apex:inputText value="{!os.SearchContext.SEARCHPARAMS.ShipToParty}" label="Ship To:"/>
+
+                <apex:inputText value="{!os.SearchContext.SEARCHPARAMS.CustomerPONumber}" label="PO Number:"/>
+                <apex:inputText value="{!os.SearchContext.SEARCHPARAMS.Material}" label="Material Number:"/>
+
+                <apex:selectList value="{!os.SearchContext.SEARCHPARAMS.SalesDocumentType}" size="1"
+                                 label="Order Type:">
+                    <apex:selectOptions value="{!ordertypes}"></apex:selectOptions>
+                </apex:selectList>
+                <apex:selectList value="{!orderstatus}" size="1" label="Order Status:">
+                    <apex:selectOptions value="{!orderstatuslist}"></apex:selectOptions>
+                </apex:selectList>
+
+                <apex:pageBlockSectionItem >Create Date:</apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
+
+                <apex:input type="date" value="{!os.SearchContext.SEARCHPARAMS.FromCreateDate}"
+                            label="From:"></apex:input>
+                <apex:input type="date" value="{!os.SearchContext.SEARCHPARAMS.ToCreateDate}" label="To:"></apex:input>
+
+            </apex:pageBlockSection>
+
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Back to Account"
+                                    onclick="window.location.href='/{!fromaccount}';return false;"
+                                    rendered="{!fromaccount != null}"/>
+                <apex:commandButton action="{!searchSO}" id="btnsearch" value="Search"
+                                    rerender="resultdiv,messagediv,paginationdiv" status="status"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+
+        <apex:pageBlock id="resultdiv" title="{!IF(showsearch,'','Orders for Customer')}">
+            <apex:actionFunction id="updateNumPerPage" action="{!updateNumPerPage}" name="updateNumPerPage"
+                                 rerender="resultdiv,paginationdiv" status="status">
+                <apex:param name="numperpage" value=""/>
+            </apex:actionFunction> 
+
+            <apex:actionFunction id="doPagination" action="{!doPagination}" name="doPagination"
+                                 rerender="resultdiv,paginationdiv" status="status">
+                <apex:param name="action" value=""/>
+            </apex:actionFunction>
+            <apex:actionFunction name="navigate" action="{!navigateToOrderDetail}" reRender="pagediv">
+                <apex:param name="orderId" value=""/>
+            </apex:actionFunction>
+            <table class="list tablesorter" id="resulttable" cellpadding="0" cellspacing="0">
+                <thead>
+                <tr>
+                    <th class="header">Action</th>
+                    <th class="header">Order Number</th>
+                    <th class="header">Order Date</th>
+                    <th class="header">Order Type</th>
+                    <th class="header">Value</th>
+                    <th class="header">Sold To</th>
+                    <th class="header">Sold To Name</th>
+                    <th class="header">Ship To</th>
+                    <th class="header">Ship To Name</th>
+                    <th class="header">Ship To City</th>
+                    <th class="header">Ship To State</th>
+                </tr>
+                </thead>
+                <tbody>
+                <apex:variable var="i" value="{!0}"/>
+                <apex:repeat value="{!orders}" var="o">
+                    <tr class="dataRow {!IF(i==0,'first','')} " onmouseover="if (window.hiOn){hiOn(this);} "
+                        onmouseout="if (window.hiOff){hiOff(this);} " onblur="if (window.hiOff){hiOff(this);}"
+                        onfocus="if (window.hiOn){hiOn(this);}">
+                        <td class="dataCell">
+                            <apex:commandButton onClick="navigate('{!o.SalesDocument}');return false;"
+                                                value="Order Details"/>
+                        </td>
+                        <td class="dataCell">
+                            <apex:outputText value="{!o.SalesDocument}"/>
+                        </td>
+                        <td class="dataCell">
+                            <apex:outputText value="{0,date,MM/dd/yyyy}">
+                                <apex:param value="{!o.CreateDate}"/>
+                            </apex:outputText>
+                        </td>
+                        <td class="dataCell">
+                            <apex:outputText value="{!o.SalesDocumentTypeDescription}"/>
+                        </td>
+                        <td class="dataCell" style="text-align: right;">
+                            <apex:outputText value="{1,number,###,##0.00} {0} ">
+                                <apex:param value="{!o.SalesDocumentCurrency}"/>
+                                <apex:param value="{!o.NetOrderValue}"/>
+                            </apex:outputText>
+                        </td>
+                        <td class="dataCell" style="text-align: right;">
+                            <apex:outputText value="{!o.SoldToParty}"/>
+                        </td>
+                        <td class="dataCell">
+                            <apex:outputText value="{!o.SoldToName}"/>
+                        </td>
+                        <td class="dataCell" style="text-align: right;">
+                            <apex:outputText value="{!o.ShipToParty}"/>
+                        </td>
+                        <td class="dataCell">
+                            <apex:outputText value="{!o.ShipToName}"/>
+                        </td>
+                        <td class="dataCell">
+                            <apex:outputText value="{!o.ShipToCity}"/>
+                        </td>
+                        <td class="dataCell">
+                            <apex:outputText value="{!o.ShipToRegion}"/>
+                        </td>
+                    </tr>
+                    <apex:variable var="i" value="{!i+1}"/>
+                </apex:repeat>
+                </tbody>
+
+                <tfoot>
+                <tr>
+                    <th colspan="10" class="header">
+                        <apex:outputPanel id="paginationdiv">
+                            <apex:outputPanel id="innerpaginationdiv" rendered="{!hasrecords}">
+
+                                <!--<table cellpadding="0" cellspacing="0" style="width: 100%;">-->
+                                <!--<tr>-->
+                                <!--<td class="paginator" style="width: 50px;">-->
+                                <!--<apex:selectList value="{!numperpage}" size="1" onchange="updateNumPerPage(this.value);return false;">-->
+                                <!--<apex:selectOptions value="{!numperpageoptions}" ></apex:selectOptions>-->
+                                <!--</apex:selectList>-->
+                                <!--</td>-->
+                                <!--<td class="paginator" style="text-align: center; background-color: transparent;">-->
+
+                                <!--<span class="prevNextLinks">-->
+                                <!--&lt;!&ndash; prev show &ndash;&gt;-->
+                                <!--<apex:outputPanel rendered="{!!disableprev}">-->
+                                <!--<span class="prevNext"><a href="#" onclick="doPagination('first');return false;"><img src="/s.gif" title="First Page" alt="First Page" class="first"/></a></span>-->
+                                <!--<span class="prevNext"><a href="#" onclick="doPagination('prev');return false;"><img src="/s.gif" title="Previous" alt="Previous" class="prev"/>Previous</a></span>-->
+                                <!--</apex:outputPanel>-->
+                                <!--&lt;!&ndash; prev disable &ndash;&gt;-->
+                                <!--<apex:outputPanel rendered="{!disableprev}">-->
+                                <!--<span class="prevNext"><img src="/s.gif" class="firstoff" alt="First Page"/></span>-->
+                                <!--<span class="prevNext"><img src="/s.gif" class="prevoff" alt="Previous"/>Previous</span>-->
+                                <!--</apex:outputPanel>-->
+
+                                <!--<span><apex:outputText value="{!pagenum}"/>&nbsp;of&nbsp;<apex:outputText value="{!totalpages}"/></span>-->
+
+                                <!--&lt;!&ndash; next show &ndash;&gt;-->
+                                <!--<apex:outputPanel rendered="{!disablenext}">-->
+                                <!--<span class="prevNext">Next<img src="/s.gif" class="nextoff" alt="Next"/></span>-->
+                                <!--<span class="prevNext"><img src="/s.gif" class="lastoff" alt="Last Page"/></span>-->
+                                <!--</apex:outputPanel>-->
+                                <!--&lt;!&ndash; next disable &ndash;&gt;-->
+                                <!--<apex:outputPanel rendered="{!!disablenext}">-->
+                                <!--<span class="prevNext"><a href="#" onclick="doPagination('next');return false;">Next<img src="/s.gif" class="next" alt="Next"/></a></span>-->
+                                <!--<span class="prevNext"><a href="#" onclick="doPagination('end');return false;"><img src="/s.gif" class="last" alt="Last Page"/></a></span>-->
+                                <!--</apex:outputPanel>-->
+                                <!--</span>-->
+
+                                <!--</td>-->
+                                <!--<td style="width: 50px; background-color: transparent;">&nbsp;</td>-->
+                                <!--</tr>-->
+                                <!--</table>-->
+                                <!---->
+                                <c:CMP_Pager hasrecords="{!hasrecords}" numperpage="{!numperpage}"
+                                             disableprev="{!disableprev}" disablenext="{!disablenext}"
+                                             totalpages="{!totalpages}" pagenum="{!pagenum}"/>
+                            </apex:outputPanel>
+                        </apex:outputPanel>
+                    </th>
+                </tr>
+                </tfoot>
+            </table>
+        </apex:pageBlock>
+
+
+    </apex:form>
+
+    <c:CMP_Footer />
+
+    <script type="text/javascript">
+        $j = jQuery.noConflict();
+        $j(document).ready(function () {
+            $j("#resulttable").tablesorter();
+            $j("input").bind("keypress", function (event) {
+                // alert("failure");
+                if (event.keyCode === 13) {
+                    // alert("Success");
+                    //$j("#pagediv:formdiv:pbdiv:j_id50:btnsearch").click();
+                    $j('[id*=btnsearch]').click();
+                    return false;
+                }
+            });
+        });
+    </script>
+</apex:page>

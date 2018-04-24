@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>Canada Case Layout</layout>
+        <sections>
+            <label><!-- Case Details --></label>
+            <section>Case Details</section>
+        </sections>
+        <sections>
+            <label><!-- Case Overview --></label>
+            <section>Case Overview</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Order Details --></label>
+            <section>Order Details</section>
+        </sections>
+        <sections>
+            <label><!-- Product Details --></label>
+            <section>Product Details</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- Web Form Details --></label>
+            <section>Web Form Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Case Layout</layout>
+        <sections>
+            <label><!-- ERP Information --></label>
+            <section>ERP Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Close Case Layout</layout>
+        <layoutType>CaseClose</layoutType>
+        <sections>
+            <label><!-- Close Comments --></label>
+            <section>Close Comments</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Custom Logo Case Layout (Feed)</layout>
+        <sections>
+            <label><!-- Additional Details --></label>
+            <section>Additional Details</section>
+        </sections>
+        <sections>
+            <label><!-- Bulk Order --></label>
+            <section>Bulk Order</section>
+        </sections>
+        <sections>
+            <label><!-- Case Details --></label>
+            <section>Case Details</section>
+        </sections>
+        <sections>
+            <label><!-- Case Overview --></label>
+            <section>Case Overview</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Customized Coolers --></label>
+            <section>Customized Coolers</section>
+        </sections>
+        <sections>
+            <label><!-- Customized Stainless --></label>
+            <section>Customized Stainless</section>
+        </sections>
+        <sections>
+            <label><!-- Resolution Details --></label>
+            <section>Resolution Details</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Dealer Case Layout (Feed)</layout>
+        <sections>
+            <label><!-- Case Details --></label>
+            <section>Case Details</section>
+        </sections>
+        <sections>
+            <label><!-- Case Overview --></label>
+            <section>Case Overview</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Order Details --></label>
+            <section>Order Details</section>
+        </sections>
+        <sections>
+            <label><!-- Product Details --></label>
+            <section>Product Details</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Dealer Case Layout (Feed) - Dealers Community</layout>
+        <sections>
+            <label><!-- Case Details --></label>
+            <section>Case Details</section>
+        </sections>
+        <sections>
+            <label><!-- Case Overview --></label>
+            <section>Case Overview</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Delear Corporate Case Layout</layout>
+        <sections>
+            <label><!-- ERP Information --></label>
+            <section>ERP Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Finance Case Layout (Feed)</layout>
+        <sections>
+            <label><!-- Case Details --></label>
+            <section>Case Details</section>
+        </sections>
+        <sections>
+            <label><!-- Case Overview --></label>
+            <section>Case Overview</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Order Details --></label>
+            <section>Order Details</section>
+        </sections>
+        <sections>
+            <label><!-- Product Details --></label>
+            <section>Product Details</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Outfitter Case Layout (Feed)</layout>
+        <sections>
+            <label><!-- Case Details --></label>
+            <section>Case Details</section>
+        </sections>
+        <sections>
+            <label><!-- Case Overview --></label>
+            <section>Case Overview</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Order Details --></label>
+            <section>Order Details</section>
+        </sections>
+        <sections>
+            <label><!-- Product Details --></label>
+            <section>Product Details</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- Warranty/Return Details --></label>
+            <section>Warranty/Return Details</section>
+        </sections>
+        <sections>
+            <label><!-- Web Form Details --></label>
+            <section>Web Form Details</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- NewChildCase --></label>
+        <name>NewChildCase</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- SendEmail --></label>
+        <name>SendEmail</name>
+    </quickActions>
+    <workflowTasks>
+        <name>Burn_Coolers_with_Custom_Logo</name>
+        <subject><!-- g. Burn Coolers with Custom Logo --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <name>Create_Logo_Parts_in_ERP</name>
+        <subject><!-- c. Create Logo Parts in ERP --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <name>Send_Approved_Proof_to_MIG</name>
+        <subject><!-- f. Send Approved Proof to MIG --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <name>Send_Artwork_to_MIG</name>
+        <subject><!-- a. Send Artwork to MIG --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <name>Send_Final_Payment_Request_to_Customer</name>
+        <subject><!-- j. Send Final Payment Request to Customer --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <name>Send_PO_to_MIG</name>
+        <subject><!-- b. Send PO to MIG --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <name>Send_Payment_Request_to_Customer</name>
+        <subject><!-- e. Send Payment Request to Customer --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <name>Send_Proof_to_Customer</name>
+        <subject><!-- d. Send Proof to Customer --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <name>Ship_Order_to_Customer</name>
+        <subject><!-- h. Ship Order to Customer --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <name>Update_Order_Status_in_ERP</name>
+        <subject><!-- i. Update Order Status in ERP --></subject>
+    </workflowTasks>
+</CustomObjectTranslation>

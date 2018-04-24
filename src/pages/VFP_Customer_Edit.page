@@ -1,0 +1,89 @@
+<apex:page showHeader="true" controller="CTRL_CustomerCreate" title="Customer Edit" tabStyle="Account" sidebar="true" action="{!initEdit}">
+<apex:form id="mainform">
+	<c:CMP_Status />
+
+	<apex:pageMessages id="messagediv" />
+
+	<apex:pageBlock title="Account" >
+		<apex:pageBlockSection columns="2" collapsible="false">
+			<apex:outputText label="Name:" value="{!RefrenceAccount.Name}" />
+
+		</apex:pageBlockSection>
+		<apex:pageBlockButtons location="top">
+			<apex:commandButton onclick="window.location.href='/{!a.Id}';return false;" value="Return to Account"/>
+		</apex:pageBlockButtons>
+
+
+	</apex:pageBlock>
+
+    <c:CMP_CaseInfo caseId="{!caseid}" rendered="{! null != caseid }" />
+
+	<apex:pageBlock title="Edit Customer:" id="pbdiv" >
+        <apex:pageBlockSection columns="2" collapsible="false">
+            <apex:outputText label="BP Category:" value="{!NewCustomer.BusinessPartnerCategoryDescription}" />
+            <apex:outputText value="{!cDetail.CustomerNumber}" label="CustomerNumber:" />
+
+            <apex:outputText value="{!NewCustomer.Name}" label="Name:"/>
+            <apex:outputText value="{!NewCustomer.Name2}" label="Name2:"/>
+
+            <!--This is so Convoluted w/ the rendered tags because otherwise the formatting for the
+            whole table starts to look really wonky. Consider breaking the pageblock down into smaller
+            segements (Name, Contact, Address) or completely re-work the way the elements are rendered
+            for a more elegant page. -->
+
+            <!--Contact Fields both read only and edit -->
+            <apex:outputText value="{!FormattedPhone}" label="Phone Number:" rendered="{! !IsCustomerContactEditable }"/>
+            <apex:outputText value="{!FormattedFax}" label="Fax Number:" rendered="{! !IsCustomerContactEditable }"/>
+            <apex:outputText value="{!NewCustomer.EMailAddress}" label="Email:" rendered="{! !IsCustomerContactEditable }"/>
+            <apex:pageBlockSectionItem rendered="{! !IsCustomerContactEditable }"> &nbsp; </apex:pageBlockSectionItem>
+
+            <apex:inputText value="{!NewCustomer.TelephoneNumber}" label="Phone Number:" rendered="{! IsCustomerContactEditable }"/>
+            <apex:inputText value="{!NewCustomer.TelephoneNumberExtension}" label="Phone Extension:" rendered="{! IsCustomerContactEditable }"/>
+            <apex:inputText value="{!NewCustomer.FaxNumber}" label="Fax Number:" rendered="{! IsCustomerContactEditable }"/>
+            <apex:inputText value="{!NewCustomer.FaxNumberExtension}" label="Fax Extension:" rendered="{! IsCustomerContactEditable }"/>
+            <apex:inputText value="{!NewCustomer.EMailAddress}" label="Email:" rendered="{! IsCustomerContactEditable }"/>
+            <apex:pageBlockSectionItem rendered="{! IsCustomerContactEditable }"> &nbsp; </apex:pageBlockSectionItem>
+
+            <!--Address Fields both read only and edit -->
+            <apex:inputText value="{!NewCustomer.Street}" label="Street:" rendered="{! IsCustomerAddressEditable }"/>
+            <apex:inputText value="{!NewCustomer.City}" label="City:" rendered="{! IsCustomerAddressEditable }"/>
+
+            <apex:selectList size="1" label="Region:"  value="{!NewCustomer.Region}" rendered="{! IsCustomerAddressEditable }">
+                 <apex:selectOptions value="{!RegionOptions}"/>
+            </apex:selectList>
+
+            <apex:inputText value="{!NewCustomer.PostalCode}" label="PostalCode:" rendered="{! IsCustomerAddressEditable }"/>
+
+            <apex:selectList size="1" label="Country:" value="{!NewCustomer.Country}" rendered="{! IsCustomerAddressEditable }">
+                 <apex:actionSupport event="onchange" action="{!updateDetail}" rerender="m ainform" status="status"/>
+                 <apex:selectOptions value="{!CountryOptions}"/>
+            </apex:selectList>
+
+            <apex:outputText value="{!NewCustomer.Street}" label="Street:" rendered="{! !IsCustomerAddressEditable }"/>
+            <apex:outputText value="{!NewCustomer.City}" label="City:" rendered="{! !IsCustomerAddressEditable }"/>
+            <apex:outputText value="{!NewCustomer.RegionDescription}" label="Region:" rendered="{! !IsCustomerAddressEditable }"/>
+            <apex:outputText value="{!NewCustomer.PostalCode}" label="PostalCode:" rendered="{! !IsCustomerAddressEditable }"/>
+            <apex:outputText value="{!NewCustomer.CountryName}" label="Country:" rendered="{! !IsCustomerAddressEditable }"/>
+        </apex:pageBlockSection>
+
+
+        <apex:repeat value="{!CompanyCodes}" var="companyCode">
+	    	<c:CMP_CompanyCode DataSource="{!companyCode}" />
+	    </apex:repeat>
+
+		<apex:repeat value="{!DS_SalesAreas}" var="salesArea">
+	    	<c:CMP_SalesAreas DataSource="{!salesArea}" EditMode="True" rerender="mainform" />
+	    </apex:repeat>
+
+        <apex:pageBlockButtons >
+         	<apex:commandButton action="{!actionDisplaySapCustomer}" value="Cancel" status="status"/>
+         	<apex:commandButton action="{!actionUpdateSapCustomer}" value="Update SAP Customer" reRender="mainform" status="status"/>
+        </apex:pageBlockButtons>
+
+	</apex:pageBlock>
+
+
+
+</apex:form>
+<c:CMP_Footer />
+</apex:page>

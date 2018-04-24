@@ -1,0 +1,276 @@
+<aura:component controller="OpportunityLineItemExtension" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId">
+<ltng:require styles="{!$Resource.SLDS_Winter_17 + '/assets/styles/salesforce-lightning-design-system-ltng.min.css'}"/>
+        
+    <aura:attribute name="recordId" type="Id"/> 
+
+    <aura:attribute type="OpportunityLineItemExtension.wOpportunity" name="opp"/>
+    
+    
+    <aura:handler name="init" action="{!c.onloadpage}" value="{!this}"/>
+    
+    
+    
+    
+	<div>
+		
+		  <div class="slds-col slds-p-horizontal_medium">
+              <div class="HeaderSTL">Selected Products</div>
+		  </div>
+		 <div class="slds-align_absolute-center">
+				<div class="slds-grid slds-grid_pull-padded-medium">
+				
+					<div class="slds-col slds-p-horizontal_medium">
+						<ui:button aura:id="button" buttonTitle="Save Opportunity Products" class="slds-button slds-button_brand" label="Save" press="{!c.saveOpportunityProduct}"/>
+					</div>
+					<div class="slds-col slds-p-horizontal_medium">
+				  	<ui:button aura:id="button" buttonTitle="Cancel Opportunity Products" class="slds-button slds-button_brand" label="Cancel" press="{!c.cancelOpportunityProduct}"/>
+                    <!-- <button class="slds-button" >Cancel</button> -->
+					</div>
+                    <div class="slds-col slds-p-horizontal_medium">
+						<ui:button aura:id="submitoppbtn" buttonTitle="Submit Opportunity" class="slds-button slds-button_brand" disabled="true" label="Submit Order" press="{!c.submitOpportunityProduct}"/>
+					</div>
+				</div>
+			</div>
+		
+		 
+		
+		<div class="slds-form-element__row">
+		  <div class="slds-form-element slds-size_2-of-2">
+			<div style="float:left;width:2%"><ui:inputCheckbox aura:id="termandcondition" change="{!c.onTermAndConditionCheck}" class="CheckboxOuter"/>
+			</div>
+			<div style="float:right;text-align:left;width:98%"><label class="slds-form-element__label" for="termandcondition">Accept Terms and Conditions</label>
+			</div>
+		  </div>
+		</div>
+	
+	
+	</div>
+	<br/>
+	<table class="slds-table slds-table_bordered slds-table_cell-buffer">
+  <thead>
+    <tr class="slds-text-title_caps TRSTL" >
+      <th scope="col">
+        <div class="slds-truncate" title="Opportunity Name">Action</div>
+      </th>
+      <th scope="col">
+        <div class="slds-truncate" title="Account Name">Product Name</div>
+      </th>
+      <!--<th scope="col">
+        <div class="slds-truncate" title="Close Date">Product Code</div>
+      </th>-->
+      <th scope="col">
+        <div class="slds-truncate" title="Stage">Product Description</div>
+      </th>
+      <!--<th scope="col">
+        <div class="slds-truncate" title="Confidence">Product Category</div>
+      </th>-->
+      <!--<th scope="col">
+        <div class="slds-truncate" title="Amount">Expected Ship Date</div>
+      </th>-->
+      <th scope="col">
+        <div class="slds-truncate" title="Contact">Need By Date</div>
+      </th>
+	  <!--<th scope="col">
+        <div class="slds-truncate" title="Contact">Sales Price</div>
+      </th>-->
+	  <th scope="col">
+        <div class="slds-truncate" title="Contact">Quantity</div>
+      </th>
+	  <!--<th scope="col">
+        <div class="slds-truncate" title="Contact">Discount Percent</div>
+      </th>-->
+	  <th scope="col">
+        <div class="slds-truncate" title="Contact">Total Price</div>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+  <aura:iteration items="{!v.opp.lstSelLine}" var="s">
+    <tr>
+      <th scope="row" data-label="Opportunity Name">
+        <div class="slds-truncate" title="Cloudhub"><lightning:button aura:id="{!s.PriceBookEntryId}" label="Remove" name="{!s.PriceBookEntryId}" onclick="{!c.removeProduct}"/></div>
+      </th>
+       <td data-label="Amount">
+        <div class="slds-truncate" title="$25k">{!s.productObj.Name}</div>
+      </td>
+	   <!--<td data-label="Amount">
+        <div class="slds-truncate" title="$25k">{!s.productObj.ProductCode}</div>
+      </td>-->
+	   <td data-label="Amount">
+        <div class="slds-truncate" title="$25k">{!s.productObj.Description}</div>
+      </td>
+	   <!--<td data-label="Amount">
+        <div class="slds-truncate" title="$25k">{!s.productObj.Product_Category__c}</div>
+      </td>-->
+	   <!--<td data-label="Amount">
+        <div class="slds-truncate">           
+            <ui:outputDate value="{!s.productObj.Expected_Ship_Date__c}"/>
+       </div>
+      </td>-->
+	   <td data-label="Need By date">
+        <div>
+            <ui:inputDate class="field" displayDatePicker="true" value="{!s.lineNeedByDate}" />
+        </div>
+      </td>
+	  <!--<td data-label="Amount">
+        <div class="slds-truncate" id="{!s.PriceBookEntryId+'-U'}">
+           <ui:inputNumber value="{!s.linePrice}"  required="true"/>
+        </div>
+      </td>-->
+	   <td data-label="Amount">
+        <div class="slds-truncate" id="{!s.PriceBookEntryId+'-Q'}">
+           <ui:inputNumber value="{!s.lineQuantity}" required="true"/>
+        </div>
+      </td>
+	   <!--<td data-label="Amount">
+        <div class="slds-truncate" title="$25k">
+			<ui:inputText aura:id="discountpercent" value="{!s.lineDiscountPercent}"/>				
+        </div>
+      </td>-->
+	   <td data-label="Amount">
+        <div class="slds-truncate" title="$25k"><ui:outputnumber format="#,##,###.00" value="{!s.linecalcTotalPrice}" /></div>
+      </td>
+    
+    </tr>
+	</aura:iteration>
+  
+  </tbody>
+</table>
+<div style="color:#C23934">
+<ui:outputText value="" aura:id="selectedproductlbl" class="errorlbl" />
+</div>
+    <br/>
+
+	
+	<div class="slds-panel__actions slds-border_top">
+	  <div class="slds-grid slds-grid_align-center">				
+		<div class="slds-grid slds-grid_pull-padded-medium">
+			
+			<div class="slds-col slds-p-horizontal_medium">
+				<ui:button aura:id="button2" buttonTitle="Save Opportunity Products" class="slds-button slds-button_brand" label="Save" press="{!c.saveOpportunityProduct}"/>
+			</div>
+			<div class="slds-col slds-p-horizontal_medium">
+			<ui:button aura:id="button2" buttonTitle="Cancel Opportunity Products" class="slds-button slds-button_brand" label="Cancel" press="{!c.cancelOpportunityProduct}"/>
+			<!--<button class="slds-button" >Cancel</button>-->
+			</div>
+            <div class="slds-col slds-p-horizontal_medium">
+				<ui:button aura:id="submitoppbtn2" buttonTitle="Submit Opportunity" class="slds-button slds-button_brand" disabled="true" label="Submit Order" press="{!c.OpportunityProduct}"/>
+			</div>
+		</div>
+	  </div>
+	</div>
+
+
+	<br/>
+	
+	<div>
+		<div class="slds-grid slds-grid_pull-padded-medium">
+		  <div class="slds-col slds-p-horizontal_medium">
+			<div class="slds-form-element">
+				<div class="slds-form-element__control">
+                    <ui:inputText aura:id="searchtext" label="By Keyword" placeholder="Search Text"/>
+
+				</div>
+			</div>
+		  </div>
+		  <div class="slds-col slds-p-horizontal_medium">
+			
+				<ui:inputSelect aura:id="productcategorylist" label="By Product Category" value="all" >
+					<ui:inputSelectOption text="All" label="All"/>  
+					<ui:inputSelectOption text="Accessories" label="Accessories"/>
+					<ui:inputSelectOption text="Custom Logo" label="Custom Logo"/>
+					<ui:inputSelectOption text="Gear" label="Gear"/>
+					<ui:inputSelectOption text="Hard Coolers" label="Hard Coolers"/>
+					<ui:inputSelectOption text="Parts" label="Parts"/>
+					<ui:inputSelectOption text="Promotional" label="Promotional"/>
+					<ui:inputSelectOption text="Raw Materials" label="Raw Materials"/>
+					<ui:inputSelectOption text="Seconds" label="Seconds"/>
+					<ui:inputSelectOption text="Soft Coolers" label="Soft Coolers"/>
+					<ui:inputSelectOption text="Other" label="Other"/>
+				</ui:inputSelect>				
+			
+			
+		  </div>
+		  <div class="slds-col slds-p-horizontal_medium" style="margin-top: 20px;">
+			<lightning:button aura:id="findproduct" label="Search"  onclick="{!c.onFindProduct}"/>
+		  </div>
+		  
+		</div>
+
+		
+	</div>
+	<br/>
+	
+	<div class="slds-col slds-p-horizontal_medium">
+	  <div class="HeaderSTL">Products Available</div>
+  </div>
+    
+   <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+  <thead>
+    <tr class="slds-text-title_caps TRSTL">
+      <th scope="col">
+        <div class="slds-truncate" title="Account Name">Product Name</div>
+      </th>
+     <!--<th scope="col">
+        <div class="slds-truncate" title="Close Date">Product Code</div>
+      </th>-->
+      <th scope="col">
+        <div class="slds-truncate" title="Stage">Product Description</div>
+      </th>
+      <!--<th scope="col">
+        <div class="slds-truncate" title="Confidence">Product Category</div>
+      </th>-->
+      <!--<th scope="col">
+        <div class="slds-truncate" title="Amount">Expected Ship Date</div>
+      </th>-->
+      <!--<th scope="col">
+        <div class="slds-truncate" title="Contact">List Price</div>
+      </th>-->
+	  <th scope="col">
+        <div class="slds-truncate" title="Contact">Quantity</div>
+      </th>
+	  <th scope="col">
+        <div class="slds-truncate" title="Contact">Action</div>
+      </th>
+	</tr>
+     
+  </thead>
+  <tbody>
+	<aura:iteration items="{!v.opp.lstAvaiLine}" var="theLineItem">
+		<tr class="slds-hint-parent">
+		 
+		  <th scope="row">
+			<div class="slds-truncate" title="{!theLineItem.productObj.Name}"><a href="{!'/'+theLineItem.productObj.id}" >{!theLineItem.productObj.Name}</a></div>
+		  </th>
+		  <!--<td role="gridcell">
+			<div class="slds-truncate" title="{!theLineItem.productObj.ProductCode}">{!theLineItem.productObj.ProductCode}</div>
+		  </td>-->
+		  <td role="gridcell">
+			<div class="slds-truncate" title="Description">{!theLineItem.productObj.Description}</div>
+		  </td>
+		  <!--<td role="gridcell">
+			<div class="slds-truncate" title="Category">{!theLineItem.productObj.Product_Category__c}</div>
+		  </td>-->
+		  <!--<td role="gridcell">
+			<div class="slds-truncate" title="30%">{!theLineItem.productObj.Expected_Ship_Date__c}</div>
+		  </td>-->
+		  <!--<td role="gridcell">
+			<div class="slds-truncate" title="$25,000,000">{!theLineItem.newPBE.UnitPrice}</div>
+		  </td>-->
+		  <td role="gridcell">
+			<div class="slds-truncate" title="jrogers@acme.com">{!theLineItem.selectedQty}</div>
+		  </td>
+		  <td role="gridcell">
+			<div class="slds-truncate" title="jrogers@acme.com">
+               <lightning:button aura:id="{!theLineItem.PriceBookEntryId}" label="Select" name="{!theLineItem.PriceBookEntryId}" onclick="{!c.addProduct}"/>
+				<!--<ui:button aura:name="{!theLineItem.PriceBookEntryId}" label="Select" press="{!c.nameThatButton}"/>-->
+			</div>
+		  </td>
+		  
+		</tr>
+	</aura:iteration>
+   
+  </tbody>
+</table>
+        
+</aura:component>

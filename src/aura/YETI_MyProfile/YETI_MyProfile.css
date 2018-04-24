@@ -1,0 +1,31 @@
+.THIS {
+    font-family: token(fontFamily);
+    color: token(colorTextDefault);
+}
+.THIS .save-button {
+    margin-left: 70%;
+}
+.THIS .spinner {
+    background: none;
+}
+.THIS .update-password-buttons {
+    margin-left: 15px;
+}
+.THIS .updatePasswordButtons {
+    margin-left: 75%;
+}
+.THIS .update-password-status {
+    padding-left: 67.5%;
+}
+.THIS .requiredField {
+    border: 1px solid red;
+}
+.THIS .valid-password-message {
+    margin-left: 10px;
+}
+.THIS .highlight {
+    color: red;
+}
+.THIS .header-text-color {
+    color: #333;
+}

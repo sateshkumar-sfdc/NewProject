@@ -1,0 +1,28 @@
+<apex:component controller="CTRL_OpportunityInfo">
+    <apex:attribute name="opportunityId" type="string" required="required" assignTo="{!sfOpportunityId}" description="" />
+    <apex:attribute name="accountId" type="string" required="required" assignTo="{!sfAccountId}" description="" />
+
+    <apex:pageBlock title="Opportunity: {!sfAccount.Name}">
+        <apex:pageBlockSection columns="2" collapsible="false">
+            <apex:outputText value="{!sfOpportunity.Name}" label="Opportunity Name:"/>
+            <apex:outputText value="{!sfOpportunity.Description}" label="Description"/>
+            <apex:outputText value="{!sfOpportunity.StageName}" label="Stage"/>
+            <apex:outputText value="{!sfOpportunity.Amount}" label="Amount:"/>
+            <apex:outputText value="{!sfOpportunity.Type}" label="Type:"/>
+            <apex:outputText value="{!sfOpportunity.NextStep}" label="Next Step:"/>
+            <apex:outputText value="{!sfOpportunity.LeadSource}" label="Lead Source:"/>
+        </apex:pageBlockSection>
+
+        <apex:pageBlockSection columns="1" rendered="{! null != sfOpportunity.ENSX_EDM__Quote_Number__c}" >
+            <apex:actionFunction name="gotoQuoteDetail" action="{!redirectToQuoteDetail}" reRender="page" status="status" />
+            <apex:pageMessage severity="INFO" summary="A quotation already exists for this opportunity:" strength="2" />
+            <apex:commandLink onclick="gotoQuoteDetail();return false;"
+                value="Click here to view quotation # {!sfOpportunity.ENSX_EDM__Quote_Number__c}" />
+        </apex:PageBlockSection>
+
+        <apex:pageBlockButtons location="top">
+            <apex:commandButton onclick="window.location.href='/{!sfOpportunity.Id}';return false;" value="Back to Opportunity"/>
+        </apex:pageBlockButtons>
+
+    </apex:pageBlock>
+</apex:component>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Active_Credit_Cards</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Active Credit Cards</label>
+        <sharedTo>
+            <roleAndSubordinates>Executive</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>Active__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+</SharingRules>

@@ -1,0 +1,9 @@
+.THIS.show-processing {
+    margin: 20px 0px 0px 0px;
+}
+.THIS .error-message {
+	display: none;
+}
+.THIS .spinner {
+    background: none;
+}

@@ -1,0 +1,15 @@
+<apex:component >
+	<apex:actionStatus id="status">
+    <apex:facet name="start">
+    <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.25; z-index: 1000; background-color: black;">
+        &nbsp;
+    </div>
+    <div style="position: fixed; left: 0; top: 0; bottom: 0; right: 0; z-index: 1001; margin: 15% 45%">
+        <div style="display: inline-block; padding: 2px; background-color: #fff; width: 125px;">
+            <img src="/img/loading.gif" style="float: left; margin: 8px;" />
+            <span style="display: inline-block; padding: 10px 0px;">Please Wait...</span>
+        </div>
+    </div>
+    </apex:facet>
+    </apex:actionStatus>
+</apex:component>

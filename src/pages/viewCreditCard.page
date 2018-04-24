@@ -1,0 +1,81 @@
+<apex:page id="pg" standardController="Credit_Card__c" extensions="CreditCardEntryCon">
+	<script type="text/javascript">
+	</script>
+	<apex:pageMessages />
+	<apex:form >
+		<apex:pageBlock >
+			<apex:pageBlockButtons >
+				<apex:commandButton action="{!edit}" value="Edit"/>
+				<apex:commandButton action="{!cancel}" value="Cancel" />
+			</apex:pageBlockButtons>
+			<apex:pageBlockSection title="Credit Card Details" columns="2">
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Account" for="account"/>
+					<apex:outputField value="{!creditCard.Account__c}" id="account" />
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Credit Card Name" for="credit_card_name"/>
+					<apex:outputField value="{!creditCard.Credit_Card_Name__c}" id="credit_card_name"/> 
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Credit Card Type" for="credit_card_type"/>
+					<apex:outputField value="{!creditCard.Credit_Card_Type__c}" id="credit_card_type" />
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Address1" for="address1"/>
+					<apex:outputField value="{!creditCard.Address1__c}" id="address1"/> 
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Credit Card Number" for="credit_card_number"/>
+					<apex:outputField value="{!creditCard.Credit_Card_Number__c}" id="credit_card_number" /> 
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Address2" for="address2"/>
+					<apex:outputField value="{!creditCard.Address2__c}" id="address2"/> 
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Expiration Month" for="expiration_month"/>
+					<apex:outputField value="{!creditCard.Expiration_Month__c}" id="expiration_month"/>
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="City" for="city"/>
+					<apex:outputField value="{!creditCard.City__c}" id="city"/> 
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Expiration Year" for="expiration_year"/>
+					<apex:outputField value="{!creditCard.Expiration_Year__c}" id="expiration_year"/>
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="State" for="state"/>
+					<apex:outputField value="{!creditCard.State__c}" id="state"/> 
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Active" for="active"/>
+					<apex:outputField value="{!creditCard.Active__c}" id="active" /> 
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Zip" for="zip"/>
+					<apex:outputField value="{!creditCard.Zip__c}" id="zip"/> 
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Country" for="country"/>
+					<apex:outputField value="{!creditCard.Country__c}" id="country"/> 
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Email" for="email"/>
+					<apex:outputField value="{!creditCard.Email__c}" id="email"/> 
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Phone" for="phone"/>
+					<apex:outputField value="{!creditCard.Phone__c}" id="phone"/> 
+				</apex:pageBlockSectionItem>
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

@@ -1,0 +1,44 @@
+<apex:page docType="html-5.0" showHeader="true" controller="CTRL_MaterialSearch_Test" title="Material Search Test Harness" sidebar="true" >
+<apex:form id="mainform">
+	<c:CMP_Status />
+
+	<apex:pageMessages id="messagediv" />
+
+    <c:CMP_MaterialSearch id="A"
+        receiver="{!receiver}"
+        title="Multiple Material Select"
+        addButtonLabel="Show Selected"
+        quantity="false"
+        dateSelect="true"
+        rerender="mainform" />
+
+    <c:CMP_MaterialSearch id="B"
+        receiver="{!receiver}"
+        title="Single Material Select"
+        multiSelect="false"
+        defaultProductAttributes="{!defaultProductAttributes}"
+        rerender="mainform" />
+
+    <c:CMP_MaterialSearch id="C"
+        receiver="{!receiver}"
+        title="Auto Search"
+        autoSearch="true"
+        dateSelect="true"
+        defaultSearchDescription="fin"
+        defaultMaterialTypes="{!defaultMaterialTypes}"
+        rerender="mainform" />
+
+	<apex:pageBlock title="Search Results:" rendered="{!null != searchResults}">
+        <apex:pageBlockTable value="{!searchResults}" var="m">
+            <apex:column value="{!m.material.Material}" headerValue="Product Name" />
+            <apex:column value="{!m.material.MaterialType}" headerValue="Code" />
+            <apex:column value="{!m.material.MaterialDescription}" headerValue="Description" />
+            <apex:column value="{!m.material.ProductHierarchyDescription}" headerValue="Category" />
+            <apex:column value="{!m.quantity}" headerValue="Quantity" />
+            <apex:column value="{!m.scheduleDate}" headerValue="Date" />
+        </apex:pageBlockTable>
+	</apex:pageBlock>
+
+</apex:form>
+<c:CMP_Footer />
+</apex:page>

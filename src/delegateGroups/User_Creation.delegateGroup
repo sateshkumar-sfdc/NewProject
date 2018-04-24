@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DelegateGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customObjects>UserSettings</customObjects>
+    <customObjects>User_Settings</customObjects>
+    <label>User Creation</label>
+    <loginAccess>true</loginAccess>
+    <profiles>YETI Inside Sales</profiles>
+    <profiles>YETI Field Sales</profiles>
+    <profiles>Solution Manager</profiles>
+    <profiles>Support Team Finance</profiles>
+    <profiles>Business Development-Sales</profiles>
+    <profiles>Regional Sales Manager</profiles>
+    <profiles>Support Team User - Outfitter</profiles>
+    <profiles>Support Team User - Custom Logo</profiles>
+    <roles>Executive</roles>
+</DelegateGroup>

@@ -1,0 +1,49 @@
+<apex:component controller="CTRL_BasePager">
+	<apex:attribute name="hasrecords" type="Boolean" description=""/>
+	<apex:attribute name="numperpage" type="Integer" description=""/>
+	<apex:attribute name="disableprev" type="Boolean" description=""/>
+	<apex:attribute name="disablenext" type="Boolean" description=""/>
+	<apex:attribute name="totalpages" type="Integer" description=""/>
+	<apex:attribute name="pagenum" type="Integer" description=""/>
+
+					<table cellpadding="0" cellspacing="0" style="width: 100%;">
+                    <tr>
+                    <td class="paginator" style="width: 50px;">
+                        <apex:selectList value="{!numperpage}" size="1" onchange="updateNumPerPage(this.value);return false;">
+                            <apex:selectOptions value="{!numperpageoptions}" ></apex:selectOptions>
+                        </apex:selectList>
+                    </td>
+                    <td class="paginator" style="text-align: center; background-color: transparent;">
+
+                    <span class="prevNextLinks">
+                        <!-- prev show -->
+                        <apex:outputPanel rendered="{!!disableprev}">
+                        <span class="prevNext"><a href="#" onclick="doPagination('first');return false;"><img src="/s.gif" title="First Page" alt="First Page" class="first"/></a></span>
+                        <span class="prevNext"><a href="#" onclick="doPagination('prev');return false;"><img src="/s.gif" title="Previous" alt="Previous" class="prev"/>Previous</a></span>
+                        </apex:outputPanel>
+                        <!-- prev disable -->
+                        <apex:outputPanel rendered="{!disableprev}">
+                        <span class="prevNext"><img src="/s.gif" class="firstoff" alt="First Page"/></span>
+                        <span class="prevNext"><img src="/s.gif" class="prevoff" alt="Previous"/>Previous</span>
+                        </apex:outputPanel>
+
+                        <span><apex:outputText value="{!pagenum}"/>&nbsp;of&nbsp;<apex:outputText value="{!totalpages}"/></span>
+
+                        <!-- next show -->
+                        <apex:outputPanel rendered="{!disablenext}">
+                        <span class="prevNext">Next<img src="/s.gif" class="nextoff" alt="Next"/></span>
+                        <span class="prevNext"><img src="/s.gif" class="lastoff" alt="Last Page"/></span>
+                        </apex:outputPanel>
+                        <!-- next disable -->
+                        <apex:outputPanel rendered="{!!disablenext}">
+                        <span class="prevNext"><a href="#" onclick="doPagination('next');return false;">Next<img src="/s.gif" class="next" alt="Next"/></a></span>
+                        <span class="prevNext"><a href="#" onclick="doPagination('end');return false;"><img src="/s.gif" class="last" alt="Last Page"/></a></span>
+                        </apex:outputPanel>
+                    </span>
+
+                    </td>
+                    <td style="width: 50px; background-color: transparent;">&nbsp;</td>
+                    </tr>
+                    </table>
+
+</apex:component>

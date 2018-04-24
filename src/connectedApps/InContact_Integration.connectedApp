@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>pssf@incontact.com</contactEmail>
+    <label>InContact Integration</label>
+    <oauthConfig>
+        <callbackUrl>https://login.salesforce.com/services/oauth2/callback</callbackUrl>
+        <consumerKey>3MVG9A2kN3Bn17hvo6Hl5DuCNLPvTUFn.s4zyrG5QGyS_5Mxzgd37mJhj._vo0JuKztsEWOvSBJki3T_6Ls_K</consumerKey>
+        <scopes>Full</scopes>
+    </oauthConfig>
+</ConnectedApp>

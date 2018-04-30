@@ -1395,4 +1395,40 @@
         <shortDescription>dealercorporateprofile</shortDescription>
         <value>Dealer - Corporate</value>
     </labels>
+    <labels>
+        <fullName>Art</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ArtError</shortDescription>
+        <value>Error In loading Art Design.
+ Retry after Some Time.</value>
+    </labels>
+    <labels>
+        <fullName>Back</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Back</shortDescription>
+        <value>Back</value>
+    </labels>
+    <labels>
+        <fullName>Front</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Front</shortDescription>
+        <value>Front</value>
+    </labels>
+    <labels>
+        <fullName>Laser</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Laser</shortDescription>
+        <value>Laser</value>
+    </labels>
+    <labels>
+        <fullName>Laserback</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Laserback</shortDescription>
+        <value>Laserback</value>
+    </labels>
 </CustomLabels>

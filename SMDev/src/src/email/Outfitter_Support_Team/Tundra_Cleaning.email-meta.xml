@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Tundra Cleaning</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hello,
+
+Thank you for reaching out to us regarding your cooler. For general cleaning, we recommend using soap and warm water.
+
+For a more thorough cleansing and problems with strong odors, use a solution of warm water and bleach (6:1 ratio) with a sponge or mildly abrasive rag. Odors can easily get trapped in hard to reach areas such as around the gasket and drain plug, so be sure to thoroughly scrub those areas.
+
+For tough stains and very foul odors we would recommend cleaning your YETI with a high-pressure soap spray found at a local do-it yourself car wash.
+
+Some people may choose to also use baking soda (a common odor removal product). If you leave this inside your cooler, over a course of a few days you should notice a gradual elimination of odor.
+
+Regardless of which method you choose to clean your YETI, a crucial factor that will help rid the smell from the product is removing the silicon gasket in the lid. The gasket will pull out (albeit with a bit of resistance) and detach. Please remove this to clean underneath the typical resting place of the gasket. Also, I would recommend soaking the gasket itself in hot water and soap for an extended period. After doing so, be sure it is completely dry before popping it right back into place. If you need further assistance with putting the gasket back on please watch our Gasket Replacement video https://www.youtube.com/watch?v=BK7msXCDiQ0
+
+If you have any further questions, please feel free to reply to this email.
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com
+Save</textOnly>
+    <type>html</type>
+</EmailTemplate>

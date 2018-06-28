@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Wine Lid</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hello,
+
+Thank you for reaching out to us at YETI. We value your interest in the Rambler 10oz Wine Tumbler. The 10/20oz Rambler Tumbler Lids are not compatible with the Rambler 10oz Wine Tumbler. We are constantly working to expand our product line. If you’ve got an idea for a Wine Tumbler lid feel free to submit an idea submission!
+
+
+
+Stay tuned about new products by signing up for notifications on YETI.com. Please let us know if you have any additional questions.
+
+
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+
+The YETI Outfitters
+
+512.394.9384
+
+customerservice@yeti.com
+
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

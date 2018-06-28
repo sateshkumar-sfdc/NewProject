@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>YETI Slider Lid</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>The Rambler Slider Lid has been removed from the Spring 2016 program.
+
+
+
+YETI has invested heavily in our product teams and establishing processes in order to ensure every product we release meets our high expectations.
+
+
+During the final validation phase, our confidence that the lid&apos;s performance would exceed consumer expectations was too low. As such, rather than launching a product purely to increase sales, we have opted to remove it completely from the program. We may or may not address this design in the future.
+
+Following this communication, the Rambler Slider Lid will be:
+
+- Canceled from all orders
+
+- Removed from the fixture program
+
+- Removed from the website and customer-facing collateral
+
+
+Feel free to reach out should you have any questions.
+
+
+
+
+
+{!User.CommunityNickname}
+Account Management Team
+YETI
+512.394.0222
+sales@yeticoolers.com
+yeticoolers.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

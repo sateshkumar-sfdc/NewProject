@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>YETI Fundraiser - Discount Purchase Offer</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}</subject>
+    <textOnly>Hello,
+
+We sincerely appreciate you considering YETI for your event.  While we are not in a position to offer a full product donation at this time, we believe you may be a good candidate for our Fundraiser Program.  This will allow your organization to purchase up to two (2) YETI Hoppers (Hopper 20 and 30 models only) at a 30% discounted rate per event to be used in an auction, raffle, or as a tournament prize.  YETI reserves the right to approve or decline applications at our discretion.
+
+If you would like to include any tax exemption on your order you will need to reply with your state&apos;s (not federal) tax exemption certificate.
+
+When you are ready to order please contact us by phone at 512.394.9384 extension 771 or 561.
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

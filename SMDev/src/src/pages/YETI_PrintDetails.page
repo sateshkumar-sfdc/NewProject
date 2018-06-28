@@ -1,0 +1,3 @@
+<apex:page id="YETI_PrintDetails" renderAs="pdf" title="Print Details" controller="Yeti_printDetailController"  action="{!redirectToPDFPage}">
+    Test PDF.
+</apex:page>

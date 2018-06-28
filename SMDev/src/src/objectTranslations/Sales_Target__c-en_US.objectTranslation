@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Sales Target</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Sales Targets</value>
+    </caseValues>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Date --></label>
+        <name>End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fiscal Year --></label>
+        <name>Fiscal_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoice Lines --></label>
+        <name>Invoice_Lines__c</name>
+        <relationshipLabel><!-- Sales Targets --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Invoice --></label>
+        <name>Invoice__c</name>
+        <relationshipLabel><!-- Sales Targets --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Determines the month number of the current month (based on today) and compares sales target start date for all years to determine if this value should be included in YOY YTD reporting. --></help>
+        <label><!-- Month (YTD Calc) --></label>
+        <name>Month_YTD_Calc__c</name>
+    </fields>
+    <fields>
+        <help><!-- Returns the month, a number between 1 (January) and 12 (December) of the sales target start date --></help>
+        <label><!-- Month --></label>
+        <name>Month__c</name>
+    </fields>
+    <fields>
+        <help><!-- Sales Target product category, if target is specific to product category --></help>
+        <label><!-- Product Category --></label>
+        <name>Product_Category__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>Product_del__c</name>
+        <relationshipLabel><!-- Sales Targets --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Quarter --></label>
+        <name>Quarter__c</name>
+        <picklistValues>
+            <masterLabel>Q1</masterLabel>
+            <translation><!-- Q1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Q2</masterLabel>
+            <translation><!-- Q2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Q3</masterLabel>
+            <translation><!-- Q3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Q4</masterLabel>
+            <translation><!-- Q4 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sales Rep --></label>
+        <name>Sales_Rep__c</name>
+    </fields>
+    <fields>
+        <help><!-- Start date of sales target period --></help>
+        <label><!-- Start Date --></label>
+        <name>Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Target Amount --></label>
+        <name>Target_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Target Amounts --></label>
+        <name>Target_Amounts__c</name>
+    </fields>
+    <fields>
+        <label><!-- Territory --></label>
+        <name>Territory__c</name>
+        <picklistValues>
+            <masterLabel>AK</masterLabel>
+            <translation><!-- AK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ALT</masterLabel>
+            <translation><!-- ALT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ALTA</masterLabel>
+            <translation><!-- ALTA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AZ</masterLabel>
+            <translation><!-- AZ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AZNM</masterLabel>
+            <translation><!-- AZNM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BBD</masterLabel>
+            <translation><!-- BBD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BC</masterLabel>
+            <translation><!-- BC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CALN</masterLabel>
+            <translation><!-- CALN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CALS</masterLabel>
+            <translation><!-- CALS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CT</masterLabel>
+            <translation><!-- CT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DC</masterLabel>
+            <translation><!-- DC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DE</masterLabel>
+            <translation><!-- DE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FLN</masterLabel>
+            <translation><!-- FLN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FLS</masterLabel>
+            <translation><!-- FLS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GASC</masterLabel>
+            <translation><!-- GASC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GASCTN</masterLabel>
+            <translation><!-- GASCTN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HI</masterLabel>
+            <translation><!-- HI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ID</masterLabel>
+            <translation><!-- ID --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IN</masterLabel>
+            <translation><!-- IN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>INMI</masterLabel>
+            <translation><!-- INMI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>INT</masterLabel>
+            <translation><!-- INT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KOWV</masterLabel>
+            <translation><!-- KOWV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KS</masterLabel>
+            <translation><!-- KS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KY</masterLabel>
+            <translation><!-- KY --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LARK</masterLabel>
+            <translation><!-- LARK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MA</masterLabel>
+            <translation><!-- MA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MAN</masterLabel>
+            <translation><!-- MAN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MD</masterLabel>
+            <translation><!-- MD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ME</masterLabel>
+            <translation><!-- ME --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MI</masterLabel>
+            <translation><!-- MI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MIP</masterLabel>
+            <translation><!-- MIP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MO</masterLabel>
+            <translation><!-- MO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS</masterLabel>
+            <translation><!-- MS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MST</masterLabel>
+            <translation><!-- MST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MT</masterLabel>
+            <translation><!-- MT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NB</masterLabel>
+            <translation><!-- NB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NCVA</masterLabel>
+            <translation><!-- NCVA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ND</masterLabel>
+            <translation><!-- ND --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NE</masterLabel>
+            <translation><!-- NE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NENG</masterLabel>
+            <translation><!-- NENG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NH</masterLabel>
+            <translation><!-- NH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NJ</masterLabel>
+            <translation><!-- NJ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NL</masterLabel>
+            <translation><!-- NL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NM</masterLabel>
+            <translation><!-- NM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NS</masterLabel>
+            <translation><!-- NS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NV</masterLabel>
+            <translation><!-- NV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NVT</masterLabel>
+            <translation><!-- NVT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NWT</masterLabel>
+            <translation><!-- NWT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NY</masterLabel>
+            <translation><!-- NY --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OH</masterLabel>
+            <translation><!-- OH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OK</masterLabel>
+            <translation><!-- OK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ONT</masterLabel>
+            <translation><!-- ONT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ORWA</masterLabel>
+            <translation><!-- ORWA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OTH</masterLabel>
+            <translation><!-- OTH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PA</masterLabel>
+            <translation><!-- PA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PANY</masterLabel>
+            <translation><!-- PANY --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PEI</masterLabel>
+            <translation><!-- PEI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>QUE</masterLabel>
+            <translation><!-- QUE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RI</masterLabel>
+            <translation><!-- RI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SASK</masterLabel>
+            <translation><!-- SASK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SCTN</masterLabel>
+            <translation><!-- SCTN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SD</masterLabel>
+            <translation><!-- SD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SMS</masterLabel>
+            <translation><!-- SMS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>STEX</masterLabel>
+            <translation><!-- STEX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TEXE</masterLabel>
+            <translation><!-- TEXE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TEXN</masterLabel>
+            <translation><!-- TEXN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TEXS</masterLabel>
+            <translation><!-- TEXS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TNALMS</masterLabel>
+            <translation><!-- TNALMS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TX</masterLabel>
+            <translation><!-- TX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UTCO</masterLabel>
+            <translation><!-- UTCO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VT</masterLabel>
+            <translation><!-- VT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WIL</masterLabel>
+            <translation><!-- WIL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WV</masterLabel>
+            <translation><!-- WV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WY</masterLabel>
+            <translation><!-- WY --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>YT</masterLabel>
+            <translation><!-- YT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>asdfa</masterLabel>
+            <translation><!-- asdfa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>test</masterLabel>
+            <translation><!-- test --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Used in reporting to allowing sum/count of records in calculated reports --></help>
+        <label><!-- Unit --></label>
+        <name>Unit__c</name>
+    </fields>
+    <fields>
+        <help><!-- Returns the year of a date, a number between 1900 and 9999, of the sales target start date --></help>
+        <label><!-- Year --></label>
+        <name>Year__c</name>
+    </fields>
+    <layouts>
+        <layout>Sales Target Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Product category should equal &quot;Coolers&quot; or &quot;All Other&quot; --></errorMessage>
+        <name>Product_Category_Coolers_or_All_Other</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The start date must begin on the first day of the month and the end date should be the last day of the month.  Review start date and end date and adjust. --></errorMessage>
+        <name>Start_Date_End_Date_Cannot_be_same_date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The start date must begin on the first day of the month --></errorMessage>
+        <name>Start_Date_Required_to_be_first_of_month</name>
+    </validationRules>
+</CustomObjectTranslation>

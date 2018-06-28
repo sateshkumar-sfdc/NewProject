@@ -1,0 +1,64 @@
+<apex:page docType="html-5.0" contentType="text/html" >
+
+<apex:outputPanel layout="block" style="overflow:auto;width:100%;height:100%" >
+<html>
+<head>
+
+<meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
+    
+    
+</head>
+<body>
+
+
+
+<div class="widget"  ></div>
+
+<script src="https://customize-staging.yeticustomshop.com/widget.js" ></script>
+<script>
+
+ window.addEventListener("message", function(event) {
+       
+        // Handle message
+        console.log('test23');
+        console.log(event.data);
+       var UPK = event.data;
+         YETI.customizer.init({
+       
+        selector: '.widget',   // required
+        product:  'rambler-tumbler-30oz-brickred',  //UPK, //'rambler-wine-tumbler-10oz', // required
+        
+        onReady: function() {
+        alert('hai');
+        YETI.customizer.open();
+    
+            // do something once the widget has loaded
+        },
+        
+       
+        onApprove: function(data) {
+            // do something with the customization data
+            console.log("Jsondata"+data);
+        var message = data;
+        parent.postMessage(message, '*');
+            
+        }
+    });
+    }, false);
+
+   
+    
+    
+    
+    
+   
+</script>
+
+</body>
+  </html>
+
+
+</apex:outputPanel> 
+</apex:page>

@@ -1,0 +1,7 @@
+{!User.FirstName} {!User.LastName},
+
+The pre-book you submitted for approval has been rejected by the dealer.
+
+{!Opportunity.Link}
+
+Thanks!

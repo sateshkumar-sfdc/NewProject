@@ -1,0 +1,5 @@
+Company:
+{!Lead.Company}
+
+Link: 
+{!Lead.Link}

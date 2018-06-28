@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>ID Me</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Hello,
+
+
+We’re happy to announce that YETI has partnered with ID.me to offer a special discount to first responders, government employees, and members of the military. Here’s how you can take advantage of this special program.
+
+If you do not have an ID.me account, you can sign up here.
+
+You will need to use the ID.me button on the shopping cart under View Cart in checkout to enable your discount. After clicking the ID.me button and verifying your affiliation, you will be able to continue with checkout. The discount will be reflected in a separate line item in your shopping cart.
+
+Things to keep in mind:
+
+This program is for your personal use only.
+No reselling or gifting of any YETI product purchased through the ID.me program is permitted.
+Exchanges or returns must be processed directly with YETI and never through authorized dealers.
+YETI reserves the right to change or remove a product from the ID.me promotion at any time, without prior notice.
+Discounted products are subject to availability.
+YETI reserves the right to cancel or suspend this program at any time, without prior notice.
+
+If you currently have a YETI login it will no longer reflect your discount.
+The same terms and conditions apply for this program.
+
+YETI reserves the right to remove anyone from the program for abusing the terms and conditions of use.
+
+For more information about the program, please visit yeti.com/id-me.
+
+Let us know if you have any questions. We’d love to hear from you.
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Embellished_Art_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>This Object holds the design records with a set of values which are to be defined before the design has to be released to SAP as a material.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>ArtName__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>The name of the design. This is an internal name; not displayed to customers.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Format : [Alphanumeric] [Alphanumeric].. [Alphanumeric].</inlineHelpText>
+        <label>Art Name</label>
+        <length>255</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>ArtYETIKey__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>This is a key which uniquely defines this design in all systems.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>One must strictly enter only alphanumeric characters or a hyphen. 
+Note : No multiple hyphens &apos; --&apos; or a space between words. 
+Format : [Text/Numeric]-[Text/Numeric]</inlineHelpText>
+        <label>YETI Key</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Category__c</fullName>
+        <description>This is an administratively controlled list of categories for art custom art design.</description>
+        <externalId>false</externalId>
+        <label>Category</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Collegiate</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Greek</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Nascar</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>National Parks</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Coastal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fish</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Hunt</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Internal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Outdoor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>InternalOnly__c</fullName>
+        <description>This selection specifies if the design is shown only in the backend (not available from the webstore, but available for customer service reps.)</description>
+        <externalId>false</externalId>
+        <label>Internal Only</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>IsPremium__c</fullName>
+        <description>This specifies if the design is a standard or premium one.</description>
+        <externalId>false</externalId>
+        <label>Is Premium</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>LicensedProperty__c</fullName>
+        <description>Additional licensing qualifier to help us pay out correctly and create reports. Only applicable for Premium.</description>
+        <externalId>false</externalId>
+        <label>Licensed Property</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LicensingOrganization__c</fullName>
+        <description>This list accommodates the organizations that gives us permission to use embellishment.</description>
+        <externalId>false</externalId>
+        <label>Licensing Organization</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>CLC</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Exemplar</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fermata</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Learfield</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NASCAR</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>National Park Foundation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NFL</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PLACT</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Affinity Consultants</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>289c</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Boyscouts</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Price__c</fullName>
+        <defaultValue>10</defaultValue>
+        <description>Price of the design.</description>
+        <externalId>false</externalId>
+        <label>Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>RoyaltyRate__c</fullName>
+        <description>What we owe to the licensed property. Example: 
+12%</description>
+        <externalId>false</externalId>
+        <label>Royalty Rate</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>WebKey__c</fullName>
+        <description>This formula generates the Web Key for the s3 service based on the values captured in the entry fields.</description>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK( TEXT(IsPremium__c) ) , &quot;//&quot;, IF( TEXT(IsPremium__c) = &quot;Yes&quot;, &quot;/premium/&quot;, &quot;/standard/&quot;)) &amp; LOWER(TEXT(Category__c)) &amp; &quot;/&quot;  &amp; LOWER(ArtYETIKey__c)</formula>
+        <label>Web Key</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Embellished Art</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>ArtName__c</columns>
+        <columns>ArtYETIKey__c</columns>
+        <columns>Category__c</columns>
+        <columns>IsPremium__c</columns>
+        <columns>WebKey__c</columns>
+        <columns>InternalOnly__c</columns>
+        <columns>OBJECT_ID</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Arizona1</fullName>
+        <columns>NAME</columns>
+        <columns>ArtName__c</columns>
+        <columns>Category__c</columns>
+        <columns>LicensedProperty__c</columns>
+        <columns>LicensingOrganization__c</columns>
+        <columns>WebKey__c</columns>
+        <columns>ArtYETIKey__c</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>ArtName__c</field>
+            <operation>contains</operation>
+            <value>Arizona</value>
+        </filters>
+        <label>Arizona</label>
+    </listViews>
+    <nameField>
+        <displayFormat>EA-{0000}</displayFormat>
+        <label>Embellished Art</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Embellished Arts</pluralLabel>
+    <searchLayouts>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>ArtName__c</searchFilterFields>
+        <searchFilterFields>Category__c</searchFilterFields>
+        <searchFilterFields>IsPremium__c</searchFilterFields>
+        <searchFilterFields>ArtYETIKey__c</searchFilterFields>
+        <searchResultsAdditionalFields>ArtName__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Category__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>WebKey__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ArtYETIKey__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>ArtNameFieldValidation</fullName>
+        <active>true</active>
+        <description>[EmbArts-03] : This rule validates the Art Name field to have only alphanumeric,hyphen&apos;s or space contained in it.</description>
+        <errorConditionFormula>IF( AND( 
+NOT(ISBLANK(ArtName__c)) , 
+NOT( REGEX( ArtName__c , &quot;^[#()&amp;/a-zA-Z0-9&apos;.-](?!.*--)(?!.*&amp;&amp;)(?!.*  )(?!.*#)(?!.*&apos;&apos;)(?!.*//)[ /()&amp;a-zA-Z0-9&apos;.-]*[a-zA-Z0-9)]$&quot;)) 
+),true,false)</errorConditionFormula>
+        <errorDisplayField>ArtName__c</errorDisplayField>
+        <errorMessage>[EmbArts-03] :You can enter only alphanumeric characters or some special characters. 
+Note : Cannot contain two spaces or similar special characters next to each other.
+Correct Format : [Text/Numeric/Characters] [Text/Numeric/Characters]</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>RestrictLicensedPropertyField</fullName>
+        <active>true</active>
+        <description>[EmbArts-02]-This rule restricts Licensed Property field based on product type (Is Premium) .</description>
+        <errorConditionFormula>AND( 
+NOT(ISBLANK(LicensedProperty__c)), 
+NOT(ISPICKVAL(IsPremium__c, &apos;Yes&apos;)) 
+)</errorConditionFormula>
+        <errorDisplayField>LicensedProperty__c</errorDisplayField>
+        <errorMessage>[EmbArts-02] : Licensed Property is available only for premium designs.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>YETIKeyFieldValidation</fullName>
+        <active>true</active>
+        <description>[EmbArts-01] : This rule validates the YETI key field to have only alphanumeric or hyphen&apos;s contained in it.</description>
+        <errorConditionFormula>IF(CONTAINS(ArtYETIKey__c , &apos;-&apos;), AND( 
+NOT(ISBLANK(ArtYETIKey__c )) , 
+NOT( REGEX( ArtYETIKey__c , &quot;^[a-zA-Z0-9](?!.*--)[-a-zA-Z0-9]*[a-zA-Z0-9]$&quot;)) 
+),AND( 
+NOT(ISBLANK(ArtYETIKey__c )) , 
+NOT( REGEX( ArtYETIKey__c , &quot;[A-Za-z0-9]+&quot;)) 
+))</errorConditionFormula>
+        <errorDisplayField>ArtYETIKey__c</errorDisplayField>
+        <errorMessage>[EmbArts-01]-You can enter only alphanumeric characters or &apos;-&apos;. 
+Note : Cannot contain two hyphens next to each other or a space between words. 
+Correct Format : [Text/Numeric]-[Text/Numeric]</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Release</fullName>
+        <availability>online</availability>
+        <description>This button has the action to release the art to SAP system.</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Release</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>alert(&apos;This releases the art to SAP system.&apos;);</url>
+    </webLinks>
+</CustomObject>

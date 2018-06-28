@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Rambler Condensation</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hello,
+
+Thank you for contacting YETI!
+
+It is completely normal to have a small amount of condensation at the top lip of our Ramblers - this is the nature of vacuum insulated products.
+
+The Outer Stainless Wall &amp; the Inner Stainless Wall are connected at the top lip, so this may cause a condensation effect due to conduction.  The energy is transferring through the walls of the material itself, rather than the vacuum walls.  This is what will cause the sweating that you are seeing.  If you are in humid conditions, this will be amplified.
+
+If you are seeing condensation on the body of the Rambler (at least 4 inches below the lip), please fill out a Warranty claim on our website, found here https://www.yeti.com/warranty-information.html
+
+Sincerely,
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

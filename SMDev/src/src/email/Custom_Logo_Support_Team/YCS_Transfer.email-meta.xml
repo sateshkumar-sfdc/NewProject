@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>YCS Transfer</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>YETI Custom Shop,
+
+The following customer would like to place an order for ___ custom Ramblers. Please reach out to this customer as we are only taking orders of 96 and above.
+
+Name –
+Company name –
+Phone number –
+Email address –
+
+Thanks,
+
+{!User.CommunityNickname}
+Business Development Team
+YETI
+512.402.5895
+corporatesales@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

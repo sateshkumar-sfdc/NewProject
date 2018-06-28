@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>International Product Registration</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hello,
+
+At this time, YETI product registration is not available for international customers.  Your online order for a YETI Tundra, Hopper, TANK, Rambler, Panga, or LoadOut is still covered by the YETI Warranty even without registering the cooler online.
+
+
+Thanks,
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,65 @@
+<aura:component controller="YETI_ProductSearchSfccController" >
+    
+    <aura:attribute name="SearchKeyWord" type="string"/>
+    <aura:attribute name="SelectedProducts" type="List"/>
+    <aura:attribute name="searchedProducts" type="Object"/>
+    
+    <div class="slds-form-element slds-lookup slds-is-close">
+        
+        <!--This part is for display search bar for lookup-->  
+        <div class="slds-form-element__control">
+            <div class="slds-input-has-icon slds-input-has-icon--right">
+                <div aura:id="lookup-pill" class="slds-pill-container">
+                    <div aura:id="lookupField" class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right"  style="width: 100%;">
+                        
+                        <ui:inputText class="slds-lookup__search-input slds-input inputSize"
+                                      value="{!v.SearchKeyWord}"
+                                      placeholder="Search Product..."/>
+                        
+                        <span class="slds-icon_container slds-icon-utility-search slds-input__icon slds-input__icon_right">
+                            <lightning:icon iconName="utility:search" size="x-small" alternativeText="icon" />
+                        </span>
+                    </div> 
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="slds-m-around_small">
+        <a class="slds-button slds-button_brand" onclick="{!c.searchProductsInDemandware}">
+            Search
+        </a>
+    </div>
+    
+    <div class="c-container">
+        <lightning:layout multipleRows="true">
+            <aura:iteration items="{!v.searchedProducts.hits}" var="prod">
+                <lightning:layoutItem padding="around-small" size="3">
+                    <div class="slds-box">
+                        <lightning:card footer="Card Footer" title="{!prod.product_name}">
+                            <aura:set attribute="actions">
+                                
+                            </aura:set>
+                            <p class="slds-p-horizontal_small">
+                                <img src="{!prod.image.link}" alt="{!prod.image.alt}" height="200" width="200"/>
+                            </p>
+                            <aura:set attribute="footer">
+                                <div class="">
+                                    <aura:if isTrue="{!not(empty(prod.price_max))}">
+                                        Price Range - {!prod.currency}&nbsp;{!prod.price} To {!prod.currency}&nbsp;{!prod.price_max}
+                                        <aura:set attribute="else">
+                                            Price - {!prod.currency}&nbsp;{!prod.price}
+                                        </aura:set>
+                                    </aura:if>
+                                </div>
+                            </aura:set>
+                        </lightning:card>
+                    </div>
+                </lightning:layoutItem>
+            </aura:iteration>
+        </lightning:layout>
+    </div>
+    
+    
+</aura:component>

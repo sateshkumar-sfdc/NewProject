@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Accidental Damage (Discount)</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Thanks for reaching out to YETI! I&apos;m sorry to hear about the recent damage to your YETI product. I will be unable to process your warranty request as accidental damage is not covered under our warranty policy.
+
+
+For more information regarding our warranty policy, please visit our warranty page on our website.
+
+While I can&apos;t offer to replace your product, I can get you a 30% discount off the purchase of a replacement. If you would like to redeem this offer, please give us a call at 512-394-9384 between 8 am and 5:30 pm CST, M-F so we can place that order and apply the discount over the phone.
+
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

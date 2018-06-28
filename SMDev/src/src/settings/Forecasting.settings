@@ -1,0 +1,2534 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ForecastingSettings xmlns="http://soap.sforce.com/2006/04/metadata">
+    <displayCurrency>CORPORATE</displayCurrency>
+    <enableForecasts>false</enableForecasts>
+    <forecastingCategoryMappings>
+        <forecastingItemCategoryApiName>commitonly</forecastingItemCategoryApiName>
+        <weightedSourceCategories>
+            <sourceCategoryApiName>commit</sourceCategoryApiName>
+            <weight>1.0</weight>
+        </weightedSourceCategories>
+    </forecastingCategoryMappings>
+    <forecastingCategoryMappings>
+        <forecastingItemCategoryApiName>closedonly</forecastingItemCategoryApiName>
+        <weightedSourceCategories>
+            <sourceCategoryApiName>closed</sourceCategoryApiName>
+            <weight>1.0</weight>
+        </weightedSourceCategories>
+    </forecastingCategoryMappings>
+    <forecastingCategoryMappings>
+        <forecastingItemCategoryApiName>openpipeline</forecastingItemCategoryApiName>
+        <weightedSourceCategories>
+            <sourceCategoryApiName>pipeline</sourceCategoryApiName>
+            <weight>1.0</weight>
+        </weightedSourceCategories>
+        <weightedSourceCategories>
+            <sourceCategoryApiName>commit</sourceCategoryApiName>
+            <weight>1.0</weight>
+        </weightedSourceCategories>
+        <weightedSourceCategories>
+            <sourceCategoryApiName>best case</sourceCategoryApiName>
+            <weight>1.0</weight>
+        </weightedSourceCategories>
+    </forecastingCategoryMappings>
+    <forecastingCategoryMappings>
+        <forecastingItemCategoryApiName>omittedonly</forecastingItemCategoryApiName>
+        <weightedSourceCategories>
+            <sourceCategoryApiName>omitted</sourceCategoryApiName>
+            <weight>1.0</weight>
+        </weightedSourceCategories>
+    </forecastingCategoryMappings>
+    <forecastingCategoryMappings>
+        <forecastingItemCategoryApiName>bestcaseforecast</forecastingItemCategoryApiName>
+        <weightedSourceCategories>
+            <sourceCategoryApiName>closed</sourceCategoryApiName>
+            <weight>1.0</weight>
+        </weightedSourceCategories>
+        <weightedSourceCategories>
+            <sourceCategoryApiName>commit</sourceCategoryApiName>
+            <weight>1.0</weight>
+        </weightedSourceCategories>
+        <weightedSourceCategories>
+            <sourceCategoryApiName>best case</sourceCategoryApiName>
+            <weight>1.0</weight>
+        </weightedSourceCategories>
+    </forecastingCategoryMappings>
+    <forecastingCategoryMappings>
+        <forecastingItemCategoryApiName>pipelineonly</forecastingItemCategoryApiName>
+        <weightedSourceCategories>
+            <sourceCategoryApiName>pipeline</sourceCategoryApiName>
+            <weight>1.0</weight>
+        </weightedSourceCategories>
+    </forecastingCategoryMappings>
+    <forecastingCategoryMappings>
+        <forecastingItemCategoryApiName>commitforecast</forecastingItemCategoryApiName>
+        <weightedSourceCategories>
+            <sourceCategoryApiName>closed</sourceCategoryApiName>
+            <weight>1.0</weight>
+        </weightedSourceCategories>
+        <weightedSourceCategories>
+            <sourceCategoryApiName>commit</sourceCategoryApiName>
+            <weight>1.0</weight>
+        </weightedSourceCategories>
+    </forecastingCategoryMappings>
+    <forecastingCategoryMappings>
+        <forecastingItemCategoryApiName>bestcaseonly</forecastingItemCategoryApiName>
+        <weightedSourceCategories>
+            <sourceCategoryApiName>best case</sourceCategoryApiName>
+            <weight>1.0</weight>
+        </weightedSourceCategories>
+    </forecastingCategoryMappings>
+    <forecastingTypeSettings>
+        <active>true</active>
+        <adjustmentsSettings>
+            <enableAdjustments>false</enableAdjustments>
+            <enableOwnerAdjustments>false</enableOwnerAdjustments>
+        </adjustmentsSettings>
+        <displayedCategoryApiNames>closedonly</displayedCategoryApiNames>
+        <displayedCategoryApiNames>commitonly</displayedCategoryApiNames>
+        <displayedCategoryApiNames>bestcaseonly</displayedCategoryApiNames>
+        <displayedCategoryApiNames>pipelineonly</displayedCategoryApiNames>
+        <forecastRangeSettings>
+            <beginning>0</beginning>
+            <displaying>6</displaying>
+            <periodType>Month</periodType>
+        </forecastRangeSettings>
+        <forecastedCategoryApiNames>commitonly</forecastedCategoryApiNames>
+        <forecastedCategoryApiNames>closedonly</forecastedCategoryApiNames>
+        <forecastedCategoryApiNames>pipelineonly</forecastedCategoryApiNames>
+        <forecastedCategoryApiNames>bestcaseonly</forecastedCategoryApiNames>
+        <isAmount>true</isAmount>
+        <isAvailable>true</isAvailable>
+        <isQuantity>false</isQuantity>
+        <masterLabel>Opportunities</masterLabel>
+        <name>OpportunityRevenue</name>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.NAME</field>
+            <label>Opportunity Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>ACCOUNT.NAME</field>
+            <label>Account Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.AMOUNT</field>
+            <label>Amount</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.CLOSE_DATE</field>
+            <label>Close Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.STAGE_NAME</field>
+            <label>Stage</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.PROBABILITY</field>
+            <label>Probability (%)</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>FORECAST_CATEGORY</field>
+            <label>Forecast Category</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>FULL_NAME</field>
+            <label>Owner Full Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CONTRACT.CONTRACT_NUMBER</field>
+            <label>Contract Number</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CONTRACT.NAME</field>
+            <label>Contract Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.CURRENCY_ISO_CODE</field>
+            <label>Opportunity Currency</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CORE.USERS.ALIAS</field>
+            <label>Opportunity Owner Alias</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CORE.USERS.FIRST_NAME</field>
+            <label>Owner First Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CORE.USERS.LAST_NAME</field>
+            <label>Owner Last Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>DESCRIPTION</field>
+            <label>Description</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.EXP_AMOUNT</field>
+            <label>Expected Revenue</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.LEAD_SOURCE</field>
+            <label>Lead Source</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.NEXT_STEP</field>
+            <label>Next Step</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.PRIVATE</field>
+            <label>Private</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.QUANTITY</field>
+            <label>Quantity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.TYPE</field>
+            <label>Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>UPDATEDBY_USER.ALIAS</field>
+            <label>Last Modified By Alias</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CREATEDBY_USER.ALIAS</field>
+            <label>Created By Alias</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>SYNCEDQUOTE.NAME</field>
+            <label>Synced Quote</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.CLOSED</field>
+            <label>Closed</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.WON</field>
+            <label>Won</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>ACCOUNT.SITE</field>
+            <label>Account Site</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.FISCAL_YEAR</field>
+            <label>Fiscal Year</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.FISCAL_QUARTER</field>
+            <label>Fiscal Quarter</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.FISCAL_PERIOD</field>
+            <label>Fiscal Period</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.RECORDTYPE</field>
+            <label>Opportunity Record Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.LAST_ACTIVITY</field>
+            <label>Last Activity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.CREATED_DATE</field>
+            <label>Created Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.LAST_UPDATE</field>
+            <label>Last Modified Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rt</field>
+            <label>Abandoned Cart Creation Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63ru</field>
+            <label>Abandoned Cart Last Modified Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tzxQ</field>
+            <label>Account on Hold</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000FfBw3</field>
+            <label>Account Order Ready</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000JCwpM</field>
+            <label>Approval Status</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rn</field>
+            <label>Billing City</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63ro</field>
+            <label>Billing Country</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rp</field>
+            <label>Billing Phone</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rq</field>
+            <label>Billing State/Province</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rr</field>
+            <label>Billing Street</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tC6h</field>
+            <label>Billing Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rs</field>
+            <label>Billing Zip/Postal Code</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tzbz</field>
+            <label>Bill To Address</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000FUGUI</field>
+            <label>Chase Profile Id</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tRoe</field>
+            <label>Closed In Current Year</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rv</field>
+            <label>Commerce Cloud ID</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s1</field>
+            <label>Commerce Cloud Site</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000AkJ5h</field>
+            <label>Contact</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000G5mmR</field>
+            <label>Count Opportunity Products</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000FUGUJ</field>
+            <label>Credit Card</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000CujvE</field>
+            <label>Credit Card CSC Id</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tzgW</field>
+            <label>Credit Card Expiration Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000Cujpp</field>
+            <label>Credit Card Expiration Month</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000Cujpu</field>
+            <label>Credit Card Expiration Year</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000Cujoh</field>
+            <label>Credit Card Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000FWPn5</field>
+            <label>Credit Card Number</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000CujpB</field>
+            <label>Credit Card Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000I7gvc</field>
+            <label>DB Competitor</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000HcYcC</field>
+            <label>FOB</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009spf5</field>
+            <label>Geocode</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBtW</field>
+            <label>Header Need By Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rw</field>
+            <label>Is Abandoned Cart?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63sB</field>
+            <label>Is Public Wishlist?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rx</field>
+            <label>Is Removed Products List?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rz</field>
+            <label>Is Wishlist?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63sC</field>
+            <label>Latest Abandoned Cart</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000JDhyO</field>
+            <label>LeadConversionRT</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000I9ucT</field>
+            <label>LMD</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000I7b4i</field>
+            <label>Location Status</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0t000000bXEU</field>
+            <label>OpportunityAssignmentOwnerId</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000IJWaR</field>
+            <label>Order Number</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tC6X</field>
+            <label>Order Placed</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000IJcKW</field>
+            <label>Order Ready</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s0</field>
+            <label>Order Registration Status</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tC6c</field>
+            <label>Origin</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBtq</field>
+            <label>OTS Address1</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBy3</field>
+            <label>OTS Address2</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBhf</field>
+            <label>OTS Address3</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBy8</field>
+            <label>OTS City</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tByc</field>
+            <label>OTS Contact</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tByr</field>
+            <label>OTS Country</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBhB</field>
+            <label>OTS Fax</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBtl</field>
+            <label>OTS Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBym</field>
+            <label>OTS Phone</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tByX</field>
+            <label>OTS ResaleId</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tByI</field>
+            <label>OTS State</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tByS</field>
+            <label>OTS Zip</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBt2</field>
+            <label>PO Number</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000IJWaS</field>
+            <label>Quote Number</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s2</field>
+            <label>Recovered Abandoned Cart</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63ry</field>
+            <label>Recovered Order No</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000AjVwf</field>
+            <label>Sales Order</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000DByEv</field>
+            <label>Sample Order</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000AjVsi</field>
+            <label>Send To ERP</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000AkBm5</field>
+            <label>Sent To ERP</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000C72oo</field>
+            <label>Ship By Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000Ff91Z</field>
+            <label>Ship Complete</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000C6in6</field>
+            <label>Shipping Address</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s3</field>
+            <label>Shipping City</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s4</field>
+            <label>Shipping Country</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s5</field>
+            <label>Shipping Method</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s6</field>
+            <label>Shipping Phone</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s7</field>
+            <label>Shipping State/Province</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s8</field>
+            <label>Shipping Street</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s9</field>
+            <label>Shipping Zip/Postal Code</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000AkJ61</field>
+            <label>Ship To</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000AkJ66</field>
+            <label>Ship To Contact</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000JDW7I</field>
+            <label>Sold To Address</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63sA</field>
+            <label>Synced by Unify Commerce</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBtg</field>
+            <label>Use OTS</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000GZ4wF</field>
+            <label>YETI-Oppty to Acct Ownership Check</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>PARTNER.NAME</field>
+            <label>Partner Account</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsSelectedSettings>
+            <field>OPPORTUNITY.NAME</field>
+            <field>ACCOUNT.NAME</field>
+            <field>OPPORTUNITY.AMOUNT</field>
+            <field>OPPORTUNITY.CLOSE_DATE</field>
+            <field>OPPORTUNITY.STAGE_NAME</field>
+            <field>OPPORTUNITY.PROBABILITY</field>
+            <field>FORECAST_CATEGORY</field>
+            <field>FULL_NAME</field>
+        </opportunityListFieldsSelectedSettings>
+        <opportunityListFieldsUnselectedSettings>
+            <field>CONTRACT.CONTRACT_NUMBER</field>
+            <field>CONTRACT.NAME</field>
+            <field>OPPORTUNITY.CURRENCY_ISO_CODE</field>
+            <field>CORE.USERS.ALIAS</field>
+            <field>CORE.USERS.FIRST_NAME</field>
+            <field>CORE.USERS.LAST_NAME</field>
+            <field>DESCRIPTION</field>
+            <field>OPPORTUNITY.EXP_AMOUNT</field>
+            <field>OPPORTUNITY.LEAD_SOURCE</field>
+            <field>OPPORTUNITY.NEXT_STEP</field>
+            <field>OPPORTUNITY.PRIVATE</field>
+            <field>OPPORTUNITY.QUANTITY</field>
+            <field>OPPORTUNITY.TYPE</field>
+            <field>UPDATEDBY_USER.ALIAS</field>
+            <field>CREATEDBY_USER.ALIAS</field>
+            <field>SYNCEDQUOTE.NAME</field>
+            <field>OPPORTUNITY.CLOSED</field>
+            <field>OPPORTUNITY.WON</field>
+            <field>ACCOUNT.SITE</field>
+            <field>OPPORTUNITY.FISCAL_YEAR</field>
+            <field>OPPORTUNITY.FISCAL_QUARTER</field>
+            <field>OPPORTUNITY.FISCAL_PERIOD</field>
+            <field>OPPORTUNITY.RECORDTYPE</field>
+            <field>OPPORTUNITY.LAST_ACTIVITY</field>
+            <field>OPPORTUNITY.CREATED_DATE</field>
+            <field>OPPORTUNITY.LAST_UPDATE</field>
+            <field>00N0H00000I63rt</field>
+            <field>00N0H00000I63ru</field>
+            <field>00Ni0000009tzxQ</field>
+            <field>00Ni000000FfBw3</field>
+            <field>00N0H00000JCwpM</field>
+            <field>00N0H00000I63rn</field>
+            <field>00N0H00000I63ro</field>
+            <field>00N0H00000I63rp</field>
+            <field>00N0H00000I63rq</field>
+            <field>00N0H00000I63rr</field>
+            <field>00Ni0000009tC6h</field>
+            <field>00N0H00000I63rs</field>
+            <field>00Ni0000009tzbz</field>
+            <field>00Ni000000FUGUI</field>
+            <field>00Ni0000009tRoe</field>
+            <field>00N0H00000I63rv</field>
+            <field>00N0H00000I63s1</field>
+            <field>00Ni000000AkJ5h</field>
+            <field>00Ni000000G5mmR</field>
+            <field>00Ni000000FUGUJ</field>
+            <field>00Ni000000CujvE</field>
+            <field>00Ni0000009tzgW</field>
+            <field>00Ni000000Cujpp</field>
+            <field>00Ni000000Cujpu</field>
+            <field>00Ni000000Cujoh</field>
+            <field>00Ni000000FWPn5</field>
+            <field>00Ni000000CujpB</field>
+            <field>00Ni000000I7gvc</field>
+            <field>00Ni000000HcYcC</field>
+            <field>00Ni0000009spf5</field>
+            <field>00Ni0000009tBtW</field>
+            <field>00N0H00000I63rw</field>
+            <field>00N0H00000I63sB</field>
+            <field>00N0H00000I63rx</field>
+            <field>00N0H00000I63rz</field>
+            <field>00N0H00000I63sC</field>
+            <field>00N0H00000JDhyO</field>
+            <field>00Ni000000I9ucT</field>
+            <field>00Ni000000I7b4i</field>
+            <field>00N0t000000bXEU</field>
+            <field>00Ni000000IJWaR</field>
+            <field>00Ni0000009tC6X</field>
+            <field>00Ni000000IJcKW</field>
+            <field>00N0H00000I63s0</field>
+            <field>00Ni0000009tC6c</field>
+            <field>00Ni0000009tBtq</field>
+            <field>00Ni0000009tBy3</field>
+            <field>00Ni0000009tBhf</field>
+            <field>00Ni0000009tBy8</field>
+            <field>00Ni0000009tByc</field>
+            <field>00Ni0000009tByr</field>
+            <field>00Ni0000009tBhB</field>
+            <field>00Ni0000009tBtl</field>
+            <field>00Ni0000009tBym</field>
+            <field>00Ni0000009tByX</field>
+            <field>00Ni0000009tByI</field>
+            <field>00Ni0000009tByS</field>
+            <field>00Ni0000009tBt2</field>
+            <field>00Ni000000IJWaS</field>
+            <field>00N0H00000I63s2</field>
+            <field>00N0H00000I63ry</field>
+            <field>00Ni000000AjVwf</field>
+            <field>00Ni000000DByEv</field>
+            <field>00Ni000000AjVsi</field>
+            <field>00Ni000000AkBm5</field>
+            <field>00Ni000000C72oo</field>
+            <field>00Ni000000Ff91Z</field>
+            <field>00Ni000000C6in6</field>
+            <field>00N0H00000I63s3</field>
+            <field>00N0H00000I63s4</field>
+            <field>00N0H00000I63s5</field>
+            <field>00N0H00000I63s6</field>
+            <field>00N0H00000I63s7</field>
+            <field>00N0H00000I63s8</field>
+            <field>00N0H00000I63s9</field>
+            <field>00Ni000000AkJ61</field>
+            <field>00Ni000000AkJ66</field>
+            <field>00N0H00000JDW7I</field>
+            <field>00N0H00000I63sA</field>
+            <field>00Ni0000009tBtg</field>
+            <field>00Ni000000GZ4wF</field>
+            <field>PARTNER.NAME</field>
+        </opportunityListFieldsUnselectedSettings>
+        <quotasSettings>
+            <showQuotas>false</showQuotas>
+        </quotasSettings>
+    </forecastingTypeSettings>
+    <forecastingTypeSettings>
+        <active>false</active>
+        <adjustmentsSettings>
+            <enableAdjustments>false</enableAdjustments>
+            <enableOwnerAdjustments>false</enableOwnerAdjustments>
+        </adjustmentsSettings>
+        <displayedCategoryApiNames>closedonly</displayedCategoryApiNames>
+        <displayedCategoryApiNames>commitonly</displayedCategoryApiNames>
+        <displayedCategoryApiNames>bestcaseonly</displayedCategoryApiNames>
+        <displayedCategoryApiNames>pipelineonly</displayedCategoryApiNames>
+        <forecastRangeSettings>
+            <beginning>0</beginning>
+            <displaying>6</displaying>
+            <periodType>Month</periodType>
+        </forecastRangeSettings>
+        <forecastedCategoryApiNames>commitonly</forecastedCategoryApiNames>
+        <forecastedCategoryApiNames>closedonly</forecastedCategoryApiNames>
+        <forecastedCategoryApiNames>pipelineonly</forecastedCategoryApiNames>
+        <forecastedCategoryApiNames>bestcaseonly</forecastedCategoryApiNames>
+        <isAmount>false</isAmount>
+        <isAvailable>true</isAvailable>
+        <isQuantity>true</isQuantity>
+        <masterLabel>Opportunities</masterLabel>
+        <name>OpportunityQuantity</name>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.NAME</field>
+            <label>Opportunity Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>ACCOUNT.NAME</field>
+            <label>Account Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.QUANTITY</field>
+            <label>Quantity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.CLOSE_DATE</field>
+            <label>Close Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.STAGE_NAME</field>
+            <label>Stage</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.PROBABILITY</field>
+            <label>Probability (%)</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>FORECAST_CATEGORY</field>
+            <label>Forecast Category</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>FULL_NAME</field>
+            <label>Owner Full Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CONTRACT.CONTRACT_NUMBER</field>
+            <label>Contract Number</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CONTRACT.NAME</field>
+            <label>Contract Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.CURRENCY_ISO_CODE</field>
+            <label>Opportunity Currency</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.AMOUNT</field>
+            <label>Amount</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CORE.USERS.ALIAS</field>
+            <label>Opportunity Owner Alias</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CORE.USERS.FIRST_NAME</field>
+            <label>Owner First Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CORE.USERS.LAST_NAME</field>
+            <label>Owner Last Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>DESCRIPTION</field>
+            <label>Description</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.EXP_AMOUNT</field>
+            <label>Expected Revenue</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.LEAD_SOURCE</field>
+            <label>Lead Source</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.NEXT_STEP</field>
+            <label>Next Step</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.PRIVATE</field>
+            <label>Private</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.TYPE</field>
+            <label>Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>UPDATEDBY_USER.ALIAS</field>
+            <label>Last Modified By Alias</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CREATEDBY_USER.ALIAS</field>
+            <label>Created By Alias</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>SYNCEDQUOTE.NAME</field>
+            <label>Synced Quote</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.CLOSED</field>
+            <label>Closed</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.WON</field>
+            <label>Won</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>ACCOUNT.SITE</field>
+            <label>Account Site</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.FISCAL_YEAR</field>
+            <label>Fiscal Year</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.FISCAL_QUARTER</field>
+            <label>Fiscal Quarter</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.FISCAL_PERIOD</field>
+            <label>Fiscal Period</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.RECORDTYPE</field>
+            <label>Opportunity Record Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.LAST_ACTIVITY</field>
+            <label>Last Activity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.CREATED_DATE</field>
+            <label>Created Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.LAST_UPDATE</field>
+            <label>Last Modified Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rt</field>
+            <label>Abandoned Cart Creation Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63ru</field>
+            <label>Abandoned Cart Last Modified Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tzxQ</field>
+            <label>Account on Hold</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000FfBw3</field>
+            <label>Account Order Ready</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000JCwpM</field>
+            <label>Approval Status</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rn</field>
+            <label>Billing City</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63ro</field>
+            <label>Billing Country</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rp</field>
+            <label>Billing Phone</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rq</field>
+            <label>Billing State/Province</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rr</field>
+            <label>Billing Street</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tC6h</field>
+            <label>Billing Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rs</field>
+            <label>Billing Zip/Postal Code</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tzbz</field>
+            <label>Bill To Address</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000FUGUI</field>
+            <label>Chase Profile Id</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tRoe</field>
+            <label>Closed In Current Year</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rv</field>
+            <label>Commerce Cloud ID</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s1</field>
+            <label>Commerce Cloud Site</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000AkJ5h</field>
+            <label>Contact</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000G5mmR</field>
+            <label>Count Opportunity Products</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000FUGUJ</field>
+            <label>Credit Card</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000CujvE</field>
+            <label>Credit Card CSC Id</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tzgW</field>
+            <label>Credit Card Expiration Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000Cujpp</field>
+            <label>Credit Card Expiration Month</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000Cujpu</field>
+            <label>Credit Card Expiration Year</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000Cujoh</field>
+            <label>Credit Card Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000FWPn5</field>
+            <label>Credit Card Number</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000CujpB</field>
+            <label>Credit Card Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000I7gvc</field>
+            <label>DB Competitor</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000HcYcC</field>
+            <label>FOB</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009spf5</field>
+            <label>Geocode</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBtW</field>
+            <label>Header Need By Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rw</field>
+            <label>Is Abandoned Cart?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63sB</field>
+            <label>Is Public Wishlist?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rx</field>
+            <label>Is Removed Products List?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rz</field>
+            <label>Is Wishlist?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63sC</field>
+            <label>Latest Abandoned Cart</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000JDhyO</field>
+            <label>LeadConversionRT</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000I9ucT</field>
+            <label>LMD</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000I7b4i</field>
+            <label>Location Status</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0t000000bXEU</field>
+            <label>OpportunityAssignmentOwnerId</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000IJWaR</field>
+            <label>Order Number</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tC6X</field>
+            <label>Order Placed</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000IJcKW</field>
+            <label>Order Ready</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s0</field>
+            <label>Order Registration Status</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tC6c</field>
+            <label>Origin</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBtq</field>
+            <label>OTS Address1</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBy3</field>
+            <label>OTS Address2</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBhf</field>
+            <label>OTS Address3</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBy8</field>
+            <label>OTS City</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tByc</field>
+            <label>OTS Contact</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tByr</field>
+            <label>OTS Country</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBhB</field>
+            <label>OTS Fax</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBtl</field>
+            <label>OTS Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBym</field>
+            <label>OTS Phone</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tByX</field>
+            <label>OTS ResaleId</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tByI</field>
+            <label>OTS State</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tByS</field>
+            <label>OTS Zip</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBt2</field>
+            <label>PO Number</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000IJWaS</field>
+            <label>Quote Number</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s2</field>
+            <label>Recovered Abandoned Cart</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63ry</field>
+            <label>Recovered Order No</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000AjVwf</field>
+            <label>Sales Order</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000DByEv</field>
+            <label>Sample Order</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000AjVsi</field>
+            <label>Send To ERP</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000AkBm5</field>
+            <label>Sent To ERP</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000C72oo</field>
+            <label>Ship By Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000Ff91Z</field>
+            <label>Ship Complete</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000C6in6</field>
+            <label>Shipping Address</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s3</field>
+            <label>Shipping City</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s4</field>
+            <label>Shipping Country</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s5</field>
+            <label>Shipping Method</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s6</field>
+            <label>Shipping Phone</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s7</field>
+            <label>Shipping State/Province</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s8</field>
+            <label>Shipping Street</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s9</field>
+            <label>Shipping Zip/Postal Code</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000AkJ61</field>
+            <label>Ship To</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000AkJ66</field>
+            <label>Ship To Contact</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000JDW7I</field>
+            <label>Sold To Address</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63sA</field>
+            <label>Synced by Unify Commerce</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBtg</field>
+            <label>Use OTS</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000GZ4wF</field>
+            <label>YETI-Oppty to Acct Ownership Check</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>PARTNER.NAME</field>
+            <label>Partner Account</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsSelectedSettings>
+            <field>OPPORTUNITY.NAME</field>
+            <field>ACCOUNT.NAME</field>
+            <field>OPPORTUNITY.QUANTITY</field>
+            <field>OPPORTUNITY.CLOSE_DATE</field>
+            <field>OPPORTUNITY.STAGE_NAME</field>
+            <field>OPPORTUNITY.PROBABILITY</field>
+            <field>FORECAST_CATEGORY</field>
+            <field>FULL_NAME</field>
+        </opportunityListFieldsSelectedSettings>
+        <opportunityListFieldsUnselectedSettings>
+            <field>CONTRACT.CONTRACT_NUMBER</field>
+            <field>CONTRACT.NAME</field>
+            <field>OPPORTUNITY.CURRENCY_ISO_CODE</field>
+            <field>OPPORTUNITY.AMOUNT</field>
+            <field>CORE.USERS.ALIAS</field>
+            <field>CORE.USERS.FIRST_NAME</field>
+            <field>CORE.USERS.LAST_NAME</field>
+            <field>DESCRIPTION</field>
+            <field>OPPORTUNITY.EXP_AMOUNT</field>
+            <field>OPPORTUNITY.LEAD_SOURCE</field>
+            <field>OPPORTUNITY.NEXT_STEP</field>
+            <field>OPPORTUNITY.PRIVATE</field>
+            <field>OPPORTUNITY.TYPE</field>
+            <field>UPDATEDBY_USER.ALIAS</field>
+            <field>CREATEDBY_USER.ALIAS</field>
+            <field>SYNCEDQUOTE.NAME</field>
+            <field>OPPORTUNITY.CLOSED</field>
+            <field>OPPORTUNITY.WON</field>
+            <field>ACCOUNT.SITE</field>
+            <field>OPPORTUNITY.FISCAL_YEAR</field>
+            <field>OPPORTUNITY.FISCAL_QUARTER</field>
+            <field>OPPORTUNITY.FISCAL_PERIOD</field>
+            <field>OPPORTUNITY.RECORDTYPE</field>
+            <field>OPPORTUNITY.LAST_ACTIVITY</field>
+            <field>OPPORTUNITY.CREATED_DATE</field>
+            <field>OPPORTUNITY.LAST_UPDATE</field>
+            <field>00N0H00000I63rt</field>
+            <field>00N0H00000I63ru</field>
+            <field>00Ni0000009tzxQ</field>
+            <field>00Ni000000FfBw3</field>
+            <field>00N0H00000JCwpM</field>
+            <field>00N0H00000I63rn</field>
+            <field>00N0H00000I63ro</field>
+            <field>00N0H00000I63rp</field>
+            <field>00N0H00000I63rq</field>
+            <field>00N0H00000I63rr</field>
+            <field>00Ni0000009tC6h</field>
+            <field>00N0H00000I63rs</field>
+            <field>00Ni0000009tzbz</field>
+            <field>00Ni000000FUGUI</field>
+            <field>00Ni0000009tRoe</field>
+            <field>00N0H00000I63rv</field>
+            <field>00N0H00000I63s1</field>
+            <field>00Ni000000AkJ5h</field>
+            <field>00Ni000000G5mmR</field>
+            <field>00Ni000000FUGUJ</field>
+            <field>00Ni000000CujvE</field>
+            <field>00Ni0000009tzgW</field>
+            <field>00Ni000000Cujpp</field>
+            <field>00Ni000000Cujpu</field>
+            <field>00Ni000000Cujoh</field>
+            <field>00Ni000000FWPn5</field>
+            <field>00Ni000000CujpB</field>
+            <field>00Ni000000I7gvc</field>
+            <field>00Ni000000HcYcC</field>
+            <field>00Ni0000009spf5</field>
+            <field>00Ni0000009tBtW</field>
+            <field>00N0H00000I63rw</field>
+            <field>00N0H00000I63sB</field>
+            <field>00N0H00000I63rx</field>
+            <field>00N0H00000I63rz</field>
+            <field>00N0H00000I63sC</field>
+            <field>00N0H00000JDhyO</field>
+            <field>00Ni000000I9ucT</field>
+            <field>00Ni000000I7b4i</field>
+            <field>00N0t000000bXEU</field>
+            <field>00Ni000000IJWaR</field>
+            <field>00Ni0000009tC6X</field>
+            <field>00Ni000000IJcKW</field>
+            <field>00N0H00000I63s0</field>
+            <field>00Ni0000009tC6c</field>
+            <field>00Ni0000009tBtq</field>
+            <field>00Ni0000009tBy3</field>
+            <field>00Ni0000009tBhf</field>
+            <field>00Ni0000009tBy8</field>
+            <field>00Ni0000009tByc</field>
+            <field>00Ni0000009tByr</field>
+            <field>00Ni0000009tBhB</field>
+            <field>00Ni0000009tBtl</field>
+            <field>00Ni0000009tBym</field>
+            <field>00Ni0000009tByX</field>
+            <field>00Ni0000009tByI</field>
+            <field>00Ni0000009tByS</field>
+            <field>00Ni0000009tBt2</field>
+            <field>00Ni000000IJWaS</field>
+            <field>00N0H00000I63s2</field>
+            <field>00N0H00000I63ry</field>
+            <field>00Ni000000AjVwf</field>
+            <field>00Ni000000DByEv</field>
+            <field>00Ni000000AjVsi</field>
+            <field>00Ni000000AkBm5</field>
+            <field>00Ni000000C72oo</field>
+            <field>00Ni000000Ff91Z</field>
+            <field>00Ni000000C6in6</field>
+            <field>00N0H00000I63s3</field>
+            <field>00N0H00000I63s4</field>
+            <field>00N0H00000I63s5</field>
+            <field>00N0H00000I63s6</field>
+            <field>00N0H00000I63s7</field>
+            <field>00N0H00000I63s8</field>
+            <field>00N0H00000I63s9</field>
+            <field>00Ni000000AkJ61</field>
+            <field>00Ni000000AkJ66</field>
+            <field>00N0H00000JDW7I</field>
+            <field>00N0H00000I63sA</field>
+            <field>00Ni0000009tBtg</field>
+            <field>00Ni000000GZ4wF</field>
+            <field>PARTNER.NAME</field>
+        </opportunityListFieldsUnselectedSettings>
+        <quotasSettings>
+            <showQuotas>false</showQuotas>
+        </quotasSettings>
+    </forecastingTypeSettings>
+    <forecastingTypeSettings>
+        <active>false</active>
+        <adjustmentsSettings>
+            <enableAdjustments>false</enableAdjustments>
+            <enableOwnerAdjustments>false</enableOwnerAdjustments>
+        </adjustmentsSettings>
+        <displayedCategoryApiNames>closedonly</displayedCategoryApiNames>
+        <displayedCategoryApiNames>commitonly</displayedCategoryApiNames>
+        <displayedCategoryApiNames>bestcaseonly</displayedCategoryApiNames>
+        <displayedCategoryApiNames>pipelineonly</displayedCategoryApiNames>
+        <forecastRangeSettings>
+            <beginning>0</beginning>
+            <displaying>6</displaying>
+            <periodType>Month</periodType>
+        </forecastRangeSettings>
+        <forecastedCategoryApiNames>commitonly</forecastedCategoryApiNames>
+        <forecastedCategoryApiNames>closedonly</forecastedCategoryApiNames>
+        <forecastedCategoryApiNames>pipelineonly</forecastedCategoryApiNames>
+        <forecastedCategoryApiNames>bestcaseonly</forecastedCategoryApiNames>
+        <isAmount>true</isAmount>
+        <isAvailable>true</isAvailable>
+        <isQuantity>false</isQuantity>
+        <masterLabel>Product Families</masterLabel>
+        <name>OpportunityLineItemRevenue</name>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.NAME</field>
+            <label>Opportunity Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>ACCOUNT.NAME</field>
+            <label>Account Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>SPLITAMOUNT</field>
+            <label>Forecasted Amount</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.CLOSE_DATE</field>
+            <label>Close Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.STAGE_NAME</field>
+            <label>Stage</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.PROBABILITY</field>
+            <label>Probability (%)</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>FORECAST_CATEGORY</field>
+            <label>Forecast Category</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>FULL_NAME</field>
+            <label>Owner Full Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CONTRACT.CONTRACT_NUMBER</field>
+            <label>Contract Number</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CONTRACT.NAME</field>
+            <label>Contract Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.CURRENCY_ISO_CODE</field>
+            <label>Opportunity Currency</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.AMOUNT</field>
+            <label>Amount</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CORE.USERS.ALIAS</field>
+            <label>Opportunity Owner Alias</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CORE.USERS.FIRST_NAME</field>
+            <label>Owner First Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CORE.USERS.LAST_NAME</field>
+            <label>Owner Last Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>DESCRIPTION</field>
+            <label>Description</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.EXP_AMOUNT</field>
+            <label>Expected Revenue</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.LEAD_SOURCE</field>
+            <label>Lead Source</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.NEXT_STEP</field>
+            <label>Next Step</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.PRIVATE</field>
+            <label>Private</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.QUANTITY</field>
+            <label>Quantity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.TYPE</field>
+            <label>Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>UPDATEDBY_USER.ALIAS</field>
+            <label>Last Modified By Alias</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CREATEDBY_USER.ALIAS</field>
+            <label>Created By Alias</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>SYNCEDQUOTE.NAME</field>
+            <label>Synced Quote</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.CLOSED</field>
+            <label>Closed</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.WON</field>
+            <label>Won</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>ACCOUNT.SITE</field>
+            <label>Account Site</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.FISCAL_YEAR</field>
+            <label>Fiscal Year</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.FISCAL_QUARTER</field>
+            <label>Fiscal Quarter</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.FISCAL_PERIOD</field>
+            <label>Fiscal Period</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.RECORDTYPE</field>
+            <label>Opportunity Record Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.LAST_ACTIVITY</field>
+            <label>Last Activity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.CREATED_DATE</field>
+            <label>Created Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.LAST_UPDATE</field>
+            <label>Last Modified Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rt</field>
+            <label>Abandoned Cart Creation Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63ru</field>
+            <label>Abandoned Cart Last Modified Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tzxQ</field>
+            <label>Account on Hold</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000FfBw3</field>
+            <label>Account Order Ready</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000JCwpM</field>
+            <label>Approval Status</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rn</field>
+            <label>Billing City</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63ro</field>
+            <label>Billing Country</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rp</field>
+            <label>Billing Phone</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rq</field>
+            <label>Billing State/Province</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rr</field>
+            <label>Billing Street</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tC6h</field>
+            <label>Billing Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rs</field>
+            <label>Billing Zip/Postal Code</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tzbz</field>
+            <label>Bill To Address</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000FUGUI</field>
+            <label>Chase Profile Id</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tRoe</field>
+            <label>Closed In Current Year</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rv</field>
+            <label>Commerce Cloud ID</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s1</field>
+            <label>Commerce Cloud Site</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000AkJ5h</field>
+            <label>Contact</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000G5mmR</field>
+            <label>Count Opportunity Products</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000FUGUJ</field>
+            <label>Credit Card</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000CujvE</field>
+            <label>Credit Card CSC Id</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tzgW</field>
+            <label>Credit Card Expiration Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000Cujpp</field>
+            <label>Credit Card Expiration Month</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000Cujpu</field>
+            <label>Credit Card Expiration Year</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000Cujoh</field>
+            <label>Credit Card Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000FWPn5</field>
+            <label>Credit Card Number</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000CujpB</field>
+            <label>Credit Card Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000I7gvc</field>
+            <label>DB Competitor</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000HcYcC</field>
+            <label>FOB</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009spf5</field>
+            <label>Geocode</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBtW</field>
+            <label>Header Need By Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rw</field>
+            <label>Is Abandoned Cart?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63sB</field>
+            <label>Is Public Wishlist?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rx</field>
+            <label>Is Removed Products List?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rz</field>
+            <label>Is Wishlist?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63sC</field>
+            <label>Latest Abandoned Cart</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000JDhyO</field>
+            <label>LeadConversionRT</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000I9ucT</field>
+            <label>LMD</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000I7b4i</field>
+            <label>Location Status</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0t000000bXEU</field>
+            <label>OpportunityAssignmentOwnerId</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000IJWaR</field>
+            <label>Order Number</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tC6X</field>
+            <label>Order Placed</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000IJcKW</field>
+            <label>Order Ready</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s0</field>
+            <label>Order Registration Status</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tC6c</field>
+            <label>Origin</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBtq</field>
+            <label>OTS Address1</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBy3</field>
+            <label>OTS Address2</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBhf</field>
+            <label>OTS Address3</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBy8</field>
+            <label>OTS City</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tByc</field>
+            <label>OTS Contact</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tByr</field>
+            <label>OTS Country</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBhB</field>
+            <label>OTS Fax</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBtl</field>
+            <label>OTS Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBym</field>
+            <label>OTS Phone</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tByX</field>
+            <label>OTS ResaleId</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tByI</field>
+            <label>OTS State</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tByS</field>
+            <label>OTS Zip</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBt2</field>
+            <label>PO Number</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000IJWaS</field>
+            <label>Quote Number</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s2</field>
+            <label>Recovered Abandoned Cart</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63ry</field>
+            <label>Recovered Order No</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000AjVwf</field>
+            <label>Sales Order</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000DByEv</field>
+            <label>Sample Order</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000AjVsi</field>
+            <label>Send To ERP</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000AkBm5</field>
+            <label>Sent To ERP</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000C72oo</field>
+            <label>Ship By Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000Ff91Z</field>
+            <label>Ship Complete</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000C6in6</field>
+            <label>Shipping Address</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s3</field>
+            <label>Shipping City</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s4</field>
+            <label>Shipping Country</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s5</field>
+            <label>Shipping Method</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s6</field>
+            <label>Shipping Phone</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s7</field>
+            <label>Shipping State/Province</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s8</field>
+            <label>Shipping Street</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s9</field>
+            <label>Shipping Zip/Postal Code</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000AkJ61</field>
+            <label>Ship To</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000AkJ66</field>
+            <label>Ship To Contact</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000JDW7I</field>
+            <label>Sold To Address</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63sA</field>
+            <label>Synced by Unify Commerce</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBtg</field>
+            <label>Use OTS</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000GZ4wF</field>
+            <label>YETI-Oppty to Acct Ownership Check</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>PARTNER.NAME</field>
+            <label>Partner Account</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsSelectedSettings>
+            <field>OPPORTUNITY.NAME</field>
+            <field>ACCOUNT.NAME</field>
+            <field>SPLITAMOUNT</field>
+            <field>OPPORTUNITY.CLOSE_DATE</field>
+            <field>OPPORTUNITY.STAGE_NAME</field>
+            <field>OPPORTUNITY.PROBABILITY</field>
+            <field>FORECAST_CATEGORY</field>
+            <field>FULL_NAME</field>
+        </opportunityListFieldsSelectedSettings>
+        <opportunityListFieldsUnselectedSettings>
+            <field>CONTRACT.CONTRACT_NUMBER</field>
+            <field>CONTRACT.NAME</field>
+            <field>OPPORTUNITY.CURRENCY_ISO_CODE</field>
+            <field>OPPORTUNITY.AMOUNT</field>
+            <field>CORE.USERS.ALIAS</field>
+            <field>CORE.USERS.FIRST_NAME</field>
+            <field>CORE.USERS.LAST_NAME</field>
+            <field>DESCRIPTION</field>
+            <field>OPPORTUNITY.EXP_AMOUNT</field>
+            <field>OPPORTUNITY.LEAD_SOURCE</field>
+            <field>OPPORTUNITY.NEXT_STEP</field>
+            <field>OPPORTUNITY.PRIVATE</field>
+            <field>OPPORTUNITY.QUANTITY</field>
+            <field>OPPORTUNITY.TYPE</field>
+            <field>UPDATEDBY_USER.ALIAS</field>
+            <field>CREATEDBY_USER.ALIAS</field>
+            <field>SYNCEDQUOTE.NAME</field>
+            <field>OPPORTUNITY.CLOSED</field>
+            <field>OPPORTUNITY.WON</field>
+            <field>ACCOUNT.SITE</field>
+            <field>OPPORTUNITY.FISCAL_YEAR</field>
+            <field>OPPORTUNITY.FISCAL_QUARTER</field>
+            <field>OPPORTUNITY.FISCAL_PERIOD</field>
+            <field>OPPORTUNITY.RECORDTYPE</field>
+            <field>OPPORTUNITY.LAST_ACTIVITY</field>
+            <field>OPPORTUNITY.CREATED_DATE</field>
+            <field>OPPORTUNITY.LAST_UPDATE</field>
+            <field>00N0H00000I63rt</field>
+            <field>00N0H00000I63ru</field>
+            <field>00Ni0000009tzxQ</field>
+            <field>00Ni000000FfBw3</field>
+            <field>00N0H00000JCwpM</field>
+            <field>00N0H00000I63rn</field>
+            <field>00N0H00000I63ro</field>
+            <field>00N0H00000I63rp</field>
+            <field>00N0H00000I63rq</field>
+            <field>00N0H00000I63rr</field>
+            <field>00Ni0000009tC6h</field>
+            <field>00N0H00000I63rs</field>
+            <field>00Ni0000009tzbz</field>
+            <field>00Ni000000FUGUI</field>
+            <field>00Ni0000009tRoe</field>
+            <field>00N0H00000I63rv</field>
+            <field>00N0H00000I63s1</field>
+            <field>00Ni000000AkJ5h</field>
+            <field>00Ni000000G5mmR</field>
+            <field>00Ni000000FUGUJ</field>
+            <field>00Ni000000CujvE</field>
+            <field>00Ni0000009tzgW</field>
+            <field>00Ni000000Cujpp</field>
+            <field>00Ni000000Cujpu</field>
+            <field>00Ni000000Cujoh</field>
+            <field>00Ni000000FWPn5</field>
+            <field>00Ni000000CujpB</field>
+            <field>00Ni000000I7gvc</field>
+            <field>00Ni000000HcYcC</field>
+            <field>00Ni0000009spf5</field>
+            <field>00Ni0000009tBtW</field>
+            <field>00N0H00000I63rw</field>
+            <field>00N0H00000I63sB</field>
+            <field>00N0H00000I63rx</field>
+            <field>00N0H00000I63rz</field>
+            <field>00N0H00000I63sC</field>
+            <field>00N0H00000JDhyO</field>
+            <field>00Ni000000I9ucT</field>
+            <field>00Ni000000I7b4i</field>
+            <field>00N0t000000bXEU</field>
+            <field>00Ni000000IJWaR</field>
+            <field>00Ni0000009tC6X</field>
+            <field>00Ni000000IJcKW</field>
+            <field>00N0H00000I63s0</field>
+            <field>00Ni0000009tC6c</field>
+            <field>00Ni0000009tBtq</field>
+            <field>00Ni0000009tBy3</field>
+            <field>00Ni0000009tBhf</field>
+            <field>00Ni0000009tBy8</field>
+            <field>00Ni0000009tByc</field>
+            <field>00Ni0000009tByr</field>
+            <field>00Ni0000009tBhB</field>
+            <field>00Ni0000009tBtl</field>
+            <field>00Ni0000009tBym</field>
+            <field>00Ni0000009tByX</field>
+            <field>00Ni0000009tByI</field>
+            <field>00Ni0000009tByS</field>
+            <field>00Ni0000009tBt2</field>
+            <field>00Ni000000IJWaS</field>
+            <field>00N0H00000I63s2</field>
+            <field>00N0H00000I63ry</field>
+            <field>00Ni000000AjVwf</field>
+            <field>00Ni000000DByEv</field>
+            <field>00Ni000000AjVsi</field>
+            <field>00Ni000000AkBm5</field>
+            <field>00Ni000000C72oo</field>
+            <field>00Ni000000Ff91Z</field>
+            <field>00Ni000000C6in6</field>
+            <field>00N0H00000I63s3</field>
+            <field>00N0H00000I63s4</field>
+            <field>00N0H00000I63s5</field>
+            <field>00N0H00000I63s6</field>
+            <field>00N0H00000I63s7</field>
+            <field>00N0H00000I63s8</field>
+            <field>00N0H00000I63s9</field>
+            <field>00Ni000000AkJ61</field>
+            <field>00Ni000000AkJ66</field>
+            <field>00N0H00000JDW7I</field>
+            <field>00N0H00000I63sA</field>
+            <field>00Ni0000009tBtg</field>
+            <field>00Ni000000GZ4wF</field>
+            <field>PARTNER.NAME</field>
+        </opportunityListFieldsUnselectedSettings>
+        <quotasSettings>
+            <showQuotas>false</showQuotas>
+        </quotasSettings>
+    </forecastingTypeSettings>
+    <forecastingTypeSettings>
+        <active>false</active>
+        <adjustmentsSettings>
+            <enableAdjustments>false</enableAdjustments>
+            <enableOwnerAdjustments>false</enableOwnerAdjustments>
+        </adjustmentsSettings>
+        <displayedCategoryApiNames>closedonly</displayedCategoryApiNames>
+        <displayedCategoryApiNames>commitonly</displayedCategoryApiNames>
+        <displayedCategoryApiNames>bestcaseonly</displayedCategoryApiNames>
+        <displayedCategoryApiNames>pipelineonly</displayedCategoryApiNames>
+        <forecastRangeSettings>
+            <beginning>0</beginning>
+            <displaying>6</displaying>
+            <periodType>Month</periodType>
+        </forecastRangeSettings>
+        <forecastedCategoryApiNames>commitonly</forecastedCategoryApiNames>
+        <forecastedCategoryApiNames>closedonly</forecastedCategoryApiNames>
+        <forecastedCategoryApiNames>pipelineonly</forecastedCategoryApiNames>
+        <forecastedCategoryApiNames>bestcaseonly</forecastedCategoryApiNames>
+        <isAmount>false</isAmount>
+        <isAvailable>true</isAvailable>
+        <isQuantity>true</isQuantity>
+        <masterLabel>Product Families</masterLabel>
+        <name>OpportunityLineItemQuantity</name>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.NAME</field>
+            <label>Opportunity Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>ACCOUNT.NAME</field>
+            <label>Account Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.QUANTITY</field>
+            <label>Quantity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.CLOSE_DATE</field>
+            <label>Close Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.STAGE_NAME</field>
+            <label>Stage</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.PROBABILITY</field>
+            <label>Probability (%)</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>FORECAST_CATEGORY</field>
+            <label>Forecast Category</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>FULL_NAME</field>
+            <label>Owner Full Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CONTRACT.CONTRACT_NUMBER</field>
+            <label>Contract Number</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CONTRACT.NAME</field>
+            <label>Contract Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.CURRENCY_ISO_CODE</field>
+            <label>Opportunity Currency</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.AMOUNT</field>
+            <label>Amount</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CORE.USERS.ALIAS</field>
+            <label>Opportunity Owner Alias</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CORE.USERS.FIRST_NAME</field>
+            <label>Owner First Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CORE.USERS.LAST_NAME</field>
+            <label>Owner Last Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>DESCRIPTION</field>
+            <label>Description</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.EXP_AMOUNT</field>
+            <label>Expected Revenue</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.LEAD_SOURCE</field>
+            <label>Lead Source</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.NEXT_STEP</field>
+            <label>Next Step</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.PRIVATE</field>
+            <label>Private</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.TYPE</field>
+            <label>Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>UPDATEDBY_USER.ALIAS</field>
+            <label>Last Modified By Alias</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>CREATEDBY_USER.ALIAS</field>
+            <label>Created By Alias</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>SYNCEDQUOTE.NAME</field>
+            <label>Synced Quote</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.CLOSED</field>
+            <label>Closed</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.WON</field>
+            <label>Won</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>ACCOUNT.SITE</field>
+            <label>Account Site</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.FISCAL_YEAR</field>
+            <label>Fiscal Year</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.FISCAL_QUARTER</field>
+            <label>Fiscal Quarter</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.FISCAL_PERIOD</field>
+            <label>Fiscal Period</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.RECORDTYPE</field>
+            <label>Opportunity Record Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.LAST_ACTIVITY</field>
+            <label>Last Activity</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.CREATED_DATE</field>
+            <label>Created Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>OPPORTUNITY.LAST_UPDATE</field>
+            <label>Last Modified Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rt</field>
+            <label>Abandoned Cart Creation Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63ru</field>
+            <label>Abandoned Cart Last Modified Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tzxQ</field>
+            <label>Account on Hold</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000FfBw3</field>
+            <label>Account Order Ready</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000JCwpM</field>
+            <label>Approval Status</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rn</field>
+            <label>Billing City</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63ro</field>
+            <label>Billing Country</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rp</field>
+            <label>Billing Phone</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rq</field>
+            <label>Billing State/Province</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rr</field>
+            <label>Billing Street</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tC6h</field>
+            <label>Billing Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rs</field>
+            <label>Billing Zip/Postal Code</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tzbz</field>
+            <label>Bill To Address</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000FUGUI</field>
+            <label>Chase Profile Id</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tRoe</field>
+            <label>Closed In Current Year</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rv</field>
+            <label>Commerce Cloud ID</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s1</field>
+            <label>Commerce Cloud Site</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000AkJ5h</field>
+            <label>Contact</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000G5mmR</field>
+            <label>Count Opportunity Products</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000FUGUJ</field>
+            <label>Credit Card</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000CujvE</field>
+            <label>Credit Card CSC Id</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tzgW</field>
+            <label>Credit Card Expiration Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000Cujpp</field>
+            <label>Credit Card Expiration Month</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000Cujpu</field>
+            <label>Credit Card Expiration Year</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000Cujoh</field>
+            <label>Credit Card Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000FWPn5</field>
+            <label>Credit Card Number</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000CujpB</field>
+            <label>Credit Card Type</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000I7gvc</field>
+            <label>DB Competitor</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000HcYcC</field>
+            <label>FOB</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009spf5</field>
+            <label>Geocode</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBtW</field>
+            <label>Header Need By Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rw</field>
+            <label>Is Abandoned Cart?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63sB</field>
+            <label>Is Public Wishlist?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rx</field>
+            <label>Is Removed Products List?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63rz</field>
+            <label>Is Wishlist?</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63sC</field>
+            <label>Latest Abandoned Cart</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000JDhyO</field>
+            <label>LeadConversionRT</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000I9ucT</field>
+            <label>LMD</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000I7b4i</field>
+            <label>Location Status</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0t000000bXEU</field>
+            <label>OpportunityAssignmentOwnerId</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000IJWaR</field>
+            <label>Order Number</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tC6X</field>
+            <label>Order Placed</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000IJcKW</field>
+            <label>Order Ready</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s0</field>
+            <label>Order Registration Status</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tC6c</field>
+            <label>Origin</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBtq</field>
+            <label>OTS Address1</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBy3</field>
+            <label>OTS Address2</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBhf</field>
+            <label>OTS Address3</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBy8</field>
+            <label>OTS City</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tByc</field>
+            <label>OTS Contact</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tByr</field>
+            <label>OTS Country</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBhB</field>
+            <label>OTS Fax</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBtl</field>
+            <label>OTS Name</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBym</field>
+            <label>OTS Phone</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tByX</field>
+            <label>OTS ResaleId</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tByI</field>
+            <label>OTS State</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tByS</field>
+            <label>OTS Zip</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBt2</field>
+            <label>PO Number</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000IJWaS</field>
+            <label>Quote Number</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s2</field>
+            <label>Recovered Abandoned Cart</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63ry</field>
+            <label>Recovered Order No</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000AjVwf</field>
+            <label>Sales Order</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000DByEv</field>
+            <label>Sample Order</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000AjVsi</field>
+            <label>Send To ERP</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000AkBm5</field>
+            <label>Sent To ERP</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000C72oo</field>
+            <label>Ship By Date</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000Ff91Z</field>
+            <label>Ship Complete</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000C6in6</field>
+            <label>Shipping Address</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s3</field>
+            <label>Shipping City</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s4</field>
+            <label>Shipping Country</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s5</field>
+            <label>Shipping Method</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s6</field>
+            <label>Shipping Phone</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s7</field>
+            <label>Shipping State/Province</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s8</field>
+            <label>Shipping Street</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63s9</field>
+            <label>Shipping Zip/Postal Code</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000AkJ61</field>
+            <label>Ship To</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000AkJ66</field>
+            <label>Ship To Contact</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000JDW7I</field>
+            <label>Sold To Address</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00N0H00000I63sA</field>
+            <label>Synced by Unify Commerce</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni0000009tBtg</field>
+            <label>Use OTS</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>00Ni000000GZ4wF</field>
+            <label>YETI-Oppty to Acct Ownership Check</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsLabelMappings>
+            <field>PARTNER.NAME</field>
+            <label>Partner Account</label>
+        </opportunityListFieldsLabelMappings>
+        <opportunityListFieldsSelectedSettings>
+            <field>OPPORTUNITY.NAME</field>
+            <field>ACCOUNT.NAME</field>
+            <field>OPPORTUNITY.QUANTITY</field>
+            <field>OPPORTUNITY.CLOSE_DATE</field>
+            <field>OPPORTUNITY.STAGE_NAME</field>
+            <field>OPPORTUNITY.PROBABILITY</field>
+            <field>FORECAST_CATEGORY</field>
+            <field>FULL_NAME</field>
+        </opportunityListFieldsSelectedSettings>
+        <opportunityListFieldsUnselectedSettings>
+            <field>CONTRACT.CONTRACT_NUMBER</field>
+            <field>CONTRACT.NAME</field>
+            <field>OPPORTUNITY.CURRENCY_ISO_CODE</field>
+            <field>OPPORTUNITY.AMOUNT</field>
+            <field>CORE.USERS.ALIAS</field>
+            <field>CORE.USERS.FIRST_NAME</field>
+            <field>CORE.USERS.LAST_NAME</field>
+            <field>DESCRIPTION</field>
+            <field>OPPORTUNITY.EXP_AMOUNT</field>
+            <field>OPPORTUNITY.LEAD_SOURCE</field>
+            <field>OPPORTUNITY.NEXT_STEP</field>
+            <field>OPPORTUNITY.PRIVATE</field>
+            <field>OPPORTUNITY.TYPE</field>
+            <field>UPDATEDBY_USER.ALIAS</field>
+            <field>CREATEDBY_USER.ALIAS</field>
+            <field>SYNCEDQUOTE.NAME</field>
+            <field>OPPORTUNITY.CLOSED</field>
+            <field>OPPORTUNITY.WON</field>
+            <field>ACCOUNT.SITE</field>
+            <field>OPPORTUNITY.FISCAL_YEAR</field>
+            <field>OPPORTUNITY.FISCAL_QUARTER</field>
+            <field>OPPORTUNITY.FISCAL_PERIOD</field>
+            <field>OPPORTUNITY.RECORDTYPE</field>
+            <field>OPPORTUNITY.LAST_ACTIVITY</field>
+            <field>OPPORTUNITY.CREATED_DATE</field>
+            <field>OPPORTUNITY.LAST_UPDATE</field>
+            <field>00N0H00000I63rt</field>
+            <field>00N0H00000I63ru</field>
+            <field>00Ni0000009tzxQ</field>
+            <field>00Ni000000FfBw3</field>
+            <field>00N0H00000JCwpM</field>
+            <field>00N0H00000I63rn</field>
+            <field>00N0H00000I63ro</field>
+            <field>00N0H00000I63rp</field>
+            <field>00N0H00000I63rq</field>
+            <field>00N0H00000I63rr</field>
+            <field>00Ni0000009tC6h</field>
+            <field>00N0H00000I63rs</field>
+            <field>00Ni0000009tzbz</field>
+            <field>00Ni000000FUGUI</field>
+            <field>00Ni0000009tRoe</field>
+            <field>00N0H00000I63rv</field>
+            <field>00N0H00000I63s1</field>
+            <field>00Ni000000AkJ5h</field>
+            <field>00Ni000000G5mmR</field>
+            <field>00Ni000000FUGUJ</field>
+            <field>00Ni000000CujvE</field>
+            <field>00Ni0000009tzgW</field>
+            <field>00Ni000000Cujpp</field>
+            <field>00Ni000000Cujpu</field>
+            <field>00Ni000000Cujoh</field>
+            <field>00Ni000000FWPn5</field>
+            <field>00Ni000000CujpB</field>
+            <field>00Ni000000I7gvc</field>
+            <field>00Ni000000HcYcC</field>
+            <field>00Ni0000009spf5</field>
+            <field>00Ni0000009tBtW</field>
+            <field>00N0H00000I63rw</field>
+            <field>00N0H00000I63sB</field>
+            <field>00N0H00000I63rx</field>
+            <field>00N0H00000I63rz</field>
+            <field>00N0H00000I63sC</field>
+            <field>00N0H00000JDhyO</field>
+            <field>00Ni000000I9ucT</field>
+            <field>00Ni000000I7b4i</field>
+            <field>00N0t000000bXEU</field>
+            <field>00Ni000000IJWaR</field>
+            <field>00Ni0000009tC6X</field>
+            <field>00Ni000000IJcKW</field>
+            <field>00N0H00000I63s0</field>
+            <field>00Ni0000009tC6c</field>
+            <field>00Ni0000009tBtq</field>
+            <field>00Ni0000009tBy3</field>
+            <field>00Ni0000009tBhf</field>
+            <field>00Ni0000009tBy8</field>
+            <field>00Ni0000009tByc</field>
+            <field>00Ni0000009tByr</field>
+            <field>00Ni0000009tBhB</field>
+            <field>00Ni0000009tBtl</field>
+            <field>00Ni0000009tBym</field>
+            <field>00Ni0000009tByX</field>
+            <field>00Ni0000009tByI</field>
+            <field>00Ni0000009tByS</field>
+            <field>00Ni0000009tBt2</field>
+            <field>00Ni000000IJWaS</field>
+            <field>00N0H00000I63s2</field>
+            <field>00N0H00000I63ry</field>
+            <field>00Ni000000AjVwf</field>
+            <field>00Ni000000DByEv</field>
+            <field>00Ni000000AjVsi</field>
+            <field>00Ni000000AkBm5</field>
+            <field>00Ni000000C72oo</field>
+            <field>00Ni000000Ff91Z</field>
+            <field>00Ni000000C6in6</field>
+            <field>00N0H00000I63s3</field>
+            <field>00N0H00000I63s4</field>
+            <field>00N0H00000I63s5</field>
+            <field>00N0H00000I63s6</field>
+            <field>00N0H00000I63s7</field>
+            <field>00N0H00000I63s8</field>
+            <field>00N0H00000I63s9</field>
+            <field>00Ni000000AkJ61</field>
+            <field>00Ni000000AkJ66</field>
+            <field>00N0H00000JDW7I</field>
+            <field>00N0H00000I63sA</field>
+            <field>00Ni0000009tBtg</field>
+            <field>00Ni000000GZ4wF</field>
+            <field>PARTNER.NAME</field>
+        </opportunityListFieldsUnselectedSettings>
+        <quotasSettings>
+            <showQuotas>false</showQuotas>
+        </quotasSettings>
+    </forecastingTypeSettings>
+</ForecastingSettings>

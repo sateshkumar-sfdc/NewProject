@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>SubLineItem</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>SubLineItems</value>
+    </caseValues>
+    <fields>
+        <label><!-- itemkeyid --></label>
+        <name>itemkeyid__c</name>
+    </fields>
+    <fields>
+        <label><!-- laserimage --></label>
+        <name>laserimage__c</name>
+    </fields>
+    <fields>
+        <label><!-- productkey --></label>
+        <name>productkey__c</name>
+    </fields>
+    <fields>
+        <label><!-- ramsideloc --></label>
+        <name>ramsideloc__c</name>
+    </fields>
+    <fields>
+        <label><!-- warpedpreview --></label>
+        <name>warpedpreview__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

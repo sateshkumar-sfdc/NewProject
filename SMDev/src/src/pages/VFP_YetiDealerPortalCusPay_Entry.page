@@ -1,0 +1,115 @@
+<apex:page showHeader="false" standardStylesheets="false" controller="CTRL_YetiDealerPortalCusPay_Entry" title="Customer Payment Methods" tabStyle="Account" sidebar="false" action="{!initDetail}" id="page">
+<apex:slds />
+<!--
+LINKS:
+Account | 'SAP Customer Payment Methods' | LNK_Account_CustomerPayments | /apex/VFP_YetiDealerPortalCusPay_Entry?SF_AcctId={!Account.Id}
+-->
+
+<!-- Test Card#: 5105105105105100 - MC -->
+
+<apex:pageMessages id="messagediv" rendered="{!canDisplayPage == false}"/>
+<div class="slds-scope">
+    <apex:stylesheet value="{!URLFOR($Resource.enosixCustom, 'css/CustomCommunityStyle.css')}"/>
+    <apex:form id="mainform"  rendered="{!canDisplayPage}">
+        <c:CMP_Status />
+
+        <apex:pageMessages id="messagediv" />
+
+        <apex:pageBlock rendered="{! null != cDetail}">
+            <div class="slds-text-heading--large slds-p-bottom--small">Payment Methods</div>
+            <apex:outputPanel styleClass="panelSection" layout="block">
+                <div class="slds-p-bottom--small">
+                    <apex:commandButton value="Enter New Credit Card" rendered="{!!isCaptureButtonVisible && null == intercept}"
+                        styleClass="slds-button slds-button--brand" rerender="mainform" onclick="initCardForm();return false;" />
+                </div>
+
+                <apex:actionFunction name="authorizeCard" action="{!actionAuthCard}" rerender="mainform" status="status">
+                </apex:actionFunction>
+                <apex:actionFunction name="addCardToCustomer" action="{!actionAddCard}" rerender="mainform" status="status">
+                </apex:actionFunction>
+                <apex:actionFunction name="removeCard" action="{!actionRemoveCard}" rerender="mainform" status="status">
+                    <apex:param name="cardNumber" value="" />
+                </apex:actionFunction>
+                <apex:actionFunction name="selectDefault" action="{!actionSelectDefault}" rerender="mainform" status="status">
+                    <apex:param name="cardNumber" value="" />
+                </apex:actionFunction>
+                
+                <apex:outputPanel rendered="{!null != intercept}">
+                    <div class="pbSubheader">
+                        <h3 class="slds-section__title">Captured Card:</h3>
+                    </div>
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-size--1-of-1">
+                            <span class="textLabel">Credit Card Type: </span><apex:outputText value="{!intercept.RESPONSE.SAPCardType}" />
+                        </div>
+                        <div class="slds-size--1-of-1">
+                            <span class="textLabel">Credit Card Number: </span><apex:outputText value="{!intercept.RESPONSE.CreditCardNumber}" />
+                        </div>
+                        <div class="slds-size--1-of-1">
+                            <span class="textLabel">Month: </span><apex:outputText value="{!intercept.RESPONSE.ValidToMonth}" />
+                        </div>
+                        <div class="slds-size--1-of-1">
+                            <span class="textLabel">Year: </span><apex:outputText value="{!intercept.RESPONSE.ValidToYear}"/>
+                        </div>
+                        <div class="slds-size--1-of-1">
+                            <span class="textLabel">Credit Card Holder: </span><apex:outputText value="{!intercept.RESPONSE.CreditCardHolder}"/>
+                        </div>
+                        <div class="slds-size--1-of-1">
+                            <apex:outputText style="color:#080;" value="Authorized Successfully" label=" " rendered="{!isAuthorizedVisible && isAuthorized}" />
+                        </div>
+                        <div class="slds-size--1-of-1">
+                            <apex:outputText style="color:#800;" value="Authorization Failed" label=" " rendered="{!isAuthorizedVisible && !isAuthorized}" />
+                        </div>
+                    </div>
+
+                    <div class="slds-grid">
+                        <div class="slds-size--1-of-1 slds-medium-size--1-of-6">
+                            <apex:commandButton styleClass="slds-button slds-button--brand" value="Check Authorization" onclick="authorizeCard(); return false;" rerender="mainform" />
+                        </div>
+                        <div class="slds-size--1-of-1 slds-medium-size--1-of-6">
+                            <apex:commandButton styleClass="slds-button slds-button--brand" value="Add To Customer" onclick="addCardToCustomer(); return false;" rerender="mainform" />
+                        </div>
+                        <div class="slds-size--1-of-1 slds-medium-size--1-of-6">
+                            <apex:commandButton styleClass="slds-button slds-button--brand" value="Clear Captured Card" onclick="initCardForm();return false;" rerender="mainform" />
+                        </div>
+                    </div>
+                </apex:outputPanel>
+
+                <apex:pageBlockSection columns="1" collapsible="false">                    
+                    <c:CMP_CreditCardEntry receiver="{!receiver}" initAction="initCardForm" submitAction="lookupCardDetails" rerender="mainform" />
+                    <apex:commandButton value="Save Card" styleClass="slds-button slds-button--brand" onclick="lookupCardDetails(); return false;" rerender="mainform" rendered="{!isCaptureButtonVisible}" />
+                </apex:pageBlockSection>
+
+                <apex:pageBlockTable value="{!paymentsList}" var="p"
+                    styleClass="slds-table slds-table--bordered slds-table--cell-buffer"
+                    headerClass="slds-text-title--caps">
+                    <apex:column headerValue="Default Card" styleClass="slds-text-align--center">
+                        <apex:outputText value="{!p.DefaultPaymentCard}"/>
+                        <apex:commandButton rendered="{!IF(p.DefaultPaymentCard != 'X',true,false)}" styleClass="slds-button slds-button--brand" 
+                        value="Make Default" onclick="if(confirm('Are you sure you want to select {!p.CardNumber} as your default card?'))selectDefault('{!p.CardNumber}');return false;"/>
+                    </apex:column>
+                    <apex:column headerValue="Card Number" value="{!p.CardNumber}" />
+                    <apex:column headerValue="Card Type" value="{!p.PaymentCardTypeDesc}" />
+                    <apex:column headerValue="Card Holder" value="{!p.CardHolderName}" />                    
+                    <apex:column headerValue="Valid From Date">
+                        <apex:outputText value="{0,date,MM/dd/yyyy}">
+                            <apex:param value="{!p.ValidFromDate}" />
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Valid To Date">
+                        <apex:outputText value="{0,date,MM/dd/yyyy}">
+                            <apex:param value="{!p.ValidToDate}" />
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Remove Card">
+                        <apex:commandButton styleClass="slds-button slds-button--brand" value="Remove" 
+                        onclick="if(confirm('Are you sure you want to delete card {!p.CardNumber}?'))removeCard('{!p.CardNumber}');return false;" />
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:outputPanel>
+        </apex:pageBlock>
+
+    </apex:form>
+    <c:CMP_Footer />
+</div>
+</apex:page>

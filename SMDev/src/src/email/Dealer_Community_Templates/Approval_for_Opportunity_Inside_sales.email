@@ -1,0 +1,4 @@
+A new opportunity record has been submitted for your approval. Please visit the link below and either approve or reject it.
+{!Opportunity.Link}
+
+Thanks!

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Panga Flotation</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hello,
+
+Thank you for reaching out to YETI.  The YETI Panga has been intentionally designed as a dry bag to be used for storage and the transport of gear.  This is not a flotation device.
+
+Thank you for being a loyal YETI customer, we truly appreciate you.
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com
+Save</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Rambler Metallic Taste</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hello,
+
+Thank you for contacting YETI!
+
+A metallic taste in our Ramblers is not a common occurrence but there are some measures that can be taken to eliminate it. Most often we see it on Ramblers that might be used with more acidic beverages or when leaving liquid in the Rambler for an extended period.
+
+First, I recommend putting your Ramblers in the dishwasher if you have not already done so. The cup and lid are dishwasher safe (although if there is any extra customization done through a third party, we cannot guarantee the added coloring is dishwasher safe). We recommend placing the Rambler in the top rack as much as possible.
+
+In addition, it is important that if there is any lingering tastes or odors, to remove the black gasket from the lid. This pinches off and should be cleaned every couple of uses. Please refer to the below image to be sure you place the gasket back on in the correct direction.
+
+My best suggestion is to utilize a stainless steel cleaner, such as Bar Keepers Friend. It’s a wonderful product that can be purchased at most local grocery stores. It comes in a large bottle that can be used not only on your Ramblers, but actually on all of the stainless cutlery or items in your household. It is the perfect solution to Rambler maintenance.
+
+Another alternative would be a combination of vinegar and baking soda. When mixed, it forms a paste that can be used to clean your product. This helps to preserve the finish and clear any blemishes.
+
+I would recommend trying one of these options. Please let us know if these do not provide you a solution or if you have any further questions.
+
+Have a wonderful day!
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com
+
+
+Save</textOnly>
+    <type>html</type>
+</EmailTemplate>

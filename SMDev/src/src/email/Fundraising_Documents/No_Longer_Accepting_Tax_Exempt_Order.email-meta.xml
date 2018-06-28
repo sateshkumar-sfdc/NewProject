@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>No Longer Accepting Tax Exempt Order</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Greetings,
+
+Thank you for reaching out to YETI Coolers. As we strive for excellence to provide exceptional customer service the customers we serve, we have made the decision to leave the tax process to the experts. All fundraising orders will be processed with tax added to the order. We apologize for any inconvenience. Each state has a different process for refunding tax to you and frequency in which you can apply for a sales tax refund. Please refer to your state for the requirements regarding tax refunds.
+
+Below you will find suggestions on where to search for your information. You can search the Internet for the following information:
+
+· Department of Revenue for your state
+
+· Look for the tab labeled taxes
+
+· Search for the proper form necessary to make the request for your state
+
+· Verify the frequency for filing the request for refund
+
+· All web sites offer a phone number to call for more information
+
+Thank you for choosing YETI Coolers for your fundraising needs. We look forward to working with you to make your event a success!
+
+
+Sincerely,
+
+{!User.CommunityNickname}
+
+The YETI Outfitters
+
+512.394.9384
+
+customerservice@yeti.com
+
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

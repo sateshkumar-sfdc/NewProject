@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Image Request</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>We are so flattered that you’d like to use our YETI images!
+
+We take our artists’ hard work very seriously, and in order to protect that hard work, we do not distribute our photos for any personal use.  We can, however, pass along this awesome compliment to our team!
+
+Have a great day, and thanks for being a YETI fan!
+
+Sincerely,
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

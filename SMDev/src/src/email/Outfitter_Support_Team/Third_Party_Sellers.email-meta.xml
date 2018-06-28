@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>3rd Party Sellers</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Hello,
+
+
+YETI takes great pride in the relationships that we have built, which is why we have established our Authorized YETI Dealer Network. These dealers and YETI.com are the only locations where you can be sure to get authentic YETI products. Unfortunately, there are sellers/retailers, who have not been vetted or authorized by YETI. These entities are selling product which could be potentially counterfeit, used, damaged, or altered.
+
+YETI fully supports our warranty on the products we produce when purchased through our Authorized Dealer Network and YETI.com. See here for warranty details. For products purchased outside of these channels, we recommend contacting the seller/retailer you purchased from for further support and resolution. YETI will not warranty products purchased from unauthorized sellers, retailers, or websites including, but not limited to, Facebook, Craigslist, or wish.com.
+
+To avoid these issues and protect your investment, we recommend purchasing from only YETI Authorized Dealers, including YETI.com, “YETI Authorized” formerly known as Pronghorn Outfitters on Amazon, and YETI’s eBay store.  If you need assistance locating additional Authorized Dealers, please feel free to contact us at 512.394.9384 or reply to this email.
+
+
+
+
+Sincerely,
+
+
+
+
+{!User.CommunityNickname}
+
+The YETI Outfitters
+
+512.394.9384
+
+customerservice@yeti.com
+
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

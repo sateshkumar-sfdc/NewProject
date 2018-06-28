@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Dishwasher Safe Ramblers</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Hello,
+
+
+
+We have done several tests since the launch of the YETI Rambler series and have concluded that these products are dishwasher safe.
+
+
+
+We recommend placing your Rambler on the top shelf in your dishwasher and away from the heating element. Also, remove the silicone gasket from the lid prior to cleaning and dry the gasket thoroughly before replacing on the lid. When replacing the gasket, take care to ensure it is aligned properly – with the ribs to the outside and the wider flange on the top side. Please note that some acidic drinks (e.g. lemonade &amp; margaritas) can cause permanent etching on the lid, so we recommend cleaning your Rambler and lids after each use. Do NOT clean with bleach or cleaners containing chlorine as this will affect the finish.
+
+
+
+Please let us know if you have questions.
+
+
+Sincerely,
+
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

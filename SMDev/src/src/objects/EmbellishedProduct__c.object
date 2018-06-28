@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Embellished_Product_Record_Page1</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>A design is always coupled, or applied to, a customized product.  So a design is often not useful on it&apos;s own; you need to know what customized product it&apos;s being applied to to understand specifically how the art of a given design should be.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>ProductName__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>The name of the embellished product. This is an internal name; not displayed to customers.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Format : [Alphanumeric] [Alphanumeric].. [Alphanumeric].</inlineHelpText>
+        <label>Product Name</label>
+        <length>255</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>ProductYETIKey__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>Generically put, this is a key which uniquely defines this design in all systems.  Specifically, this is needed by SFCC to identify the cup against the Art Gallery.  Also, this value is also used in APIs for images, as well as constructing well-known paths against Amazon S3.    More discussion can be found here: Universal Product Key (UPK)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>One must strictly enter only alphanumeric characters or a hyphen. 
+Note : No multiple hyphens &apos; --&apos; or a space between words. 
+Format : [Text/Numeric]-[Text/Numeric]</inlineHelpText>
+        <label>YETI Key</label>
+        <length>255</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <label>Embellished Product</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>ProductName__c</columns>
+        <columns>ProductYETIKey__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Rambler_Bottle_18oz_Products</fullName>
+        <columns>NAME</columns>
+        <columns>ProductName__c</columns>
+        <columns>ProductYETIKey__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ProductName__c</field>
+            <operation>contains</operation>
+            <value>Rambler Bottle 18oz</value>
+        </filters>
+        <label>Rambler Bottle 18oz Products</label>
+    </listViews>
+    <listViews>
+        <fullName>Rambler_Tumbler_20oz_Products</fullName>
+        <columns>NAME</columns>
+        <columns>ProductName__c</columns>
+        <columns>ProductYETIKey__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ProductName__c</field>
+            <operation>contains</operation>
+            <value>Rambler Tumbler 20oz</value>
+        </filters>
+        <label>Rambler Tumbler 20oz Products</label>
+    </listViews>
+    <nameField>
+        <displayFormat>EP-{0000}</displayFormat>
+        <label>Embellished Product Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Embellished Products</pluralLabel>
+    <searchLayouts>
+        <searchResultsAdditionalFields>ProductName__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ProductYETIKey__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>ProducNameFieldValidation</fullName>
+        <active>true</active>
+        <description>[EmbProd-02] : This rule validates the Product Name field to have only alphanumeric,hyphen&apos;s or space contained in it.</description>
+        <errorConditionFormula>IF( AND( 
+NOT(ISBLANK(ProductName__c)) , 
+NOT( REGEX( ProductName__c , &quot;^[#()&amp;/a-zA-Z0-9&apos;.-](?!.*--)(?!.*&amp;&amp;)(?!.*  )(?!.*#)(?!.*&apos;&apos;)(?!.*//)[ /()&amp;a-zA-Z0-9&apos;.-]*[a-zA-Z0-9)]$&quot;)) 
+),true,false)</errorConditionFormula>
+        <errorDisplayField>ProductName__c</errorDisplayField>
+        <errorMessage>[EmbProd-02] :You can enter only alphanumeric characters or some special characters. 
+Note : Cannot contain two spaces or similar special characters next to each other. 
+Correct Format : [Text/Numeric/Characters] [Text/Numeric/Characters]</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>YETIKeyFieldValidation</fullName>
+        <active>true</active>
+        <description>[EmbProd-01] : This rule validates the YETI key field to have only alphanumeric or hyphen&apos;s contained in it.</description>
+        <errorConditionFormula>IF(CONTAINS(ProductYETIKey__c , &apos;-&apos;), AND( 
+NOT(ISBLANK(ProductYETIKey__c )) , 
+NOT( REGEX( ProductYETIKey__c , &quot;^[a-zA-Z0-9](?!.*--)[-a-zA-Z0-9]*[a-zA-Z0-9]$&quot;)) 
+),AND( 
+NOT(ISBLANK(ProductYETIKey__c )) , 
+NOT( REGEX( ProductYETIKey__c , &quot;[A-Za-z0-9]+&quot;)) 
+))</errorConditionFormula>
+        <errorDisplayField>ProductYETIKey__c</errorDisplayField>
+        <errorMessage>[EmbProd-01]-You can enter only alphanumeric characters or &apos;-&apos;. 
+Note : Cannot contain two hyphens next to each other or a space between words. 
+Correct Format : [Text/Numeric]-[Text/Numeric]</errorMessage>
+    </validationRules>
+</CustomObject>

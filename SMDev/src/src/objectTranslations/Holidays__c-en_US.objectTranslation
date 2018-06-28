@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Holidays</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Holidays</value>
+    </caseValues>
+    <fields>
+        <label><!-- Christmas Day --></label>
+        <name>Christmas_Day__c</name>
+    </fields>
+    <fields>
+        <label><!-- Christmas Eve --></label>
+        <name>Christmas_Eve__c</name>
+    </fields>
+    <fields>
+        <label><!-- Day After Thanksgiving --></label>
+        <name>Day_After_Thanksgiving__c</name>
+    </fields>
+    <fields>
+        <label><!-- Independence Day --></label>
+        <name>Independence_Day__c</name>
+    </fields>
+    <fields>
+        <label><!-- Labor Day --></label>
+        <name>Labor_Day__c</name>
+    </fields>
+    <fields>
+        <label><!-- Memorial Day --></label>
+        <name>Memorial_Day__c</name>
+    </fields>
+    <fields>
+        <label><!-- New Years Day --></label>
+        <name>New_Years_Day__c</name>
+    </fields>
+    <fields>
+        <label><!-- New Years Eve --></label>
+        <name>New_Years_Eve__c</name>
+    </fields>
+    <fields>
+        <label><!-- Thanksgiving Day --></label>
+        <name>Thanksgiving_Day__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

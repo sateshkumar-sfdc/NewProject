@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Gift Cards</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Hello,
+
+Thank you for reaching out to YETI! At this time, we do not offer gift cards. We are exploring gift card options for the future though. We would recommend purchasing a gift card from one of our authorized dealers in the meantime. Here are a few of our dealers you may try: Academy, Cabela&apos;s, REI, Bass Pro Shops, or Dick&apos;s Sporting Goods.
+
+
+Sincerely,
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

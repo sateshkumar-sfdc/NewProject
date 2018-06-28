@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Part_Num__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Part Num</label>
+        <referenceTo>Product2</referenceTo>
+        <relationshipLabel>RMA Dispositions</relationshipLabel>
+        <relationshipName>RMA_Dispositions</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>RMA_Receipt__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>RMA Receipt</label>
+        <referenceTo>YETIUNITY_RMA_Receipt__c</referenceTo>
+        <relationshipLabel>RMA Dispositions</relationshipLabel>
+        <relationshipName>RMA_Dispositions</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Return_Reason_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Return Reason Code</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>00 - RMA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>01 - Bowed Lid</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>02 - Ice Retention</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>03 - Not Sealing</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>04 - Leaking</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>05 - Porosity</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>06 - Delam</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>07 - Logo Error</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>08 - Shipping Error-Misc.</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>10 - Product Swap</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>11 - Refund</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>12 - Canceled Order</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>13 - Damaged in Shipping</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>14 - Lay-By Cancellation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>15 - Component install on cooler</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>16 - Product Sample</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>17 - Defective-Lock</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>18 - Repair</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>19 - SCL Return</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>20 - Big Box Dealer Return</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>21 - Defective-Rambler</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>22 - Office Error-Wrong/No Ship To</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>23 - Office Error-Wrong item</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>24 - Office Error-Wrong qty</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>25 - Office Error-Wrong Ship Date</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>26 - Returned Shipment Refused</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>27 - Shipping Error-Wrong item</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>28 - Shipping Error-Wrong qty</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>29 - OutsideRep-Never Ordered</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>30 - OutsideRep-Wrong Item</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>31 - OutsideRep-Wrong qty</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>32 - OutsideRep-Wrong Ship Date</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>33 - System Error</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>34 - Defective-Hopper</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>35 - Defective-YETI Ice</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Costm - Customer Service</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>LBCAN - POS - Lay-By Cancellation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>MISC - MISC. Defect (Add Comments)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PDOUT - Paid Out Transaction</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Warehouse__c</fullName>
+        <externalId>false</externalId>
+        <label>Warehouse</label>
+        <length>30</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>RMA Disposition</label>
+    <nameField>
+        <label>RMA Disposition Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>RMA Dispositions</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

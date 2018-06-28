@@ -1,0 +1,195 @@
+<body bgcolor="#CCC5BB" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" style="font-family:Arial, Helvetica, sans-serif">
+<div align="center" style="padding-top:25px">
+<table id="HTMLEMAIL" width="693" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td width="10" height="10">
+			<img src="https://c.na15.content.force.com/servlet/servlet.ImageServer?id=015i0000001RD3FAAW&oid=00Di0000000dD47" width="10" height="10" alt=""></td>
+		<td width="100%" bgcolor="#D1CBC2"></td>
+		<td width="10" height="10">
+			<img src="https://c.na15.content.force.com/servlet/servlet.ImageServer?id=015i0000001RD3GAAW&oid=00Di0000000dD47" width="10" height="10" alt=""></td>
+	</tr>
+	<tr>
+		<td valign="top" bgcolor="#D1CBC2">
+</td>
+	  <td valign="top" bgcolor="#F6F6F6">
+<!-- Begin main rows -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr background="https://c.na15.content.force.com/servlet/servlet.ImageServer?id=015i0000001RD3NAAW&oid=00Di0000000dD47">
+    <td width="195" height="91" valign="top"><div style="margin-top:23px;margin-left:18px"><a href="#"><img src="https://c.na15.content.force.com/servlet/servlet.ImageServer?id=015i0000001RD3BAAW&oid=00Di0000000dD47" width="170" height="48" border="0"></a></div></td>
+    <td width="100%" height="91">&nbsp;</td>
+    <td width="282" height="91" align="right" valign="top">
+    <div style="padding:20px 33px 0 0"><a href="mailto:customerservice@yeticoolers.com"><img src="https://c.na15.content.force.com/servlet/servlet.ImageServer?id=015i0000001RD3VAAW&oid=00Di0000000dD47" width="210" height="49" border="0"></a></div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3" height="44">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+    <div style="width:90%;height:1px;background-color:#D8D8D8;margin:0 auto;"></div>
+    <div style="padding:10px 35px 24px 35px;">
+      <p>Hello {{NAME}},</p>
+      <p> Thank you for your order from Yeti Coolers. Once your package ships we will send an email with a link to track your order.  You can check the status of your order by 
+        logging into your account. If you have any questions about your order please contact us at support@example.com or call us Monday - Friday, 8am - 5pm PST.</p>
+      <p>Your order confirmation is below. Thank you again for your business.</p>
+    </div></td>
+  </tr>
+  <tr>
+    <td colspan="3" valign="top"><p style="color:#606060;padding-left:34px;font-variant:small-caps;font-weight:bold">order #{{ordernumber}} (placed on {{date}})</p>
+    <div style="width:90%;height:1px;background-color:#D8D8D8;margin:0 auto 15px auto"></div>
+<div style="padding: 0 12px 30px 12px">
+    <table width="100%" border="0" cellspacing="0" cellpadding="6">
+      <tr>
+        <td width="50%" align="center" valign="top">
+<!-- Begin Shipping Address -->
+<table width="100%" border="0" style="border:1px solid  #DCD7D1;" cellspacing="" cellpadding="12">
+  <tr bgcolor="#F4F2F0">
+    <td><img src="https://c.na15.content.force.com/servlet/servlet.ImageServer?id=015i0000001RD3XAAW&oid=00Di0000000dD47" width="144" height="9"></td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td height="160" valign="top"><p>Jane Smith<br>
+      123 Main Street<br>
+      Apt 210<br>
+      Montclair, NJ 07042<br>
+      United States<br>
+      T: 9737832783<br>
+    </p></td>
+  </tr>
+</table>
+<!-- End Shipping Address -->
+        </td>
+        <td width="50%" align="center" valign="top">
+<!-- Begin Billing Address -->
+<table width="100%" border="0" style="border:1px solid  #DCD7D1;" cellspacing="" cellpadding="12">
+  <tr bgcolor="#F4F2F0">
+    <td><img src="https://c.na15.content.force.com/servlet/servlet.ImageServer?id=015i0000001RD3CAAW&oid=00Di0000000dD47" width="134" height="9"></td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td height="160" valign="top"><p>Jane Smith<br>
+      123 Main Street<br>
+      Montclair, NJ 07042<br>
+      United States<br>
+      T: 9737832783<br>
+    </p></td>
+  </tr>
+</table>
+<!-- End Billing Address -->
+        </td>
+      </tr>
+      <tr>
+        <td width="50%" align="center" valign="top">
+<!-- Begin Billing Address -->
+<table width="100%" border="0" style="border:1px solid  #DCD7D1;" cellspacing="" cellpadding="12">
+  <tr bgcolor="#F4F2F0">
+    <td><img src="https://c.na15.content.force.com/servlet/servlet.ImageServer?id=015i0000001RD3ZAAW&oid=00Di0000000dD47" width="137" height="9"></td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td height="70" valign="top"><p>United Parcel Service - 2nd Day Air<br>
+    </p></td>
+  </tr>
+</table>
+<!-- End Billing Address -->
+        </td>
+        <td width="50%" align="center" valign="top">
+<!-- Begin Billing Address -->
+<table width="100%" border="0" style="border:1px solid  #DCD7D1;" cellspacing="" cellpadding="12">
+  <tr bgcolor="#F4F2F0">
+    <td><img src="https://c.na15.content.force.com/servlet/servlet.ImageServer?id=015i0000001RD3PAAW&oid=00Di0000000dD47" width="136" height="9"></td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td height="70" valign="top"><p>Card Type: VISA<br>
+      Credit Card Number: xxxx-1111<br>
+    </p></td>
+  </tr>
+</table>
+<!-- End Billing Address -->
+        </td>
+      </tr>
+        </table>
+    </div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3" valign="top"><p style="padding-left:34px;color:#606060;font-variant:small-caps">items Ordered</p>
+    <div style="width:90%;height:1px;background-color:#D8D8D8;margin:0 auto 15px auto;"></div>
+    <div style="padding: 0 18px 36px 18px">
+<!-- Begin Items Ordered -->
+<table width="100%" border="0" style="border:1px solid  #DCD7D1;" cellspacing="" cellpadding="12">
+  <tr bgcolor="#F4F2F0">
+    <td align="center">&nbsp;</td>
+    <td align="left"><img src="https://c.na15.content.force.com/servlet/servlet.ImageServer?id=015i0000001RD3SAAW&oid=00Di0000000dD47" width="102" height="10"></td>
+    <td align="center" valign="top"><img src="https://c.na15.content.force.com/servlet/servlet.ImageServer?id=015i0000001RD3RAAW&oid=00Di0000000dD47" width="37" height="10"></td>
+    <td align="center" valign="top"><img src="https://c.na15.content.force.com/servlet/servlet.ImageServer?id=015i0000001RD3TAAW&oid=00Di0000000dD47" width="25" height="10"></td>
+    <td align="center" valign="top"><img src="https://c.na15.content.force.com/servlet/servlet.ImageServer?id=015i0000001RD3bAAG&oid=00Di0000000dD47" width="65" height="10"></td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td height="70" align="center" valign="top"><p>{{IMG}}</p></td>
+    <td align="left" valign="top">United Parcel Service - 2nd Day Air</td>
+    <td height="70" align="center" valign="top">$99.99</td>
+    <td height="70" align="center" valign="top">1</td>
+    <td height="70" align="center" valign="top">$99.99</td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td height="70" colspan="5" align="right" valign="top">
+<!-- Begin sub table -->
+<table border="0" cellspacing="0" cellpadding="12">
+  <tr>
+    <td width="0%" align="right" valign="middle"><img src="https://c.na15.content.force.com/servlet/servlet.ImageServer?id=015i0000001RD3aAAG&oid=00Di0000000dD47" width="87" height="9"></td>
+    <td width="100" align="right" valign="middle">$99.99</td>
+  </tr>
+  <tr>
+    <td width="0%" align="right" valign="middle"><img src="https://c.na15.content.force.com/servlet/servlet.ImageServer?id=015i0000001RD3WAAW&oid=00Di0000000dD47" width="92" height="9"></td>
+    <td width="100" align="right" valign="middle">$99.99</td>
+  </tr>
+  <tr>
+    <td width="0%" align="right" valign="middle"><img src="https://c.na15.content.force.com/servlet/servlet.ImageServer?id=015i0000001RD3YAAW&oid=00Di0000000dD47" width="190" height="9"></td>
+    <td width="100" align="right" valign="middle">$99.99</td>
+  </tr>
+  <tr>
+    <td width="0%" align="right" valign="middle" bgcolor="#E7F0F7"><img src="https://c.na15.content.force.com/servlet/servlet.ImageServer?id=015i0000001RD3MAAW&oid=00Di0000000dD47" width="142" height="13"></td>
+    <td width="100" align="right" valign="middle" bgcolor="#E7F0F7"><p style="font-size:20px;font-weight:bold;">$99.99</p></td>
+    </tr>
+</table>
+
+<!-- End sub table -->
+    </td>
+    </tr>
+</table>
+<!-- End Items Ordered -->
+    </div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3" align="center" valign="top"><div style="padding:0 0 25px 0">{{PROMOTIONAL BANNER}}</div></td>
+  </tr>
+  <tr bgcolor="#EBE9E6">
+    <td valign="top" height="124"><div style="margin: 20px 33px;"><img src="https://c.na15.content.force.com/servlet/servlet.ImageServer?id=015i0000001RD3JAAW&oid=00Di0000000dD47" width="132" height="60"></div></td>
+    <td valign="top" height="124"><div style="margin: 20px 0 0 38px;font-size:8pt;color: #000;line-height:10pt;">Yeti Coolers<br>
+      PO Box 163686<br>
+      Austin, TX 78716<br>
+      Phone: 512-394-9384<br>
+      <a style="color:black" href="mailto:customerservice@yeticoolers.com">customerservice@yeticoolers.com</a></div></td>
+    <td  height="124" align="right" valign="top" nowrap><div style="margin: 20px 33px 0 0"><a href="http://www.facebook.com"><img src="https://c.na15.content.force.com/servlet/servlet.ImageServer?id=015i0000001RD3IAAW&oid=00Di0000000dD47" width="33" height="32" border="0"></a>
+        <a href="http://www.twitter.com"><img src="https://c.na15.content.force.com/servlet/servlet.ImageServer?id=015i0000001RD3cAAG&oid=00Di0000000dD47" width="33" height="32" border="0"></a>
+        <a href="http://www.youtube.com"><img src="https://c.na15.content.force.com/servlet/servlet.ImageServer?id=015i0000001RD3dAAG&oid=00Di0000000dD47" width="33" height="32" border="0"></a>
+        <a href="http://www.pinterest.com"><img src="https://c.na15.content.force.com/servlet/servlet.ImageServer?id=015i0000001RD3QAAW&oid=00Di0000000dD47" width="33" height="32" border="0"></a>
+        <a href="http://plus.google.com"><img src="https://c.na15.content.force.com/servlet/servlet.ImageServer?id=015i0000001RD3LAAW&oid=00Di0000000dD47" width="33" height="32" border="0"></a></div></td>
+  </tr>
+</table>
+
+<!-- End main rows -->
+      </td>
+		<td bgcolor="#D1CBC2" valign="top">&nbsp;</td>
+	</tr>
+	<tr>
+		<td width="10" height="10">
+			<img src="https://c.na15.content.force.com/servlet/servlet.ImageServer?id=015i0000001RD3DAAW&oid=00Di0000000dD47" width="10" height="10" alt=""></td>
+		<td width="100%" bgcolor="#D1CBC2"></td>
+		<td width="10" height="10">
+			<img src="https://c.na15.content.force.com/servlet/servlet.ImageServer?id=015i0000001RD3EAAW&oid=00Di0000000dD47" width="10" height="10" alt=""></td>
+	</tr>
+</table>
+<p style="color:#606060;font-size:10pt;">&copy; 2013 YETI All Rights Reserved</p>
+</div>
+</body>

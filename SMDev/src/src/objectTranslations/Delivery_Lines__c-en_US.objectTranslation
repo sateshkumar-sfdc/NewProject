@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Delivery Lines</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Delivery Lines</value>
+    </caseValues>
+    <fields>
+        <label><!-- Deliveries --></label>
+        <name>Deliveries__c</name>
+        <relationshipLabel><!-- Delivery Lines --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- ERP Order --></label>
+        <name>ERP_Order__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Change Time --></label>
+        <name>Last_Change_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Need By Date --></label>
+        <name>Need_By_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pack Line Num --></label>
+        <name>Pack_Line_Num__c</name>
+    </fields>
+    <fields>
+        <label><!-- Part Description --></label>
+        <name>Part_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Part Number --></label>
+        <name>Part_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- QTY Ordered --></label>
+        <name>QTY_Ordered__c</name>
+    </fields>
+    <fields>
+        <label><!-- QTY Shipped --></label>
+        <name>QTY_Shipped__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quantity --></label>
+        <name>Quantity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ship By Date --></label>
+        <name>Ship_By_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ship Via --></label>
+        <name>Ship_Via__c</name>
+    </fields>
+    <fields>
+        <label><!-- UOM --></label>
+        <name>UOM__c</name>
+    </fields>
+    <fields>
+        <label><!-- UPC --></label>
+        <name>UPC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Warehouse --></label>
+        <name>Warehouse__c</name>
+    </fields>
+    <layouts>
+        <layout>Delivery Lines - Dealers Community</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Product  Information --></label>
+            <section>Product  Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Delivery Lines Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

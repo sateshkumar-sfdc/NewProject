@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Hopper Water in Walls</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hello,
+
+We design our Hoppers to withstand pressure changes, elevation changes, even getting run over by a Jeep.  With this design, air must be allowed to escape.
+
+The water that you’re seeing in the walls of your Hopper is a result of this venting and is completely normal.  Our suggestion is to turn that Hopper upside down and let the water drain out.
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

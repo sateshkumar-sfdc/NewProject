@@ -1,0 +1,34 @@
+<aura:component >
+ <div class="slds-m-around--medium"> 
+
+   <div class="slds-tabs--default">
+     <ul class="slds-tabs--default__nav" role="tablist">
+        <li  aura:id="fruitId" class="slds-tabs--default__item slds-text-title--caps slds-active" title="Fruits Name" role="presentation" ><a class="slds-tabs--default__link" href="javascript:void(0);" onclick="{!c.fruitsTab}" role="tab" tabindex="0" aria-selected="false" aria-controls="tab-default-1" id="Fruits_linking">Fruits Name</a></li>
+        <li  aura:id="VegeId"  class="slds-tabs--default__item slds-text-title--caps " title="Vegetables Name" role="presentation"><a class="slds-tabs--default__link" href="javascript:void(0);" onclick="{!c.vegeTab}" role="tab" tabindex="-1" aria-selected="true" aria-controls="tab-default-2" id="vegetable_linking">Vegetables Name</a></li>
+        <li  aura:id="ColorId" class="slds-tabs--default__item slds-text-title--caps" title="Color Name" role="presentation"><a class="slds-tabs--default__link" href="javascript:void(0);" onclick="{!c.colorTab}" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-3" id="color_linking">Color Name</a></li>
+     </ul>
+     <div aura:id="fruTabDataId" id="tab-default-1" class="slds-tabs--default__content slds-show" role="tabpanel" aria-labelledby="Fruits_linking">
+        <ul>
+           <li>Apple</li>
+           <li>Banana</li>
+           <li>Mango</li>
+        </ul>
+     </div>
+     <div aura:id="vegeTabDataId" id="tab-default-2" class="slds-tabs--default__content slds-hide" role="tabpanel" aria-labelledby="vegetable_linking">
+        <ul>
+           <li>Tomato</li>
+           <li>potato</li>
+           <li>Ginger</li>
+        </ul>
+     </div>
+     <div aura:id="ColorTabDataId" id="tab-default-3" class="slds-tabs--default__content slds-hide" role="tabpanel" aria-labelledby="color_linking">
+        <ul>
+           <li>Red</li>
+           <li>Green</li>
+           <li>Blue</li>
+        </ul>
+     </div>
+  </div>
+
+ </div>
+</aura:component>

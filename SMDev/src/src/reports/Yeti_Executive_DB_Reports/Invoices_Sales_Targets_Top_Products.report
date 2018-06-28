@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Sales_Target__c$Start_Date__c</field>
+    </columns>
+    <columns>
+        <field>Sales_Target__c$Name</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Sales_Target__c$Owner</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value>ATS Integration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Sales_Target__c$Start_Date__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>THIS_FISCAL_YEAR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Sales_Target__c$Start_Date__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>LAST_MONTH</value>
+        </criteriaItems>
+    </filter>
+    <format>Matrix</format>
+    <name>Invoices/Sales Targets Top Products</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Sales_Targets_with_Invoice_Line_Items__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Sales_Target__c$Start_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

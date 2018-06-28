@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Film Photo Request</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>We are so flattered that you want to be a part of the YETI team!  At the moment, we have all of the artists that we can handle, and we are not accepting new submissions.  While we are unable to personally respond to every inquiry, we do review all proposals &amp; requests, and we will contact the programs that we are able to support.
+
+Thank you for your support of YETI, and good luck in your future adventures!
+
+
+Sincerely,
+
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

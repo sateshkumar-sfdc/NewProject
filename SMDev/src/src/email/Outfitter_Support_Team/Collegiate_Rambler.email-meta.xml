@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Collegiate Rambler</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hello {!Contact.FirstName},
+
+At this time our collegiate selection is limited.  However, YETI Custom Shop, our official customization service for Rambler products, will bring your school spirit to life with a wider catalog of schools across the full Rambler family.
+
+See if your school is available at yeticustomshop.com or get in touch by emailing them hi@yeticustomshop.com or calling 512.777.1078
+
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

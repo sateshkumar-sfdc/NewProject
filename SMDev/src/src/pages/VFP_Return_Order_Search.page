@@ -1,0 +1,149 @@
+<apex:page id="pagediv" docType="html-5.0" controller="CTRL_Return_Order_Search" action="{!init}">
+    <!--
+
+Buttons
+SAP RMA Search	|SAP_RMA_Search| /apex/VFP_Return_Order_Search?SF_CaseId={!Case.Id}-->
+
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"/>
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"/>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css"/>
+    <apex:includeScript value="{!URLFOR($Resource.tablesorter, 'jquery.tablesorter.min.js')}"/>
+    <link rel="stylesheet" href="{!URLFOR($Resource.tablesorter, 'themes/blue/style.css')}"/>
+
+    <style type="text/css">
+        body .pbBody table.list tr th {
+            padding: 5px 2px 4px 5px;
+            border-width: 0 0 1px 1px;
+            border-color: #e0e3e5;
+        }
+
+        .paginator select {
+            background-color: transparent;
+            border: 0px;
+        }
+    </style>
+
+    <apex:form >
+
+        <apex:pageBlock title="Return Order Search" id="pagediv">
+            <c:CMP_Status />
+            <apex:pageBlockButtons >
+                <c:CMP_NavButtons />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection columns="1">
+                <apex:outputPanel >
+                    <apex:outputLabel value="Sold to Party:" for="soldToParty"/>
+                    <apex:inputText value="{!soldToParty}" id="soldToParty"/>
+                </apex:outputPanel>
+            </apex:pageBlockSection>
+            <br/>
+            <br/>
+            <apex:commandButton style="min-width:'150px'" value="Search" action="{!searchForReturnOrders}"/>
+            <br/>
+            <br/>
+            <apex:actionFunction name="navigate" action="{!navigateToRMADetail}" reRender="pagediv">
+                <apex:param name="rmaId" value=""/>
+            </apex:actionFunction>
+            <apex:pageBlock id="resultdiv" title="Return Orders">
+               <table class="list tablesorter" id="resulttable" cellpadding="0" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th class="header">Action</th>
+                        <th class="header">Number</th>
+                        <th class="header">Order Create Date</th>
+                        <th class="header">PO Number</th>
+                        <th class="header">Sold To</th>
+                        <th class="header">Sold To Name</th>
+                        <th class="header">Ship To</th>
+                        <th class="header">Ship To Name</th>
+                        <th class="header">Status</th>
+                        <th class="header">Document Type</th>
+                        <th class="header">Net Order Cost</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <apex:variable var="i" value="{!0}"/>
+                    <apex:repeat value="{!searchResults}" var="o">
+                        <tr class="dataRow {!IF(i==0,'first','')} " onmouseover="if (window.hiOn){hiOn(this);} "
+                            onmouseout="if (window.hiOff){hiOff(this);} " onblur="if (window.hiOff){hiOff(this);}"
+                            onfocus="if (window.hiOn){hiOn(this);}">
+                            <td class="dataCell">
+                                <apex:commandButton onClick="navigate('{!o.SalesDocument}');return false;"
+                                                    value="RMA Details"/>
+                            </td>
+                            <td class="dataCell">
+                                <apex:outputText value="{!o.SalesDocument}"/>
+                            </td>
+                            <td class="dataCell">
+                                <apex:outputText value="{0,date,MM/dd/yyyy}">
+                                    <apex:param value="{!o.CreateDate}"/>
+                                </apex:outputText>
+                            </td>
+                            <td class="dataCell">
+                                <apex:outputText value="{!o.CustomerPONumber}"/>
+                            </td>
+                            <td class="dataCell" style="text-align: right;">
+                                <apex:outputText value="{!o.SoldToParty}"/>
+                            </td>
+                            <td class="dataCell">
+                                <apex:outputText value="{!o.SoldToName}"/>
+                            </td>
+                            <td class="dataCell" style="text-align: right;">
+                                <apex:outputText value="{!o.ShipToParty}"/>
+                            </td>
+                            <td class="dataCell">
+                                <apex:outputText value="{!o.ShipToName}"/>
+                            </td>
+                            <td class="dataCell">
+                                <apex:outputText value="{!o.OrderStatus}"/>
+                            </td>
+                            <td class="dataCell">
+                                <apex:outputText value="{!o.SalesDocumentTypeDescription}"/>
+                            </td>
+                            <td class="dataCell" style="text-align: right;">
+                                <apex:outputText value="{1,number,###,##0.00} {0} ">
+                                    <apex:param value="{!o.SalesDocumentCurrency}"/>
+                                    <apex:param value="{!o.NetTotalValue}"/>
+                                </apex:outputText>
+                            </td>
+                        </tr>
+                    </apex:repeat>
+                    </tbody>
+                    <apex:actionFunction id="updateNumPerPage" action="{!updateperPage}" name="updateNumPerPage" rerender="resultdiv,paginationdiv,innerpaginationdiv" status="status">
+                        <apex:param name="numperpage" assignTo="{!numperpage}" value=""/>
+                    </apex:actionFunction>
+                   <apex:actionFunction id="doPagination" action="{!doPagination}" name="doPagination" rerender="resultdiv,paginationdiv,innerpaginationdiv" status="status">
+                       <apex:param name="action" value=""/>
+                   </apex:actionFunction>
+
+                   <tfoot>
+                    <tr>
+                        <th colspan="11" class="header">
+                            <apex:outputPanel id="paginationdiv">
+                                <apex:outputPanel id="innerpaginationdiv" rendered="{!hasrecords}">
+                                    <c:CMP_Pager hasrecords="{!hasrecords}" numperpage="{!numperpage}"
+                                                 disableprev="{!disableprev}" disablenext="{!disablenext}"
+                                                 totalpages="{!totalpages}" pagenum="{!pagenum}"/>
+                                </apex:outputPanel>
+                            </apex:outputPanel>
+                        </th>
+                    </tr>
+                    </tfoot>
+                </table>
+                <script type="text/javascript">
+                    $j = jQuery.noConflict();
+                    $j(document).ready(function () {
+                        $j("#resulttable").tablesorter();
+                        $j("input").bind("keypress", function (event) {
+                            if (event.keyCode === 13) {
+                                $j('[id*=btnsearch]').click();
+                                return false;
+                            }
+                        });
+                    });
+                </script>
+            </apex:pageBlock>
+        </apex:pageBlock>
+    </apex:form>
+    <c:CMP_Footer />
+</apex:page>

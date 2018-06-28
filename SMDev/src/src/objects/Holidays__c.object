@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Christmas_Day__c</fullName>
+        <externalId>false</externalId>
+        <label>Christmas Day</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Christmas_Eve__c</fullName>
+        <externalId>false</externalId>
+        <label>Christmas Eve</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Day_After_Thanksgiving__c</fullName>
+        <externalId>false</externalId>
+        <label>Day After Thanksgiving</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Independence_Day__c</fullName>
+        <externalId>false</externalId>
+        <label>Independence Day</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Labor_Day__c</fullName>
+        <externalId>false</externalId>
+        <label>Labor Day</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Memorial_Day__c</fullName>
+        <externalId>false</externalId>
+        <label>Memorial Day</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>New_Years_Day__c</fullName>
+        <externalId>false</externalId>
+        <label>New Years Day</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>New_Years_Eve__c</fullName>
+        <externalId>false</externalId>
+        <label>New Years Eve</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Thanksgiving_Day__c</fullName>
+        <externalId>false</externalId>
+        <label>Thanksgiving Day</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <label>Holidays</label>
+    <visibility>Public</visibility>
+</CustomObject>

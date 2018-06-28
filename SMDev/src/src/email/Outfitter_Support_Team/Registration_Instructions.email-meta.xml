@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Registration Instructions</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hello,
+
+Thank you for your recent YETI purchase and for taking the time to reach out to us.
+
+In order to register your YETI product, simply click on the link listed below.
+
+Register Your YETI https://www.yeti.com/register-product
+
+You can create an account or login to your existing YETI account to keep track of your registered products.  Once logged in you will be directed to the registration page and will be prompted to enter your Registration ID and a little more detail about your outdoor hobbies.
+
+After completing the registration an order will automatically be processed for you to receive a free YETI registration gift which will be delivered between 4-6 weeks.  A U.S. address must be used for the shipping address.
+
+
+Enjoy your YETI!
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

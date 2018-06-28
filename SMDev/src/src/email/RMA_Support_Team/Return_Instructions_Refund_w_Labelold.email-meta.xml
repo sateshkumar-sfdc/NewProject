@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Return Instructions - Refund w/ Label</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Your Return Request Confirmation
+
+Hello,
+
+We’re sorry that you have to return your YETI product. We know how disappointing it can be to purchase something and have it not work out for you. We will do our best to make this process as simple as possible. This email explains the return process from start to finish.
+
+Your Return Information:
+
+Return Order #: XXX  Please write this number on the outside of the shipping box
+
+Items returned: XXX
+
+To return your YETI product, follow the steps below:
+
+
+Please make sure your YETI is clean and dry on the inside.
+
+A separate email will be sent with your return packing slip.  Please print the return form and include it with your package. (Place it inside the cooler or along with the item(s) you are returning.)
+
+You will receive a separate email from us that contains the Prepaid FedEx Label to send your product back.  Please print this label out and use clear tape to attach the label to the outside of the shipping box.
+
+A FedEx drop box will not work for the return. FedEx Ground pick up can be scheduled by calling FedEx customer service at 1-800-463-3339.
+
+Please request a copy of your receipt and a tracking number for your records.
+
+Once we receive your return, you will be sent a confirmation email.
+
+We will do our best to complete your return/refund within 10 business days after receiving your product. During peak season times it may take up to 15 business days.
+
+Thank you for being a YETI customer. Please let us know if you have any questions.
+
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+YETI
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

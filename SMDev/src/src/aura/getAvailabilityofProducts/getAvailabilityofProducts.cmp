@@ -1,0 +1,69 @@
+<aura:component controller="Order_Product_search_YETI" >
+      
+     <aura:attribute name="lstSelectedRecords1" type="Object[]" default="[]" />
+     <aura:attribute name="loaded" type="Boolean" default= "false" />
+    <aura:attribute name="sapnumber" type="Integer" />
+    
+     <aura:handler name="oSelectedRecordEvent" event="c:ProductsearchPYETEvent" action="{!c.handleComponentEvent}"/>
+    
+        <div>
+        <lightning:button variant="brand" label="Submit" onclick="{! c.handleClick }" />  
+        
+    <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+  <thead>
+    <tr class="slds-text-title_caps">
+      <th scope="col">
+        <div class="slds-truncate" title="Opportunity Name">Product Name</div>
+      </th>
+      <th scope="col">
+        <div class="slds-truncate" title="Account Name">Available Quantity</div>
+      </th>
+        
+        <th scope="col">
+        <div class="slds-truncate" title="Account Name">Sales Price</div>
+      </th>
+    
+    </tr>
+  </thead>
+        <tbody>
+    <aura:if isTrue="{! v.loaded }">
+   <div style="height: 6rem;">
+  <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand slds-is-relative">
+    <span class="slds-assistive-text">Loading</span>
+    <div class="slds-spinner__dot-a"></div>
+    <div class="slds-spinner__dot-b"></div>
+  </div>
+    </div>
+   </aura:if>
+   <aura:iteration items="{!v.lstSelectedRecords1}" var="sr"> 
+  
+    <tr>
+      <th scope="row" data-label="Opportunity Name">
+        <div class="slds-truncate" title="Cloudhub"><a href="javascript:void(0);">{!sr.Mname}</a></div>
+      </th>
+      <td data-label="Account Name">
+        <div class="slds-truncate" title="Cloudhub">{!sr.Quantitys}</div>
+      </td>
+        <th scope="row" data-label="Opportunity Name">
+        <div class="slds-truncate" title="Cloudhub"><a href="javascript:void(0);">{!sr.salesprice}</a></div>
+      </th>
+       <td data-label="Account Name">
+        <div class="slds-truncate" >
+            <lightning:pill   name="{!sr.Id}"  onremove="{! c.clear }" ></lightning:pill>
+                            
+        </div>
+      </td>
+    </tr>
+    
+  
+       </aura:iteration> 
+        </tbody>
+         
+
+           
+</table>
+    
+    </div>
+    
+	
+</aura:component>

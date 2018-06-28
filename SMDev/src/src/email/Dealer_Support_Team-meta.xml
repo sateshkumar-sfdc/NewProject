@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>Dealer Support Team</name>
+    <publicFolderAccess>ReadWrite</publicFolderAccess>
+    <sharedTo>
+        <role>Business_Development_Manager</role>
+        <role>Business_Development_Rep</role>
+        <role>Dealer_Support_Manager</role>
+        <role>Dealer_Support_User</role>
+        <role>Executive</role>
+        <role>Outfitter_Support_Manager</role>
+        <role>Outfitter_Support_User</role>
+    </sharedTo>
+</EmailFolder>

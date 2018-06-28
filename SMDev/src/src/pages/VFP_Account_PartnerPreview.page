@@ -1,0 +1,27 @@
+<apex:page standardController="Account" tabStyle="Account" extensions="CTRL_Account_PartnerPreview">
+    <!-- This page is designed to be rendered inside of the Accounts screen.
+          Navigate to Setup -> Accounts -> Page Layout -> Visualforce Pages
+          and drag VFP_Account_PartnerPreview below Description so that it
+          takes up the full page width rather than only half the page width. -->
+
+    <!-- This runs as an iframe - eliminate some of the built-in margin so it fits better on the Accounts page -->
+    <style>
+        .hasMotif {
+            margin: 0px;
+        }
+    </style>
+
+    <!-- Add a scrollbar when the contents of the iframe are larger than the height allocated for it -->
+    <div style="overflow: auto; height: 100vh;">
+        <apex:form id="mainform">
+            <apex:pageBlock id="partnerPreviewList" title="{!PartnerPreviewTitle}" rendered="{! null != PartnerPreviewList }">
+                <apex:pageblockTable value="{!PartnerPreviewList}" var="p" >
+                    <apex:column headerValue="Function" width="10%" value="{!p.PartnerFunctionName}" />
+                    <apex:column headerValue="Customer#" width="10%" value="{!p.PartnerNumber}" />
+                    <apex:column headerValue="Name" value="{!p.PartnerName}" />
+                </apex:pageblockTable>
+            </apex:pageBlock>
+        </apex:form>
+    </div>
+
+</apex:page>

@@ -1,0 +1,584 @@
+<aura:component controller="OrderCreatecontroller" implements="force:appHostable,flexipage:availableForRecordHome,force:appHostable" access="global">
+    <aura:attribute name="selectedLookUpRecords" type="sObject[]" default="[]" />
+    <aura:attribute name="AccountList" type="sObject[]" default="Account" />
+    <aura:attribute name="Accountsoldto" type="sObject" />
+    <aura:attribute name="Accountobj" type="sObject" />
+    <aura:attribute name="default" type="sObject" />
+    <aura:attribute name="SAPCustomerNum" type="string" />
+    <aura:attribute name="ordertype" type="List" />
+    <aura:attribute name="recID" type="Id" />
+    <aura:attribute name="AccountID" type="Id" />
+    <aura:attribute name="OpportunityID" type="Id" />
+    <aura:attribute name="SalesGroup" type="string" />
+    <aura:attribute name="Accountname" type="String" />
+    <aura:attribute name="ContactList" type="sObject[]" />
+    <aura:attribute name="phonenumber" type="Integer" />
+    <aura:attribute name="PaymentTerms" type="String" />
+    <aura:attribute name="DistributionChannel" type="String" />
+    <aura:attribute name="Email" type="string" />
+    <aura:attribute name="Companycode" type="string" />
+    <aura:attribute name="CustomerShipAccount" type="string" />
+    <aura:attribute name="Division" type="String" />
+    <aura:attribute name="Salesorg" type="string" default="" />
+    <aura:attribute name="Salesoffice" type="string" default="" />
+    <aura:attribute name="quantity" type="Integer" default="" />
+    <aura:attribute name="Lineitemslist" type="sObject[]" />
+    <aura:attribute name="LineitemsDeletedlist" type="sObject[]" default="[]" />
+    <aura:attribute name="lineobject" type="Object" />
+    <aura:attribute name="orderid" type="Id" />
+    <aura:attribute name="spinner" type="Boolean" />
+    <aura:attribute name="show" type="Boolean" />
+    <aura:attribute name="fromOrder" type="Boolean" default="false" />
+    <aura:attribute name="orderType1" type="string" />
+    <aura:attribute name="ordType1" type="string" />
+    <aura:attribute name="discountCondList" type="Map" />
+    <aura:attribute name="freightCondList" type="List" />
+    <aura:attribute name="sapOrderNumber" type="String" default="" />
+    <aura:attribute name="lineItemNumber" type="String" default="000010" />
+    <aura:attribute name="customizer" type="Boolean" />
+    <aura:attribute name="deleteList" type="Boolean" default="false" />
+    <aura:attribute name="defaultdate" type="date" default="null" />
+    <aura:attribute name="defaultpo" type="date"  default="null" />
+
+
+
+
+
+    <aura:registerEvent name="TogetTheOrderId" type="c:getIDEvent" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="lineItemsevnt" event="c:lineItemsevent" action="{!c.handleApplicationEvent}" />
+
+    <!-- testing modal here -->
+    <!-- MODAL STARTS HERE-->
+    <aura:if isTrue="{!v.customizer}">
+
+        <c:Customizer />
+    </aura:if>
+    <!-- event for Customizer Data -->
+    <aura:handler name="cmpEventtocaptureJsondata" event="c:Customizerobject" action="{!c.handleComponentEventFired}" />
+
+    <ui:scrollerWrapper class="scrollerSize">
+        <div>
+
+
+            <div class="test-id__section slds-section  slds-is-open full forcePageBlockSection forcePageBlockSectionEdit">
+
+                <h3 class="slds-section__title slds-theme--shade primaryPaletteBorder test-id__section-header-container">
+                    <span class="slds-truncate slds-p-horizontal_small" title="Section Title">Order Header</span>
+                </h3>
+
+                <div class="test-id__section-content slds-section__content section__content">
+                    <div class="slds-form slds-form_compound">
+                        <fieldset class="slds-form-element">
+                            <div class="slds-form-element__group">
+                                <div class="slds-form-element__row">
+                                    <div class="slds-form-element slds-size_1-of-2">
+                                        <label class="slds-form-element__label" for="input-02">
+                					<abbr class="slds-required" title="required">*</abbr>Account</label>
+                                        <ui:outputText aura:id="AccountNameId" value="{!v.Accountobj.Name}" class="slds-input">{!v.Accountobj.AccountId}</ui:outputText>
+                                    </div>
+
+                                    <aura:if isTrue="{!v.fromOrder}">
+                                        <div class="slds-form-element slds-size_1-of-2">
+
+
+                                            <lightning:input label="Order Type" type="text" messageWhenValueMissing="Complete This Field" aura:id="ordertypeid" required="true" />
+
+
+                                        </div>
+                                        <aura:set attribute="else">
+                                            <div class="slds-form-element slds-size_1-of-2">
+                                                <lightning:select label="Order Type" required="true" messageWhenValueMissing="Complete This Field" aura:id="ordertypeid">
+                                                    <option value="">Select a Value</option>
+                                                    <aura:iteration items="{!v.ordertype}" var="type">
+                                                        <option value="{!type.value}">{!type.key}</option>
+                                                    </aura:iteration>
+                                                </lightning:select>
+                                            </div>
+
+
+                                        </aura:set>
+                                    </aura:if>
+
+                                </div>
+
+                                <div class="slds-form-element__row">
+
+                                    <aura:if isTrue="{!v.fromOrder}">
+                                        <div class="slds-form-element slds-size_1-of-2">
+                                            <!--lightning:input label="Contact" type="text" messageWhenValueMissing="Complete This Field" aura:id="Contactid" required="true" >{!v.Accountobj.BillToContact.Name}</lightning:input-->
+                                            <lightning:select label="Contact" required="true" messageWhenValueMissing="Complete This Field" aura:id="Contactid">
+
+                                                <option value="{!v.Accountobj.BillToContactId}">{!v.Accountobj.BillToContact.Name}</option>
+                                            </lightning:select>
+                                        </div>
+
+                                        <aura:set attribute="else">
+                                            <div class="slds-form-element slds-size_1-of-2">
+                                                <lightning:select label="Contact" required="true" messageWhenValueMissing="Complete This Field" aura:id="Contactid">
+                                                    <option value="">Select a Value</option>
+                                                    <aura:iteration items="{!v.Accountobj.Contacts}" var="Con">
+                                                        <option value="{!Con.Id}">{!Con.Name}</option>
+                                                    </aura:iteration>
+                                                </lightning:select>
+                                            </div>
+                                        </aura:set>
+                                    </aura:if>
+                                    <div class="slds-form-element slds-size_1-of-2">
+                                        <lightning:input type="tel" label="Phone" value="{!v.Accountobj.Phone__c}" aura:id="phoneid" required="true" messageWhenValueMissing="Complete This Field" formatter="phone" />
+                                        <!--ui:inputNumber   value="{!v.phonenumber}" class="slds-input" required="true" aura:id="phoneid" /-->
+                                    </div>
+                                </div>
+
+                                <div class="slds-form-element__row">
+                                    <div class="slds-form-element slds-size_1-of-2">
+
+                                        <lightning:input label="Customer PO" type="text" messageWhenValueMissing="Complete This Field" aura:id="customerpoid" />
+
+                                    </div>
+
+                                    <div class="slds-form-element slds-size_1-of-2">
+                                        <lightning:input type="date" value="{!v.defaultpo}" label="PO Date" name="date" aura:id="podateId" />
+                                    </div>
+                                </div>
+
+                                <div class="slds-form-element__row">
+                                    <div class="slds-form-element slds-size_1-of-2">
+
+                                        <!--ui:inputText   value="{!v.Email}" class="slds-input" /-->
+                                        <lightning:input type="email" label="Email" value="{!v.Accountobj.Email__c}" aura:id="EmailId1" />
+                                    </div>
+                                    <div class="slds-form-element slds-size_1-of-2">
+                                        <lightning:input type="date"  value="{!v.defaultdate}" label="Requested Ship Date" name="date" aura:id="ShipdateId" />
+                                        
+                                    </div>
+                                </div>
+                                <!-- condition lists-->
+
+                                <div class="slds-form-element__row">
+                                    <aura:if isTrue="{!v.fromOrder}">
+                                        <div class="slds-form-element slds-size_1-of-2">
+                                            <lightning:input type="text" value="" label="Customer Discount Condition Group" name="Customer Discount Condition Group" aura:id="CustomerDiscountConditionGroupId" />
+
+
+                                        </div>
+                                        <aura:set attribute="else">
+                                            <div class="slds-form-element slds-size_1-of-2">
+                                                <lightning:select name="Customer Discount Condition Group" label="Customer Discount Condition Group" aura:id="CustomerDiscountConditionGroupId">
+                                                    <option value="">Select a Value</option>
+                                                    <aura:iteration items="{!v.discountCondList}" var="dcl">
+                                                        <option value="{!dcl.value}">{!dcl.key}</option>
+                                                    </aura:iteration>
+                                                </lightning:select>
+                                            </div>
+                                        </aura:set>
+                                    </aura:if>
+
+                                    <aura:if isTrue="{!v.fromOrder}">
+
+                                        <div class="slds-form-element slds-size_1-of-2">
+                                            <lightning:input type="text" value="" label="Customer Freight Condition Group" name="Customer Freight Condition Group" aura:id="CustomerFreightConditionGroupId" />
+
+                                        </div>
+
+                                        <aura:set attribute="else">
+                                            <div class="slds-form-element slds-size_1-of-2">
+                                                <lightning:select name="Customer Freight Condition Group" label="Customer Freight Condition Group" value="{!v.Accountobj.CustomerFreightConditionGroup__c}" aura:id="CustomerFreightConditionGroupId">
+                                                    <option value="">Select a Value</option>
+                                                    <aura:iteration items="{!v.freightCondList}" var="fcl">
+                                                        <option value="{!fcl.value}">{!fcl.key}</option>
+                                                    </aura:iteration>
+                                                </lightning:select>
+                                            </div>
+                                        </aura:set>
+                                    </aura:if>
+
+                                </div>
+
+                                <div class="slds-form-element__row">
+                                    <div class="slds-form-element slds-size_1-of-2">
+                                        <label class="slds-form-element__label" for="comments">Notes</label>
+                                        <!--textarea id="input-id-02" class="slds-textarea"></textarea-->
+                                        <lightning:textArea aura:id="comments" rows="3" cols="30" />
+                                    </div>
+                                    <div class="slds-form-element slds-size_1-of-2">
+                                        <lightning:textArea label="Shipping Instructions" name="shippinginstructions" aura:id="shippingInstructionsId" rows="3" cols="30" />
+                                    </div>
+                                </div>
+                            </div>
+                            <h3 class="slds-section__title slds-theme--shade primaryPaletteBorder test-id__section-header-container">
+                                <span class="slds-truncate slds-p-horizontal_small" title="Section Title">Billing</span>
+                            </h3>
+                            <div class="slds-form-element__group">
+
+                                <div class="slds-form-element__row">
+                                    <!--div class="slds-form-element slds-size_1-of-2">
+                                    <lightning:select name="selectItem" label="Deposit Terms" value = "{!v.Accountobj.DepositTerms__c}" required="true" messageWhenValueMissing="Complete This Field" aura:id="deposittermsid">
+                                        <option value="">Select a Value</option>
+                                        <option value="75">75%</option>
+                                        <option value="50">50%</option>
+                                    </lightning:select>
+                                </div-->
+
+                                    <div class="slds-form-element slds-size_1-of-2">
+                                        <lightning:select name="selectItem" label="Deposit Terms" value="{!v.Accountobj.DepositTerms__c}" required="true" messageWhenValueMissing="Complete This Field" aura:id="deposittermsid">
+                                            <!--option value="{!v.Accountobj.DepositTerms__c}">{!v.Accountobj.DepositTerms__c}</option-->
+                                            <option value="">Select a Value</option>
+                                            <option value="75">75%</option>
+                                            <option value="50">50%</option>
+                                        </lightning:select>
+                                    </div>
+
+                                    <div class="slds-form-element slds-size_1-of-2">
+                                        <lightning:select name="PaymentTerms" label="Payment Terms" value="{!v.Accountobj.PaymentTerms__c}" aura:id="paymenttermsid" required="true" messageWhenValueMissing="Complete This Field">
+                                            <option value="{!v.Accountobj.PaymentTerms__c}">{!v.Accountobj.PaymentTerms__c}</option>
+                                        </lightning:select>
+                                    </div>
+                                </div>
+
+                                <div class="slds-form-element__row">
+                                    <div class="slds-form-element slds-size_1-of-2">
+                                        <lightning:select label="Sold To" aura:id="SoldToid" value="{!v.Accountobj.CustomerNumber__c}" required="true" messageWhenValueMissing="Complete This Field">
+                                            <option value="{!v.Accountobj.CustomerNumber__c}">{!v.Accountobj.CustomerNumber__c+'-'}{!v.Accountobj.ShippingStreet}&nbsp;{!v.Accountobj.ShippingCity}&nbsp;{!v.Accountobj.ShippingState} &nbsp;{!v.Accountobj.ShippingCountry} &nbsp;{!v.Accountobj.ShippingPostalCode}</option>
+                                        </lightning:select>
+                                    </div>
+                                    <div class="slds-form-element slds-size_1-of-2">
+                                        <lightning:select name="selectItem" label="Distribution Channel" value="{!v.Accountobj.DistributionChannel__c}" aura:id="distributionchannelid" required="true" messageWhenValueMissing="Complete This Field">
+                                            <option value="{!v.Accountobj.DistributionChannel__c}">{!v.Accountobj.DistributionChannel__c}</option>
+                                        </lightning:select>
+                                    </div>
+                                </div>
+
+                                <div class="slds-form-element__row">
+                                    <div class="slds-form-element slds-size_1-of-2">
+                                        <!--ui:inputText  aura:id="Salesorgid" value="{!v.Salesorg}" class="slds-input" required="true" /-->
+                                        <lightning:input label="Sales Org" value="{!v.Accountobj.SalesOrg__c}" aura:id="Salesorgid" required="true" messageWhenValueMissing="Complete This Field" />
+                                    </div>
+                                    <div class="slds-form-element slds-size_1-of-2">
+                                        <lightning:select aura:id="Divisionid" name="selectItem" label="Division" value="{!v.Accountobj.Division__c}" required="true" messageWhenValueMissing="Complete This Field">
+                                            <option value="{!v.Accountobj.Division__c}">{!v.Accountobj.Division__c}</option>
+                                        </lightning:select>
+                                    </div>
+                                </div>
+
+                                <div class="slds-form-element__row">
+                                    <div class="slds-form-element slds-size_1-of-2">
+
+                                        <lightning:input label="Sales Office" value="{!v.Accountobj.SalesOffice__c}" aura:id="SalesOfficeid11" required="true" messageWhenValueMissing="Complete This Field" />
+                                        <!--ui:inputText  aura:id="SalesOfficeid" value="{!v.Accountobj.SalesOffice__c}" class="slds-input" required="true" /-->
+                                    </div>
+                                    <div class="slds-form-element slds-size_1-of-2">
+
+                                        <lightning:input label="Company Code" value="{!v.Accountobj.CompanyCode__c}" aura:id="companycodeid" required="true" messageWhenValueMissing="Complete This Field" />
+                                        <!--ui:inputText value="{!v.Companycode}" class="slds-input"  required="true" aura:id="companycodeid" /-->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3 class="slds-section__title slds-theme--shade primaryPaletteBorder test-id__section-header-container">
+                                <span class="slds-truncate slds-p-horizontal_small" title="Section Title">Shipping</span>
+                            </h3>
+                            <div class="slds-form-element__group">
+                                <div class="slds-form-element__row">
+                                    <div class="slds-form-element slds-size_1-of-2">
+                                        <lightning:select aura:id="carsec" name="selectItem" label="Shipping  Method" value="{!v.Accountobj.ShippingCondition__c}">
+                                            <option value="{!v.Accountobj.ShippingCondition__c}">{!v.Accountobj.ShippingCondition__c}</option>
+                                        </lightning:select>
+                                    </div>
+                                    <div class="slds-form-element slds-size_1-of-2">
+                                        <lightning:select name="selectItem" label="Ship To Address" aura:id="shiptoadd" required="true" messageWhenValueMissing="Complete This Field" value="{!v.Accountobj.CustomerNumber__c}">
+
+                                            <option value="{!v.Accountobj.CustomerNumber__c}">{!v.Accountobj.CustomerNumber__c+'-'}{!v.Accountobj.ShippingStreet}&nbsp;{!v.Accountobj.ShippingCity}&nbsp;{!v.Accountobj.ShippingState} &nbsp;{!v.Accountobj.ShippingCountry} &nbsp;{!v.Accountobj.ShippingPostalCode}</option>
+
+                                            <aura:iteration items="{!v.Accountobj.ChildAccounts}" var="Acc">
+                                                <option value="{!Acc.CustomerNumber__c}">{!Acc.CustomerNumber__c+'-'}{!Acc.ShippingStreet}&nbsp;{!Acc.ShippingCity}&nbsp;{!Acc.ShippingState} &nbsp;{!Acc.ShippingCountry} &nbsp;{!Acc.ShippingPostalCode}</option>
+                                            </aura:iteration>
+                                        </lightning:select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="slds-form-element__group">
+                                <div class="slds-form-element__row">
+                                    <div class="slds-form-element slds-size_1-of-2">
+                                        <lightning:input label="Customer Ship Account" value="{!v.Accountobj.CustomerShipAccount__c}" required="true" messageWhenValueMissing="Complete This Field" aura:id="csaId" />
+                                        <!--ui:inputText   value="{!v.CustomerShipAccount}" class="slds-input" /-->
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div><br/>
+                    <h3 class="slds-section__title slds-theme--shade primaryPaletteBorder test-id__section-header-container">
+                        <span class="slds-truncate slds-p-horizontal_small" title="Section Title">	</span>
+                    </h3>
+
+                    <div class="slds-tabs--default">
+                        <ul class="slds-tabs--default__nav" role="tablist">
+                            <li aura:id="ProductsId" class="slds-tabs--default__item slds-text-title--caps slds-active " title="Products" role="presentation"><a class="slds-tabs--default__link" href="javascript:void(0);" onclick="{!c.productstab}" role="tab" tabindex="0" aria-selected="false" aria-controls="tab-default-0">Products</a></li>
+                            <li aura:id="ItemsId" class="slds-tabs--default__item slds-text-title--caps" title="Items" role="presentation"><a class="slds-tabs--default__link" href="javascript:void(0);" onclick="{!c.ItemsTab}" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-1" id="Items">Items</a></li>
+                            <li aura:id="AddressId" class="slds-tabs--default__item slds-text-title--caps" title="Address" role="presentation"><a class="slds-tabs--default__link" href="javascript:void(0);" onclick="{!c.AddressTab}" role="tab" tabindex="-2" aria-selected="false" aria-controls="tab-default-2" id="Address">Address</a></li>
+                            <li aura:id="StatusId" class="slds-tabs--default__item slds-text-title--caps" title="Status" role="presentation"><a class="slds-tabs--default__link" href="javascript:void(0);" onclick="{!c.StatusTab}" role="tab" tabindex="-3" aria-selected="false" aria-controls="tab-default-3" id="Address">Status</a></li>
+                            <li aura:id="DetailsId" class="slds-tabs--default__item slds-text-title--caps" title="Details" role="presentation"><a class="slds-tabs--default__link" href="javascript:void(0);" onclick="{!c.DetailsTab}" role="tab" tabindex="-4" aria-selected="false" aria-controls="tab-default-4" id="Address">Details</a></li>
+                        </ul>
+
+
+                        <div id="tab-scoped-1" class="slds-tabs_scoped__content slds-show" aura:id="ProductsDataId" role="tabpanel" aria-labelledby="tab-scoped-1__item">
+                            <div>
+                                <h3 class="slds-section__title slds-theme--shade primaryPaletteBorder test-id__section-header-container">
+                                    <span class="slds-truncate slds-p-horizontal_small" title="Section Title">Order Products</span>
+                                </h3><br/>
+
+                                <!-- search bar cmp -->
+                                <c:Product_search_P_YETI objectAPIName="Product2" IconName="standard:pricebook" lstSelectedRecords="{!v.selectedLookUpRecords}" sapnumber="{!v.Accountsoldto.ENSX_EDM__SAP_Customer_Number__c}" test="{!v.defaultvalue}" />
+                                <aura:if isTrue="{!v.spinner}">
+                                    <div style="height: 6rem;">
+                                        <div role="status" align="center" class="slds-spinner slds-spinner_small slds-spinner_brand slds-is-relative ">
+                                            <span class="slds-assistive-text">Loading</span>
+                                            <div class="slds-spinner__dot-a"></div>
+                                            <div class="slds-spinner__dot-b"></div>
+                                        </div>
+                                    </div>
+                                </aura:if>
+                                <aura:if isTrue="{!v.show}">
+                                    <div style="height: 6rem;">
+                                        <!--div class="slds-spinner_container"-->
+                                        <div role="status" class="slds-spinner  slds-spinner_brand slds-spinner_large slds-is-relative">
+                                            <span class="slds-assistive-text">Loading</span>
+                                            <div class="slds-spinner__dot-a"></div>
+                                            <div class="slds-spinner__dot-b"></div>
+                                        </div>
+                                    </div>
+                                    <!--/div-->
+                                </aura:if>
+
+                            </div><br/><br/>
+                            
+                            <!--  <div>
+                            <c:YETI_ProductSearchSfcc />   Product Search in SFCC
+                            </div> -->
+
+                            <div align="right">
+                                <lightning:button variant="brand" label="Pricing" onclick="{! c.getPricing }" /> </div>
+
+                            <div><br/>
+
+
+                                <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                                    <thead>
+                                        <tr class="slds-text-title_caps">
+
+                                            <th scope="col">
+                                                <div class="slds-truncate" title="Product Name">Product Name</div>
+                                            </th>
+                                            <th scope="col">
+                                                <div class="slds-truncate" title="Add Embellishment"></div>
+                                            </th>
+                                            <th scope="col">
+                                                <div class="slds-truncate" title="Embellishment"></div>
+                                            </th>
+                                            <th scope="col">
+                                                <div class="slds-truncate" title="Embellishment"></div>
+                                            </th>
+                                            <th scope="col">
+                                                <div class="slds-truncate" title="Available Quantity">Available Quantity</div>
+                                            </th>
+                                            <th scope="col">
+                                                <div class="slds-truncate" title="Sales Price">Sales Price</div>
+                                            </th>
+                                            <th scope="col">
+                                                <div class="slds-truncate" title="Quantity">Quantity</div>
+                                            </th>
+                                            <th scope="col">
+                                                <div class="slds-truncate" title="Discount">Discount</div>
+                                            </th>
+                                            <th scope="col">
+                                                <div class="slds-truncate" title="Line Tax">Line Tax</div>
+                                            </th>
+                                            <th scope="col">
+                                                <div class="slds-truncate" title="Total Price">Total Price</div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <aura:iteration items="{!v.Lineitemslist}" var="item">
+
+                                        <tbody>
+                                            <tr>
+
+                                                <td data-label="Product Name">
+                                                    <div class="slds-truncate" title="Product Name">{!item.Product2.Name}</div>
+                                                </td>
+                                                <td data-label="Add Emblishment">
+                                                    <aura:if isTrue="{!(item.productkey__c != null ? 'true' : 'false')}">
+
+                                                        <div class="slds-truncate" title="Add Embellishment">
+                                                            <lightning:button name="{!item.productkey__c+'/'+ item.Id}" variant="brand" label="Add Embellishment" title="Brand action" onclick="{!c.AddEmbellishment}" />
+                                                        </div>
+                                                    </aura:if>
+                                                </td>
+                                                <td data-label="customizer">
+                                                    <aura:if isTrue="{!(item.productkey__c != null ? 'true' : 'false')}">
+                                                       
+                                                    <div class="slds-truncate" title="customizer">
+                                                        <!-- card -->
+                                                        <article class="slds-card">
+                                                            <div class="slds-card__header slds-grid">
+                                                                
+                                                            </div>
+                                                            <div class="slds-card__body slds-card__body_inner">
+                                                                <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                                                    
+                                                                    <div class="slds-media__body">
+                                                                        <h2 class="slds-card__header-title">
+                                                                            <span class="slds-text-heading_small">FRONT</span>
+                                                                        </h2>
+                                                                    </div>
+                                                                </header>
+                                                                
+                                                                <br/><br/>
+                                                                <aura:iteration items="{!item.Order_Products__r}" var="clildItems">
+                                                                   <aura:if isTrue="{!(clildItems.ramsideloc__c == 'front' ? 'true' : 'false')}">
+                                                                        <img src="{! clildItems.custpreview__c}" alt="customlogo" width="150" height="150" />
+                                                                   </aura:if>    
+                                                                </aura:iteration>      
+                                                            </div>
+                                                        </article>
+                                                    </div>
+                                                    </aura:if>
+                                                </td>
+                                                <td data-label="customizer">
+                                                    <aura:if isTrue="{!(item.productkey__c != null ? 'true' : 'false')}">
+                                                       
+                                                    <div class="slds-truncate" title="customizer">
+                                                        <!-- card -->
+                                                        <article class="slds-card">
+                                                            <div class="slds-card__header slds-grid">
+                                                                
+                                                            </div>
+                                                            <div class="slds-card__body slds-card__body_inner">
+                                                                <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                                                    
+                                                                    <div class="slds-media__body">
+                                                                        <h2 class="slds-card__header-title">
+                                                                            <span class="slds-text-heading_small">BACK</span>
+                                                                        </h2>
+                                                                    </div>
+                                                                </header>
+                                                                
+                                                                <br/><br/>
+                                                                <aura:iteration items="{!item.Order_Products__r}" var="clildItems">
+                                                                   <aura:if isTrue="{!(clildItems.ramsideloc__c == 'back' ? 'true' : 'false')}">
+                                                                        <img src="{! clildItems.custpreview__c}" alt="customlogo" width="150" height="150" />
+                                                                   </aura:if>    
+                                                                </aura:iteration>      
+                                                            </div>
+                                                        </article>
+                                                    </div>
+                                                    </aura:if>
+                                                </td>
+                                                <td data-label="Available Quantity">
+                                                    <div class="slds-truncate" title="Available Quantity">{!item.AvailableQuantity__c}</div>
+                                                </td>
+                                                <td data-label="Sales Price">
+                                                    <div class="slds-truncate" title="Sales Price">{!item.UnitPrice}</div>
+                                                </td>
+                                                <td data-label="Sales Price">
+                                                    <div class="slds-truncate" title="Quantity">
+                                                        <div class="slds-form-element">
+                                                            <div class="slds-form-element__control">
+                                                                <input type="text" id="text-input-id-1" name="{!item.Id}" value="{!item.Quantity}" class="slds-input" onchange="{!c.ronChange}" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+
+                                                <td data-label="Sales Price">
+                                                    <div class="slds-truncate" title="Discount">{!item.Discount__c}</div>
+                                                </td>
+                                                <td data-label="Sales Price">
+                                                    <div class="slds-truncate" title="Line Tax">{!item.LineTax__c}</div>
+                                                </td>
+                                                <td data-label="Sales Price">
+                                                    <div class="slds-truncate" title="Total Price">{!item.Line_Total__c}</div>
+                                                </td>
+
+                                                <td data-label="delete">
+                                                    <div class="slds-truncate">
+                                                        <lightning:button onclick="{!c.getRecordId}" name="{!item.Id}" class="slds-button slds-button_icon slds-button_icon slds-pill__remove">
+                                                            <lightning:icon iconName="utility:close" size="small" alternativeText="close" />
+                                                        </lightning:button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </aura:iteration>
+
+                                </table>
+
+
+                            </div>
+
+                            <aura:if isTrue="{!v.fromOrder}">
+                                <aura:if isTrue="{!v.deleteList}">
+                                    <div>
+
+                                        <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                                            <thead>
+                                                <tr class="slds-text-title_caps">
+                                                    <th scope="col">
+                                                        <div class="slds-truncate" title="Product Name">Product Status</div>
+                                                    </th>
+                                                    <th scope="col">
+                                                        <div class="slds-truncate" title="Product Name">Product Name</div>
+                                                    </th>
+
+                                                </tr>
+                                            </thead>
+
+                                            <aura:iteration items="{!v.LineitemsDeletedlist}" var="item">
+                                                <tbody>
+
+                                                    <tr>
+                                                        <td data-label="Product Status">
+                                                            <div class="slds-truncate" title="Available Quantity"> <button class="slds-button slds-button_destructive">Deleted</button>
+                                                            </div>
+                                                        </td>
+                                                        <td data-label="Product Name">
+                                                            <div class="slds-truncate" title="Available Quantity">{!item.Product2.Name}</div>
+                                                        </td>
+
+                                                    </tr>
+                                                </tbody>
+                                            </aura:iteration>
+
+
+                                        </table>
+
+
+                                    </div>
+                                </aura:if>
+                            </aura:if>
+                        </div>
+
+                    </div>
+
+                    <div align="right">
+                        <lightning:button variant="brand" label="Cancel" onclick="{!c.onCancle}" />
+                        <lightning:button variant="brand" label="Save" onclick="{! c.createOrder }" />
+                        <lightning:button variant="brand" label="Update" onclick="{! c.createUpdateOrder }" />
+                    </div>
+                </div>
+
+            </div>
+            <div id="tab-scoped-2" class="slds-tabs_scoped__content slds-hide" aura:id="ItemsDataId" role="tabpanel" aria-labelledby="tab-scoped-2__item">content Yet to determine for Items</div>
+            <div id="tab-scoped-3" class="slds-tabs_scoped__content slds-hide" aura:id="AddressDataId" role="tabpanel" aria-labelledby="tab-scoped-3__item">content Yet to determine for Address</div>
+            <div id="tab-scoped-4" class="slds-tabs_scoped__content slds-hide" aura:id="StatusDataId" role="tabpanel" aria-labelledby="tab-scoped-4__item">content Yet to determine for Status</div>
+            <div id="tab-scoped-5" class="slds-tabs_scoped__content slds-hide" aura:id="DetailsDataId" role="tabpanel" aria-labelledby="tab-scoped-5__item">content Yet to determine for Details</div>
+        </div>
+
+
+        <div> {!v.body} </div>
+    </ui:scrollerWrapper>
+
+</aura:component>

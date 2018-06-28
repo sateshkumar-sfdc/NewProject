@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>YETI Open Order Summary</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Hi,
+
+Attached is your YETI Open Order Summary.
+
+Any order showing a 2016 ship date will be subject to your 2016 Business Plan.
+
+Please let me know if you&apos;d like to make any modifications or cancellations, or if the title of the PO needs to be changed.  We will need to have these modifications in and outlined no later than two weeks prior to ship date.  We want to make sure we get you the product that you need!
+
+Thank you for your continued business.
+
+{!User.CommunityNickname}
+Account Management Team
+YETI
+512.394.0222
+sales@yeti.com
+yeti.com
+
+
+CONFIDENTIAL INFORMATION OF YETI COOLERS, LLC. THIS DOCUMENT IS INTENDED FOR USE ONLY BY YETI’S AUTHORIZED DEALERS. ANY DISCLOSURE, REPRODUCTION, DISTRIBUTION, OR OTHER USE OF THIS DOCUMENT IS PROHIBITED AND MAY RESULT IN ACCOUNT CLOSURE, IN ADDITION TO OTHER REMEDIES AVAILABLE AT LAW.</textOnly>
+    <type>html</type>
+</EmailTemplate>

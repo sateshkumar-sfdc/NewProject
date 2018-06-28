@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$Id</field>
+    </columns>
+    <columns>
+        <field>Account$ENSX_EDM__SAP_Customer_Number__c</field>
+    </columns>
+    <columns>
+        <field>Account.Activities$Owner</field>
+    </columns>
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account.Activities$Subject</field>
+    </columns>
+    <columns>
+        <field>Account.Activities$CallType</field>
+    </columns>
+    <columns>
+        <field>Account.Activities$CreatedDate</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Account.Activities$Owner</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Kyle Cogdill,Chad Jones</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Calls for Sales Reps</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Accounts_with_Activities__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>Account.Activities$Subject</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Account.Activities$ActivityDate</dateColumn>
+        <interval>INTERVAL_CURFY</interval>
+    </timeFrameFilter>
+</Report>

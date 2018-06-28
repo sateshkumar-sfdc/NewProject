@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Drain Plug- Leaking</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hello,
+
+Thanks for contacting us about your leaking drain plug.  Let’s see if these tips will help solve the problem you’re having:
+
+1. Remove the drain plug from your cooler.
+
+2. Remove the rubber washer from the drain plug.
+
+3. Look at both sides of the rubber washer and identify which side of the washer is smooth and which side has several small circular bumps.
+
+4. Place the washer back on the drain plug so that the smooth surface of the washer is visible - facing the threaded portion of the drain plug. The portion of the washer with the small circular bumps should be seated firmly against the flat surface of the drain plug grip.
+
+5. When the drain plug is returned to the cooler, make sure the drain plug is turned in a clockwise motion until a snug seal is created.
+
+This should remedy the leaking drain plug in your YETI. If you find that this does not fix the problem, please submit a warranty request at http://yeti.com/warranty-information  Please include photos of the cooler and drain plug area for further review.
+
+Sincerely,
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

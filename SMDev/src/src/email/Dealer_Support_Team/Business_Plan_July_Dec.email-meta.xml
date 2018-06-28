@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Business Plan  July-Dec</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hello,
+
+Please find an attached copy of your 2016 YETI Business Plan orders.
+
+Please let me know if you&apos;d like to make any modifications or cancellations, or if the title of the PO needs to be changed.  We will need to have these modifications in and outlined no later than two weeks prior to ship date.  We want to make sure we get you the product that you need!
+
+Thank you for your business,
+
+{!User.CommunityNickname}
+Account Management Team
+YETI
+512.394.0222
+sales@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Return Instructions - No FedEx Label</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Your Return Request Confirmation
+
+Hello,
+
+We are so sorry that you have to return your YETI product.  We know how disappointing it can be to receive items and have them not work out for you, so we are going to do our best to make this process quick and easy.  This email highlights and explains the return process in order to give you a better understanding of how we do things!
+
+Your Return Information:
+
+Return Order #: Please write this number on the outside of the shipping box
+Items returned:
+Case ID:
+
+To return your YETI product please follow the steps below:
+
+A return packing slip will be emailed separately please print it off and include it with your package.
+Use a shipper of your choice to return your product(s). Return shipping costs are non-refundable.  Our address is:
+
+
+YETI
+Returns
+951 Valley View Lane
+Irving, TX 75061
+
+
+** Please ask for a copy of your receipt confirming your drop off at the shipper of your choice and keep this with the tracking number for your records. Please reply to this email with your return tracking number to ensure your return can be successfully processed.**
+We will do our best to complete your return/refund within 7 business days of receiving your product. During peak season times it may take up to 15 business days.
+
+Thanks for being a YETI customer! Please let us know if you have any questions.
+Sincerely,
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+YETI
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

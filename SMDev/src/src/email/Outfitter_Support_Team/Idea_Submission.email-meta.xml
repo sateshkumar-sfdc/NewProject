@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Idea Submission</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Hello,
+
+
+Thank you for reaching out to YETI. We enjoy hearing from you and value your feedback.
+
+You may submit non-confidential ideas, inventions, discoveries, suggestions, information, text, writings, photographs, graphics, images, videos, slogans, data, prototypes, or other material (collectively, “User Submissions”) via our Idea Submission Form at https://www.yeti.com/on/demandware.static/-/Library-Sites-SiteGenesisSharedLibrary/default/dw0f676cb0/images/staticPages/UNSOLICITED%20SUBMISSION%20AGREEMENT.pdf
+
+We only accept non-confidential information, and reserve the right to use or not use the User Submission in any fashion that YETI desires at YETI’s sole discretion with no obligation to the provider, other than as required by applicable patent laws. If you believe your User Submission includes novel material, you may want to consider filing a patent application prior to sending. Any information submitted to YETI assumes understanding of the above.
+
+If you would like to proceed, please also include a signed copy of the attached written agreement.
+
+UNSOLICITED IDEA SUBMISSION AGREEMENT FORM (Please download this form and upload a completed signed copy)
+
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Credit_Card__c$Name</field>
+    </columns>
+    <columns>
+        <field>Credit_Card__c$Account__c.Owner</field>
+    </columns>
+    <columns>
+        <field>Credit_Card__c$Credit_Card_Name__c</field>
+    </columns>
+    <columns>
+        <field>Credit_Card__c$Credit_Card_Type__c</field>
+    </columns>
+    <columns>
+        <field>Credit_Card__c$Expiration_Month__c</field>
+    </columns>
+    <columns>
+        <field>Credit_Card__c$Expiration_Year__c</field>
+    </columns>
+    <columns>
+        <field>Credit_Card__c$Expired__c</field>
+    </columns>
+    <currency>USD</currency>
+    <description>Expiring this and next month.  Used in ISR Dashboard</description>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Credit_Card__c$Account__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>ISR Credit Cards Expiring</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Credit_Cards__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Credit_Card__c$Expiration_Date__c</dateColumn>
+        <interval>INTERVAL_THISNEXTMONTH</interval>
+    </timeFrameFilter>
+</Report>

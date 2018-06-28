@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This custom metadata is used to switch triggers ON/OFF.</description>
+    <fields>
+        <fullName>Switch_Trigger_Off__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Switch Trigger Off</label>
+        <type>Checkbox</type>
+    </fields>
+    <label>Trigger Setting</label>
+    <pluralLabel>Trigger Settings</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

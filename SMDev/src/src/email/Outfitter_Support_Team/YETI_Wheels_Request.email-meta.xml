@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>YETI Wheels Request</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Thank you for your interest in YETI!  At this time we do not have a cooler incorporating a permanent wheel system, nor do we sell a wheeled accessory option.  However, please check out our buddies over at www.ramblerwheels.com to turn your YETI into your best beach buddy, parking lot pal, and all terrain good time on wheels.
+
+
+
+Rambler Wheels Video
+
+
+YETI owners have also had great success with custom carts and dollies.  Below are a few additional options to consider.
+
+
+Angler&apos;s Fish-N-Mate (www.fishnmate.com)
+
+Model that Fit   YETI Roadies that Fit YETI Tundras
+
+
+Fish-n-Mate (cart)  YR20                            YT 35 ,45, 50, 65, 75
+
+Fish-n-Mate Jr (cart)  YR20                            YT 35, 45
+
+Surf-n-Mate (hitch mount)  YR20                            YT 45, 50, 65, 75, 105
+
+
+Surf-n-Mate Jr (hitch mount)  YR20                            YT 35, 45, 50
+
+
+
+Fishing Carts (www.fishingcarts.com)
+
+
+Model that Fit   YETI Roadies that Fit   YETI Tundras
+
+Reels on Wheels Sr (cart)  YR20                            YT 35, 45, 50, 65, 75
+
+Reels on Wheels Jr (cart)                   YR20                            YT 35, 45
+
+Beach Buddy (cart)                            YR20                            YT 35, 45
+
+
+Hitch Mount 12 Rod Rack                  YR20                            YT 35, 45, 50, 65, 75
+
+Hitch Mount 8 Rod Rack                    YR20                            YT 35, 45, 50
+
+
+
+
+Please give us a call at 512.394.9384 if you have any additional questions or concerns.
+
+
+Regards
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeticoolers.com
+yeticoolers.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

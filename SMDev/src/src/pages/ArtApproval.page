@@ -1,0 +1,379 @@
+<apex:page cache="false" sidebar="false" showHeader="false" standardController="Order">
+
+{!order.Email__c}
+{!order.SAP_Order_Number__c}
+ 
+
+<style>
+
+
+* {
+    box-sizing: border-box;
+}
+
+.row {
+    display: flex;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+    flex: 50%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+}
+
+@media screen and (min-width: 600px)
+.page-title h1 {
+    font-size: 4em;
+}
+.page-title h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+@media screen and (min-width: 600px)
+h1 {
+    font-size: 2em;
+}
+h1 {
+    font-size: 1.8em;
+    font-weight: 500;
+    margin: .5em 0;
+    line-height: 1;
+}
+h1, h2, h3, h4, h5, h6 {
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Proxima Nova Extra Condensed","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 1.333em;
+    line-height: 1.2;
+    margin: 0 0 0.65rem;
+}
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+*, *::after, *::before {
+    box-sizing: inherit;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    -webkit-margin-before: 0.67em;
+    -webkit-margin-after: 0.67em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+.page-title {
+    position: relative;
+    background-image: url(https://ycs-static-dev.imgix.net/webstore/backgrounds/speckled-background.gif);
+    text-align: center;
+    margin: 0 0 1rem;
+    padding: 1rem 0;
+    z-index: 0;
+}
+Style Attribute {
+    cursor: default;
+}
+body {
+    background-color: white;
+    height: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-width: 320px;
+    padding-top: 124px;
+    image-rendering: auto;
+}
+body {
+    color: #39444b;
+    font-family: "Proxima Nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 1em;
+    line-height: 1.3;
+}
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+*, *::after, *::before {
+    box-sizing: inherit;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+*, *::after, *::before {
+    box-sizing: inherit;
+}
+
+
+.container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+    min-width: 320px;
+}
+.order-estimate-section {
+    padding: 1rem;
+}
+
+.order-estimate-row {
+    display: block;
+}
+.order-estimate-section {
+    padding: 1rem;
+}
+
+.order-estimate-row::after {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+.order-estimate-hero {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+}
+
+header {
+    position: fixed;
+    top: 44px;
+    right: 0;
+    left: 0;
+    z-index: 4;
+    padding: 23.5px 0;
+    background: #fff;
+    height: 80px;
+    width: 100%;
+    border-bottom: 1px solid #fff;
+    transition: border-color 150ms ease;
+}
+
+header.header-minimal a.logo {
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header.border {
+    border-color: rgba(10,37,62,0.5);
+}
+
+header .container {
+    height: 33px;
+    position: relative;
+}
+.text-center, .prepared-design-title {
+    text-align: center;
+}
+.container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+    min-width: 320px;
+}
+
+header a.logo {
+    overflow: hidden;
+    text-indent: 101%;
+    white-space: nowrap;
+    height: 58px;
+    width: 56px;
+    background-image: url(https://ycs-static-dev.imgix.net/webstore/logo/logo-ycs-badge.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    float: left;
+    margin-top: -12.5px;
+}
+
+a {
+    outline: none;
+}
+a {
+    color: #08607f;
+    text-decoration: none;
+    transition: color 150ms ease;
+}
+a {
+    background-color: transparent;
+}    
+
+@media screen and (min-width: 600px)
+header a.logo {
+    height: 43px;
+    width: 228px;
+    background-image: url(https://ycs-static-dev.imgix.net/webstore/logo/logo-ycs-horizontal.svg);
+    margin-top: -5px;
+}
+
+header {
+    @media print {
+        display: none;
+    }
+    @include position(fixed, $header-message-small-height 0 null 0);
+    z-index: $header-z-index;
+    padding: (($header-full-height - $header-height) / 2) 0;
+    background: #fff;
+    height: $header-full-height;
+    width: 100%;
+    border-bottom: 1px solid #fff;
+    transition: border-color $base-duration $base-timing;
+    @include media($medium-screen) {
+        top: $header-message-large-height;
+    }
+    @include media($large-screen) {
+        padding: (($header-full-height + $header-offset - $header-height) / 2) 0;
+        height: $header-full-height + $header-offset;
+    }
+    
+    .container {
+        height: $header-height;
+        position: relative;
+    }
+    a.logo {
+        @include hide-text;
+        @include size($logo-badge-width $logo-badge-height);
+        background-image: url(#{$url-web-assets}webstore/logo/logo-ycs-badge.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        float: left;
+        margin-top: -#{($logo-badge-height - $header-height) / 2};
+        @include media($medium-screen) {
+            @include size($logo-horizontal-width $logo-horizontal-height);
+            background-image: url(#{$url-web-assets}webstore/logo/logo-ycs-horizontal.svg);
+            margin-top: -#{($logo-horizontal-height - $header-height) / 2};
+        }
+    }
+    nav {
+        @include clearfix;
+        float: right;
+        width: calc(100% - 250px);
+        height: $header-height;
+        ul {
+            height: $header-height;
+            li.icon a * {
+                display: block;
+                transition: opacity $base-duration $base-timing;
+            }
+        }
+        ul.options {
+            position: absolute;
+            right: 1rem;
+            font-size: .8rem;
+            a.button {
+                @include padding(1px null 0);
+                line-height: $header-height;
+            }
+            li {
+                float: left;
+                .nav-toggle {
+                    margin-left: 1em;
+                    @include media($xl-screen) {
+                        display: none;
+                    }
+                }
+                .icon {
+                    margin-left: 1em;
+                    position: relative;
+                    a {
+                        display: block;
+                        text-align: center;
+                        text-transform: uppercase;
+                        color: $dark-gray;
+                        font-size: .6rem;
+                        margin-top: -2px;
+                        line-height: 1.2;
+                        span {
+                            display: block;
+                        }
+                        img {
+                            height: $header-height - 8;
+                            display: inline-block;
+                        }
+                        img, span:last-child {
+                            opacity: 0.7;
+                        }
+                        .hover {
+                            img, span:last-child {
+                                opacity: 1;
+                            }
+                        }
+                        @include media($medium-screen) {
+                            font-size: .65rem;
+                        }
+                    }
+                }
+            }
+            @include media($large-screen) {
+                font-size: 1rem;
+            }
+        }
+        .count {
+            display: none;
+            @include position(absolute, -10px -4px null null);
+            z-index: $cart-count-z-index;
+            background: #fff;
+            padding: 1px 3px 0;
+            color: $dark-gray;
+            border: 1px solid $dark-gray;
+            border-radius: 12px;
+            font: 11px/14px $heading-font-family;
+            min-width: 16px;
+            max-width: 40px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+    .header-minimal a.logo {
+        float: none;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (min-width: 600px)
+.page-title h1 {
+    font-size: 4em;
+}
+</style>
+
+<header class="header-minimal border" style="top: 0px;">
+    <div class="container text-center">
+        <a class="logo header-minimal" title="Custom YETI Ramblers">
+            YETI Custom Shop
+        </a>
+    </div>
+</header>
+
+ <div class="container print-header-fix print-no-padding">
+  <div class="page-title">
+        <h1>Here's Your Estimate</h1>
+ </div>
+ 
+ <div class="order-estimate-section order-estimate-row">
+        <div class="order-estimate-hero">
+            <h2>Customized Yeti Ramblers and Coolers</h2>
+            <p>Our ultra-durable, personalized YETI Ramblers®, Tanks®, and Tundras® will set your business or company apart. Our mark is guaranteed to last for the life of the product and will not peel, crack, or fade over time. You can feel confident your YETI will be well-received that will get plenty of use beyond office hours.</p>
+        </div>
+        <div class="order-estimate-hero">
+            <img src="https://ycs-static-dev.imgix.net/webstore/order-estimates/product-cooler-ramblers.png?w=400" alt="custom cooler and ramblers" srcset="https://ycs-static-dev.imgix.net/webstore/order-estimates/product-cooler-ramblers.png?w=400 1x,
+                https://ycs-static-dev.imgix.net/webstore/order-estimates/product-cooler-ramblers@2x.png?w=400&amp;dpr=2 2x" />
+        </div>
+    </div>
+ 
+ </div>
+</apex:page>

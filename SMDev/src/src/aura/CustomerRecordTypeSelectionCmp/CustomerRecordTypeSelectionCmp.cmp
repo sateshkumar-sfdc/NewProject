@@ -1,0 +1,53 @@
+<aura:component controller="RecordTypeSelectionController" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction,lightning:actionOverride" access="global">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="isOpen" type="boolean" />
+    <aura:attribute name="options" type="List" default="[{'label': 'Business Account', 'value': 'Business Account'},{'label': 'Consumer Account', 'value': 'Consumer Account'}]"/>
+    <aura:attribute name="value" type="String" default="Business Account"/>
+    <aura:attribute name="Spinner" type="Boolean" default="false"/>
+    <div>
+        <aura:if isTrue="{!v.Spinner}">  
+            <div class="demo-only" style="background-color: rgb(22, 50, 92); height: 6rem;">
+  <div class="slds-spinner_container">
+    <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_inverse">
+      <span class="slds-assistive-text">Loading</span>
+      <div class="slds-spinner__dot-a"></div>
+      <div class="slds-spinner__dot-b"></div>
+    </div>
+  </div>
+</div>
+        </aura:if>
+    </div> 
+    <!-- Model Box Start -->    
+    <aura:if isTrue="{!v.isOpen}">
+        <div role="dialog" tabindex="-1" aria-labelledby="header43" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <div class="slds-modal__header ">
+                    <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModal}">
+                        X<span class="slds-assistive-text">Cancel</span>
+                    </button>
+                    <h2 id="header43" class="slds-text-heading--medium">New Account</h2>
+                </div>
+                <div class="slds-modal__content slds-p-around--medium">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-size--1-of-2 slds-large-size--1-of-2">
+                            <div class="slds-align--absolute-center">Account Type</div>                            
+                        </div>
+                        <div class="slds-size--1-of-2 slds-large-size--1-of-2">
+                            <fieldset class="slds-form-element">
+                                <div class="slds-form-element__control">
+                                    <lightning:radioGroup aura:id="selectid" name="radioGroup" options="{!v.options}" value="{!v.value}" type="radio"/>
+                                </div>
+                            </fieldset>
+                        </div>&nbsp; &nbsp;
+                    </div>                   
+                </div>
+                <div class="slds-modal__footer">
+                    <lightning:button class="slds-button slds-button--neutral" onclick="{!c.closeModal}">Cancel</lightning:button>
+                    <lightning:button class="slds-button slds-button--brand" onclick="{!c.createRecord}">Next</lightning:button>
+                </div>
+            </div>
+        </div>
+    </aura:if>
+    <div class="slds-backdrop slds-backdrop--open"></div>
+    <div>{!v.body}</div>
+</aura:component>

@@ -1,0 +1,4 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId">
+    <aura:attribute name="recordId" type="Id"/>
+    <a href="{!'/' + $Label.c.YETI_PrintButtonCommunityURLSuffix + '/apex/YETI_PrintDetails?Id=' + v.recordId}" target="_blank" class="print-Button slds-button slds-button--neutral">Print</a>
+</aura:component>

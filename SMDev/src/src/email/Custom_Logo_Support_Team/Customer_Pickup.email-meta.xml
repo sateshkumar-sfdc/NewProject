@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Customer Pickup</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Good news, your custom logo YETI Coolers are ready to be picked up!  You are welcome to pick them up Monday - Friday 8 AM - 5 PM at the following address. Please speak with Sam and reference the below sales order number.
+
+Sales Order Number:
+
+Order Complete (Y/N):
+
+YETI Warehouse
+3411 Hidalgo St
+Austin, TX 78702
+
+We appreciate your custom logo order and enjoy your new YETIs!
+
+
+{!User.CommunityNickname}
+Business Development Team
+YETI
+512.402.5895
+corporatesales@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

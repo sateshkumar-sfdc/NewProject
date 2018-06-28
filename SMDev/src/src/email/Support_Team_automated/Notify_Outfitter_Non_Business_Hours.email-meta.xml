@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Notify Outfitter - Non Business Hours</name>
+    <style>freeForm</style>
+    <subject>Thank you for reaching out to YETI! {!Case.Thread_Id}</subject>
+    <textOnly>Thank you for taking a break from your adventures to reach out to YETI. Our normal business hours are Monday - Friday 8-5:30 CST. As soon as we are back in the office from our own adventures we will personally respond to your inquiry. We look forward to helping you!
+
+The YETI Outfitters
+YETI
+512.394.9384
+customerservice@yeti.com
+yeti.com
+
+{!Case.Thread_Id}</textOnly>
+    <type>html</type>
+</EmailTemplate>

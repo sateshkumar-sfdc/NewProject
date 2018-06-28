@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>Case Reports-Mgrs</name>
+    <publicFolderAccess>ReadOnly</publicFolderAccess>
+    <sharedTo>
+        <group>Case_Mngrs</group>
+        <role>Business_Development_Manager</role>
+        <role>Dealer_Support_Manager</role>
+        <role>Outfitter_Support_Manager</role>
+    </sharedTo>
+</ReportFolder>

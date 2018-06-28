@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Water-Air Tight</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Hello,
+
+
+Thank you for your interest in becoming an authorized YETI dealer.
+
+
+We are in the process of developing and refining our existing dealer network, and we are not currently opening new accounts. With that said, we are accepting applications for prospective dealers and we encourage you to apply. Fill out the  YETI Dealer Application and a Sales Representative in your area will be in touch. Please expect a delay in response.
+
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

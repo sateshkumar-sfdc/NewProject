@@ -1,0 +1,377 @@
+<apex:page id="VFP_Quote_Create" docType="html-5.0" controller="CTRL_Quote_Create" action="{!initCreate}"
+           showHeader="true" sidebar="true">
+    <!--
+LINKS:
+Opportunity | 'Create SAP Quote' | LNK_Opportunity_Create_Quote | /apex/VFP_Quote_Create?SF_OppId={!Opportunity.Id}
+-->
+
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"/>
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"/>
+    <apex:includeScript value="{!URLFOR($Resource.enosix, 'js/jqdates.js')}"/>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
+    <style>
+        .bPageBlock .pbTitle {
+            width: 0% !important;
+        }
+    </style>
+    <apex:form id="mainform">
+
+        <c:CMP_Status />
+
+        <apex:pageBlock title="Account: {!orderAccount.Name}"
+                        rendered="{! null != customerDetail && null != orderAccount && null != customerSalesData }">
+            <apex:pageBlockSection columns="2" collapsible="false">
+                <apex:outputText value="{!customerDetail.Name}" label="Customer Name:"/>
+                <apex:outputText value="{0} {1}, {2} {3}" label="Address:">
+                    <apex:param value="{!customerDetail.Street}"/>
+                    <apex:param value="{!customerDetail.City}"/>
+                    <apex:param value="{!customerDetail.Region}"/>
+                    <apex:param value="{!customerDetail.PostalCode}"/>
+
+                </apex:outputText>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton onclick="window.location.href='/{!orderAccount.Id}';return false;"
+                                    value="Back to Account"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+
+        <c:CMP_OpportunityInfo opportunityId="{!orderOpportunity.Id}" accountId="{!orderAccount.Id}"
+                               rendered="{! null != customerDetail && null != orderAccount && orderOpportunity!=null }"/>
+        <apex:pageBlock rendered="{!opportunityClosed}">
+            <apex:outputText >
+                You cannot create a SAP Quote for a closed Opportunity. Please return to the Opportunity and change the Stage name, or create a new Opportunity
+            </apex:outputText>
+        </apex:pageBlock>
+        <apex:pageBlock title="Create SAP Quote:" rendered="{! null == customerDetail && !opportunityClosed }">
+            <apex:pageMessages id="messagediv"/>
+            <apex:actionFunction name="createCustomer" action="{!redirectToCreateCustomer}" reRender="mainform"
+                                 status="status">
+                <apex:param name="SF_AcctId" value=""/>
+            </apex:actionFunction>
+            <apex:commandButton onclick="createCustomer('{!orderAccount.Id}');return false;" value="Create Customer"/>
+        </apex:pageBlock>
+        <apex:pageBlock title="Create SAP Quote:" rendered="{! null != customerDetail && null == customerSalesData && !opportunityClosed}">
+            <apex:pageMessages id="messagediv"/>
+        </apex:pageBlock>
+        <apex:pageBlock title="Create SAP Quote:" id="pbdiv"
+                        rendered="{! null != customerDetail && null != orderAccount && null != customerSalesData && !opportunityClosed }">
+
+            <apex:variable var="sale" value="{!quoteDetail.Sales}"/>
+            <apex:variable var="ship" value="{!quoteDetail.Shipping}"/>
+
+            <apex:pageBlockSection columns="1" collapsible="true" id="pbsdiv" Title="Order Header">
+                <!-- EDITABLE FIELDS -->
+                <apex:selectList value="{!sale.SalesDocumentType}" size="1" label="Order Type:">
+                    <apex:actionSupport event="onchange" action="{!updateSalesAreas}" rerender="mainform"
+                                        status="status"/>
+                    <apex:selectOptions value="{!OrderTypes}"></apex:selectOptions>
+                </apex:selectList>
+                <br/>
+
+                <apex:selectList value="{!quoteDetail.Sales.SalesOrganization}" label="Sales Organization:" size="1">
+                    <apex:actionSupport event="onchange" action="{!updateSalesAreas}" rerender="mainform"
+                                        status="status"/>
+                    <apex:selectOptions value="{!SalesOrganizations}"/>
+                </apex:selectList>
+
+                <apex:selectList value="{!quoteDetail.Sales.DistributionChannel}" label="Distribution Channel:"
+                                 size="1">
+                    <apex:actionSupport event="onchange" action="{!updateSalesAreas}" rerender="mainform"
+                                        status="status"/>
+                    <apex:selectOptions value="{!DistributionChannels}"/>
+                </apex:selectList>
+
+                <apex:selectList value="{!quoteDetail.Sales.Division}" label="Division:" size="1">
+                    <apex:actionSupport event="onchange" action="{!updateSalesAreas}" rerender="mainform"
+                                        status="status"/>
+                    <apex:selectOptions value="{!Divisions}"/>
+                </apex:selectList>
+
+                <br/>
+
+                <apex:selectList value="{!SoldToPartner.CustomerNumber}" label="Sold To:" size="1">
+                    <apex:actionSupport event="onchange" rerender="mainform" status="status"/>
+                    <apex:selectOptions value="{!SoldToPartners}"/>
+                </apex:selectList>
+
+                <apex:pageBlockSectionItem labelTitle="Ship To:" id="shipToDiv">
+                    <apex:outputLabel value="Ship To:"/>
+                    <apex:outputPanel >
+                        <apex:selectList value="{!ShipToPartner.CustomerNumber}" label="Ship To:" size="1">
+                            <apex:actionSupport event="onchange" action="{!UpdateShipToPartner}"
+                                                rerender="mainform"
+                                                status="status"/>
+                            <apex:selectOptions value="{!ShipToPartners}"/>
+                        </apex:selectList>
+                        <apex:outputText id="shipToPanel"
+                                         style="margin-left:30px;"
+                                         value="{0} {1}, {2} {3}"
+                                         rendered="{!isShipToPartnerAddressDisplayed}">
+                            <apex:param value="{!shipToCustomer.Street}"/>
+                            <apex:param value="{!shipToCustomer.City}"/>
+                            <apex:param value="{!shipToCustomer.Region}"/>
+                            <apex:param value="{!shipToCustomer.PostalCode}"/>
+                        </apex:outputText>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+
+                <br/>
+
+                <apex:inputText id="customerpo" value="{!quoteDetail.CustomerPurchaseOrderNumber}"
+                                label="Customer PO:">
+                    <apex:actionSupport event="onchange" rerender="mainform" status="status"/>
+                </apex:inputText>
+
+                <apex:input type="date" value="{!quoteDetail.ORDERDATA.CustomerPurchaseOrderDate}" label="PO Date:">
+                    <apex:actionSupport event="onchange" rerender="mainform" status="status"/>
+                </apex:input>
+                <br/>
+
+                <apex:input type="date" value="{!quoteDetail.Sales.ValidFrom}" label="Valid From:">
+                    <apex:actionSupport event="onchange" rerender="mainform" status="status"/>
+                </apex:input>
+
+                <apex:input type="date" value="{!quoteDetail.Sales.ValidTo}" label="Valid To:">
+                    <apex:actionSupport event="onchange" rerender="mainform" status="status"/>
+                </apex:input>
+                <br/>
+
+                <apex:input type="date" value="{!quoteDetail.Sales.RequestedDeliveryDate}" label="Requested Ship:">
+                    <apex:actionSupport event="onchange" rerender="mainform" status="status"/>
+                </apex:input>
+                <br/>
+
+                <apex:outputText value="{!quoteDetail.SalesDocument}" label="Order Number:"/>
+                <apex:outputText value="{!customerSalesData.SalesOfficeName}" label="Sales Office:"/>
+
+
+                <apex:outputText value="{!companyData.CompanyCode}" label="Company Code:"/>
+                <apex:outputText value="{0,date,MM/dd/yyyy}" label="Create Date:">
+                    <apex:param value="{!sale.CreateDate}"/>
+                </apex:outputText>
+            </apex:pageBlockSection>
+
+
+            <apex:pageBlockSection columns="1" title="Items" collapsible="true" id="itemsList">
+
+                <apex:actionFunction name="removeItem" action="{!removeItem}" reRender="mainform" status="status">
+                    <apex:param name="i" value=""/>
+                </apex:actionFunction>
+
+
+                <apex:pageblockTable value="{!displayedMaterialItems}" var="o">
+                    <apex:column headerValue="Action">
+                        <apex:commandButton onclick="removeItem('{!o.item.ItemNumber}');return false;" value="Remove"/>
+                    </apex:column>
+                    <apex:column headerValue="Item Number" value="{!o.item.ItemNumber}"/>
+                    <apex:column headerValue="Material" value="{!o.item.Material}"/>
+                    <apex:column headerValue="Material Desc" value="{!o.item.ItemDescription}"/>
+                    <apex:column headerValue="Qty." value="{!o.item.OrderQuantity}"/>
+                    <apex:column headerValue="UOM" value="{!o.item.QuantityUOM}"/>
+                    <apex:column headerValue="Price Per">
+                        <apex:outputText value="{1,number,###,##0.00} {0}">
+                            <apex:param value="{!o.item.SalesDocumentCurrency}"/>
+                            <apex:param value="{!o.item.NetItemPrice}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Total" value="{!o.item.NetOrderValue}"/>
+                    <apex:column headerValue="Plant" value="{!o.item.Plant}"/>
+                    <apex:column headerValue="UOM" value="{!o.item.QuantityUOM}"/>
+                    <apex:column headerValue="Requested Ship">
+                        <apex:outputText value="{0,date,MM/dd/yyyy}">
+                            <apex:param value="{!o.convertedItemDate}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="ATP">
+                        <apex:outputText value="{0,date,MM/dd/yyyy}">
+                            <apex:param value="{!o.maxItemSchedule.ScheduleLineDate}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Item Cat">
+                        <apex:selectList size="1" value="{!o.item.ItemCategory}">
+                            <apex:actionSupport event="onchange" rerender="mainform" status="status" />
+                            <apex:selectOptions value="{!ItemCategories}" />
+                        </apex:selectList>
+                    </apex:column>
+
+                    <apex:column headerValue="Billing Block">
+                        <apex:outputText value="{! IF(o.item.BillingBlockStatus == '','Not Blocked',o.item.BillingBlockStatus) }"/>
+                    </apex:column>
+                    <apex:column headerValue="Delivery Block">
+                        <apex:outputText value="{!IF(o.item.DeliveryBlockStatus == '','Not Blocked',o.item.DeliveryBlockStatus)}"/>
+                    </apex:column>
+                    <apex:column headerValue="Free Freight">
+                        <apex:selectList value="{!o.item.CustomerConditionGroup1}" size="1">
+                            <apex:selectOptions value="{!CustomerConditions1}"/>
+                        </apex:selectList>
+                    </apex:column>
+                    <apex:column headerValue="Discount">
+                        <apex:selectList value="{!o.item.CustomerConditionGroup2}" size="1">
+                            <apex:selectOptions value="{!CustomerConditions2}"/>
+                        </apex:selectList>
+                    </apex:column>
+                </apex:pageblockTable>
+
+                <apex:outputText value="{!quoteDetail.NetOrderValue}" label="Net Order Value:"/>
+                <apex:outputText value="{!quoteDetail.TaxAmount}" label="Tax Amount:"/>
+
+                <apex:commandButton onclick="showMaterialsPopup();return false;" value="Add Materials"/>
+
+            </apex:pageBlockSection>
+
+            <apex:pageMessages id="messagediv"/>
+
+            <apex:pageBlockSection rendered="0" columns="1" title="Add Item" collapsible="true" id="newItemDiv">
+                // This block is the old single material item select. remove rendered="0" to reenable
+                <apex:selectList value="{!newItem.Material}" size="1" label="Material:">
+                    <apex:actionSupport event="onchange" action="{!singleMaterialSelected}" rerender="mainform"
+                                        status="status"/>
+                    <apex:selectOptions value="{!Materials}"></apex:selectOptions>
+                </apex:selectList>
+
+                <apex:selectList value="{!newItem.Plant}" size="1" label="Plant:">
+                    <apex:selectOptions value="{!PlantSelections}"></apex:selectOptions>
+                </apex:selectList>
+
+                <apex:input type="number" label="Quantity" value="{!newItem.OrderQuantity}"/>
+
+                <apex:input type="date" label="Requested Ship:" value="{!newItem.ScheduleLineDate}"/>
+
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection >
+                <apex:pageBlockSectionItem >
+                    <apex:commandButton action="{!createNewQuote}" value="Create Quote" status="status"
+                                        reRender="mainform"/>
+                    &nbsp;
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+
+        <apex:pageBlock title="Payment Cards:" rendered="{! null != quoteDetail && isCreditCardSectionDisplayed}">
+
+            <apex:pageBlockSection title="Order Cards" columns="1" collapsible="false">
+
+                <apex:actionFunction name="removeCard" action="{!actionRemoveCard}" reRender="mainform" status="status">
+                    <apex:param name="cardNumber" value=""/>
+                </apex:actionFunction>
+
+                <apex:pageblockTable value="{!QuoteCards}" var="c">
+                    <apex:column headerValue="Action">
+                        <apex:commandButton onclick="removeCard('{!c.CreditCardNumber}');return false;" value="Remove"/>
+                    </apex:column>
+
+                    <apex:column headerValue="Billing Plan" value="{!c.BillingPlan}"/>
+                    <apex:column headerValue="Billing Plan Item" value="{!c.BillingPlanItem}"/>
+                    <apex:column headerValue="Credit Card Type" value="{!c.CreditCardType}"/>
+                    <apex:column headerValue="Credit Card Number" value="{!c.CreditCardNumber}"/>
+                    <apex:column headerValue="Payment Card Suffix" value="{!c.PaymentCardSuffix}"/>
+                    <apex:column headerValue="Expiration Date">
+                        <apex:outputText value="{0,date,MM/yyyy}">
+                            <apex:param value="{!c.ValidToDate}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Cardholder name" value="{!c.CardholderName}"/>
+                    <apex:column headerValue="Bill Amount">
+                        <apex:outputText value="{0,number,###,##0.00}">
+                            <apex:param value="{!c.BillAmount}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Authorized Amount">
+                        <apex:outputText value="{0,number,###,##0.00}">
+                            <apex:param value="{!c.AuthorizedAmount}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Order Currency" value="{!c.OrderCurrency}"/>
+
+                </apex:pageblockTable>
+
+            </apex:pageBlockSection>
+
+            <apex:actionFunction name="addExistingCard" action="{!actionAddCardFromCustomer}"
+                                 reRender="mainform" status="status"/>
+
+            <apex:pageBlockSection title="Credit Card Entry" columns="2" collapsible="false"
+                                   rendered="{!QuoteCardsCount == 0 && isCreditCardEntryDisplayed}">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Customer Cards:" for=""/>
+                    <apex:panelGrid columns="2">
+                        <apex:selectList label="Customer Cards:" value="{!selectedCustomerCard}" size="1">
+                            <apex:selectOption itemLabel="" itemValue=""/>
+                            <apex:selectOptions value="{!CustomerPaymentCards}"/>
+                        </apex:selectList>
+                        <apex:commandButton value="Add" onclick="addExistingCard(); return false;"/>
+                    </apex:panelGrid>
+                </apex:pageBlockSectionItem>
+
+                <c:CMP_CreditCardEntry receiver="{!cdReceiver}" initAction="addCardDetails"
+                                       submitAction="lookupCardDetails" rerender="mainform"/>
+                <apex:inputText value="{!CardLimit}" label="Approval Limit Amount:"
+                                rendered="{!isOrderCardLimitEnabled}"/>
+                <apex:pageBlockSectionItem rendered="{!!isOrderCardLimitEnabled}">&nbsp;</apex:pageBlockSectionItem>
+
+                <apex:commandButton value="Enter Card" onclick="addCardDetails(); return false;"
+                                    rendered="{!displayEnterCardButton}"/>
+                <apex:panelGrid columns="3" rendered="{!displayCaptureCardButton}">
+                    <apex:commandButton value="Save Card to Quote" onclick="lookupCardDetails(); return false;"/>
+                    <apex:inputCheckbox value="{!saveCapturedCard}" id="saveCard"/>
+                    <apex:outputLabel value="Save card to Customer" for="saveCard"/>
+                </apex:panelGrid>
+            </apex:pageBlockSection>
+
+        </apex:pageBlock>
+
+    </apex:form>
+    <c:CMP_Footer />
+
+    <div id="materialsPopup" style="display:none">
+        <apex:form id="materialsForm">
+            <c:CMP_MaterialSearch id="A"
+                receiver="{!msReceiver}"
+                jsCallback="hideMaterialsPopup"
+                jsSearchCallback="fixMaterialsPopupSize"
+                addButtonLabel="Add Items"
+                dateSelect="true"
+                salesOrganization="{!quoteDetail.Sales.SalesOrganization}"
+                distributionChannel="{!quoteDetail.Sales.DistributionChannel}"
+                defaultMaterialTypes="{!defaultQuoteMaterialTypes}"
+                defaultProductAttributes="{!defaultQuoteProductAttributes}"
+                autoSearch="{!isQuoteMaterialAutoSearchEnabled}"
+                rerender="mainform,materialsForm"/>
+        </apex:form>
+    </div>
+
+    <script>
+        function showDialog(id) {
+            $(id).dialog({
+                modal: true,
+                position: {my: 'top', at: 'top+10%'},
+                width: $(window).width() * .9,
+                height: 'auto',
+                open: function (event, ui) {
+                    $('.ui-widget-overlay').bind('click', function () {
+                        $(this).siblings('.ui-dialog').find('.ui-dialog-content').dialog('close');
+                    });
+                }
+            });
+        }
+        function showMaterialsPopup() {
+            showDialog('#materialsPopup');
+        }
+
+        function hideDialog(id) {
+            $(id).dialog('close');
+        }
+        function hideMaterialsPopup() {
+            hideDialog('#materialsPopup');
+        }
+
+        function fixDialogSize(id) {
+            $(id).dialog('option', 'height', 'auto');
+        }
+        function fixMaterialsPopupSize() {
+            fixDialogSize('#materialsPopup');
+        }
+    </script>
+</apex:page>

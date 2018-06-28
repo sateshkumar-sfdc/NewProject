@@ -1,0 +1,7 @@
+Your lead is approved by VP
+
+Company:
+{!Lead.Company}
+
+Link: 
+{!Lead.Link}

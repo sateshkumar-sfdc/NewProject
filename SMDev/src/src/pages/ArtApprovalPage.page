@@ -1,0 +1,266 @@
+<apex:page sidebar="false" showHeader="true" docType="html-5.0">
+
+
+<apex:stylesheet value="{!$Resource.yeticss}"/>
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+   
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" />
+  <link rel="stylesheet" type="text/css" href="bower_components/slick-carousel/slick/slick.scss" />
+<link rel="stylesheet" type="text/css" href="slider-overrides" />
+  
+    
+</head>
+
+
+<div id="app" data-ui="app-container"><header class="header-minimal border" style="top: 0px;">
+    <div class="container text-center">
+        <a class="logo header-minimal" title="Custom YETI Ramblers">
+            YETI Custom Shop
+        </a>
+    </div>
+</header><main>
+    <div class="container">
+        <div class="page-title">
+            <h1>Art Approval</h1>
+        </div>
+        <div class="approval-main" data-partial="approval-main" data-selector=".approval-main" data-url="https://store-staging.rambleron.com/proxy/4306127_SB1/art_approval_restlet?artapprtkn=b801460d-66b2-49ea-8bb3-101c10bc8037" data-publish="customer-approval-data" data-auto-load="">
+<div class="cs-order-info">
+    <div class="cs-order-details">
+        <h2>Order  Details</h2>
+        <div class="order-detail-line">
+            <h4>Order  #:</h4>
+            <span>SO-91267-SB1</span>
+        </div>
+        <div class="order-detail-line">
+            <h4>Order  Date:</h4>
+            <span>6/8/2018</span>
+        </div>
+        <div class="order-detail-line">
+            <h4>Order  Total:</h4>
+            <span><strong>$32.46 (1 units)</strong></span>
+        </div>
+    </div>
+    
+    <div class="cs-order-details cs-order-questions">
+        <h2>Order  Questions?</h2>
+            <div class="order-detail-line">
+                <h4>Email:</h4>
+                <span><a href="mailto:hi@yeticustomshop.com">hi@yeticustomshop.com</a></span>
+            </div>
+            <div class="order-detail-line">
+                <h4>Phone:</h4>
+                <span><a href="tel:+15127771078">(512) 777-1078</a></span>
+            </div>
+            
+    </div>
+</div>
+
+<div>
+    <div class="customer-approval-summary-small">
+        <div class="supplementary">
+            <strong>
+                Certain revision requests may result in a fee.
+            </strong>
+        </div>
+    </div>
+    <div class="customer-approval-summary-small">
+        <button class="button customer-approve-all" data-partial="modal-approve-all" data-selector=".modal" data-modal-size="small" data-modal-open="">
+            Mark All Approved
+        </button>
+        <button class="button subtle customer-reset-all" data-partial="modal-clear-all" data-selector=".modal" data-modal-size="small" data-modal-open="">
+            Clear All
+        </button>
+        <button class="button impact block" data-ui="cust-appr-submit">
+            Submit
+        </button>
+    </div>
+</div>
+
+<div class="customer-approval-progress-fixed">
+    <p class="supplementary">
+        <strong>
+            <span class="items-approved-counter">1</span>/1 Remaining
+        </strong>
+    </p>
+</div>
+
+<div class="customer-approval-items">
+        <h2>Approve Your Items</h2>
+        <div class="box">
+            <div class="cart-item">
+                <div class="cart-details">
+                    <div class="cart-details-head">
+                        <div class="item-info-wrap">
+                            <h3>20 oz Tumbler White</h3>
+                        </div>
+                        <div class="price-info-wrap"> 
+                            Quantity: 1
+                        </div>
+                    </div>
+                    <div class="customization-container box-content">
+                        <div class="customer-approval-max-print-message text-center">
+                            Logo size and placement reflects maximum print area.
+                        </div>                <div class="customization">
+                            <h5>Front</h5>
+                        
+                            <a data-partial="modal-approval-preview-zoom" data-selector=".modal" data-modal-size="medium" data-zoom-url="https://rambleron-staging-approval.imgix.net/2018/06-08/11767/1528471536-large.png" data-sidekey="front" data-modal-open="" data-publish="customer-zoom-img-loaded">
+                                <div class="cart-preview rambler-tumbler-20oz">
+                                    <img src="https://rambleron-staging-approval.imgix.net/2018/06-08/11767/1528471536-large.png" />
+                                    <i class="fa fa-search-plus"></i>
+                                </div>
+                            </a>
+                        
+                            <p class="callout uppercase">
+                                Text
+                            </p>
+                        
+                            <p class="callout">
+                                <span class="item-text-val-label">Text Entered:</span>
+                                <span>White Fox</span>
+                            </p>
+                        
+                            <p class="callout">
+                                <span class="item-text-val-label">Font:</span>
+                                <span>Rockwell Bold</span>
+                            </p>
+                        </div>
+                        
+                        <div class="customization">
+                                <h5>Back</h5>
+                                <div class="cart-preview rambler-tumbler-20oz">
+                                    <img src="https://ycs-static-dev.imgix.net/products/rambler-tumbler-20oz-white-back.png" />
+                                </div>
+                                <p class="callout uppercase">
+                                    Blank
+                                </p>
+                        </div>
+                        
+                    </div>
+                    <div class="lineitem-details">
+                        <div class="customer-approval-input
+                             
+                             " data-line-id="0">
+        
+                            <div class="block-left">
+                                <button data-ui="cust-appr-item">
+                                    <span id="mark-approved">Mark Approved</span>
+                                </button>
+                                <span id="approved"><i class="fa fa-check"></i></span>
+                            </div>
+        
+                            <div class="block-right">
+                                <button class="subtle" data-ui="cust-appr-req-revision">
+                                    Request Revisions
+                                </button>
+                                <button class="subtle" data-ui="cust-appr-reset-item" disabled="">
+                                    <i class="fa fa-close"></i>
+                                    Clear
+                                </button>
+                            </div>
+        
+                            <div class="cust-appr-revision-container">
+                                <p class="field">
+                                    <textarea data-ui="cust-appr-revision-text" rows="6" autocapitalize="none" placeholder="Please enter a description of the revisions you would like to request." maxlength="2000" required=""></textarea>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</div>
+
+<div class="customer-approval-summary">
+    <div class="supplementary">
+        <strong>
+            Certain revision requests may result in a fee.
+        </strong>
+    </div>
+    <button class="button block subtle customer-reset-all" data-partial="modal-clear-all" data-selector=".modal" data-modal-size="small" data-modal-open="">
+        Clear All
+    </button>
+    <button class="button block customer-approve-all" data-partial="modal-approve-all" data-selector=".modal" data-modal-size="small" data-modal-open="">
+        Mark All Approved
+    </button>
+    <button class="button impact block" data-ui="cust-appr-submit">
+        Submit
+    </button>
+    <p class="supplementary customer-approval-progress">
+        <strong>
+            <span class="items-approved-counter">1</span>/1 Remaining
+        </strong>
+    </p>
+</div>
+<div class="customer-approval-summary-small">
+    <button class="button impact block" data-ui="cust-appr-submit">
+        Submit
+    </button>
+</div>
+</div>
+    </div>
+</main>
+<footer class="footer-minimal">
+    <div class="container copyright">
+        <span class="copyright-item">
+            © YETI Custom Shop
+        </span>
+    </div>
+</footer><div class="overlay" data-ui="nav-backdrop"></div>
+<nav class="side" data-ui="side-nav">
+    <ul>
+        <li>
+            <a href="#" data-ui="nav-toggle">
+                <i class="fa fa-close fa-lg"></i>
+            </a>
+        </li>
+        <li>
+            <a href="/products" data-partial="products" data-description="Customize Your YETI Rambler with our advanced laser marking process. Add your name, logo, or a design from our collection." data-selector="main" data-track="Mobile Nav > Products">Products</a>
+        </li>
+        <li>
+            <a href="/designs" data-template="prepared-design-categories" title="Browse Exclusive YETI Rambler Customization" data-description="Shop Exclusive Designs - Custom YETI Ramblers by the Official Customization Service." data-og-image="https://yeticustomshop-sandbox-howard.imgix.net/test/designsprepared-designs/fishing/rambler-20oz-fly.png" data-selector="main" data-track="Mobile Nav > Designs">Designs</a>
+        </li>
+        <li>
+            <a href="/about-us" data-template="about-us" title="Learn More About YETI Custom Shop" data-description="YETI Custom Shop - The New Rambler On - Is the only YETI customization service. Find out more about our customized YETI Ramblers and company here." data-selector="main" data-track="Mobile Nav > About Us">About Us</a>
+        </li>
+        <li>
+            <a href="/faq" data-url="https://preview.contentful.com/spaces/zrgf30yczz18/entries?access_token=1670db30719c46b039c610cbe9a837f698f01bb86d66e6da391167b7005402cd&amp;content_type=faq&amp;order=fields.order" data-template="faq" data-cache-request="true" data-cache-response="true" data-publish="faq-loaded" title="All Your Questions About YETI Personalized Ramblers Answered" data-description="Questions about customizing your YETI ramblers? We answer laser marking, monogramming, and delivery questions in the YETI Custom Shop FAQ." data-selector="main" data-track="Mobile Nav > FAQ">FAQ</a>
+        </li><li>
+            <a href="/get-quote" data-template="quote" title="Get A Quote on Custom YETI Ramblers for Business" data-description="Get started on your corporate or other business customized YETI Rambler order by requesting a quote here." data-selector="main" data-track="Mobile Nav > Corporate Quote">Corporate Quote</a>
+        </li>
+        <li>
+            <a href="/gallery" data-template="gallery" title="YETI Custom Shop Official Gallery of Custom YETI Ramblers" data-description="Our custom YETI ramblers are more than just pretty faces. View our custom YETI Rambler photo gallery here." data-selector="main" data-track="Mobile Nav > Gallery">Gallery</a>
+        </li>
+        <li>
+            <a href="http://yeti.com/careers" target="_blank" data-track="Mobile Nav > Careers">Careers</a>
+        </li>    </ul>
+</nav><div class="overlay" data-ui="overlay">
+    <div class="overlay-content" data-ui="modal-container">
+        <div class="modal" data-ui="modal"></div>
+    </div>
+</div>
+
+<div class="response-container">
+    <div class="toast" data-ui="response-message"></div>
+</div>
+
+<div class="overlay block-ui" data-ui="block">
+    <div class="overlay-content" data-ui="block-ui-container">
+        <div class="message" data-ui="block-message"></div>
+    </div>
+</div><span class="font-load font-nexa-script">.</span>
+<span class="font-load font-roman">.</span>
+<span class="font-load font-two-character-circle">.</span>
+<span class="font-load font-three-character-circle">.</span>
+<span class="font-load font-two-character-n-gram">.</span>
+<span class="font-load font-three-character-n-gram">.</span>
+<span class="font-load font-itc-modern">.</span>
+<span class="font-load font-vine">.</span>
+
+<span class="font-load font-rockwell-bold">.</span>
+<span class="font-load font-akzidenz-grotesk">.</span>
+<span class="font-load font-script-mt-bold">.</span>
+<span class="font-load font-ltc-square-face">.</span>
+<span class="font-load font-sackers-gothic">.</span></div>
+</apex:page>

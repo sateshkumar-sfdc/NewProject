@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Credit Terms Request Approval</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Hello!
+
+Thank you for your request for credit terms. I am pleased to inform you that &lt;&lt;company name&gt;&gt; has been approved and set up with Net 30 terms with a $X,XXX credit limit.  Your invoices will be sent via email (if you prefer regular mail, please let us know).
+
+Please note that outstanding orders will maintain the terms in place at the time the order was placed. All future orders will process with new terms.
+
+We appreciate your business and continued partnership with YETI.
+
+Thank you!
+
+{!User.CommunityNickname}
+Financial Services Specialist
+YETI
+{!User.Phone}
+financialservices@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Sales_Rep__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Sales Rep</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Lead_Assignment_Rules_del</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>State__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>State</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Zip_Code__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Zip Code</label>
+        <length>5</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <label>Lead Assignment Rule</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Zip_Code__c</columns>
+        <columns>State__c</columns>
+        <columns>Sales_Rep__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>By_State</fullName>
+        <columns>NAME</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>State__c</columns>
+        <columns>Sales_Rep__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Lead_Assignment_Rule__c.By_State</value>
+        </filters>
+        <label>By State</label>
+    </listViews>
+    <listViews>
+        <fullName>By_Zip</fullName>
+        <columns>NAME</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Zip_Code__c</columns>
+        <columns>Sales_Rep__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Lead_Assignment_Rule__c.By_Zip</value>
+        </filters>
+        <label>By Zip</label>
+    </listViews>
+    <nameField>
+        <label>Lead Assignment Rule Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Lead Assignment Rules</pluralLabel>
+    <recordTypes>
+        <fullName>By_State</fullName>
+        <active>true</active>
+        <label>By State</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>By_Zip</fullName>
+        <active>true</active>
+        <label>By Zip</label>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Zip_Code__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>State__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Sales_Rep__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Zip_Code__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>State__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Sales_Rep__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>RECORDTYPE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Zip_Code__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>State__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Sales_Rep__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>RECORDTYPE</searchFilterFields>
+        <searchFilterFields>Zip_Code__c</searchFilterFields>
+        <searchFilterFields>State__c</searchFilterFields>
+        <searchFilterFields>Sales_Rep__c</searchFilterFields>
+        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Zip_Code__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>State__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Sales_Rep__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>By_State</fullName>
+        <active>true</active>
+        <description>A zip code value is not allowed for the By State record type.</description>
+        <errorConditionFormula>AND(RecordType.DeveloperName==&apos;By_State&apos;,Zip_Code__c&lt;&gt;&apos;&apos;)</errorConditionFormula>
+        <errorMessage>A zip code value is not allowed for the By State record type.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>By_Zip</fullName>
+        <active>true</active>
+        <description>A state value is not allowed for the By Zip record type.</description>
+        <errorConditionFormula>AND(RecordType.DeveloperName==&apos;By_Zip&apos;,State__c&lt;&gt;&apos;&apos;)</errorConditionFormula>
+        <errorMessage>A state value is not allowed for the By Zip record type.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Sales_Rep_Is_Required</fullName>
+        <active>true</active>
+        <description>A valid Sales Rep is required.</description>
+        <errorConditionFormula>OR(ISNULL(Sales_Rep__c),Sales_Rep__c==&apos;&apos;)</errorConditionFormula>
+        <errorMessage>A valid Sales Rep is required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>State_is_Required_for_By_State_RT</fullName>
+        <active>true</active>
+        <description>State is required for By State record Type.</description>
+        <errorConditionFormula>AND(RecordType.DeveloperName==&apos;By_State&apos;,State__c==&apos;&apos;)</errorConditionFormula>
+        <errorMessage>State is required for By State record Type.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Zip_Code_is_Required_for_By_Zip_RT</fullName>
+        <active>true</active>
+        <description>Zip Code is required for By Zip record Type.</description>
+        <errorConditionFormula>AND(RecordType.DeveloperName==&apos;By_Zip&apos;,Zip_Code__c==&apos;&apos;)</errorConditionFormula>
+        <errorMessage>Zip Code is required for By Zip record Type.</errorMessage>
+    </validationRules>
+</CustomObject>

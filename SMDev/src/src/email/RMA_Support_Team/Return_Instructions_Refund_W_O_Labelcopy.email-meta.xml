@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Return Instructions - Refund W/O Label</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Your Return Request Confirmation
+
+Hello,
+
+We are so sorry that you have to return your YETI product.  We know how disappointing it can be to receive items and have them not work out for you, so we are going to do our best to make this process quick and easy.  This email highlights and explains the return process in order to give you a better understanding of how we do things!
+
+
+Your Return Information:
+
+Return Order #: Please write this number on the outside of the shipping box
+
+Items returned:
+
+
+To return your YETI product please follow the steps below:·
+
+A separate email will be sent to you containing your return packing slip.  Please print off the return packing slip and include it with your package. (Please place it inside the cooler or along with the items you are returning.)
+Use a shipper of your choice to return your products for a refund.  Return shipping costs are non-refundable. Our address is:
+
+YETI
+Returns
+951 Valley View Lane
+Irving, TX 75061
+
+** Please ask for a copy of your receipt confirming your drop off and tracking number at the shipper you select. Keep this for your records. **
+
+Once your return has been received at YETI, you will receive an email confirmation that your return is being processed.
+
+We will do our best to complete your refund within 10 business days of receiving your product. During peak season times it may take up to 15 business days.
+
+Thank you for being a YETI customer! Please let us know if you have any questions.
+
+Sincerely,
+
+{!User.CommunityNickname}
+The YETI Outfitters
+YETI
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

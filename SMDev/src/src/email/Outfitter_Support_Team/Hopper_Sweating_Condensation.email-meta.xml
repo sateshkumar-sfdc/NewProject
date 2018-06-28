@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Hopper Sweating/Condensation</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Hello,
+
+
+You may notice that the top of your Hopper is ‘sweating’ at times, which is a result of condensation. The amount of condensation depends on the temperature and level of humidity in the surrounding air.
+
+
+If humidity levels are especially high, the humid air near the top of the Hopper cools and turns to water (condenses). The Hopper is completely leak-proof and no water is leaking into or out of the cooler. The sweat or condensation forming on top of the cooler is water from the air, not from the cooler itself.
+
+
+Please let us know if you have any questions.
+
+
+Sincerely,
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,41 @@
+<b>Link:</b><br>
+{!Lead.Link}<br><br>
+
+<b>Owner:</b><br>
+{!Lead.OwnerFullName}<br><br>
+
+<b>Company:</b><br>
+{!Lead.Company}<br><br>
+
+<b>Name:</b><br>
+{!Lead.Name}<br><br>
+
+<b>City:</b><br>
+{!Lead.City}<br><br>
+
+<b>State:</b><br>
+{!Lead.State}<br><br>
+
+<b>Source:</b><br>
+{!Lead.LeadSource}<br><br>
+
+<b>Trade Channel:</b><br>
+{!Lead.00Ni0000009tT1M}<br><br>
+
+<b>Area Population:</b><br>
+{!Lead.Area_Population__c}<br><br>
+
+<b>Retail Location:</b><br>
+{!Lead.Retail_Location__c}<br><br>
+
+<b>Multiple Locations:</b><br>
+{!Lead.Multiple_Locations__c}<br><br>
+
+<b>Buying Group/Central Biller:</b><br>
+{!Lead.00Ni0000009tT9L}<br><br>
+
+<b>Buying Group:</b><br>
+{!Lead.Buying_Group__c}<br><br>
+
+<b>Years in Business:</b><br>
+{!Lead.Years_In_Business__c}<br><br>

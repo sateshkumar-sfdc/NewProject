@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Website Authorized - Not Being Charged</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Hello,
+
+Thank you for contacting us regarding your rejected order. The amount you see on your bank account is a pending authorization. This is not a charge and will fall off your account within 3 - 7 business days depending on your bank. Please note that some banks may take longer for this to be removed from your account. If needed you can contact your bank or credit card about this authorization.
+
+Thank you,
+
+{!User.CommunityNickname}
+
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

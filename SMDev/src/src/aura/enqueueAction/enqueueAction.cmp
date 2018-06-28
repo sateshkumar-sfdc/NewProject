@@ -1,0 +1,9 @@
+<aura:component >
+    <aura:attribute name="actionEnqueued" type="Boolean" default="false"/>
+    <aura:attribute name="actionList" type="List"/>
+    <aura:handler name="add" event="c:enqueueEvent" 
+		action="{!c.addInQueue}" includeFacets="true" phase="bubble"/>
+    <aura:handler name="remove" event="c:enqueueEvent" 
+		action="{!c.removeFromQueue}" includeFacets="true" phase="bubble"/>
+    {!v.body}
+</aura:component>

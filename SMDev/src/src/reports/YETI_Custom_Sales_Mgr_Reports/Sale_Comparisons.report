@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$Id</field>
+    </columns>
+    <columns>
+        <field>Account$Owner</field>
+    </columns>
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account$Type</field>
+    </columns>
+    <columns>
+        <field>Account$LastModifiedBy</field>
+    </columns>
+    <columns>
+        <field>Account$LastActivityDate</field>
+    </columns>
+    <columns>
+        <field>Account$BillingState</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Account$Id</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>startsWith</operator>
+            <value>001i000000WWfge</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <name>Sale Comparisons</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Accounts_with_Invoice_and_Invoice_Lines__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

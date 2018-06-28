@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RemoteSiteSetting xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>7/14/15 update: Renamed with _PROD in name.  Confirmed by Robert Hinton as intended for Production purposes</description>
+    <disableProtocolSecurity>false</disableProtocolSecurity>
+    <isActive>true</isActive>
+    <url>https://orbital1.paymentech.net</url>
+</RemoteSiteSetting>

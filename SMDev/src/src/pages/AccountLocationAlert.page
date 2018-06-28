@@ -1,0 +1,33 @@
+<apex:page standardController="Account">
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js" type="text/javascript"></script>
+    <style>
+    .alert {
+        padding: 10px;
+        color: white;
+    }
+    </style>
+
+    <div id="divbg" class="alert">
+       <strong>Alert! </strong>Location Status {!Account.Location_Status__c}.
+    </div>
+    
+    <script>
+        $( document ).ready(function() {
+            var status = '{!Account.Location_Status__c}';
+            var ele = document.getElementById('divbg');
+           // if(status == '')ele.style.backgroundColor = '#19A15E';
+            if(status == 'Closed')ele.style.backgroundColor = '#f44336';
+            if(status == 'Inactive')ele.style.backgroundColor = '#f44336';
+            if(status == 'Under Review')ele.style.backgroundColor = 'orange';
+            if(status == 'Active')ele.style.backgroundColor = '#19A15E';
+            
+            
+        });
+    </script>
+
+
+</apex:page>

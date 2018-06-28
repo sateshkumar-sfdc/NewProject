@@ -1,0 +1,4 @@
+<design:component label="Account Details">
+    <design:attribute name="showAccountInformationSection" label="Display Account Information"/>
+    <design:attribute name="showOutsideAndInsideRepInformationSection" label="Display Outside And Inside Rep Information"/>
+</design:component>

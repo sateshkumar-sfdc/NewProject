@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Rambler Slide Lid</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Hello,
+
+
+We are heavily invested in our products, and the teams that develop and perfect them. We set extremely high standards and never put a product into market that we are not completely satisfied with.
+
+
+The YETI Slider Lid, unfortunately, did not meet the needed criteria during its final validation phase. For this reason, we have removed it from our current product listing and are adjusting the design for a future release.
+
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

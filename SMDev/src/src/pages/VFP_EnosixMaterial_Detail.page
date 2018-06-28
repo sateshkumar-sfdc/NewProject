@@ -1,0 +1,42 @@
+<apex:page showHeader="true" docType="html-5.0" sidebar="true" title="Material Detail" Controller="CTRL_EnosixMaterial_Detail"  action="{!init}" id="pagediv">
+<!--
+LINKS:
+Product | 'SAP Material' | LNK_Product_MaterialDetail | /apex/VFP_EnosixMaterial_Detail?SF_ProductId={!Product2.Id}
+-->
+
+ <c:CMP_Header />  
+<apex:form id="formdiv">
+    <apex:actionStatus id="status">
+        <apex:facet name="start">
+            <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.25; z-index: 1000; background-color: black;">
+            </div>
+            <div style="position: fixed; left: 0; top: 0; bottom: 0; right: 0; z-index: 1001; margin: 15% 45%">
+                <div style="display: inline-block; padding: 2px; background-color: #fff; width: 125px;">
+                    <img src="/img/loading.gif" style="float: left; margin: 8px;" />
+                    <span style="display: inline-block; padding: 10px 0px;">Please Wait...</span>
+                </div>
+            </div>
+        </apex:facet>
+    </apex:actionStatus>
+    <c:CMP_Status />
+    <apex:pageBlock title="Material Details for {!materialDetail.Material}:" id="pbdiv" rendered="{!materialDetail!=null}">
+       <apex:pageMessages id="messagediv" /> 
+       <apex:variable var="material" value="{!materialDetail.material}"/>
+       <apex:pageBlockSection columns="1" collapsible="false" id="pbsdiv">
+           <apex:outputText value="{!materialDetail.Material}" label="Material No:"/>
+           <apex:outputText value="{!materialDetail.MaterialDescription}" label="Material Description:"/>
+           <apex:outputText value="{!materialDetail.Basic_Data_1.QuantityUOM}" label="Quantity UOM:"/>
+           <apex:outputText value="{!materialDetail.Basic_Data_1.MaterialGroup}" label="Material Group:"/>
+           <apex:outputText value="{!materialDetail.Basic_Data_1.GrossWeight}" label="Gross Weight:"/>
+           <apex:outputText value="{!materialDetail.Basic_Data_1.WeightUnit}" label="Weight Unit:"/>
+           <apex:outputText value="{!materialDetail.Basic_Data_1.NetWeight}" label="Net Weight:"/>
+           <apex:outputText value="{!materialDetail.Basic_Data_2.ANSIISODescription}" label="ANSIISO Description:"/>
+           <apex:outputText value="{!materialDetail.Basic_Data_2.BasicMaterial}" label="Basic Material:"/>
+     </apex:pageBlockSection>
+        <apex:pageBlockButtons location="bottom">
+            <apex:commandButton onclick="window.location.href='/{!SF_ProductId}';return false;" value="Back to Product Information"/>
+        </apex:pageBlockButtons>
+  </apex:pageBlock>
+    </apex:form>
+ <c:CMP_Footer />
+</apex:page>

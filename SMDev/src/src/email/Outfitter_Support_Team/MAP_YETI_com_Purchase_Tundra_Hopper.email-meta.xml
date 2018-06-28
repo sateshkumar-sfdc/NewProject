@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>MAP YETI.com Purchase Tundra &amp; Hopper</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Thank you so much for reaching out to YETI! We are just as excited as you are about the new prices on select Tundra and Hopper products.
+
+
+Though we’re not able to issue a credit for the price change difference, I want to put another YETI product in your hand! I’m going to send you a stainless Rambler 64oz Bottle (retail value $49.99). The Rambler 64oz Bottle is a great accessory to a life in the wild, it will keep your drinks icy cold or perfectly hot, whatever the day calls for!
+
+
+Can you confirm that this is the correct shipping address for me to send your Rambler 64oz Bottle?
+
+ENTER SHIPPING ADDRESS
+
+For more information on our return policy, please click here:https://www.yeti.com/shipping-and-returns.html
+
+
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

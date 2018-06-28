@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Charged – Non Return (RMA)</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Hello,
+
+This email outlines the charge that took place on your credit card from YETI Coolers for YETI RMA # XXX.   The return of your defective product was due 7 business days from the time your new order arrived to you.  The return tracking label has not been initiated with FedEx.  The credit card on file was charged in the amount of $xxx.  A transaction receipt was sent to you for this charge.
+
+This charge can be reversed with a refund only if the product is returned to YETI with the return label and information we provided initially.  Once we have confirmation that your defective product has arrived we will issue a refund for the full amount charged above. Please inform us if you will be shipping the return product back to us to ensure you are refunded within a timely manner.
+
+
+
+Please let us know if you have any questions.
+
+
+Sincerely,
+
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+YETI
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

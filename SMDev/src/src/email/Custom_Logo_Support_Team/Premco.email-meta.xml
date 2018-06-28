@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Premco</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Thank you for reaching out to YETI!
+
+I see that you are interested in placing a bulk order. We’ve partnered with a company called Premco who is our representative for the Advertising Specialty Industry.  Premco will be more than happy to work with you to get an order placed.
+
+Please email your request to yeti@gopremco.com
+
+A Premco representative will be with you within one business day.
+
+Let me know if you have any questions and have a great day!
+
+Thanks,
+
+{!User.CommunityNickname}
+Business Development Team
+YETI
+512.402.5895
+corporatesales@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,525 @@
+<aura:component controller="CreateCustomerController" implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId,force:lightningQuickAction,lightning:actionOverride" access="global" >
+    <aura:attribute name="newAcc" type="Object"/>
+    <aura:attribute name="simpleNewAcc" type="Object"/>
+    <aura:attribute name="newAccError" type="String" />
+    <aura:attribute name="accId" type="String" default="empty"/>
+    <aura:attribute name="company" type="String" default=""/>
+    <aura:attribute name="firstName" type="String" default="" />
+    <aura:attribute name="lastName" type="String" default="" />
+    <aura:attribute name="originSource" type="String[]"/>
+    <aura:attribute name="industrytype" type="String[]"/>
+    <aura:attribute name="email" type="String"/>
+    <aura:attribute name="origin" type="String"/>
+    <aura:attribute name="industry" type="String"/>
+    <aura:attribute name="paymentterms" type="String" default="NTCC"/>
+    <aura:attribute name="taxable" type="boolean" default="true"/>
+    <aura:attribute name="salesorg" type="String" default=""/>
+    <!--aura:attribute name="companycode" type="String" default="1100"/-->
+    <aura:attribute name="reconciliationaccount" type="String" default="0012100000"/>
+    <aura:attribute name="division" type="String" default=""/>
+    <aura:attribute name="distributionchannel" type="String" default=""/>
+    <aura:attribute name="salesoffice" type="String" default=""/>
+    <aura:attribute name="salesdistrict" type="String"/>
+    <aura:attribute name="salesgroup" type="String" default=""/>
+    <aura:attribute name="pricinggroup" type="String" default=""/>
+    <aura:attribute name="pricelist" type="String" default=""/>
+    <aura:attribute name="priceprocedure" type="String" default=""/>
+    <aura:attribute name="taxexemptcertificate" type="String" default=""/>
+    <aura:attribute name="shippingcondition" type="String"/>
+    <aura:attribute name="customershipaccount" type="String"/>
+    <aura:attribute name="phone" type="String"/>
+    <aura:attribute name="companyReq" type="Boolean" default="false"/>
+    <aura:attribute name="acc" type="Account" default="{'sobjectType': 'Account'}"/>
+    <aura:attribute name="recId" type="String"/>
+    <aura:attribute name="recTypeId" type="String"/>
+    <aura:attribute name="competitorsList" type="String[]"/>
+    <aura:attribute name="premiumBrandsList" type="String[]"/>
+    <aura:attribute name="customerType"  type="String"/>
+    <aura:attribute name="userInfo" type="user"/>    
+    <aura:attribute name="resultSalesOrgList" type="List" />
+    <aura:attribute name="paymentList" type="List" />
+    <aura:attribute name="resultDistChanList" type="List" />
+    <aura:attribute name="divisionList" type="List" />
+    <aura:attribute name="salesOffList" type="List" />
+    <aura:attribute name="salesgrpList" type="List" />
+    <aura:attribute name="districtList" type="List" />
+    <aura:attribute name="priceGroupList" type="List" />
+    <aura:attribute name="pricingList" type="List" />
+    <aura:attribute name="priceProcedureList" type="List" />
+    <aura:attribute name="shippingCondList" type="List" />
+    <aura:attribute name="SeedDataWrapper" type="CreateCustomerController.SeedDataWrapper"  />    
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="error" type="string" />
+    <aura:attribute name="errorField" type="string" />
+    <aura:attribute name="errorIndustry" type="string" />
+    <aura:attribute name="Spinner" type="Boolean" default="false"/>
+    <aura:attribute name="recordId" type="string"/>
+    <aura:attribute name="record" type="Object"/>
+    <aura:attribute name="simpleRecord" type="Object"/>
+    <aura:attribute name="recordError" type="String"/>
+    
+    <force:recordData aura:id="recordLoader"
+                      recordId="{!v.recordId}"
+                      layoutType="FULL"
+                      targetRecord="{!v.record}"
+                      targetFields="{!v.simpleRecord}"
+                      targetError="{!v.recordError}"
+                      
+                      />
+    
+    <div>
+        <aura:if isTrue="{!v.Spinner}">  
+           
+            <div class="demo-only" style="height: 6rem;">
+                <div role="status" class="slds-spinner slds-spinner_large slds-spinner_brand">
+                    <span class="slds-assistive-text">Loading</span>
+                    <div class="slds-spinner__dot-a"></div>
+                    <div class="slds-spinner__dot-b"></div>
+                </div>
+            </div>
+            
+        </aura:if>
+    </div>
+    
+   
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_medium">
+            <div class="slds-modal__container ">
+                <header class="slds-modal__header">
+                     <aura:if isTrue="{!(v.recordId == null ? 'true' : 'false')}">
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Create Account : {!v.customerType}</h2>
+                         <aura:set attribute="else">
+                             <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Edit Account : {!v.customerType}</h2>
+                         </aura:set>
+                    </aura:if>
+                </header>
+                
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <article class="slds-card">
+                        <div class="slds-card__header slds-grid">
+                            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                <div class="slds-media__body ">
+                                    <h2 class="slds-text-align_center">
+                                        
+                                    </h2>
+                                </div>
+                            </header>
+                        </div> 
+                        <div class="slds-text-color_error"><p>{!v.error}{!v.errorField}</p>
+                        </div>
+                        
+                        <div class="slds-card__body slds-card__body_inner">
+                            <!-- Account Info Starts -->
+                            <div class="slds-section slds-is-open">
+                                <h3 class="slds-section__title slds-theme--shade primaryPaletteBorder test-id__section-header-container">
+                                    <span class="test-id__section-header-title section-header-title slds-p-horizontal--small slds-truncate" title="Section Title" ><b>Account Info</b></span>
+                                </h3>
+                                <div class="slds-p-bottom_x-small"></div>
+                                <form class="slds-form--stacked">
+                                    <div class="slds">
+                                        <div class="slds-grid slds-wrap slds-grid_align-center slds-grid_align-space ">
+                                            <div class="slds-col--padded slds-size--1-of-2 slds-medium-size--1-of-2">
+                                                <aura:if isTrue="{!(v.customerType == 'Business Account')}">                           
+                                                    <div class="slds-form-element ">
+                                                        <div class="slds-form-element__control">
+                                                            <lightning:input type="text" aura:id="accountnameId" label="Account Name" name="Accountname" messageWhenValueMissing="Please enter a value" required="true" />
+                                                        </div>
+                                                    </div>  
+                                                </aura:if>
+                                                
+                                                <div class="slds-form-element ">
+                                                    <div class="slds-form-element__control">
+                                                        <lightning:input type="text" aura:id="firstnameId" label="Contact First Name" name="ContactFname" />
+                                                    </div>
+                                                </div>  
+                                                
+                                                <div class="slds-form-element ">
+                                                    <div class="slds-form-element__control">
+                                                        <lightning:input type="text" aura:id="lastnameId" label="Contact Last Name" name="ContactLname" messageWhenValueMissing="Please enter a value" required="true" />
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="slds-form-element ">
+                                                    <div class="slds-form-element__control">
+                                                        <lightning:input type="Email" aura:id="emailId" label="Email" name="Email" messageWhenBadInput="Please specify a valid email format" />
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="slds-form-element">
+                                                    <div class="slds-form-element__control">
+                                                        <!--lightning:input aura:id="phoneId" type="tel" label="Phone" name="Phone"  messageWhenBadInput="You must enter only numbers" /-->
+                                                        <lightning:input aura:id="phoneId" type="tel" label="Telephone" name="tel"  pattern="^[0-9_ ]*$" messageWhenPatternMismatch="Phone number is not valid" maxlength='10' messageWhenValueMissing="Please enter a value" required="true" /> 
+                                                    </div>
+                                                </div>                                 
+                                            </div>
+                                            <div class="slds-col--padded slds-size--1-of-2 slds-medium-size--1-of-2">
+                                                <div class="slds-form-element">
+                                                    <lightning:select label="Origin Source :" aura:id="originId" value="{!v.origin}">
+                                                        <aura:if isTrue="{!(v.recordId == null ? 'true' : 'false')}">
+                                                        <option text="Select a value" value=""/>
+                                                        </aura:if>
+                                                        <aura:iteration items="{!v.originSource}" var="os">
+                                                            <option text="{!os.label}" value="{!os.value}"/>
+                                                        </aura:iteration>
+                                                    </lightning:select>
+                                                </div>
+                                                <div class="slds-form-element">
+                                                    <label class="slds-form-element__label" for="comments">
+                                                        Description </label>
+                                                    <div class="slds-form-element__control">
+                                                        <ui:inputTextArea aura:id="comments" rows="3" cols="30"/> </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                </form>   
+                            </div>
+                            <!-- Account Info Ends -->
+                            
+                            <!-- Sales Section Starts -->
+                            
+                            <div class="slds-p-top_x-small"></div>
+                            <div class="slds-section slds-is-open">
+                                <h3 class="slds-section__title slds-theme--shade primaryPaletteBorder test-id__section-header-container">
+                                    <span class="test-id__section-header-title section-header-title slds-p-horizontal--small slds-truncate" title="Section Title" ><b>Sales </b></span>
+                                </h3>
+                                <div class="slds-p-bottom_x-small"></div>
+                                <form class="slds-form--stacked">
+                                    <div class="slds">
+                                        <div class="slds-grid slds-wrap slds-grid_align-center slds-grid_align-space ">
+                                            <div class="slds-col--padded slds-size--1-of-2 slds-medium-size--1-of-2">
+                                                <!--div class="slds-form-element">
+                                                    <div class="slds-form-element__control">
+                                                        <label class="slds-form-element__label" for="companycodeId">
+                                                            <abbr class="slds-required" title="required">*</abbr>Company Code</label>
+                                                        <ui:inputText aura:id="companycodeId" value="{!v.companycode}" disabled="true" />
+                                                    </div>
+                                                </div-->
+                                                
+                                                <!--div class="slds-form-element ">
+                                                    <div class="slds-form-element__control">
+                                                        <lightning:input type="text" aura:id="companycodeId" label="Company Code" name="companycode" value="{!v.companycode}" disabled="true" />
+                                                    </div>
+                                                </div--> 
+                                                
+                                                <div class="slds-form-element">
+                                                    <lightning:select  name="salesorg" label="Sales Org" aura:id="salesorgId" required="true" messageWhenValueMissing = "Please select a value" onchange="{!c.getDependantValues}" >
+                                                        <option value="">Select a value</option>
+                                                        <aura:iteration items="{!v.resultSalesOrgList}" var="os">
+                                                            <option text="{!os.FIELDDESCR}" value="{!os.FIELDVALUE}">{!os.label}</option>
+                                                        </aura:iteration>
+                                                    </lightning:select>
+                                                </div>
+                                                
+                                                <div class="slds-form-element">
+                                                    <lightning:select  name="distChan" label="Distribution Channel" aura:id="distributionchannelId" required="true" messageWhenValueMissing = "Please select a value" onchange="{!c.getDependantValues}" >
+                                                        <option text="Select a value" value=""/>
+                                                        <aura:iteration items="{!v.resultDistChanList}" var="dc">
+                                                            <option text="{!dc.FIELDDESCR}" value="{!dc.FIELDVALUE}"/>
+                                                        </aura:iteration>
+                                                    </lightning:select>
+                                                </div>
+                                                
+                                                <div class="slds-form-element">
+                                                    <lightning:select  name="division" label="Division" aura:id="divisionId" required="true" messageWhenValueMissing = "Please select a value" onchange="{!c.getDependantValues}" >
+                                                        <option text="Select a value" value=""/>
+                                                        <aura:iteration items="{!v.divisionList}" var="dv">
+                                                            <option text="{!dv.FIELDDESCR}" value="{!dv.FIELDVALUE}"/>
+                                                        </aura:iteration>
+                                                    </lightning:select>
+                                                </div>
+                                                
+                                                <div class="slds-form-element">
+                                                    <lightning:select  name="salesoffice" label="Sales Office" aura:id="salesofficeId" required="true" messageWhenValueMissing = "Please select a value" onchange="{!c.getDependantValues}" >
+                                                        <option text="Select a value" value=""/>
+                                                        <aura:iteration items="{!v.salesOffList}" var="sof">
+                                                            <option text="{!sof.FIELDDESCR}" value="{!sof.FIELDVALUE}"/>
+                                                        </aura:iteration>
+                                                    </lightning:select>
+                                                </div>
+                                                
+                                                <div class="slds-form-element">
+                                                    <lightning:select  name="salesgroup" label="Sales Group" aura:id="salesgroupId" required="true" messageWhenValueMissing = "Please select a value" >
+                                                        <option text="Select a value" value=""/>
+                                                        <aura:iteration items="{!v.salesgrpList}" var="sg">
+                                                            <option text="{!sg.FIELDDESCR}" value="{!sg.FIELDVALUE}"/>
+                                                        </aura:iteration>
+                                                    </lightning:select>
+                                                </div>
+                                                
+                                                <div class="slds-form-element">
+                                                    <lightning:select  name="salesdst" label="Sales District" aura:id="salesdistrictId" required="true" messageWhenValueMissing = "Please select a value" >
+                                                        <option text="Select a value" value=""/>
+                                                        <aura:iteration items="{!v.districtList}" var="dl">
+                                                            <option text="{!dl.FIELDDESCR}" value="{!dl.FIELDVALUE}"/>
+                                                        </aura:iteration>
+                                                    </lightning:select>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="slds-col--padded slds-size--1-of-2 slds-medium-size--1-of-2">
+                                                <div class="slds-form-element slds-is-required">
+                                                    <lightning:recordEditForm aura:id="recordViewForm" 
+                                                                              objectApiName="Account"
+                                                                              >
+                                                        <lightning:messages />
+                                                        <!--Other fields here-->
+                                                        <lightning:inputField class="customRequired" aura:id="industryCategoryId" fieldName="Industry_Category__c" required="true" onchange ="{!c.handleIndustryElements}" />
+                                                        <br/>
+                                                        <lightning:inputField class="customRequired" aura:id="industrySubCategoryId" fieldName="Industry_Sub_Category__c" required="true" onchange ="{!c.handleIndustryElements}" />
+                                                        <div class="slds-text-color_error">{!v.errorIndustry}</div>
+                                                    </lightning:recordEditForm>
+                                                </div>
+                                                
+                                                <!--div class="slds-form-element">
+                                                    <label class="slds-form-element__label" for="outsiderepId">Outside Sales Rep </label>
+                                                    <div class="slds-form-element__control">
+                                                        <ui:inputText aura:id="outsiderepId" value="{!v.userInfo.Name}" />  
+                                                    </div>
+                                                </div-->
+                                                
+                                                <div class="slds-form-element ">
+                                                    <div class="slds-form-element__control">
+                                                        <lightning:input type="text" aura:id="outsiderepId" label="Outside Sales Rep" name="outsidesalesrep" value="{!v.userInfo.Name}" />
+                                                    </div>
+                                                </div> 
+                                                
+                                                <div class="slds-form-element ">
+                                                    <div class="slds-form-element__control">
+                                                        <lightning:input type="text" aura:id="insiderepId" label="Inside Sales Rep" name="insidesalesrep" />
+                                                    </div>
+                                                </div> 
+                                                
+                                                <!--div class="slds-form-element">
+                                                    <label class="slds-form-element__label" for="insiderepId">
+                                                        Inside Sales Rep </label>
+                                                    <div class="slds-form-element__control">
+                                                        <ui:inputText aura:id="insiderepId" />  </div>
+                                                </div-->
+                                                
+                                                <div class="slds-form-element">
+                                                    <label class="slds-form-element__label" for="competitorsId">Competitors </label>
+                                                    <div class="slds-form-element__control">
+                                                        <ui:inputSelect multiple="true" class="multiple" aura:id="competitorsId">
+                                                            <aura:iteration items="{!v.competitorsList}" var="cs">
+                                                                <ui:inputSelectOption text="{!cs.label}" value="{!cs.value}"/>
+                                                            </aura:iteration>
+                                                        </ui:inputSelect>
+                                                    </div>         
+                                                </div>
+                                                <div class="slds-form-element">
+                                                    <label class="slds-form-element__label" for="premiumbrandId">Premium Brands Carried </label>
+                                                    <div class="slds-form-element__control">
+                                                        <ui:inputSelect multiple="true" class="multiple" aura:id="premiumbrandId">
+                                                            <aura:iteration items="{!v.premiumBrandsList}" var="pb">
+                                                                <ui:inputSelectOption text="{!pb.label}" value="{!pb.value}"/>
+                                                            </aura:iteration>
+                                                        </ui:inputSelect>
+                                                    </div>         
+                                                </div>
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </form>    
+                            </div>
+                            
+                            <!-- Sales Section Ends -->
+                            
+                            <!-- Billing Section -->
+                            <div class="slds-p-top_x-small"></div>
+                            <div class="slds-section slds-is-open">
+                                <h3 class="slds-section__title slds-theme--shade primaryPaletteBorder test-id__section-header-container">
+                                    <span class="test-id__section-header-title section-header-title slds-p-horizontal--small slds-truncate" title="Section Title" ><b>Billing</b></span>
+                                </h3>
+                                <div class="slds-p-bottom_x-small"></div>
+                                <form class="slds-form--stacked">
+                                    <div class="slds">
+                                        <div class="slds-grid slds-wrap slds-grid_align-center slds-grid_align-space ">
+                                            <div class="slds-col--padded slds-size--1-of-2 slds-medium-size--1-of-2">
+                                                <div class="slds-form-element">
+                                                    <lightning:select  name="payterms" label="Payment Terms" aura:id="paymentTermsId" required="true" messageWhenValueMissing = "Please enter a value" >
+                                                        <option text="Select a value" value=""/>
+                                                        <aura:iteration items="{!v.paymentList}" var="pt">
+                                                            <option text="{!pt.FIELDDESCR}" value="{!pt.FIELDVALUE}"/>
+                                                        </aura:iteration>
+                                                    </lightning:select>
+                                                </div>
+                                                
+                                                <div class="slds-form-element">
+                                                    <lightning:select  name="pricegrp" label="Price Group" aura:id="pricinggroupId" required="true" messageWhenValueMissing = "Please enter a value" >
+                                                        <option text="Select a value" value=""/>
+                                                        <aura:iteration items="{!v.priceGroupList}" var="pgl">
+                                                            <option text="{!pgl.FIELDDESCR}" value="{!pgl.FIELDVALUE}"/>
+                                                        </aura:iteration>
+                                                    </lightning:select>
+                                                </div>
+                                                
+                                                <div class="slds-form-element">
+                                                    <lightning:select  name="priceproc" label="Price Procedure" aura:id="priceprocedureId" required="true" messageWhenValueMissing = "Please enter a value" >
+                                                        <option text="Select a value" value=""/>
+                                                        <aura:iteration items="{!v.priceProcedureList}" var="ppl">
+                                                            <option text="{!ppl.FIELDDESCR}" value="{!ppl.FIELDVALUE}"/>
+                                                        </aura:iteration>
+                                                    </lightning:select>
+                                                </div>
+                                            </div>	 
+                                            
+                                            <div class="slds-col--padded slds-size--1-of-2 slds-medium-size--1-of-2"> 
+                                                
+                                                <div class="slds-form-element">
+                                                    <lightning:select  name="pricelist" label="Price List" aura:id="pricelistId" required="true" messageWhenValueMissing = "Please enter a value" >
+                                                        <option text="Select a value" value=""/>
+                                                        <aura:iteration items="{!v.pricingList}" var="pl">
+                                                            <option text="{!pl.FIELDDESCR}" value="{!pl.FIELDVALUE}"/>
+                                                        </aura:iteration>
+                                                    </lightning:select>
+                                                </div>
+                                                
+                                                <div class="slds-form-element">
+                                                    <label class="slds-form-element__label" for="taxableId">
+                                                        Is Taxable</label>
+                                                    <div class="slds-form-element__control">
+                                                        <ui:inputCheckbox aura:id="taxableId" value="{!v.taxable}"/>
+                                                    </div>
+                                                </div>
+                                                <div class="slds-form-element">
+                                                    <div class="slds-form-element__control">
+                                                        <lightning:input type="text" aura:id="taxexemptId" label="Tax Exempt Certificate" name="taxexempt"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                </form>    
+                            </div>
+                            <!-- Billing Section Ends -->       
+                            <!-- Shipping -->
+                            <div class="slds-p-top_x-small"></div>
+                            <div class="slds-section slds-is-open">
+                                <h3 class="slds-section__title slds-theme--shade primaryPaletteBorder test-id__section-header-container">
+                                    <span class="test-id__section-header-title section-header-title slds-p-horizontal--small slds-truncate" title="Section Title" ><b>Shipping</b></span>
+                                </h3>
+                                <div class="slds-p-bottom_x-small"></div>
+                                <form class="slds-form--stacked">
+                                    <div class="slds">
+                                        <div class="slds-grid slds-wrap slds-grid_align-center slds-grid_align-space ">
+                                            <div class="slds-col--padded slds-size--1-of-2 slds-medium-size--1-of-2">
+                                                <div class="slds-form-element">
+                                                    <lightning:select  name="shipCond" label="Ship Condition" aura:id="shipconditionId" required="true" messageWhenValueMissing = "Please enter a value" >
+                                                        <option text="Select a value" value=""/>
+                                                        <aura:iteration items="{!v.shippingCondList}" var="ship">
+                                                            <option text="{!ship.FIELDDESCR}" value="{!ship.FIELDVALUE}"/>
+                                                        </aura:iteration>
+                                                    </lightning:select>
+                                                </div>	</div>
+                                            <div class="slds-col--padded slds-size--1-of-2 slds-medium-size--1-of-2">
+                                                <div class="slds-form-element ">
+                                                    <div class="slds-form-element__control">
+                                                        <lightning:input type="text" aura:id="customershipaccountId" label="Customer Ship Account" name="customershipaccount" value="{!v.customershipaccount}" />
+                                                    </div>
+                                                </div>  
+                                            </div>     
+                                            
+                                        </div>
+                                    </div>  
+                                </form>
+                            </div>
+                            <!-- Address Section -->
+                            <div class="slds-p-top_x-small"></div>
+                            <div class="slds-section slds-is-open">
+                                <h3 class="slds-section__title slds-theme--shade primaryPaletteBorder test-id__section-header-container">
+                                    <span class="test-id__section-header-title section-header-title slds-p-horizontal--small slds-truncate" title="Section Title" ><b>Sold To Address</b></span>
+                                </h3>
+                                <div class="slds-p-bottom_x-small"></div>
+                                
+                                <form class="slds-form--stacked">
+                                    <div class="slds slds-text-align_left">
+                                        <div class="slds-grid slds-wrap slds-text-align_left slds-grid_align-space ">
+                                            
+                                            <div class="slds-col--padded slds-size--1-of-2 slds-medium-size--1-of-2">
+                                                <!--div class="slds-form-element ">
+                                                    <div class="slds-form-element__control ">
+                                                        <lightning:inputAddress aura:id="myaddress" streetLabel="Street" cityLabel="City" countryLabel="Country" provinceLabel="State" postalCodeLabel="PostalCode" street="" city="" country="" province="" postalCode="" required="true" />
+                                                    </div>
+                                                </div-->  
+                                                
+                                                <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-1">
+                                                    <div class="slds-form-element ">
+                                                        <div class="slds-form-element__control slds-p-top_small ">
+                                                            <!--lightning:input type="textarea" aura:id="addressStreetId" placeholder="Street" label="Street" name="Street" required="true" /-->
+                                                        <lightning:textarea name="input7" aura:id="addressStreetId" required="true" value="" placeholder="Street" label="Street" maxlength="140" messageWhenTooLong="A maximum of 140 characters are allowed in a tweet." messageWhenValueMissing="Please Enter the Value" />
+
+                                                        </div>
+                                                    </div>  
+                                                </div>
+                                                
+                                                <div class="slds-grid slds-wrap slds-text-align_left slds-grid_align-space ">
+                                                    <div class="slds-col--padded slds-size--2-of-3 slds-medium-size--2-of-3">
+                                                        <div class="slds-form-element ">
+                                                            <div class="slds-form-element__control slds-p-top_small">
+                                                                <lightning:input type="text" aura:id="addressCityId" placeholder="City" label="City" name="City " required="true" messageWhenValueMissing = "Please select a value"/>
+                                                            </div>
+                                                        </div>  
+                                                    </div>
+                                                    
+                                                    <div class="slds-col--padded slds-size--1-of-3 slds-medium-size--1-of-3">
+                                                        <div class="slds-form-element ">
+                                                            <div class="slds-form-element__control slds-p-top_small">
+                                                                
+                                                                <lightning:input type="text" aura:id="addressStateId" placeholder="State" label="State" name="State " required="true" messageWhenValueMissing = "Please select a value"/>
+                                                            </div>
+                                                        </div>  
+                                                    </div>
+                                                </div>
+                                                <div class="slds-grid slds-wrap slds-text-align_left slds-grid_align-space ">
+                                                    <div class="slds-col--padded slds-size--2-of-3 slds-medium-size--2-of-3">
+                                                        <div class="slds-form-element ">
+                                                            <div class="slds-form-element__control slds-p-top_small">
+                                                                <lightning:input type="text" aura:id="addressZipId" placeholder="Postal Code" label="Postal Code" name="zipcode " required="true" messageWhenValueMissing = "Please select a value"/>
+                                                            </div>
+                                                        </div>  
+                                                    </div>
+                                                    <div class="slds-col--padded slds-size--1-of-3 slds-medium-size--1-of-3">
+                                                        <div class="slds-form-element ">
+                                                            <div class="slds-form-element__control slds-p-top_small">
+                                                                <lightning:input type="text" aura:id="addressCountryId" placeholder="Country" label="Country" name="country " required="true" messageWhenValueMissing = "Please select a value"/>
+                                                            </div>
+                                                        </div>  
+                                                    </div>
+                                                </div>  
+                                                
+                                            </div>  
+                                            <div class="slds-col--padded slds-size--1-of-2 slds-medium-size--1-of-2">
+                                                
+                                                <div class="slds-form-element">
+                                                    <label class="slds-form-element__label" for="retailLocationId">Retail Location </label>
+                                                    <div class="slds-form-element__control">
+                                                        <ui:inputCheckbox aura:id="retailLocationId" />
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="slds-form-element">
+                                                    <label class="slds-form-element__label" for="isdistributionId">Is Distribution Center </label>
+                                                    <div class="slds-form-element__control">
+                                                        <ui:inputCheckbox aura:id="isdistributionId" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                </form>
+                            </div>
+                        </div>
+                        
+                    </article>		
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning:button class="slds-button_neutral" aura:id="cancelId" label="Cancel" onclick="{!c.doCancel}" />
+                    <lightning:button class="slds-button slds-button_brand" aura:id="SaveSyncId" label="Save" onclick="{!c.saveAndSync}" />    
+                    <!--lightning:button class="slds-button slds-button_brand" aura:id="SavebuttonId" label="Save " onclick="{!c.handleSaveRecord}" /-->
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+     
+</aura:component>

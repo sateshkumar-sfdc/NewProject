@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Freight Dock/Resale</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>In regards to your cooler order, is there a freight dock available at the shipping address?  If so, we can ship your order via LTL which is normally less expensive than ground shipping.  Also, please provide a resale certificate, if applicable.  This will allow us to waive sales tax on your order.
+
+
+
+{!User.CommunityNickname}
+Business Development Team
+YETI
+512.402.5895
+corporatesales@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

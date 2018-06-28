@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Media Request</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hello,
+
+
+Thank you for reaching out to YETI. Please feel free to touch base with our PR agency (Spark Media) regarding opportunities. They are in charge of compiling new opportunities for us and they will be able to further assist you.
+
+
+Contact Information:
+
+Ashley Dobbins, Spark Media
+
+ashley.dobbins@smvgroup.com
+312.970.8449
+
+​
+
+Kelly Chiricotti, Spark Media
+
+kelly.chiricotti@sparksmg.com
+
+312.970.8419
+
+
+Sincerely,
+
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

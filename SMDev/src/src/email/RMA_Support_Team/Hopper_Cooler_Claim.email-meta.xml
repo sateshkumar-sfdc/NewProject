@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Hopper Cooler Claim</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Thank you for contacting YETI!
+
+We are sorry to hear about the recent issue with your YETI Hopper. If you have a problem with your YETI and suspect that it may be due to defective materials or workmanship we want to get your warranty claim reviewed and addressed as soon as possible.
+
+To get started you will need to submit your warranty claim here: https://yeti.formstack.com/forms/warranty_request_form
+
+We understand sometimes it can be hard to capture in a photo what is going on however we will need to see the following pictures:
+
+1. Please provide a picture of your full Hopper looking at the front YETI badge
+
+2. An image of the tag that lists your cooler model, typically this is found on the end of your Hopper where it meets the shoulder strap
+
+3. Any additional images of the zipper area, closed and docked so we can inspect your seal if possible or other area of issue you are experiencing
+
+It is important that you provide full and complete information, failing to do so can result in additional delays in processing your claim.  Once your claim form is submitted we will review and get back with you as soon as possible usually within 1-3 business days.
+
+We want to ensure we address any issues you are having so please reply back to this email or phone at 512.394.9384 if you have further questions or problems. We look forward to taking care of you and will be in touch shortly after your claim is submitted. Our Outfitter team is here to assist Monday to Friday between 8:00 am – 5:30 pm Central Time.
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

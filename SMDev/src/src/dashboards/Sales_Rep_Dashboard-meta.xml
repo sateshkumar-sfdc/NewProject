@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DashboardFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>Sales Rep Dashboard</name>
+    <publicFolderAccess>ReadWrite</publicFolderAccess>
+    <sharedTo>
+        <group>Field_Sales</group>
+        <group>Inside_Reps</group>
+        <group>Marketing</group>
+        <role>Inside_Sales</role>
+        <role>Midwest_Field_Sales</role>
+        <role>South_Central_Field_Sales</role>
+        <role>South_Field_Sales</role>
+        <role>Southeast_Field_Sales</role>
+        <role>Wholesale_Account_Manager</role>
+    </sharedTo>
+</DashboardFolder>

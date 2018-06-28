@@ -1,0 +1,30 @@
+<!--
+#######################################################################################################
+Name       :  getPriceSimulation.cmp
+Apex       :  Controller:ProductService.apxc
+Description:  lightning Component calls the Api method. 
+*******************************************************************************************************
+S.NO      Date        Version            Author              Summary of Changes 
+*******************************************************************************************************
+  1       4/27/2018     1.0             Ranjith Thadakala       Initial Release
+*******************************************************************************************************
+-->
+
+<aura:component controller="ProductService" implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" access="global" >
+ <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+     <aura:attribute name="Spinner" type="Boolean" default="false"/>
+    <aura:attribute name="MESSAGE" type="String" default="false"/>
+    <div class ="slds-align_absolute-center"><b>waiting for response !</b></div>
+    
+    <div>
+    <aura:if isTrue="{!v.Spinner}">  
+    <div class="demo-only" style="height: 6rem;">
+     <div role="status" class="slds-spinner slds-spinner_large slds-spinner_brand">
+     <span class="slds-assistive-text">Loading</span>
+     <div class="slds-spinner__dot-a"></div>
+    <div class="slds-spinner__dot-b"></div>
+    </div>
+    </div>
+    </aura:if>
+    </div>
+</aura:component>

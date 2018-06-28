@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Agent ID --></label>
+        <name>Agent_ID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total Target for the Year --></help>
+        <label><!-- Full Year Target --></label>
+        <name>Full_Year_Target__c</name>
+    </fields>
+    <fields>
+        <help><!-- Case safe - 18 character ID --></help>
+        <label><!-- ID (Case Safe) --></label>
+        <name>ID_Case_Safe__c</name>
+    </fields>
+    <fields>
+        <label><!-- Access Token --></label>
+        <name>OSF_DWback__Access_Token__c</name>
+    </fields>
+    <fields>
+        <label><!-- Login --></label>
+        <name>OSF_DWback__OOB_Login__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order on behalf URL --></label>
+        <name>OSF_DWback__Order_on_behalf_URL__c</name>
+    </fields>
+    <fields>
+        <help><!-- Target sales for All Other --></help>
+        <label><!-- Q1 All Other --></label>
+        <name>Q1_All_Other__c</name>
+    </fields>
+    <fields>
+        <help><!-- Target for Hard Cooler Sales --></help>
+        <label><!-- Q1 Hard Cooler --></label>
+        <name>Q1_Hard_Cooler__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total Target Amount for Q1 --></help>
+        <label><!-- Q1 Total --></label>
+        <name>Q1_Total__c</name>
+    </fields>
+    <fields>
+        <help><!-- Target sales for All Other --></help>
+        <label><!-- Q2 All Other --></label>
+        <name>Q2_All_Other__c</name>
+    </fields>
+    <fields>
+        <help><!-- Target sales for Hard Cooler --></help>
+        <label><!-- Q2 Hard Cooler --></label>
+        <name>Q2_Hard_Cooler__c</name>
+    </fields>
+    <fields>
+        <help><!-- Target Total for Quarter --></help>
+        <label><!-- Q2 Total --></label>
+        <name>Q2_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Q3 All Other --></label>
+        <name>Q3_All_Other__c</name>
+    </fields>
+    <fields>
+        <label><!-- Q3 Hard Cooler --></label>
+        <name>Q3_Hard_Cooler__c</name>
+    </fields>
+    <fields>
+        <label><!-- Q3 Total --></label>
+        <name>Q3_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Q4 All Other --></label>
+        <name>Q4_All_Other__c</name>
+    </fields>
+    <fields>
+        <label><!-- Q4 Hard Cooler --></label>
+        <name>Q4_Hard_Cooler__c</name>
+    </fields>
+    <fields>
+        <label><!-- Q4 Total --></label>
+        <name>Q4_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- SAP Outside Sales Rep # --></label>
+        <name>SAP_Rep__c</name>
+    </fields>
+    <fields>
+        <label><!-- Team ID --></label>
+        <name>Team_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Trading Post Email --></label>
+        <name>Trading_Post_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- DSProSFMembershipStatus --></label>
+        <name>dsfs__DSProSFMembershipStatus__c</name>
+    </fields>
+    <fields>
+        <label><!-- DSProSFPassword --></label>
+        <name>dsfs__DSProSFPassword__c</name>
+    </fields>
+    <fields>
+        <label><!-- DSProSFUsername --></label>
+        <name>dsfs__DSProSFUsername__c</name>
+    </fields>
+    <fields>
+        <label><!-- Default Marketing Cloud Page --></label>
+        <name>et4ae5__Default_ET_Page__c</name>
+    </fields>
+    <fields>
+        <label><!-- @deprecated --></label>
+        <name>et4ae5__Default_MID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Marketing Cloud for AppExchange Admin --></label>
+        <name>et4ae5__ExactTargetForAppExchangeAdmin__c</name>
+    </fields>
+    <fields>
+        <label><!-- Marketing Cloud for AppExchange User --></label>
+        <name>et4ae5__ExactTargetForAppExchangeUser__c</name>
+    </fields>
+    <fields>
+        <label><!-- Marketing Cloud Username --></label>
+        <name>et4ae5__ExactTargetUsername__c</name>
+    </fields>
+    <fields>
+        <label><!-- @deprecated --></label>
+        <name>et4ae5__ExactTarget_OAuth_Token__c</name>
+    </fields>
+    <fields>
+        <label><!-- Valid Marketing Cloud Admin --></label>
+        <name>et4ae5__ValidExactTargetAdmin__c</name>
+    </fields>
+    <fields>
+        <label><!-- Valid Marketing Cloud User --></label>
+        <name>et4ae5__ValidExactTargetUser__c</name>
+    </fields>
+    <fields>
+        <label><!-- inContact Custom Screenpop --></label>
+        <name>icAgentConsole__incCustomScreenpop__c</name>
+    </fields>
+    <fields>
+        <label><!-- Encrypted FedEx End User Key --></label>
+        <name>zkfedex__EncryptedFedExEndUserKey__c</name>
+    </fields>
+    <fields>
+        <label><!-- Encrypted FedEx End User Password --></label>
+        <name>zkfedex__EncryptedFedExEndUserPassword__c</name>
+    </fields>
+    <fields>
+        <help><!-- The FedEx End User Key obtained from ZenKraft Shipmate --></help>
+        <label><!-- FedEx End User Key --></label>
+        <name>zkfedex__FedExEndUserKey__c</name>
+    </fields>
+    <fields>
+        <help><!-- The FedEx End User Password obtained from ZenKraft Shipmate --></help>
+        <label><!-- FedEx End User Password --></label>
+        <name>zkfedex__FedExEndUserPassword__c</name>
+    </fields>
+    <fields>
+        <help><!-- Preference Number of the Shipmate Preference record that contains the FedEx Account Number that this user is registered to use. --></help>
+        <label><!-- FedEx Registered Preference --></label>
+        <name>zkfedex__FedExRegisteredPreference__c</name>
+    </fields>
+    <fields>
+        <label><!-- User Credentials Encrypted --></label>
+        <name>zkfedex__UserCredentialsEncrypted__c</name>
+    </fields>
+    <layouts>
+        <layout>User Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Marketing Cloud Permissions --></label>
+            <section>Marketing Cloud Permissions</section>
+        </sections>
+        <sections>
+            <label><!-- Target Information --></label>
+            <section>Target Information</section>
+        </sections>
+        <sections>
+            <label><!-- UnifyCommerce-OOB --></label>
+            <section>UnifyCommerce-OOB</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

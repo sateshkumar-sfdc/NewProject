@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Drinkware Check Payment</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Your customized order is ready for production!  Before we can begin customizing your order payment is required.  Below are the details for submitting check payment to us.
+
+Please make checks payable to:
+
+YETI Custom Shop
+
+*Please reference your Sales Order number in the notes section of your check.*
+*Payments sent to YETI Coolers will not post to your account and will delay your order.*
+
+Please mail your check to:
+
+YETI Custom Shop
+2301 East St. Elmo Rd,
+Bldg 3, Ste 300
+Austin, TX 78744
+
+We strongly suggest that you send your check OVERNIGHT with FedEx, UPS or USPS to avoid delays.
+
+Please note: the customization clock will not begin until both payment has been received and your proof has been approved. Our current customization lead time is about 2-3 weeks from artwork approval and receipt of payment.
+
+Once the check has been sent please reply to this email so that we can keep an eye out for it!
+
+If you need anything else please don’t hesitate to contact us directly.
+
+Thanks,
+
+{!User.CommunityNickname}
+Business Development Team
+YETI
+512.402.5895
+corporatesales@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

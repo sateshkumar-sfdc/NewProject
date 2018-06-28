@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Hard_Cooler</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Thank you for contacting YETI!
+
+We are sorry to hear about the recent issue with your YETI cooler. To begin your warranty request we do require a few images to confirm and verify the size, color and issue you are experiencing.
+
+•    Picture of the cooler with the lid closed and T-Latches in the locked position.
+
+•    Picture of either side of the cooler showing the size.
+
+If you have any additional images of the issue you are experiencing please provide those as well.
+
+Please reply back to this email with these images. Once we have received these pictures we will be able to identify the issues you are having and further assist you.
+
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+YETI
+512.394.9384
+customerservice@yeti.com
+yeti.com
+SaveSaveSaveSaveSaveSaveSaveSaveSaveSave</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,82 @@
+<apex:page standardController="Opportunity" standardStylesheets="false" applyBodyTag="false" >
+
+
+   <apex:includeLightning />
+   <style>
+        html, body {
+        margin: 0;
+        padding: 0;
+        }
+        #orderpage{width: 100%; width: 100%;}
+    </style>
+   
+   
+ <div id="content">  
+  <div id="orderpage" />
+  </div>
+
+ <script>
+ 
+ var myUserContext = "{!$User.UITheme}";
+        $Lightning.use("c:OrderPageApp_YETI", function() {
+        
+         var postEventToOneApp = function(name, params, fallbackAction) {
+                if (SfdcApp && SfdcApp.projectOneNavigator && SfdcApp.projectOneNavigator.fireContainerEvent) {
+                    // Not officially supported by Salesforce
+                    SfdcApp.projectOneNavigator.fireContainerEvent(name, params);
+                } else if (fallbackAction) {
+                    // Fallback if no Salesforce support of fireContainerEvent
+                    fallbackAction();
+                }
+            };
+        
+        
+        
+          $Lightning.createComponent("c:OrderCreate_YETI",
+          {recID : '{!Opportunity.id}'},
+          "orderpage",
+          function(cmp) {
+           $A.eventService.addHandler({
+                                       event: 'force:navigateToSObject',
+                                       handler: function(event) {
+                                           if (myUserContext == 'Theme4t' || myUserContext == 'Theme4d') {
+                                               // The Visualforce page is in S1 or Lightning Experience
+                                               sforce.one.navigateToSObject(event.getParams().recordId);
+                                           } else if (myUserContext == 'Theme3') {
+                                               // The Visualforce page is  running in Classic
+                                               window.parent.location = '/' + event.getParams().recordId;
+                                           } else {
+                                               console.log("Unsupported theme");   
+                                           }
+                                       }
+                                   });
+                                   
+                                   
+            $A.eventService.addHandler({
+  event: 'force:showToast',
+  handler: function(event) {
+    postEventToOneApp('force:showToast', event.$params$, function() {
+      alert(event.$params$.message);
+    });
+  }
+});    
+
+$A.eventService.addHandler({
+  event: 'lightning:overlayLibrary',
+  handler: function(event) {
+    postEventToOneApp('lightning:overlayLibrary', event.$params$, function() {
+      alert(event.$params$.message);
+    });
+  }
+});                     
+            
+           
+                       });
+          
+             });
+        
+      
+        
+        
+</script>
+</apex:page>

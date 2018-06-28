@@ -1,0 +1,7 @@
+The following company has been converted from a lead. Please review below. 
+
+Company:
+{!Lead.Company}
+
+Link: 
+{!Lead.Link}

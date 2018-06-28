@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Initial Collections Email</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Hello!
+
+I wanted to touch base with you regarding a past due balance on your account here at YETI. We currently showing a past due balance of $X,XXX, and I&apos;ve included a copy the invoice(s) for your records. Can you please update me on the payment status of this balance?  If you have any questions regarding your account balance or invoices please let me know.
+
+Sincerely,
+
+{!User.CommunityNickname}
+Financial Services Specialist
+YETI
+{!User.Phone}
+financialservices@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

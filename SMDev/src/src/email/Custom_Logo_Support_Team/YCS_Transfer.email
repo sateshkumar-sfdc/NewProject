@@ -1,0 +1,6 @@
+<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
+<tr valign="top" height="400" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; color:#000000; bEditID:r3st1; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[YETI Custom Shop,<br><br>The following customer would like to place an order for ___ custom Ramblers. Please reach out to this customer as we are only taking orders of 96 and above.<br><br>Name – <br>Company name – <br>Phone number – <br>Email address – <br><br>Thanks,<br><br>{!User.CommunityNickname} <br>Business Development Team <br>YETI <br>512.402.5895 <br>corporatesales@yeti.com<br>yeti.com <br>]]></td>
+</tr>
+</table>

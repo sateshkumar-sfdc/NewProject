@@ -1,0 +1,149 @@
+<apex:page showHeader="true" docType="html-5.0" sidebar="false" title="Invoice Search" controller="CTRL_Invoice_Search" id="pagediv" tabStyle="Account">
+<!--
+LINKS:
+Account | 'SAP Invoices' | LNK_Account_InvoiceList | /apex/VFP_Invoice_Search?SF_AcctId={!Account.Id}
+-->
+
+<apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"/>
+<apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"/>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css"/>
+<apex:includeScript value="{!URLFOR($Resource.tablesorter, 'jquery.tablesorter.min.js')}"/>
+<link rel="stylesheet" href="{!URLFOR($Resource.tablesorter, 'themes/blue/style.css')}"/>
+
+<style type="text/css">
+    body .pbBody table.list tr th {
+        padding: 5px 2px 4px 5px;
+        border-width: 0 0 1px 1px;
+        border-color: #e0e3e5;
+    }
+    .paginator select {
+        background-color: transparent;
+        border: 0px;
+    }
+</style>
+
+    <apex:form id="formdiv">
+	    <c:CMP_Status />
+	    <apex:pageBlock title="Invoices" id="pbdiv" rendered="{!showsearch}">
+	        <apex:pageMessages id="messagediv" />
+	        <apex:pageBlockSection title="Search"  columns="2" collapsible="false" id="pbsdiv">
+
+	            <apex:pageBlockSectionItem >Invoice Detail:</apex:pageBlockSectionItem>
+	            <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
+
+	            <apex:inputText value="{!invoicesearch.SearchContext.SEARCHPARAMS.FromBillingDocumentNumber}" label="From Billing Document Number:" />
+	            <apex:inputText value="{!invoicesearch.SearchContext.SEARCHPARAMS.ToBillingDocumentNumber}" label="To Billing Document Number:" />
+
+	            <apex:inputText value="{!invoicesearch.SearchContext.SEARCHPARAMS.Payer}" label="Payer:" />
+	            <apex:inputText value="{!invoicesearch.SearchContext.SEARCHPARAMS.SoldToParty}" label="Sold-To Party:" />
+
+
+	            <apex:inputText value="{!invoicesearch.SearchContext.SEARCHPARAMS.BillingType}" label="Billing Type:" />
+	            <apex:inputText value="{!invoicesearch.SearchContext.SEARCHPARAMS.SalesOrganization}" label="Sales Organization:" />
+
+			    <apex:pageBlockSectionItem >Created By:</apex:pageBlockSectionItem>
+	            <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
+
+			    <apex:inputText value="{!invoicesearch.SearchContext.SEARCHPARAMS.CreatedBy}" label="Name of person who created the document" />
+	            <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
+
+	            <apex:pageBlockSectionItem >Invoice Created Between These Dates:</apex:pageBlockSectionItem>
+	            <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
+
+	            <apex:input type="date" value="{!invoicesearch.SearchContext.SEARCHPARAMS.FromCreateDate}" label="Start Date:" />
+                <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
+	            <apex:input type="date" value="{!invoicesearch.SearchContext.SEARCHPARAMS.ToCreateDate}" label="End Date:" />
+
+	        </apex:pageBlockSection>
+
+	        <apex:pageBlockButtons >
+	            <apex:commandButton value="Back to Account" onclick="window.location.href='/{!fromaccount}';return false;" rendered="{!fromaccount != null}"/>
+	            <apex:commandButton action="{!searchInvoice}" id="btnsearch" value="Search" rerender="resultdiv,messagediv,paginationdiv" status="status"></apex:commandButton>
+	        </apex:pageBlockButtons>
+	    </apex:pageBlock>
+
+	    <apex:pageBlock id="resultdiv" title="{!IF(showsearch,'','Delivery Inquiry for Customer')}">
+	        <apex:actionFunction id="updateNumPerPage" action="{!updateNumPerPage}" name="updateNumPerPage" rerender="resultdiv,paginationdiv" status="status">
+	          <apex:param name="numperpage" assignTo="{!numperpage}" value=""/>
+	        </apex:actionFunction>
+
+	        <apex:actionFunction id="doPagination" action="{!doPagination}" name="doPagination" rerender="resultdiv,paginationdiv" status="status">
+	          <apex:param name="action" value=""/>
+	        </apex:actionFunction>
+
+	        <table class="list tablesorter" id="resulttable" cellpadding="0" cellspacing="0">
+	            <thead>
+	                <tr>
+	                    <th class="header">Invoice Number</th>
+	                    <th class="header">Invoice Type</th>
+	                    <th class="header">Sold To</th>
+	                    <th class="header">Name</th>
+	                    <th class="header">Net Value</th>
+                        <th class="header">Net Taxes</th>
+	                    <th class="header">Ship To</th>
+	                    <th class="header">Ship To Name</th>
+	                    <th class="header">Tracking</th>
+	                </tr>
+	            </thead>
+	            <tbody>
+	            <apex:variable var="i" value="{!0}"/>
+	            <apex:repeat value="{!invoiceSearchList}" var="o" >
+	                <tr class="dataRow {!IF(i==0,'first','')} " onmouseover="if (window.hiOn){hiOn(this);} " onmouseout="if (window.hiOff){hiOff(this);} " onblur="if (window.hiOff){hiOff(this);}" onfocus="if (window.hiOn){hiOn(this);}" onclick="window.open('/apex/VFP_Invoice_Detail?InvoiceNumber={!o.BillingDocument}','_blank');return false;" >
+		                <td class="dataCell"><apex:outputText value="{!o.BillingDocument}"/></td>
+		                <td class="dataCell"><apex:outputText value="{!o.BillingType}"/></td>
+		                <td class="dataCell"><apex:outputText value="{!o.SoldToParty}"/></td>
+		                <td class="dataCell"><apex:outputText value="{!o.SoldToName}"/></td>
+		                <td class="dataCell" style="text-align: right;">
+		                	<apex:outputText value="{0,number,###,##0.00} {1}">
+		                		<apex:param value="{!o.NetOrderValue}" />
+	                            <apex:param value="{!o.SalesDocumentCurrency}" />
+		                	</apex:outputText>
+		                </td>
+                        <td class="dataCell" style="text-align: right;">
+                        	<apex:outputText value="{0,number,###,##0.00} {1}">
+		                		<apex:param value="{!o.TaxAmount}" />
+	                            <apex:param value="{!o.SalesDocumentCurrency}" />
+                        	</apex:outputText>
+                        </td>
+		                <td class="dataCell"><apex:outputText value="{!o.ShipToParty}"/></td>
+		                <td class="dataCell"><apex:outputText value="{!o.ShipToName}"/></td>
+		                <td class="dataCell"><apex:outputText value="{!o.TrackingNumber}"/></td>
+	                </tr>
+	                <apex:variable var="i" value="{!i+1}"/>
+	            </apex:repeat>
+	            </tbody>
+
+	            <tfoot>
+	                <tr>
+	                    <th colspan="9" class="header">
+		                    <apex:outputPanel id="paginationdiv">
+		                    <apex:outputPanel id="innerpaginationdiv" rendered="{!hasrecords}">
+		                    <c:CMP_Pager hasrecords="{!hasrecords}" numperpage="{!numperpage}" disableprev="{!disableprev}" disablenext="{!disablenext}" totalpages="{!totalpages}" pagenum="{!pagenum}" />
+		                    </apex:outputPanel>
+		                    </apex:outputPanel>
+	                    </th>
+	                </tr>
+	            </tfoot>
+	        </table>
+
+	    <script type="text/javascript">
+	    $j = jQuery.noConflict();
+	    $j(document).ready(function () {
+	        $j("#resulttable").tablesorter();
+	        $j("input").bind("keypress",function (event) {
+	            // alert("failure");
+	            if (event.keyCode === 13){
+	                // alert("Success");
+	                //$j("#pagediv:formdiv:pbdiv:j_id50:btnsearch").click();
+	                $j('[id*=btnsearch]').click();
+	                return false;
+	            }
+	        });
+	    });
+	    </script>
+
+	    </apex:pageBlock>
+    </apex:form>
+
+    <c:CMP_Footer />
+</apex:page>

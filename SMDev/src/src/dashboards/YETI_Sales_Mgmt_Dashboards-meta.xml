@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DashboardFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>YETI Sales Mgmt Dashboards</name>
+    <publicFolderAccess>ReadOnly</publicFolderAccess>
+    <sharedTo>
+        <group>Marketing</group>
+        <role>AUS_Inside_Sales</role>
+        <role>Australia_Sales_Director</role>
+        <role>Australian_Sales_Manager</role>
+        <role>Business_Development_Manager</role>
+        <role>Customer_Experience_Director</role>
+        <role>Dealer_Support_Manager</role>
+        <role>Executive</role>
+        <role>Midwest_Manager</role>
+        <role>National_Sales_Manager</role>
+        <role>National_Sales_Mgr_CAN</role>
+        <role>Northeast_Regional_Manager</role>
+        <role>Outfitter_Support_Manager</role>
+        <role>Regional_Sales_Manager_CAN</role>
+        <role>South_Central_Manager</role>
+        <role>South_Manager</role>
+        <role>Southeast_Field_Sales</role>
+        <role>Southeast_Manager</role>
+        <role>West_Regional_Manager</role>
+        <role>Wholesale_Account_Manager</role>
+    </sharedTo>
+</DashboardFolder>

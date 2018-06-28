@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApprovalProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>false</active>
+    <allowRecall>true</allowRecall>
+    <allowedSubmitters>
+        <type>owner</type>
+    </allowedSubmitters>
+    <approvalPageFields>
+        <field>Name</field>
+        <field>Owner</field>
+        <field>Area_Population__c</field>
+        <field>Buying_Group__c</field>
+        <field>Premium_Brands_Carried__c</field>
+        <field>Industry</field>
+        <field>Multiple_Locations__c</field>
+        <field>Number_of_Dealers_Near__c</field>
+        <field>Retail_Location__c</field>
+        <field>Years_In_Business__c</field>
+    </approvalPageFields>
+    <enableMobileDeviceAccess>true</enableMobileDeviceAccess>
+    <entryCriteria>
+        <criteriaItems>
+            <field>Lead.Approved__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+    </entryCriteria>
+    <finalApprovalRecordLock>false</finalApprovalRecordLock>
+    <finalRejectionRecordLock>false</finalRejectionRecordLock>
+    <initialSubmissionActions>
+        <action>
+            <name>Lead_Approved</name>
+            <type>Alert</type>
+        </action>
+    </initialSubmissionActions>
+    <label>Lead Converted</label>
+    <nextAutomatedApprover>
+        <useApproverFieldOfRecordOwner>true</useApproverFieldOfRecordOwner>
+        <userHierarchyField>Manager</userHierarchyField>
+    </nextAutomatedApprover>
+    <postTemplate>Lead_Approval</postTemplate>
+    <recordEditability>AdminOrCurrentApprover</recordEditability>
+    <showApprovalHistory>false</showApprovalHistory>
+</ApprovalProcess>

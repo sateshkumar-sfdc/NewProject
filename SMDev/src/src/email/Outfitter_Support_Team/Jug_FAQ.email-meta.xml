@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Jug FAQ</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hello,
+
+Your Jug Mount can be fastened to your work truck, ATV, boat, or trailer – it’s up to you!  As far as the mounting/drilling of the holes – that’s up to you as well.
+
+You can find replacement hardware for your Jug Mount at your local hardware store.  To secure that mount down, you can find our Bear Proof Locks http://yeti.com/bear-resistant-lock.
+
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

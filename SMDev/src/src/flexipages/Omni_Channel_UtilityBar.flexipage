@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>eager</name>
+                <type>decorator</type>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>label</name>
+                <type>decorator</type>
+                <value>Event</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>scrollable</name>
+                <type>decorator</type>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentName>CMP_OpportunityOwnerChange</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentName>console:history</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentName>runtime_service_omnichannel:omniWidget</componentName>
+        </componentInstances>
+        <name>utilityItems</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <masterLabel>Omni Channel  UtilityBar</masterLabel>
+    <pageTemplate>one:utilityBarTemplateDesktop</pageTemplate>
+    <type>UtilityBar</type>
+</FlexiPage>

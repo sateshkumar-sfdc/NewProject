@@ -1,0 +1,13 @@
+<aura:component controller="CustomizerController" implements="flexipage:availableForAllPageTypes"  >
+    <lightning:overlayLibrary aura:id="overlayLib" />
+    <aura:attribute name="customizerdataList" type="string" />
+   <lightning:button name="rambler-tumbler-30oz-brickred" label="Send to VF" onclick="{!c.sendToVF}"/>
+    
+    rambler-bottle-26oz-black
+   <aura:handler name="cmpEventtocaptureJsondata" event="c:Customizerobject" action="{!c.handleComponentEventFired}"/> 
+{!v.body}
+<aura:iteration items="{!v.customizerdataList}" var="obj">
+
+</aura:iteration>  
+    
+</aura:component>

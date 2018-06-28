@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Case$CaseNumber</field>
+    </columns>
+    <columns>
+        <field>Case$CreatedDate</field>
+    </columns>
+    <columns>
+        <field>Case$Type</field>
+    </columns>
+    <currency>USD</currency>
+    <description>To be used by Outfitter Captains to pull daily logs of open cases in queues</description>
+    <filter>
+        <criteriaItems>
+            <column>Case$Status</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>New,Working,Awaiting Response,Escalated,Reopened,Waiting on Product,Transferred,Routing</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$Type</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Outfitter</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case$Status</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case$Owner</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case$Subject</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Open Outfitter Case Queue</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>All_Cases__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Case$LastModifiedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

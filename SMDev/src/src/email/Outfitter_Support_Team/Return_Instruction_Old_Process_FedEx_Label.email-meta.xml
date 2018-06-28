@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Return Instruction- Old Process w/ FedExLabel</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hello,
+
+
+We are so sorry that you have to return your YETI product.  We know how disappointing it can be to receive items and have them not work out for you, so we are going to do our best to make this process quick and easy.  This email highlights and explains the return process in order to give you a better understanding of how we do things!
+
+
+
+Your Return Information:
+
+
+
+Your Return ID:
+
+
+RMA: **
+
+
+Items returned:   **
+
+
+Case ID:             **
+
+
+
+To return your YETI product please follow the steps below:
+
+Print off the attached RMA form and include it with your package. (Please place it inside the cooler or along with the items you are returning.)
+Download and print the attached prepaid FedEx shipping label to return your YETI product. Tape this to the outside of the shipping box so FedEx can scan the bar code.
+
+
+** Please ask for a copy of your receipt confirming your drop off at FedEx and keep this for your records. **
+
+
+Please make sure your YETI is cleaned out and dry on the inside.  When possible, we kindly ask that you protect your product during shipping by boxing your product.
+
+
+Once your return has been received at YETI, you will receive an email confirmation that your return is being processed.
+
+
+We will do our best to complete your exchange/refund within 7 business days of receiving your product. During peak season times it may take up to 15 business days.
+
+
+Thanks for being a YETI customer! Please let us know if you have any questions.
+
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+
+The YETI Outfitters
+
+512.394.9384
+
+customerservice@yeticoolers.com
+
+
+yeticoolers.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

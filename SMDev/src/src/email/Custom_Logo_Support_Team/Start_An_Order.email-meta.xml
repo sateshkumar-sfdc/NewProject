@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Drinkware Start An Order</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Thank you for reaching out to YETI and letting us know that you’re ready to place your customized YETI Rambler™ order.  We are needing a few additional information to start your order.  Please provide us with the following details:
+
+1. Contact information:
+
+Full name
+Company name
+Phone number
+Email address
+
+2. Shipping &amp; Billing address(es)
+
+3. Rambler™ size, color, &amp; quantity of each product
+
+4. Customization for the Ramblers (logo, monogram initials, names, etc)
+* For logos, please submit an EPS, AI, or Hi-Res JPG/PDF file.
+
+We will provide a virtual proof for approval before orders are processed. Below are links to examples of printable areas on each product we offer:
+
+Printable Rambler Tumbler Areas
+Printable Rambler Bottle Areas
+
+Let me know if you have any questions and I look forward to hearing from you!
+
+Thanks,
+
+{!User.CommunityNickname}
+Business Development Team
+YETI
+512.402.5895
+corporatesales@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Unauthorized Discount Code</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Dear YETI Customer,
+
+We regret to inform you that the order you placed on www.YETI.com on December 14th, 2017 has been rejected due to discount code fraud. It has come to our attention that an unauthorized discount code was circulated to online shoppers by unauthorized third parties - YETI neither issued nor approved the use of this discount code. During the transaction, this unauthorized discount code was applied to your order. As a result and as noted above, your order has been rejected, and your method of payment will not be charged for this transaction.
+
+If you would like to place a new order, please visit www.YETI.com.
+
+Sincerely,
+YETI
+
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

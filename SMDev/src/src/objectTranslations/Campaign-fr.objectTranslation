@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- DB Campaign Tactic --></label>
+        <name>DB_Campaign_Tactic__c</name>
+        <picklistValues>
+            <masterLabel>Direct Mail</masterLabel>
+            <translation><!-- Direct Mail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Employment Seminars</masterLabel>
+            <translation><!-- Employment Seminars --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internal Website</masterLabel>
+            <translation><!-- Internal Website --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lunches</masterLabel>
+            <translation><!-- Lunches --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Online Banners/Ads</masterLabel>
+            <translation><!-- Online Banners/Ads --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partners</masterLabel>
+            <translation><!-- Partners --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Print Advertisement</masterLabel>
+            <translation><!-- Print Advertisement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Public Relations</masterLabel>
+            <translation><!-- Public Relations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Referral Program</masterLabel>
+            <translation><!-- Referral Program --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales Call Down</masterLabel>
+            <translation><!-- Sales Call Down --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Webinars</masterLabel>
+            <translation><!-- Webinars --></translation>
+        </picklistValues>
+    </fields>
+    <webLinks>
+        <label><!-- ViewAllCampaignMembers --></label>
+        <name>ViewAllCampaignMembers</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- ViewCampaignInfluenceReport --></label>
+        <name>ViewCampaignInfluenceReport</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_ExactTarget_Email --></label>
+        <name>et4ae5__Send_ExactTarget_Email</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- ViewCampaignInfluenceReport --></label>
+        <name>et4ae5__ViewCampaignInfluenceReport</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Promo Goods/Corp Decline</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Thank you for your email.
+
+We are experiencing unprecedented demands that are outpacing manufacturing capabilities.  Due to these constraints we have paused the distribution of products into the Corporate, Premium and Promotional Products channel.
+
+We do anticipate re-entering this marketplace in the future but not until we are able to provide our existing distribution partners the necessary product availability to be successful.
+
+Best Regards.
+
+{!User.CommunityNickname}
+Account Management Team
+YETI
+512.394.0222
+sales@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

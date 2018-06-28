@@ -1,0 +1,177 @@
+<!--
+/*
+Name                CatalogConfirmationPage
+Created By          Nitish Bansal
+Created Date        04/02/2016
+Purpose             I-209802 
+*/
+-->
+
+<apex:page controller="WebCaseController" showHeader="false" sidebar="false" standardStylesheets="false">
+  
+  <apex:form >
+    <apex:pageBlock >
+    
+      <apex:pageBlockSection showHeader="false" columns="1">
+        <strong>
+        {!$Label.Interested_in_a_digital_catalog}&nbsp;
+        <a href="http://yeticoolers.com/pages/wp-content/themes/yeti/pdf/YETICatalog15.pdf" target="_blank">Download PDF</a>
+        &nbsp;(6.4 MB)
+        </strong> 
+        <apex:outputLabel value="{!$Label.Catalog_Label}" />
+        
+      </apex:pageBlockSection>
+
+    </apex:pageBlock>
+  </apex:form>
+    <style type="text/css">
+   label {
+        font: 700 normal 15px/20px museo-sans-rounded,sans-serif;
+        text-transform: uppercase;
+        width: 99%;
+        text-align: left;
+        color: #0a0b0b;
+    }
+    th, td[colspan="2"] {
+        text-align: left;
+        width: 90%;
+        display: block;
+        float: left;
+        margin: 10px 0 4px 0;
+    }
+    th.labelCol {
+        padding-left: 18px;
+    }
+    body {
+        padding-left: 20px;
+    }
+    table.detailList {
+        width: 100%;
+    }
+    td {
+        display: block;
+        float: left;
+        width: 100%;
+    }
+    .data2Col > div {
+        position: relative;
+        background: #f7f6f4;
+        float: left;
+        width: 52% !important;
+        clear: left;
+        padding: 5px;
+    }
+    input, button, select {
+        vertical-align: middle;
+        color: #8f8f8f;
+    }
+    input[type="text"]:focus, textarea:focus, keygen:focus, select:focus {
+        outline-offset: 0px;
+        outline: 5px solid #e7f0f7;
+    }
+    input[type="submit"] {
+        top: 5px;
+        vertical-align: middle;
+        position: relative;
+        width: 200px;
+        height: 50px;
+        background: #005596;
+        font: 400 normal 24px/50px alternate-gothic-no-3-d,sans-serif;
+        color: #fff;
+        text-align: center;
+        float: left;
+        text-transform: uppercase;
+        margin: 0;
+        display: block;
+        text-decoration: none;
+        padding: 0;
+        border: 0;
+        cursor: pointer;
+        -webkit-appearance: none;
+        -webkit-border-radius: 0;
+    }
+    input[type="submit"]:hover, input[type="submit"]:active {
+        background: #136EB4;
+    }
+    input[type="text"] {
+      /*  width: 504px;*/
+        width: 96% !important;
+        padding: 0 10px 0 14px;
+        border: 1px solid #ae9b84;
+        height: 46px;
+        font: 300 normal 18px/14px museo-sans-rounded,sans-serif;
+    }
+    select {
+        border: 1px solid #C8C1B8;
+        color: #8F8F8F;
+        font: 300 18px/48px museo-sans-rounded,sans-serif;
+        height: 48px;
+        padding: 12px 13px;
+       /* width: 528px;*/
+        width: 100% !important;
+        margin: 0;
+    }
+    input[type="file"] {
+        width: 250px;
+        padding: 10px 5px;
+        background: #f7f6f4;
+    }
+    .requiredBlock {
+        width: auto;
+        height: auto;
+        position: absolute;
+        top: -25px;
+        left: 5px;
+    }
+    .requiredBlock:after {
+        content: "*";
+        color: #be200b;
+        text-align: left;
+        font: 700 normal 15px/20px museo-sans-rounded,sans-serif;
+    }
+    .requiredInput {
+        position: relative;
+    }
+    .messageTable {
+        width: 100%;
+        margin-bottom: 20px!important;
+        font: 700 normal 15px/20px museo-sans-rounded,sans-serif;
+    }
+    .messageTable ul li {
+        font-weight: normal;
+    }
+    div.messageText {
+        font-weight: normal;
+    }
+    .infoM3 div.messageText {
+        text-transform: uppercase;
+    }
+    div.messageText > span > h4 {
+        margin-bottom: 0;
+        text-transform: uppercase;
+    }
+    .errorMsg {
+        color: #be200b;
+        padding-top: 2px;
+        font-size: 0.8em;
+        line-height: 1.5em;
+        clear: both;
+        font-family: sans-serif;
+        letter-spacing: normal;
+    }
+    .errorMsg strong {
+        font-weight: normal;
+    }
+    .data2Col > span {
+        font: 300 normal 18px/14px museo-sans-rounded,sans-serif;
+        text-transform: uppercase;
+        color: #8f8f8f;
+        padding: 8px 0 5px 18px;
+        display: block;
+        vertical-align: middle;
+    }
+    html{
+        width: 90% !important;
+    }
+</style>
+</apex:page>

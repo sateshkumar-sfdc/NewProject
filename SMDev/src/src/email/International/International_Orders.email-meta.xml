@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>International Orders</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hello,
+
+YETI ships internationally to select countries though our partnership with  Borderfree. To access the International country selector, or for a list of available shipping countries and shopping currencies, click on the upper right-hand corner of the website to select your flag and currency. Once a country is selected, product prices will appear in the local currency and order totals will be populated to include international shipping costs.
+
+http://intl.yeti.com/
+
+Thanks,
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

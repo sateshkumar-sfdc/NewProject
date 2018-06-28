@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>International Shipping</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Hey {!Contact.FirstName},
+
+
+At this time we are not set up to ship internationally, but we have partnered with Bongo International to service our customers worldwide.
+
+
+Bongo International provides international customers with a US address. You will then be able to purchase directly from yeti.com and other US brands. Bongo will receive your purchases and log them into their online system which allows you to view your items and consolidate them with other orders.
+
+International customers can save up to 82% off typical international shipping rates by using this service.
+
+
+Follow these simple steps:
+
+
+· Register with Bongo to receive a U.S. shipping address.
+
+· Enter the Bongo address as both your billing and shipping address.
+
+· Use the credit card that you have on file with Bongo as the payment method.
+
+· Once the order arrives at Bongo, log into your account to forward to your country.
+
+
+If you have specific questions regarding this service, please contact Bongo and they will be happy to assist you.
+
+
+Sincerely,
+
+
+
+
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeticoolers.com
+yeticoolers.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

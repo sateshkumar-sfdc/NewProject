@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Sales_Target__c$Name</field>
+    </columns>
+    <columns>
+        <field>Sales_Target__c$Start_Date__c</field>
+    </columns>
+    <columns>
+        <field>Sales_Target__c$Target_Amount__c</field>
+    </columns>
+    <columns>
+        <field>Sales_Target__c$Product_Category__c</field>
+    </columns>
+    <columns>
+        <field>Sales_Target__c$Owner</field>
+    </columns>
+    <columns>
+        <field>Sales_Target__c$Description__c</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Sales_Target__c$Owner.Name</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value>ATS Integration</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Sales_Target__c$Territory__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Sales_Target__c$Territory__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Sales Target Territory Sales Territory</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Sales_Targets_with_Invoice_Line_Items__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Sales_Target__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

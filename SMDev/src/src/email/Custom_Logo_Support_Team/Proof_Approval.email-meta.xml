@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Proof Approval</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Attached is the Proof Approval for your custom &quot;xxxxxxxxxx&quot; mold-on graphic.
+
+Please review the proof for accuracy, including:
+
+Design &amp; Size
+
+Spelling &amp; punctuation
+
+Colors
+
+
+If the proof is acceptable, please respond via email with your approval.  Otherwise, please describe any necessary changes that need to be made, and we will revise and resend the proof for your approval. Once we have your approval, we will need to take payment for the logos and finalize the cooler order. Please also complete and return the attached New Account - First Order Form; if the coolers are to be resold, please also include a copy of your resale certificate. Please note without a copy of your resale certificate, any applicable taxes will apply. We will notify you when the finished graphics arrive.
+
+Thanks,
+
+
+
+{!User.CommunityNickname}
+Business Development Team
+YETI
+512.402.5895
+corporatesales@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

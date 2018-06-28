@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Discount- Code (providing code)</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Thanks for reaching out to YETI!
+
+
+The discount code for your future purchase is: *insert code*.
+
+You&apos;ll put that in the promo code box on the Cart or Checkout screen. If you have any issues applying the discount, please let us know and we would be happy to help. This is a one-time code that expires 01/31/2018 and includes free shipping. Please note that some items may be excluded including new, limited edition, or licensed product.
+
+If you have any other questions, please feel free to contact us!
+
+Have a great day,
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

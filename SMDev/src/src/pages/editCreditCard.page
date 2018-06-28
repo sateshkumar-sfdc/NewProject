@@ -1,0 +1,83 @@
+<apex:page id="pg" standardController="Credit_Card__c" extensions="CreditCardEntryCon">
+	<script type="text/javascript">
+		window.onload = setFocus
+		function setFocus() {
+			document.getElementById("pg:j_id27:j_id28:j_id32:j_id41:expiration_month").focus();
+		}
+	</script>
+	<apex:pageMessages />
+	<apex:form >
+		<apex:pageBlock >
+			<apex:pageBlockButtons >
+				<apex:commandButton action="{!updateCard}" value="Save"/>
+				<apex:commandButton action="{!cancel}" value="Cancel" />
+			</apex:pageBlockButtons>
+			<apex:pageBlockSection title="Credit Card Details" columns="2">
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Credit Card Type" for="credit_card_type"/>
+					<apex:outputField value="{!creditCard.Credit_Card_Type__c}" id="credit_card_type" />
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Credit Card Name" for="credit_card_name"/>
+					<apex:inputField value="{!creditCard.Credit_Card_Name__c}" id="credit_card_name" taborderhint="4"/> 
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Credit Card Number" for="credit_card_number"/>
+					<apex:outputField value="{!creditCard.Credit_Card_Number__c}" id="credit_card_number" /> 
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Address1" for="address1"/>
+					<apex:inputField value="{!creditCard.Address1__c}" id="address1" required="true" taborderhint="5"/> 
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Expiration Month" for="expiration_month"/>
+					<apex:inputField value="{!creditCard.Expiration_Month__c}" id="expiration_month" required="true" taborderhint="1"/>
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Address2" for="address2"/>
+					<apex:inputField value="{!creditCard.Address2__c}" id="address2" taborderhint="6"/> 
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Expiration Year" for="expiration_year"/>
+					<apex:inputField value="{!creditCard.Expiration_Year__c}" id="expiration_year" required="true" taborderhint="2"/>
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="City" for="city"/>
+					<apex:inputField value="{!creditCard.City__c}" id="city" required="true" taborderhint="7"/> 
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Active" for="active"/>
+					<apex:inputField value="{!creditCard.Active__c}" id="active" taborderhint="3"/> 
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="State" for="state"/>
+					<apex:inputField value="{!creditCard.State__c}" id="state" required="true" taborderhint="8"/> 
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Zip" for="zip"/>
+					<apex:inputField value="{!creditCard.Zip__c}" id="zip" required="true" taborderhint="9"/> 
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem rendered="false" >
+					<apex:outputLabel value="Country" for="country"/>
+					<apex:inputField value="{!creditCard.Country__c}" id="country" required="true" taborderhint="10"/> 
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem rendered="false" >
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Email" for="email"/>
+					<apex:inputField value="{!creditCard.Email__c}" id="email" taborderhint="11"/> 
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Phone" for="phone"/>
+					<apex:inputField value="{!creditCard.Phone__c}" id="phone" taborderhint="12"/> 
+				</apex:pageBlockSectionItem>
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

@@ -1,0 +1,94 @@
+<apex:page showHeader="true" controller="CTRL_CustomerPayment_Entry" title="Customer Payment Methods" tabStyle="Account" sidebar="true" action="{!initDetail}" id="page">
+<!--
+LINKS:
+Account | 'SAP Customer Payment Methods' | LNK_Account_CustomerPayments | /apex/VFP_CustomerPayment_Entry?SF_AcctId={!Account.Id}
+-->
+
+<!-- Test Card#: 5105105105105100 - MC -->
+    <apex:form id="mainform">
+        <c:CMP_Status />
+
+        <apex:pageMessages id="messagediv" />
+
+        <apex:pageBlock title="Account" rendered="{! null != a}" >
+            <apex:pageBlockSection columns="2" collapsible="false">
+                <apex:outputText label="Name:" value="{!a.Name}" />
+            </apex:pageBlockSection>
+
+            <apex:pageBlockButtons location="top">
+                <c:CMP_NavButtons />
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+
+        <c:CMP_CustomerMissing rendered="{!null == cDetail}" />
+
+        <apex:pageBlock title="SAP Customer Details:" rendered="{! null != cDetail}">
+            <apex:pageBlockSection columns="1" collapsible="false" id="pbsdiv">
+            	<apex:outputText value="{!cDetail.CustomerNumber}" label="CustomerNumber:" />
+                <apex:outputText value="{!cDetail.Name}" label="Name:"/>
+                <apex:outputText value="{!cDetail.Name2}" label="Name2:"/>
+                <apex:outputText value="{!FormattedPhone}" label="Phone Number:"/>
+                <apex:outputText value="{!FormattedFax}" label="Fax Number:"/>
+                <apex:outputText value="{!cDetail.Street}" label="Street:"/>
+                <apex:outputText value="{!cDetail.City}" label="City:"/>
+                <apex:outputText value="{!cDetail.RegionDescription}" label="Region:"/>
+                <apex:outputText value="{!cDetail.PostalCode}" label="Postal Code:"/>
+                <apex:outputText value="{!cDetail.CountryName}" label="Country:"/>
+             </apex:pageBlockSection>
+        </apex:pageBlock>
+
+        <apex:pageBlock title="Payment Methods" rendered="{! null != cDetail}">
+            <apex:pageBlockButtons location="top" rendered="{!!isCaptureButtonVisible && null == intercept}">
+                <apex:commandButton value="Enter New Credit Card" rerender="mainform" onclick="initCardForm();return false;" />
+            </apex:pageBlockButtons>
+
+            <apex:actionFunction name="authorizeCard" action="{!actionAuthCard}" rerender="mainform" status="status">
+            </apex:actionFunction>
+            <apex:actionFunction name="addCardToCustomer" action="{!actionAddCard}" rerender="mainform" status="status">
+            </apex:actionFunction>
+            <apex:actionFunction name="removeCard" action="{!actionRemoveCard}" rerender="mainform" status="status">
+                <apex:param name="cardNumber" value="" />
+            </apex:actionFunction>
+
+             <apex:pageBlockSection columns="1" collapsible="false" rendered="{!null != intercept}">
+                <apex:outputText value="" label="CAPTURED CARD:" />
+                <apex:outputText value="{!intercept.RESPONSE.SAPCardType}" label="Credit Card Type:" />
+                <apex:outputText value="{!intercept.RESPONSE.CreditCardNumber}" label="Credit Card Number:" />
+                <apex:outputText value="{!intercept.RESPONSE.ValidToMonth}" label="Month:" />
+                <apex:outputText value="{!intercept.RESPONSE.ValidToYear}" label="Year:" />
+                <apex:outputText value="{!intercept.RESPONSE.CreditCardHolder}" label="Credit Card Holder:" />
+                <apex:outputText style="color:#080;" value="Authorized Successfully" label=" " rendered="{!isAuthorizedVisible && isAuthorized}" />
+                <apex:outputText style="color:#800;" value="Authorization Failed" label=" " rendered="{!isAuthorizedVisible && !isAuthorized}" />
+                <apex:commandButton value="Check Authorization" onclick="authorizeCard(); return false;" rerender="mainform" />
+                <apex:commandButton value="Add To Customer" onclick="addCardToCustomer(); return false;" rerender="mainform" />
+                <apex:commandButton value="Clear Captured Card" onclick="initCardForm();return false;" rerender="mainform" />
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection columns="1" collapsible="false">
+                <c:CMP_CreditCardEntry receiver="{!receiver}" initAction="initCardForm" submitAction="lookupCardDetails" rerender="mainform" />
+                <apex:commandButton value="Tokenize Card" onclick="lookupCardDetails(); return false;" rerender="mainform" rendered="{!isCaptureButtonVisible}" />
+            </apex:pageBlockSection>
+
+            <apex:pageBlockTable value="{!paymentsList}" var="p">
+                <apex:column headerValue="Card Number" value="{!p.CardNumber}" />
+                <apex:column headerValue="Card Type" value="{!p.PaymentCardTypeDesc}" />
+                <apex:column headerValue="Card Holder" value="{!p.CardHolderName}" />
+                <apex:column headerValue="Valid From Date">
+                    <apex:outputText value="{0,date,MM/dd/yyyy}">
+                        <apex:param value="{!p.ValidFromDate}" />
+                    </apex:outputText>
+                </apex:column>
+                <apex:column headerValue="Valid To Date">
+                    <apex:outputText value="{0,date,MM/dd/yyyy}">
+                        <apex:param value="{!p.ValidToDate}" />
+                    </apex:outputText>
+                </apex:column>
+                <apex:column headerValue="Remove Card">
+                    <apex:commandButton value="Remove" onclick="if(confirm('Are you sure you want to delete card {!p.CardNumber}?'))removeCard('{!p.CardNumber}');return false;" />
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+
+    </apex:form>
+    <c:CMP_Footer />
+</apex:page>

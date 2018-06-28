@@ -1,0 +1,24 @@
+<aura:component controller="LT_InvoiceLineController"   implements="forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global">
+<aura:attribute name="recordId" type="Id" />
+<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+<aura:attribute name="invoiceid" type="String" />
+<aura:attribute name="invoicenumber" type="String"/>
+<div class="slds-grid slds-col slds-has-flexi-truncate slds-media--center" data-aura-rendered-by="7974:0">
+	<div class="profilePicWrapper slds-media slds-no-space" data-aura-rendered-by="7975:0">
+		<div class="slds-media__figure slds-icon forceEntityIcon" style="background-color: #43B5B5" data-aura-rendered-by="7979:0" data-aura-class="forceEntityIcon">
+			<span data-aura-rendered-by="7982:0" class="uiImage" data-aura-class="uiImage">
+                <img data-aura-rendered-by="6:4534;a" src="https://yetitradingpost.force.com/img/icon/t4v35/custom/custom41_120.png" class="icon " alt="Invoices" title="Invoices"/>
+			</span>
+		</div>
+	</div>
+	<div class="slds-media__body" data-aura-rendered-by="7983:0">
+		<p class="slds-text-heading--label slds-line-height--reset" data-aura-rendered-by="7984:0" style="opacity: 1;">Invoice</p>
+		<h1 style="margin:0px" class="slds-page-header__title slds-m-right--small slds-truncate slds-align-middle" data-aura-rendered-by="7986:0" title="">
+			<span data-aura-rendered-by="7964:0" class="uiOutputText" data-aura-class="uiOutputText">
+				<a href="{!'/dealers/s/invoice/'+v.invoiceid}">{!v.invoicenumber}</a>
+			</span>
+		</h1>
+	</div>
+</div>
+
+</aura:component>

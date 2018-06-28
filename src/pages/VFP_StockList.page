@@ -1,0 +1,124 @@
+<apex:page showHeader="true" docType="html-5.0" sidebar="false" title="Inventory" controller="CTRL_StockList" tabStyle="Opportunity">
+	<apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"/>
+	<apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"/>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css"/>
+	<apex:includeScript value="{!URLFOR($Resource.tablesorter, 'jquery.tablesorter.min.js')}"/>
+	<link rel="stylesheet" href="{!URLFOR($Resource.tablesorter, 'themes/blue/style.css')}"/>
+
+	<style type="text/css">
+	    body .pbBody table.list tr th {
+	        padding: 5px 2px 4px 5px;
+	        border-width: 0 0 1px 1px;
+	        border-color: #e0e3e5;
+	    }
+	    .paginator select {
+	        background-color: transparent;
+	        border: 0px;
+	    }
+	</style>
+
+    <apex:form id="formdiv">
+
+	    <c:CMP_Status />
+
+	    <apex:pageBlock title="Stock" id="pbdiv">
+	        <apex:pageMessages id="messagediv" />
+
+			<apex:pageBlockSection title="Search"  columns="2" collapsible="false" id="pbsdiv">
+	            <!-- <apex:input type="text" value="{!ews.SearchContext.SEARCHPARAMS.Material}" label="Material"></apex:input>
+	            <apex:input type="text" value="{!ews.SearchContext.SEARCHPARAMS.Plant}" label="Plant"></apex:input> -->
+
+	            <apex:input type="text" value="{!Material}" label="Material" required="true"></apex:input>
+
+	            <apex:outputpanel layout="none">
+		            <apex:outputlabel value="Plant" for="chooseColor" />
+		            <apex:selectList id="chooseColor" value="{!PlantName}" title="Plant" style="margin-left: 10px;" size="1">
+			            <apex:selectOptions Value="{!plants}"/>
+			        </apex:selectList>
+		        </apex:outputpanel>
+
+	        </apex:pageBlockSection>
+
+	        <apex:pageBlockButtons >
+	            <apex:commandButton action="{!searchSL}" id="btnsearch" value="Search" rerender="resultdiv,messagediv,paginationdiv" status="status"></apex:commandButton>
+	            <c:CMP_NavButtons />
+	            <apex:commandButton action="{!backInventory}" id="btnBack" value="Back to Inventory" status="status" rerender="formdiv" />
+	        </apex:pageBlockButtons>
+	    </apex:pageBlock>
+
+	    <apex:pageBlock id="resultdiv" title="Stock Search Result">
+	        <apex:actionFunction id="updateNumPerPage" action="{!updateNumPerPage}" name="updateNumPerPage" rerender="resultdiv,paginationdiv" status="status">
+	          <apex:param name="numperpage" assignTo="{!numperpage}" value=""/>
+	        </apex:actionFunction>
+
+	        <apex:actionFunction id="doPagination" action="{!doPagination}" name="doPagination" rerender="resultdiv,paginationdiv" status="status">
+	          <apex:param name="action" value=""/>
+	        </apex:actionFunction>
+
+	    	<table class="list tablesorter" id="resulttable" cellpadding="0" cellspacing="0">
+	            <thead>
+	                <tr>
+	                    <th class="header">Material</th>
+	                    <th class="header">Warehouse</th>
+	                    <th class="header">Date</th>
+	                    <th class="header">Type</th>
+	                    <th class="header">Document</th>
+	                    <th class="header">Rescheduled</th>
+	                    <th class="header">Quantity</th>
+	                    <th class="header">Balance</th>
+	                </tr>
+	            </thead>
+
+	            <tbody>
+		            <apex:variable var="i" value="{!0}"/>
+		            <apex:repeat value="{!dls}" var="e">
+		                <tr class="dataRow {!IF(i==0,'first','')} " onmouseover="if (window.hiOn){hiOn(this);} " onmouseout="if (window.hiOff){hiOff(this);} " onblur="if (window.hiOff){hiOff(this);}" onfocus="if (window.hiOn){hiOn(this);}">
+			                <td class="dataCell"><apex:outputText value="{!e.Material}"/></td>
+			                <td class="dataCell"><apex:outputText value="{!e.Plant}"/></td>
+			                <td class="dataCell"><apex:outputText value="{!e.ReceiptRequirementDate}"/></td>
+			                <td class="dataCell"><apex:outputText value="{!e.MRPElement}"/></td>
+			                <td class="dataCell"><apex:outputText value="{!e.MRPElementData}"/></td>
+			                <td class="dataCell"><apex:outputText value="{!e.ReschedulingDate}"/></td>
+			                <td class="dataCell" style="text-align:right"><apex:outputText value="{!e.QtyReceivedReserved}"/></td>
+			                <td class="dataCell" style="text-align:right"><apex:outputText value="{!e.AvailableQty}"/></td>
+			                <!-- <td>{!e}</td> -->
+		                </tr>
+		                <apex:variable var="i" value="{!i+1}"/>
+		            </apex:repeat>
+	            </tbody>
+
+	            <tfoot>
+	                <tr>
+	                    <th colspan="8" class="header">
+	                    <apex:outputPanel id="paginationdiv">
+	                    <apex:outputPanel id="innerpaginationdiv" rendered="{!hasrecords}">
+
+	                    <c:CMP_Pager hasrecords="{!hasrecords}" numperpage="{!numperpage}" disableprev="{!disableprev}" disablenext="{!disablenext}" totalpages="{!totalpages}" pagenum="{!pagenum}" />
+
+	                    </apex:outputPanel>
+	                    </apex:outputPanel>
+	                    </th>
+	                </tr>
+	            </tfoot>
+	        </table>
+	        <script type="text/javascript">
+			    $j = jQuery.noConflict();
+			    $j(document).ready(function () {
+			        $j("#resulttable").tablesorter();
+			        $j("input").bind("keypress",function (event) {
+			            // alert("failure");
+			            if (event.keyCode === 13){
+			                // alert("Success");
+			                //$j("#pagediv:formdiv:pbdiv:j_id50:btnsearch").click();
+			                $j('[id*=btnsearch]').click();
+			                return false;
+			            }
+			        });
+			    });
+		    </script>
+    	</apex:pageBlock>
+
+    </apex:form>
+
+    <c:CMP_Footer />
+</apex:page>

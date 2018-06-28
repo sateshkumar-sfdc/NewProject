@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCategoryGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <dataCategory>
+        <dataCategory>
+            <label>YETI Direct</label>
+            <name>YETI_Direct</name>
+        </dataCategory>
+        <dataCategory>
+            <label>YETI Customization</label>
+            <name>YETI_Customization</name>
+        </dataCategory>
+        <dataCategory>
+            <label>YETI Dealer</label>
+            <name>YETI_Dealer</name>
+        </dataCategory>
+        <dataCategory>
+            <label>YETI International</label>
+            <name>YETI_International</name>
+        </dataCategory>
+        <label>All</label>
+        <name>All</name>
+    </dataCategory>
+    <label>Distribution Channel</label>
+    <objectUsage>
+        <object>KnowledgeArticleVersion</object>
+    </objectUsage>
+</DataCategoryGroup>

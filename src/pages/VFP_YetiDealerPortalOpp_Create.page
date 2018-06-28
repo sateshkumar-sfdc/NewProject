@@ -1,0 +1,163 @@
+<apex:page id="VFP_YetiDealerPortalOpp_Create" showHeader="false" sidebar="false" standardStylesheets="false" docType="html-5.0" apiVersion="39"
+           controller="CTRL_YetiDealerPortalOpp_Create">
+<apex:slds />
+<!--
+LINKS:
+Opportunity | 'SAP Quote Materials' | LNK_Opportunity_Quote_Materials | /apex/VFP_YetiDealerPortalOpp_Create?SF_OppId={!Opportunity.Id}
+-->
+
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"/>
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"/>
+    <apex:includeScript value="{!URLFOR($Resource.enosix, 'js/jqdates.js')}"/>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
+
+<div class="slds-scope">
+    <apex:pageMessages id="messagediv" rendered="{!canDisplayPage == false}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.enosixCustom, 'css/CustomCommunityStyle.css')}"/>
+    <apex:form rendered="{!canDisplayPage}">
+    <apex:pageBlock id="mainform">
+        <c:CMP_Status />
+        <div class="slds-text-heading--large">Opportunity Pricing</div>
+        <apex:outputPanel styleClass="panelSection" layout="block">
+            <apex:pageBlockSection title="Partner Information">
+                <apex:pageBlockSectionItem labelTitle="Ship To:" id="shipToDiv">
+                    <apex:outputLabel value="Ship To:"/>
+                    <apex:outputPanel >
+                        <apex:selectList value="{!ShipToPartner.CustomerNumber}" label="Ship To:" size="1" styleClass="slds-select">
+                            <apex:actionSupport event="onchange"
+                                                action="{!SimulateOpportunityQuote}"
+                                                rerender="mainform"
+                                                status="status"/>
+                            <apex:selectOptions value="{!ShipToPartners}"/>
+                        </apex:selectList>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:outputPanel>
+
+        <apex:outputPanel styleClass="panelSection" layout="block">
+            <apex:pageBlockSection title="Added Materials:" columns="1" collapsible="false"
+                                   rendered="{!null != displayedMaterialItems}">
+
+                <apex:actionFunction name="removeItem" action="{!removeItem}" reRender="mainform" status="status">
+                    <apex:param name="i" value=""/>
+                </apex:actionFunction>
+
+                <apex:pageMessages id="messagediv"/>
+
+                <apex:pageBlockTable value="{!displayedMaterialItems}" var="m"
+                    styleClass="slds-table slds-table--bordered slds-table--cell-buffer"
+                    headerClass="slds-text-title--caps">
+                    <apex:actionSupport event="onchange"
+                                        action="{!SimulateOpportunityQuote}"
+                                        rerender="mainform"
+                                        status="status"/>
+                    <apex:column headerValue="Action">
+                        <apex:commandButton onclick="removeItem('{!m.item.ItemNumber}');return false;"
+                                            reRender="mainform"
+                                            status="status" value="Remove" styleClass="slds-button slds-button--brand"/>
+                    </apex:column>
+                    <apex:column headerValue="Item Number" value="{!m.item.ItemNumber}"/>
+                    <apex:column value="{!m.item.Material}" headerValue="Product Name"/>
+                    <apex:column value="{!m.item.ItemDescription}" headerValue="Description"/>
+                    <apex:column value="{!m.item.ProductHierarchyDescription}" headerValue="Category"/>
+                    <apex:column value="{!m.item.ScheduleLineDate}" headerValue="Schedule Date"/>
+                    <apex:column headerValue="ATP" rendered="{!isOpportunityATPEnabled}">
+                        <apex:outputText value="{0,date,MM/dd/yyyy}">
+                            <apex:param value="{!m.maxItemSchedule.ScheduleLineDate}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Quantity">
+                        {!ROUND(m.item.OrderQuantity,0)}
+                    </apex:column>
+                    <apex:column value="{!m.item.NetItemPrice}" headerValue="Item Price"/>
+                    <apex:column value="{!m.item.NetOrderValue}" headerValue="Net Order Value"/>
+
+                </apex:pageBlockTable>
+
+            </apex:pageBlockSection>
+            <apex:commandButton styleClass="slds-button slds-button--brand" onclick="showMaterialsPopup();return false;" value="Add Materials"/>
+        </apex:outputPanel>
+
+        <apex:outputPanel styleClass="panelSection" layout="block">
+            <div class="pbSubheader">
+                <h3>Create Opportunity Pricing:</h3>
+            </div>
+            <div class="pbSubsection">
+                <div class="slds-grid">
+                    <div class="slds-col">
+                        <strong><apex:outputLabel value="Net Order Value"/></strong><br/>
+                        <apex:outputText value="{0, number, ###,##0.00}">
+                            <apex:param value="{!netOpportunityPrice}"/>
+                        </apex:outputText>
+                    </div>
+                    <div class="slds-col">
+                        <strong><apex:outputLabel value="Net Tax Amount"/></strong><br/>
+                        <apex:outputText value="{0, number, ###,##0.00}">
+                            <apex:param value="{!netTaxValue}"/>
+                        </apex:outputText>
+                    </div>
+                </div>
+            </div>
+
+            <apex:commandButton rendered="{! canDisplaySendOrderButton }"
+                styleClass="slds-button slds-button--brand" value="Send Order Request" action="{!CreateOpportunity}"/>
+        </apex:outputPanel>
+    </apex:pageBlock>
+    </apex:form>
+    <c:CMP_Footer />
+</div>
+    <div id="materialsPopup" style="display:none">
+        <apex:form id="materialsForm">
+            <c:CMP_YetiMaterialSearch id="matSearch"
+                receiver="{!receiver}"
+                jsCallback="hideMaterialsPopup"
+                jsSearchCallback="fixMaterialsPopupSize"
+                addButtonLabel="Add Selected Materials"
+                dateSelect="true"
+                salesOrganization="{!salesData.SalesOrganization}"
+                distributionChannel="{!salesData.DistributionChannel}"
+                defaultMaterialTypes="{!defaultOpportunityMaterialTypes}"
+                defaultProductAttributes="{!defaultOpportunityProductAttributes}"
+                autoSearch="{!isOpportunityMaterialAutoSearchEnabled}"
+                enableMaterialTypeSelection="false"
+                rerender="mainform,materialsForm"/>
+        </apex:form>
+    </div>
+
+    <script>
+        function showDialog(id) {
+            $(id).dialog({
+                modal: true,
+                position: {my: 'top', at: 'top+10%'},
+                width: $(window).width() * .9,
+                height: 'auto',
+                open: function(event, ui) {
+                    $('.ui-widget-overlay').bind('click', function() {
+                        $(this).siblings('.ui-dialog').find('.ui-dialog-content').dialog('close');
+                    });
+                }
+            });
+        }
+
+        function showMaterialsPopup() {
+            showDialog('#materialsPopup');
+        }
+
+        function hideDialog(id) {
+            $(id).dialog('close');
+        }
+
+        function hideMaterialsPopup() {
+            hideDialog('#materialsPopup');
+        }
+
+        function fixDialogSize(id) {
+            $(id).dialog('option', 'height', 'auto');
+        }
+
+        function fixMaterialsPopupSize() {
+            fixDialogSize('#materialsPopup');
+        }
+    </script>
+</apex:page>

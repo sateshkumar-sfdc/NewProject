@@ -1,0 +1,117 @@
+<apex:page showHeader="true" docType="html-5.0" sidebar="false" title="Delivery Inquiry" controller="CTRL_DeliveryList" id="pagediv" tabStyle="Account">
+<!--
+LINKS:
+Account | 'SAP Deliveries' | LNK_Account_DeliveryList | /apex/VFP_DeliveryList?SF_AcctId={!Account.Id}
+-->
+
+<link rel="stylesheet" href="{!URLFOR($Resource.tablesorter, 'themes/blue/style.css')}"/>
+
+<style type="text/css">
+    body .pbBody table.list tr th {
+        padding: 5px 2px 4px 5px;
+        border-width: 0 0 1px 1px;
+        border-color: #e0e3e5;
+    }
+    .paginator select {
+        background-color: transparent;
+        border: 0px;
+    }
+</style>
+
+    <apex:form id="formdiv">
+    <c:CMP_Status />
+    <apex:pageBlock title="Delivery Inquiry" id="pbdiv" rendered="{!showsearch}">
+        <apex:pageMessages id="messagediv" />
+        <apex:pageBlockSection title="Search"  columns="2" collapsible="false" id="pbsdiv">
+            <apex:pageBlockSectionItem >Sold/Ship:</apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
+
+            <apex:inputText value="{!dl.SearchContext.SEARCHPARAMS.SoldToParty}" label="Sold To:"/>
+            <apex:inputText value="{!dl.SearchContext.SEARCHPARAMS.ShipToParty}" label="Ship To:"/>
+
+            <apex:inputText value="{!dl.SearchContext.SEARCHPARAMS.Route}" label="Route:"/>
+            <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
+
+            <apex:pageBlockSectionItem >Create Date:</apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
+
+            <apex:input type="date" value="{!dl.SearchContext.SEARCHPARAMS.FromCreateDate}" label="From:"/>
+            <apex:input type="date" value="{!dl.SearchContext.SEARCHPARAMS.ToCreateDate}" label="To:"/>
+
+        </apex:pageBlockSection>
+
+        <apex:pageBlockButtons >
+            <apex:commandButton action="{!searchDL}" id="btnsearch" value="Search" rerender="resultdiv,messagediv,paginationdiv" status="status"/>
+            <c:CMP_NavButtons />
+        </apex:pageBlockButtons>
+    </apex:pageBlock>
+
+    <apex:pageBlock id="resultdiv" title="{!IF(showsearch,'','Delivery Inquiry for Customer')}">
+        <apex:actionFunction id="updateNumPerPage" action="{!updateNumPerPage}" name="updateNumPerPage" rerender="resultdiv,paginationdiv" status="status">
+          <apex:param name="numperpage" assignTo="{!numperpage}" value=""/>
+        </apex:actionFunction>
+
+        <apex:actionFunction id="doPagination" action="{!doPagination}" name="doPagination" rerender="resultdiv,paginationdiv" status="status">
+          <apex:param name="action" value=""/>
+        </apex:actionFunction>
+
+        <apex:actionFunction action="{!gotoDeliveryDetail}" name="gotoDeliveryDetail" reRender="mainform">
+            <apex:param name="deliveryID" value="" />
+        </apex:actionFunction>
+
+        <table class="list tablesorter" id="resulttable" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th class="header">Delivery</th>
+                    <th class="header">Route</th>
+                    <th class="header">Date</th>
+                    <th class="header">Sold To Name</th>
+                    <th class="header">Ship To Name</th>
+                    <th class="header">Value</th>
+                    <th class="header">Status</th>
+
+                </tr>
+            </thead>
+            <tbody>
+            <apex:variable var="i" value="{!0}"/>
+            <apex:repeat value="{!dls}" var="o">
+                <tr class="dataRow {!IF(i==0,'first','')} " onmouseover="if (window.hiOn){hiOn(this);} " onmouseout="if (window.hiOff){hiOff(this);} " onblur="if (window.hiOff){hiOff(this);}" onfocus="if (window.hiOn){hiOn(this);}" onclick="gotoDeliveryDetail('{!o.Delivery}');return false;">
+                <td class="dataCell"><apex:outputText value="{!o.Delivery}"/></td>
+                <td class="dataCell"><apex:outputText value="{!o.Route}"/></td>
+                <td class="dataCell"><apex:outputText value="{!o.DeliveryDate}"/></td>
+                <td class="dataCell"><apex:outputText value="{!o.SoldToName}"/></td>
+                <td class="dataCell"><apex:outputText value="{!o.ShipToName}"/></td>
+                <td class="dataCell" style="text-align: right;">
+                    <apex:outputText value="{0}{1,number,###,##0.00}">
+                        <apex:param value="{!o.SalesDocumentCurrency}" />
+                        <apex:param value="{!o.NetOrderValue}" />
+                    </apex:outputText>
+                </td>
+                <td class="dataCell"><apex:outputText value="{!o.DeliveryStatus}"/></td>
+
+                </tr>
+                <apex:variable var="i" value="{!i+1}"/>
+            </apex:repeat>
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <th colspan="7" class="header">
+                    <apex:outputPanel id="paginationdiv">
+                    <apex:outputPanel id="innerpaginationdiv" rendered="{!hasrecords}">
+
+                    <c:CMP_Pager hasrecords="{!hasrecords}" numperpage="{!numperpage}" disableprev="{!disableprev}" disablenext="{!disablenext}" totalpages="{!totalpages}" pagenum="{!pagenum}" />
+
+                    </apex:outputPanel>
+                    </apex:outputPanel>
+                    </th>
+                </tr>
+            </tfoot>
+
+        </table>
+
+    </apex:pageBlock>
+    </apex:form>
+
+    <c:CMP_Footer />
+</apex:page>

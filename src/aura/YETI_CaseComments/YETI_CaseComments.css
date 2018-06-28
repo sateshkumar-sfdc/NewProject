@@ -1,0 +1,32 @@
+.THIS {
+    font-family: token(fontFamily);
+    color: token(colorTextDefault);
+}
+.THIS .error-message {
+	display: none;
+}
+.THIS .hideSection {
+    display: none;
+}
+.THIS .slds-card__body {
+    padding-left: 7%;
+    padding-right: 7%;
+}
+.THIS .createdByName {
+    color: #1E5D95;
+    font-family: 'Droid Sans';
+}
+.THIS .slds-card--narrow .slds-card__header {
+    margin-bottom: 10px;
+}
+.THIS .slds-card--narrow .slds-card__footer {
+    padding-bottom: 10px;
+}
+.THIS .case-comments-section {
+    max-height: 800px;
+    overflow-y: auto;
+}
+.THIS .no-case-comments {
+    padding-left: 5%;
+    padding-right: 5%;
+}

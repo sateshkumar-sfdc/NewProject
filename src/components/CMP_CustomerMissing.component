@@ -1,0 +1,16 @@
+<apex:component controller="CTRL_CustomerMissing">
+    <apex:attribute name="title" type="string" default="SAP Customer Details:" description="" />
+
+    <apex:pageBlock title="{!title}" id="customermissingdiv" rendered="{!null != accountId}">
+
+        <apex:pageMessage severity="warning" summary="No SAP customer found for this account." />
+
+        <apex:pageBlockSection columns="1" collapsible="false">
+            <apex:commandLink action="{!actionCreateCustomer}" status="status" rerender="customermissingdiv"
+                value="Click here to create a customer."/>
+            <apex:commandLink action="{!actionLinkCustomer}" status="status" rerender="customermissingdiv"
+                value="Click here to lookup an existing customer."/>
+        </apex:pageBlockSection>
+
+    </apex:pageBlock>
+</apex:component>

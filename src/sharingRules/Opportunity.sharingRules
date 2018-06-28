@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>Dealer_Inside_Rep</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Dealer Inside Rep</label>
+        <sharedTo>
+            <role>Dealer_Support_User</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>Dealer_Support_User</role>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

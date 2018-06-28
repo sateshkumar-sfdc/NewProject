@@ -1,0 +1,17 @@
+.THIS .errorlbl{
+    color: #C23934 !important;
+    font-size: 15px !important;
+}
+.THIS .CheckboxOuter{
+    border: 1px solid #1589EE !important;
+}
+.THIS .TRSTL{
+    background-color: #1C577F !important;
+    color: #ffffff;
+}
+.THIS .HeaderSTL{
+    color: #333;
+    font-size: 1.25rem;
+    line-height: 1.875rem;
+	font-family: Bevan;
+}

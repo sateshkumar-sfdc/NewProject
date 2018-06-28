@@ -1,0 +1,110 @@
+<apex:page showHeader="true" controller="CTRL_CustomerCreate" title="Customer Create" tabStyle="Account" sidebar="true" action="{!initCreateMode}">
+
+<apex:form id="mainform">
+	<c:CMP_Status />
+
+	<apex:pageMessages id="messagediv" />
+
+    <apex:actionFunction name="gotoCase" action="{!gotoCase}" rerender="formdiv" status="status" />
+    <apex:actionFunction name="gotoAccounts" action="{!gotoAccounts}" rerender="formdiv" status="status" />
+
+    <apex:pageBlock title="No Account Found" rendered="{! null == a}">
+        <apex:pageBlockSection columns="1" collapsible="false">
+            <apex:commandLink value="Click here to go back to the list of accounts." onclick="gotoAccounts(); return false;"/>
+            <apex:commandLink value="Click here to go back to case." onclick="gotoCase(); return false;" rendered="{! null != caseid}"/>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+
+	<apex:pageBlock title="Account" rendered="{! null != a}" >
+		<apex:pageBlockSection columns="2" collapsible="false">
+			<apex:outputText label="Name:" value="{!RefrenceAccount.Name}" />
+
+		</apex:pageBlockSection>
+
+		<apex:pageBlockButtons location="top">
+			<apex:commandButton onclick="window.location.href='/{!a.Id}';return false;" value="Return to Account"/>
+		</apex:pageBlockButtons>
+
+	</apex:pageBlock>
+
+    <c:CMP_CaseInfo caseId="{!caseid}" rendered="{! null != caseid && null != a }" />
+
+	<apex:pageBlock title="Customer" rendered="{! null != parentCustomer}" >
+		<apex:pageBlockSection columns="2" collapsible="false">
+			<apex:outputText label="Customer #:" value="{!parentCustomer.CustomerNumber}" />
+			<apex:outputText label="Name:" value="{!parentCustomer.Name}" />
+		</apex:pageBlockSection>
+		<apex:pageBlockButtons location="top">
+			<apex:commandButton action="{!actionReturnToCustomer}" value="Return to Customer"/>
+		</apex:pageBlockButtons>
+	</apex:pageBlock>
+
+	<apex:pageBlock title="SAP Customer:" id="pbdiv" rendered="{! null != a}">
+
+        <apex:pageBlockSection columns="2" collapsible="false" id="pbsdiv">
+
+            <apex:selectList size="1" label="BP Category:" value="{!NewCustomer.BusinessPartnerCategory}">
+                 <apex:actionSupport event="onchange" action="{!updateDetail}" rerender="mainform" status="status"/>
+	             <apex:selectOptions value="{!BusinessPartnerCategoryOptions}"/>
+            </apex:selectList>
+
+            <apex:selectList size="1" label="BP Type:" value="{!NewCustomer.BusinessPartnerType}">
+                 <apex:actionSupport event="onchange" action="{!updateDetail}" rerender="mainform" status="status"/>
+	             <apex:selectOptions value="{!BusinessPartnerTypeOptions}"/>
+            </apex:selectList>
+
+            <apex:selectList size="1" label="BP Role:" value="{!NewCustomer.BPRole}">
+                 <apex:actionSupport event="onchange" action="{!updateDetail}" rerender="mainform" status="status"/>
+	             <apex:selectOptions value="{!BPRoleGroups}"/>
+            </apex:selectList>
+            <br />
+
+            <apex:inputText value="{!NewCustomer.Name}" label="Name:"/>
+            <apex:inputText value="{!NewCustomer.Name2}" label="Name2:"/>
+
+            <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
+
+            <apex:inputText value="{!NewCustomer.TelephoneNumber}" label="Telephone Number:"/>
+            <apex:inputText value="{!NewCustomer.TelephoneNumberExtension}" label="Extension:"/>
+            <apex:inputText value="{!NewCustomer.FaxNumber}" label="Fax Number:"/>
+            <apex:inputText value="{!NewCustomer.FaxNumberExtension}" label="Fax Extension:"/>
+            <apex:inputText value="{!NewCustomer.EMailAddress}" label="Email Address:"/>
+
+            <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
+
+            <apex:inputText value="{!NewCustomer.Street}" label="Street:" />
+            <br />
+            <apex:inputText value="{!NewCustomer.City}" label="City:"/>
+            <apex:selectList size="1" label="Region:"  value="{!NewCustomer.Region}">
+                 <apex:selectOptions value="{!RegionOptions}"/>
+            </apex:selectList>
+            <apex:inputText value="{!NewCustomer.PostalCode}" label="PostalCode:">
+            	<apex:actionSupport event="onchange" action="{!updateDetail}" rerender="mainform" status="status"/>
+            </apex:inputText>
+
+			<apex:selectList size="1" label="Country:" value="{!NewCustomer.Country}">
+                 <apex:actionSupport event="onchange" action="{!updateDetail}" rerender="mainform" status="status"/>
+	             <apex:selectOptions value="{!CountryOptions}"/>
+            </apex:selectList>
+
+        </apex:pageBlockSection>
+
+        <apex:repeat value="{!CompanyCodes}" var="companyCode">
+	    	<c:CMP_CompanyCode DataSource="{!companyCode}" />
+	    </apex:repeat>
+
+        <apex:repeat value="{!DS_SalesAreas}" var="salesArea">
+	    	<c:CMP_SalesAreas DataSource="{!salesArea}" CreateMode="true" rerender="mainform" />
+	    </apex:repeat>
+
+        <apex:pageBlockButtons >
+         	<apex:commandButton action="{!createSAPCustomer}" value="Create SAP Customer" reRender="mainform" status="status" rendered="{!showCreateCustomerAction}"/>
+         	<apex:commandButton action="{!actionAddSAPPartner}" value="Add SAP Partner" reRender="mainform" status="status" rendered="{!showAddPartnerAction}"/>
+        </apex:pageBlockButtons>
+
+    </apex:pageBlock>
+</apex:form>
+<c:CMP_Footer />
+</apex:page>

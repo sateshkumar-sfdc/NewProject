@@ -1,0 +1,27 @@
+<apex:component controller="CTRL_CaseInfo">
+    <apex:attribute name="caseId" type="string" required="required" assignTo="{!sfCaseId}" description="" />
+
+    <apex:pageBlock title="Case">
+        <apex:actionFunction name="gotoOrderDetail" action="{!redirectToOrderDetail}" reRender="page" status="status" />
+        <apex:pageBlockSection columns="2" collapsible="false">
+            <apex:outputText label="Case:" value="{!sfCase.CaseNumber}" />
+            <apex:outputText label="Status:" value="{!sfCase.Status}" />
+
+            <apex:outputText label="Type:" value="{!sfCase.Type}" />
+            <apex:outputText label="Priority:" value="{!sfCase.Priority}" />
+
+            <apex:outputText label="Subject:" value="{!sfCase.Subject}" />
+            <apex:outputText label="Reason:" value="{!sfCase.Reason}" />
+        </apex:PageBlockSection>
+
+        <apex:pageBlockSection columns="1" rendered="{! null != sfCase.ENSX_EDM__Return_Order_Number__c}" >
+            <apex:pageMessage severity="INFO" summary="A return order already exists for this case:" strength="2" />
+            <apex:commandLink onclick="gotoOrderDetail();return false;"
+                value="Click here to view return order # {!sfCase.ENSX_EDM__Return_Order_Number__c}" />
+        </apex:PageBlockSection>
+
+        <apex:pageBlockButtons location="top">
+            <apex:commandButton onclick="window.location.href='/{!sfCase.Id}';return false;" value="Back to Case"/>
+        </apex:pageBlockButtons>
+    </apex:pageBlock>
+</apex:component>

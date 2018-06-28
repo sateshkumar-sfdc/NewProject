@@ -1,0 +1,201 @@
+<apex:page showHeader="true" docType="html-5.0" sidebar="false" title="Invoice Detail" controller="CTRL_Invoice_Detail" id="pagediv" tabStyle="Account">
+<apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"/>
+<apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"/>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css"/>
+<apex:includeScript value="{!URLFOR($Resource.tablesorter, 'jquery.tablesorter.min.js')}"/>
+<link rel="stylesheet" href="{!URLFOR($Resource.tablesorter, 'themes/blue/style.css')}"/>
+
+<style type="text/css">
+    body .pbBody table.list tr th {
+        padding: 5px 2px 4px 5px;
+        border-width: 0 0 1px 1px;
+        border-color: #e0e3e5;
+    }
+</style>
+
+    <apex:form id="formdiv">
+    <apex:actionFunction id="itemdetail" action="{!PricingInfo}" name="itemdetail" rerender="priceInfoPanel" status="status">
+        <apex:param name="itemnumber" value="" />
+     </apex:actionFunction>
+
+    <c:CMP_Status />
+
+    <apex:pageBlock title="Invoice Detail:" id="pbdiv">
+        <apex:pageMessages id="messagediv" />
+
+        <apex:pageBlockSection columns="2" collapsible="false" id="pbsdiv">
+            <apex:outputText value="{!invoiceDetail.BillingType}" label="Invoice Type:"/>
+            <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
+            <apex:outputText value="{!invoiceDetail.BillingDocument}" label="Invoice Number:"/>
+
+            <apex:outputText value="{0,date,MM/dd/yyyy}" label="Create Date:">
+                <apex:param value="{!invoiceDetail.CreateDate}" />
+            </apex:outputText>
+
+            <apex:outputText value="{!invoiceDetail.SoldToParty}" label="Sold To:"/>
+
+            <apex:outputText value="{!invoiceDetail.ShipToParty}" label="Ship To:"/>
+
+            <apex:outputText value="{!invoiceDetail.SoldToName}" label="Name:"/>
+
+            <apex:outputText value="{!invoiceDetail.ShipToName}" label="Ship To Name:"/>
+
+			<apex:outputText value="{!invoiceDetail.SalesOrderNumber}" label="Sales Order:"/>
+
+            <apex:outputText value="{!invoiceDetail.TrackingNumber}" label="Tracking:"/>
+
+            <apex:outputText value="{0,date,MM/dd/yyyy}" label="Ship Date:">
+                <apex:param value="{!invoiceDetail.ShipDate}"/>
+            </apex:outputText>
+
+            <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
+
+            <apex:outputText value="{0,number,###,##0.00} {1}" label="Net Value:">
+                <apex:param value="{!invoiceDetail.NetOrderValue}" />
+                <apex:param value="{!invoiceDetail.SalesDocumentCurrency}" />
+            </apex:outputText>
+            <apex:outputText value="{0,number,###,##0.00} {1}" label="Net Taxes:">
+                <apex:param value="{!invoiceDetail.TaxAmount}" />
+                <apex:param value="{!invoiceDetail.SalesDocumentCurrency}" />
+            </apex:outputText>
+
+        </apex:pageBlockSection>
+
+        <apex:pageBlockButtons >
+            <c:CMP_NavButtons docNum="{!invNum}" />
+        </apex:pageBlockButtons>
+
+    </apex:pageBlock>
+
+
+    <apex:pageBlock id="resultdiv" title="Items" rendered="{!(invoiceItems != null && invoiceItems.size>0)}">
+
+        <table class="list tablesorter" id="resulttable" cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th class="header">Billing Item</th>
+                    <th class="header">Material</th>
+                    <th class="header">Material Description</th>
+                    <th class="header">Sales Unit</th>
+                    <th class="header">Quantity</th>
+                    <th class="header">Net Value</th>
+                    <th class="header">Net Taxes</th>
+                    <th class="header">Shipping Warehouse</th>
+                </tr>
+            </thead>
+            <tbody>
+            <apex:variable var="i" value="{!0}"/>
+            <apex:repeat value="{!invoiceItems}" var="o">
+                <tr class="dataRow {!IF(i==0,'first','')} " onclick="itemdetail('{!o.ItemNumber}');" onmouseover="if (window.hiOn){hiOn(this);} " onmouseout="if (window.hiOff){hiOff(this);} " onblur="if (window.hiOff){hiOff(this);}" onfocus="if (window.hiOn){hiOn(this);}">
+                    <td class="dataCell"><apex:outputText value="{!o.ItemNumber}"/></td>
+                    <td class="dataCell"><apex:outputText value="{!o.Material}"/></td>
+                    <td class="dataCell"><apex:outputText value="{!o.ItemDescription}"/></td>
+                    <td class="dataCell" style="text-align: right;">
+                        <apex:outputText value="{!o.SalesUnit}"/>
+                    </td>
+                    <td class="dataCell"><apex:outputText value="{!o.BillingQuantity}"/></td>
+                    <td class="dataCell" style="text-align: right;">
+                        <apex:outputText value="{0,number,###,##0.00} {1}">
+                            <apex:param value="{!o.NetItemValue}" />
+                            <apex:param value="{!o.SalesDocumentCurrency}" />
+                        </apex:outputText>
+                    </td>
+                    <td class="dataCell" style="text-align: right;">
+                        <apex:outputText value="{0,number,###,##0.00} {1}">
+                            <apex:param value="{!o.TaxAmount}" />
+                            <apex:param value="{!o.SalesDocumentCurrency}" />
+                        </apex:outputText>
+                    </td>
+                    <td class="dataCell"><apex:outputText value="{!o.Plant}"/></td>
+                </tr>
+                <apex:variable var="i" value="{!i+1}"/>
+
+            </apex:repeat>
+            </tbody>
+        </table>
+
+        <script type="text/javascript">
+            $j = jQuery.noConflict();
+            $j(document).ready(function () {
+                $j("#resulttable").tablesorter();
+            });
+
+        </script>
+    </apex:pageBlock>
+
+    <br/><br/>
+    <apex:outputPanel id="priceInfoPanel" >
+    <apex:pageBlock title="Pricing Info Detail:" id="pInfodiv" rendered="{!(priceInfoDetail != null && priceInfoDetail != '')}">
+        <apex:pageMessages id="messagediv" />
+
+        <apex:pageBlockSection columns="2" collapsible="false" id="pbsdiv">
+            <apex:outputText value="{!priceInfoDetail.ItemNumber}" label="Billing item:"/>
+            <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
+
+            <apex:outputText value="{!priceInfoDetail.Material}" label="Material:"/>
+            <apex:outputText value="{!priceInfoDetail.ItemDescription}" label="Material Description:"/>
+
+            <apex:outputText value="{!priceInfoDetail.BillingQuantity}" label="Quantity:"/>
+            <apex:outputText value="{!priceInfoDetail.SalesUnit}" label="Sales Unit:"/>
+
+            <apex:outputText value="{!priceInfoDetail.NetItemValue}" label="Net Value:"/>
+            <apex:outputText value="{!priceInfoDetail.TaxAmount}" label="Net Taxes:"/>
+
+        </apex:pageBlockSection>
+
+    </apex:pageBlock>
+
+
+     <apex:pageBlock title="Pricing Info Line Items:" id="plineitemdiv" rendered="{!(priceInfoDetail != null && priceInfoDetail != '')}">
+
+        <apex:outputPanel rendered="{!If(priceInfoItems.size > 0, true, false)}">
+        <table class="list tablesorter" id="resulttables" cellpadding="0" cellspacing="0">
+           <thead>
+               <tr>
+                   <th class="header">Condition</th>
+                   <th class="header">Date</th>
+                   <th class="header">Base Value</th>
+                   <th class="header">Rate</th>
+                   <th class="header">Currency</th>
+                   <th class="header">Exchange Rate</th>
+               </tr>
+           </thead>
+           <tbody>
+           <apex:variable var="i" value="{!0}"/>
+
+           <apex:repeat value="{!priceInfoItems}" var="pItm">
+               <tr class="dataRow {!IF(i==0,'first','')} " onmouseover="if (window.hiOn){hiOn(this);} " onmouseout="if (window.hiOff){hiOff(this);} " onblur="if (window.hiOff){hiOff(this);}" onfocus="if (window.hiOn){hiOn(this);}">
+                   <td class="dataCell"><apex:outputText value="{!pItm.ConditionType}"/></td>
+                   <td class="dataCell"><apex:outputText value="{!pItm.ConditionPricingDate}"/></td>
+                   <td class="dataCell"><apex:outputText value="{!pItm.ConditionBaseValue}"/></td>
+                   <td class="dataCell" ><apex:outputText value="{!pItm.Rate}"/></td>
+                   <td class="dataCell"><apex:outputText value="{!pItm.CurrencyKey}"/></td>
+                   <td class="dataCell"><apex:outputText value="{!pItm.ConditionExchangeRate}"/></td>
+               </tr>
+               <apex:variable var="i" value="{!i+1}"/>
+
+           </apex:repeat>
+           </tbody>
+       </table>
+       </apex:outputPanel>
+
+       <apex:outputPanel rendered="{!If(priceInfoItems.size > 0, false, true)}">
+       		No Pricing Info Line Items exist.
+       </apex:outputPanel>
+
+
+        <script type="text/javascript">
+            $j = jQuery.noConflict();
+            $j(document).ready(function () {
+                $j("#resulttables").tablesorter();
+            });
+
+        </script>
+
+    </apex:pageBlock>
+    </apex:outputPanel>
+
+    </apex:form>
+
+    <c:CMP_Footer />
+</apex:page>

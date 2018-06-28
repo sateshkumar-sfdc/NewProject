@@ -1,0 +1,339 @@
+<!--
+Author       :   Rakshit Virmani (Appirio)
+Created Date :   17th Mar'17
+Name         :   Yeti_PrintInvoice.page
+Task         :   T-585056
+-->
+<apex:page docType="html-5.0" showHeader="false" sidebar="false" standardStylesheets="false" applyHtmlTag="false" applyBodyTag="false" renderAs="pdf" controller="Yeti_PrintInvoiceController">
+  <head>
+       <style>
+        @page {
+            margin-top: 4cm;
+            margin-bottom: 3cm;
+
+            @top-center {
+                content: element(header);
+            }
+            @bottom-left {
+                content: element(footer);
+            }
+        }
+        div.header {
+            padding: 10px;
+            position: running(header);
+        }
+        div.footer {
+            display: block;
+            padding: 5px;
+            position: running(footer);
+            padding-top: 0px;
+        }
+        .footer:after {
+            counter-increment: page;
+            content: "Page " counter(page);
+            float:right;
+            
+        }
+        
+        div.content {
+            border-style:dotted;
+            float: left;
+            width: 100%;
+        }
+        body{
+          font-family : sans-serif;
+          font-size: 12px;
+        }
+        div.Ending { page-break-after: always; }
+        
+    </style>
+  </head>
+  <apex:define name="body">
+    <div class="header" style = "width: 100%;margin-right: auto; margin-left: auto;margin-top: 1%;background-color:white;">
+      <div style ="width:55%;float:left;margin-left: 15px;">
+      <apex:image id="theImage" value="{!$Resource.Yeti_Logo2}" style="margin-top:5px"/> 
+    </div>
+      <div style ="width:10%;float:left;min-height:50px;">
+        <apex:image id="questionMark" value="{!$Resource.Yeti_QuestionMark2}" style="margin-top:17px"/>
+        </div>
+        <div style ="width:30%;font-size: 10px;color:#031536;float:left;margin-top:5px;">
+          <div style="color:#031536;font-size: 11px;">{!$Label.Yeti_Questionsabtorder}</div>
+          <div style="color:#031536;font-size: 11px;">{!$Label.Yeti_CallUsAt}</div>
+          <div style="color:#031536;font-size: 11px;">{!$Label.Yeti_Email}</div>
+          <div style="color:#031536;font-size: 11px;">{!$Label.Yeti_monFri}</div>
+        </div>
+    </div>
+    <div style="text-align:center">
+      <h1> {!$Label.Yeti_Invoice} </h1>
+    </div>
+    <div style = "border-radius: 6px ;max-width: 100%;padding-right: 60px; padding-left: 60px; padding-right: 15px;padding-left: 15px;margin-right: auto; margin-left: auto;margin-top: 2%;">
+      <div style="width: 30%;  min-height: 1px;padding-right: 15px;padding-left: 15px;float: left;">
+        <div style="font-weight:bold">{!$Label.Yeti_RemittanceAddress}</div>
+        <div>YETI</div>
+        <div>PO Box 873780</div>
+        <div>Dallas Texas,123456</div>
+      </div>
+      <div style="width: 28%; min-height: 1px;padding-right: 15px;padding-left: 15px;float: left;">
+        <div>
+          <span style="font-weight:bold">{!$Label.Yeti_CustomerID}</span>
+          <apex:outputField value="{!lstInvoice[0].SAP_Customer_Number__c}"/>
+        </div>
+        <div>
+          <span style="font-weight:bold">{!$Label.Yeti_PO}</span>
+          <apex:outputField value="{!lstInvoice[0].PO__c}"/>
+        </div>
+        </div>
+      <div style="width: 28%; min-height: 1px;padding-right: 15px;padding-left: 15px; float: left;">
+        <div>
+          <span style="font-weight:bold">{!$Label.Yeti_Invoicenumber}</span>
+          <apex:outputField value="{!lstInvoice[0].Name}"/>
+        </div>
+        <div>
+          <span style="font-weight:bold">{!$Label.Yeti_InvoiceDate}</span>
+          <apex:outputField value="{!lstInvoice[0].Invoice_Date__c}"/>
+        </div>
+        <div>
+         <span style="font-weight:bold">{!$Label.Yeti_Status}</span>
+         <apex:outputField value="{!lstInvoice[0].Status__c}"/>
+        </div>
+        <div>
+         <span style="font-weight:bold">{!$Label.Yeti_DueDate}</span>
+         <apex:outputField value="{!lstInvoice[0].Due_Date__c}"/>
+        </div>
+      </div>
+
+      <div style="width: 45%;  min-height: 1px; padding-right: 15px; padding-left: 15px;float: left;margin-top: 2%;border: 1px solid grey;">
+        <div style="margin-top : 1%">
+          <div style="background-color:#d0cfcf;font-weight:bold">{!$Label.Yeti_BillingAddress}</div>
+          <div><apex:outputField value="{!lstInvoice[0].Bill_To__r.BillingStreet}"/></div>
+          <div><apex:outputField value="{!lstInvoice[0].Bill_To__r.BillingCity}"/></div>
+          <div><apex:outputField value="{!lstInvoice[0].Bill_To__r.BillingState}"/></div>
+          <div><apex:outputField value="{!lstInvoice[0].Bill_To__r.BillingCountry}"/></div>
+          <div><apex:outputField value="{!lstInvoice[0].Bill_To__r.BillingPostalCode}"/></div>
+        </div>
+      </div>
+
+      <div style="width: 45%;  min-height: 1px; padding-right: 15px; padding-left: 15px;float: left;margin-top: 2%;border: 1px solid grey;">
+        <div style="margin-top : 1%">
+          <div style="background-color:#d0cfcf;font-weight:bold">{!$Label.Yeti_PaymentMethod}</div>
+          <div><apex:outputField value="{!lstInvoice[0].Terms__c}"/></div>
+        </div>
+      </div>
+
+      <div style="width: 92.5%; min-height: 1px; padding-right: 15px; padding-left: 15px;float: left;margin-top: 2%;border: 1px solid grey;">
+        <div style="background-color:#d0cfcf;font-weight:bold">{!$Label.Yeti_ItemsOrdered}</div>
+        <div style="margin-top : 1%">
+          <div style="width: 45%;  min-height: 1px; padding-right: 15px; padding-left: 15px;float: left;">
+            <div style="font-weight:bold">{!$Label.Yeti_ShippingAddress}</div>
+              <div>
+                <apex:outputField value="{!lstInvoice[0].Ship_To__r.ShippingStreet}"/>
+              </div>
+              <div>
+                <apex:outputField value="{!lstInvoice[0].Ship_To__r.ShippingCity}"/>
+              </div>
+              <div>
+                <apex:outputField value="{!lstInvoice[0].Ship_To__r.ShippingState}"/></div>
+              <div><apex:outputField value="{!lstInvoice[0].Ship_To__r.ShippingCountry}"/></div>
+              <div><apex:outputField value="{!lstInvoice[0].Ship_To__r.ShippingPostalCode}"/></div>
+            </div>
+          <div style="width: 45%;  min-height: 1px; padding-right: 15px; padding-left: 15px;float: left;">
+            <div style="font-weight:bold">{!$Label.Yeti_TrackYourShipment}</div>
+            <div>
+                <div style="width: 37%;  min-height: 1px; padding-right: 5px; padding-left: 5px;float: left; text-align : left;font-weight:bold; margin-top:1%">Tracking #:</div>
+                <div style="width: 45%;  min-height: 1px; padding-right: 5px; padding-left: 5px;float: left; text-align : left;margin-top:1%">
+                  <apex:repeat value="{!lstTrackingNumbers}" var="tracknum">
+                    <div style="font-size: 10px;">{!tracknum}</div>
+                  </apex:repeat>
+                </div>
+              </div>
+              <div>
+                <div style="width: 37%;  min-height: 1px; padding-right: 5px; padding-left: 5px;float: left; text-align : left;font-weight:bold;"> {!$Label.Yeti_PackingSlipNumber}</div>
+                <div style="width: 45%;  min-height: 1px; padding-right: 5px; padding-left: 5px;float: left; text-align : left;margin-top:1%">
+                  <apex:outputField value="{!lstInvoice[0].Packing_Slip_ID__c}"/>
+                  </div>
+              </div>
+              <div>
+                <div style="width: 37%;  min-height: 1px; padding-right: 5px; padding-left: 5px;float: left; text-align : left;font-weight:bold">{!$Label.Yeti_ShippingMethodsmall}</div>
+                <div style="width: 45%;  min-height: 1px; padding-right: 5px; padding-left: 5px;float: left; text-align : left;"><apex:outputField value="{!lstInvoice[0].FOB__c}"/></div>
+              </div>
+              <div>
+                <div style="width: 37%;  min-height: 1px; padding-right: 5px; padding-left: 5px;float: left; text-align : left;font-weight:bold">{!$Label.Yeti_ShippingDate}</div>
+                <div style="width: 45%;  min-height: 1px; padding-right: 5px; padding-left: 5px;float: left; text-align : left;"><apex:outputField value="{!lstInvoice[0].Shipping_Date__c}"/></div>
+              </div>
+          </div>
+        </div> 
+        <div style="width: 100%;  min-height: 1px; padding-right: 15px; padding-left: 15px; float: left;">
+          <div style="margin-top : 2%;font-weight:bold">
+           {!$Label.Yeti_ItemsShipped}
+          </div>
+          <div style="margin-top : 8px; text-align:center;">
+            
+            <apex:variable var="cnt" value="{!0}" /> 
+            <apex:repeat value="{!pageBrokenInvoiceLines}" var="invoiceLineItemsList" id="invLineItemsList">
+             &nbsp;
+             <div style="{!if(cnt < 1, 'page-break-before:avoid;','page-break-before:always;')}">
+              <apex:variable var="cnt" value="{!cnt+1}"/>
+            <div style="margin-top : 1%; text-align:center;">
+                <div style = "  min-height: 1px; padding-right: 15px;  padding-left: 15px; float: left; width: 13%;font-weight:bold;margin-bottom: 2%;">
+                 {!$Label.Yeti_SKUNumber}
+                </div>
+                <div style = "  min-height: 1px; padding-right: 15px;  padding-left: 15px; float: left; width: 13%;font-weight:bold;margin-bottom: 2%;">
+                  {!$Label.Yeti_UPC}
+                </div>
+                <div style = "  min-height: 1px; padding-right: 15px;  padding-left: 15px; float: left; width: 13%;font-weight:bold;margin-bottom: 2%;">
+                  {!$Label.Yeti_Product}
+                </div>
+                <div style = "  min-height: 1px; padding-right: 15px;  padding-left: 15px; float: left; width: 6%;font-weight:bold;margin-bottom: 2%;">
+                  {!$Label.Yeti_Price}
+                </div>
+                <div style = "  min-height: 1px; padding-right: 15px;  padding-left: 15px; float: left; width: 6%;font-weight:bold;margin-bottom: 2%;">
+                  {!$Label.Yeti_Quantity}
+                </div>
+                <apex:outputPanel rendered="{!showDiscount}">
+                <div style = "  min-height: 1px; padding-right: 15px;  padding-left: 15px; float: left; width: 6%;font-weight:bold">
+                  {!$Label.Yeti_Discount}
+                </div>
+                </apex:outputPanel>
+                <div style = "  min-height: 1px; padding-right: 15px;  padding-left: 15px; float: left; width: 6%;font-weight:bold">
+                  {!$Label.Yeti_Subtotal}
+                </div>
+              </div>
+              
+                <apex:repeat value="{!invoiceLineItemsList}" var="invoiceLineItems" id="invLineItems">
+                  <div style = "min-height: 1px; padding-right: 15px;  padding-left: 15px; float: left; width: 13%">
+                    {!invoiceLineItems.Part_Number__c}
+                  </div>
+                  <div style = "min-height: 1px; padding-right: 15px;  padding-left: 15px; float: left; width: 13%;">
+                    {!invoiceLineItems.UPC__c}
+                  </div>
+                  <div style = "min-height: 1px; padding-right: 15px;  padding-left: 15px; float: left; width: 13%">
+                    {!invoiceLineItems.Description__c}
+                  </div>
+                  <div style = "  min-height: 1px; padding-right: 15px;  padding-left: 15px; float: left; width: 6%">
+                    {!invoiceLineItems.Ext_Price__c}
+                  </div>
+                  <div style = "  min-height: 1px; padding-right: 15px;  padding-left: 15px; float: left; width: 6%">
+                    {!invoiceLineItems.Order_Quantity__c}
+                  </div>
+                  <apex:outputPanel rendered="{!showDiscount}">
+                  <div style = "  min-height: 1px; padding-right: 15px;  padding-left: 15px; float: left; width: 6%">
+                    {!ABS(invoiceLineItems.Discount__c)}
+                  </div>
+                  </apex:outputpanel>
+                  <div style = "  min-height: 1px; padding-right: 15px;  padding-left: 15px; float: left; width: 6%">
+                    {!invoiceLineItems.Subtotal__c}
+                  </div>
+                  <div style="width: 95%;  min-height: 1px; padding-right: 15px; padding-left: 15px; float: left;">
+                    <hr/>
+                  </div>
+              </apex:repeat>
+            </div>
+            </apex:repeat>
+          </div>
+          <div style = "  min-height: 1px; padding-right: 15px;  padding-left: 15px; float: left; width: 50%">
+          </div>
+          <apex:outputPanel rendered="{!showDiscount}">
+            <div style="width: 50%; min-height: 1px; padding-right: 15px;padding-left: 15px;float: right;">
+              {!$Label.Yeti_TotalDiscount } <apex:outputField value="{!lstInvoice[0].Discount__c}"/>
+            </div>
+          </apex:outputPanel>
+        </div>
+      </div>
+      <div style="page-break-inside: auto;">
+      <div style="width: 50%;  min-height: 1px; padding-right: 15px; padding-left: 15px;float: left; text-align : right;">
+      </div>
+      <div style="width: 40%;  min-height: 1px; padding-right: 15px; padding-left: 15px; float: left;margin-top: 2%;border: 1px solid grey;">
+        <div style="text-align : right;font-weight:bold">
+          {!$Label.Yeti_OrderSummary}
+        </div>
+        <div style="margin-top:10px">
+          <apex:outputPanel rendered="{!showDiscount}">
+            <div style="width: 47%;  min-height: 1px; padding-right: 15px; padding-left: 15px;float: left; text-align : right;font-weight:bold">
+             {!$Label.Yeti_TotalBeforeDiscount}
+            </div>
+            <div style="width: 20%;  min-height: 1px; padding-right: 15px; padding-left: 15px;float: left; text-align : right;">
+              {!lstInvoice[0].Total_Before_Discount__c}
+            </div>
+          </apex:outputPanel>
+          <div style="width: 47%;  min-height: 1px; padding-right: 15px; padding-left: 15px;float: left; text-align : right;font-weight:bold">
+            {!$Label.Yeti_Subtotal}:
+          </div>
+          <div style="width: 20%;  min-height: 1px; padding-right: 15px; padding-left: 15px;float: left; text-align : right;">
+            {!lstInvoice[0].Sub_Total__c}
+          </div>
+          <div style="width: 47%;  min-height: 1px; padding-right: 15px; padding-left: 15px;float: left; text-align : right;font-weight:bold">
+           {!$Label.Yeti_Shipping}
+          </div>
+          <div style="width: 20%;  min-height: 1px; padding-right: 15px; padding-left: 15px;float: left; text-align : right;">
+           {!lstInvoice[0].Shipping_Amount__c}
+          </div>
+          <div style="width: 47%;  min-height: 1px; padding-right: 15px; padding-left: 15px;float: left; text-align : right;font-weight:bold">
+           {!$Label.Yeti_Tax}
+          </div>
+          <div style="width: 20%;  min-height: 1px; padding-right: 15px; padding-left: 15px;float: left; text-align : right;">
+            {!lstInvoice[0].Tax__c}
+          </div>
+        </div>
+        <div style="margin-top:10px">
+          <div style="width: 47%;  min-height: 1px; padding-right: 15px; padding-left: 15px;float: left; text-align : right;font-weight:bold">
+             {!$Label.Yeti_GrandTotal}
+          </div>
+          <div style="width: 20%;  min-height: 1px; padding-right: 15px; padding-left: 15px;float: left; text-align : right;">
+            <apex:outputField value="{!lstInvoice[0].Invoice_amount__c}"/>
+          </div>
+          <div style="width: 47%;  min-height: 1px; padding-right: 15px; padding-left: 15px;float: left; text-align : right;font-weight:bold">
+             {!$Label.Yeti_Payment}
+          </div>
+          <div style="width: 20%;  min-height: 1px; padding-right: 15px; padding-left: 15px;float: left; text-align : right;">
+            <apex:outputField value="{!lstInvoice[0].Deposit_Balance__c}"/>
+          </div>
+          <div style="width: 47%;  min-height: 1px; padding-right: 15px; padding-left: 15px;float: left; text-align : right;font-weight:bold">
+             {!$Label.Yeti_InvoiceBalance}
+          </div>
+          <div style="width: 20%;  min-height: 1px; padding-right: 15px; padding-left: 15px;float: left; text-align : right;">
+            <apex:outputField value="{!lstInvoice[0].Invoice_Balance__c}"/>
+          </div>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+    <div class="footer" style = "width: 100%;min-height:50px;font-size:10px;">
+        <table style = "width: 100%;">
+          <tr style = "width: 100%;">
+            <td style = "width: 70%;padding-left:30px">
+              <span style ="margin-left: 15px;font-family: sans-serif;float:left;">
+                <div>{!$Label.Yeti_ContactInformation}</div>
+                <div>{!$Label.Yeti_YetiHeader}</div>
+                <div>{!$Label.Yeti_POBox}</div>
+                <div>{!$Label.Yeti_CityState}</div>
+                <div>{!$Label.Yeti_PhoneFooter}</div>
+                <div>{!$Label.Yeti_Email}</div>
+             </span>
+            </td>
+            <td style = "width: 50%; padding-left:10px;float:top;">
+              <span style ="margin-left: 15px;font-family: sans-serif;float:left;">
+                <div>Contact YETI:</div>
+                <div><apex:outputField value="{!lstInvoice[0].Sold_To__r.Inside_SR_Name__c}"/></div>
+                <div><apex:outputField value="{!lstInvoice[0].Sold_To__r.Inside_Rep_Phone__c}"/></div>
+                <div><apex:outputField value="{!lstInvoice[0].Sold_To__r.Inside_Rep_Email__c}"/></div>
+                <div style="color:white">.</div>
+                <div style="color:white">.</div>
+             </span>
+            </td>
+            <td style = "width: 30%;float:top;">
+              <span style ="font-size: 15px;margin-right: 15px;font-family: sans-serif;float:left">
+                <div style="color:white">.</div>
+                <div><apex:outputField value="{!lstInvoice[0].Sold_To__r.Outside_SR_Name__c}"/></div>
+                <div><apex:outputField value="{!lstInvoice[0].Sold_To__r.Outside_Rep_Phone__c}"/></div>
+                <div><apex:outputField value="{!lstInvoice[0].Sold_To__r.Outside_Rep_Email__c}"/></div>
+                <div style="color:white">.</div>
+                <div style="color:white">.</div>
+              </span>
+            </td>
+            </tr>
+        </table>
+    </div>
+  </apex:define>
+</apex:page>

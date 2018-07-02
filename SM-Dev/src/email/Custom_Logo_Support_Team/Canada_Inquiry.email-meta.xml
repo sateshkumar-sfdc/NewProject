@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Canada Inquiry</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hi ,
+
+
+
+Thank you for your email! Currently YETI products can be purchased to be shipped to Canada on our international site here:
+
+
+
+https://intl.yeti.com/
+
+
+
+We are working to expand our offerings to include the ability to send customized orders internationally but at this time we aren&apos;t able to ship any YETI Custom Shop orders outside of the United States.
+
+
+
+We hope that we can work together in the future on customized product. Thank you for your interest!
+
+
+Thanks,
+
+{!User.CommunityNickname}
+Business Development Team
+YETI
+512.402.5895
+corporatesales@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

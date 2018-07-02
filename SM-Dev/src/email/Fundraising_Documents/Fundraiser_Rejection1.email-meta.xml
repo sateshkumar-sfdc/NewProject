@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Fundraiser Rejection</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hello,
+
+
+Thanks for submitting your application to the YETI Fundraising Program!  We’ve been absolutely astounded by the number of requests that we have received.  While we cannot accommodate all requests, we are honored that you thought of us.  After careful review of your documents, we are not able to grant your request.  All requests for our fundraising program must be able to provide documentation that they are recognized by the federal or state agency as a nonprofit organization.  As always, please be in touch with questions. We’d be happy to hear from you.
+
+Thank you for thinking of us and being a loyal YETI customer! We truly value you and wish you the best of luck with your fundraising event.
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+
+The YETI Outfitters
+
+512.394.9384
+
+customerservice@yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,77 @@
+.THIS .Qscore-Aplus{
+    color : green ;
+}
+
+.THIS .Qscore-A{
+    color : lime ;
+}
+
+.THIS .Qscore-B{
+    color : yellow ;
+}
+
+.THIS .Qscore-C{
+    color : orange ;
+}
+
+.THIS .Qscore-D{
+    color : #FF3600;
+}
+
+.THIS .Qscore-F{
+    color : red;
+}
+
+.THIS .myCard {
+    min-width: 300px;
+}
+.THIS .Qscore-container {
+    float: left;
+}
+.THIS .Qscore-left {
+    float:left;
+    width: 40%;
+    background: white;
+    border-radius: 7px;
+    border: 1px solid #ccc;
+    padding: 0px 20px;
+    text-align: center;
+    font-size: 100px;
+    font-weight: bold;
+}
+.THIS .Qscore-left .Qscore{
+    margin: -10px;
+}
+.THIS .Qscore-right {
+    float: left;
+    margin-left: 2%;
+    width: 58%;
+    min-height: 127px;
+    padding: 5px;
+    border: none;
+    border-radius: 7px;
+    background: white;
+    position: relative;
+}
+
+.THIS .Qscore-container .Qscore-watermark {
+   position: absolute;
+      opacity: 0.3;
+      text-align: center;
+      z-index: 1000;
+      font-size: 100px;
+      font-weight: bold;
+      left: auto;
+      top: -10px;
+      margin: auto;
+      width: 100%;
+  }
+
+@media all and (min-width: 1380px) {
+    .THIS .Qscore-left {
+        width: 30% !important;
+    }
+    .THIS .Qscore-right {
+        width: 68% !important;
+    }
+}

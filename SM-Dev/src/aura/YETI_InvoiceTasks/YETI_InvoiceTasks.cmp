@@ -1,0 +1,28 @@
+<aura:component controller="YETI_InvoiceTaskController" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId">
+    
+	<!-- STYLES -->
+    <ltng:require styles="{!$Resource.SLDS_Winter_17 + '/assets/styles/salesforce-lightning-design-system-ltng.min.css'}"/>
+    <!-- / STYLES -->
+
+    <!-- ATTRIBUTES -->
+    <aura:attribute type="String" name="errorMessage"/>
+	<aura:attribute type="YETI_InvoiceTaskController.MyInvoiceTask[]" name="InvoiceTask"/>
+	<aura:attribute type="Boolean" name="isPastDue" />
+    <!-- / ATTRIBUTES -->
+
+    <!-- EVENTS -->
+    <aura:handler name="init" action="{!c.loadInvoiceTasks}" value="{!this}"/>
+    <!-- / EVENTS -->
+
+    <!-- BODY -->
+    <div class="yeti">
+		
+		<aura:if isTrue="{!v.isPastDue}">
+			<div class="error-message" aura:id="errorMessageDiv">
+				<ui:message severity="error" closable="false">
+					<center>You have Past Due Invoices. Please <a href="/dealers/s/invoices">click here</a> to view them.</center> 
+				</ui:message>
+			</div>
+		</aura:if>
+    </div>
+</aura:component>

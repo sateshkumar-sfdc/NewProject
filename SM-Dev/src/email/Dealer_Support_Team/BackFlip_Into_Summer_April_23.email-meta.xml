@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>BackFlip Into Summer – April 23</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>We’re so excited to have your team at (insert name of account) participating in our BackFlip Into Summer Sales Contest!
+
+
+The contest begins on Friday, May 4th and will run through Sunday, June 17th.
+
+
+Here’s what you need to know:
+
+- The contest will run for 6 weeks.
+
+- Each week, the top 3 individual sales associates in your territory with the most YETI products sold will win $75 toward their next purchase on YETI.com.
+
+- At the end of the 6 weeks, the top sales associate with the most YETI products sold in your region will win an adventure trip on YETI.
+
+- Winners will be determined based on total number of YETI products sold.
+
+
+What you’ll receive from YETI:
+
+- A printed backroom poster to use to track weekly sales
+
+- A printed version of the Quick Reference Sales Tool to make sure your staff knows all there is to know about YETI.
+
+- A digital copy of the BackFlip Into Summer: Tips for Success manual (attached)
+
+- A link to submit weekly sales of your associates
+
+- Weekly emails to remind you of important to-dos, helpful tips and inspiration throughout the contest.
+
+
+To make sure you’re geared up and ready to go, here are a few things you can start doing now to set you and your team up for success:
+
+
+Tune up your YETI display.
+
+o Are your shelves stocked?
+
+o Is the display in a well-lit, high traffic area?
+
+o Do you have multiple product categories on the floor?
+
+o Is the display organized and clean?
+
+o Are there any secondary impulse locations where you can add YETI for those last minute sales?
+
+
+Become the expert on YETI.
+
+o Reach out to your Territory Sales Manager to set up time for an in-person clinic with participating sales associates.
+
+o Share these training videos with your staff.
+
+o Take advantage of the YETI training modules on Tundra, Hopper and Rambler available on Experticity.com.
+
+
+We’re thankful for your loyalty, and want to make sure you’re set up for success. Please don’t hesitate to reach out to me or (insert TSM name here) with any questions or for assistance in getting ready to BackFlip Into Summer.
+
+We’re looking forward to a successful summer season!
+
+
+Terms and conditions apply. See full contest rules here.
+
+
+{!User.CommunityNickname}
+
+Account Management Team
+
+YETI
+
+512.394.0222
+
+sales@yeti.com
+
+
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

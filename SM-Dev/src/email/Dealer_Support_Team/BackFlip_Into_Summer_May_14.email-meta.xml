@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>BackFlip Into Summer – May 14</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>One week down, five to go. We hope you’re seeing success from the contest so far!
+
+As a reminder, all sales from the 1st week (May 4-May 13) of the contest must be submitted via the linked form below by 4pm CT today, May 14 to be eligible for the weekly prize. Make sure your sales associates’ hard work gets counted! https://yeti.formstack.com/forms/backflip_into_summer
+
+If one of your sales associates wins a weekly prize, they will be notified directly by email.
+
+To keep the momentum going, take some time today to evaluate what worked in the first week of the contest. Was it posting to social media with #BackFlipIntoSummer? Obsessing over the YETI display to make sure it was stocked at all times? Telling personal stories about your experience with YETI products?
+
+We’re two weeks out from Memorial Day – the unofficial start of summer – and getting into prime cooler season. Now is the time to make sure your customer is outfitted with all the YETI products they need to have the #bestsummerever.
+
+Questions? Need additional tips to build momentum? (Insert TSM name) is available for any questions and support.
+
+Go crush week 2!
+
+Terms and conditions apply. See full contest rules here.
+
+
+{!User.CommunityNickname}
+
+Account Management Team
+
+YETI
+
+512.394.0222
+
+sales@yeti.com
+
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,47 @@
+<apex:page standardStylesheets="false">
+
+    <apex:includeLightning />      
+        
+    <div id="lightning" />
+
+    <script>
+    $Lightning.use("et4ae5:BusinessUnitManagementApp", function() {
+        $Lightning.createComponent("et4ae5:BusinessUnitManagement", null, "lightning");      
+    });
+
+    </script>
+    
+<apex:outputPanel rendered="false">
+		<apex:outputText value="{!$Label.previous}" />
+		<apex:outputText value="{!$Label.next}" />
+		<apex:outputText value="{!$Label.buMgmt}" />
+		<apex:outputText value="{!$Label.msg0035}" />
+		<apex:outputText value="{!$Label.save}" />
+		<apex:outputText value="{!$Label.cancel}" />
+		<apex:outputText value="{!$Label.BUMgmTableHeaders}" />  
+		<apex:outputText value="{!$Label.DTNoDataLabel}" />  
+		<apex:outputText value="{!$Label.DTNoDataMsg}" />  
+		<apex:outputText value="{!$Label.DTNoDataFilter}" />  
+		<apex:outputText value="{!$Label.DTEntriesPerPagePre}" />  
+		<apex:outputText value="{!$Label.DTEntriesPerPageSuf}" /> 
+		<apex:outputText value="{!$Label.DTFilterPrefix}" /> 
+		<apex:outputText value="{!$Label.DTFilterSuffix}" />
+		<apex:outputText value="{!$Label.DTInfoPrefix}" />
+		<apex:outputText value="{!$Label.DTInfoMid1}" />
+		<apex:outputText value="{!$Label.DTInfoMid2}" />
+		<apex:outputText value="{!$Label.DTInfoSuffix}" />    	
+		<apex:outputText value="{!$Label.DTBuildingTable}" />		
+		<apex:outputText value="{!$Label.buMgmtNoChangeError}" />
+		<apex:outputText value="{!$Label.buMgmtNoChangeErrorTitle}" />
+		<apex:outputText value="{!$Label.buMgmtRecordLimitError}" />
+		<apex:outputText value="{!$Label.buMgmtRecordLimitErrorTitle}" />
+		<apex:outputText value="{!$Label.buMgmtRecordLoadError}" />
+		<apex:outputText value="{!$Label.buMgmtRecordLoadErrorTitle}" />
+		<apex:outputText value="{!$Label.buMgmtSaveError}" />
+		<apex:outputText value="{!$Label.buMgmtSaveErrorTitle}" />
+		<apex:outputText value="{!$Label.buMgmtSaveServerError}" />
+		<apex:outputText value="{!$Label.buMgmtSaveServerErrorTitle}" />
+		<apex:outputText value="{!$Label.buMgmtSaveSuccess}" />
+		<apex:outputText value="{!$Label.buMgmtSaveSuccessTitle}" />				
+	</apex:outputPanel>    
+</apex:page>

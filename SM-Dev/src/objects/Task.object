@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Close</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>DeleteSeries</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>NewTask</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableFeeds>true</enableFeeds>
+    <fields>
+        <fullName>ActivityDate</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>CallDisposition</fullName>
+    </fields>
+    <fields>
+        <fullName>CallDurationInSeconds</fullName>
+    </fields>
+    <fields>
+        <fullName>CallObject</fullName>
+    </fields>
+    <fields>
+        <fullName>CallType</fullName>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Email</fullName>
+    </fields>
+    <fields>
+        <fullName>IsRecurrence</fullName>
+    </fields>
+    <fields>
+        <fullName>IsReminderSet</fullName>
+    </fields>
+    <fields>
+        <fullName>IsVisibleInSelfService</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>OwnerId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Phone</fullName>
+    </fields>
+    <fields>
+        <fullName>Priority</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>RecurrenceInterval</fullName>
+    </fields>
+    <fields>
+        <fullName>RecurrenceRegeneratedType</fullName>
+    </fields>
+    <fields>
+        <fullName>Status</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Subject</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>TaskSubtype</fullName>
+    </fields>
+    <fields>
+        <fullName>Type</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>WhatId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>WhoId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypes>
+        <fullName>Quality_Call_Checklist</fullName>
+        <active>true</active>
+        <description>Face to Face, 5 Pillars Reviewed, and Order Placed</description>
+        <label>Quality Sales Call Checklist</label>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deferred</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Waiting on someone else</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subject</picklist>
+            <values>
+                <fullName>Accounting %2F Collections</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CL Increase Req</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Application</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Complaint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Praise</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Follow-up Sales Order</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Modify Order</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Contact Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Order Status</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Availability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shipment Update</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subject_Type__c</picklist>
+            <values>
+                <fullName>Face to Face</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Inbound Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outbound Call</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Standard</fullName>
+        <active>true</active>
+        <label>Standard</label>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deferred</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Waiting on someone else</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subject</picklist>
+            <values>
+                <fullName>Account Setup</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accounting %2F Collections</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accounting%2FCollections</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CL Increase Req</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Application</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Complaint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Praise</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EDI Setup</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Follow-up Sales Order</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Modify Order</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Contact Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Order Status</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pricing Inquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Availability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shipment Update</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subject_Type__c</picklist>
+            <values>
+                <fullName>Account Setup</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Face to Face</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inbound Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outbound Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Status Update</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Support_Team</fullName>
+        <active>true</active>
+        <description>Case record type for all support team.</description>
+        <label>Support Team</label>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deferred</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Waiting on someone else</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subject</picklist>
+            <values>
+                <fullName>Accounting %2F Collections</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Complaint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Praise</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Modify Order</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Contact Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Order Status</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pricing Inquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Availability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shipment Update</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subject_Type__c</picklist>
+            <values>
+                <fullName>Account Setup</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Face to Face</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inbound Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outbound Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Status Update</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System Email</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>System_Email</fullName>
+        <active>true</active>
+        <description>Used to capture external system-generated emails</description>
+        <label>System Email</label>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deferred</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Waiting on someone else</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subject</picklist>
+            <values>
+                <fullName>Account Setup</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accounting %2F Collections</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accounting%2FCollections</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CL Increase Req</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Application</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Complaint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Praise</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EDI Setup</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Modify Order</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Contact Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Order Status</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pricing Inquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Availability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shipment Update</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subject_Type__c</picklist>
+            <values>
+                <fullName>Account Setup</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Face to Face</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inbound Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outbound Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Status Update</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>System Email</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <sharingModel>Private</sharingModel>
+</CustomObject>

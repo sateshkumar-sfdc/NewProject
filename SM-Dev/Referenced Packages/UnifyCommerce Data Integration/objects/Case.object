@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <webLinks>
+        <fullName>Manage_Commerce_Cloud_Orders</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Manage eCommerce Orders</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/support/console/30.0/integration.js&quot;)} 
+if(sforce.console.isInConsole()) { //Checks that it is in console 
+var primaryTabId; 
+var openSubtab = function(result){ 
+primaryTabId = result.id; 
+sforce.console.openSubtab(result.id,&apos;/apex/OSF_DWback__OSF_CaseOrders?Id={!Case.Id}&apos;, true, &apos;eCommerce Orders&apos;, null, openSuccess, &apos;dwOrders{!Case.Id}&apos;); 
+}; 
+
+var openSuccess = function openSuccess(result) { 
+if (result.success == false) { 
+sforce.console.focusSubtabByNameAndPrimaryTabId(&apos;dwOrders{!Case.Id}&apos;, primaryTabId); 
+} 
+}; 
+
+sforce.console.getEnclosingPrimaryTabId(openSubtab); 
+
+} 
+else { 
+window.parent.location.href=(&apos;/apex/OSF_DWback__OSF_CaseOrders?Id={!Case.Id}&apos;) 
+}</url>
+    </webLinks>
+</CustomObject>

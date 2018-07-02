@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Order Confirmation  Canned Response</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}</subject>
+    <textOnly>Greetings,
+
+Thank you for your recent purchase with YETI! We have completed your fundraising order and we are working on processing it right now. Once the order ships we will provide the invoice and tracking information.
+
+
+Order Details:
+
+· Order Number:
+
+· Order Date: MM/DD/YYYY
+
+· Order Total: $0.00
+
+· Package or Item Purchased:
+
+· Reference Number:
+
+
+Shipped To:
+
+· Customer&apos;s Name
+
+· Address
+
+
+It has been a pleasure to work with you!
+
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+
+The YETI Outfitters
+
+512.394.9384
+
+customerservice@yeti.com
+
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

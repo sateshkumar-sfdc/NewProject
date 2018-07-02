@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>RMA Disposition</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>RMA Dispositions</value>
+    </caseValues>
+    <fields>
+        <label><!-- Part Num --></label>
+        <name>Part_Num__c</name>
+        <relationshipLabel><!-- RMA Dispositions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- RMA Receipt --></label>
+        <name>RMA_Receipt__c</name>
+        <relationshipLabel><!-- RMA Dispositions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Return Reason Code --></label>
+        <name>Return_Reason_Code__c</name>
+        <picklistValues>
+            <masterLabel>00 - RMA</masterLabel>
+            <translation><!-- 00 - RMA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>01 - Bowed Lid</masterLabel>
+            <translation><!-- 01 - Bowed Lid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02 - Ice Retention</masterLabel>
+            <translation><!-- 02 - Ice Retention --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03 - Not Sealing</masterLabel>
+            <translation><!-- 03 - Not Sealing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04 - Leaking</masterLabel>
+            <translation><!-- 04 - Leaking --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05 - Porosity</masterLabel>
+            <translation><!-- 05 - Porosity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06 - Delam</masterLabel>
+            <translation><!-- 06 - Delam --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>07 - Logo Error</masterLabel>
+            <translation><!-- 07 - Logo Error --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>08 - Shipping Error-Misc.</masterLabel>
+            <translation><!-- 08 - Shipping Error-Misc. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10 - Product Swap</masterLabel>
+            <translation><!-- 10 - Product Swap --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11 - Refund</masterLabel>
+            <translation><!-- 11 - Refund --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12 - Canceled Order</masterLabel>
+            <translation><!-- 12 - Canceled Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>13 - Damaged in Shipping</masterLabel>
+            <translation><!-- 13 - Damaged in Shipping --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>14 - Lay-By Cancellation</masterLabel>
+            <translation><!-- 14 - Lay-By Cancellation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>15 - Component install on cooler</masterLabel>
+            <translation><!-- 15 - Component install on cooler --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>16 - Product Sample</masterLabel>
+            <translation><!-- 16 - Product Sample --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>17 - Defective-Lock</masterLabel>
+            <translation><!-- 17 - Defective-Lock --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>18 - Repair</masterLabel>
+            <translation><!-- 18 - Repair --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>19 - SCL Return</masterLabel>
+            <translation><!-- 19 - SCL Return --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>20 - Big Box Dealer Return</masterLabel>
+            <translation><!-- 20 - Big Box Dealer Return --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>21 - Defective-Rambler</masterLabel>
+            <translation><!-- 21 - Defective-Rambler --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>22 - Office Error-Wrong/No Ship To</masterLabel>
+            <translation><!-- 22 - Office Error-Wrong/No Ship To --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>23 - Office Error-Wrong item</masterLabel>
+            <translation><!-- 23 - Office Error-Wrong item --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>24 - Office Error-Wrong qty</masterLabel>
+            <translation><!-- 24 - Office Error-Wrong qty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>25 - Office Error-Wrong Ship Date</masterLabel>
+            <translation><!-- 25 - Office Error-Wrong Ship Date --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>26 - Returned Shipment Refused</masterLabel>
+            <translation><!-- 26 - Returned Shipment Refused --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>27 - Shipping Error-Wrong item</masterLabel>
+            <translation><!-- 27 - Shipping Error-Wrong item --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>28 - Shipping Error-Wrong qty</masterLabel>
+            <translation><!-- 28 - Shipping Error-Wrong qty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>29 - OutsideRep-Never Ordered</masterLabel>
+            <translation><!-- 29 - OutsideRep-Never Ordered --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30 - OutsideRep-Wrong Item</masterLabel>
+            <translation><!-- 30 - OutsideRep-Wrong Item --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>31 - OutsideRep-Wrong qty</masterLabel>
+            <translation><!-- 31 - OutsideRep-Wrong qty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>32 - OutsideRep-Wrong Ship Date</masterLabel>
+            <translation><!-- 32 - OutsideRep-Wrong Ship Date --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>33 - System Error</masterLabel>
+            <translation><!-- 33 - System Error --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>34 - Defective-Hopper</masterLabel>
+            <translation><!-- 34 - Defective-Hopper --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>35 - Defective-YETI Ice</masterLabel>
+            <translation><!-- 35 - Defective-YETI Ice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Costm - Customer Service</masterLabel>
+            <translation><!-- Costm - Customer Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LBCAN - POS - Lay-By Cancellation</masterLabel>
+            <translation><!-- LBCAN - POS - Lay-By Cancellation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MISC - MISC. Defect (Add Comments)</masterLabel>
+            <translation><!-- MISC - MISC. Defect (Add Comments) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PDOUT - Paid Out Transaction</masterLabel>
+            <translation><!-- PDOUT - Paid Out Transaction --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Warehouse --></label>
+        <name>Warehouse__c</name>
+    </fields>
+    <layouts>
+        <layout>RMA Disposition Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

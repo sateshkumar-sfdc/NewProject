@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>January Outside Sales in Stock Email</name>
+    <style>none</style>
+    <subject>YETI | Buy Now Ship Immediately</subject>
+    <textOnly>TIME TO RESTOCK THE SHELVES
+
+Products Available to Ship At-Once
+FOR SPRING/SUMMER 2018
+
+Please email POs/orders to
+{!User.Email} and sales@yeti.com
+
+Ramblers
+Colster
+Rambler Colster Stainless
+Rambler Colster Seafoam
+Rambler Colster Tahoe Blue
+Rambler Colster Olive Green
+Rambler Colster Black
+Rambler Colster Brick Red
+10 oz Lowball
+Rambler 10 Stainless
+Rambler 10 Seafoam
+Rambler 20 oz Tumbler
+W/ magslider lid
+Rambler 20 Stainless
+Rambler 20 Seafoam
+Rambler 30 oz Tumbler
+W/ magslider lid
+Rambler 30 Stainless
+Rambler 30 Seafoam
+Rambler 30 Black
+Rambler 30 Olive Green
+Rambler 18 oz Bottle
+Rambler 18 Stainless
+Rambler 18 Seafoam
+Rambler 26 oz Bottle
+Rambler 26 Stainless
+Rambler 26 Seafoam
+Rambler 26 Black
+Rambler 36 oz Bottle
+Rambler 36 Stainless
+Rambler 36 Seafoam
+Rambler 36 Olive Green
+Rambler 36 Brick Red
+Rambler JUGS
+Rambler Gallon Jug
+	
+Roadie / Tundras
+
+Roadie 20
+White
+Tan
+Blue
+
+TUNDRA 35, 45, 65, 75
+White
+Tan
+Blue
+
+TUNDRA 105
+White
+Tan
+
+TUNDRA 110, 125, 160, 210
+White
+Hoppers
+
+Hopper Two 30
+Fog Gray
+Field Tan
+
+Hopper Flip 8 &amp; 18
+Fog Gray
+Field Tan
+
+Loadout
+
+Loadout Bucket
+Charcoal
+Tan
+Seafoam
+White
+
+Accessories
+Rambler 10 oz Lowball Handle
+Rambler 20 oz Tumbler Handle
+Rambler 30 oz Tumbler Handle
+Rambler Tumbler 20 oz Straw Lid
+Rambler Tumbler 30 oz Straw Lid
+Rambler 10/20 oz MagSlider Lid
+Rambler 30 oz MagSlider Lid
+ICE 1 LB
+ICE 2 LB
+ICE 4 LB
+
+*Quantities subject to change*
+
+Please email POs/orders to
+{!User.Email} and sales@yeti.com</textOnly>
+    <type>custom</type>
+</EmailTemplate>

@@ -1,0 +1,210 @@
+<!--
+/*
+Name                SponsorshipMarketingRequestFOrm
+Created By          Nitish Bansal
+Created Date        03/03/2016
+Purpose             T-482284
+*/
+-->
+<apex:page controller="WebCaseController" showHeader="false" sidebar="false" standardStylesheets="false">
+    <!--<apex:sectionHeader title="{!$Label.WEB_FORM}" subtitle="{!$Label.WARRANTY_REQUEST_FORM}"/>-->
+   
+  <apex:form >
+    <apex:pageMessages /> <!-- this is where the error messages will appear -->
+    <!--<apex:pageBlock title="{!$Label.Case_Information}">-->
+        <apex:pageBlock >
+            <apex:pageBlockSection showHeader="false" columns="1">
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.FIRST_NAME}" />
+                    <apex:outputPanel layout="block" styleClass="requiredInput">
+                            <div class="requiredBlock"></div>
+                            <apex:inputText value="{!firstName}"/>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+
+                <apex:inputText value="{!lastName}" label="{!$Label.LAST_NAME}"/>
+                <apex:inputText value="{!phoneNumber}" label="{!$Label.PHONE}"/>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.ORGANIZATION}" />
+                    <apex:outputPanel layout="block" styleClass="requiredInput">
+                            <div class="requiredBlock"></div>
+                            <apex:inputText value="{!organisationVal}"/>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.EMAIL}" />
+                    <apex:outputPanel layout="block" styleClass="requiredInput">
+                            <div class="requiredBlock"></div>
+                            <apex:inputText value="{!email}"/>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.WHAT_KIND_OF_SPONSORSHIP_ARE_YOU_LOOKING_FOR}" />
+                        <apex:inputField value="{!newcase.Sponsorship_Type__c}" required="true"/>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.NAME_OF_EVENT_MARKETING_OPPORTUNITY}" />
+                        <apex:inputField value="{!newcase.Name_of_Event__c}" required="true"/>
+                </apex:pageBlockSectionItem>
+               
+               <apex:inputField value="{!newcase.Estimated_Cost__c}" label="{!$Label.ESTIMATED_COST_OF_SPONSORSHIP}"/>
+
+                <apex:outputLabel value="{!$Label.PLEASE_UPLOAD_ADDITIONAL_DOCUMENTATION}" style="font-weight: bold;"/>
+                <apex:inputFile value="{!doc.body}" filename="{!doc.name}" rendered="{!documentId == null}" title="File"/>
+            </apex:pageBlockSection>
+        
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton action="{!saveSponsorship}" value="{!$Label.Submit}"/>
+            </apex:pageBlockButtons> 
+        </apex:pageBlock>
+    </apex:form>
+    <style type="text/css">
+   label {
+        font: 700 normal 15px/20px museo-sans-rounded,sans-serif;
+        text-transform: uppercase;
+        width: 99%;
+        text-align: left;
+        color: #0a0b0b;
+    }
+    th, td[colspan="2"] {
+        text-align: left;
+        width: 100%;
+        display: block;
+        float: left;
+        margin: 10px 0 4px 0;
+    }
+    th.labelCol {
+        padding-left: 18px;
+    }
+    body {
+        padding-left: 20px;
+    }
+    table.detailList {
+        width: 100%;
+    }
+    td {
+        display: block;
+        float: left;
+        width: 100%;
+    }
+    .data2Col > div {
+        position: relative;
+        background: #f7f6f4;
+        padding: 5px;
+        clear: left;
+        float: left;
+    }
+    input, button, select {
+        vertical-align: middle;
+        color: #8f8f8f;
+    }
+    input[type="text"]:focus, textarea:focus, keygen:focus, select:focus {
+        outline-offset: 0px;
+        outline: 5px solid #e7f0f7;
+    }
+    input[type="submit"] {
+        top: 5px;
+        vertical-align: middle;
+        position: relative;
+        width: 200px;
+        height: 50px;
+        background: #005596;
+        font: 400 normal 24px/50px alternate-gothic-no-3-d,sans-serif;
+        color: #fff;
+        text-align: center;
+        float: left;
+        text-transform: uppercase;
+        margin: 0;
+        display: block;
+        text-decoration: none;
+        padding: 0;
+        border: 0;
+        cursor: pointer;
+        -webkit-appearance: none;
+        -webkit-border-radius: 0;
+    }
+    input[type="submit"]:hover, input[type="submit"]:active {
+        background: #136EB4;
+    }
+    input[type="text"] {
+        width: 504px;
+        padding: 0 10px 0 14px;
+        border: 1px solid #ae9b84;
+        height: 46px;
+        font: 300 normal 18px/14px museo-sans-rounded,sans-serif;
+    }
+    select {
+        border: 1px solid #C8C1B8;
+        color: #8F8F8F;
+        font: 300 18px/48px museo-sans-rounded,sans-serif;
+        height: 48px;
+        padding: 12px 13px;
+        width: 528px;
+        margin: 0;
+    }
+    input[type="file"] {
+        width: 250px;
+        padding: 10px 5px;
+        background: #f7f6f4;
+    }
+    .requiredBlock {
+        width: auto;
+        height: auto;
+        position: absolute;
+        top: -25px;
+        left: 5px;
+    }
+    .requiredBlock:after {
+        content: "*";
+        color: #be200b;
+        text-align: left;
+        font: 700 normal 15px/20px museo-sans-rounded,sans-serif;
+    }
+    .requiredInput {
+        position: relative;
+    }
+    .messageTable {
+        width: 100%;
+        margin-bottom: 20px!important;
+        font: 700 normal 15px/20px museo-sans-rounded,sans-serif;
+    }
+    .messageTable ul li {
+        font-weight: normal;
+    }
+    div.messageText {
+        font-weight: normal;
+    }
+    .infoM3 div.messageText {
+        text-transform: uppercase;
+    }
+    div.messageText > span > h4 {
+        margin-bottom: 0;
+        text-transform: uppercase;
+    }
+    .errorMsg {
+        color: #be200b;
+        padding-top: 2px;
+        font-size: 0.8em;
+        line-height: 1.5em;
+        clear: both;
+        font-family: sans-serif;
+        letter-spacing: normal;
+    }
+    .errorMsg strong {
+        font-weight: normal;
+    }
+    .data2Col > span {
+        font: 300 normal 18px/14px museo-sans-rounded,sans-serif;
+        text-transform: uppercase;
+        color: #8f8f8f;
+        padding: 8px 0 5px 18px;
+        display: block;
+        vertical-align: middle;
+    }
+  </style>
+</apex:page>

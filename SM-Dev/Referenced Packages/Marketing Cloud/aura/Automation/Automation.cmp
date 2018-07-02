@@ -1,0 +1,72 @@
+<aura:component controller="et4ae5.LightningAutomationControl">
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />  
+    <aura:attribute name="sidebysideJSON" type="JSON" />
+    <aura:attribute name="json_step" type="JSON" />
+    <div class="uxds container">
+        <div class="uxds row">
+            <div class="uxds col-sm-12">
+                <h3>
+                    {!$Label.et4ae5.mCCSetup}
+                </h3> 
+            </div>
+        </div>        
+    </div>
+    <div class="uxds container">
+    	<hr></hr>
+        <div class="uxds row" style="min-width: 783px; max-width: 983px;">
+            <div class="uxds col-xs-12" >
+                <et4ae5:SidebySide json="{!v.sidebysideJSON}" />	
+                <br/>
+            </div>
+        </div>
+        <div class="uxds row" >
+            <div class="uxds col-xs-12" >
+                <p>
+					<aura:unescapedHtml value="{!$Label.et4ae5.msg0190}" />              
+                </p>		
+            </div>
+        </div>    
+        <div class="uxds row" >
+            <div class="uxds col-xs-12" >
+                <label id="checkbox_area">
+					<ui:inputCheckbox aura:id="check_finish" click="{!c.enableFin}"/>
+                	&nbsp;{!$Label.et4ae5.iAgree}
+                </label>
+            </div>
+        </div>
+        <div class="uxds row" >
+            <div class="uxds col-xs-12" >    
+                <div class="pull-right">
+    				<ui:button aura:id="finish_button" press="{!c.finishSetup}" label="{!$Label.et4ae5.configInt}" disabled="true" class="button-component"/>
+                </div>
+            </div>
+        </div>        
+    	<div id="auto_page_body"> 
+        	<div id="inner_container" class="container">
+                <div id="finish_container" class="container">
+                    <div class="modal fade" id="basicModal" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="myModalLabel">{!$Label.et4ae5.configSumm}</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div aura:id="autos">
+                                    </div>
+                                    <div id="spin_area">
+                                        <ui:spinner aura:id="buffer"/>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <div id="server_response" style="float:left;"></div>
+                                    <ui:button aura:id="ok_done_btn" class="btn btn-default hide button-component" press="{!c.clickOK}" label="{!$Label.et4ae5.okay + '!'}"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <et4ae5:message_modal step_json="{!v.json_step}"/>  
+</aura:component>

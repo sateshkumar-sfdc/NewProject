@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Vetted with Tax Added to Order canned response</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Greetings,
+
+
+
+Thank you for reaching out to YETI. We are excited to let you know your event has been approved for the YETI Fundraising Program. At this time, you can enjoy a 30% discount on select YETI product with sales tax added to your order. Please note there is a $340.00 order minimum (after applying discounts and before tax).
+
+
+
+When you are ready to place your order, please give us a call at 512-394-9384 and a member of the Fundraising Team can help you get your order placed. We look forward to working with you!
+
+
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

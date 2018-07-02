@@ -1,0 +1,19 @@
+<apex:page showHeader="true" controller="ensx.EnosixFrameworkConnectController">
+    
+    <apex:form >
+    	
+        <apex:pageBlock title="Connection Detail:">
+            <apex:pageBlockSection columns="1" collapsible="false">
+                <apex:outputText value="{!connectOptions.Host}" label="Host:"/>
+                <apex:outputText value="{!connectOptions.Client}" label="Client:"/>
+                <apex:outputText value="{!connectOptions.Language}" label="Language:"/>
+                <apex:outputText value="{!connectOptions.CID}" label="CID:"/>
+                <apex:outputText value="{!connectOptions.Timeout}" label="Timeout:"/>
+                
+            </apex:pageBlockSection>
+            <apex:commandButton action="{!login}" value="Test Connection"/>
+             
+        </apex:pageBlock>
+        <apex:pageMessages id="messagediv" />
+    </apex:form>
+</apex:page>

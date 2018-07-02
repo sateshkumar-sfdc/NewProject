@@ -1,0 +1,49 @@
+<!--
+************************************************************
+** Name: EmbellishedArtFlatImageDisp.cmp	 	          **
+** Copyright notice: 								      **
+** YETI Coolers										      **
+************************************************************
+** Purpose: 										      **
+** This component is designed to pull the record Id       **
+** from the detail page it is embedded on and display     ** 
+** the flat.png image of the corresponding Art.           **
+************************************************************
+** History:                                               **
+************************************************************
+** VERSION AUTHOR DATE DETAIL RELEASE/CSR                 **
+** 1.0 - Sumanth Anumukonda 04/16/2018 INITIAL DEVELOPMENT**
+** 2.0 -                                              	  **
+************************************************************
+--> 
+
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global" controller="CommonUtil" >
+    <aura:attribute name="record" type="Object"/>
+    <aura:attribute name="simpleRecord" type="Object"/>
+    <aura:attribute name="amazonUrl" type="String" default="" />
+    <aura:attribute name="amazonUrlEnd" type="String" default="" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <force:recordData aura:id="recordLoader"
+                      recordId="{!v.recordId}"
+                      layoutType="FULL"
+                      targetRecord="{!v.record}"
+                      targetFields="{!v.simpleRecord}"/>
+    <div class="slds-page-header">
+        <div class="slds-media">
+            <div class="slds-media__body">
+                <h1 class="slds-page-header__title slds-truncate slds-align-middle" >{!v.simpleRecord.ArtName__c}</h1>
+                <p class="slds-text-body_small slds-line-height_reset">{!v.simpleRecord.ArtYETIKey__c}</p>
+               <!-- Amazon url test1 : {!v.amazonUrl}{!v.simpleRecord.WebKey__c}{!v.amazonUrlEnd}-->
+            </div>
+        </div>
+         <div align="right"><lightning:button class="slds-button_neutral" aura:id="Artview" label="Art Validate" onclick="{!c.openModal}" /></div>
+    </div>
+        <div style="padding: 1rem;" class="slds-box"> 
+        <div class="slds-align_absolute-center">
+            <img src="{!v.amazonUrl+v.simpleRecord.WebKey__c+'/'+v.amazonUrlEnd}" onerror="{!c.errorImage}"/>
+          </div>  
+    </div>   
+    <div >
+    {!v.body}
+  </div>
+</aura:component>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email notification sent to internal user when their pre-book has been rejected by the dealer</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>YETI_Dealer_Community</letterhead>
+    <name>Pre Book Rejected HTML</name>
+    <style>freeForm</style>
+    <subject>Pre-Book {!Opportunity.Name} has been rejected</subject>
+    <textOnly>{!User.FirstName} {!User.LastName},
+
+Pre-book {!Opportunity.Name} that you submitted for approval has been rejected by the dealer.
+
+{!Opportunity.Link}
+
+Thanks!</textOnly>
+    <type>html</type>
+</EmailTemplate>

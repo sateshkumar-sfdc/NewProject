@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Final auto-sent RMA Return Not Recieved Email</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>RMA:  Return Not Received Final Email</name>
+    <style>none</style>
+    <subject>YETI FINAL NOTICE - Return Not Received</subject>
+    <type>text</type>
+</EmailTemplate>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Rambler Ice Retention Tips</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hello,
+
+There are many variables that go into how long ice will last in our Ramblers.  We appreciate you taking the time to ask about them!
+
+When you fill your Rambler, it is important to use as much ice as possible - air is the enemy.  The more dead/air space you have in your Rambler, the more likely the ice is to melt.
+
+It is also helpful to fill the tumbler with cool/cold liquid to begin with - this will help the ice retain the temperature in the tumbler.
+
+Let us know if these tips help you out!
+
+
+Sincerely,
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

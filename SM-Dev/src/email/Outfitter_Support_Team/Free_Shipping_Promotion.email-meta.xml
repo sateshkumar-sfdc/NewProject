@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Free Shipping Promotion</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Free Shipping Promotion</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Thanks so much for reaching out!
+
+
+We have made some recent updates to YETI.com and our current Free Ground Shipping Promo is only applicable to domestic orders of $49 or more. We are sorry to hear you missed out on our past promotion however you can now take advantage of the new lower pricing that we are featuring on some of our most popular coolers.
+
+
+To save on shipping cost and amplify your YETI experience, check out some of our drinkware accessories or new spring gear.
+
+
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+
+The YETI Outfitters
+
+512.394.9384
+
+customerservice@yeti.com
+
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

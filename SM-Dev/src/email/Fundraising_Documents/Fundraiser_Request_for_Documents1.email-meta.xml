@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Fundraiser Request for Documents</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hello,
+
+
+Thank you for reaching out to YETI. We are honored by your request to participate in the Fundraising/Donation Program. We do not have a Donation Program at this time; however, we do have an amazing Fundraising Program. The program exists to assist qualified nonprofit organizations with fundraising events. Once a nonprofit organization is qualified and approved for the program it will be eligible for a 30% discount on select YETI products. We have 4 amazing packages available to choose from. In addition, we have an option to purchase individual items with a $340.00 order minimum (after discount and before taxes).
+
+
+The next step is to get your nonprofit organization approved.
+
+
+To expedite the process, you can reply to this email with the following documents:
+
+
+•    The signed Letter of Certification (see attached document)
+
+
+•    Any literature you have advertising your event for verification purposes (you will provide)
+
+
+
+•    Please include a copy of your IRS document designating that your organization has a nonprofit status (you will provide)
+
+Due to the current volume, please allow 7 business days for a follow up call or email. We also ask that you send us the above information at least 30 days prior to the event to allow for review of documents and order placement. Please let us know how we can be of further assistance. We look forward to working with you!
+
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

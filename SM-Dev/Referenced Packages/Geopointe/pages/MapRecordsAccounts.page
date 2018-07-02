@@ -1,0 +1,5 @@
+<apex:page label="Map Records" standardController="Account" recordSetVar="accounts" action="{!redirectMapIdArray}" extensions="geopointe.MapRecordsExtension">
+    <apex:outputPanel id="pageMessages">
+        <apex:pageMessages id="pageMessageError"/>
+    </apex:outputPanel>
+</apex:page>

@@ -1,0 +1,468 @@
+<apex:page controller="geopointe.QuickSetup_Controller" extensions="geopointe.RemoteAction" action="{!init}" showHeader="true" sidebar="false" title="Geopointe - Quick Setup">
+	<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+	<apex:includeScript value="{!$Resource.geopointe__sorttable}" /> <!-- Sorttable -->
+	<apex:includeScript value="{!URLFOR($Resource.geopointe__jquery, '/mixpanel/mixpanel.js')}" /> <!-- Mix Panel -->
+	
+	<!-- Custom CSS -->
+	<apex:stylesheet value="{!URLFOR($Resource.geopointe__jquery, '/ui/css/smoothness/jquery-ui-1.9.2.custom.min.css')}"/> <!-- jQuery UI CSS -->
+	<apex:stylesheet value="{!URLFOR($Resource.geopointe__jquery, '/fieldSelector/css/fieldselector.css')}"/> <!-- FieldSelector plugin CSS -->
+	<apex:stylesheet value="{!URLFOR($Resource.geopointe__jquery, '/css/map/map.css')}"/> <!-- map css -->
+	<apex:stylesheet value="{!URLFOR($Resource.geopointe__jquery, '/css/common/common.css')}"/><!-- Geopointe common css -->
+    <apex:stylesheet value="{!URLFOR($Resource.geopointe__jquery, '/css/common/common-lightning.css')}"/> <!-- Common geopointe CSS for lightning styled pages--> 
+    <apex:stylesheet value="{!URLFOR($Resource.geopointe__jquery, '/css/s_main.css')}"/> <!-- CSS for s_Main.page -->
+    <apex:stylesheet value="{!URLFOR($Resource.geopointe__SLDS, '/0.8.0/assets/styles/salesforce-lightning-design-system-vf.css')}"/> <!-- Salesforce Lightning Design System -->
+	<apex:stylesheet value="{!URLFOR($Resource.geopointe__jquery, 'js/lib/toastr/toastr.min.css')}"/> <!-- toastr popup css -->
+	
+	<apex:includeScript value="{!URLFOR($Resource.geopointe__jquery, '/jquery-1.8.3.min.js')}" /> <!-- core jQuery -->
+	<apex:includeScript value="{!URLFOR($Resource.geopointe__jquery, '/ui/js/jquery-ui-1.9.2.custom.min.js')}" /> <!-- jQuery UI -->
+	<apex:includeScript value="{!URLFOR($Page.geopointe__translations)}"/> <!-- Geopointe translations - needed for fieldSelector -->
+    <apex:includeScript value="{!URLFOR($Resource.geopointe__jquery, '/fieldSelector/jquery.fieldselector.js')}"/> <!-- fieldSelector plugin -->
+	<apex:includeScript value="{!URLFOR($Resource.geopointe__jquery, 'js/lib/toastr/toastr.min.js')}"/> <!-- toastr popup js-->
+
+	<!-- Include the Geopointe functions -->
+	<apex:includeScript value="{!$Resource.geopointe__GeopointeJS}" />
+	
+	<!-- Include the Google AJAX API onto the page -->
+    <apex:includeScript value="https://www.google.com/jsapi" />
+
+    <apex:outputPanel rendered="{!userLanguage!='en'}">
+        <!-- localize.js -->
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                $("#AppBodyHeader").attr("notranslate", "");
+                $(".bPageFooter").attr("notranslate", "");
+            });
+        </script>
+        <script src="https://cdn.localizejs.com/localize.js"></script>
+        <script>!function(a){if(!a.Localize){a.Localize={};for(var e=["translate","untranslate","phrase","initialize","translatePage","setLanguage","getLanguage","detectLanguage","untranslatePage","bootstrap","prefetch","on","off"],t=0;t<e.length;t++)a.Localize[e[t]]=function(){}}}(window);</script>
+
+        <script>
+            Localize.initialize({
+                key: '1SeX6sYAXWLng', 
+                rememberLanguage: false,
+                saveNewPhrases: false,
+                translateBody: true,
+                blockedClasses: ['walkme-custom-balloon-v3', 'walkme-menu', 'walkme-player']
+            });
+            Localize.setLanguage('{!userLanguage}');
+        </script>
+    </apex:outputPanel>
+    
+	<apex:includeScript value="{!$Page.geopointe__js_GA}" /> <!-- Google Analytics -->
+
+	<style>
+		.noSidebarCell{
+			padding: 0px;
+		}
+		.CSObjectValue {
+			display: none;
+		}
+		.CSObjectPathValue {
+			display: none;
+		}
+		.quickBigBtn {
+			margin: 0px 16px 0px 0px !important;
+			height: 148px;
+			width: 128px;
+			border-radius: 3px;
+			border: 1px #D8DDE6 solid;
+			padding: 0 !important;
+		}
+		.quickBigBtn.pressed {
+			border: 1px #989ea9 solid;
+			background-color: #c6cfde;
+		}
+		.quickBigBtn.pressed:hover{
+			background-color: #c6cfde !important;
+		}
+		.quickBigBtn input {
+			display: none;
+		}
+		.quickBtnIcon {
+			width: 120px;
+			text-align: center;
+			margin: 3px 3px auto 3px;
+		}
+		.quickBtnSvg {
+			height: 112px !important;
+			width: 112px !important;
+			margin: 0 auto;
+		}
+		.quickBtnCaption {
+			width: 128px;
+			text-align: center;
+			margin: 0;
+		}
+		p{
+			padding: 8px 0 !important;
+		}
+		.addressBlock{
+			margin-bottom: 10px;
+		}
+		.addressBlock a{
+			color: #005fb2;
+		}
+	</style>
+
+	<c:walkMeSnippet />
+
+	<div class="slds">
+		<div class="slds-page-header" role="banner" style="padding: 24px;">
+		  <div class="slds-grid">
+		    <div class="slds-col slds-has-flexi-truncate">
+		      <div class="slds-media slds-no-space slds-grow">
+		        <div class="slds-media__figure">
+		        	<img src="{!URLFOR($Resource.images, 'geopointeLogo.png')}" style="height: 32px;" />
+		        </div>
+		        <div class="slds-media__body">
+		          <h1 class="slds-text-title--caps slds-line-height--reset" style="margin-top: 3px;font-size: 1.4em;font-weight: 400;">Geopointe Quick Setup</h1>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+
+	<apex:outputPanel id="pageMessages">	
+	    <apex:pageMessages escape="false" />
+	</apex:outputPanel>
+
+	<apex:form styleClass="slds">
+		<apex:outputPanel id="quickSetupWrapper" layout="block" style="padding: 3px; margin-left: 30px;">
+			<apex:outputPanel id="initFailed_panel" rendered="{!initFailed}">
+				<p>Before we continue, please go to the Geopointe Setup tab and fill in the required fields on <b>Org Settings</b>.</p>
+				<script type="text/javascript">
+					jQuery('.wt-Geopointe-Setup').css('background-color', 'lightGreen');
+				</script>
+			</apex:outputPanel>
+			<apex:outputPanel rendered="{!NOT(initFailed)}">
+
+				<!-- STAGE ONE: Select Objects to create DataSets for -->
+				<apex:outputPanel id="cfgSelect" rendered="{!quickSetupStage=='cfgSelect'}">
+									
+					<p>Welcome to Geopointe! Select the Salesforce Objects you would like to map, then select <b>Next</b>.</p>
+					
+					<div style="display:flex; flex-direction:row; min-height:150px;">
+						<a class="btn slds-button slds-button--neutral quickBigBtn" onclick="toggle('chkAccount')">
+							<apex:inputCheckbox id="chkAccount" value="{!cfgAccount.selected}" styleClass="quickCheck"/>
+							<div class="slds-icon__container slds-icon-standard-account quickBtnIcon">
+								<svg aria-hidden="true" class="slds-icon quickBtnSvg">
+									<use xlink:href="{!URLFOR($Resource.SLDS, '/0.8.0/assets/icons/standard-sprite/svg/symbols.svg#account')}"></use>
+								</svg>
+							</div>
+							<div class="quickBtnCaption" notranslate="true">{!$ObjectType.Account.LabelPlural}</div>
+						</a>
+						<a class="btn slds-button slds-button--neutral quickBigBtn" onclick="toggle('chkContact')">
+							<apex:inputCheckbox id="chkContact" value="{!cfgContact.selected}" styleClass="quickCheck"/>
+							<div class="slds-icon__container slds-icon-standard-contact quickBtnIcon">
+								<svg aria-hidden="true" class="slds-icon quickBtnSvg">
+									<use xlink:href="{!URLFOR($Resource.SLDS, '/0.8.0/assets/icons/standard-sprite/svg/symbols.svg#contact')}"></use>
+								</svg>
+							</div>
+							<div class="quickBtnCaption" notranslate="true">{!$ObjectType.Contact.LabelPlural}</div>
+						</a>
+						<a class="btn slds-button slds-button--neutral quickBigBtn" onclick="toggle('chkOpportunity')">
+							<apex:inputCheckbox id="chkOpportunity" value="{!cfgOpportunity.selected}" styleClass="quickCheck"/>
+							<div class="slds-icon__container slds-icon-standard-opportunity quickBtnIcon">
+								<svg aria-hidden="true" class="slds-icon quickBtnSvg">
+									<use xlink:href="{!URLFOR($Resource.SLDS, '/0.8.0/assets/icons/standard-sprite/svg/symbols.svg#opportunity')}"></use>
+								</svg>
+							</div>
+							<div class="quickBtnCaption" notranslate="true">{!$ObjectType.Opportunity.LabelPlural}</div>
+						</a>
+						<a class="btn slds-button slds-button--neutral quickBigBtn" onclick="toggle('chkCase')">
+							<apex:inputCheckbox id="chkCase" value="{!cfgCase.selected}" styleClass="quickCheck"/>
+							<div class="slds-icon__container slds-icon-standard-case quickBtnIcon">
+								<svg aria-hidden="true" class="slds-icon quickBtnSvg">
+									<use xlink:href="{!URLFOR($Resource.SLDS, '/0.8.0/assets/icons/standard-sprite/svg/symbols.svg#case')}"></use>
+								</svg>
+							</div>
+							<div class="quickBtnCaption" notranslate="true">{!$ObjectType.Case.LabelPlural}</div>
+						</a>
+						<a class="btn slds-button slds-button--neutral quickBigBtn" onclick="toggle('chkLead')">
+							<apex:inputCheckbox id="chkLead" value="{!cfgLead.selected}" styleClass="quickCheck"/>
+							<div class="slds-icon__container slds-icon-standard-lead quickBtnIcon">
+								<svg aria-hidden="true" class="slds-icon quickBtnSvg">
+									<use xlink:href="{!URLFOR($Resource.SLDS, '/0.8.0/assets/icons/standard-sprite/svg/symbols.svg#lead')}"></use>
+								</svg>
+							</div>
+							<div class="quickBtnCaption" notranslate="true">{!$ObjectType.Lead.LabelPlural}</div>
+						</a>
+					</div>
+
+					<p id="explainButtonLinkage" style="padding-top:0.5em;"> </p>
+
+					<input type="button" id="cfgStageTwo" onclick="stageTwo();" value="Next" class="btn slds-button slds-button--neutral" disabled="disabled"/>
+					<apex:actionFunction name="stageTwo" action="{!stageTwo}" oncomplete="setCurrentStage()" rerender="quickSetupWrapper,updateVars,pageMessages"/>
+
+					<p>
+						<apex:image url="{!URLFOR($Resource.geopointe__images, '/info32.png')}" width="16px"/>
+						To learn more, see the full documentation <a href="http://help.geopointe.com/customer/portal/articles/1811024-map-objects" target="_blank"><b>here</b></a>. 
+						For additional assistance, please contact support at <a href="mailto:help@geopointe.com"><b>help@geopointe.com</b></a>.
+					</p>
+
+				</apex:outputPanel>
+
+				<!-- STAGE TWO: Choose Location Fields on selected Objects -->
+				<apex:outputPanel id="cfgLocFields" rendered="{!quickSetupStage=='cfgLocFields'}">
+					<p>Please review the address and object configuration for the selected Objects.
+					In most cases you can accept the defaults and select <b>Next</b> to get started mapping your data. You can always make changes later from the <b>Map Object</b> tab of <b>Geopointe Setup</b>.
+					</p>
+					<div>
+						<apex:repeat value="{!cfgs}" var="cfg">
+							<apex:outputPanel layout="block" rendered="{!AND(cfg.selected, false == cfg.geocodeRelative)}" styleClass="addressBlock">
+								<div>
+									<div display="inline" class="slds-icon__container slds-icon-standard-{!cfg.typeName}" style="margin: 4px 0; height:25px; width:100%;">
+										<div display="inline" style="margin:2px 6px; color:white; vertical-align:middle"><b><span notranslate="true">{!cfg.displayName}</span> Address Fields</b></div>
+									</div>
+								</div>
+								<table>
+									<tr><th style="text-align:right; padding-right:12px; width:20%"><b>Name Field</b></th>
+										<td style="text-align:left; width:80%" class="requiredInput"><span id="{!cfg.typeName}-Name" notranslate="true">{!cfg.nameField.label}</span>&nbsp;
+										<apex:inputText value="{!cfg.nameField.field}" styleClass="CSObjectValue"/>
+										<apex:inputText value="{!cfg.nameField.path}" styleClass="CSObjectPathValue"/>                    
+										<a id="change{!cfg.typeName}-Name" class="openFieldSelector string">[change]</a></td>
+									</tr>
+									<tr><th style="text-align:right; padding-right:12px; width:20%"><b>Street Field</b></th>
+										<td style="text-align:left; width:80%" class="requiredInput"><span id="{!cfg.typeName}-Street" notranslate="true">{!cfg.streetField.label}</span>&nbsp;
+										<apex:inputText value="{!cfg.streetField.field}" styleClass="CSObjectValue"/>
+										<apex:inputText value="{!cfg.streetField.path}" styleClass="CSObjectPathValue"/>                    
+										<a id="change{!cfg.typeName}-Street" class="openFieldSelector addressField">[change]</a></td>
+									</tr>
+									<tr><th style="text-align:right; padding-right:12px; width:20%"><b>City Field</b></th>
+										<td style="text-align:left; width:80%" class="requiredInput"><span id="{!cfg.typeName}-City" notranslate="true">{!cfg.cityField.label}</span>&nbsp;
+										<apex:inputText value="{!cfg.cityField.field}" styleClass="CSObjectValue"/>
+										<apex:inputText value="{!cfg.cityField.path}" styleClass="CSObjectPathValue"/>                    
+										<a id="change{!cfg.typeName}-City" class="openFieldSelector addressField">[change]</a></td>
+									</tr>
+									<tr><th style="text-align:right; padding-right:12px; width:20%"><b>State Field</b></th>
+										<td style="text-align:left; width:80%" class="requiredInput"><span id="{!cfg.typeName}-State" notranslate="true">{!cfg.stateField.label}</span>&nbsp;
+										<apex:inputText value="{!cfg.stateField.field}" styleClass="CSObjectValue"/>
+										<apex:inputText value="{!cfg.stateField.path}" styleClass="CSObjectPathValue"/>                    
+										<a id="change{!cfg.typeName}-State" class="openFieldSelector addressField">[change]</a></td>
+									</tr>
+									<tr><th style="text-align:right; padding-right:12px; width:20%"><b>Postal Code Field</b></th>
+										<td style="text-align:left; width:80%" class="requiredInput"><span id="{!cfg.typeName}-PostalCode" notranslate="true">{!cfg.postcodeField.label}</span>&nbsp;
+										<apex:inputText value="{!cfg.postcodeField.field}" styleClass="CSObjectValue"/>
+										<apex:inputText value="{!cfg.postcodeField.path}" styleClass="CSObjectPathValue"/>                    
+										<a id="change{!cfg.typeName}-PostalCode" class="openFieldSelector addressField">[change]</a></td>
+									</tr>
+									<tr><th style="text-align:right; padding-right:12px; width:20%"><b>Country Field</b></th>
+										<td style="text-align:left; width:80%" class="requiredInput"><span id="{!cfg.typeName}-Country" notranslate="true">{!cfg.countryField.label}</span>&nbsp;
+										<apex:inputText value="{!cfg.countryField.field}" styleClass="CSObjectValue"/>
+										<apex:inputText value="{!cfg.countryField.path}" styleClass="CSObjectPathValue"/>                    
+										<a id="change{!cfg.typeName}-Country" class="openFieldSelector addressField">[change]</a></td>
+									</tr>
+								</table>
+							</apex:outputPanel>
+							<apex:outputPanel layout="block" rendered="{!AND(cfg.selected, false != cfg.geocodeRelative)}" styleClass="addressBlock">
+								<div>
+									<div display="inline" class="slds-icon__container slds-icon-standard-{!cfg.typeName}" style="margin: 4px 0; height:25px; width:100%;">
+										<div display="inline" style="margin:2px 6px; color:white; vertical-align:middle"><b>{!cfg.displayName} Map Reference</b></div>
+									</div>
+								</div>
+								<table>
+									<tr><th style="text-align:right; padding-right:12px; width:20%"><b>Name Field</b></th>
+										<td style="text-align:left; width:80%" class="requiredInput"><span id="{!cfg.typeName}-Name" notranslate="true">{!cfg.nameField.label}</span>&nbsp;
+										<apex:inputText value="{!cfg.nameField.field}" styleClass="CSObjectValue"/>
+										<apex:inputText value="{!cfg.nameField.path}" styleClass="CSObjectPathValue"/>                    
+										<a id="change{!cfg.typeName}-Name" class="openFieldSelector string">[change]</a></td>
+									</tr>
+									<tr><th style="text-align:right; padding-right:12px; width:20%"><b>Referenced Map Object</b></th>
+										<td><apex:selectList value="{!cfg.referName}"  multiselect="false" size="1">
+											<apex:selectOptions value="{!cfg.referNameOptions}"/>
+										</apex:selectList></td>
+									</tr>
+									<tr><th style="text-align:right; padding-right:12px; width:20%"><b>Field Referring to the Map Object</b></th>
+										<td><apex:selectList value="{!cfg.referField}"  multiselect="false" size="1">
+											<apex:selectOptions value="{!cfg.referFieldOptions}"/>
+										</apex:selectList></td>
+									</tr>
+								</table>
+							</apex:outputPanel>
+						</apex:repeat>
+					</div><br/>
+					<input type="button" id="cfgStageThree" onclick="stageThree();" value="Next" class="btn slds-button slds-button--neutral"/>
+					<apex:actionFunction name="stageThree" action="{!stageThree}" oncomplete="setCurrentStage()" rerender="quickSetupWrapper,updateVars,pageMessages"/>
+				</apex:outputPanel>
+
+				<!-- STAGE THREE: Review created Map Objects and offer to take user to map page -->
+				<apex:outputPanel id="cfgFinish" rendered="{!quickSetupStage=='cfgFinish'}">
+					<p>Your records are almost ready to map!</p>
+
+					<p>The next step is to run the <a href="http://help.geopointe.com/customer/portal/articles/1811022" target="_blank"><b>Geocoder</b></a>, which converts address fields to points that can be placed on a map.
+					Geocoding your records may take anywhere from a few minutes to several hours to complete depending on the amount of data in your system. You can check on the Geocoder's progress from the <a href="/apex/s_Main#tab-batchJobs" target="_blank"><b>Batch Jobs</b></a> tab of <b>Geopointe Setup</b>.
+					</p>
+					
+					<p>Click <b>Next</b> to schedule the Geocoder and open the Map page.</p>
+
+					<input type="button" id="cfgStageFinish" onclick="stageFinish();" value="Next" class="btn slds-button slds-button--neutral"/>
+					<apex:actionFunction name="stageFinish" action="{!stageFinish}" rerender="pageMessages"/>
+				</apex:outputPanel>
+			</apex:outputPanel>
+		</apex:outputPanel>
+
+		<apex:outputPanel id="updateVars">
+			<script type="text/javascript">
+				var currentStage = "{!quickSetupStage}";
+				var existingAcct = {!existingAcct};
+				var existingCont = {!existingCont};
+			</script>
+		</apex:outputPanel>
+		<script type="text/javascript">
+			var j$ = jQuery.noConflict();
+			var gpRemoteAction = "{!$RemoteAction.RemoteAction.doRemoteAction}";
+			var chkAccount = j$("[id$='chkAccount']");
+			var isChkAccount = false;
+			var explainedChkAccount = false;
+			var chkContact = j$("[id$='chkContact']");
+			var isChkContact = false;
+			var explainedChkContact = false;
+			var chkOpportunity = j$("[id$='chkOpportunity']");
+			var chkCase = j$("[id$='chkCase']");
+			// console.log('rendered: '+currentStage);
+
+			function toggle(chkId) {
+				var chkbox = j$("[id$="+chkId+"]"); //console.log('chkbox: ',chkbox);
+				var chkBtn = chkbox.parent();
+				var newVal = !chkbox.prop('checked');
+				var nextBtn = j$('#cfgStageTwo');
+
+				// Link Opp'ty and Case choices to Account and Contact respectively.
+				// Also latch Account and Contact choices so we can leave them checked
+				// when releasing Oppt'y and Case.
+				switch(chkId) {
+				case 'chkAccount':
+					var isChkOpportunity = chkOpportunity.prop('checked');
+					if (!isChkOpportunity) isChkAccount = !isChkAccount;
+					newVal = isChkAccount || isChkOpportunity;
+					break;
+				case 'chkContact':
+					var isChkCase = chkCase.prop('checked');
+					if (!isChkCase) isChkContact = !isChkContact;
+					newVal = isChkContact || isChkCase;
+					break;
+				case 'chkOpportunity':
+					if (newVal && !existingAcct) {
+						chkAccount.prop('checked', newVal || isChkAccount); //console.log('chkAcct: ',chkAccount);
+						chkAccount.parent().addClass('pressed');
+						if (!explainedChkAccount && !isChkAccount) {
+							// Explain why we're linking Account to Opportunity
+							var oppUseName = chkOpportunity.siblings('.quickBtnCaption').text();
+							var acctUseName = chkAccount.siblings('.quickBtnCaption').text();
+							j$('#explainButtonLinkage').text('We map ' + oppUseName + ' through their associated ' +
+															acctUseName + ', so we are setting up an object to do that.');
+							explainedChkAccount = true;
+						}
+					}
+					else {
+						if (!isChkAccount) {
+							chkAccount.parent().removeClass('pressed');
+						}
+						j$('#explainButtonLinkage').text('');
+					}
+					break;
+				case 'chkCase':
+					if (newVal && !existingCont) {
+						chkContact.prop('checked', newVal || isChkContact);
+						chkContact.parent().addClass('pressed');
+						if (!explainedChkContact && !isChkContact) {
+							// Explain why we're linking Contact to Case
+							var caseUseName = chkCase.siblings('.quickBtnCaption').text();
+							var contactUseName = chkContact.siblings('.quickBtnCaption').text();
+							j$('#explainButtonLinkage').text('We map ' + caseUseName + ' through their associated ' +
+															contactUseName + ', so we are setting up an object to do that.');
+							explainedChkContact = true;
+						}
+					}
+					else {
+						if (!isChkContact) {
+							chkContact.parent().removeClass('pressed');
+						}
+						j$('#explainButtonLinkage').text('');
+					}
+					break;
+				}
+				chkbox.prop('checked', newVal);
+
+				// 'depress' checked buttons
+				if (newVal) chkBtn.addClass('pressed');
+				else chkBtn.removeClass('pressed');
+
+				// enable/disable Next depending on option selection
+				var someOpt = false;
+				j$('.quickCheck').each(function() {
+					if (this.checked) someOpt = true;
+				});
+				nextBtn.prop('disabled', !someOpt);
+			}
+
+			function prepStage() {
+				if ('cfgLocFields' == currentStage) {
+					geopointeAjaxStart('body', 'Creating Map Objects...');
+				}
+			}
+
+			function setCurrentStage() {
+				// console.log('set: '+currentStage);
+				if ('cfgLocFields' == currentStage) {
+
+					j$(document).ready(function(){
+						createFieldSelectors();
+
+						j$("body").on("click",".openFieldSelector",function(e){ //console.log('clicked '+this.id);
+							//Update the hidden input field
+							j$(this).prevAll("input").val('');
+
+							//Update the displayed label
+							j$(this).prevAll(".selectedFieldNameOutput").text('Not Defined');
+
+							//Prevent normal hyperlink behavior
+							e.preventDefault();
+						});
+					});
+
+					function createFieldSelectors() {
+						var defaultOpts = {
+							'disableReference': true,
+							'isFilter' : false,
+							'showAll': false,
+							'onSelect': function(field) { //console.log('fd: ', field);
+
+								//Update the hidden input field for field nae
+								j$(this).prevAll(".CSObjectValue").val(field.fullAPIName.toLowerCase());
+
+								//Update the hidden input field for the object name of the selected field
+								j$(this).prevAll(".CSObjectPathValue").val(field.objectName.toLowerCase());
+
+								//Update the displayed label
+								var targetId = "#" + this.attr("id").substring(6);
+								j$(targetId).text(field.label);
+							},
+							'startObject': function(lnk) {
+								return lnk.attr("id").substring(6).split('-')[0];
+							},
+							'title': function(lnk) {
+								return "Select a " + lnk.attr("id").substring(6).split('-')[1] + " Field";
+							},
+							getFieldsForObjectRemoteMethod: 'FieldSelector.getFieldsForObject',
+							getChildObjectsRemoteMethod: 'FieldSelector.getChildObjects',
+							getPicklistValuesRemoteMethod: 'FieldSelector.getPickListValues'
+						};
+
+						//Create event listener that will open the field selector
+						j$(".openFieldSelector.datetime").fieldSelector(j$.extend({typeLimit: ['DATETIME']}, defaultOpts));
+						j$(".openFieldSelector.latlng").fieldSelector(j$.extend({typeLimit: ['DOUBLE', 'STRING']}, defaultOpts));
+						j$(".openFieldSelector.location").fieldSelector(j$.extend({typeLimit: ['LOCATION']}, defaultOpts));
+						j$(".openFieldSelector.string").fieldSelector(j$.extend({typeLimit: ['STRING', 'TEXTAREA']}, defaultOpts));
+						j$(".openFieldSelector.addressField").fieldSelector(j$.extend({typeLimit: ['STRING', 'TEXTAREA', 'PICKLIST']}, defaultOpts));
+					}
+				}
+				if ('cfgFinish' == currentStage) { //console.log('set: cfgFinish');
+					geopointeAjaxEnd();
+				}
+			}
+		</script>
+	</apex:form>
+	</html>
+</apex:page>

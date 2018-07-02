@@ -1,0 +1,3 @@
+<apex:page controller="zkfedex.PopupImageController" showHeader="false" showChat="false" sidebar="false">
+	<apex:image url="/servlet/servlet.FileDownload?file={! imageId }" />
+</apex:page>

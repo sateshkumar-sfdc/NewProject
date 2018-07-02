@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>New Products Spring 18</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Hello,
+
+Thanks for reaching out to us regarding our new YETI products. We&apos;ll be releasing these all-new products over the next few months. Stay tuned on updates by entering your email address on the product page of the product you want more information and select notify me. For some items, you may need to select the color option or size and select notify me.
+
+You can view all of our 2018 Spring Products on yeti.com.
+
+Sincerely,
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

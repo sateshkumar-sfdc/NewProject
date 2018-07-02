@@ -1,0 +1,37 @@
+<apex:page docType="html-5.0" showHeader="true" sidebar="true" controller="zkfedex.PrintServiceAdministrationController" tabStyle="zkfedex__ShipmatePreference__c">
+
+	<apex:stylesheet value="{!$Resource.zkfedex__WizardCSS}"/>
+
+	<apex:form styleClass="printerAdministration">
+		<apex:pageMessages id="messages"/>
+		<apex:pageBlock title="Print Service Administration" mode="detail">
+			<apex:pageBlockSection id="apiKeyBlock" title="Get Api Key" collapsible="false">
+				<apex:pageBlockSectionItem dataStyleClass="inputField" labelStyleClass="inputLabel">
+					<apex:outputLabel value="Api Key"/>
+					<apex:outputText value="{!apiKey}"/>
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem dataStyleClass="inputField">
+					<apex:commandButton value="Get" action="{!getApiKey}" reRender="apiKeyBlock, messages"/>
+				</apex:pageBlockSectionItem>
+			</apex:pageBlockSection>
+			<apex:pageBlockSection title="Update Api Key" collapsible="false">
+				<apex:pageBlockSectionItem dataStyleClass="inputField" labelStyleClass="inputLabel">
+					<apex:outputLabel value="New Api Key"/>
+					<apex:input value="{!apiKey}" type="auto" size="40" />
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem dataStyleClass="inputField">
+					<apex:commandButton value="Update" action="{!updateApiKey}" reRender="messages"/>
+				</apex:pageBlockSectionItem>
+			</apex:pageBlockSection>
+			<apex:pageBlockSection title="Reset Api Key" collapsible="false">
+				<apex:pageBlockSectionItem dataStyleClass="inputField" labelStyleClass="inputLabel">
+					<apex:outputLabel value="Reset Integration?"/>
+					&nbsp;
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem dataStyleClass="inputField">
+					<apex:commandButton value="Reset" action="{!resetApiKey}" reRender="messages"/>
+				</apex:pageBlockSectionItem>
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

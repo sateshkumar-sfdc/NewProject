@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Insiders Hold</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Thank you for your interest in YETI and for taking the time to reach out to us.  At this time we had to temporarily suspend our YETI Insiders program due to unprecedented demand this holiday season that led to a severe inventory shortage.  At this time, it is imperative that we prioritize our authorized dealers until we are able to resolve the backlog and get ahead of shipments.  If you can be patient, we expect to have the YETI Insiders Program up and running again in 2016.
+
+We appreciate your continued support of YETI and apologize for any inconvenience this may have caused.
+
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeticoolers.com
+yeticoolers.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

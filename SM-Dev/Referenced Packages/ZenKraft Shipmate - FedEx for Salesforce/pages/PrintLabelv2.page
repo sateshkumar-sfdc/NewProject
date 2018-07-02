@@ -1,0 +1,60 @@
+<apex:page showHeader="true" sidebar="true" standardController="zkfedex__Shipment__c" extensions="zkfedex.PrintLabelv2Controller" docType="html-5.0" action="{!init}" tabStyle="zkfedex__Shipment__c">
+
+	<apex:form >
+
+		<apex:sectionHeader title="Shipment" subtitle="Printing" />
+
+		<apex:commandLink action="{!backToPreviousPage}" value="Back to Previous Page"/>
+
+		<apex:pageBlock mode="detail">
+
+			<!-- Print Page Block Buttons -->
+			<apex:pageBlockButtons >
+				<apex:outputPanel id="printPageBlockButtons" rendered="{!AND(NOT(SingleLabel), enablePrinting)}">
+					<apex:commandButton value="Print All" action="{!printAllLabels}"/>
+				</apex:outputPanel>
+			</apex:pageBlockButtons>
+
+			<apex:outputPanel id="printMessages">
+				<apex:pageMessages id="messages" />
+			</apex:outputPanel>
+
+
+			<!-- Select Printer section -->
+			<apex:outputPanel id="selectedPrinter">
+			<apex:pageBlockSection collapsible="false" title="Selected Printer">
+
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Selected Printer"/>
+					<apex:selectList value="{!selectedPrinter}" size="1" multiselect="false" >
+						<apex:selectOptions value="{!availablePrinters}"/>
+					</apex:selectList>
+				</apex:pageBlockSectionItem>
+
+			</apex:pageBlockSection>
+			</apex:outputPanel>
+
+
+			<!-- Labels section -->
+			<apex:outputPanel id="labelTable">
+			<apex:pageBlockSection collapsible="false" title="Labels">
+
+				<apex:pageBlockTable value="{!printLabels}" var="printLabel" cellpadding="10">
+					<apex:column >
+						<apex:facet name="header">File Name</apex:facet>
+						<apex:outputText value="{!printLabel.Name}"/>
+					</apex:column>
+					<apex:column >
+						<apex:facet name="header"></apex:facet>
+						<apex:commandButton value="Print" rerender="printMessages" action="{!printLabel}" rendered="{!enablePrinting}">
+							<apex:param name="printeLabelId" value="{!printLabel.Id}" assignTo="{!selectedLabelId}"/>
+						</apex:commandButton>
+					</apex:column>
+				</apex:pageBlockTable>
+
+			</apex:pageBlockSection>
+			</apex:outputPanel>
+
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

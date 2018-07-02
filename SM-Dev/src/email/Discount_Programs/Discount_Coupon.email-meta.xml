@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Discount-Coupon</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Thanks for reaching out to YETI!
+
+
+At this time, we do not have any coupons to offer.  You might want to check with your local authorized dealers for possible discounts or promotions they may be offering as well as our official YETI eBay Storefront which occasionally has select Outpost items at a lower price.
+
+
+Be sure to sign up for the YETI Nation so we can loop you in on any discounts, promotions, and new product releases! Check it out here on YETI.com located at the bottom of the page. Please let us know if there&apos;s anything else we can do to help out and wishing you many adventures ahead!
+
+
+Cheers,
+
+
+{!User.CommunityNickname}
+
+The YETI Outfitters
+
+512.394.9384
+
+customerservice@yeti.com
+
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

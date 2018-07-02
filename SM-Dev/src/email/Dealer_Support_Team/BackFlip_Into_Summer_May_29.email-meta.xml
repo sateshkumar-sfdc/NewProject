@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>BackFlip Into Summer – May 29</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Picture yourself fishing off the coast of Florida, gator hunting in Louisiana, or getting up close and personal to the action at the Professional Bull Riding series. Sounds fun, right?
+
+You’re halfway through the BackFlip Into Summer Sales Contest. Nice job so far! Whether you’re aiming to win the weekly $75 prize, or have your sights set on the grand prize adventure trip, we hope you’re having fun (and selling YETI like crazy!).
+
+To get you over that mid-contest hump, get inspired by watching a few YETI Presents films.
+
+- If you love fishing
+
+- Hunting is your thing
+
+- Or maybe skiing
+
+- Or ranching
+
+- Or surfing
+
+Whatever your wild is, there’s a YETI for that. That’s true for your customer as well. Try using a personal experience with your YETI this week to authentically share why you believe in YETI.
+
+As always, reach out to (insert TSM name) or me with any questions.
+
+Best of luck in week 4!
+
+P.S. - As a reminder, all sales from the 3rd week of the contest must be submitted via the linked form below by 4pm CT today, May 29, to be eligible for this week’s prize: https://yeti.formstack.com/forms/backflip_into_summer
+
+If one of your sales associates wins a weekly prize, they will be notified directly by email.
+
+Terms and conditions apply. See full contest rules here.
+
+
+{!User.CommunityNickname}
+
+Account Management Team
+
+YETI
+
+512.394.0222
+
+sales@yeti.com
+
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

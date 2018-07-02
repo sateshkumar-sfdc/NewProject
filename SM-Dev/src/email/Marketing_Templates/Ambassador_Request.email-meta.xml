@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Ambassador Request</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>We are honored that you’d like to be a part of the YETI Ambassador Family!  We’ve have been absolutely astounded by the number of requests that we’ve been receiving!  While we can&apos;t accommodate all requests and only have limited spots, we do have a Pro-Program that we would love to invite you to be a part of where you can receive industry pricing on YETI products to continue to do your job. You can apply for the YETI Pro-Program at https://www.yeti.com/pro-program.html
+
+Thank you for thinking of us, and for being a YETI fan. We wish you the best of luck in all your adventures!
+
+Sincerely,
+
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

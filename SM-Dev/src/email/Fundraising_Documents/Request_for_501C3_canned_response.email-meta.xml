@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Request for 501C3 canned response</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Greetings,
+
+
+
+Thank you for reaching out to YETI Coolers. I have reviewed your documents and they look great.  We are just missing a copy of the original IRS 501C3 letter that designates the organization a nonprofit, or in some cases your state tax exemption documents. I have attached a sample of the IRS letter so you can see what to look for. You can reply to this email with your document.
+
+
+
+Sincerely,
+
+
+
+
+{!User.CommunityNickname}
+
+The YETI Outfitters
+
+512.394.9384
+
+
+customerservice@yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

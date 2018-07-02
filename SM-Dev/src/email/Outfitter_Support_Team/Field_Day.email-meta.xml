@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Field Day</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>We appreciate you taking a moment to pause from all the madness of March and reach out about YETI’s previous Field Days promotion.
+
+
+We love our dealer employee’s and want to give you an opportunity to speak about our products through first-hand experiences. In lieu of doing a limited-time promo package we have updated our dealer employee discount program. If you’ve previously participated in Field Days and are logged in to your account, you will now notice a 40% discount with strike-through pricing on applicable YETI Products. If you don’t have an account you can submit your application here.
+
+
+
+Please note our discount program is subject to availability and the following limitations:
+
+
+No more than two (2) coolers in the Hopper, Tundra, Roadie, or Tank categories, and no more than ten (10) drinkware items purchased annually
+International orders are not eligible
+Customized drinkware, collegiate and licensed coolers, and new release products are not included
+Discounts and promotions cannot be combined
+
+
+We want you to be able to take advantage of your YETI dealer employee deal long after the Spring. This program is meant for your personal use only and misuse of the program is grounds for disqualification.  We hope you feel compelled to spread the
+
+word and encourage others to purchase their own YETI products at a local authorized YETI dealer.
+
+
+
+Sincerely,
+
+{!User.CommunityNickname}
+
+The YETI Outfitters
+
+512.394.9384
+
+customerservice@yeticoolers.com
+
+yeticoolers.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Order- Edit or Cancel</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Thank you for contacting  YETI!
+
+While we&apos;re not able to edit or cancel orders once they&apos;ve shipped out, I&apos;ll be happy to set up a return for you once you receive your order. Once you receive your order please reply to this email with your order number and products you wish to return. This will allow me to initiate the return process for you.
+
+Please let us know if there&apos;s anything else we can help you with, and have a wonderful day!
+
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

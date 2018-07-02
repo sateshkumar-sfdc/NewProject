@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Inventory</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Hello,
+
+Thanks for reaching out to us regarding the YETI product you are looking to purchase. At this time, we have all of our available inventory online. We recommend that you sign up for our out of stock notification on the products you wish to purchase and you’ll be notified as soon as they are available. Simply enter your email address on the product page under the color option or size that is out of stock and select notify me.
+
+We are also happy to provide you a list of local authorized YETI dealers in your area that may have the product you’re looking for as well. Please reply back letting us know your zip code and we will provide you with local dealers in your area.
+
+Sincerely,
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

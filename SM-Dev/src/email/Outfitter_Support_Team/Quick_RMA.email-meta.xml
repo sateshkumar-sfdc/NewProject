@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Quick RMA</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Your Return Request Confirmation
+
+
+
+Hello {!Contact.FirstName},
+
+We are so sorry that you have to return your YETI product.  We know how disappointing it can be to purchase something and have it not work out for you. This email explains the return process from start to finish. We will do our best to make this process simple to complete.
+
+
+
+Your new replacement product will ship out as soon as possible!
+
+
+To return your YETI product please follow the steps below:
+
+Print the attached prepaid FedEx shipping label.
+Tape this label to the outside of the shipping box so FedEx can scan the bar code.
+Drop the package off at the nearest FedEx facility, and that’s it!
+
+A FedEx drop box will not work for the return. FedEx Ground pick up can be scheduled by calling FedEx customer service at 1-800-463-3339.
+Please request a copy of your receipt and a tracking number for your records.
+
+
+
+Please make sure your YETI is cleaned out and dry on the inside.
+
+
+Thank you for being a YETI customer! Please let us know if you have any questions.
+
+
+
+Sincerely,
+
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeticoolers.com
+yeticoolers.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

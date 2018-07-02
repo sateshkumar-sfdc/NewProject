@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Bottle_Lid</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Thank you for contacting YETI!
+
+We are sorry to hear about the recent issue with your Rambler. To begin your warranty request we do require a few images to confirm and verify the size and issue you are experiencing.
+
+•    Picture of the Rambler with the YETI embossed logo facing forward.
+
+
+•    Picture of the lid with the gasket available to view in the image.
+
+Please reply back to this email with these images. Once your warranty request has been reviewed and confirmed a YETI Outfitter will contact you with the next steps.
+
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+YETI
+512.394.9384
+customerservice@yeti.com
+yeti.com
+SaveSaveSaveSave</textOnly>
+    <type>html</type>
+</EmailTemplate>

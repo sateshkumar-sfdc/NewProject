@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>This Custom Setting Allows for SGI Triggers to be Activated or Deactivated in Production without having to change code to deactivate the code - One checkbox per Trigger</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Invoice_Line_Sales_Target_Trigger__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Custom Setting to Activate or Deactivate the Invoice Line Trigger that links a Sales Target to a Invoice Line 
+--&gt; Unchecked = Inactive 
+--&gt; Checked = Active</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Custom Setting to Activate or Deactivate the Invoice Line Trigger that links a Sales Target to a Invoice Line 
+--&gt; Unchecked = Inactive 
+--&gt; Checked = Active</inlineHelpText>
+        <label>Invoice Line - Sales Target Trigger</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>SGI Trigger Activation</label>
+    <visibility>Public</visibility>
+</CustomObject>

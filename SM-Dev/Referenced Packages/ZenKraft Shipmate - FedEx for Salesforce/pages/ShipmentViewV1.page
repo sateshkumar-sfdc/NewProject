@@ -1,0 +1,8 @@
+<apex:page standardController="zkfedex__Shipment__c" extensions="zkfedex.ShipmentViewV1Controller">
+
+	<apex:form >
+		<apex:commandLink action="{! cancel }" value="Back to Previous Page" rendered="{! isPreviousPage }"/>
+		<c:MessageListDisplay id="MessageList" msgList="{! messageList }"/>
+		<apex:detail relatedList="true" subject="{! recordId }" title="true" relatedListHover="true" inlineEdit="false" showChatter="true"/>
+	</apex:form>
+</apex:page>

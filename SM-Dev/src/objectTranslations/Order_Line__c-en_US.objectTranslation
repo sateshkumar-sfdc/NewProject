@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Order Line</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Order Lines</value>
+    </caseValues>
+    <fields>
+        <label><!-- DiscountPrice --></label>
+        <name>DiscountPrice__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ext Price --></label>
+        <name>Ext_Price__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Change Date --></label>
+        <name>Last_Change_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Change Time --></label>
+        <name>Last_Change_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Line Comment --></label>
+        <name>Line_Comment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Line Number --></label>
+        <name>Line_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Line Status --></label>
+        <name>Line_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Need By Date --></label>
+        <name>Need_By_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Need By Date --></label>
+        <name>Need_By__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Details --></label>
+        <name>Order_Details__c</name>
+        <relationshipLabel><!-- Order Lines --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Order Line --></label>
+        <name>Order_Line__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Number --></label>
+        <name>Order_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Quantity --></label>
+        <name>Order_Quantity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Part Number --></label>
+        <name>Part_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Description --></label>
+        <name>Product_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Group --></label>
+        <name>Product_Group__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- Request Date --></label>
+        <name>Request_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sales Category --></label>
+        <name>Sales_Category__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ship By --></label>
+        <name>Ship_By__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Shipped --></label>
+        <name>Total_Shipped__c</name>
+    </fields>
+    <fields>
+        <label><!-- UPC --></label>
+        <name>UPC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unit Price --></label>
+        <name>Unit_Price__c</name>
+    </fields>
+    <layouts>
+        <layout>Order Detail Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Order Line Layout - Dealer Community</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Product Information --></label>
+            <section>Product Information</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

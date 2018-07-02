@@ -1,0 +1,388 @@
+<apex:page docType="html-5.0" controller="CTRL_Return_Order_Create" action="{!initCreate}" showHeader="true" sidebar="true">
+    <!--
+LINKS:
+Case | 'Create SAP RMA Order' | LNK_Case_CreateRMAOrder | /apex/VFP_Return_Order_Create?SF_CaseId={!Case.Id}
+-->
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"/>
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"/>
+    <apex:includeScript value="{!URLFOR($Resource.enosix, 'js/jqdates.js')}"/>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css"/>
+    <style>
+        .btn-col {
+            height: 24px;
+        }
+
+        .btn.replacement-edit {
+            width: 3em;
+            margin-right: 0.6em;
+            float: left;
+        }
+
+        .replacement-text {
+            width: calc(100% - 3.6em);
+        }
+
+        .dataCell select {
+            max-width: 20em;
+        }
+    </style>
+    <apex:pageBlock rendered="{! !hasAccount }">
+        <apex:outputText value="Error: Case is missing an Account. Please attach an Account to the Case before trying again."/>
+        <apex:pageBlockButtons location="bottom">
+            <apex:form >
+                <c:CMP_NavButtons />
+            </apex:form>
+        </apex:pageBlockButtons>
+    </apex:pageBlock>
+
+    <apex:form id="mainform" styleClass="mainform">
+        <c:CMP_Status />
+
+        <c:CMP_CaseInfo caseId="{!cas.Id}" rendered="{! null != cas && hasAccount }"/>
+
+        <apex:pageBlock title="Customer" rendered="{! hasAccount }">
+            <apex:pageBlockSection columns="2" collapsible="false" rendered="{! null != customerDetail.CustomerNumber}">
+                <apex:outputText label="Customer #:" value="{!customerDetail.CustomerNumber}"/>
+                <apex:outputText label="Name:" value="{!customerDetail.Name}"/>
+                <apex:outputText label="Payment Terms:" value="{0} - {1}">
+                    <apex:param value="{!customerSalesArea.TermsofPaymentKey}"/>
+                    <apex:param value="{!customerSalesArea.TermsOfPaymentDescription}"/>
+                </apex:outputText>
+            </apex:pageBlockSection>
+            <apex:pageMessages rendered="{! null == customerDetail.CustomerNumber}"/>
+            <apex:pageBlockSection columns="1" collapsible="false" rendered="{! null == customerDetail.CustomerNumber}">
+                <apex:actionFunction name="GoToCreateCustomer" action="{!GoToCreateCustomer}"
+                                     status="status" rerender="mainform"/>
+                <apex:actionFunction name="GoToCustomerLinkPage" action="{!GoToCustomerLinkPage}"
+                                     status="status" rerender="mainform"/>
+                <apex:commandLink onclick="GoToCreateCustomer(); return false;"
+                                  value="Click here to create a customer."/>
+                <apex:commandLink onclick="GoToCustomerLinkPage(); return false;"
+                                  value="Click here to lookup an existing customer."/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+
+        <apex:pageBlock title="{! 'Create Return Order for Case ' + cas.CaseNumber}"
+                        rendered="{!customerDetail.CustomerNumber != null && rmaSaleData!= null && hasAccount}">
+            <apex:pageMessages id="messagediv"/>
+
+            <apex:pageBlockSection columns="1" collapsible="true" id="pbsdiv">
+                <apex:selectList label="Order Type:" value="{!rmaSaleData.SalesDocumentType}" size="1" disabled="true">
+                    <apex:actionSupport event="onchange" action="{!updateReturnInformation}" rerender="mainform"
+                                        status="status"/>
+                    <apex:selectOptions value="{!OrderTypes}"></apex:selectOptions>
+                </apex:selectList>
+                <apex:selectList label="Sales Organization:" value="{!rmaSaleData.SalesOrganization}" size="1" disabled="true">
+                    <apex:actionSupport event="onchange" action="{!updateReturnInformation}" rerender="mainform"
+                                        status="status"/>
+                    <apex:selectOptions value="{!SalesOrganizations}"></apex:selectOptions>
+                </apex:selectList>
+                <apex:selectList label="Distribution Channel:" value="{!rmaSaleData.DistributionChannel}" size="1" disabled="true">
+                    <apex:actionSupport event="onchange" action="{!updateReturnInformation}" rerender="mainform"
+                                        status="status"/>
+                    <apex:selectOptions value="{!DistributionChannels}"></apex:selectOptions>
+                </apex:selectList>
+                <apex:selectList label="Division:" value="{!rmaSaleData.Division}" size="1" disabled="true">
+                    <apex:actionSupport event="onchange" action="{!updateReturnInformation}" rerender="mainform"
+                                        status="status"/>
+                    <apex:selectOptions value="{!Divisions}"></apex:selectOptions>
+                </apex:selectList>
+
+                <apex:selectList value="{!SoldToPartner.CustomerNumber}" label="Sold To Customer:" size="1" disabled="true">
+                    <apex:selectOptions value="{!SoldToPartners}"/>
+                </apex:selectList>
+                <apex:pageBlockSectionItem labelTitle="Ship To Customer:" id="shipToDiv">
+                    <apex:outputLabel value="Ship To Customer:"/>
+                    <apex:outputPanel >
+                        <apex:selectList value="{!ShipToPartner.CustomerNumber}" label="Ship To Customer:" size="1">
+                            <apex:actionSupport event="onchange" action="{!UpdateShipToPartner}" rerender="mainform"
+                                                status="status"/>
+                            <apex:selectOptions value="{!ShipToPartners}"/>
+                        </apex:selectList>
+                        <apex:outputText id="shipToPanel"
+                                         style="margin-left:30px;"
+                                         value="{0} {1}, {2} {3}"
+                                         rendered="{!isShipToPartnerAddressDisplayed}">
+                            <apex:param value="{!shipToCustomer.Street}"/>
+                            <apex:param value="{!shipToCustomer.City}"/>
+                            <apex:param value="{!shipToCustomer.Region}"/>
+                            <apex:param value="{!shipToCustomer.PostalCode}"/>
+                        </apex:outputText>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+
+                <apex:selectList value="{!Carrier.CustomerNumber}" label="Carrier:" size="1">
+                    <apex:actionSupport event="onchange" rerender="mainform" status="status"/>
+                    <apex:selectOptions value="{!Carriers}"/>
+                </apex:selectList>
+
+                <apex:inputText label="Customer Email Address:" value="{!ShipToPartner.EMailAddress}">
+                    <apex:actionSupport event="onchange" rerender="mainform" status="status"/>
+                </apex:inputText>
+                <apex:inputText label="PO Number:" value="{!rmaDetail.CustomerPurchaseOrderNumber}">
+                    <apex:actionSupport event="onchange" rerender="mainform" status="status"/>
+                </apex:inputText>
+
+                <apex:outputText label="PO Date:" value=" {0, date, MMMM  d  y}">
+                    <apex:param value="{!rmaDetail.CustomerPurchaseOrderDate}"/>
+                </apex:outputText>
+                <apex:input type="date" value="{!rmaDetail.SALES.RequestedDeliveryDate}" label="Requested Ship:">
+                    <apex:actionSupport event="onchange" rerender="mainform" status="status"/>
+                </apex:input>
+                <apex:selectList label="Order Reason:" value="{!rmaDetail.OrderReason}" size="1">
+                    <apex:actionSupport event="onchange" action="{!updateReturnInformation}" rerender="mainform"
+                                        status="status"/>
+                    <apex:selectOptions value="{!OrderReasons}"/>
+                </apex:selectList>
+                <apex:selectList label="{!refundTypeLabel}" value="{!RefundType}" disabled="{!isRefundTypeDisabled}" size="1">
+                    <apex:actionSupport event="onchange" rerender="mainform" status="status"/>
+                    <apex:selectOptions value="{!RefundTypes}"/>
+                </apex:selectList>
+
+                <apex:selectList label="Return Label Type:" size="1" value="{!rmaDetail.Shipping.ShippingConditions}">
+                    <apex:actionSupport event="onchange" rerender="mainform" status="none"/>
+                    <apex:selectOptions value="{!ShippingConditions}"/>
+                </apex:selectList>
+
+                <apex:pageBlockSection columns="1" title="Items" collapsible="true" id="itemsList">
+                    <apex:pageblockTable value="{!indexedReplacementItems}" var="o">
+                        <apex:column headerValue="Action" styleClass="btn-col">
+                            <apex:commandButton action="{!removeRMAItem}" value="Remove" reRender="mainform" status="status">
+                                <apex:param value="{!o.index}" name="index"/>
+                            </apex:commandButton>
+                        </apex:column>
+                        <apex:column headerValue="Return Material" value="{!o.item.MaterialDescription}"/>
+                        <apex:column headerValue="Return Qty.">
+                            <apex:inputText value="{!o.item.Quantity}" size="4">
+                                <apex:actionSupport event="onchange" action="{!simulateOrderAndUpdateRO}" rerender="mainform" status="status"/>
+                            </apex:inputText>
+                        </apex:column>
+                        <apex:column headerValue="Return Reason">
+                            <apex:selectList value="{!o.item.ReturnReason}" size="1">
+                                <apex:actionSupport event="onchange" rerender="mainform" status="status"/>
+                                <apex:selectOptions value="{!ReturnReasons}"/>
+                            </apex:selectList>
+                        </apex:column>
+                        <apex:column headerValue="Refund Type" rendered="{! !isRmaSingleRefundTypeEnabled}">
+                            <apex:selectList value="{!o.item.RefundType}" size="1">
+                                <apex:actionSupport event="onchange" rerender="mainform" action="{!simulateOrderAndUpdateRO}" status="status"/>
+                                <apex:selectOptions value="{!RefundTypes}"/>
+                            </apex:selectList>
+                        </apex:column>
+                        <apex:column headerValue="Replacement Material">
+                            <apex:commandButton rendered="{!o.item.RefundType=='1'}"
+                                    styleClass="replacement-edit"
+                                    value="Edit"
+                                    onclick="pickReplacement('{!o.index}');return false;"/>
+                            <apex:outputText rendered="{!o.item.RefundType=='1'}"
+                                    styleClass="replacement-text"
+                                    value="{!o.item.ReplaceMaterialDescription}"/>
+                        </apex:column>
+                        <apex:column headerValue="Replacement Qty.">
+                            <apex:inputText rendered="{!o.item.RefundType=='1'}" value="{!o.item.ReplacementQuantity}" size="4">
+                                <apex:actionSupport event="onchange" action="{!simulateOrderAndUpdateRO}" rerender="mainform" status="status"/>
+                            </apex:inputText>
+                        </apex:column>
+                        <apex:column headerValue="Delivery Date">
+                            <apex:inputText rendered="{!o.item.RefundType=='1'}" value="{!o.formattedScheduleLineDate}" size="10" styleClass="jqDate">
+                                <apex:actionSupport event="onchange" rerender="mainform" status="status"/>
+                            </apex:inputText>
+                        </apex:column>
+                        <apex:column headerValue="Price Difference">
+                            <apex:outputText value="{0,number,###,##0.00}">
+                                <apex:param value="{!o.item.PriceDifference}"/>
+                            </apex:outputText>
+                        </apex:column>
+                        <apex:column headerValue="Tax Difference">
+                            <apex:outputText value="{0,number,###,##0.00}">
+                                <apex:param value="{!o.item.TaxDifference}"/>
+                            </apex:outputText>
+                        </apex:column>
+                    </apex:pageblockTable>
+
+                    <apex:commandButton onclick="showReturnsPopup();return false;" value="Add Return Materials"/>
+
+                </apex:pageBlockSection>
+            </apex:pageBlockSection>
+
+            <apex:pageBlock title="Payment Cards:" rendered="{! hasAccount && isCreditCardSectionDisplayed}">
+
+                <apex:pageBlockSection title="Order Cards" columns="1" collapsible="false">
+
+                    <apex:actionFunction name="removeCard" action="{!actionRemoveCard}" reRender="mainform"
+                                         status="status">
+                        <apex:param name="cardNumber" value=""/>
+                    </apex:actionFunction>
+                    <apex:pageblockTable value="{!OrderCards}" var="c">
+                        <apex:column headerValue="Action">
+                            <apex:commandButton onclick="removeCard('{!c.CreditCardNumber}');return false;"
+                                                value="Remove"/>
+                        </apex:column>
+                        <apex:column headerValue="Billing Plan Item" value="{!c.BillingPlanItem}"/>
+                        <apex:column headerValue="Credit Card Type" value="{!c.CreditCardType}"/>
+                        <apex:column headerValue="Credit Card Number" value="{!c.CreditCardNumber}"/>
+                        <apex:column headerValue="Payment Card Suffix" value="{!c.PaymentCardSuffix}"/>
+                        <apex:column headerValue="Expiration Date">
+                            <apex:outputText value="{0,date,MM/yyyy}">
+                                <apex:param value="{!c.ValidToDate}"/>
+                            </apex:outputText>
+                        </apex:column>
+                        <apex:column headerValue="Cardholder name" value="{!c.CardholderName}"/>
+                        <apex:column headerValue="Bill Amount">
+                            <apex:outputText value="{0,number,###,##0.00}">
+                                <apex:param value="{!c.BillAmount}"/>
+                            </apex:outputText>
+                        </apex:column>
+                        <apex:column headerValue="Authorized Amount">
+                            <apex:outputText value="{0,number,###,##0.00}">
+                                <apex:param value="{!c.AuthorizedAmount}"/>
+                            </apex:outputText>
+                        </apex:column>
+                        <apex:column headerValue="Order Currency" value="{!c.OrderCurrency}"/>
+                    </apex:pageblockTable>
+
+                </apex:pageBlockSection>
+
+                <apex:actionFunction name="addExistingCard" action="{!actionAddCardFromCustomer}"
+                                     reRender="mainform" status="status"/>
+
+                <apex:pageBlockSection title="Credit Card Entry" columns="2" collapsible="false"
+                                       rendered="{!OrderCardsCount == 0 && isCreditCardEntryDisplayed}">
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Customer Cards:" for=""/>
+                        <apex:panelGrid columns="2">
+                            <apex:selectList label="Customer Cards:" value="{!selectedCustomerCard}" size="1">
+                                <apex:selectOption itemLabel="" itemValue=""/>
+                                <apex:selectOptions value="{!CustomerPaymentCards}"/>
+                            </apex:selectList>
+                            <apex:commandButton value="Add" onclick="addExistingCard(); return false;"/>
+                        </apex:panelGrid>
+                    </apex:pageBlockSectionItem>
+
+                    <c:CMP_CreditCardEntry receiver="{!cdReceiver}" initAction="addCardDetails"
+                                           submitAction="lookupCardDetails" rerender="mainform"/>
+                    <apex:inputText value="{!CardLimit}" label="Approval Limit Amount:"
+                                    rendered="{!isOrderCardLimitEnabled}"/>
+                    <apex:pageBlockSectionItem rendered="{!!isOrderCardLimitEnabled}">&nbsp;</apex:pageBlockSectionItem>
+
+                    <apex:commandButton value="Enter Card" onclick="addCardDetails(); return false;"
+                                        rendered="{!displayEnterCardButton}"/>
+                    <apex:panelGrid columns="3" rendered="{!displayCaptureCardButton}">
+                        <apex:commandButton value="Save" onclick="lookupCardDetails(); return false;"/>
+                        <apex:inputCheckbox value="{!saveCapturedCard}" id="saveCard"/>
+                        <apex:outputLabel value="and add to Customer" for="saveCard"/>
+                    </apex:panelGrid>
+
+                </apex:pageBlockSection>
+
+            </apex:pageBlock>
+        </apex:pageBlock>
+
+        <apex:pageBlock title="Create RMA Order" rendered="{! null != customerDetail && hasAccount}">
+            <apex:pageBlockSection columns="1" >
+                <apex:outputText value="{!rmaDetail.NetReturnValue}" label="Total Items Returned Cost:"/>
+                <apex:outputText value="{!rmaDetail.NetReplacementValue}" label="Total Items Replacement Cost:"/>
+                <apex:outputText value="{!rmaDetail.NetTotalValue}" label="Net RMA Cost:"/>
+                <apex:outputText value="{!rmaDetail.NetTotalTax}" label="Net Tax:"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection >
+                <apex:commandButton action="{!createRMA}" value="Create RMA Order" status="status"
+                                    reRender="mainform"/>
+                <apex:commandButton action="{!returnToCase}" value="Return to Case" status="status"
+                                    reRender="mainform"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+
+        <apex:pageBlock title="Create Return Order" rendered="{!customerDetail == null && hasAccount}">
+            <apex:pageBlockSection >
+                <apex:outputLabel >
+                    A Customer must be associated with the Case prior to creating an RMA Order
+                </apex:outputLabel>
+                <apex:commandButton action="{!redirectToCreateCustomer}" value="Create a Customer"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+    <c:CMP_Footer />
+
+    <div id="returnsPopup" style="display:none">
+        <apex:form id="returnsForm">
+            <c:CMP_MaterialSearch id="returnMaterials"
+                                  receiver="{!msReceiver}"
+                                  jsCallback="hideReturnsPopup"
+                                  jsSearchCallback="fixReturnsPopupSize"
+                                  addButtonLabel="Add Items"
+                                  salesOrganization="{!rmaSaleData.SalesOrganization}"
+                                  distributionChannel="{!rmaSaleData.DistributionChannel}"
+                                  defaultMaterialTypes="{!defaultReturnOrderMaterialTypes}"
+                                  defaultProductAttributes="{!defaultReturnOrderProductAttributes}"
+                                  autoSearch="{!isReturnOrderMaterialAutoSearchEnabled}"
+                                  searchOnClear="true"
+                                  rerender="mainform,returnsForm"/>
+        </apex:form>
+    </div>
+    <div id="replacementPopup" style="display:none">
+        <apex:form id="replacementForm">
+            <c:CMP_MaterialSearch id="editReplacementMaterial"
+                                  title="Change Replacement Material"
+                                  receiver="{!msReceiver}"
+                                  autoSearch="true"
+                                  multiSelect="false"
+                                  quantity="false"
+                                  defaultMaterialTypes="{!defaultReturnOrderMaterialTypes}"
+                                  defaultProductAttributes="{!defaultReturnOrderProductAttributes}"
+                                  jsCallback="hideReplacementPopup"
+                                  jsSearchCallback="fixReplacementPopupSize"
+                                  salesOrganization="{!rmaSaleData.SalesOrganization}"
+                                  distributionChannel="{!rmaSaleData.DistributionChannel}"
+                                  rerender="mainform,replacementForm"/>
+
+            <apex:actionFunction name="pickReplacement" action="{!actionSetPickIndex}"
+                                 status="none" rerender="" oncomplete="showReplacementPopup()">
+                <apex:param name="index" value="" assignTo="{!currentItemIndex}"/>
+            </apex:actionFunction>
+        </apex:form>
+    </div>
+
+    <script>
+        function showDialog(id) {
+            $(id).dialog({
+                modal: true,
+                position: {my: 'top', at: 'top+10%'},
+                width: $(window).width() * .9,
+                height: 'auto',
+                open: function(event, ui) {
+                    $('.ui-widget-overlay').bind('click', function() {
+                        $(this).siblings('.ui-dialog').find('.ui-dialog-content').dialog('close');
+                    });
+                }
+            });
+        }
+        function showReturnsPopup() {
+            showDialog('#returnsPopup');
+        }
+        function showReplacementPopup() {
+            showDialog('#replacementPopup');
+        }
+
+        function hideDialog(id) {
+            $(id).dialog('close');
+        }
+        function hideReturnsPopup() {
+            hideDialog('#returnsPopup');
+        }
+        function hideReplacementPopup() {
+            hideDialog('#replacementPopup');
+        }
+
+        function fixDialogSize(id) {
+            $(id).dialog('option', 'height', 'auto');
+        }
+        function fixReturnsPopupSize() {
+            fixDialogSize('#returnsPopup');
+        }
+        function fixReplacementPopupSize() {
+            fixDialogSize('#replacementPopup');
+        }
+    </script>
+
+</apex:page>

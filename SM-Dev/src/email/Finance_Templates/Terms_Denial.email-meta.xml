@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Credit Terms Request Denial</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Hello!
+
+Thank you for your request for credit with YETI.  Unfortunately, we are unable to approve your request for account terms at this time. Your account with us will remain on Credit Card Terms.  Invoices will continue to be sent out as they have been.  If you wish to change how you receive your invoices please let us know. Thank you for your continued partnership with YETI Coolers.
+
+Sincerely,
+
+{!User.CommunityNickname}
+Financial Services Specialist
+YETI
+{!User.Phone}
+financialservices@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

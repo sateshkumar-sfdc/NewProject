@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Bowed Lid Pics</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hello,
+
+Thank you for contacting YETI!
+
+
+I will be assisting you with your warranty request. At your earliest convenience please provide me with the following pictures of your YETI:
+
+1. Picture taken directly with the lid closed in front of your Cooler looking at the YETI Badge.
+
+
+2. Picture of either side of the YETI to identify the size.
+
+Once we have received these pictures we will be able to identify the issues you are having and further assist you.
+
+
+Thanks,
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

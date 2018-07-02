@@ -1,0 +1,1178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Account Form Received Date --></label>
+        <name>Account_Form_Received_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Form Received --></label>
+        <name>Account_Form_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Order Ready --></label>
+        <name>Account_Order_Ready__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account on Hold --></label>
+        <name>Account_on_Hold__c</name>
+    </fields>
+    <fields>
+        <label><!-- Age --></label>
+        <name>Age__c</name>
+    </fields>
+    <fields>
+        <label><!-- Approval Status --></label>
+        <name>Approval_Status__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Artwork Received Date --></label>
+        <name>Artwork_Received_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Artwork Received --></label>
+        <name>Artwork_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bill To Address --></label>
+        <name>Bill_To_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Billing Type --></label>
+        <name>Billing_Type__c</name>
+        <picklistValues>
+            <masterLabel>Consignee</masterLabel>
+            <translation><!-- Consignee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fedex Collect</masterLabel>
+            <translation><!-- Fedex Collect --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fedex Prepaid</masterLabel>
+            <translation><!-- Fedex Prepaid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fedex Recipient</masterLabel>
+            <translation><!-- Fedex Recipient --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shipper</masterLabel>
+            <translation><!-- Shipper --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Third Party</masterLabel>
+            <translation><!-- Third Party --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UPS Consignee</masterLabel>
+            <translation><!-- UPS Consignee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UPS Cost And Freight</masterLabel>
+            <translation><!-- UPS Cost And Freight --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UPS Delivery Duty Paid</masterLabel>
+            <translation><!-- UPS Delivery Duty Paid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UPS Free On Board</masterLabel>
+            <translation><!-- UPS Free On Board --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UPS Freight Collect</masterLabel>
+            <translation><!-- UPS Freight Collect --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UPS Prepaid</masterLabel>
+            <translation><!-- UPS Prepaid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UPS Shipping Duty And Tax</masterLabel>
+            <translation><!-- UPS Shipping Duty And Tax --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Bulk Invoice Sent --></label>
+        <name>Bulk_Invoice_Sent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bulk Order Created Date --></label>
+        <name>Bulk_Order_Created_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bulk Order Created --></label>
+        <name>Bulk_Order_Created__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bulk Order Date --></label>
+        <name>Bulk_Order_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bulk Order Number --></label>
+        <name>Bulk_Order_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bulk Payment Captured Date --></label>
+        <name>Bulk_Payment_Captured_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bulk Payment Captured --></label>
+        <name>Bulk_Payment_Captured__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bulk Shipping Confirmation Sent --></label>
+        <name>Bulk_Shipping_Confirmation_Sent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Chase Profile Id --></label>
+        <name>Chase_Profile_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Closed In Current Year --></label>
+        <name>Closed_In_Current_Year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Closed Lost Reason --></label>
+        <name>Closed_Lost_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Different Direction</masterLabel>
+            <translation><!-- Different Direction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Duplicate Opportunity</masterLabel>
+            <translation><!-- Duplicate Opportunity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Response</masterLabel>
+            <translation><!-- No Response --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pricing</masterLabel>
+            <translation><!-- Pricing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Availability</masterLabel>
+            <translation><!-- Product Availability --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Timeline</masterLabel>
+            <translation><!-- Timeline --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Cooler Payment Received Date --></label>
+        <name>Cooler_Payment_Received_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cooler Payment Received --></label>
+        <name>Cooler_Payment_Received__c</name>
+    </fields>
+    <fields>
+        <help><!-- Rollup summary count of all opportunity products associated with opportunity --></help>
+        <label><!-- Count Opportunity Products --></label>
+        <name>Count_Opportunity_Products__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credit Card CSC Id --></label>
+        <name>Credit_Card_CSC_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credit Card Expiration Date --></label>
+        <name>Credit_Card_Expiration_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credit Card Expiration Month --></label>
+        <name>Credit_Card_Expiration_Month__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation><!-- 01 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation><!-- 02 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation><!-- 03 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation><!-- 04 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05</masterLabel>
+            <translation><!-- 05 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06</masterLabel>
+            <translation><!-- 06 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>07</masterLabel>
+            <translation><!-- 07 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>08</masterLabel>
+            <translation><!-- 08 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>09</masterLabel>
+            <translation><!-- 09 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10</masterLabel>
+            <translation><!-- 10 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11</masterLabel>
+            <translation><!-- 11 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12</masterLabel>
+            <translation><!-- 12 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Credit Card Expiration Year --></label>
+        <name>Credit_Card_Expiration_Year__c</name>
+        <picklistValues>
+            <masterLabel>2014</masterLabel>
+            <translation><!-- 2014 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2015</masterLabel>
+            <translation><!-- 2015 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2016</masterLabel>
+            <translation><!-- 2016 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2017</masterLabel>
+            <translation><!-- 2017 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2018</masterLabel>
+            <translation><!-- 2018 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2019</masterLabel>
+            <translation><!-- 2019 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2020</masterLabel>
+            <translation><!-- 2020 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2021</masterLabel>
+            <translation><!-- 2021 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2022</masterLabel>
+            <translation><!-- 2022 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2023</masterLabel>
+            <translation><!-- 2023 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2024</masterLabel>
+            <translation><!-- 2024 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2025</masterLabel>
+            <translation><!-- 2025 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2026</masterLabel>
+            <translation><!-- 2026 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2027</masterLabel>
+            <translation><!-- 2027 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2028</masterLabel>
+            <translation><!-- 2028 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2029</masterLabel>
+            <translation><!-- 2029 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2030</masterLabel>
+            <translation><!-- 2030 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2031</masterLabel>
+            <translation><!-- 2031 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2032</masterLabel>
+            <translation><!-- 2032 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2033</masterLabel>
+            <translation><!-- 2033 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2034</masterLabel>
+            <translation><!-- 2034 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2035</masterLabel>
+            <translation><!-- 2035 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2036</masterLabel>
+            <translation><!-- 2036 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2037</masterLabel>
+            <translation><!-- 2037 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2038</masterLabel>
+            <translation><!-- 2038 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2039</masterLabel>
+            <translation><!-- 2039 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2040</masterLabel>
+            <translation><!-- 2040 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2041</masterLabel>
+            <translation><!-- 2041 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2042</masterLabel>
+            <translation><!-- 2042 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2043</masterLabel>
+            <translation><!-- 2043 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2044</masterLabel>
+            <translation><!-- 2044 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2045</masterLabel>
+            <translation><!-- 2045 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Credit Card Name --></label>
+        <name>Credit_Card_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credit Card Number --></label>
+        <name>Credit_Card_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credit Card Type --></label>
+        <name>Credit_Card_Type__c</name>
+        <picklistValues>
+            <masterLabel>AMEX</masterLabel>
+            <translation><!-- AMEX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DISC</masterLabel>
+            <translation><!-- DISC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MC</masterLabel>
+            <translation><!-- MC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VISA</masterLabel>
+            <translation><!-- VISA --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Credit Card --></label>
+        <name>Credit_Card__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- DB Competitor --></label>
+        <name>DB_Competitor__c</name>
+        <picklistValues>
+            <masterLabel>Competitor A</masterLabel>
+            <translation><!-- Competitor A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Competitor B</masterLabel>
+            <translation><!-- Competitor B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Competitor C</masterLabel>
+            <translation><!-- Competitor C --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Discount Percentage --></label>
+        <name>Discount_Percentage__c</name>
+        <picklistValues>
+            <masterLabel>10%</masterLabel>
+            <translation><!-- 10% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>15%</masterLabel>
+            <translation><!-- 15% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>20%</masterLabel>
+            <translation><!-- 20% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>25%</masterLabel>
+            <translation><!-- 25% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30%</masterLabel>
+            <translation><!-- 30% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>35%</masterLabel>
+            <translation><!-- 35% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>40%</masterLabel>
+            <translation><!-- 40% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5%</masterLabel>
+            <translation><!-- 5% --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Discounted Amount --></label>
+        <name>Discounted_Amount2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Number --></label>
+        <name>ENSX_EDM__OrderNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote Number --></label>
+        <name>ENSX_EDM__Quote_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Customer --></label>
+        <name>End_Customer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Est. Number --></label>
+        <name>Est_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Amount --></label>
+        <name>Expected_Revenue_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- FOB --></label>
+        <name>FOB_2__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Final Logo Received Date --></label>
+        <name>Final_Logo_Received_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Final Logo Received --></label>
+        <name>Final_Logo_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Forecast Amount --></label>
+        <name>Forecast_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoice Sent --></label>
+        <name>Invoice_Sent__c</name>
+    </fields>
+    <fields>
+        <label><!-- LMD --></label>
+        <name>LMD__c</name>
+    </fields>
+    <fields>
+        <label><!-- LeadConversionRT --></label>
+        <name>LeadConversionRT__c</name>
+    </fields>
+    <fields>
+        <label><!-- Letter of Certification --></label>
+        <name>Letter_of_Certification__c</name>
+    </fields>
+    <fields>
+        <label><!-- Location Status --></label>
+        <name>Location_Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Logo Payment Received Date --></label>
+        <name>Logo_Payment_Received_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Logo Payment Received --></label>
+        <name>Logo_Payment_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Header Need By Date --></label>
+        <name>Need_By_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Billing City --></label>
+        <name>OSF_DWback__Billing_City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Billing Country --></label>
+        <name>OSF_DWback__Billing_Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- Billing Phone --></label>
+        <name>OSF_DWback__Billing_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Billing State/Province --></label>
+        <name>OSF_DWback__Billing_State_Province__c</name>
+    </fields>
+    <fields>
+        <label><!-- Billing Street --></label>
+        <name>OSF_DWback__Billing_Street__c</name>
+    </fields>
+    <fields>
+        <label><!-- Billing Zip/Postal Code --></label>
+        <name>OSF_DWback__Billing_Zip_Postal_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Abandoned Cart Creation Date --></label>
+        <name>OSF_DWback__DW_Abandoned_Cart_Creation_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Abandoned Cart Last Modified Date --></label>
+        <name>OSF_DWback__DW_Abandoned_Cart_Last_Modified_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commerce Cloud ID --></label>
+        <name>OSF_DWback__DW_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Abandoned Cart? --></label>
+        <name>OSF_DWback__DW_Is_Abandoned_Cart__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Removed Products List? --></label>
+        <name>OSF_DWback__DW_Is_Removed_Products_List__c</name>
+    </fields>
+    <fields>
+        <label><!-- Recovered Order No --></label>
+        <name>OSF_DWback__DW_Recovered_Order_No__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Wishlist? --></label>
+        <name>OSF_DWback__Is_Wishlist__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Registration Status --></label>
+        <name>OSF_DWback__Order_Registration_Status__c</name>
+        <picklistValues>
+            <masterLabel>Registered</masterLabel>
+            <translation><!-- Registered --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unregistered</masterLabel>
+            <translation><!-- Unregistered --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Commerce Cloud Site --></label>
+        <name>OSF_DWback__Order_Site__c</name>
+    </fields>
+    <fields>
+        <label><!-- Recovered Abandoned Cart --></label>
+        <name>OSF_DWback__Recovered__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shipping City --></label>
+        <name>OSF_DWback__Shipping_City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shipping Country --></label>
+        <name>OSF_DWback__Shipping_Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shipping Method --></label>
+        <name>OSF_DWback__Shipping_Method__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shipping Phone --></label>
+        <name>OSF_DWback__Shipping_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shipping State/Province --></label>
+        <name>OSF_DWback__Shipping_State_Province__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shipping Street --></label>
+        <name>OSF_DWback__Shipping_Street__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shipping Zip/Postal Code --></label>
+        <name>OSF_DWback__Shipping_Zip_Postal_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Synced by Unify Commerce --></label>
+        <name>OSF_DWback__Synced_by_Unify_Commerce__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Public Wishlist? --></label>
+        <name>OSF_DWback__Wishlist_Public__c</name>
+    </fields>
+    <fields>
+        <label><!-- Latest Abandoned Cart --></label>
+        <name>OSF_DWback__isCurrentAbandonedCart__c</name>
+    </fields>
+    <fields>
+        <label><!-- OTS Address1 --></label>
+        <name>OTSAddress1__c</name>
+    </fields>
+    <fields>
+        <label><!-- OTS Address2 --></label>
+        <name>OTSAddress2__c</name>
+    </fields>
+    <fields>
+        <label><!-- OTS Address3 --></label>
+        <name>OTSAddress3__c</name>
+    </fields>
+    <fields>
+        <label><!-- OTS City --></label>
+        <name>OTSCity__c</name>
+    </fields>
+    <fields>
+        <label><!-- OTS Contact --></label>
+        <name>OTSContact__c</name>
+    </fields>
+    <fields>
+        <label><!-- OTS Country --></label>
+        <name>OTSCountry__c</name>
+    </fields>
+    <fields>
+        <label><!-- OTS Fax --></label>
+        <name>OTSFaxNum__c</name>
+    </fields>
+    <fields>
+        <label><!-- OTS Name --></label>
+        <name>OTSName__c</name>
+    </fields>
+    <fields>
+        <label><!-- OTS Phone --></label>
+        <name>OTSPhoneNum__c</name>
+    </fields>
+    <fields>
+        <label><!-- OTS ResaleId --></label>
+        <name>OTSResaleId__c</name>
+    </fields>
+    <fields>
+        <label><!-- OTS State --></label>
+        <name>OTSState__c</name>
+    </fields>
+    <fields>
+        <label><!-- OTS Zip --></label>
+        <name>OTSZip__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Created --></label>
+        <name>Order_Created__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Date --></label>
+        <name>Order_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Placed --></label>
+        <name>Order_Placed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Ready --></label>
+        <name>Order_Ready__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Released Date --></label>
+        <name>Order_Released_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Origin --></label>
+        <name>Origin__c</name>
+    </fields>
+    <fields>
+        <label><!-- PO Created Date --></label>
+        <name>PO_Created_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- PO Created --></label>
+        <name>PO_Created__c</name>
+    </fields>
+    <fields>
+        <label><!-- PO Number --></label>
+        <name>PO_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment Captured Date --></label>
+        <name>Payment_Captured_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment Captured --></label>
+        <name>Payment_Captured__c</name>
+    </fields>
+    <fields>
+        <label><!-- Planned Production Date --></label>
+        <name>Planned_Production_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- PrePaid Order --></label>
+        <name>PrePaid_Order__c</name>
+    </fields>
+    <fields>
+        <label><!-- Production Date --></label>
+        <name>Production_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Proof Approval Received --></label>
+        <name>Proof_Approval_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Proof Approved Date --></label>
+        <name>Proof_Approved_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Proof Approved --></label>
+        <name>Proof_Approved__c</name>
+    </fields>
+    <fields>
+        <label><!-- Proof Received Date --></label>
+        <name>Proof_Received_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Proof Sent Date --></label>
+        <name>Proof_Sent_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Proof Sent --></label>
+        <name>Proof_Sent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Proof and PO sent to MIGS --></label>
+        <name>Proof_and_PO_sent_to_MIGS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Received Logo Date --></label>
+        <name>Received_Logo_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Received Logo --></label>
+        <name>Received_Logo__c</name>
+    </fields>
+    <fields>
+        <label><!-- Received Resell Agreement --></label>
+        <name>Received_Resell_Agreement__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sales Group --></label>
+        <name>Sales_Group__c</name>
+        <picklistValues>
+            <masterLabel>College Bookstore</masterLabel>
+            <translation><!-- College Bookstore --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Conservation</masterLabel>
+            <translation><!-- Conservation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corporate</masterLabel>
+            <translation><!-- Corporate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Golf</masterLabel>
+            <translation><!-- Golf --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing</masterLabel>
+            <translation><!-- Marketing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Motorsports</masterLabel>
+            <translation><!-- Motorsports --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Promotional</masterLabel>
+            <translation><!-- Promotional --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sales Order --></label>
+        <name>Sales_Order__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sample Order --></label>
+        <name>Sample_Order__c</name>
+    </fields>
+    <fields>
+        <label><!-- Send To ERP --></label>
+        <name>Send_To_ERP__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sent To ERP --></label>
+        <name>Sent_To_ERP__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ship By Date --></label>
+        <name>Ship_By_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Designates the order to ship all product together. --></help>
+        <label><!-- Ship Complete --></label>
+        <name>Ship_Complete__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ship To Contact --></label>
+        <name>Ship_To_Contact__c</name>
+        <relationshipLabel><!-- Opportunities (Ship To Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Ship To --></label>
+        <name>Ship_To__c</name>
+        <relationshipLabel><!-- Opportunities (Ship To) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Shipped Date after Production Date --></label>
+        <name>Shipped_Date_after_Production_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shipping Address --></label>
+        <name>Shipping_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shipping Confirmation Sent To Customer --></label>
+        <name>Shipping_Confirmation_Sent_To_Customer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sold To Address --></label>
+        <name>Sold_To_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sub Sales Group --></label>
+        <name>Sub_Sales_Group__c</name>
+        <picklistValues>
+            <masterLabel>BF&amp;I</masterLabel>
+            <translation><!-- BF&amp;I --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Construction</masterLabel>
+            <translation><!-- Construction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Entertainment and Sports</masterLabel>
+            <translation><!-- Entertainment and Sports --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Food and Beverage</masterLabel>
+            <translation><!-- Food and Beverage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Healthcare &amp; Pharmaceuticals</masterLabel>
+            <translation><!-- Healthcare &amp; Pharmaceuticals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internet Software &amp; Services</masterLabel>
+            <translation><!-- Internet Software &amp; Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oil/Gas/Utilities</masterLabel>
+            <translation><!-- Oil/Gas/Utilities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Resort Lodge Hospitality</masterLabel>
+            <translation><!-- Resort Lodge Hospitality --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retailers</masterLabel>
+            <translation><!-- Retailers --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Tolling Order --></label>
+        <name>Tolling_Order__c</name>
+    </fields>
+    <fields>
+        <label><!-- Use OTS --></label>
+        <name>UseOTS__c</name>
+    </fields>
+    <fields>
+        <label><!-- YETI-Oppty to Acct Ownership Check --></label>
+        <name>YETI_Oppty_to_Acct_Ownership_Check__c</name>
+    </fields>
+    <fields>
+        <help><!-- Reference to the Geocode object holding all of mapping information for the record. --></help>
+        <label><!-- Geocode --></label>
+        <name>geopointe__Geocode__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Biz Dev Opportunity Layout</layout>
+        <sections>
+            <label><!-- Account Sold To Information’ --></label>
+            <section>Account Sold To Information’</section>
+        </sections>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Bulk Order --></label>
+            <section>Bulk Order</section>
+        </sections>
+        <sections>
+            <label><!-- Customized Coolers --></label>
+            <section>Customized Coolers</section>
+        </sections>
+        <sections>
+            <label><!-- Customized Stainless --></label>
+            <section>Customized Stainless</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Opportunity Layout</layout>
+        <sections>
+            <label><!-- ERP Sales Order Information --></label>
+            <section>ERP Sales Order Information</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Business Development --></label>
+        <name>Business_Development</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Canada Insides Sales/Field Sales --></label>
+        <name>Canada_Insides_Sales_Field_Sales</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Inside Sales/Field Sales --></label>
+        <name>Inside_Sales_Field_Sales</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- The selected account is not a valid ERP customer. --></errorMessage>
+        <name>Account_Is_Not_An_ERP_Customer</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This account is currently on hold. --></errorMessage>
+        <name>Account_On_Hold</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The selected primary contact does not existing in the ERP system. --></errorMessage>
+        <name>BillTo_contact_is_not_valid_ERP_contact</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- An opportunity cannot be created for a Ship To account. --></errorMessage>
+        <name>Cannot_Create_Opp_for_Ship_TO</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- A credit application has not been submitted. --></errorMessage>
+        <name>Credit_App_Not_Submitted</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Credit card is expired or is not on file. Please enter new credit card information on this opportunity. --></errorMessage>
+        <name>Credit_Card_Expired</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- New credit card information has not been fully completed. --></errorMessage>
+        <name>Credit_Card_Info_Not_Completed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- A credit card must be selected or set as one time use for this opportunity before requesting an Epicor sales order. --></errorMessage>
+        <name>Credit_Card_Not_Selected</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This account is on credit hold. --></errorMessage>
+        <name>Customer_on_Credit_Hold</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The minimum advertised pricing has not been agreed to. --></errorMessage>
+        <name>Minimum_Advertised_Price_Not_Agreed_To</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Need By Date must be greater than or equal to today. --></errorMessage>
+        <name>Need_By_Date_Greater_Than_Today</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- A Need By Date is required to create an ERP sales order. --></errorMessage>
+        <name>Need_By_Date_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Opportunity MUST be associated with an Account in order to be created. Perform the necessary changes and please try again. --></errorMessage>
+        <name>OSF_DWback__Required_Account_for_Opportunities</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- To use a one time ship to the following fields are required:
+OTS Name,
+OTS Address1,
+OTS City,
+OTS State,
+OTS Zip,
+OTS Country,
+OTS Phone --></errorMessage>
+        <name>OTS_Fields_Not_Completed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Opportunity products are required in order to send to ERP. Please add at least one product --></errorMessage>
+        <name>Opportunity_Products_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Order Placed date must equal Today&apos;s date. Please change this value. --></errorMessage>
+        <name>OrderPlacedDate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- A Order Placed date is required to create an ERP sales order. --></errorMessage>
+        <name>Order_Placed_Date_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Order placed date cannot be in the future --></errorMessage>
+        <name>Order_Placed_in_Future</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- A PO Number is required to create an ERP sales order. --></errorMessage>
+        <name>PO_Number_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Payment terms have not been selected. --></errorMessage>
+        <name>Payment_Terms_Not_Selected</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- An opportunity stage cannot be changed from Approved Prebook --></errorMessage>
+        <name>Prevent_Prebook_Opp_Stage_Change</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- An opportunity stage cannot be manually set to or change from processing or closed won. --></errorMessage>
+        <name>Prevent_Specific_Opp_Stage_Change</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- A valid Ship To (or OTS) is required to request an Epicor sales order. --></errorMessage>
+        <name>Require_ShipTo_Or_OTS_For_ERP_SO</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This account does not have a resale certificate on file. --></errorMessage>
+        <name>Resale_Certificate_Not_On_File</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- A sales order has already been created for this opportunity. --></errorMessage>
+        <name>Sales_Order_Already_Exists</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Your request to create an ERP sales order has already been submitted. --></errorMessage>
+        <name>Sales_Order_Request_Already_Sumbitted</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The selected shipto contact does not existing in the ERP system. --></errorMessage>
+        <name>ShipTo_contact_is_not_valid_ERP_contact</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The selected shipto does not existing in the ERP system. --></errorMessage>
+        <name>ShipTo_is_not_valid_ERP_ShipTo</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Terms and conditions have not been agreed. --></errorMessage>
+        <name>Terms_and_Conditions_Not_Agreed_To</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter a valid credit card number without spaces, dashes, or non-numeric characters (16 digits for Visa/Mastercard/Discover, 15 digits for AMEX). --></errorMessage>
+        <name>Valid_Credit_Card_Number</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Create_ERP_Sales_Order --></label>
+        <name>Create_ERP_Sales_Order</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LNK_Opportunity_Create_Quote --></label>
+        <name>LNK_Opportunity_Create_Quote</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LNK_Opportunity_InventoryList --></label>
+        <name>LNK_Opportunity_InventoryList</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LNK_Opportunity_Order_Create --></label>
+        <name>LNK_Opportunity_Order_Create</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LNK_Opportunity_Quote_Detail --></label>
+        <name>LNK_Opportunity_Quote_Detail</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LNK_Opportunity_Quote_Materials --></label>
+        <name>LNK_Opportunity_Quote_Materials</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LNK_Opportunity_View_SAP_Order --></label>
+        <name>LNK_Opportunity_View_SAP_Order</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_with_DocuSign --></label>
+        <name>dsfs__Send_with_DocuSign</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Verify_with_DNB --></label>
+        <name>dsfs__Verify_with_DNB</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Map --></label>
+        <name>geopointe__Map</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Map_Records_Opportunity --></label>
+        <name>geopointe__Map_Records_Opportunity</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Map_Records_Opportunity2 --></label>
+        <name>geopointe__Map_Records_Opportunity2</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Map_newWindow --></label>
+        <name>geopointe__Map_newWindow</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Return Instructions - Old Process w/ FedEx Label</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Your Return Request Confirmation
+
+
+Hello,
+
+
+Thank you for sending over your warranty request information. We have authorized your warranty exchange and are going to do our best to make this process easy.
+
+
+
+Once we have received your defective product, we will do our best to ship your replacement YETI within 10 business days. During peak season times, it may take up to 15 business days. If your return product is not received within 30 days then your warranty case will be closed. Let us know in advance if you foresee any delay.
+
+Please verify the return product information below matches what you will be returning.
+
+Your Return Information:
+
+Return Order #:
+
+Products Returned:
+
+Replacement Product:
+
+
+
+To return your YETI product follow the steps below:
+
+•    A separate email will be sent to you with a return packing slip. Print off the packing slip and include it inside your package or product. Confirm your address on the form is correct as this is where your replacement product will be shipped.
+
+•    You will need to return your defective product before a replacement will be shipped. You receive an additional email separate from your packing slip from us that contains the Prepaid FedEx Label to send your product back. Please print this label out and use clear tape to attach the label to the outside of the shipping box.
+
+• Please make sure your YETI product is cleaned out and dry on the inside. When possible, we kindly ask that you protect your product during shipping by boxing your YETI.
+
+•    Ask for a copy of your receipt confirming your drop off at FedEx and keep this for your records. We recommend avoiding FedEx Drop boxes as they have size limitations and will not provide a confirmation of receipt.
+
+
+
+If you need to make any changes, need to expedite your return process, need assistance with return product packaging or forms, or have any further questions, please give us a call at 512.394.9384 so we can further assist.
+
+
+Thanks for being a YETI customer!
+
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+
+The YETI Outfitters
+
+YETI
+
+512.394.9384
+
+customerservice@yeti.com
+
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Dealer Inquiries</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>We really appreciate your interest in YETI.  We are trying to make responsible decisions in our growth and support our current dealer base. We are experiencing incredible demand at this time and hope to have opportunities to open additional authorized dealers in the future. As soon as we are able to do so, our outside sales team will be going through all of the dealer applications which have come through our web site.
+
+
+
+Thank you for being a YETI fan, and we look forward to talking with you in the future.
+
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

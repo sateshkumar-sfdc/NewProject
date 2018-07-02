@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Latex Allergy</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hi {!Contact.FirstName},
+
+Thank you for contacting YETI!
+
+Our YETI line of products are not made with any latex materials, but YETI can not guarantee that latex products (for example, gloves) did not come in contact with our items during manufacturing, inspection, and transportation.
+
+Thanks,
+
+
+{!User.CommunityNickname} 
+The YETI Outfitters 
+512.394.9384 
+customerservice@yeticoolers.com 
+yeticoolers.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

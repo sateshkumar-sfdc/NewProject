@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Check Follow Up</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Greetings,
+
+Thank you for reaching out to YETI Coolers. I wanted to follow up with you and let you know we have not received your check yet. I always like to follow up so we make sure you have the best possible experience. If it has already been mailed and should be here already, please reply to this email with the check number and the amount. I can then make sure we track it and get it applied as soon as we receive it. Thank you for allow us to be a part of your event.
+
+I look forward to working with you.
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

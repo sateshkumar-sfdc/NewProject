@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>BackFlip Into Summer – May 21</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Are you doing BackFlips yet? We hope so!
+
+We’re two weeks into the contest, and hope you’re continuing to see momentum.
+
+As a reminder, all sales from the 2nd week of the contest must be submitted via the linked form below by 4pm CT today, May 21, to be eligible for this week’s prize: https://yeti.formstack.com/forms/backflip_into_summer
+
+If one of your sales associates wins a weekly prize, they will be notified directly by email.
+
+Here are a few refreshers for how to make the most of the contest:
+
+
+- Check in on your YETI merchandising.
+
+o Are there products you need to re-order to keep the shelves stocked?
+
+o Make sure the display is clean, organized, and in a high-traffic area.
+
+o If you haven’t already, it’s never too late to try out a display at the cash wrap, or other secondary impulse location to get that last minute sale.
+
+o Want to upgrade your display with POP, videos, or window imagery? Reach out to (insert TSM name) to see what options we have available, or check out available imagery on the Dealer Resources Portal (dealers.yeti.com / pw: Driftwood).
+
+
+- Connect YETI with your community.
+
+o Have an event coming up? Brainstorm how to tie in YETI to help build awareness of your Authorized Dealer status and drive sales.
+
+o Share about YETI on your social media channels to build some buzz, and make sure to hashtag #BackFlipIntoSummer.
+
+
+As always, (insert TSM name) is available for any questions or assistance.
+
+Good luck in week 3!
+
+Terms and conditions apply. See full contest rules here.
+
+
+{!User.CommunityNickname}
+
+Account Management Team
+
+YETI
+
+512.394.0222
+
+sales@yeti.com
+
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>YETI Dealer Employee Program</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Thank you for your interest in YETI Coolers.  We appreciate the hard work and dedication of our Authorized Dealers and their employees to help spread the word about the superior ice retention capabilities and unmatched durability of YETI Coolers.  To show our appreciation  would like to extend a special discounted price to you.
+
+We have made several changes to the program and are asking our valuable network of Dealer Employees to help us make this program better. To do so we invite you to submit your information to us via this link which is available once you login to our Dealer Resource section of our website (password: flippallot). We are asking that each Employee do this once a year to stay current with us.
+
+
+Once the on-line form has been filled out and submitted to us we will reach back out to you with confirmation of your acceptance and some instructions for ordering.
+
+
+Please feel free to contact us for any further questions.
+
+
+Thank you.
+
+{!User.CommunityNickname}
+Account Management Team
+YETI
+512.394.0222
+sales@yeti.com
+yeti.com
+
+
+CONFIDENTIAL INFORMATION OF YETI COOLERS, LLC. THIS DOCUMENT IS INTENDED FOR USE ONLY BY YETI’S AUTHORIZED DEALERS. ANY DISCLOSURE, REPRODUCTION, DISTRIBUTION, OR OTHER USE OF THIS DOCUMENT IS PROHIBITED AND MAY RESULT IN ACCOUNT CLOSURE, IN ADDITION TO OTHER REMEDIES AVAILABLE AT LAW.</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,171 @@
+<!--
+************************************************************
+** Name: CreateShipToAccountCmp.cmp      	              **
+** Copyright notice: 								      **
+** YETI Coolers										      **
+************************************************************
+** Purpose: (Omni Channel)								  **
+************************************************************
+** History:                                               **
+************************************************************
+** VERSION AUTHOR DATE DETAIL RELEASE/CSR                 **
+** 1.0 - Satesh Makineni 05/20/2018 INITIAL DEVELOPMENT   **
+** 2.0 -                                              	  **
+************************************************************
+-->
+
+<aura:component controller="SoldToAccount" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+   <!-- using Dataservice and capture the current Record Id  -->
+    <aura:attribute name="recordId" type="string"/>
+    <aura:attribute name="record" type="Object"/>
+     <aura:attribute name="AccountName" type="String"/>
+     <aura:attribute name="street" type="String"/>
+    <aura:attribute name="city" type="String"/>
+    <aura:attribute name="state" type="String"/>
+    <aura:attribute name="postalCode" type="String"/>
+    <aura:attribute name="country" type="String"/>
+    <aura:attribute name="simpleRecord" type="Object"/>
+    <aura:attribute name="recordError" type="String"/>
+    <aura:attribute name="acc" type="Account" default="{'sobjectType': 'Account'}"/>
+    
+   
+    <!--Start Attribute declaration-->
+     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="isOpen" type="boolean" default="false" />
+    <aura:attribute name="error" type="string" />
+    <aura:attribute name="errorField" type="string" />
+    
+     <force:recordData aura:id="recordLoader"
+                      recordId="{!v.recordId}"
+                      layoutType="FULL"
+                      targetRecord="{!v.record}"
+                      targetFields="{!v.simpleRecord}"
+                      targetError="{!v.recordError}"
+                      
+                      />
+    
+    
+    <!--End Attribute declaration-->
+    <!-- Account Information section-->
+    <article class="slds-card">
+        <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__body ">
+                    <h2 class="slds-text-align_center">
+                        
+                    </h2>
+                </div>
+            </header>
+        </div> 
+        <div class="slds-text-color_error"><p>{!v.error}{!v.errorField}</p>
+        </div>
+        <div class="slds-card__body slds-card__body_inner"> </div>
+        <div class="slds-section slds-is-open">
+            <h3 class="slds-section__title slds-theme--shade primaryPaletteBorder test-id__section-header-container">
+                <span class="test-id__section-header-title section-header-title slds-p-horizontal--small slds-truncate" title="Section Title" ><b>Account Info</b></span>
+            </h3>
+            <div class="slds-p-bottom_x-small"></div>
+            
+            <div class="slds-p-top_x-small"></div>
+            <form class="slds-form--stacked">
+                <div class="slds">
+                    <div class="slds-grid slds-wrap slds-grid_align-center slds-grid_align-space ">
+                        <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-1">
+                            
+                            <div class="slds-form-element ">
+                                <div class="slds-form-element__control">
+                                    <lightning:input type="text" aura:id="accountnameId" label="Account Name" name="Accountname" value="{!v.AccountName.Name}" disabled="true" />
+                            </div>  
+                            
+                        </div>                                 
+                    </div>
+                    
+                    </div>
+                </div>
+                
+            </form>
+            
+        </div>
+        <!-- Account Information section Closed-->
+        
+        <!--Ship To Address Section-->
+        
+        <div class="slds-p-top_x-small"></div>
+        <div class="slds-section slds-is-open">
+            <h3 class="slds-section__title slds-theme--shade primaryPaletteBorder test-id__section-header-container">
+                <span class="test-id__section-header-title section-header-title slds-p-horizontal--small slds-truncate" title="Section Title" ><b>Ship To Address</b></span>
+            </h3>
+            <div class="slds-p-bottom_x-small"></div>
+            
+            <form class="slds-form--stacked">
+                <div class="slds slds-text-align_left">
+                    <div class="slds-grid slds-wrap slds-text-align_left slds-grid_align-space ">
+                        
+                        <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-1">
+                            <div class="slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-1">
+                                <div class="slds-form-element ">
+                                    <div class="slds-form-element__control slds-p-top_medium ">
+                                        <!--lightning:input type="textarea" aura:id="addressStreetId" placeholder="Street" label="Street" name="Street" required="true" /-->
+                                        <lightning:textarea name="Street" aura:id="addressStreetId" required="true" value="" placeholder="Street" label="Street" maxlength="140" messageWhenTooLong="A maximum of 140 characters are allowed in a tweet." messageWhenValueMissing="Please Enter the Value" />
+                                    </div>
+                                </div>  
+                            </div>
+                            
+                            <div class="slds-grid slds-wrap slds-text-align_left slds-grid_align-space ">
+                                <div class="slds-col--padded slds-size--2-of-3 slds-medium-size--2-of-3">
+                                    <div class="slds-form-element ">
+                                        <div class="slds-form-element__control slds-p-top_medium">
+                                            <lightning:input type="text" aura:id="addressCityId" placeholder="City" label="City" name="City " required="true" messageWhenValueMissing = "Please select a value"/>
+                                        </div>
+                                    </div>  
+                                </div>
+                                
+                                <div class="slds-col--padded slds-size--1-of-3 slds-medium-size--1-of-3">
+                                    <div class="slds-form-element ">
+                                        <div class="slds-form-element__control slds-p-top_medium">
+                                            
+                                            <lightning:input type="text" aura:id="addressStateId" placeholder="State" label="State" name="State " required="true" messageWhenValueMissing = "Please select a value"/>
+                                        </div>
+                                    </div>  
+                                </div>
+                            </div>
+                            <div class="slds-grid slds-wrap slds-text-align_left slds-grid_align-space ">
+                                <div class="slds-col--padded slds-size--2-of-3 slds-medium-size--2-of-3">
+                                    <div class="slds-form-element ">
+                                        <div class="slds-form-element__control slds-p-top_medium">
+                                            <lightning:input type="text" aura:id="addressZipId" placeholder="Postal Code" label="Postal Code" name="zipcode " required="true" messageWhenValueMissing = "Please select a value"/>
+                                        </div>
+                                    </div>  
+                                </div>
+                                <div class="slds-col--padded slds-size--1-of-3 slds-medium-size--1-of-3">
+                                    <div class="slds-form-element ">
+                                        <div class="slds-form-element__control slds-p-top_medium">
+                                            
+                                            <lightning:input type="text" aura:id="addressCountryId" placeholder="Country" label="Country" name="country " required="true" messageWhenValueMissing = "Please select a value"/>
+                                        </div>
+                                    </div>  
+                                </div>
+                            </div>  
+                            
+                        </div>  
+                        
+                    </div>
+                </div>  
+            </form>
+        </div>  
+        <!-- Ship To Address complete-->
+            <br></br>
+    <br></br>
+    <br></br>
+        <!--div class="slds-grid slds-gutters"-->
+  <!--div class="slds-col slds-size_1-of-1"-->
+    <!--div align="center" >  
+    <button class="button button1" onclick="{!c.save}">Save</button>
+  </div-->
+  <!--/div-->
+        
+    <lightning:button class="slds-button slds-button_brand slds-align_absolute-center" aura:id="Save" label="Save" onclick="{!c.saveAccount}" /> 
+
+    </article>
+    
+    </aura:component>

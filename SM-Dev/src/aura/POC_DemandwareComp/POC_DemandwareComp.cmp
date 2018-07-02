@@ -1,0 +1,35 @@
+<!-- POC_DemandwareComp -->
+<aura:component controller="POC_DemandwareCallout" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    
+    <aura:attribute name="calloutRes" type="Object" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div>
+        Product Name: {!v.calloutRes.hits[0].product_name}
+    </div>
+    <div>
+        Product Id: {!v.calloutRes.hits[0].product_id}
+    </div>
+    <div>
+        
+    </div>
+    <div>
+        
+    </div>
+    <div>
+        
+    </div>
+    
+    <aura:iteration items="{!v.calloutRes.refinements}" var="cr">
+        <div>
+            {!cr.label}:
+            <aura:iteration items="{!cr.values}" var="crv" indexVar="in">
+                <div>
+                    &nbsp;&nbsp;{!add(in,1)}) {!crv.label}
+                </div>
+            </aura:iteration>
+        </div>
+    </aura:iteration>
+    
+</aura:component>

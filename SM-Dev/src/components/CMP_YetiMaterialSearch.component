@@ -1,0 +1,266 @@
+<!-- This is a clone of CMP_MaterialSearch but with lightning style for the dealer portal -->
+
+<apex:component controller="CTRL_MaterialSearch" id="materialSearch">
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"/>
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"/>
+    <apex:includeScript value="{!URLFOR($Resource.enosix, 'js/jqdates.js')}"/>
+    <!--<apex:stylesheet value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css"/>-->
+
+    <apex:attribute name="id" type="string" assignTo="{!componentId}" required="true"
+        description="Unique string to allow more than one copy per page"/>
+    <apex:attribute name="receiver" type="CB_MaterialSearchReceiver" assignTo="{!searchReceiver}" required="true" description=""/>
+    <apex:attribute name="enableMaterialTypeSelection" type="boolean" default="true" description="Toggle the material type selection checkboxes"/>
+    <apex:attribute name="rerender" type="string" description=""/>
+    <apex:attribute name="jsCallback" type="string" description="Name of js function. If set, it will be called before receiver is notified" />
+    <apex:attribute name="jsSearchCallback" type="string" description="Name of js function. If set, it will be called when search results are updated" />
+
+    <apex:attribute name="addButtonLabel" default="Add" type="string" description=""/>
+    <apex:attribute name="title" default="Material Search" type="string" description=""/>
+
+    <apex:attribute name="multiSelect" default="true" type="boolean" assignTo="{!isMultiSelectEnabled}" description=""/>
+    <apex:attribute name="dateSelect" default="false" type="boolean" assignTo="{!isScheduleDateEnabled}" description=""/>
+    <apex:attribute name="autoSearch" default="false" type="boolean" assignTo="{!isAutoSearchEnabled}" description=""/>
+    <apex:attribute name="searchOnClear" default="false" type="boolean" assignTo="{!isSearchOnClearEnabled}" description="Re-run autosearch after items are chosen"/>
+    <apex:attribute name="quantity" default="true" type="boolean" assignTo="{!isQuantityEnabled}" description=""/>
+
+    <apex:attribute name="salesOrganization" default="" type="string" assignTo="{!salesOrg}" description=""/>
+    <apex:attribute name="distributionChannel" default="" type="string" assignTo="{!distChannel}" description=""/>
+
+    <apex:attribute name="defaultMaterial" type="string" assignTo="{!defaultMaterialNumber}" description=""/>
+    <apex:attribute name="defaultProductHierarchy" type="string" assignTo="{!defaultHierarchy}" description=""/>
+    <apex:attribute name="defaultSearchDescription" type="string" assignTo="{!defaultDescription}" description=""/>
+    <apex:attribute name="defaultMaterialTypes" type="string[]" assignTo="{!defaultTypes}" description=""/>
+    <apex:attribute name="defaultProductAttributes" type="string[]" assignTo="{!defaultAttributes}" description=""/>
+
+    <apex:attribute name="height" default="" type="string" assignTo="{!listHeight}" description=""/>
+
+    <apex:pageBlock >
+        <div class="slds-text-heading--large slds-p-bottom--small">{!title}</div>
+        <apex:outputPanel layout="block">
+            <div class="slds-grid slds-wrap slds-p-bottom--medium">
+                <div class="slds-size--1-of-1">
+                    <apex:outputLabel value="Material:" for="searchMaterial" />
+                </div>
+                <div class="slds-size--1-of-1 slds-medium-size--3-of-6">
+                    <apex:inputText value="{!material}" id="searchMaterial" size="40"
+                        styleClass="CMP_MaterialSearch_input{!id} slds-input" />
+                </div>
+            </div>
+            <div class="slds-grid slds-wrap slds-p-bottom--medium">
+                <div class="slds-size--1-of-1">
+                    <apex:outputLabel value="By Product Category:" />
+                </div>
+                <div class="slds-size--1-of-1 slds-medium-size--3-of-6">
+                    <apex:selectList value="{!productHierarchy}" size="1" styleClass="slds-select">
+                        <apex:selectOption itemValue="" itemLabel="All" />
+                        <apex:selectOptions value="{!productHierarchiesList}" />
+                    </apex:selectList>
+                </div>
+            </div>
+            <div class="slds-grid slds-wrap slds-p-bottom--medium">
+                <div class="slds-size--1-of-1">
+                    <apex:outputLabel value="By Description:" for="searchDescription" />
+                </div>
+                <div class="slds-size--1-of-1 slds-medium-size--3-of-6">
+                    <apex:inputText value="{!searchDescription}" id="searchDescription" size="40"
+                        styleClass="CMP_MaterialSearch_input{!id} slds-input" />
+                </div>
+            </div>
+        </apex:outputPanel>
+
+        <!--rendered="{!enableMaterialTypeSelection}"-->
+        <apex:outputPanel layout="block" styleClass="slds-p-bottom-small">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-size--1-of-1">
+                    <apex:selectCheckboxes value="{!materialTypes}" borderVisible="true" legendText="Material Types"
+                    rendered="{!enableMaterialTypeSelection}">
+                        <apex:selectOptions value="{!materialTypesList}" />
+                    </apex:selectCheckboxes>
+                </div>
+                <div class="slds-size--1-of-1">
+                    <apex:selectCheckboxes value="{!productAttributes}" borderVisible="true" legendText="Product Attributes"
+                    rendered="{!enableMaterialTypeSelection}">
+                        <apex:selectOptions value="{!productAttributesList}" />
+                    </apex:selectCheckboxes>
+                </div>
+            </div>
+        </apex:outputPanel>
+
+        <apex:actionFunction name="CMP_MaterialSearch_sendResults{!id}"
+                action="{!actionSendResultsToReceiver}" status="status" rerender="{!rerender}"
+                oncomplete="CMP_MaterialSearch_jscb{!id}();" />
+
+        <apex:actionFunction name="CMP_MaterialSearch_sendSingleResult{!id}"
+                action="{!actionSendSingleResultToReceiver}" status="status" rerender="{!rerender}"
+                oncomplete="CMP_MaterialSearch_jscb{!id}();">
+            <apex:param name="selectedMaterial" value="" />
+        </apex:actionFunction>
+
+        <apex:actionFunction name="CMP_MaterialSearch_searchMaterials{!id}"
+                action="{!actionSearch}" status="status" rerender="{!rerender}"
+                oncomplete="CMP_MaterialSearch_searchcb{!id}();" />
+        <apex:commandButton value="Search" onclick="CMP_MaterialSearch_searchMaterials{!id}();return false;"
+            rendered="{!!isAutoSearchEnabled || isOnLoadComplete}" styleClass="slds-button slds-button--brand" />
+
+        <br/> <br/>
+
+        <apex:outputText value="Searching..." rendered="{!isAutoSearchEnabled && !isOnLoadComplete}" />
+
+        <apex:outputPanel layout="block" style="{!tableWrapperStyle}" rendered="{!null != searchResults}">
+            <table border="0" cellpadding="0" cellspacing="0" class="slds-table slds-table--bordered slds-table-custom table-material">
+                <thead>
+                    <tr class="slds-text-title--caps">
+                        <th class="headerRow" scope="col"><div>Product Name</div></th>
+                        <th class="headerRow" scope="col"><div>Code</div></th>
+                        <th class="headerRow" scope="col"><div>Description</div></th>
+                        <th class="headerRow" scope="col"><div>Category</div></th>
+
+                        <apex:outputPanel layout="none" rendered="{!isQuantityEnabled}">
+                            <th class="headerRow" scope="col"><div>Quantity</div></th>
+                            <th class="headerRow" scope="col"><div>Std. Unit</div></th>
+                        </apex:outputPanel>
+
+                        <apex:outputPanel layout="none" rendered="{!isScheduleDateEnabled}">
+                            <th class="headerRow" scope="col"><div>Requested Ship</div></th>
+                        </apex:outputPanel>
+
+                        <th class="headerRow" scope="col">
+                            <apex:commandButton styleClass="slds-button slds-button--brand" rendered="{!isMultiSelectEnabled}" value="{!addButtonLabel}"
+                                onclick="CMP_MaterialSearch_sendResults{!id}();return false;" />
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                <apex:repeat value="{!searchResults}" var="m">
+                    <tr class="dataRow" onmouseover="if (window.hiOn){hiOn(this);}" onmouseout="if (window.hiOff){hiOff(this);}"
+                            onblur="if (window.hiOff){hiOff(this);}" onfocus="if (window.hiOn){hiOn(this);}">
+
+                        <td class="dataCell">{!m.material.Material}</td>
+                        <td class="dataCell">{!m.material.MaterialType}</td>
+                        <td class="dataCell">{!m.material.MaterialDescription}</td>
+                        <td class="dataCell">{!m.material.ProductHierarchyDescription}</td>
+
+                        <apex:outputPanel layout="none" rendered="{!isQuantityEnabled}">
+                            <td class="dataCell">
+                                <apex:input type="number" value="{!m.quantity}" size="4" styleClass="CMP_MaterialSearch_quantity{!id}" 
+                                    alt="{!m.material.DenominatorForConversion}"/>
+                            </td>
+                            <td class="dataCell slds-text-align--center">
+                                <apex:outputText value="{0} {1}">
+                                    <apex:param value="{!m.material.DenominatorForConversion}"/>
+                                    <apex:param value="{!m.material.AlternateUnitOfMeasure}"/>
+                                </apex:outputText>
+                            </td>
+                        </apex:outputPanel>
+
+                        <apex:outputPanel layout="none" rendered="{!isScheduleDateEnabled}">
+                            <td class="dataCell">
+                                <apex:inputText styleClass="jqDate" size="11"
+                                    value="{!m.scheduleDate}" rendered="{!isScheduleDateEnabled}" />
+                            </td>
+                        </apex:outputPanel>
+
+                        <td class="dataCell">
+                            <apex:inputCheckbox value="{!m.isSelected}" rendered="{!isMultiSelectEnabled}"
+                                styleClass="searchResultCheckbox{!id}" />
+                            <apex:commandButton value="Select" styleClass="slds-button slds-button--brand" rendered="{! !isMultiSelectEnabled}"
+                                onclick="CMP_MaterialSearch_sendSingleResult{!id}('{!m.material.Material}');return false;" />
+                        </td>
+
+                    </tr>
+                </apex:repeat>
+                </tbody>
+                <tfoot>
+                    <tr class="totalRow materialFooter">
+                        <th class="totalRow materialFooter" scope="col" colspan="4"></th>
+
+                        <apex:outputPanel layout="none" rendered="{!isScheduleDateEnabled}">
+                            <th class="totalRow materialFooter" scope="col"></th>
+                        </apex:outputPanel>
+
+                        <apex:outputPanel layout="none" rendered="{!isQuantityEnabled}">
+                            <th class="totalRow materialFooter" scope="col" colspan="2"></th>
+                        </apex:outputPanel>
+
+                        <apex:outputPanel layout="none" rendered="{!isMultiSelectEnabled}">
+                            <th class="totalRow materialFooter" scope="col">
+                                <apex:commandButton styleClass="slds-button slds-button--brand" rendered="{!isMultiSelectEnabled}" value="{!addButtonLabel}"
+                                    onclick="CMP_MaterialSearch_sendResults{!id}();return false;" />
+                            </th>
+                        </apex:outputPanel>
+
+                        <apex:outputPanel layout="none" rendered="{! !isMultiSelectEnabled}">
+                            <th class="totalRow materialFooter" scope="col"></th>
+                        </apex:outputPanel>
+                    </tr>
+                </tfoot>
+            </table>
+        </apex:outputPanel>
+    </apex:pageBlock>
+    <script>
+    function CMP_MaterialSearch_jscb{!id}() {
+        if (!!'{!jsCallback}') window['{!jsCallback}']();
+    }
+    function CMP_MaterialSearch_searchcb{!id}() {
+        if (!!'{!jsSearchCallback}') window['{!jsSearchCallback}']();
+    }
+
+    $(document).ready(function () {
+
+        // Bind enter key to search while in search fields
+        $('.CMP_MaterialSearch_input{!id}').bind('keypress', function(event) {
+            if (event.which === 13) {
+                CMP_MaterialSearch_searchMaterials{!id}();
+                return false;
+            }
+        });
+
+        $('.CMP_MaterialSearch_quantity{!id}').spinner();
+
+        // Iterate through the quantity field
+        // Set the init value as the minimum quantity
+        $('.CMP_MaterialSearch_quantity{!id}').each(function(){
+            var steps = $(this).prop('alt');
+            if (steps > 1)
+            {
+                $(this).val(steps);
+            }
+            
+        });
+
+        $('.CMP_MaterialSearch_quantity{!id}').focusout(function(){
+            //Look for the case pack value in the alt attribute
+            var steps = $(this).prop('alt');
+            var qty = parseInt($(this).val());
+            if (qty < 1 || isNaN(qty)){
+                $(this).val(1);
+                qty = 1;
+            }
+            if (steps > 0){
+                var remainder = qty % steps;
+                if (remainder != 0){                    
+                    var newValue = qty + (steps - remainder);
+                    $(this).val(newValue);
+                }
+            }
+        });
+
+        // Ignore all non-numbers in quantity fields
+        $('.CMP_MaterialSearch_quantity{!id}').bind('keypress', function(event) {
+            var char = String.fromCharCode(event.which)
+            if ($.isNumeric(char) || event.which == '8') {
+                return true;
+            }
+            return false;
+        });
+    });
+    </script>
+    <style>
+    .materialFooter {
+        background-color: #f2f3f3 !important;
+        border-bottom: none !important;
+        border-right: none !important;
+        border-left: none !important;
+    }
+    </style>
+</apex:component>

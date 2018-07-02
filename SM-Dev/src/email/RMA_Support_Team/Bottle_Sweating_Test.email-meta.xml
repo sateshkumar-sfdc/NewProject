@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Bottle Sweating Test</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Thank you for contacting YETI!
+
+We are sorry to hear that you have experienced a thermal retention issue with your YETI Rambler. To better identify any defect in the vacuum insulation we first require a preliminary ice test. This simple test consists of cleaning and drying your Rambler, filling it full of ice (no liquids / only ice), covering it with the accompanied Rambler Cap and allowing it to sit until the ice has completely melted.
+
+Please provide the following information from this test.
+
+•    Picture of the entire Rambler with the YETI embossed logo facing forward.
+
+•    Picture of the Rambler full of ice and time of initial start of the test. (ex. 9:00am)
+
+•    Remove the lid every few hours to view the melting phase. When the ice has fully melted please provide a picture of the outside of the Rambler, including the conclusion time which does not have to be exact (ex. 9:00pm).
+
+Please reply back to this email with these images. Once we have received these pictures, we will be able to identify the issues you are having and further assist you.
+
+Sincerely,
+
+{!User.CommunityNickname}
+The YETI Outfitters
+YETI
+512.394.9384
+customerservice@yeti.com
+yeti.com
+SaveSaveSaveSaveSaveSaveSaveSaveSaveSaveSaveSaveSave</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,7 @@
+Hi,
+
+Lead has been converted into following Account -
+
+Account Name: {!Account.Name}
+
+Detail Link: {!Account.Link}

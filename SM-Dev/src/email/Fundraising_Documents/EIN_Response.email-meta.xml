@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>EIN Response</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Greetings,
+
+Thank you for reaching out to YETI. We are not able to use the EIN document for program qualification. We do need a copy of the original IRS 501C3 letter or the state-issued document designating the organization is nonprofit. We keep these records on file for audit purposes. You can reply to this email with your document.
+
+I look forward to working with you!
+
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+
+The YETI Outfitters
+
+512.394.9384
+
+customerservice@yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

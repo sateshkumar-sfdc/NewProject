@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Media Request No</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hello –
+
+Thanks for the follow up and for sending over this opportunity.  Right now our marketing strategy includes using TV, digital, and print to reach individuals passionate about hunting, fishing, outdoors, professional BBQ, and rodeo through endemic channels.
+
+We are fully allocated at this time but we will save your information on file and contact you if we expand beyond endemic channels.
+
+
+Sincerely,
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

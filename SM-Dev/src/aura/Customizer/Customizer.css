@@ -1,0 +1,39 @@
+.THIS .images-div:hover{
+    cursor: pointer;
+}
+.THIS .images-div:active{
+    position: relative;
+    top: 10px;
+    left: 10px;
+    height: auto;
+    z-index: 9999;
+}
+
+.THIS .img-2 {
+    position: absolute;
+    top: 100px;
+}
+
+.THIS .font-s{	
+    font-size: 20px;
+}
+
+.THIS .slds-modal__container {	
+    padding-top: 156px;
+}
+
+.THIS .color-i {
+        line-height: 4;
+    vertical-align: bottom;
+    color: rgb(238, 234, 228);
+
+}
+
+@media (min-width: 60em) {
+    .THIS .slds-modal__container{
+        margin: 0 auto;
+        width: 75%;
+        max-width: 40rem;
+        min-width: 20rem;
+    }
+}

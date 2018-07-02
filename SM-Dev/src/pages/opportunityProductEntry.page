@@ -1,0 +1,345 @@
+<apex:page standardController="Opportunity" extensions="OpportunityProductEntryExtension" action="{!priceBookCheck}" >
+
+    <apex:sectionHeader Title="Manage {!$ObjectType.Product2.LabelPlural}" subtitle="{!opportunity.Name}"/>
+    <apex:pageMessages />
+
+    <style>
+        .search{
+            font-size:14pt;
+            margin-right: 20px;    
+        }
+        .fyi{
+            color:red;
+            font-style:italic;
+        }
+        .label{
+            margin-right:10px;
+            font-weight:bold;
+        }
+    </style>
+    
+    <script type='text/javascript'>
+    
+        // This script assists the search bar functionality
+        // It will execute a search only after the user has stopped typing for more than 1 second
+        // To raise the time between when the user stops typing and the search, edit the following variable:
+        
+        var waitTime = 1;
+        
+    
+        var countDown = waitTime+1;
+        var started = false;
+        
+        function resetTimer(){
+        
+            countDown=waitTime+1;
+            
+            if(started==false){
+                started=true;
+                runCountDown();
+            }
+        }
+        
+        function runCountDown(){
+        
+            countDown--;
+            
+            if(countDown<=0){
+                fetchResults();
+                started=false;
+            }
+            else{
+                window.setTimeout(runCountDown,1000);
+            }
+        }
+        
+        function onColorClick(productId,color,cId){
+            var x = document.getElementsByClassName("clc-"+productId+'-'+color);
+            var i;
+            var oldval = document.getElementById("check"+cId+"-"+productId+'-'+color);
+            for (i = 0; i < x.length; i++) {
+                if(x[i].id != "check"+cId+"-"+productId+'-'+color)
+                x[i].checked = false;
+            }
+            //alert(document.getElementById("check"+cId+"-"+productId).checked);
+            onColorChange(productId,color,cId,document.getElementById("check"+cId+"-"+productId+'-'+color).checked);
+        }
+        function onColorLoad(colortype,productId,color){
+            
+            var prefix= '';
+            if(colortype == 'One Color')prefix = 'check1-';
+            else if(colortype == 'Two Color')prefix = 'check2-';
+            else if(colortype == 'Three Color')prefix = 'check3-';
+            
+            var x = document.getElementById(prefix+productId+'-'+color);
+            //alert('oncolorLoad---'+colortype+'----'+(prefix+''+productId+color));
+            if(x != 'undefined' && x != null && x!= '')
+            x.checked = true;
+        }
+    
+    </script>
+   
+  
+    <apex:form >
+    
+        <apex:actionfunction name="onColorChange"  action="{!onColorChangeAction}" rerender="grandTotals,selected" status="status">
+            <apex:param name="productId" value=""/>
+            <apex:param name="color" value=""/>
+            <apex:param name="colorId" value=""/>
+            <apex:param name="colorVal" value=""/>
+        </apex:actionfunction>
+        <apex:outputPanel id="mainBody">
+        
+            <apex:outputLabel styleClass="label">PriceBook: </apex:outputLabel>
+            <apex:outputText value="{!theBook.Name}"/>&nbsp;
+            <!-- <apex:commandLink action="{!changePricebook}" value="change" immediate="true"/> -->
+            <br/>
+            <!-- not everyone is using multi-currency, so this section may or may not show -->
+            <apex:outputPanel rendered="{!multipleCurrencies}">
+                <apex:outputLabel styleClass="label">Currency: </apex:outputLabel>
+                <apex:outputText value="{!chosenCurrency}"/>
+                <br/>
+            </apex:outputPanel>
+            <br/>
+            
+            <!-- this is the upper table... a.k.a. the "Shopping Cart"-->
+
+            <!-- notice we use a lot of $ObjectType merge fields... I did that because if you have changed the labels of fields or objects it will reflect your own lingo -->
+            <apex:pageBlock title="Selected {!$ObjectType.Product2.LabelPlural}" id="selected">
+                       
+                <apex:pageblockTable value="{!shoppingCart}" var="s">
+                        <apex:column >
+                            <apex:commandLink value="Remove" action="{!removeFromShoppingCart}" reRender="selected,searchResults,grandTotals" immediate="true">
+                                <!-- this param is how we send an argument to the controller, so it knows which row we clicked 'remove' on -->
+                                <apex:param value="{!s.PriceBookEntryId}" assignTo="{!toUnselect}" name="toUnselect"/>
+                                <apex:param value="{!s.Color__c}" assignTo="{!toUnselectColor}" name="toUnselectColor"/>
+                            </apex:commandLink>
+                        </apex:column>
+                        
+                        <apex:column headerValue="{!$ObjectType.Product2.Fields.Name.Label}" >
+                            <apex:outputLink value="{!URLFOR($Action.Product2.View, s.PriceBookEntry.Product2.Id)}">{!s.PriceBookEntry.Product2.Name}</apex:outputLink>
+                        </apex:column>
+                        
+                        <apex:column headerValue="{!$ObjectType.Product2.Fields.ProductCode.Label}">
+                            <apex:outputField value="{!s.PricebookEntry.Product2.ProductCode}" />                               
+                        </apex:column>
+                        
+                        <apex:column headerValue="{!$ObjectType.Product2.Fields.Description.Label}">
+                            <apex:outputField value="{!s.PricebookEntry.Product2.Description}" />                 
+                        </apex:column>
+                        <apex:column headerValue="Color">
+                            <apex:outputField value="{!s.Color__c}" /> 
+                            </apex:column>
+                        <apex:column headerValue="{!$ObjectType.OpportunityLineItem.Fields.Quantity.Label}">
+                            <apex:outputField value="{!s.Quantity}" style="width:70px" />             
+                        </apex:column>
+                        
+                        <apex:column headerValue="Colors" style="text-align:center">
+                            <table style="border:0px">
+                                <tr style="border:0px">
+                                    <td style="border:0px"><input id="check1-{!s.PriceBookEntryId}-{!s.Color__c}" class="clc-{!s.PriceBookEntryId}-{!s.Color__c}" type="checkbox" onclick="onColorClick('{!s.PriceBookEntryId}','{!s.Color__c}','1')"></input>&nbsp;One Color <b>$1000</b></td>
+                                    <td style="border:0px"><input id="check2-{!s.PriceBookEntryId}-{!s.Color__c}" class="clc-{!s.PriceBookEntryId}-{!s.Color__c}" type="checkbox" onclick="onColorClick('{!s.PriceBookEntryId}','{!s.Color__c}','2')"></input>&nbsp;Two Color <b>$1500</b></td>
+                                    <td style="border:0px"><input id="check3-{!s.PriceBookEntryId}-{!s.Color__c}" class="clc-{!s.PriceBookEntryId}-{!s.Color__c}" type="checkbox" onclick="onColorClick('{!s.PriceBookEntryId}','{!s.Color__c}','3')"></input>&nbsp;Three Color <b>$2000</b></td>
+                                </tr>
+                            </table>
+                            <script>
+                                onColorLoad('{!s.Color_Type__c}','{!s.PriceBookEntryId}','{!s.Color__c}');
+                            </script>
+                        </apex:column>
+                        
+                        
+                        <!--<apex:column headerValue="{!$ObjectType.Product2.Fields.Product_Category__c.Label}">
+                            <apex:outputField value="{!s.PricebookEntry.Product2.Product_Category__c}"/>                                
+                        </apex:column>
+                        
+                        <apex:column headerValue="{!$ObjectType.Product2.Fields.Expected_Ship_Date__c.Label}">
+                            <apex:outputField value="{!s.PricebookEntry.Product2.Expected_Ship_Date__c}" />                             
+                        </apex:column>
+
+                        <apex:column headerValue="{!$ObjectType.OpportunityLineItem.Fields.Need_By_Date__c.Label}">
+                            <apex:inputField value="{!s.Need_By_Date__c}"/>                              
+                        </apex:column>                        
+                        
+                        <apex:column headerValue="{!$ObjectType.OpportunityLineItem.Fields.UnitPrice.Label}">
+                            <apex:inputField value="{!s.UnitPrice}" style="width:70px" required="true" >
+                                <apex:actionSupport action="{!calcTotalPrice}" event="onchange" rerender="grandTotals,selected" status="status" >
+                                    <apex:param value="{!s.PriceBookEntryId}" assignTo="{!toCalc}" name="toCalc"/>
+                                </apex:actionSupport>
+                            </apex:inputField>
+                        </apex:column>
+                        
+                        <apex:column headerValue="{!$ObjectType.OpportunityLineItem.Fields.Quantity.Label}">
+                            <apex:inputField value="{!s.Quantity}" style="width:70px" required="true" >
+                                <apex:actionSupport action="{!calcTotalPrice}" event="onchange" rerender="grandTotals,selected" status="status" >
+                                    <apex:param value="{!s.PriceBookEntryId}" assignTo="{!toCalc}" name="toCalc"/>
+                                </apex:actionSupport>
+                            </apex:inputField>
+                        </apex:column>
+                        
+                        <apex:column headerValue="{!$ObjectType.OpportunityLineItem.Fields.Discount_Percent__c.Label}">
+                            <apex:inputField value="{!s.Discount_Percent__c}" style="width:90px" >
+                                <apex:actionSupport action="{!calcTotalPrice}" event="onchange" rerender="grandTotals,selected" status="status" >
+                                    <apex:param value="{!s.PriceBookEntryId}" assignTo="{!toCalc}" name="toCalc"/>
+                                </apex:actionSupport>
+                            </apex:inputField>
+                        </apex:column>-->
+                        
+                        <apex:column headerValue="{!$ObjectType.OpportunityLineItem.Fields.calcTotalPrice__c.Label}" style="text-align:right;padding:5px">
+                            <apex:outputField value="{!s.calcTotalPrice__c}"/>                              
+                        </apex:column>
+
+
+                        
+                    
+                </apex:pageblockTable>
+                <br/>
+                <apex:outputPanel id="grandTotals">
+                    <div style="float:right">
+                        <apex:outputLabel value="Grand Total" for="grandTotal" />&nbsp;&nbsp;
+                        <b><apex:outputText id="grandTotal" value="${0, number, #,###,##0.00}" >
+                            <apex:param value="{!grandTotal}" />
+                        </apex:outputText></b>
+                    </div>
+                </apex:outputPanel>
+                <br/>
+            
+                <apex:pageBlockButtons location="top">
+                    <apex:actionstatus id="status">
+                        <apex:facet name="start">
+                            <apex:commandButton value="Save" disabled="true"/>
+                        </apex:facet>
+                        <apex:facet name="stop">
+                            <apex:commandButton action="{!onSave}" value="Save"/>
+                            
+                        </apex:facet>
+                    </apex:actionstatus>
+                    <apex:commandButton action="{!onCancel}" value="Cancel" immediate="true"/>
+                </apex:pageBlockButtons>
+            
+            </apex:pageBlock>
+    
+            <!-- this is the lower table: search bar and search results -->
+            
+            <apex:pageBlock title="Search for Products">
+            
+                <apex:outputLabel value="By Keyword" style="font-weight: bold;"/>
+                
+                <br/>
+
+                <apex:actionRegion renderRegionOnly="false" immediate="true">
+                
+                    <apex:actionFunction name="fetchResults" action="{!updateAvailableList}" reRender="searchResults" status="searchStatus"/>
+                    
+                    <!-- here we invoke the scripting to get out fancy 'no button' search bar to work -->
+                    <apex:inputText value="{!searchString}" onkeydown="if(event.keyCode==13){this.blur();}else{resetTimer();}" style="width:300px"/>
+                    &nbsp;&nbsp;
+                    <i>
+                        <!-- actionStatus component makes it easy to let the user know when a search is underway -->
+                        <apex:actionStatus id="searchStatus" startText="searching..." stopText=" "/>
+                    </i>
+                    
+                </apex:actionRegion>
+                
+                <br/>
+                <br/>
+                
+                <apex:outputLabel value="By Product Category" style="font-weight: bold;"/>
+                
+                <br/>
+                
+                <apex:SelectList value="{!productCategory}" size="1">
+                    <apex:selectOptions value="{!productCategoryOptions}"></apex:selectOptions>
+                    <apex:actionSupport event="onchange" action="{!updateAvailableList}" rerender="searchResults"/>
+                </apex:SelectList>
+            
+                <br/>
+                <br/>
+            
+                <apex:outputPanel id="searchResults">
+                    
+                    <apex:pageBlockTable value="{!wrappers}" var="w">
+                    
+                        <apex:column >
+                            <apex:facet name="header">
+                               <apex:commandLink value="{!$ObjectType.Product2.Fields.Name.Label}" action="{!updateAvailableList}" rerender="searchResults">
+                                    <!-- Value attribute should have field (API Name) to sort in asc or desc order -->
+                                    <apex:param name="sortField" value="Product2.Name" assignTo="{!sortField}"/>
+                               </apex:commandLink>
+                            </apex:facet>
+                            <apex:outputLink value="/{!w.pbe.Product2.Id}">{!w.pbe.Product2.Name}</apex:outputLink>
+                        </apex:column>
+                        
+                        <apex:column value="{!w.pbe.Product2.ProductCode}" >
+                            <apex:facet name="header">
+                               <apex:commandLink value="{!$ObjectType.Product2.Fields.ProductCode.Label}" action="{!updateAvailableList}" rerender="searchResults">
+                                    <!-- Value attribute should have field (API Name) to sort in asc or desc order -->
+                                    <apex:param name="sortField" value="Product2.ProductCode" assignTo="{!sortField}"/>
+                               </apex:commandLink>
+                            </apex:facet>
+                        </apex:column>
+                        
+                        <apex:column value="{!w.pbe.Product2.Description}" >
+                            <apex:facet name="header">
+                               <apex:commandLink value="{!$ObjectType.Product2.Fields.Description.Label}" action="{!updateAvailableList}" rerender="searchResults">
+                                    <!-- Value attribute should have field (API Name) to sort in asc or desc order -->
+                                    <apex:param name="sortField" value="Product2.Description" assignTo="{!sortField}"/>
+                               </apex:commandLink>
+                            </apex:facet>
+                        </apex:column>
+                        
+                        <apex:column headerValue="Color" >
+                            <apex:SelectList value="{!w.pbe.Color__c}" size="1" required="true">
+                                <apex:selectOptions value="{!w.colors}"></apex:selectOptions>
+                            </apex:SelectList>
+                        </apex:column>
+                        
+                        <!--
+                        
+                        <apex:column value="{!w.pbe.Product2.Expected_Ship_Date__c}" >
+                            <apex:facet name="header">
+                               <apex:commandLink value="{!$ObjectType.Product2.Fields.Expected_Ship_Date__c.Label}" action="{!updateAvailableList}" rerender="searchResults">
+                                    <apex:param name="sortField" value="Product2.Expected_Ship_Date__c" assignTo="{!sortField}"/>
+                               </apex:commandLink>
+                            </apex:facet>
+                        </apex:column>-->
+                        
+                        <apex:column value="{!w.pbe.UnitPrice}" >
+                            <apex:facet name="header">
+                               <apex:commandLink value="Unit Price" action="{!updateAvailableList}" rerender="searchResults">
+                                    <!-- Value attribute should have field (API Name) to sort in asc or desc order -->
+                                    <apex:param name="sortField" value="UnitPrice" assignTo="{!sortField}"/>
+                               </apex:commandLink>
+                            </apex:facet>
+                        </apex:column>
+                        
+                        <apex:column headerValue="Quantity">
+                            <apex:inputText value="{!w.selectedQty}" style="width:70px" required="true">
+                            </apex:inputText>
+                        </apex:column>
+                        
+                        <apex:column >
+                            <!-- command button in a column... neato -->
+                            <apex:commandButton value="Select" action="{!addToShoppingCart}" reRender="selected,searchResults" >
+                                <!-- again we use apex:param to be able to tell the controller which row we are working with -->
+                                <apex:param value="{!w.pbe.Id}" assignTo="{!toSelect}" name="toSelect"/>
+                            </apex:commandButton>
+                        </apex:column>
+                        
+                    </apex:pageBlockTable>
+                    
+                    <!-- We put up a warning if results exceed 500 rows -->
+                    <apex:outputPanel styleClass="fyi" rendered="{!overLimit}">
+                        <br/>
+                        Your search returned over 500 results, use a more specific search string if you do not see the desired {!$ObjectType.Product2.Label}.
+                        <br/>
+                    </apex:outputPanel>
+                    
+                </apex:outputPanel>
+            
+            </apex:pageBlock>
+            
+        </apex:outputPanel>
+
+    </apex:form>
+
+</apex:page>

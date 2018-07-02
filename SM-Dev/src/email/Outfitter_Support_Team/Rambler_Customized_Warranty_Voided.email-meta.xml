@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Rambler Customized- Warranty Voided (Discount)</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hello,
+
+Thank you for contacting YETI!
+
+I am sorry to hear about the issue with your Rambler. It does appear that the added coloring to your Rambler was done through a third party that is unaffiliated with YETI and our manufacturing process. Due to this, we are unable to offer a warranty replacement. The color options available on yeti.com are only the ones covered under our warranty. However, I would be more than happy to offer you a 30% discount on the purchase of a new Rambler 30 from YETI.
+
+In order to get your product exchanged, we recommend reaching out to the original seller as any Rambler products hydro-dipped or powder coated by a third party void the YETI warranty. We cannot guarantee the quality or the safety of the customized product.  If you would like to redeem your discount, please give us a call at 512-394-9384 between 8 am and 5:30 pm CST, Monday - Friday, and we would be more than happy to place that order over the phone for you.
+
+Sincerely,
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com
+
+
+Save</textOnly>
+    <type>html</type>
+</EmailTemplate>

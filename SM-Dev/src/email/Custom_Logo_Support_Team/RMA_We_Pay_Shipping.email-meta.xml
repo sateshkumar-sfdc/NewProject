@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>RMA - We Pay Shipping</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Your Return Request Confirmation
+
+Hello,
+
+We apologize you have to return your YETI product.   This email highlights and explains the return process.
+
+
+
+Your Return Information:
+
+Return Order #:
+
+Items:   **
+
+
+
+To return your YETI product please follow the steps below:
+
+Please be aware you have 10 business days from when your replacement leaves our warehouse to ship your return product before the card on file/or your account is charged for the full product amount.
+
+A separate email will be sent to you with a return packing slip.  Please print off the return packing slip and include it with your package. (Please place it inside the cooler or along with the items you are returning.)
+
+You will receive a separate email with your prepaid FedEx shipping label(s) to return your YETI product.
+
+Review the attached Sales Order for your replacement product(s) to be shipped within the next 24-48 hours.
+
+
+** Please ask for a copy of your receipt confirming your drop off at FedEx and keep this for your records. **
+
+
+Please make sure your YETI is cleaned out and dry on the inside.  When possible, we kindly ask that you protect your product during shipping by boxing your cooler. Once your return has been received at YETI, you will receive an email confirmation from FedEx.
+
+
+
+{!User.CommunityNickname}
+Business Development Team
+YETI
+512.402.5895
+corporatesales@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

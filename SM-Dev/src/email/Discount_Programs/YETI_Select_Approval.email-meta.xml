@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>YETI Select Approval</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hello,
+
+You’ve officially been accepted into the YETI Select Program. Now let’s get you going.
+
+When you’re ready to place an order, just follow these instructions to enact your Select membership:
+
+Sign into your account by clicking here or copy and paste this link into your browser: https://yeti.com/login
+
+Your log-in information will be sent in a separate email.
+
+Keep in mind:
+
+You must log into your account before placing an order online to receive discount.
+
+Once you’ve logged in, your discount of 40% will be will be reflected at checkout.
+
+Discounted products are subject to availability.
+
+Exchanges and returns must be processed directly with YETI and never through authorized dealers.
+
+Shipping rates will apply.
+
+All shipments to Alaska or Hawaii must be shipped 2nd Day Air, no ground service available, and may incur an additional shipping charge based on weight or insured value of the package.
+
+Alaska and Hawaii are excluded from all Online Shipping specials.
+
+International orders and shipping are not eligible.
+
+Please do not share your account information with anyone. This program is meant for you alone. Misuse of this program is grounds for disqualification.
+
+YETI reserves the right to cancel/suspend this program at any time without prior notice.
+
+YETI reserves the right to change the discount and/or prices at any time without prior notice.
+
+We are excited to have you as part of the YETI Select Program and we can’t wait to hear about your adventures with our products. And if you really want to spread the YETI love, let other fans know that they can find more products at their local authorized YETI dealer.
+
+As always, reach out with questions. We’d be happy to hear from you.
+
+Thank you,
+
+{!User.CommunityNickname}
+YETI
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Amount_of_Inline</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Amount of InStore Orders</shortDescription>
+        <value>In-Store Orders</value>
+    </labels>
+    <labels>
+        <fullName>Amount_of_Online_Orders</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Amount of Online Orders</shortDescription>
+        <value>Online Orders</value>
+    </labels>
+    <labels>
+        <fullName>Average_Logins_Per_Month</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Average Logins Per Month</shortDescription>
+        <value>Average Logins/Month</value>
+    </labels>
+    <labels>
+        <fullName>Average_Order</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Average Order</shortDescription>
+        <value>Average Order</value>
+    </labels>
+    <labels>
+        <fullName>Average_Review_Score</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Average Review Score</shortDescription>
+        <value>Avg. Review Score</value>
+    </labels>
+    <labels>
+        <fullName>Customer_Join_Date</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Customer Join Date</shortDescription>
+        <value>Customer Since</value>
+    </labels>
+    <labels>
+        <fullName>Key_Indicators_Overview</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Key Indicators Overview</shortDescription>
+        <value>Key Indicators Overview</value>
+    </labels>
+    <labels>
+        <fullName>Loyalty_Points</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loyalty_Points</shortDescription>
+        <value>Loyalty Points</value>
+    </labels>
+    <labels>
+        <fullName>No_of_Orders</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Number of Orders</shortDescription>
+        <value>No. of Orders</value>
+    </labels>
+    <labels>
+        <fullName>Number_of_Cases</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Number of Cases</shortDescription>
+        <value>No. of Cases</value>
+    </labels>
+    <labels>
+        <fullName>Number_of_Reviews</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Number of Reviews</shortDescription>
+        <value>No. of Reviews</value>
+    </labels>
+    <labels>
+        <fullName>OSF_Order_On_behalf_error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>OSF_Order_On_behalf_error</shortDescription>
+        <value>Please select a value for the Organization field for your Salesforce User.</value>
+    </labels>
+    <labels>
+        <fullName>OSF_Order_On_behalf_error_Url</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>OSF_Order_On_behalf_error_Url</shortDescription>
+        <value>Please set the Order on Behalf URL for your Salesforce User.</value>
+    </labels>
+    <labels>
+        <fullName>OSF_Order_On_behalf_error_id</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>OSF_Order_On_behalf_error_user_id</shortDescription>
+        <value>Please set the Login for your Salesforce User.</value>
+    </labels>
+    <labels>
+        <fullName>Order_Value</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Order Value</shortDescription>
+        <value>Ordered Value</value>
+    </labels>
+    <labels>
+        <fullName>Visited_Products</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Visited Products</shortDescription>
+        <value>Visited Products</value>
+    </labels>
+</CustomLabels>

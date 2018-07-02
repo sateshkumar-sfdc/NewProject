@@ -1,0 +1,73 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes">
+    <ltng:require styles="{!$Resource.Yeti_Web_Content + '/css/footer.css'}" />
+    <ltng:require styles="{!$Resource.Yeti_Web_Content + '/css/main.css'}" /> 
+    
+    <div class="footer-container">
+        <div class="footer">
+            <div class="footer-logo">
+                <div class="footer-logo-inner">
+                    <a href="http://intl.yeti.com/" target="_blank" class="cBrandingLogo">yeti</a>
+                </div>
+            </div> 
+            <div class="footer-text">
+                <p>Built for close calls in far-flung places. Built for tall tales and epic adventures.</p>
+                <p>Built for finding comfort well outside comfort zones. Built for the wild.</p> </div> 
+            <div class="footer-links"> 
+                <ul>
+                    <li>
+                        <a title="Our Story" data-track="true" data-category="footer" data-name="our story" href="http://www.yeti.com/our-story" target="_blank">
+							Our Story
+                        </a>
+                    </li>
+                    <li>
+                        <a title="FAQ" data-track="true" data-category="footer" data-name="faq" href="http://www.yeti.com/faq" target="_blank">
+							FAQ
+                        </a>
+                    </li>
+                </ul>
+            </div> 
+            <div class="footer-head">
+                <div class="left-divide">
+                </div>
+                <h4>become a yeti native and connect with us</h4> 
+                <div class="right-divide">
+                </div> 
+            </div> 
+            <div class="footer-signup-social">
+                <div class="social-media-block">
+                    <ul class="social-media">
+                        <li class="fb">
+                            <a title="Facebook" data-track="true" data-category="social" data-name="facebook" href="http://www.facebook.com/yeti" target="_blank">
+                                <img src="{!$Resource.Yeti_Web_Content + '/icons/fb.png'}"></img>
+                            </a>
+                        </li> 
+                        <li class="tw">
+                            <a title="Twitter" data-track="true" data-category="social" data-name="twitter" href="http://twitter.com/Yeticoolers" target="_blank">
+                                <img src="{!$Resource.Yeti_Web_Content + '/icons/tw.png'}"></img>
+                            </a>
+                        </li>
+                        <li class="ig">
+                            <a title="Instagram" data-track="true" data-category="social" data-name="instagram" href="http://instagram.com/yeti" target="_blank">
+                                <img src="{!$Resource.Yeti_Web_Content + '/icons/in.png'}"></img>
+                            </a>
+                        </li>
+                        <li class="yt last">
+                            <a title="Youtube" data-track="true" data-category="social" data-name="youtube" href="http://www.youtube.com/user/YetiVideos" target="_blank">
+                            	<img src="{!$Resource.Yeti_Web_Content + '/icons/yt.png'}"></img>
+                            </a>
+                        </li>
+                    </ul> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <span class="copyright"><address>© 2018 YETI All Rights Reserved</address></span>
+        <span class="footer-bottom-links">
+            <ul>
+                <li><a title="Privacy" href="http://www.yeti.com/privacy-policy" target="_blank">Privacy</a></li>
+                <li><a title="Terms &amp; Conditions" href="http://www.yeti.com/conditions-of-use" target="_blank">Terms &amp; Conditions</a></li>
+            </ul>
+        </span>
+    </div>
+</aura:component>

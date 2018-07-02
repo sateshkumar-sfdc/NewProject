@@ -1,0 +1,126 @@
+<apex:page standardStylesheets="false" tabStyle="ExactTargetPhoenix__tab">
+    <apex:includeLightning />      
+        
+    <div id="lightning" />
+
+    <script>
+    $Lightning.use("et4ae5:MarketingCloudSettingsApp", function() {
+        $Lightning.createComponent("et4ae5:MarketingCloudSettings", null, "lightning");      
+    });
+
+    </script>
+	<apex:outputPanel rendered="false">
+		<apex:outputText value="{!$Label.mobile}"/>
+		<apex:outputText value="{!$Label.email}"/>
+		<apex:outputText value="{!$Label.report}"/>
+		<apex:outputText value="{!$Label.campaign}"/>
+		<apex:outputText value="{!$Label.initLog}"/>
+		<apex:outputText value="{!$Label.mCCSettings}"/>
+		<apex:outputText value="{!$Label.editSttngs}"/>
+		<apex:outputText value="{!$Label.saveSttngs}"/>
+		<apex:outputText value="{!$Label.cancel}"/>
+		<apex:outputText value="{!$Label.account}"/>
+		<apex:outputText value="{!$Label.username}"/>
+		<apex:outputText value="{!$Label.mcType}"/>
+		<apex:outputText value="{!$Label.sendTypes}"/>
+		<apex:outputText value="{!$Label.general}"/>
+		<apex:outputText value="{!$Label.altRTs}"/>
+		<apex:outputText value="{!$Label.manage}"/>
+		<apex:outputText value="{!$Label.mcDpLnkAccss}"/>
+		<apex:outputText value="{!$Label.sends}"/>
+		<apex:outputText value="{!$Label.targetAud}"/>
+		<apex:outputText value="{!$Label.exclAudnc}"/>
+		<apex:outputText value="{!$Label.retryFldSnds}"/>
+		<apex:outputText value="{!$Label.retry}"/>
+		<apex:outputText value="{!$Label.myPCR}"/>
+		<apex:outputText value="{!$Label.allow}"/>
+		<apex:outputText value="{!$Label.automatedSnds}"/>
+		<apex:outputText value="{!$Label.Restriction}"/>
+		<apex:outputText value="{!$Label.enbldObjs}"/>
+		<apex:outputText value="{!$Label.notifications}"/>
+		<apex:outputText value="{!$Label.supTicRecp}"/>
+		<apex:outputText value="{!$Label.initLog}"/>
+		<apex:outputText value="{!$Label.trkDetail}"/>
+		<apex:outputText value="{!$Label.tracking}"/>
+		<apex:outputText value="{!$Label.aggrLvlTrc}"/>
+		<apex:outputText value="{!$Label.indlLvlTr}"/>
+		<apex:outputText value="{!$Label.trkingLnkDts}"/>
+		<apex:outputText value="{!$Label.trkingSntEvts}"/>
+		<apex:outputText value="{!$Label.frequency}"/>
+		<apex:outputText value="{!$Label.numDaysTrked}"/>
+		<apex:outputText value="{!$Label.Campaign_Member_Tracking}"/>
+		<apex:outputText value="{!$Label.advanced}"/>
+		<apex:outputText value="{!$Label.envirnmnt}"/>
+		<apex:outputText value="{!$Label.rootSoapAU}"/>
+		<apex:outputText value="{!$Label.rootRestAU}"/>
+		<apex:outputText value="{!$Label.authApiUrl}"/>
+		<apex:outputText value="{!$Label.enable}"/>
+		<apex:outputText value="{!$Label.msg0018}"/>
+		<apex:outputText value="{!$Label.etAcctType}"/>
+		<apex:outputText value="{!$Label.msg0065}"/>
+		<apex:outputText value="{!$Label.msg0119}"/>
+		<apex:outputText value="{!$Label.msg0175}"/>
+		<apex:outputText value="{!$Label.msg0044}"/>
+		<apex:outputText value="{!$Label.msg0019}"/>
+		<apex:outputText value="{!$Label.retryHelp}"/>
+		<apex:outputText value="{!$Label.msg0012}"/>
+		<apex:outputText value="{!$Label.msg0151}"/>
+		<apex:outputText value="{!$Label.msg0152}"/>
+		<apex:outputText value="{!$Label.msg0011}"/>
+		<apex:outputText value="{!$Label.logging}"/>
+		<apex:outputText value="{!$Label.msg0009}"/>
+		<apex:outputText value="{!$Label.msg0049}"/>
+		<apex:outputText value="{!$Label.msg0122x}"/>
+		<apex:outputText value="{!$Label.msg0123x}"/>
+		<apex:outputText value="{!$Label.msg0124x}"/>
+		<apex:outputText value="{!$Label.msg0125x}"/>
+		<apex:outputText value="{!$Label.msg0093}"/>
+		<apex:outputText value="{!$Label.msg0030}"/>
+		<apex:outputText value="{!$Label.Configure}"/>
+		<apex:outputText value="{!$Label.msg0074}"/>
+		<apex:outputText value="{!$Label.msg0073}"/>
+		<apex:outputText value="{!$Label.msg0072}"/>
+		<apex:outputText value="{!$Label.loggingOn}"/>
+		<apex:outputText value="{!$Label.loggingOff}"/>
+		<apex:outputText value="{!$Label.off}"/>
+		<apex:outputText value="{!$Label.onlyAdm}"/>
+		<apex:outputText value="{!$Label.bothAdmUsr}"/>
+		<apex:outputText value="{!$Label.tSOnlyAdm}"/>
+		<apex:outputText value="{!$Label.tSbothAdmUsr}"/>
+		<apex:outputText value="{!$Label.hourly}"/>
+		<apex:outputText value="{!$Label.daily}"/>
+		<apex:outputText value="{!$Label.enabled}"/>
+		<apex:outputText value="{!$Label.disabled}"/>
+		<apex:outputText value="{!$Label.doNotRetry}"/>
+		<apex:outputText value="{!$Label.allowed}"/>
+		<apex:outputText value="{!$Label.notAllowed}"/>
+		<apex:outputText value="{!$Label.Campaign_Member_Tracking}"/>
+		<apex:outputText value="{!$Label.Configure}"/>
+		<apex:outputText value="{!$Label.loggingOff}"/>											
+		<apex:outputText value="{!$Label.hourly}"/>
+		<apex:outputText value="{!$Label.loggingOn}"/>		
+		<apex:outputText value="{!$Label.msg0219}"/>
+		<apex:outputText value="{!$Label.msg0220}"/>
+		<apex:outputText value="{!$Label.validYourPerm}"/>
+		<apex:outputText value="{!$Label.msg0221}"/>
+		<apex:outputText value="{!$Label.srySmtgWrng}"/>
+		<apex:outputText value="{!$Label.msg0222}"/>
+		<apex:outputText value="{!$Label.setUpMCC}"/>
+		<apex:outputText value="{!$Label.msg0223}"/>
+		<apex:outputText value="{!$Label.msg0224}"/>
+		<apex:outputText value="{!$Label.msg0225}"/>
+		<apex:outputText value="{!$Label.msg0226}"/>
+		<apex:outputText value="{!$Label.updtYrSettgs}"/>
+		<apex:outputText value="{!$Label.msg0227}"/>
+		<apex:outputText value="{!$Label.msg0228}"/>
+		<apex:outputText value="{!$Label.msg0229}"/>
+		<apex:outputText value="{!$Label.msg0230}"/>
+		<apex:outputText value="{!$Label.msg0231}"/>
+		<apex:outputText value="{!$Label.msg0232}"/>
+		<apex:outputText value="{!$Label.msg0233}"/>
+		<apex:outputText value="{!$Label.msg0234}"/>
+		<apex:outputText value="{!$Label.msg0235}"/>
+		<apex:outputText value="{!$Label.msg0236}"/>
+		<apex:outputText value="{!$Label.msg0237}"/>
+	</apex:outputPanel>    
+</apex:page>

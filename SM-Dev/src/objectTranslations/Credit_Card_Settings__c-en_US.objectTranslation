@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Credit Card Settings</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Credit Card Settings</value>
+    </caseValues>
+    <fields>
+        <label><!-- Allow Multiple Cards --></label>
+        <name>Allow_Multiple_Cards__c</name>
+    </fields>
+    <fields>
+        <label><!-- Orbital Gateway Merchant Id --></label>
+        <name>Orbital_Gateway_Merchant_Id__c</name>
+    </fields>
+    <fields>
+        <help><!-- Must be between 8–32 characters.
+Must contain at least 1 number.
+Must contain only standard English letters or digits (a-z, A-Z, 0-9). Cannot contain embedded spaces. --></help>
+        <label><!-- Orbital Gateway Password --></label>
+        <name>Orbital_Gateway_Password__c</name>
+    </fields>
+    <fields>
+        <help><!-- Must be between 8–32 characters.
+Must contain at least 1 number.
+Must contain only standard English letters or digits (a-z, A-Z, 0-9). Cannot contain embedded spaces. --></help>
+        <label><!-- Orbital Gateway Username --></label>
+        <name>Orbital_Gateway_Username__c</name>
+    </fields>
+    <fields>
+        <label><!-- Test Mode --></label>
+        <name>Test_Mode__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

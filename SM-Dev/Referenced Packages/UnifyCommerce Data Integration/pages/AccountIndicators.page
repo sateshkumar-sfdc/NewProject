@@ -1,0 +1,163 @@
+<apex:page standardController="Account" extensions="OSF_DWback.KPIController">
+    <apex:stylesheet value="{!URLFOR($Resource.OSF_DWback__DW2SFDC_Resources, '/css/styles.css')}" />
+    <apex:includeScript value="{!URLFOR($Resource.OSF_DWback__DW2SFDC_Resources, 'js/jquery-1.11.2.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.OSF_DWback__DW2SFDC_Resources, 'js/mainJs.js')}"/>
+    <div id="accountIndicatorsContainer" class="account-container account-indicators">
+        <div class="field-banner">
+            <span class="banner">{!$Label.Key_Indicators_Overview}</span>
+        </div> <!-- end .field-banner -->  
+        
+        <div class="field-info">
+            <apex:outputPanel rendered="{!integratorSettings.OSF_DWconfig__Ordered_Value__c == true}">
+                <div class="field_info-container">
+                <div class="field_info-image"><img src="{!URLFOR($Resource.DW2SFDC_Resources, 'images/value.jpg')}" alt="Ordered Value image"/></div>
+                <div class="field_info-label">{!$Label.Order_Value}</div>
+                <div class="field_info-data">
+                    <apex:outputText value="{!userCurrency} {!orderTotal}" rendered="{!IF(childOpps[0] == null, false, true)}"/>
+                </div>
+                </div>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!integratorSettings.OSF_DWconfig__No_of_Orders__c == true}">
+            <div class="field_info-container">
+                <div class="field_info-image"><img src="{!URLFOR($Resource.DW2SFDC_Resources, 'images/orders.jpg')}" alt="Orders image"/></div>
+                <div class="field_info-label">{!$Label.No_of_Orders}</div>
+                <div class="field_info-data">
+                    <apex:outputText value="{0,number,#,###.##}" rendered="{!IF(childOpps[0] == null, false, true)}">
+                        <apex:param value="{!childOpps[0].recordCount}" />
+                    </apex:outputText>
+                </div>
+                </div>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!integratorSettings.OSF_DWconfig__Average_Order__c == true}">
+                <div class="field_info-container">
+                <div class="field_info-image"><img src="{!URLFOR($Resource.DW2SFDC_Resources, 'images/avg-orders.jpg')}" alt="Average Orders image"/></div>
+                <div class="field_info-label">{!$Label.Average_Order}</div>
+                <div class="field_info-data">
+                    <apex:outputText value="{!userCurrency} {!orderAvg}" rendered="{!IF(childOpps[0] == null, false, true)}"/>
+                </div>
+                </div>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!integratorSettings.OSF_DWconfig__In_Store_Orders__c == true}">
+                <div class="field_info-container">
+                <div class="field_info-image"><img src="{!URLFOR($Resource.DW2SFDC_Resources, 'images/in-store-kpi-2.jpg')}" alt="Instore Orders image"/></div>
+                <div class="field_info-label">{!$Label.Amount_of_Inline}</div>
+                <div class="field_info-data">
+                    <apex:outputText value="{!userCurrency} {!inStoreOrders}" rendered="{!IF(childOpps[0] == null, false, true)}"/>
+                </div>
+                </div>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!integratorSettings.OSF_DWconfig__Online_Orders__c == true}">
+                <div class="field_info-container">
+                <div class="field_info-image"><img src="{!URLFOR($Resource.DW2SFDC_Resources, 'images/online-field-kpi-2.jpg')}" alt="Online Orders image"/></div>
+                <div class="field_info-label">{!$Label.Amount_of_Online_Orders}</div>
+                <div class="field_info-data">
+                    <apex:outputText value="{!userCurrency} {!onlineOrders}" rendered="{!IF(childOpps[0] == null, false, true)}"/>
+                </div>
+                </div>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!integratorSettings.OSF_DWconfig__No_of_Cases__c == true}">
+                <div class="field_info-container">
+                    <div class="field_info-image">
+                        <apex:image value="{!URLFOR($Resource.OSF_DWback__DW2SFDC_Resources, 'images/cases-number-high.jpg')}" alt="Cases Number High" rendered="{!IF( ISNULL(casesNumber[0].casesAmount) <> true && casesNumber[0].casesAmount > 10, true, false)}"/>
+                        <apex:image value="{!URLFOR($Resource.OSF_DWback__DW2SFDC_Resources, 'images/cases-number-low.jpg')}" alt="Cases Number Low" rendered="{!IF( ISNULL(casesNumber[0].casesAmount) <> true && casesNumber[0].casesAmount <= 10, true, false)}"/>
+                    </div>
+                    <div class="field_info-label">{!$Label.osf_dwback__number_of_cases}</div>
+                    <div class="field_info-data">
+                        <apex:outputText value="{0,number,#,###.##}" rendered="{!IF(casesNumber == null, false, true)}">
+                            <apex:param value="{!casesNumber[0].casesAmount}"/>
+                        </apex:outputText>
+                    </div>
+                </div>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!integratorSettings.OSF_DWconfig__Customer_Since__c == true}">
+                <div class="field_info-container">
+                    <div class="field_info-image">
+                        <img src="{!URLFOR($Resource.DW2SFDC_Resources, 'images/date.jpg')}" alt="Date image"/>
+                    </div>
+                    <div class="field_info-label">{!$Label.Customer_Join_Date}</div>
+                    <div class="field_info-data">
+                        <apex:outputText value="{0,date,MMMM dd, yyyy}">
+                            <apex:param value="{!Account.CreatedDate}" />
+                        </apex:outputText>
+                    </div>
+                </div>
+           </apex:outputPanel>
+           <apex:outputPanel rendered="{!integratorSettings.OSF_DWconfig__Avg_Review_Score__c == true}">
+                <div class="field_info-container" style="{!IF(isDisplayRating == false, 'display:none', '')}">
+                    <div class="field_info-image">
+                        <apex:image value="{!URLFOR($Resource.OSF_DWback__DW2SFDC_Resources, 'images/avg-review-score-high.jpg')}" alt="Average Review Score image High" rendered="{!IF( (ISNULL(reviewsNumber[0].totalRating/reviewsNumber[0].reviewsAmount) <> true && reviewsNumber[0].totalRating/reviewsNumber[0].reviewsAmount >= 4) || (ISNULL(reviewsNumber[0].totalRating/reviewsNumber[0].reviewsAmount) == true), true, false)}"/>
+                        <apex:image value="{!URLFOR($Resource.OSF_DWback__DW2SFDC_Resources, 'images/avg-review-score-low.jpg')}" alt="Average Review Score image Low" rendered="{!IF( ISNULL(reviewsNumber[0].totalRating/reviewsNumber[0].reviewsAmount) <> true && reviewsNumber[0].totalRating/reviewsNumber[0].reviewsAmount < 4, true, false)}"/>
+                    </div>
+                    <div class="field_info-label">{!$Label.osf_dwback__average_review_score}</div>
+                    <div class="field_info-data">
+                        <apex:outputText value="{0,number,#,###.##}" rendered="{!IF(reviewsAmount == 0, false, true)}">
+                            <apex:param value="{!totalRating/reviewsAmount}" />
+                        </apex:outputText>
+                        <apex:outputText value="{0,number,#,###.##}" rendered="{!IF(reviewsAmount == 0, true, false)}">
+                            <apex:param value="{!reviewsAmount}" />
+                        </apex:outputText>
+                    </div>
+                </div>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!integratorSettings.OSF_DWconfig__No_of_Reviews__c == true}">
+                <div class="field_info-container" style="{!IF(isDisplayRating == false, 'display:none', '')}">
+                    <div class="field_info-image"><img src="{!URLFOR($Resource.DW2SFDC_Resources, 'images/reviews-number.jpg')}" alt="Reviews Number image"/></div>
+                    <div class="field_info-label">{!$Label.Number_of_Reviews}</div>
+                    <div class="field_info-data">
+                        <apex:outputText value="{0,number,#,###}" rendered="{!IF(ISNULL(reviewsNumber), false, true)}">
+                            <apex:param value="{!reviewsNumber[0].reviewsAmount}" />
+                        </apex:outputText>
+                    </div> 
+                </div>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!integratorSettings.OSF_DWconfig__Visited_Products__c == true}">
+                <div class="field_info-container">
+                    <div class="field_info-image"><img src="{!URLFOR($Resource.DW2SFDC_Resources, 'images/products.jpg')}" alt="Products image"/></div>
+                    <div class="field_info-label">{!$Label.Visited_Products}</div>
+                    <div class="field_info-data">37</div>
+                </div>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!integratorSettings.OSF_DWconfig__Average_Logins_Month__c == true}">
+                <div class="field_info-container">
+                    <div class="field_info-image"><img src="{!URLFOR($Resource.DW2SFDC_Resources, 'images/avg-logins.jpg')}" alt="Average Logins/Month image"/></div>
+                    <div class="field_info-label">{!$Label.Average_Logins_Per_Month}</div>
+                    <div class="field_info-data">
+                        <apex:outputText value="{0,number,#,###}" rendered="{!averageLogin}">
+                            <apex:param value="{!loginsCounter}" />
+                        </apex:outputText>
+                        <apex:outputText value="{0}" rendered="{!IF(averageLogin == false, true, false)}">
+                            <apex:param value="N/A" />
+                        </apex:outputText>
+                   </div>
+                </div>
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!integratorSettings.OSF_DWconfig__Loyalty_Points__c == true}">
+                <div class="field_info-container">
+                    <div class="field_info-image"><img src="{!URLFOR($Resource.DW2SFDC_Resources, 'images/loyalty-points.jpg')}" alt="Loyalty Points image"/></div>
+                    <div class="field_info-label">{!$Label.Loyalty_Points}</div>
+                    <div class="field_info-data">970</div>
+                </div>
+            </apex:outputPanel>
+        </div> <!-- end .field-info -->
+    
+    <div class="chart-holder">
+        <apex:chart colorSet="#58D68D,#EB984E" animate="false" height="100%" width="100%" data="{!pieChartData}" rendered="{!displayChart}">
+            <apex:pieseries datafield="data" labelfield="name" showInLegend="false">
+            <apex:chartLabel display="rotate" orientation="vertical" font="bold 12px Helvetica"/>
+      
+        </apex:pieseries>
+        </apex:chart>
+    </div>
+    </div> <!-- end #accountIndicatorsContainer -->
+    <style>
+
+text[id^='ExtBox1-ext-sprite-'] tspan{
+    font: 10px Tahoma;
+    
+}
+
+        .account-indicators {
+            float: left;
+        }
+    </style>
+</apex:page>

@@ -1,0 +1,2 @@
+<apex:page standardController="opportunity" Extensions="PreQuotePricingController" action="{!ActionOnLoad}">
+</apex:page>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Hopper Flip Zipper Pull Instructions</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Thanks for reaching out to YETI and I’m sorry to hear you’re having issues with your Hopper Flip zipper pull.  We’ll go ahead and send out a replacement, so expect that in approximately 5-7 business days.
+
+Once you receive that pull, please use the attached instructions to replace your zipper pull.
+
+Sincerely,
+
+{!User.CommunityNickname}
+The YETI Outfitters
+YETI
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

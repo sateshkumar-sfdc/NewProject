@@ -1,0 +1,207 @@
+<!--
+*  PageName       : uniqueAccountNavigation
+*  JIRATicket     : RLSF-1
+*  CreatedOn      : 25/02/2015
+*  ModifiedBy     : Vivek Yadav
+*  Description    : This page will detect if it's launched from SF1 or standard SF, and based on that it will direct to respective versions.  
+-->
+<!-- 2016.10.21 generate page layout by Connected App Start -->
+<!-- <apex:page standardController="Account" extensions="UniqueEntry.uniqueEntryNavigationController" action="{!checkRecordLock}" sidebar="false" showheader="false"> -->
+<apex:page standardController="Account" extensions="UniqueEntry.uniqueEntryNavigationController" action="{!checkAccessToken}" docType="html-5.0" sidebar="false">
+<!-- 2016.10.21 generate page layout by Connected App End -->
+	<!--<apex:form id="formId">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<apex:includeScript value="{!URLFOR($Resource.UniqueEntry_SF1Styles, '/UE_SF1Styles/uniqueEntrySF1Styles/jquery.min.js')}"/>
+		<apex:includeScript value="{!URLFOR($Resource.UniqueEntry_SF1Styles, '/UE_SF1Styles/uniqueEntrySF1Styles/bootstrap.min.js')}"/>
+		<apex:includeScript value="{!URLFOR($Resource.UniqueEntry_SF1Styles, '/UE_SF1Styles/uniqueEntrySF1Styles/jquery-latest.pack.js')}"/>
+		<apex:includeScript value="{!URLFOR($Resource.UniqueEntry_SF1Styles, '/UE_SF1Styles/uniqueEntrySF1Styles/uniqueEntryNavigation.js')}"/>
+		<apex:includeScript value="{!URLFOR($Resource.UniqueEntry_SF1Styles, '/UE_SF1Styles/uniqueEntrySF1Styles/scripts.js')}"/>
+		<apex:styleSheet value="{!URLFOR($Resource.UniqueEntry_SF1Styles, '/UE_SF1Styles/uniqueEntrySF1Styles/bootstrap.min.css')}"/>
+		<apex:styleSheet value="{!URLFOR($Resource.UniqueEntry_SF1Styles, '/UE_SF1Styles/uniqueEntrySF1Styles/style.css')}"/>
+		<apex:styleSheet value="{!URLFOR($Resource.UniqueEntry_SF1Styles, '/UE_SF1Styles/uniqueEntrySF1Styles/uniqueEntryNavigation.css')}"/>
+	
+		
+		<p class="modalFix"><a href="#dialog" id="Click" name="modal"></a></p>
+	
+		<div id="boxes">
+			<div id="dialog" class="window">
+				<div class="closeBtn"><a href="#" class="close" ><apex:image url="{!URLFOR($Resource.UniqueEntry_SF1Styles, '/UE_SF1Styles/uniqueEntrySF1Styles/closeIcon.png')}" onclick="sforce.one.navigateToURL('/001');"/></a></div>
+					<div id="RecTypepopUp" >
+				
+				</div>   
+			</div>
+		</div>
+		<div id="mask"></div>
+		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		
+		<script>
+		
+			window.onload = function redirectToDestinationPage()
+			{ 
+				if( (typeof sforce != 'undefined') && (sforce != null) ) {
+			
+					window.$j = jQuery.noConflict();
+					if('{!$CurrentPage.Parameters.Id}' != ''){
+						sforce.one.navigateToURL('/apex/{!ns}uniquesf1Account?id={!$CurrentPage.Parameters.Id}');
+						return;
+					}
+					if({!!isSave_newPresent})
+					{ 
+					   showRecordTypeSelectionPopUp(); 
+					}
+					else
+					{
+					  var errorMessage = '{!resxMap['msg.recordtype.skipdouble.account']} <br/> <br/><input type=button class="btn" onclick="showRecordTypeSelectionPopUp()" value="{!resxMap['msg.remindlater']}"/>';
+					  document.getElementById('RecTypepopUp').innerHTML = errorMessage ;
+					  document.getElementById('Click').click();  
+					}   
+					
+			}
+		}
+		
+		function showRecordTypeSelectionPopUp()
+		{
+			$j( document ).ready(function() {
+				 {!ns1}.uniqueEntryNavigationController.getRecordTypesList('Account',function(result, event){
+							 
+					 if(result .length == 0) 
+					 {
+						 var base_url = window.location.origin;
+						 sforce.one.navigateToURL(base_url +'/apex/{!ns}uniquesf1Account');
+					 }
+					 else if(result.length == 1) 
+					 {	
+						 var base_url = window.location.origin;
+						 sforce.one.navigateToURL(base_url +'/apex/{!ns}uniquesf1Account?RecordType='+result[0].Id);
+					 }
+					 else 
+					 {
+						 var RecordTypes = '';
+						 for(var index=0 ; index < result.length; index++)
+						 {
+							 
+							 RecordTypes += '<input type=button class="btn" id='+result[index].Id+' onclick="redirectToAccNewLayout(this)" value="'+ result[index].Name+'" /> '
+							 RecordTypes += '<br>';
+							 //console.log('RecordTypes = ',RecordTypes);
+						 }
+				 
+										 
+					 document.getElementById('RecTypepopUp').innerHTML = RecordTypes ;
+					 
+					 document.getElementById('Click').click();               
+				 }
+				 
+				 });
+		   });
+		
+		}
+		
+		function redirectToAccNewLayout(recordType)
+		{
+			var strRecTypeId = recordType.id;
+			var strRecordTypeIdToGetLayout = strRecTypeId.substring(0,strRecTypeId.length-3);
+			var base_url = window.location.origin;
+			sforce.one.navigateToURL(base_url +'/apex/{!ns}uniquesf1Account?RecordType='+strRecordTypeIdToGetLayout);
+		}
+	   
+		</script>
+		
+		<script>
+			function redirectToLeadNewLayout(recordType)
+			{
+				var strRecTypeId = recordType.id;
+				var strRecordTypeIdToGetLayout = strRecTypeId.substring(0,strRecTypeId.length-3);
+				
+				//we cant use actionfunction since SF1 encounters weird error that makes the page goes blank.
+				$('.hdnRecordType').val(strRecordTypeIdToGetLayout);
+				$('.btnNavigate').click();
+			}
+		   console.log('new version 4');
+		</script>
+	</apex:form>
+-->
+	<style type="text/css">
+		.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+			background-color: #7F8DE1 !important;
+			border-color: #7F8DE1 !important;
+		}
+		/* 2016.10.21 generate page layout by Connected App Start */
+		body {
+			font-size: 12px !important;
+    		line-height: normal !important;
+		}
+		#accessTokenGroup { font-size: 12.5px !important; }
+		#accessTokenGroup h3 { font-weight: bold; }
+		#accessTokenGroup .tertiaryPalette { 
+			background-color: rgba(189, 187, 187, 0.83) !important; 
+			border-color: rgba(189, 187, 187, 0.83) !important; 
+			padding: 6px;
+			color: black;
+		}
+		/* 2016.10.21 generate page layout by Connected App End */
+	</style>
+	
+	<c:UE_Navigation /> 
+
+	<apex:form id="formId">     
+		<apex:commandbutton action="{!navigateOnSelectRecordType}" style="display:none" styleclass="btnNavigate"></apex:commandbutton>
+		<apex:inputtext value="{!RT}" style="display:none" styleclass="hdnRecordType" />
+
+		<!-- <div class="container">
+			<div class="list-group">
+				<div class="list-group-item active disabled">Select Account Record Type</div>
+				<apex:repeat id="recordTypeList" value="{!lstRecordTypes}" var="recType">
+					<a href="#" class="list-group-item" id="{!recType.id}" onclick="redirectToLeadNewLayout(this)">{!recType.Name}</a>
+				</apex:repeat>
+			</div>
+		</div> -->
+
+		<!-- 2016.10.21 generate page layout by Connected App Start -->
+		<div id="recordTypeGroup">
+			<apex:outputPanel rendered="{!hasAccessToken}">
+				<div class="container">
+					<div class="list-group">
+						<div class="list-group-item active disabled">Select Account Record Type</div>
+						<apex:repeat id="recordTypeList" value="{!lstRecordTypes}" var="recType">
+							<a href="#" class="list-group-item" id="{!recType.id}" onclick="redirectToLeadNewLayout(this)">{!recType.Name}</a>
+						</apex:repeat>
+					</div>
+				</div>
+			</apex:outputPanel>
+		</div>
+		<div id="accessTokenGroup">
+			<apex:actionFunction action="{!checkAccessToken}" name="jsCheckAccessTokenIgnore" reRender="formId">
+				<apex:param assignTo="{!isIgnoreAccessToken}" name="isIgnoreAccessToken" value="" />
+				<apex:param assignTo="{!hasAccessToken}" name="hasAccessToken" value="" />
+			</apex:actionFunction>
+			<apex:pageblock rendered="{!!hasAccessToken}">
+				<apex:pageBlockSection title="Authentication Settings" columns="1" rendered="{!isGroupProEdition}" collapsible="false" >
+						<apex:outputText value="{!AuthMessage}" escape="false"/>
+						<apex:commandButton value="Get Access Token" onclick="openPopupAuth(); return false;"/>
+					</apex:pageBlockSection>
+			</apex:pageblock>
+		</div>
+		
+		<!-- 2016.10.21 generate page layout by Connected App Start -->
+	</apex:form>
+	<script type="text/javascript">
+		// 2016.10.21 generate page layout by Connected App Start
+		var authPopup;
+		function openPopupAuth() {
+			authPopup = window.open('{!$Page.uniqueAuthorize}', 'Authentication', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no, resizable=no,copyhistory=no,width=600,height=300,top=200,left=300');
+			authPopup.focus();
+		}
+		
+		function closeWindow() {
+			authPopup.close();
+			var ignore = false;
+			if(window.location.search.indexOf('isRef') >= 0) {
+				ignore = true;
+			}
+			jsCheckAccessTokenIgnore(ignore, true);
+		}
+		// 2016.10.21 generate page layout by Connected App End
+	</script>
+</apex:page>

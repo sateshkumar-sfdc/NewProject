@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>YETI Wheels Request</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Hi,
+
+
+
+Thank you for your interest in YETI!  Soon we will be launching our first-ever YETI cooler on wheels. Click here for more information on the Tundra Haul and to sign up to get notified on when you can get your hands on one.
+
+
+
+We do not sell a separate wheeled accessory option for any coolers you may currently have in your collection.  However, sign up for the YETI Nation on YETI.com to find out about other new gear that we’ve been working on.
+
+
+
+Please let us know if you have any additional questions.
+
+
+
+Kind Regards,
+
+
+
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeticoolers.com
+yeticoolers.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

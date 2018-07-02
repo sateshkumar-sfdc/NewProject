@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Hopper Inquiry</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>We appreciate your interest in the Custom Logo Program, specifically the YETI Hopper.
+
+Currently, the Custom Logo Program includes only hard side coolers from the Roadie 20 up to the Tundra 65 and Tank 85.
+
+However, the Hoppers do have a spot where you can attach a 2&quot; x 3&quot; hook and loop velcro patch if you were to get some custom patches made. Custom patches are not currently available through YETI.
+
+We do offer tiered pricing on corporate Hopper* orders; please see the price sheet attached. This pricing applies only for orders that are not for resale. The attached certified form must be signed and returned before we can place your order.
+
+To start a new order, please share the following:
+1.    Shipping &amp; Billing address(es)
+2.    Hopper™ size, color, &amp; quantity of each product
+3.    Return the attached Certified Letter with signature
+
+Feel free to reach out to the YETI Corporate Sales Team with any additional questions. We look forward to hearing from you!
+
+*Pending product availability
+
+{!User.CommunityNickname}
+Business Development Team
+YETI
+512.402.5895
+corporatesales@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

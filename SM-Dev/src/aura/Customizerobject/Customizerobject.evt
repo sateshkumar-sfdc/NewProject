@@ -1,0 +1,7 @@
+<!-- this event is to take the customizer json data -->
+<aura:event type="COMPONENT">
+    <!-- Add aura:attribute tags to define event shape.
+         One sample attribute here. -->
+    <aura:attribute name="customizerdata" type="string"/>
+    <aura:attribute name="ItemId" type="Id" />
+</aura:event>

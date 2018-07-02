@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Rambler 14 Heat Retention</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Thank you for reaching out to us at YETI!
+
+There are several factors that will affect the performance of your product, including the amount and starting temperature of the beverage being enjoyed. While our Ramblers are designed to keep contents hot or cold, it is important to know that the shape and size of different Rambler products will affect the performance. The 14 oz. Mug will perform similarly to a 10 oz. Lowball, simply due to the width, surface area, and design.
+
+If you are experiencing any temperature transfer on the outside of your product (the exterior feels warm to the touch), please reply to this email with some photos of your product to verify the size and condition to start a warranty claim.  If you have any further questions, please don&apos;t hesitate to let us know!
+
+Sincerely,
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

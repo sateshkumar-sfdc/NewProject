@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>PO Request</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Please cut the following PO:
+
+CMO # and/or logo name:
+
+Quantity:
+
+Price:
+
+MIG Item #:
+
+MIG Quote #:
+
+PO Notes:
+
+PO name in Y drive:
+
+Include artwork development &amp; plate charges, if applicable
+
+Please copy us on the PO e-mail when sent to Mold In Graphics.  Thanks so much!
+
+
+
+{!User.CommunityNickname}
+Business Development Team
+YETI
+512.402.5895
+corporatesales@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

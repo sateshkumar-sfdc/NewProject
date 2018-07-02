@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account.Credit_Cards__r$Id</field>
+    </columns>
+    <columns>
+        <field>Account.Credit_Cards__r$Chase_Profile_Id__c</field>
+    </columns>
+    <columns>
+        <field>Account$AccountNumber</field>
+    </columns>
+    <currency>USD</currency>
+    <description>cc waiting to sync to epicor</description>
+    <filter>
+        <criteriaItems>
+            <column>Account.Credit_Cards__r$Send_To_ERP__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account.Credit_Cards__r$LastModifiedDate</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>RH - CC in queue</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Account_and_Credit_Card_Profiles__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>Account.Credit_Cards__r$Chase_Profile_Id__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Account$CreatedDate</dateColumn>
+        <interval>INTERVAL_LAST60</interval>
+    </timeFrameFilter>
+</Report>

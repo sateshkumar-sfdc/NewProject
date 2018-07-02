@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>MAP Change</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hello,
+
+Thank you for contacting YETI!
+
+We always want to bring our customers the most premium product on the market at the best price possible.  Our main goal is to have awesome products that will fit your needs.
+
+I have placed a credit request in the amount of $xxxx to the credit card on the original order.  The order # for this credit request is xxxxxxxx.
+
+Please allow up to 7-10 business days for this credit to reflect on your card.
+
+Have a great day!
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

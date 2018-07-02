@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Drinkware ACH Payment</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Your customized order is ready for production!  Before we can begin customizing your order payment is required.  Below are the details for submitting payment to us.
+
+Please see our ACH transfer information below:
+
+Bank:
+Bank Of America Merrill Lynch
+250 Vesey St
+New York, NY 10281
+
+ABA# 111000012
+Account Name: YETI Custom Drinkware, LLC
+Account Number: 004451229258
+
+Please reference your Sales Order number (#XXXXX) and send remittance info to ar@yeticustomshop.com
+
+Once the ACH transfer has been sent please reply to this email so that we can keep an eye out for it.
+
+Our current customization lead time is about 2- 3 weeks from artwork approval and payment receipt.
+
+If you need anything else please don’t hesitate to contact us directly.
+
+Thanks,
+
+{!User.CommunityNickname}
+Business Development Team
+YETI
+512.402.5895
+corporatesales@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

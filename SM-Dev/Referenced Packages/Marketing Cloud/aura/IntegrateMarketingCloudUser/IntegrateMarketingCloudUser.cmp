@@ -1,0 +1,54 @@
+<aura:component implements="force:appHostable" extends="et4ae5:BaseComponent" controller="et4ae5.LightningIntegrateMCUserControl">
+    
+    <!--Static Resources-->
+    <ltng:require scripts="/resource/et4ae5__jQuery,/resource/et4ae5__uxds/js/bootstrap.js" styles="/resource/et4ae5__uxds/css/uxds-bootstrap.min.css,/resource/et4ae5__LightningMarketingCloudStyles"/>
+    
+    <!--Handlers-->
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+    <aura:handler name="businessUnitSelect" event="et4ae5:BusinessUnitSelection" action="{!c.handleBusinessUnitSelection}"/>   
+    <aura:handler event="et4ae5:ThrowErrorMessage" action="{!c.handleErrorMessage}" />
+    
+    <!--Attributes-->
+    <aura:attribute name="userCredsJSON" type="JSON" access="private"/>
+    <aura:attribute name="buSelectOptions" type="String[]" access="private"/>
+    <aura:attribute name="buLabelToMIDReferenceJSON" type="JSON" access="private"/>
+    <aura:attribute name="username" type="String" access="private"/>
+    <aura:attribute name="password" type="String" access="private"/>
+    
+    <!--Markup-->
+    <div class="uxds">  
+        <div class="uxds container">
+            <div class="uxds row rowSpacer-component">
+                <div class="center-block" style="width:400px;" aura:id="userCredsDiv">
+                    <et4ae5:UserCredential json="{!v.userCredsJSON}" aura:id="userCredsJSON"/>
+                </div>
+                <div class="center-block hide" style="width:400px;" aura:id="buSelectDiv">
+                    <div class="well">
+                        <form> 
+                            <legend id="login_title" style="font-weight: normal;color: #54698d;">
+                                {!$Label.et4ae5.mccBUs}
+                            </legend>
+                            <p style="line-height:130%;font-size:14px;">
+                                {!$Label.et4ae5.msg0176}
+                            </p>
+                            <div class="form-group">
+                                <label id="first_label">
+                                    {!$Label.et4ae5.busUnit}
+                                </label>
+                                <br/>
+                                <ui:inputSelect aura:id="buSelect" class="uxds form-control">
+                                    <aura:iteration items="{!v.buSelectOptions}" var="val">
+                                        <ui:inputSelectOption text="{!val}" label="{!val}" />    
+                                    </aura:iteration>
+                                </ui:inputSelect>  
+                            </div>
+                            <div class="form-group">
+                                <ui:button aura:id="connect_button" press="{!c.multiOrgLoginAttempt}" label="Connect" class="button-component"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>  
+		</div>
+	</div>	
+</aura:component>

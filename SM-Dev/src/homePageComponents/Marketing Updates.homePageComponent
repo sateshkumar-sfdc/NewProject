@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HomePageComponent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <body>&lt;div style=&quot;color: rgb(34, 34, 34); font-family: arial, sans-serif;&quot;&gt;
+&lt;p class=&quot;p1&quot;&gt;&lt;img alt=&quot;User-added image&quot; src=&quot;https://c.na15.content.force.com/servlet/servlet.ImageServer?id=015i0000004uR31&amp;amp;oid=00DK000000XJq1W&amp;amp;lastMod=1417549958000&quot;&gt;&lt;/img&gt;&lt;br&gt; &lt;/p&gt;
+&lt;/div&gt;</body>
+    <pageComponentType>htmlArea</pageComponentType>
+    <width>narrow</width>
+</HomePageComponent>

@@ -1,0 +1,37 @@
+<aura:component >
+    <aura:attribute name="step_json" type="json"/>
+    <aura:attribute name="page" type="integer"/>
+    <aura:attribute name="total_pages" type="integer"/>
+    <aura:attribute name="head" type="string"/>
+    <aura:attribute name="cont" type="string"/>
+    <aura:attribute name="dynamicallyCreated" type="boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/> 
+    
+    <ltng:require afterScriptsLoaded="{!c.setupModal}" scripts="/resource/et4ae5__jQuery,/resource/et4ae5__uxds/js/bootstrap.js" styles="/resource/et4ae5__uxds/css/uxds-bootstrap.min.css"/>       
+    	<div id="step_modal_body"> 
+        	<div id="inner_container" class="container">
+                <div class="modal fade" id="stepModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content" >
+                      <div class="modal-header" aura:id="modal_header">
+                          <p>
+                              <ui:outputText aura:id="modal_title" value="{!v.head}"/>
+                          </p>
+                      </div>
+                      <div class="modal-body" aura:id="modal_body">   
+                		<aura:unescapedHtml aura:id="modal_content" value="{!v.cont}" />
+                      </div>
+                      <div class="modal-footer" aura:id="modal_footer">
+                          <div aura:id="page_steps">
+                          	<p aura:id="page_content" class="pull-left">{!v.page} of {!v.total_pages}</p>
+                          </div>
+                          <ui:button aura:id="prev_btn" class="btn btn-default hide button-component" press="{!c.move}" label="Previous"/>
+                          <ui:button aura:id="next_btn" class="btn btn-default hide button-component" press="{!c.move}" label="Next"/>
+                          <ui:button aura:id="done_btn" class="btn btn-default hide button-component" press="{!c.move}" label="Done"/>
+                       </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div> 
+</aura:component>

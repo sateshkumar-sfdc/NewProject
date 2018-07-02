@@ -1,0 +1,1030 @@
+<apex:page setup="true" controller="UniqueEntry.uniqueConfigureController" sidebar="false">
+
+	<apex:includeScript value="{!URLFOR($Resource.UniqueEntry__jQueryUI, 'jquery-1.9.1.js')}" />
+	<apex:includeScript value="{!URLFOR($Resource.UniqueEntry__jQueryUI, 'jquery-ui.js')}" />
+	<apex:stylesheet value="{!URLFOR($Resource.UniqueEntry__jQueryUI, 'jquery-ui.css')}" /> 
+	<apex:styleSheet value="{!URLFOR($Resource.UniqueEntry__uniqueEntryResources, 'uniqueStyle.css')}" />
+	<apex:includeScript value="{!URLFOR($Resource.UniqueEntry__UniqueEntry_SF1Styles, '/newsf1/salesforce/jsforce.min.js')}" />
+	
+	<apex:includescript value="/soap/ajax/34.0/connection.js" />
+	<apex:includescript value="/soap/ajax/34.0/apex.js" />
+	
+	<style>
+		iframe.component{ border: none; width: 100%; }
+		.hdn { display: none; }
+		.duelingListBox .selectTitle { white-space: nowrap;} 
+	</style>
+	<script type="text/javascript">
+		sforce.connection.sessionId = "{!$Api.Session_ID}";
+		var service = new jsforce.Connection({
+			accessToken: '{!$Api.Session_Id}'
+		});
+
+		var con = new function() {
+			var $con = this;
+			var ns = '{!ns}__';
+			$con.objects = {};
+
+			$con.doInit = function() {
+				var temp = sforce.connection.describeSObjects(['Account', 'Contact', 'Lead']);
+
+				for (var i = 0; i < temp.length; i++) {
+					$con.objects[temp[i].name] = temp[i];
+				}
+				$con.fieldMapping.doInit();
+				$con.displaySetting.doInit();
+				$con.actionOverride.doInit();
+			}
+
+			$con.fieldMapping = new function() {
+				var $c = this;
+
+				$c.opts = [];
+
+				$c.doInit = function() {
+					if ($c.opts == 0) {
+						$c.opts = getOptsFromObject('Account').concat(getOptsFromObject('Contact'));
+					}
+
+					$c.doBind();
+				}
+
+				$c.doBind = function() {
+					$j('.cfm-field').each(function() {
+						var $parent = $j(this).parent();
+						$parent.find('.cfm-picklist').remove();
+
+						var $this = $j('<select class="cfm-picklist"></select>');
+						$parent.append($this);
+
+						$this.append('<option value="">--None--</option>');
+
+						for (var i = 0; i < $c.opts.length; i++) {
+							var f = $c.opts[i];
+							$this.append('<option value="' + f.value + '">' + f.label + '</option>');
+						}
+						var v = $this.parent().find('.cfm-field').val();
+						$this.val(v);
+
+						$this.change(function() {
+							$j(this).parent().find('.cfm-field').val($j(this).val());
+						})
+					})
+				}
+
+				function getOptsFromObject(objName) {
+					var opts = [];
+					var obj = $con.objects[objName];
+					for (var i = 0; i < obj.fields.length; i++) {
+						var f = obj.fields[i];
+						var fieldAPI = f.name;
+						if (f.name.indexOf(ns) > -1) {
+							fieldAPI = fieldAPI.substring(ns.length);
+						}
+						if (f.custom == 'true') {
+							opts.push({
+								'label': objName + '.' + f.label,
+								'value': objName.toLowerCase() + '.' + fieldAPI.toLowerCase()
+							});
+						}
+					}
+					opts.sort(function(a, b) {
+						return a.label.localeCompare(b.label)
+					});
+					return opts;
+				}
+			}
+
+			$con.displaySetting = new function() {
+				var $c = this;
+
+				$c.opts = {};
+
+				$c.doInit = function() {
+					$c.opts['Account'] = getOptsFromObject('Account');
+					$c.opts['Person Account'] = getOptsFromObject('Account', true);
+					$c.opts['Contact'] = getOptsFromObject('Contact');
+					$c.opts['Lead'] = getOptsFromObject('Lead');
+
+					$c.doBind();
+				}
+
+				function getOptsFromObject(objName, isPerson) {
+					var opts = [];
+					var obj = $con.objects[objName];
+					isPerson = isPerson == true;
+
+					for (var i = 0; i < obj.fields.length; i++) {
+						var f = obj.fields[i];
+						var fieldAPI = f.name;
+						if (f.name.indexOf(ns) > -1) {
+							fieldAPI = fieldAPI.substring(ns.length).toLowerCase();
+						}
+						if (isPerson || fieldAPI.indexOf('person') == -1) {
+							opts.push({
+								'label': f.label.endsWith('ID') ? f.label.substring(0, f.label.length - 3) : f.label,
+								'value': fieldAPI
+							});
+						}
+					}
+					opts.sort(function(a, b) {
+						return a.label.localeCompare(b.label)
+					});
+
+					return opts;
+				}
+
+				$c.doBind = function() {
+					$j('.displaySettings-field').each(function() {
+						try {
+							var $hdn = $j(this);
+							var $parent = $hdn.parent();
+
+							$parent.find('div.duelingListBox').remove();
+							$parent.append($j('#displaySettings-template div.duelingListBox').clone());
+							$parent.find('.selectTitle label').text(function() {
+								return this.innerHTML.replace('#object#', $hdn.data('obj'))
+							});
+
+							var $hdn = $parent.find('.displaySettings-field');
+							var $left = $parent.find('.displaySettings-available');
+							var $right = $parent.find('.displaySettings-chosen');
+							var $btnAdd = $parent.find('.displaySettings-btnAdd');
+							var $btnRemove = $parent.find('.displaySettings-btnRemove');
+							var $btnUp = $parent.find('.displaySettings-btnUp');
+							var $btnDown = $parent.find('.displaySettings-btnDown');
+
+
+							var opts = $c.opts[$hdn.data('obj')];
+							for (var i = 0; i < opts.length; i++) {
+								$left.append('<option value="' + opts[i].value.toLowerCase() + '">' + opts[i].label + '</option>');
+							}
+
+							$left.find('option').detach().sort(function(a, b) {
+								var at = $j(a).text();
+								var bt = $j(b).text();
+								return (at > bt) ? 1 : ((at < bt) ? -1 : 0);
+							}).appendTo($left);
+
+							if ($hdn.val() != null && $hdn.val() != '') {
+								var vals = $hdn.val().split(';');
+								for (var i = 0; i < vals.length; i++) {
+									$left.find('option[value="' + vals[i] + '"]').appendTo($right);
+								}
+							}
+							$btnAdd.click(function() {
+								doSelectMulti($left, $right, true, $hdn)
+							});
+							$btnRemove.click(function() {
+								doSelectMulti($left, $right, false, $hdn)
+							});
+							$btnUp.click(function() {
+								doOrderMulti($right, true, $hdn);
+							});
+							$btnDown.click(function() {
+								doOrderMulti($right, false, $hdn);
+							});
+
+						} catch (e) {
+							console.log(e)
+						};
+					})
+				}
+
+				function doSelectMulti(optLeft, optRight, isAdding, targetField) {
+					if (isAdding) {
+						var opts = optLeft.find('option:selected');
+						if (opts.length + optRight.find('option').length > 7) {
+							alert('You may only select up to 7 fields for display.');
+							return;
+						}
+						optLeft.find('option:selected').removeAttr('selected').appendTo(optRight);
+					} else {
+						optRight.find('option:selected').removeAttr('selected').appendTo(optLeft);
+					}
+
+					optLeft.find('option').detach().sort(function(a, b) {
+						var at = $j(a).text();
+						var bt = $j(b).text();
+						return (at > bt) ? 1 : ((at < bt) ? -1 : 0);
+					}).appendTo(optLeft);
+
+					updateTargetField(optRight, targetField);
+				}
+
+				function doOrderMulti(opt, isUp, targetField) {
+					var opts = opt.find('option');
+					var selectedIndex = [];
+
+					for (var i = 0; i < opts.length; i++) {
+						if (opts[i].selected) {
+							if ((i == 0 && isUp) || (i == opts.length - 1 && !isUp)) {
+								return;
+							}
+							selectedIndex.push(i);
+						}
+					}
+					opts.detach();
+					if (isUp) {
+						for (var i = 0; i < selectedIndex.length; i++) {
+							arraymove(opts, selectedIndex[i], selectedIndex[i] - 1);
+						}
+					} else {
+						for (var i = selectedIndex.length - 1; i >= 0; i--) {
+							arraymove(opts, selectedIndex[i], selectedIndex[i] + 1);
+						}
+					}
+					console.log(opts);
+					opts.appendTo(opt);
+					updateTargetField(opt, targetField);
+				}
+
+				function updateTargetField(opt, targetField) {
+					var values = [];
+					opt.find('option').each(function() {
+						values.push(this.value);
+					})
+
+					targetField.val(values.length == 0 ? null : values.join(';'));
+				}
+
+				function arraymove(arr, fromIndex, toIndex) {
+					if (fromIndex > arr.length - 1 || toIndex < 0) {
+						return;
+					}
+					var element = arr.splice(fromIndex, 1)[0];
+					arr.splice(toIndex, 0, element);
+				}
+			}
+
+			$con.actionOverride = new function() {
+				var $c = this;
+
+				$c.objects = ['Lead', 'Contact', 'Account'];
+
+				$c.doInit = function(){
+					$c.retrieveMeta();
+				}
+
+				$c.retrieveMeta = function() {
+					service
+						.tooling
+						.sobject('StandardAction')
+						.find("EntityDefinition.QualifiedApiName IN('Account','Contact','Lead') AND Name IN('New','Edit','NewContact')", ['Name', 'EntityDefinition.QualifiedApiName', 'OverrideContent.Name'])
+						.execute()
+						.then($c.retrieveMeta_complete);
+				}
+
+				$c.retrieveMeta_complete = function(res) {
+					//console.log(res);
+					var meta = {
+						'Account': [],
+						'Contact': [],
+						'Lead': []
+					};
+					for (var i = 0; i < res.length; i++) {
+						var a = res[i];
+						var page = a.OverrideContent == null ? null : a.OverrideContent.Name.toLowerCase();
+
+						if (page == null || !page.startsWith('unique') || page.endsWith('navigation')) {
+							continue;
+						}
+						meta[a.EntityDefinition.QualifiedApiName].push({
+							actionName: a.Name,
+							type: 'visualforce',
+							content: '{!ns}__unique' + a.EntityDefinition.QualifiedApiName + 'Navigation'
+						});
+					}
+
+					for (var obj in meta) {
+						if (meta.hasOwnProperty(obj)) {
+							if (meta[obj].length > 0) {
+								$c.updateMeta(obj, meta[obj]);
+							}
+						}
+					}
+				}
+				$c.updateMeta = function(obj, btnOverrides) {
+					//console.log('#updating ' + obj);
+					service.metadata.update('CustomObject', {
+						fullName: obj,
+						actionOverrides: btnOverrides
+					})
+				}
+
+				$c.retrieveMeta();
+			}
+		}
+
+		$j = jQuery.noConflict();
+
+		$j(function() {
+			con.doInit();
+		})
+
+		function onAjaxStop() {
+			con.displaySetting.doBind();
+			con.fieldMapping.doBind();
+		}
+
+		var helpMsgs = {
+			"customFieldMapping": "Lead Custom Field Mapping Help Message"
+		};
+
+		function togglePopup(popupId, isVisible) {
+			var visibility = isVisible == true ? 'visible' : 'hidden';
+			$j("#overlay").css("visibility", visibility);
+			$j("#" + popupId).css("visibility", visibility);
+		}
+
+		function showPopup(popupId) {
+			togglePopup(popupId, true);
+		}
+
+		function hidePopup(popupId) {
+			togglePopup(popupId, false);
+		}
+
+		function showHelpPop() {
+			togglePopup('helpMessagePop', true);
+		}
+
+		function hideHelpPop() {
+			togglePopup('helpMessagePop', false);
+		}
+
+		function showQuitPop() {
+			togglePopup('quitPopup', true);
+		}
+
+		function hideQuitPop() {
+			togglePopup('quitPopup', false);
+		}
+
+		function onCancel() {
+			window.top.location = "/0A3?setupid=ImportedPackage";
+		}
+
+		function addToOnload(fn) {
+			var old = window.onload;
+			window.onload = function() {
+				old();
+				fn();
+			}
+		}
+
+
+		function onChange() {
+			$j('.hdnNotSaved').val('true');
+		}
+
+		$j(function() {
+			if ('{!imported}' == 'true') {
+				showPopup('importMessagePop');
+			}
+		})
+
+		function child_configuration_onChange(settingName, settingValue) {
+			$j('.' + settingName).val(settingValue);
+		}
+
+		var saveFlags = {};
+
+		function child_configuration_onSave(iframeId, status, message) {
+			saveFlags[iframeId].status = status;
+			saveFlags[iframeId].message = message;
+
+			var success = true;
+			var pending = false;
+			var message = '';
+
+			for (var key in saveFlags) {
+				if (saveFlags.hasOwnProperty(key)) {
+					if (saveFlags[key].status != 'success') {
+						success = false;
+					}
+					if (saveFlags[key].status == 'pending') {
+						pending = true;
+					}
+					if (saveFlags[key].status == 'error') {
+						message += saveFlags[key].message + '\r\n';
+					}
+				}
+			}
+
+			if (success) {
+				action_onSave();
+			} else if (!pending) {
+				alert(message);
+				$j('#overlayPnl').parent().hide();
+			}
+		}
+
+		function save() {
+			$j('#overlayPnl').parent().show();
+			saveFlags = {};
+			$j('iframe.component').each(function() {
+				this.contentWindow.save();
+				saveFlags[this.id] = {
+					status: 'pending'
+				};
+			})
+		}
+
+		// clear config cache start
+		function showClearPop() {
+			togglePopup('clearPopup', true);
+		}
+		function hideClearPop() {
+			togglePopup('clearPopup', false);
+		}
+		// clear config cache end		
+	</script>
+	<apex:form >
+		<c:overlayStatus />
+
+		<apex:actionFunction name="accountInitialized" action="{!getFieldOptions}" oncomplete="" status="overlayStatus" rerender="accountBlock">
+			<apex:param name="activeAccount" value="account" assignTo="{!currentTab}"/>
+		</apex:actionFunction>
+		<apex:actionFunction name="personAccountInitialized" action="{!getFieldOptions}" oncomplete="" status="overlayStatus" rerender="personAccountBlock">
+			<apex:param name="activePersonAccount" value="personAccount" assignTo="{!currentTab}"/>
+		</apex:actionFunction>
+		<apex:actionFunction name="contactInitialized" action="{!getFieldOptions}" oncomplete="" status="overlayStatus" rerender="contactBlock">
+			<apex:param name="activeContact" value="contact" assignTo="{!currentTab}"/>
+		</apex:actionFunction>
+		<apex:actionFunction name="leadInitialized" action="{!getFieldOptions}" oncomplete="" status="overlayStatus" rerender="leadBlock">
+			<apex:param name="activeLead" value="lead" assignTo="{!currentTab}"/>
+		</apex:actionFunction>
+		<apex:actionfunction name="action_onSave" action="{!onSave}" status="overlayStatus" rerender="setting,helpMessagePop"></apex:actionfunction>
+		<!-- Clear configure cache start -->
+		<apex:actionfunction name="action_onClearCache" action="{!onClearConfigCache}" status="overlayStatus" rerender="helpMessagePop" onComplete="hideClearPop();"></apex:actionfunction>
+		<!-- Clear configure cache start -->
+		<apex:sectionHeader title="Ultimate Entry" subtitle="Configuration" />
+		
+		<apex:inputtext style="display:none" value="{!notSaved}" styleClass="hdnNotSaved" />
+		<apex:inputtext style="display:none" value="{!settings.UniqueEntry__Lead_Fields_Config__c}" styleClass="lead_fields_config__c" />
+		<apex:inputtext style="display:none" value="{!settings.UniqueEntry__Lead_Related_Config__c}" styleClass="lead_related_config__c" />
+		<apex:inputtext style="display:none" value="{!settings.UniqueEntry__Contact_Fields_Config__c}" styleClass="contact_fields_config__c" />
+		<apex:inputtext style="display:none" value="{!settings.UniqueEntry__Contact_Related_Config__c}" styleClass="contact_related_config__c" />
+		<apex:inputtext style="display:none" value="{!settings.UniqueEntry__Account_Fields_Config__c}" styleClass="account_fields_config__c" />
+		<apex:inputtext style="display:none" value="{!settings.UniqueEntry__Account_Related_Config__c}" styleClass="account_related_config__c" />
+		<apex:inputtext style="display:none" value="{!settings.UniqueEntry__Person_Account_Fields_Config__c}" styleClass="person_account_fields_config__c" />
+		<apex:inputtext style="display:none" value="{!settings.UniqueEntry__Person_Account_Related_Config__c}" styleClass="person_account_related_config__c" />
+		
+		<apex:pageBlock mode="edit"> 
+			<apex:pageBlockButtons >
+			
+				<input type="button" value="Save" onclick="save(); return false;" class="btn"/>
+				<apex:commandButton value="Cancel" onclick="showQuitPop(); return false;"/>
+				<!-- <!-- Clear configure cache start -->
+				<!-- <apex:commandButton value="Clear" onclick="showClearPop(); return false;"/> -->
+				<!-- Clear configure cache end -->
+				
+			</apex:pageBlockButtons>
+			
+			<apex:tabPanel switchType="client" value="{!currentTab}" id="setting">
+				<apex:tab label="{!$ObjectType.Account.LabelPlural}" name="account" id="account" status="overlayStatus" >
+
+					<apex:pageBlock mode="edit" id="accountBlock">
+						<apex:pageBlockSection title="Security Setting" columns="1">
+							<apex:selectRadio layout="pageDirection" onchange="onChange()"
+								value="{!settings.UniqueEntry__Account_Security_Level__c}" label="">
+								<apex:selectOption itemValue="high"
+									itemLabel="HIGH - Possible duplicate record searches are limited to records the user has access to view." />
+								<apex:selectOption itemValue="medium"
+									itemLabel="MEDIUM - Possible duplicate records the user doesn't normally have access to view are displayed but with all fields hidden except Name and Owner." />
+								<apex:selectOption itemValue="low"
+									itemLabel="LOW - Duplicate search includes and displays all possible duplicates regardless of whether the user has access to view that record or not." />
+							</apex:selectRadio>
+						</apex:pageBlockSection>
+
+						<apex:pageBlockSection title="Display Settings" columns="1">
+							<apex:outputText >Select up to seven fields to display when {!$ObjectType.Account.LabelPlural} are displayed in the duplicate warning box and select the order in which they will show.</apex:outputText>
+							<apex:panelGrid columns="1"
+								columnClasses="labelColumn,fieldColumn" styleClass="optionGrid"
+								cellpadding="6" id="accountPanel" style="text-align: left !important;">
+								<apex:outputpanel >
+									<apex:inputtext styleclass="displaySettings-field hdn" html-data-obj="Account" value="{!settings.UniqueEntry__Account_Fields__c}" />
+								</apex:outputpanel>
+
+								<apex:outputPanel >
+									"Evaluate account against territory rules on save" checkbox on Account entry pages
+								</apex:outputPanel>
+								<apex:selectList value="{!TMEvaluate}" multiselect="false" size="1">
+									<apex:selectOption itemValue="checked" itemLabel="Display, checked by default" />
+									<apex:selectOption itemValue="unchecked" itemLabel="Display, unchecked by default" />
+									<apex:selectOption itemValue="hidden" itemLabel="Do not display" />
+								</apex:selectList>
+								
+							</apex:panelGrid>
+						</apex:pageBlockSection>
+
+						<apex:pageBlockSection title="Fields Used to Detect Duplicates" columns="1" id="pbsAccountSFTable">
+							<iframe id="accountIframe" 
+								class="component"
+								style="border:none;width:100%;"
+								src="/apex/uniqueconfigurefieldtable?isdtp=vw&iframeId=accountIframe&objectName=account&settingName=Account_Fields_Config__c&settingId={!settings.UniqueEntry__Account_Fields_Config__c}"></iframe>
+						</apex:pageBlockSection>
+						
+						<apex:pageBlockSection title="Fields Used to Display Related Records" columns="1" id="pbsAccountRelatedSFTable">
+							<iframe id="accountRelatedIframe" 
+								class="component"
+								style="border:none;width:100%;"
+								src="/apex/uniqueconfigurefieldtable?isdtp=vw&iframeId=accountRelatedIframe&objectName=account&settingName=Account_Related_Config__c&settingId={!settings.UniqueEntry__Account_Related_Config__c}"></iframe>
+						</apex:pageBlockSection>
+					</apex:pageBlock>
+				</apex:tab>
+				<apex:tab label="Person {!$ObjectType.Account.LabelPlural}" name="personAccount" rendered="{!isPersonAccountsEnabled}"
+					id="personAccount" status="overlayStatus" >
+					<apex:pageBlock mode="edit" id="personAccountBlock">
+						<apex:pageBlockSection title="Security Setting" columns="1">
+							<apex:selectRadio layout="pageDirection" onchange="onChange()"
+								value="{!settings.UniqueEntry__Person_Account_Security_Level__c}" label="">
+								<apex:selectOption itemValue="high"
+									itemLabel="HIGH - Possible duplicate record searches are limited to records the user has access to view." />
+								<apex:selectOption itemValue="medium"
+									itemLabel="MEDIUM - Possible duplicate records the user doesn't normally have access to view are displayed but with all fields hidden except Name and Owner." />
+								<apex:selectOption itemValue="low"
+									itemLabel="LOW - Duplicate search includes and displays all possible duplicates regardless of whether the user has access to view that record or not." />
+							</apex:selectRadio>
+						</apex:pageBlockSection>
+
+						<apex:pageBlockSection title="Display Settings" columns="1">
+							<apex:outputText >Select up to seven fields to display when Person {!$ObjectType.Account.LabelPlural} are displayed in the duplicate warning box and select the order in which they will show.</apex:outputText>
+							<apex:panelGrid columns="1"
+								columnClasses="labelColumn,fieldColumn" styleClass="optionGrid"
+								cellpadding="6" id="personAccountPanel" style="text-align: left !important;">
+								<apex:outputpanel >
+									<apex:inputtext styleclass="displaySettings-field hdn" html-data-obj="Person Account" value="{!settings.UniqueEntry__Person_Account_Fields__c}" />
+								</apex:outputpanel>
+							</apex:panelGrid>
+						</apex:pageBlockSection>
+						
+						<apex:pageBlockSection title="Fields Used to Detect Duplicates" columns="1" id="pbsPersonAccountSFTable">
+							<iframe id="personAccountIframe" 
+								class="component"
+								style="border:none;width:100%;"
+								src="/apex/uniqueconfigurefieldtable?isdtp=vw&iframeId=personAccountIframe&objectName=personAccount&settingName=Person_Account_Fields_Config__c&settingId={!settings.UniqueEntry__Person_Account_Fields_Config__c}"></iframe>
+						   
+						</apex:pageBlockSection>
+						
+						<apex:pageBlockSection title="Fields Used to Display Related Records" columns="1" id="pbsPersonAccountRelatedSFTable">
+							<iframe id="accountRelatedIframe" 
+								class="component"
+								style="border:none;width:100%;"
+								src="/apex/uniqueconfigurefieldtable?isdtp=vw&iframeId=personAccountIframe&objectName=personAccount&settingName=Person_Account_Related_Config__c&settingId={!settings.UniqueEntry__Person_Account_Related_Config__c}"></iframe>
+						   
+						</apex:pageBlockSection>
+						
+					</apex:pageBlock>
+				</apex:tab>
+				<apex:tab label="{!$ObjectType.Contact.LabelPlural}" name="contact" id="contact" status="overlayStatus" >
+					<apex:pageBlock mode="edit" id="contactBlock">
+						<apex:pageBlockSection title="Security Setting" columns="1">
+							<apex:selectRadio layout="pageDirection" onchange="onChange()"
+								value="{!settings.UniqueEntry__Contact_Security_Level__c}" label="">
+								<apex:selectOption itemValue="high"
+									itemLabel="HIGH - Possible duplicate record searches are limited to records the user has access to view." />
+								<apex:selectOption itemValue="medium"
+									itemLabel="MEDIUM - Possible duplicate records the user doesn't normally have access to view are displayed but with all fields hidden except Name and Owner." />
+								<apex:selectOption itemValue="low"
+									itemLabel="LOW - Duplicate search includes and displays all possible duplicates regardless of whether the user has access to view that record or not." />
+							</apex:selectRadio>
+						</apex:pageBlockSection>
+
+						<apex:pageBlockSection title="Display Settings" columns="1">
+							<apex:outputText >Select up to seven fields to display when {!$ObjectType.Contact.LabelPlural} are displayed in the duplicate warning box and select the order in which they will show.</apex:outputText>
+							<apex:panelGrid columns="1"
+								columnClasses="labelColumn,fieldColumn" styleClass="optionGrid"
+								cellpadding="6" id="contactPanel" style="text-align: left !important;">
+								
+								<apex:outputpanel >
+									<apex:inputtext styleclass="displaySettings-field hdn" html-data-obj="Contact" value="{!settings.UniqueEntry__Contact_Fields__c}" />
+								</apex:outputpanel>
+
+								<apex:outputPanel rendered="{!camp}">
+									Campaign lookup field on {!$ObjectType.Contact.Label} entry pages
+								</apex:outputPanel>
+								<apex:selectList value="{!settings.UniqueEntry__Contact_Campaign_Lookup_Field__c}"
+									multiselect="false" size="1" rendered="{!camp}">
+									<apex:selectOption itemValue="required"
+										itemLabel="Display as required" />
+									<apex:selectOption itemValue="optional"
+										itemLabel="Display as optional" />
+									<apex:selectOption itemValue="hidden"
+										itemLabel="Do not display" />
+								</apex:selectList>
+
+							</apex:panelGrid>
+						</apex:pageBlockSection>
+
+						
+						<apex:pageBlockSection title="Fields Used to Detect Duplicates" columns="1" id="pbsContactSFTable">
+							<iframe id="contactIframe" 
+								class="component"
+								style="border:none;width:100%;"
+								src="/apex/uniqueconfigurefieldtable?isdtp=vw&iframeId=contactIframe&objectName=contact&settingName=Contact_Fields_Config__c&settingId={!settings.UniqueEntry__Contact_Fields_Config__c}"></iframe>
+							
+							
+						</apex:pageBlockSection>
+						
+						<apex:pageBlockSection title="Fields Used to Display Related Records" columns="1" id="pbsContactRelatedSFTable">
+							<iframe id="contactIframe" 
+								class="component"
+								style="border:none;width:100%;"
+								src="/apex/uniqueconfigurefieldtable?isdtp=vw&iframeId=contactRelatedIframe&objectName=contact&settingName=Contact_Related_Config__c&settingId={!settings.UniqueEntry__Contact_Related_Config__c}"></iframe>
+							
+						</apex:pageBlockSection>
+						
+					</apex:pageBlock>
+				</apex:tab>
+				
+				<apex:tab label="{!$ObjectType.Lead.LabelPlural}" name="lead" id="lead" status="overlayStatus" >
+					<apex:pageBlock mode="edit" id="leadBlock">
+						<apex:pageBlockSection title="Security Setting" columns="1">
+							<apex:selectRadio layout="pageDirection" onchange="onChange()"
+								value="{!settings.UniqueEntry__Lead_Security_Level__c}" label="">
+								<apex:selectOption itemValue="high"
+									itemLabel="HIGH - Possible duplicate record searches are limited to records the user has access to view." />
+								<apex:selectOption itemValue="medium"
+									itemLabel="MEDIUM - Possible duplicate records the user doesn't normally have access to view are displayed but with all fields hidden except Name and Owner." />
+								<apex:selectOption itemValue="low"
+									itemLabel="LOW - Duplicate search includes and displays all possible duplicates regardless of whether the user has access to view that record or not." />
+							</apex:selectRadio>
+						</apex:pageBlockSection>
+
+						<apex:pageBlockSection title="Display Settings"
+							columns="1">
+							<apex:outputText >Select up to seven fields to display when {!$ObjectType.Lead.LabelPlural} are displayed in the duplicate warning box and select the order in which they will show.</apex:outputText>    
+							<apex:panelGrid columns="1"
+								columnClasses="labelColumn,fieldColumn" styleClass="optionGrid"
+								cellpadding="6" id="leadPanel">
+								
+								<apex:outputpanel >
+									<apex:inputtext styleclass="displaySettings-field hdn" html-data-obj="Lead" value="{!settings.UniqueEntry__Lead_Fields__c}" />
+								</apex:outputpanel>
+
+								<apex:outputPanel >
+									"Assign Using Assignment Rules" Checkbox on {!$ObjectType.Lead.Label} entry pages
+								</apex:outputPanel>
+								<apex:selectList value="{!settings.UniqueEntry__Lead_Assignment_Checkbox__c}"
+									multiselect="false" size="1">
+									<apex:selectOption itemValue="checked"
+										itemLabel="Display, checked by default" />
+									<apex:selectOption itemValue="unchecked"
+										itemLabel="Display, unchecked by default" />
+									<apex:selectOption itemValue="hidden"
+										itemLabel="Do not display" />
+								</apex:selectList>
+
+								<apex:outputPanel rendered="{!camp}">
+									Campaign lookup field on {!$ObjectType.Lead.Label} entry pages
+								</apex:outputPanel>
+								<apex:selectList value="{!settings.UniqueEntry__Campaign_Lookup_Field__c}"
+									multiselect="false" size="1" rendered="{!camp}">
+									<apex:selectOption itemValue="required"
+										itemLabel="Display as required" />
+									<apex:selectOption itemValue="optional"
+										itemLabel="Display as optional" />
+									<apex:selectOption itemValue="hidden"
+										itemLabel="Do not display" />
+								</apex:selectList>
+
+							</apex:panelGrid>
+						</apex:pageBlockSection>
+						
+						<apex:pageBlockSection title="Fields Used to Detect Duplicates" columns="1" id="pbsLeadSFTable">
+						
+							<iframe id="leadIframe" 
+								class="component"
+								style="border:none;width:100%;"
+								src="/apex/uniqueconfigurefieldtable?isdtp=vw&iframeId=leadIframe&objectName=lead&settingName=Lead_Fields_Config__c&settingId={!settings.UniqueEntry__Lead_Fields_Config__c}"></iframe>
+						</apex:pageBlockSection>
+						
+						<apex:pageBlockSection title="Fields Used to Display Related Records" columns="1" id="pbsLeadRelatedSFTable">
+							<iframe id="leadRelatedIframe" 
+								class="component"
+								style="border:none;width:100%;"
+								src="/apex/uniqueconfigurefieldtable?isdtp=vw&iframeId=leadRelatedIframe&objectName=lead&settingName=Lead_Related_Config__c&settingId={!settings.UniqueEntry__Lead_Related_Config__c}"></iframe>
+						</apex:pageBlockSection>
+					</apex:pageBlock>
+				</apex:tab> 
+				
+				<apex:tab label="Custom Field Mapping" name="customFieldMapping"
+					id="customFieldMapping" status="overlayStatus" >
+					<apex:pageBlock mode="edit">
+						<apex:pageBlockSection title="Lead Custom Field Mapping" columns="1">
+							<apex:outputText >
+							In order for Unique Entry to be able to find duplicates cross-object, 
+							for example finding {!$ObjectType.Contact.LabelPlural} that match a Lead being entered, 
+							you can use the form below to tell the application where your custom Lead fields 
+							map to on the Contact and Account objects.
+							<br/><br/>
+							This mapping is something you have already entered into Salesforce, 
+							but unfortunately AppExchange applications do not have access to this part of your setup. 
+							To save time, don't worry about mapping every single field below to make it match your existing Lead mapping, 
+							instead just map those fields which you think are important for identifying duplicates 
+							and have therefore included as "Fields Used to Detect Duplicates" on the other tabs of this setup screen.
+							<br/><br/>
+							</apex:outputText>
+							<apex:panelGrid columns="2"> 
+								
+								<apex:dataTable value="{!mappingLeadFields}" var="item">
+									<apex:column headerValue="Take this Lead custom field...  "  style="height: 22px; padding: 5px 0 0 0;">
+										<apex:outputText >{!item.leadFieldName}</apex:outputText>
+									</apex:column>  
+									<apex:column style="width: 15px;">&nbsp;</apex:column>
+									<apex:column headerValue="  ...and map it to this field" style="height: 22px; padding: 5px 0 0 0;">
+										<!-- <apex:selectList value="{!item.selectedField}" size="1" onchange="onChange()">
+											<apex:selectOptions value="{!item.destinationFields}"/>
+										</apex:selectList>  -->
+										<apex:inputtext styleclass="cfm-field hdn" value="{!item.selectedField}" />
+									</apex:column>
+								</apex:dataTable>
+								
+							</apex:panelGrid>
+						</apex:pageBlockSection>
+					</apex:pageBlock>
+				</apex:tab>
+				
+				<apex:tab label="General" name="general" id="general" status="overlayStatus" >
+					<apex:pageBlock mode="edit">
+						<apex:pageBlockSection title="General Settings" columns="1">
+							<apex:panelGrid columns="2">
+	
+								<apex:inputCheckbox value="{!ExcitingMode}" onchange="onChange()"/>
+								<apex:outputPanel >
+									<b>Exciting Interjections</b> - Enable colorful interjections to your duplicate warning such as "Stop the Presses!" or "Heads up, my friend".  This will take the place of "Attention:" at the beginning of the duplicate warning
+								</apex:outputPanel>
+
+								<apex:inputCheckbox styleClass="ckb-cacheEnabled" value="{!cacheEnabled}" onchange="on_cacheToggle(this.checked)"/>
+								<apex:outputPanel >
+									<b>Enable cache</b> - Speed up ultimate entry pages response time by enable caching of configuration upon entering a page. Set cache time (in minutes) according to the average time it takes to create/edit a record.
+									<br/><br/>
+									<c:slider sliderId="Cache" minValue="1" maxValue="60" step="1" showCounter="true" value="{!systemSettings.UniqueEntry__Cache_Time__c}" /> 
+								</apex:outputPanel>
+								<script type="text/javascript">
+									function on_cacheToggle(isEnabled){
+										$j('#sliderCache').slider('option','disabled',!isEnabled);
+										$j('#counterCache').toggle(isEnabled);
+									}
+									on_cacheToggle({!cacheEnabled});
+								</script>								
+							</apex:panelGrid>
+							<!-- Clear configure cache start -->
+							<apex:commandButton value="Clear Cache" onclick="showClearPop(); return false;"/>
+							<!-- Clear configure cache end -->
+						</apex:pageBlockSection> 
+						
+						<apex:pageblocksection title="Export & Import" columns="1">
+							<apex:outputpanel >
+								<b><apex:commandlink value="Export" action="{!btnExport_onClick}" immediate="true" status="overlayStatus" rerender="helpMessagePop" /></b> -
+								Export configuration settings to a JSON-formatted file in order to backup or import to another system. The export file will be saved in "Unique Entry Resources" folder. 
+							</apex:outputpanel>
+							<apex:outputpanel >
+								<b><apex:commandlink value="Import" onclick="showPopup('uploadMessagePop'); return false;"/></b> - 
+								Upload configuration settings file. Current settings will be lost, please backup first before uploading. 
+							</apex:outputpanel>
+						</apex:pageblocksection>
+
+						<!-- 
+						<apex:pageblocksection title="Territory Management" columns="1">
+							<apex:outputpanel >"Evaluate this account against territory rules on save" checkbox</apex:outputpanel>
+							<apex:panelGrid columns="2">
+	
+								<apex:inputCheckbox value="{!userSettings.TM_Show__c}" onchange="onChange()"/>
+								<apex:outputPanel >Show on edit page</apex:outputPanel>
+								
+								<apex:inputCheckbox value="{!userSettings.TM_Default__c}" onchange="onChange()"/>
+								<apex:outputPanel >Default</apex:outputPanel>
+	
+							</apex:panelGrid>
+						</apex:pageblocksection>
+						 -->
+						<!--
+						<apex:pageBlockSection title="Page layout for user without API Access" columns="1">
+							<apex:outputText >
+								For users without API access permission, the application cannot generate edit pages directly. 
+								Click "Reload layouts" button to retrieve and save the latest page layouts information for these users.
+							</apex:outputText>
+							
+							<apex:pageBlockTable var="item" value="{!listPageLayout}" id="pbtLayouts">
+								<apex:column headerValue="Object" value="{!item.RecordType.SObjectType}" />
+								<apex:column headerValue="Record Type">
+									<a href="/setup/ui/recordtypefields.jsp?id={!item.RecordType.Id}" target="_blank">{!item.RecordType.Name}</a>
+								</apex:column>
+								<apex:column headerValue="Page Layout" rendered="{!item.PageLayout.Page_Layout_ID__c != null}">
+									<a href="https://na16.salesforce.com/layouteditor/layoutEditor.apexp?type={!item.RecordType.SObjectType}&lid={!item.PageLayout.Page_Layout_ID__c}" target="_blank">View</a>
+								</apex:column>
+								<apex:column headerValue="Page Layout" rendered="{!item.PageLayout.Page_Layout_ID__c == null}">
+									<i>*not loaded*</i>
+								</apex:column>
+							</apex:pageBlockTable>
+							
+							<apex:commandButton value="Reload layouts" action="{!reloadPageLayouts}" status="overlayStatus" rerender="pbtLayouts" />
+						</apex:pageBlockSection>
+-->
+					</apex:pageBlock>
+				</apex:tab>
+				
+				<apex:tab label="Registration" name="register" id="register" status="overlayStatus" >
+					<apex:pageBlock mode="edit" id="pb-register">
+						<apex:pageBlockSection title="License Status" columns="1">
+						<apex:outputpanel >
+							<table class="list">
+								<tr class="headerRow">
+									<th class="headerRow">Product</th>
+									<th class="headerRow">License Type</th>
+									<th class="headerRow">Expiration</th>
+									<th class="headerRow">Enable?</th>
+								</tr>
+								<tr class="dataRow even first">
+									<td class="dataCell"><b>Duplication Detection</b></td>
+									<td class="dataCell">{!license.UeStatus}</td>
+									<td class="dataCell">
+										<apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+											<apex:param value="{!license.UeExpire}" /> 
+										</apex:outputText>
+									</td>
+									<td class="dataCell"><apex:inputField value="{!systemSettings.UniqueEntry__UEActivation__c}" onchange="onChange()"/></td>
+								</tr>
+								<tr class="dataRow odd last">
+									<td class="dataCell"><b>First Time Right</b></td>
+									<td class="dataCell">{!license.FtrStatus}</td>
+									<td class="dataCell">
+										<apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+											<apex:param value="{!license.FtrExpire}" /> 
+										</apex:outputText>
+									</td>
+									<td class="dataCell"><apex:inputField value="{!systemSettings.UniqueEntry__FTRActivation__c}" onchange="onChange()"/></td>
+								</tr>
+							</table>
+							<p>
+								<apex:commandbutton value="Refresh Status" action="{!RefreshLicenseStatus}" status="overlayStatus" rerender="pb-register,helpMessagePop"/>
+							</p>
+						</apex:outputpanel>
+						</apex:pageBlockSection>
+						
+						<apex:pageblocksection title="Automated license-check service" columns="1">
+							<apex:outputfield value="{!LicenseScheduler.PreviousFireTime}" rendered="{!LicenseScheduler != null}"/>
+							<apex:outputfield value="{!LicenseScheduler.NextFireTime}" rendered="{!LicenseScheduler != null}"/>
+							<apex:outputfield value="{!LicenseScheduler.State}" rendered="{!LicenseScheduler != null}" />
+							<apex:outputpanel rendered="{!LicenseScheduler == null}">
+								Service not running!
+							</apex:outputpanel>
+							<apex:outputpanel >
+								<apex:commandbutton value="Restart" action="{!RefreshLicenseScheduler}" status="overlayStatus" rerender="pb-register,helpMessagePop"/>
+							</apex:outputpanel>
+						</apex:pageblocksection>
+						
+						<apex:pageBlockSection title="License Header and API" columns="1">
+							<apex:pageblocksectionitem >
+								<apex:outputtext value="License Header"/>
+								<apex:outputfield value="{!systemSettings.UniqueEntry__FTR_Key_Prefix__c}"/>
+							</apex:pageblocksectionitem>
+							<apex:pageblocksectionitem >
+								<apex:outputtext value="Registration URL"/>
+								<apex:outputfield value="{!systemSettings.UniqueEntry__UEHI_Registration_Endpoint__c}"/>
+							</apex:pageblocksectionitem>
+						</apex:pageBlockSection>
+					</apex:pageBlock>
+				</apex:tab>
+				
+				<apex:tab label="Country Setting" name="countrySetting" id="countrySetting" status="overlayStatus" >
+					<iframe src="/apex/Configuration?isdtp=vw" id="countrySettingIframe" style="width:100%;border:none;" ></iframe>
+				</apex:tab>
+				<apex:tab label="Override Script" name="hiconfigoverride" id="hiconfigoverride" status="overlayStatus" >
+					<apex:pageBlock mode="edit">
+						<apex:pageBlockSection columns="1">
+							<apex:pageBlockSectionItem helptext="The link to the javascript file containing method to override First Time Right configuration"> 
+								<apex:outputLabel value="FTR Settings Override Script Link" for="configOverried"/>
+								<apex:inputText id="configOverried" value="{!userSettings.UniqueEntry__FTR_Config_Override__c}" style="width:100%"/>
+							</apex:pageBlockSectionItem>
+						</apex:pageBlockSection>
+					</apex:pageBlock>
+				</apex:tab>
+				<apex:tab label="Multilingual" name="multilingual">
+					<iframe src="/apex/uniquetranslate?isdtp=vw" id="multilingualIframe" class="component" ></iframe>
+				</apex:tab>
+				<!--<apex:tab label="Field Setting" name="fieldSetting" id="fieldSetting">
+					<apex:iframe src="/apex/FieldMapper?isdtp=vw" scrolling="false" id="fieldSettingIframe"/>
+				</apex:tab>-->
+			</apex:tabPanel>
+			
+		</apex:pageBlock>
+	</apex:form>
+	
+	<div id="overlay"></div>
+
+	<apex:form >
+		<div id="messagePop">
+			<div>
+				<apex:outputPanel id="messagePop">
+					<apex:messages layout="table" />
+					<br />
+					<input type="button" onclick="hideMessagePop();" value="OK" />
+				</apex:outputPanel>
+			</div>
+		</div>
+	</apex:form>
+	
+	<apex:form >
+		<div class="messagePopStyle" id="helpMessagePop">
+			<div>
+				<apex:outputPanel id="helpMessagePop">
+					<apex:outputText value="{!helpMessage}" escape="false"
+						style="float: left; margin: 5% 0; width: 100%"/>
+					<apex:commandButton value="OK" style="padding: 2px 10px;" onclick="hideHelpPop();return false;" oncomplete=""/>
+					<script>if('{!helpMessage}' != '') showHelpPop();//open help message popup if this panel is refreshed</script>
+				</apex:outputPanel>
+			</div>
+		</div>
+	</apex:form>
+	
+	<apex:form >
+		<div class="messagePopStyle" id="uploadMessagePop">
+			<div>
+				<apex:outputPanel id="uploadMessagePop">
+					Please choose a config file to import <br/><br/>
+					<apex:inputFile value="{!importDoc.body}" filename="{!importDoc.name}"/><br/><br/>
+					<apex:commandButton value="Import" action="{!btnImport_onClick}"/>
+					<apex:commandButton value="Cancel" onclick="hidePopup('uploadMessagePop');return false;" oncomplete=""/>
+				</apex:outputPanel>
+			</div>
+		</div>
+	</apex:form>
+	
+	<apex:form >
+		<div class="messagePopStyle" id="importMessagePop">
+			<div>
+				<apex:outputPanel id="importMessagePop">
+					Configuration imported successfully! <br/><br/>
+					<apex:commandButton value="Refresh" onclick="window.location.href=window.location.href" oncomplete=""/>
+				</apex:outputPanel>
+			</div>
+		</div>
+	</apex:form>
+	
+	<apex:form >
+		<div class="messagePopStyle" id="quitPopup">
+			<div>
+				<apex:outputPanel id="quitPopup">
+					<apex:outputText value="Unsaved changes will be discarded, are you sure you want to Cancel?" style="float: left; margin: 5% 0; width: 100%"/>
+					<apex:commandButton value="Yes" style="padding: 2px 10px;" onclick="onCancel();return false;" oncomplete=""/>
+					<apex:commandButton value="No" style="padding: 2px 10px;" onclick="hideQuitPop();return false;" oncomplete=""/>
+				</apex:outputPanel>
+			</div>
+		</div>
+	</apex:form>
+	<!-- Clear Cache Message Box Start -->
+	<apex:form >
+		<div class="messagePopStyle" id="clearPopup">
+			<div>
+				<apex:outputPanel >
+					<apex:outputText value="The catching of configuration will be cleared, are you sure you want to Clear?" style="float: left; margin: 5% 0; width: 100%"/>
+					<apex:commandButton value="Yes" style="padding: 2px 10px;" onclick="hideClearPop();action_onClearCache();return false;" oncomplete=""/>
+					<apex:commandButton value="No" style="padding: 2px 10px;" onclick="hideClearPop();return false;" oncomplete=""/>
+				</apex:outputPanel>
+			</div>
+		</div>
+	</apex:form>
+	<!-- Clear Cache Message Box End -->
+	<div id="displaySettings-template" class="hdn">
+		<div class="labelColumn duelingListBox">
+			<table class="layout">
+				<tbody>
+					<tr>
+						<td class="selectCell">
+							<div class="selectTitle"><label>Available #object# Fields</label></div>
+							<select class="multilist displaySettings-available" multiple="multiple" size="14" style="width: 150px;"></select>
+						</td>
+						<td class="buttonCell">
+							<div class="text">Add</div>
+							<div class="text">
+								<a href="javascript:void(0)" class="displaySettings-btnAdd"><img src="/s.gif" alt="Add" onclick="onChange()" title="Add" class="rightArrowIcon"/></a>
+							</div>
+							<div class="text">
+								<a href="javascript:void(0)" class="displaySettings-btnRemove"><img src="/s.gif" alt="Remove" onclick="onChange()" title="Remove" class="leftArrowIcon"/></a>
+							</div>
+							<div class="duelingText">Remove</div>
+						</td>
+						<td class="selectCell">
+							<div class="selectTitle"><label>Selected #object# Fields</label></div>
+							<select class="multilist displaySettings-chosen" multiple="multiple" size="14" style="width: 150px;"></select>
+						</td>
+						<td class="buttonCell">
+							<div class="text">Up</div>
+							<div class="text">
+								<a href="javascript:void(0)" class="displaySettings-btnUp"><img src="/s.gif" alt="Up" onclick="onChange()" title="Up" class="upArrowIcon"/></a>
+							</div>
+							<div class="text">
+								<a href="javascript:void(0)" class="displaySettings-btnDown"><img src="/s.gif" alt="Down" onclick="onChange()" title="Down" class="downArrowIcon"/></a>
+							</div>
+							<div class="text">Down</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div> 
+	</div>
+</apex:page>

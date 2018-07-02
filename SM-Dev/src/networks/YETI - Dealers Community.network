@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Network xmlns="http://soap.sforce.com/2006/04/metadata">
+    <allowMembersToFlag>false</allowMembersToFlag>
+    <branding>
+        <loginFooterText>YETI</loginFooterText>
+        <primaryColor>#1797C0</primaryColor>
+        <primaryComplementColor>#FFFFFF</primaryComplementColor>
+        <quaternaryColor>#B1BAC1</quaternaryColor>
+        <quaternaryComplementColor>#222222</quaternaryComplementColor>
+        <secondaryColor>#51606E</secondaryColor>
+        <tertiaryColor>#DDE4E9</tertiaryColor>
+        <tertiaryComplementColor>#222222</tertiaryComplementColor>
+        <zeronaryColor>#51606E</zeronaryColor>
+        <zeronaryComplementColor>#FFFFFF</zeronaryComplementColor>
+    </branding>
+    <changePasswordTemplate>Dealer_Community_Templates/CommunityChangePasswordEmailTemplate</changePasswordTemplate>
+    <emailSenderAddress>sales@yeti.com</emailSenderAddress>
+    <emailSenderName>YETI - Dealers Community</emailSenderName>
+    <enableGuestChatter>false</enableGuestChatter>
+    <enableInvitation>false</enableInvitation>
+    <enableKnowledgeable>false</enableKnowledgeable>
+    <enableNicknameDisplay>false</enableNicknameDisplay>
+    <enablePrivateMessages>false</enablePrivateMessages>
+    <enableReputation>false</enableReputation>
+    <enableSiteAsContainer>true</enableSiteAsContainer>
+    <forgotPasswordTemplate>Dealer_Community_Templates/CommunityForgotPasswordEmailTemplate</forgotPasswordTemplate>
+    <logoutUrl>http://dealers.yeti.com</logoutUrl>
+    <navigationLinkSet>
+        <navigationMenuItem>
+            <label>Order History</label>
+            <position>1</position>
+            <publiclyAvailable>false</publiclyAvailable>
+            <target>/orders</target>
+            <type>InternalLink</type>
+        </navigationMenuItem>
+        <navigationMenuItem>
+            <label>Shipments</label>
+            <position>2</position>
+            <publiclyAvailable>false</publiclyAvailable>
+            <target>/shipments</target>
+            <type>InternalLink</type>
+        </navigationMenuItem>
+        <navigationMenuItem>
+            <label>Invoices</label>
+            <position>3</position>
+            <publiclyAvailable>false</publiclyAvailable>
+            <target>/invoices</target>
+            <type>InternalLink</type>
+        </navigationMenuItem>
+        <navigationMenuItem>
+            <label>Support</label>
+            <position>4</position>
+            <publiclyAvailable>false</publiclyAvailable>
+            <target>/cases</target>
+            <type>InternalLink</type>
+        </navigationMenuItem>
+        <navigationMenuItem>
+            <label>My Account</label>
+            <position>5</position>
+            <publiclyAvailable>false</publiclyAvailable>
+            <target>/my-account</target>
+            <type>InternalLink</type>
+        </navigationMenuItem>
+        <navigationMenuItem>
+            <defaultListViewId>AllOpportunities_processing</defaultListViewId>
+            <label>Place Order</label>
+            <position>6</position>
+            <publiclyAvailable>true</publiclyAvailable>
+            <target>Opportunity</target>
+            <type>SalesforceObject</type>
+        </navigationMenuItem>
+    </navigationLinkSet>
+    <networkMemberGroups>
+        <profile>Admin</profile>
+        <profile>Dealer - Corporate</profile>
+    </networkMemberGroups>
+    <picassoSite>YETI_Dealers_Community1</picassoSite>
+    <selfRegProfile>dealer - corporate</selfRegProfile>
+    <selfRegistration>true</selfRegistration>
+    <sendWelcomeEmail>true</sendWelcomeEmail>
+    <site>YETI_Dealers_Community</site>
+    <status>Live</status>
+    <tabs>
+        <customTab>Order__c</customTab>
+        <defaultTab>home</defaultTab>
+        <standardTab>home</standardTab>
+        <standardTab>Order</standardTab>
+    </tabs>
+    <urlPathPrefix>dealers</urlPathPrefix>
+    <welcomeTemplate>Dealer_Community_Templates/CommunityWelcomeEmailTemplate</welcomeTemplate>
+</Network>

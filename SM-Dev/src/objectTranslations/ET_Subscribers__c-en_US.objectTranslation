@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>ET Subscribers</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>ET Subscribers</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account__c</name>
+        <relationshipLabel><!-- ET Subscribers --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- ET Subscribers --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- ERP Cust Num --></label>
+        <name>ERP_Cust_Num__c</name>
+    </fields>
+    <fields>
+        <label><!-- ET List Name --></label>
+        <name>ET_List_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- ET Lists ID --></label>
+        <name>ET_Lists_ID__c</name>
+        <relationshipLabel><!-- ET Subscribers --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- ET Subscription Status --></label>
+        <name>ET_Subscription_Status__c</name>
+        <picklistValues>
+            <masterLabel>Subscribed</masterLabel>
+            <translation><!-- Subscribed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unsubscribed</masterLabel>
+            <translation><!-- Unsubscribed --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>D</masterLabel>
+            <translation><!-- D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N</masterLabel>
+            <translation><!-- N --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>P</masterLabel>
+            <translation><!-- P --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Subscriber Email --></label>
+        <name>Subscriber_Email__c</name>
+    </fields>
+    <layouts>
+        <layout>ET Subscribers Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- New_ET_Subscriber_2 --></label>
+        <name>New_ET_Subscriber_2</name>
+    </webLinks>
+</CustomObjectTranslation>

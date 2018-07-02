@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>20-50 Response</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Thank you for your interest in the YETI Custom Logo Program!
+
+YETI Coolers with a custom logo are the ultimate, unique, one of a kind way to say thank you, promote, reward, or raise funds for a worthwhile organization. Please take a few minutes to review the attached details and requirements for the YETI Custom Logo Program and certainly let us know if you are ready to get started with a custom logo project.
+
+Thanks,
+
+{!User.CommunityNickname}
+Business Development Team
+YETI
+512.402.5895
+corporatesales@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

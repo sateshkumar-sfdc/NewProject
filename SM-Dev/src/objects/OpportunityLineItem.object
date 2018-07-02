@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>AddProduct</actionName>
+        <comment>Custom product selector</comment>
+        <content>PreQuotePricing</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ChoosePricebook</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>VFP_OppProd_QuotePricing_Redirect</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EditAllProduct</actionName>
+        <comment>Custom product selector</comment>
+        <content>VFP_Opportunity_QuotePricing_Redirect</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>MultiAdd</actionName>
+        <content>VFP_OppProd_QuotePricing_Redirect</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableFeeds>false</enableFeeds>
+    <fieldSets>
+        <fullName>test</fullName>
+        <description>teste</description>
+        <displayedFields>
+            <field>Need_By_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>test</label>
+    </fieldSets>
+    <fields>
+        <fullName>Color_Price__c</fullName>
+        <externalId>false</externalId>
+        <label>Color Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Color_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Color Type</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>One Color</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Two Color</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Three Color</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Color__c</fullName>
+        <externalId>false</externalId>
+        <label>Color</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Black</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Brick Red</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Charcoal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Coral</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Desert Tan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Field Tan/Blake Orange</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Fog Gray/Tahoe Blue</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>High Country</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ice Blue</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Olive Green</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pink</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Seafoam</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sky Blue</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Stainless</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tahoe Blue</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>White</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Undecided</fullName>
+                    <default>true</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+    </fields>
+    <fields>
+        <fullName>Discount</fullName>
+    </fields>
+    <fields>
+        <fullName>Discount_Percent__c</fullName>
+        <externalId>false</externalId>
+        <label>Discount Percent</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>5</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>LineItemID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Id</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>LineItemID</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ListPrice</fullName>
+    </fields>
+    <fields>
+        <fullName>Need_By_Date_Formula__c</fullName>
+        <externalId>false</externalId>
+        <formula>Need_By_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Need By Date Formula</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Need_By_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Need By Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>OSF_DWback__DW_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <deprecated>false</deprecated>
+        <externalId>true</externalId>
+        <label>Commerce Cloud ID</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>OSF_DWback__Demandware_Campaign_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Commerce Cloud Campaign Name</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OSF_DWback__Demandware_Coupon_Code__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Commerce Cloud Coupon Code</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OSF_DWback__Flavour__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Flavour</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OSF_DWback__Is_Demandware_Bonus_Product__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Is Commerce Cloud Bonus Product</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>OSF_DWback__Removed_Product_Basket_ID__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Removed Product Basket ID</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OSF_DWback__Removed_Product_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Removed Product Date</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>OSF_DWback__Removed_from_Wishlist_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Removed from Wishlist Date</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>OSF_DWback__Removed_from_Wishlist__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Removed from Wishlist</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>OSF_DWback__Size__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Size</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OSF_DWback__Wishlist_Added_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Wishlist Added Date</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>OSF_DWback__Wishlist_Product_Priority__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>0 - None 
+1 - Highest 
+2 - High 
+3 - Medium 
+4 - Low 
+5 - Lowest</inlineHelpText>
+        <label>Wishlist Product Priority</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>0</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>1</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>4</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>5</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>OpportunityId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Opportunity Product</relationshipLabel>
+        <relationshipName>Opportunity_Product</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Product2Id</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ProductCode</fullName>
+    </fields>
+    <fields>
+        <fullName>Product_Description__c</fullName>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.Product2.Description</formula>
+        <label>Product Description</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quantity</fullName>
+    </fields>
+    <fields>
+        <fullName>ServiceDate</fullName>
+    </fields>
+    <fields>
+        <fullName>Ship_By_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(PricebookEntry.Product2.Expected_Ship_Date__c), Need_By_Date__c, IF(PricebookEntry.Product2.Expected_Ship_Date__c &gt; Need_By_Date__c, PricebookEntry.Product2.Expected_Ship_Date__c, Need_By_Date__c))</formula>
+        <label>Ship By Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Subtotal</fullName>
+    </fields>
+    <fields>
+        <fullName>TotalPrice</fullName>
+    </fields>
+    <fields>
+        <fullName>UnitPrice</fullName>
+    </fields>
+    <fields>
+        <fullName>calcTotalPrice__c</fullName>
+        <description>Used for the custom product selector.  Do not populated with data or add to page layouts.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>DO NOT POPULATE WITH DATA. REMOVE FROM PAGE LAYOUT.</inlineHelpText>
+        <label>Total Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <validationRules>
+        <fullName>Need_By_Date_Cannot_Be_Before_Available</fullName>
+        <active>false</active>
+        <errorConditionFormula>if(Not(IsBlank(PricebookEntry.Product2.Availability_Date__c))
+&amp;&amp; Need_By_Date__c &lt; PricebookEntry.Product2.Availability_Date__c,true,false)</errorConditionFormula>
+        <errorMessage>Need by date cannot be before the availability date for a product.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>OLI_NeedByDate_Before_Oppty_NeedByDate</fullName>
+        <active>false</active>
+        <description>Opportunity product need by date cannot be before opportunity need by date</description>
+        <errorConditionFormula>Need_By_Date__c &lt;  Opportunity.Need_By_Date__c</errorConditionFormula>
+        <errorDisplayField>Need_By_Date__c</errorDisplayField>
+        <errorMessage>Product Need by Date must be after Opportunity Need by Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>OLI_New_Account_Limited_Product</fullName>
+        <active>false</active>
+        <description>If account create date is less than 60 days from today, only allow product category of &quot;Coolers&quot; to be selected.</description>
+        <errorConditionFormula>AND(
+  Opportunity.Account.Limited_Product_Override__c = FALSE,
+  Today()- Opportunity.Account.Established_Date__c  &lt; 60,
+  Product2.Product_Category__c &lt;&gt; &quot;Coolers&quot;
+)</errorConditionFormula>
+        <errorMessage>This account was created within the last 60 days and is only authorized to order Coolers</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>OLI_Qty_Must_be_Mult_of_Min_Order_Qty</fullName>
+        <active>true</active>
+        <description>The entered quantity must be a multiple of the minimum order quantity for the selected product.</description>
+        <errorConditionFormula>IF(MOD(Quantity,PricebookEntry.Product2.Minimum_Order_Quantity__c)&gt;0, true, false)</errorConditionFormula>
+        <errorMessage>The entered quantity must be a multiple of the minimum order quantity for the selected product.</errorMessage>
+    </validationRules>
+</CustomObject>

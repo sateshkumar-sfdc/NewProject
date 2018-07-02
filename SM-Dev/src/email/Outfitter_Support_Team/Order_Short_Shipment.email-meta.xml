@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Order- Short Shipment</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Thank you for reaching out to YETI, and we are sorry to hear that you did not receive your complete order. To better assist you, can you please reply to this email with a photo of the products you received, your packing slip, and the box the items arrived in? This will allow us to follow up with our warehouse partners to investigate this issue. Once I receive these photos I will contact you to go over what to expect next with completing your order. I look forward to your response!
+
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

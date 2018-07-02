@@ -1,0 +1,553 @@
+<aura:component implements="force:appHostable" extends="et4ae5:BaseComponent" controller="et4ae5.LightningMarketingCloudSettings" >
+    
+    <ltng:require scripts="/resource/et4ae5__jQuery,/resource/et4ae5__uxds/js/bootstrap.js" styles="/resource/et4ae5__uxds/css/uxds-bootstrap.min.css" afterScriptsLoaded="{!c.afterScriptsLoaded}"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+ 
+    <aura:attribute name="config" type="et4ae5__Configuration__c" access="private"/>
+    <aura:attribute name="cmConfig" type="et4ae5__Campaign_Member_Configuration__c" access="private"/>
+    <aura:attribute name="trigSendsAPINameRefJSON" type="String" access="private"/>
+    <aura:attribute name="enabledObjectsAvailable" type="String[]" access="public"/>
+    <aura:attribute name="enabledObjectsSelected" type="String[]" access="public"/>
+    
+     <div aura:id="mainDiv" class="uxds" hidden="true" >      
+        <div class="uxds-body">    
+            <div class="uxds main_container">
+                <div class="uxds container">
+                    <div class="uxds row rowSpacer-component">
+                        <div class="uxds col-sm-12">
+                            <h1>{!$Label.et4ae5.mCCSettings}</h1>                        
+                        </div>
+                    </div>
+                    <div class="uxds row">
+                        <div clas="uxds col-sm-12" style="padding-left:15px;padding-right:15px;">
+                            <ui:outputURL value="/apex/sendETEmail" label="{!$Label.et4ae5.emailSend}"/>
+                            &nbsp;|&nbsp;
+                            <ui:outputURL value="/apex/BusinessUnitManagement" label="{!$Label.et4ae5.manageBUs}"/>
+                            &nbsp;|&nbsp;
+                            <ui:outputURL value="/apex/UserManagement" label="{!$Label.et4ae5.manageUs}"/>
+                            &nbsp;|&nbsp;
+                            <ui:outputURL value="/apex/emailLinkageList" label="{!$Label.et4ae5.manageELs}"/>
+                            &nbsp;|&nbsp;
+                            <ui:outputURL value="/apex/EmailCleanupPage" label="{!$Label.et4ae5.eCleanup}"/>
+                            &nbsp;|&nbsp;
+                            <ui:outputURL value="/apex/ChangeAPIUser" label="{!$Label.et4ae5.changeApiU}"/>                        
+                        </div>
+                    </div>                    
+                    <div class="uxds row rowSpacer-component">
+                        <div class="uxds col-sm-4">
+                            <div class="viewSettings-component">
+                                <ui:button aura:id="edit_settings" class="button-component" press="{!c.editSettings}" label="{!$Label.et4ae5.editSttngs}"/>
+                            </div>
+                            <div class="editSettings-component" hidden="true">
+                                <div class=" btn-group">
+                                    <span>
+                                        <ui:button aura:id="cancel_save_settings" class="buttoncancel-component" press="{!c.cancelSaveSettings}" label="{!$Label.et4ae5.cancel}"/>
+                                    </span>
+                                    <span style="margin-left:5px;">
+                                        <ui:button aura:id="save_settings" class="button-component" press="{!c.saveMCSettings}" label="{!$Label.et4ae5.saveSttngs}"/>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uxds col-sm-8">
+                        </div>
+                    </div>
+                </div>
+                <div class="uxds container">
+                    <div class="uxds row">
+                        <hr></hr>           
+                        <div class="uxds col-sm-12 ">
+                            <h3>{!$Label.et4ae5.account}</h3>
+                        </div>
+                    </div>
+                    <div class="uxds row rowSpacer-component">
+                        <div class="uxds col-sm-4 ">
+                            <span >{!$Label.et4ae5.username}</span>
+                            <a data-toggle="tooltip" class="tooltip-component" data-original-title="{!$Label.et4ae5.msg0018}">
+                                <small><span class="uxds glyphicon glyphicon-question-sign"></span></small>
+                            </a>
+                        </div>
+                        <div class="uxds col-sm-8 ">
+                            <ui:outputText aura:id="viewUserName" class="darker-component" />  
+                        </div>
+                    </div>
+                    <div class="uxds row">
+                        <div class="uxds col-sm-4 ">
+                            <span >{!$Label.et4ae5.mcType}</span>
+                            <a data-toggle="tooltip" class="tooltip-component" data-original-title="{!$Label.et4ae5.etAcctType}">
+                                <small><span class="uxds glyphicon glyphicon-question-sign"></span></small>
+                            </a>
+                        </div>
+                        <div class="uxds col-sm-8 ">
+                            <ui:outputText class="darker-component" aura:id="viewMarketingCloudType" value="{!v.config.et4ae5__Integration_Type__c}"/>
+                        </div>
+                    </div>  
+                    <div class="uxds row">
+                        <div class="uxds col-sm-4 ">
+                            <span >{!$Label.et4ae5.sendTypes}</span>
+                            <a data-toggle="tooltip" class="tooltip-component" data-original-title="{!$Label.et4ae5.msg0065}">
+                                <small><span class="uxds glyphicon glyphicon-question-sign"></span></small>
+                            </a>
+                        </div>
+                        <div class="uxds col-sm-8 ">
+                            <div class="viewSettings-component" >
+                                <ui:outputText class="darker-component" aura:id="viewSendTypes" />  
+                            </div>
+                            <div class="editSettings-component" hidden="true" >
+                                <div class="btn-group">
+                                    <span class="leftCheckbox">
+                                        <ui:inputCheckbox aura:id="editSendTypesEmail" />
+                                        &nbsp;<ui:outputText class="darker-component" value="{!$Label.et4ae5.email}" /> 
+                                    </span>
+                                    <span class="mobilesendtype-component rightCheckbox" hidden="true">
+                                        <ui:inputCheckbox aura:id="editSendTypesMobile" />
+                                        &nbsp;<ui:outputText class="darker-component" value="{!$Label.et4ae5.mobile}" />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>                
+                    </div> 
+                </div>
+                <div class="uxds container">
+                    <div class="uxds row">
+                        <hr></hr>      
+                        <div class="uxds col-sm-12">
+                            <h3>{!$Label.et4ae5.general}</h3>
+                        </div>
+                    </div>
+                    <div class="uxds row rowSpacer-component">        
+                        <div class="uxds col-sm-4 ">
+                            <span >{!$Label.et4ae5.altRTs}</span>
+                            <a data-toggle="tooltip" class="tooltip-component" data-original-title="{!$Label.et4ae5.msg0119}">
+                                <small><span class="uxds glyphicon glyphicon-question-sign"></span></small>
+                            </a>
+                        </div>
+                        <div class="uxds col-sm-8 ">
+                            <div class="viewSettings-component" >
+                                <ui:outputText class="darker-component" aura:id="viewAlternateReplyto" />
+                                &nbsp;
+                                <ui:outputURL value="/apex/manageReplyTo" label="{!$Label.et4ae5.manage}" target="_blank"/>
+                            </div>
+                            <div class="editSettings-component" hidden="true">
+                                <ui:inputCheckbox aura:id="editAlternateReplyto" value="{!v.config.et4ae5__MultiReplyTo__c}" /> 
+                                &nbsp;<ui:outputText class="darker-component" value="{!$Label.et4ae5.enable}" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uxds row">
+                        <div class="uxds col-sm-4 ">
+                            <span >{!$Label.et4ae5.mcDpLnkAccss}</span>
+                            <a data-toggle="tooltip" class="tooltip-component" data-original-title="{!$Label.et4ae5.msg0175}">
+                                <small><span class="uxds glyphicon glyphicon-question-sign"></span></small>
+                            </a>
+                        </div>
+                        <div class="uxds col-sm-8 ">
+                            <div class="viewSettings-component" >
+                                <ui:outputText class="darker-component" aura:id="viewDeepLink"/>  
+                            </div>
+                            <div class="editSettings-component" hidden="true" >
+                                <ui:inputSelect class="darker-component" aura:id="editDeepLinkAvailability" />
+                            </div>
+                        </div>                
+                    </div>  
+                </div>
+                <div class="uxds container">
+                    <div class="uxds row">
+                        <hr></hr>           
+                        <div class="uxds col-sm-12">
+                            <h3>{!$Label.et4ae5.sends}</h3>
+                        </div>
+                    </div>
+                    <div class="uxds row rowSpacer-component">
+                        <div class="uxds col-sm-4 ">
+                            <span >{!$Label.et4ae5.targetAud}</span>
+                            <a data-toggle="tooltip" class="tooltip-component" data-original-title="{!$Label.et4ae5.msg0044}">
+                                <small><span class="uxds glyphicon glyphicon-question-sign"></span></small>
+                            </a>
+                        </div>
+                        <div class="uxds col-sm-8 ">
+                            <div class="viewSettings-component" >
+                                <ui:outputText class="darker-component" aura:id="viewTargetAudience" />  
+                            </div>
+                            <div class="editSettings-component" hidden="true" >
+                                <span class="leftCheckbox">
+                                    <ui:inputCheckbox aura:id="editTargetAudienceReport" />
+                                    &nbsp;<ui:outputText class="darker-component" value="{!$Label.et4ae5.report}" />
+                                </span>
+                                <span class="rightCheckbox">
+                                    <ui:inputCheckbox aura:id="editTargetAudienceCampaign" />
+                                    &nbsp;<ui:outputText class="darker-component" value="{!$Label.et4ae5.campaign}" />
+                                </span>
+                            </div>   
+                        </div>
+                    </div>
+                    <div class="uxds row">
+                        <div class="uxds col-sm-4 ">
+                            <span >{!$Label.et4ae5.exclAudnc}</span>
+                            <a data-toggle="tooltip" class="tooltip-component" data-original-title="{!$Label.et4ae5.msg0019}">
+                                <small><span class="uxds glyphicon glyphicon-question-sign"></span></small>
+                            </a>
+                        </div>
+                        <div class="uxds col-sm-8 ">
+                            <div class="viewSettings-component" >
+                                <ui:outputText class="darker-component" aura:id="viewExculsionAudience" />  
+                            </div>
+                            <div class="editSettings-component" hidden="true" >
+                                <div class="leftCheckbox">
+                                    <ui:inputCheckbox aura:id="editExculsionAudienceReport" />
+                                    &nbsp;<ui:outputText class="darker-component" value="{!$Label.et4ae5.report}" />
+                                </div>
+                                <span class="rightCheckbox">
+                                    <ui:inputCheckbox aura:id="editExculsionAudienceCampaign" />
+                                    &nbsp;<ui:outputText class="darker-component" value="{!$Label.et4ae5.campaign}" />
+                                </span>
+                            </div>                         
+                        </div>                
+                    </div>  
+                    <div class="uxds row">
+                        <div class="uxds col-sm-4 ">
+                            <span >{!$Label.et4ae5.retryFldSnds}</span>
+                            <a data-toggle="tooltip" class="tooltip-component" data-original-title="{!$Label.et4ae5.retryHelp}">
+                                <small><span class="uxds glyphicon glyphicon-question-sign"></span></small>
+                            </a>
+                        </div>
+                        <div class="uxds col-sm-8 ">
+                            <div class="viewSettings-component" >
+                                <ui:outputText class="darker-component" aura:id="viewRetryFailedSends"/>
+                            </div>
+                            <div class="editSettings-component" hidden="true" >
+                                <ui:inputCheckbox aura:id="editRetryFailedSends" value="{!v.config.et4ae5__Retry__c}" />                                             
+                                &nbsp;<ui:outputText class="darker-component" value="{!$Label.et4ae5.retry}" />
+                            </div>
+                        </div>                
+                    </div> 
+                    <div class="uxds row">
+                        <div class="uxds col-sm-4 ">
+                            <span>{!$Label.et4ae5.myPCR}</span>
+                            <a data-toggle="tooltip" class="tooltip-component" data-original-title="{!$Label.et4ae5.msg0012}">
+                                <small><span class="uxds glyphicon glyphicon-question-sign"></span></small>
+                            </a>
+                        </div>
+                        <div class="uxds col-sm-8 ">
+                            <div class="viewSettings-component" >
+                                <ui:outputText class="darker-component" aura:id="viewPersonalCustomReport"/>
+                            </div>
+                            <div class="editSettings-component" hidden="true" >
+                                <ui:inputCheckbox aura:id="editPersonalCustomReport" value="{!v.config.et4ae5__Allow_Personal_Reports__c}" />                                            
+                                &nbsp;<ui:outputText class="darker-component" value="{!$Label.et4ae5.allow}" />
+                            </div>
+                        </div>                
+                    </div> 
+                </div>
+                <div class="uxds container">
+                    <div class="uxds row">
+                        <hr></hr>          
+                        <div class="uxds col-sm-12">
+                            <h3>{!$Label.et4ae5.automatedSnds}</h3>
+                        </div>
+                    </div>
+                    <div class="uxds row rowSpacer-component">
+                        <div class="uxds col-sm-4 ">
+                            <span>{!$Label.et4ae5.Restriction}</span>
+                            <a data-toggle="tooltip" class="tooltip-component" data-original-title="{!$Label.et4ae5.msg0151}">
+                                <small><span class="uxds glyphicon glyphicon-question-sign"></span></small>
+                            </a>
+                        </div>
+                        <div class="uxds col-sm-8 ">
+                            <div class="viewSettings-component" >
+                                <ui:outputText class="darker-component" aura:id="viewRestriction"/>  
+                            </div>
+                            <div class="editSettings-component" hidden="true" >
+                                <ui:inputSelect class="darker-component" aura:id="editRestriction" />
+                            </div>                        
+                        </div>
+                    </div>
+                    <div class="uxds row">
+                        <div class="uxds col-sm-4 ">
+                            <span >{!$Label.et4ae5.enbldObjs}</span>
+                            <a data-toggle="tooltip" class="tooltip-component" data-original-title="{!$Label.et4ae5.msg0152}">
+                                <small><span class="uxds glyphicon glyphicon-question-sign"></span></small>
+                            </a>
+                        </div>
+                        <div class="uxds col-sm-8 ">
+                            <div class="viewSettings-component wrapfield-component" >
+                                <ui:outputText class="darker-component" aura:id="viewEnabledObjects"/>  
+                            </div>
+                            <div class="editSettings-component" hidden="true" >
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <ui:inputSelect aura:id="editEnabledObjectsLeft" class="uxds form-control multiselectleft-component" multiple="true">
+                                                <aura:iteration items="{!v.enabledObjectsAvailable}" var="val">
+                                                    <ui:inputSelectOption text="{!val}" label="{!val}" />    
+                                                </aura:iteration>
+                                            </ui:inputSelect>    
+                                        </td>
+                                        <td class="arrowpadding-component" >
+                                            <button type="button" class="buttonarrow-component" id="MCMultiRightArrow">
+                                                <span class='uxds glyphicon glyphicon-triangle-right cursorHand-component'></span>
+                                            </button>
+                                            <br/>
+                                            <br/>
+                                            <button type="button" class="buttonarrow-component" id="MCMultiLeftArrow">
+                                                <span class='uxds glyphicon glyphicon-triangle-left cursorHand-component'></span>
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <ui:inputSelect aura:id="editEnabledObjectsRight" class="uxds form-control multiselectright-component" multiple="true">
+                                                <aura:iteration items="{!v.enabledObjectsSelected}" var="val">
+                                                    <ui:inputSelectOption text="{!val}" label="{!val}" />    
+                                                </aura:iteration>                                                
+                                            </ui:inputSelect>  
+                                        </td>
+                                        <td class="arrowpadding-component" >
+                                            <button type="button" class="buttonarrow-component" id="MCMultiTopArrow">
+                                                <span class='uxds glyphicon glyphicon-triangle-top cursorHand-component'></span>
+                                            </button>
+                                            <br/>
+                                            <br/>
+                                            <button type="button" class="buttonarrow-component" id="MCMultiBottomArrow">
+                                                <span class='uxds glyphicon glyphicon-triangle-bottom cursorHand-component'></span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>                
+                    </div>   
+                </div>
+                <div class="uxds container">
+                    <div class="uxds row">
+                        <hr></hr>       
+                        <div class="uxds col-sm-12">
+                            <h3>{!$Label.et4ae5.notifications}</h3>
+                        </div>
+                    </div>
+                    <div class="uxds row rowSpacer-component">
+                        <div class="uxds col-sm-4 ">
+                            <span >{!$Label.et4ae5.supTicRecp}</span>
+                            <a data-toggle="tooltip" class="tooltip-component" data-original-title="{!$Label.et4ae5.msg0011}">
+                                <small><span class="uxds glyphicon glyphicon-question-sign"></span></small>
+                            </a>
+                        </div>
+                        <div class="uxds col-sm-8 ">
+                            <div class="viewSettings-component" >
+                                <ui:outputText class="darker-component" aura:id="viewSupportTicketRecipient" value="{!v.config.et4ae5__Support_Ticket_Recipient__c}"/>  
+                            </div>
+                            <div class="editSettings-component" hidden="true" >
+                                <ui:inputText aura:id="editSupportTicketRecipient" value="{!v.config.et4ae5__Support_Ticket_Recipient__c}" class="supportTicketRecipient input-component"/>  
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uxds row">
+                        <div class="uxds col-sm-4 ">
+                            <span >{!$Label.et4ae5.logging}</span>
+                            <a data-toggle="tooltip" class="tooltip-component" data-original-title="{!$Label.et4ae5.msg0009}">
+                                <small><span class="uxds glyphicon glyphicon-question-sign"></span></small>
+                            </a>
+                        </div>
+                        <div class="uxds col-sm-8 ">
+                            <div class="viewSettingsLoggingOn-component" hidden="true" >
+                                <aura:unescapedHtml aura:id="viewLogging" />       
+                            </div>
+                            <div class="viewSettingsLoggingOff-component" hidden="true" >
+                                <ui:button class="button-component" aura:id="initiate_log" label="{!$Label.et4ae5.initLog}" press="{!c.startLog}"/> 
+                            </div>
+                            <div class="editSettings-component" hidden="true" >
+                                <aura:unescapedHtml aura:id="editLogging" /> 
+                            </div>                            
+                        </div>
+                    </div>  
+                </div>
+                <div class="uxds container">
+                    <div class="uxds row">
+                        <hr></hr>  
+                        <div class="uxds col-sm-12">
+                            <h3>{!$Label.et4ae5.tracking}</h3>
+                        </div>
+                    </div>
+                    <div class="uxds row rowSpacer-component">
+                        <div class="uxds col-sm-4 ">
+                            <span >{!$Label.et4ae5.trkDetail}</span>
+                            <a data-toggle="tooltip" class="tooltip-component" data-original-title="{!$Label.et4ae5.msg0049}">
+                                <small><span class="uxds glyphicon glyphicon-question-sign"></span></small>
+                            </a>
+                        </div>
+                        <div class="uxds col-sm-8 ">
+                            <div class="viewSettings-component" >
+                                <ui:outputCheckbox aura:id="viewAggregateTracking" />
+                                &nbsp;<ui:outputText class="darker-component" value="{!$Label.et4ae5.aggrLvlTrc}" />
+                                <a data-toggle="tooltip" class="tooltip-component" data-original-title="{!$Label.et4ae5.msg0122x}">
+                                    <small><span class="uxds glyphicon glyphicon-question-sign"></span></small>
+                                </a>
+                                <br/>
+                                <ui:outputCheckbox aura:id="viewIndividualTracking" class="level-two-component" />
+                                &nbsp;<ui:outputText class="darker-component" value="{!$Label.et4ae5.indlLvlTr}" />
+                                <a data-toggle="tooltip" class="tooltip-component" data-original-title="{!$Label.et4ae5.msg0123x}">
+                                    <small><span class="uxds glyphicon glyphicon-question-sign"></span></small>
+                                </a>
+                                <br/>
+                                <ui:outputCheckbox aura:id="viewLinkDetailsTracking" class="level-three-component" />
+                                &nbsp;<ui:outputText class="darker-component" value="{!$Label.et4ae5.trkingLnkDts}" />
+                                <a data-toggle="tooltip" class="tooltip-component" data-original-title="{!$Label.et4ae5.msg0124x}">
+                                    <small><span class="uxds glyphicon glyphicon-question-sign"></span></small>
+                                </a>
+                                <br/>
+                                <ui:outputCheckbox aura:id="viewSentEventsTracking" class="level-three-component" />
+                                &nbsp;<ui:outputText class="darker-component" value="{!$Label.et4ae5.trkingSntEvts}" />
+                                <a data-toggle="tooltip" class="tooltip-component" data-original-title="{!$Label.et4ae5.msg0125x}">
+                                    <small><span class="uxds glyphicon glyphicon-question-sign"></span></small>
+                                </a>
+                            </div>
+                            <div class="editSettings-component" hidden="true">
+                                <ui:inputCheckbox aura:id="editAggregateTracking" value="{!v.config.et4ae5__Aggregate_Tracking__c}" change="{!c.aggregateClicked}" />
+                                &nbsp;<ui:outputText class="darker-component" value="{!$Label.et4ae5.aggrLvlTrc}" />
+                                <a data-toggle="tooltip" class="tooltip-component" data-original-title="{!$Label.et4ae5.msg0122x}">
+                                    <small><span class="uxds glyphicon glyphicon-question-sign"></span></small>
+                                </a>
+                                <div class="level-two-component">
+                                    <ui:inputCheckbox aura:id="editIndividualTracking" value="{!v.config.et4ae5__Individual_Tracking__c}" change="{!c.individualClicked}" />
+                                    &nbsp;<ui:outputText class="darker-component" value="{!$Label.et4ae5.indlLvlTr}" />
+                                    <a data-toggle="tooltip" class="tooltip-component" data-original-title="{!$Label.et4ae5.msg0123x}">
+                                        <small><span class="uxds glyphicon glyphicon-question-sign"></span></small>
+                                    </a>
+                                </div>
+                                <div class="level-three-component">
+                                    <ui:inputCheckbox aura:id="editLinkDetailsTracking"  value="{!v.config.et4ae5__Link_Detail_Tracking__c}" change="{!c.linkClicked}" />
+                                    &nbsp;<ui:outputText class="darker-component" value="{!$Label.et4ae5.trkingLnkDts}" />
+                                    <a data-toggle="tooltip" class="tooltip-component" data-original-title="{!$Label.et4ae5.msg0124x}">
+                                        <small><span class="uxds glyphicon glyphicon-question-sign"></span></small>
+                                    </a>
+                                </div>                               
+                                <div class="level-three-component">
+                                    <ui:inputCheckbox aura:id="editSentEventsTracking" value="{!v.config.et4ae5__Sent_Events_Tracking__c}" change="{!c.sentClicked}" />
+                                    &nbsp;<ui:outputText class="darker-component" value="{!$Label.et4ae5.trkingSntEvts}" />
+                                    <a data-toggle="tooltip" class="tooltip-component" data-original-title="{!$Label.et4ae5.msg0125x}">
+                                        <small><span class="uxds glyphicon glyphicon-question-sign"></span></small>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uxds row">
+                        <div class="uxds col-sm-4 ">
+                            <span >{!$Label.et4ae5.frequency}</span>
+                            <a data-toggle="tooltip" class="tooltip-component" data-original-title="{!$Label.et4ae5.msg0093}">
+                                <small><span class="uxds glyphicon glyphicon-question-sign"></span></small>
+                            </a>
+                        </div>
+                        <div class="uxds col-sm-8 ">
+                            <div class="viewSettings-component" >
+                                <ui:outputText class="darker-component" aura:id="viewTrackingFrequency" />  
+                            </div>
+                            <div class="editSettings-component" hidden="true" >
+                                <ui:inputSelect class="darker-component" aura:id="editTrackingFrequency" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uxds row">
+                        <div class="uxds col-sm-4 ">
+                            <span >{!$Label.et4ae5.numDaysTrked}</span>
+                            <a data-toggle="tooltip" class="tooltip-component" data-original-title="{!$Label.et4ae5.msg0030}">
+                                <small><span class="uxds glyphicon glyphicon-question-sign"></span></small>
+                            </a>
+                        </div>
+                        <div class="uxds col-sm-8 ">
+                            <div class="viewSettings-component" >
+                                <ui:outputNumber class="darker-component" aura:id="viewNumberDaysTracked" value="{!v.config.et4ae5__Days_Tracked__c}"/>  
+                            </div>
+                            <div class="editSettings-component" hidden="true" >
+                                <ui:inputText maxlength="3" class="inputnumber-component darker-component" aura:id="editNumberDaysTracked" value="{!v.config.et4ae5__Days_Tracked__c}"/> 
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="uxds row">
+                        <div class="uxds col-sm-4 ">
+                            <span >{!$Label.et4ae5.Campaign_Member_Tracking}</span>
+                        </div>
+                        <div class="uxds col-sm-8 ">
+                            <div class="viewSettings-component" >
+                                <ui:outputText class="darker-component" aura:id="viewCampaignMemberTracking"/>
+                                &nbsp;
+                                <ui:outputURL value="/apex/Config_CampaignMember" label="{!$Label.et4ae5.Configure}" target="_blank"/>
+                            </div>
+                            <div class="editSettings-component" hidden="true" >
+                                <ui:inputCheckbox aura:id="editCampaignMemberTracking" value="{!v.cmConfig.et4ae5__CampaignMemberIntegrationEnabled__c}" />                                          
+                                &nbsp;<ui:outputText class="darker-component" value="{!$Label.et4ae5.enable}" />
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="uxds well container rowSpacer-component dropdown-component"> 
+                    <div class="uxds row">
+                        <div class="uxds col-sm-12">
+                            <span class="title-component">
+                                <h3>{!$Label.et4ae5.advanced}</h3>
+                            </span>
+                            <span class='rightArrow-component'>
+                            </span>
+                        </div>               
+                    </div> 
+                    <div class="uxds row dropborder-component drop-component" hidden="true"> 
+                        <div class="uxds col-sm-12">
+                        </div>
+                    </div> 
+                    <div class="uxds row drop-component" hidden="true"> 
+                        <div class="uxds col-sm-12">
+                            <h3>{!$Label.et4ae5.envirnmnt}</h3>
+                        </div>
+                    </div>                     
+                    <div class="uxds row dropdata-component drop-component" hidden="true" >
+                        <div class="uxds col-sm-4">
+                            <span>{!$Label.et4ae5.rootSoapAU}</span>
+                            <a data-toggle="tooltip" class="tooltip-component" data-original-title="{!$Label.et4ae5.msg0074}">
+                                <small><span class="uxds glyphicon glyphicon-question-sign"></span></small>
+                            </a>
+                        </div>
+                        <div class="uxds col-sm-8">
+                            <span>
+                                <ui:outputText class="darker-component" aura:id="viewRootSoapURL" value="{!v.config.et4ae5__Root_SOAP_API_URL__c}"/>  
+                            </span>
+                        </div>
+                    </div>
+                    <div class="uxds row dropdata-component drop-component" hidden="true">
+                        <div class="uxds col-sm-4 ">
+                            <span>{!$Label.et4ae5.rootRestAU}</span>
+                            <a data-toggle="tooltip" class="tooltip-component" data-original-title="{!$Label.et4ae5.msg0073}">
+                                <small><span class="uxds glyphicon glyphicon-question-sign"></span></small>
+                            </a>
+                        </div>
+                        <div class="uxds col-sm-8 ">
+                            <span>
+                                <ui:outputText class="darker-component" aura:id="viewRootRestURL" value="{!v.config.et4ae5__Root_Rest_API_URL__c}"/>  
+                            </span>
+                        </div>
+                    </div>
+                    <div class="uxds row dropdata-component drop-component" hidden="true">
+                        <div class="uxds col-sm-4 ">
+                            <span>{!$Label.et4ae5.authApiUrl}</span>
+                            <a data-toggle="tooltip" class="tooltip-component" data-original-title="{!$Label.et4ae5.msg0072}">
+                                <small><span class="uxds glyphicon glyphicon-question-sign"></span></small>
+                            </a>
+                        </div>
+                        <div class="uxds col-sm-8 ">
+                            <span>
+                                <ui:outputText class="darker-component" aura:id="viewAuthorizeURL" value="{!v.config.et4ae5__Auth_API_URL__c}"/>  
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="uxds container">
+                    <div class="uxds row">
+                        <div class="uxds col-sm-12">
+                            <div class="editSettings-component" hidden="true">
+                                <ui:button aura:id="save_settingsBottom" class="button-component" press="{!c.saveMCSettings}" label="{!$Label.et4ae5.saveSttngs}"/>
+                            </div>
+                        </div>            
+                    </div>
+                </div>      
+            </div>  
+        </div>    
+    </div>
+</aura:component>

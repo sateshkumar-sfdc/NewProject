@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>50+ Response</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Hi,
+
+We appreciate your interest in the YETI Custom Logo Program and thank you for requesting a quote!  A YETI Cooler with your custom logo applied is the ultimate way to promote your brand as well as reward or thank employees or customers.  YETI custom logos are durable, permanent graphics which will not peel or fade once bonded to the cooler.
+
+YETI CUSTOM LOGO PROGRAM DETAILS
+
+Available sizes are the Roadie 20 up to the Tundra 65 and Tank 85
+Initial minimum order is $5,000 with reorder minimum of $3,000.
+Logo set-up fee is $1,000 for one color logo and $500 per each additional color.
+Typical lead time is eight weeks.*
+Vector artwork required.
+
+
+After reviewing the attached pricing brochure, please confirm the details of your quote request below. We will provide a virtual proof and quote for approval before orders are processed.
+
+1.    Shipping &amp; Billing address(es)
+2.    Cooler size, color, &amp; quantity
+3.    Your desired logo if you haven’t submitted it already.
+- For logos, please submit an EPS, AI, or Hi-Res JPG/PDF file.
+
+Feel free to reach out to the YETI Custom Logo Team with any additional questions. We look forward to working with you through the custom logo process and ultimately providing a one of a kind custom logo YETI Cooler!
+
+* Pending product availability.
+
+Thanks,
+
+{!User.CommunityNickname}
+Business Development Team
+YETI
+512.402.5895
+corporatesales@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

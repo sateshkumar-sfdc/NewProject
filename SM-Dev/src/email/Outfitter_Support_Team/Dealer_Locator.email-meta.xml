@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Dealer Locator</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hello,
+
+Thank you for your interest in YETI and for taking the time to contact us regarding our authorized dealers.
+
+Below is a list of YETI Authorized Dealers in your area. Please note that the following are also authorized retailers: Cabela’s, Bass Pro, Gander Mountain, REI, West Marine, Dicks Sporting Goods, and Academy Sports.  If you are not able to find what you’re looking for or if these are too far from you, check out yeti.com
+
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

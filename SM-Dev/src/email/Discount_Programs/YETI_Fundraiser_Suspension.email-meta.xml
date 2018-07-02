@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>YETI Fundraiser - Suspension</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Hello,
+
+Thank you for your interest in YETI and for considering us for your event. At this time, our fundraiser and discount purchase programs have been suspended and we are reevaluating how and when it will run for mid-2017.  Although we are not able to help at this time we do hope that you will reach back out to us for any future events you may have. We apologize for this inconvenience and sincerely thank you for your interest in having YETI be a part of your event.
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

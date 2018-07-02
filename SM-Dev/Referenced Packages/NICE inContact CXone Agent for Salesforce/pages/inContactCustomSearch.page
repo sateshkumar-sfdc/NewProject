@@ -1,0 +1,465 @@
+<apex:page standardStylesheets="false" >
+  <table width="100%">
+    <tr>
+      <td>
+        <apex:outputLabel styleClass="pageHeaderLarge" >{!$Label.icagentconsole__salesforceAgent} {!$Label.icagentconsole__customSearch} </apex:outputLabel>
+      </td>
+    </tr>
+  </table>
+
+  <div id="divObjectList" style=""></div>
+  <apex:includeScript value="/support/console/36.0/integration.js"/>
+  <apex:includeScript value="/soap/ajax/36.0/connection.js"/>
+  <apex:includeScript value="{!URLFOR($Resource.icAgentConsole__AgentConsoleApp, 'js/lib/jquery-1.10.2.min.js')}"/>
+  <apex:includeScript value="{!URLFOR($Resource.icAgentConsole__AgentConsoleApp, 'js/lib/jquerytablesorter.js')}"/>
+  <script>
+        var j$ = jQuery.noConflict();
+        sforce.connection.sessionId = '{!JSENCODE($Api.Session_ID)}';
+        j$(document).ready(function (){
+            //read the data from the localstorage
+            var isSccView = false;
+            if(location.search.indexOf('isdtp') !== -1){
+                isSccView = true;
+            }
+            var data = localStorage.sfResult;
+            var contactsList = localStorage.contacts;
+            var localizedString = {
+                'CONTACT': '{!$Label.contact}',
+                'CASE': '{!$Label.case}',
+                'TASK': '{!$Label.task}',
+                'OPPORTUNITY': '{!$Label.opportunity}',
+                'LEAD': '{!$Label.lead}',
+                'EVENT': '{!$Label.event}',
+                'ACCOUNT': '{!$Label.account}',
+                'USER': '{!$Label.user}',
+                'AGENT CONFIGURATION': '{!$Label.agentConfiguration}',
+                'AGENT CONFIG ENTITY': '{!$Label.agentConfigEntity}',
+                'AGENT CONFIG FIELD': '{!$Label.agentConfigField}'
+            };
+            
+            var contacts,
+                sfResults,
+                sfResult = null,
+                contactId,
+                isPersonAccountEnabled = false;
+            
+            function checkPersonAccountEnabled(){
+                try {
+                    var query = "SELECT IsPersonAccount FROM Account LIMIT 1";
+                    var queryResult = sforce.connection.query(query);
+                    isPersonAccountEnabled = true;
+                } catch (error) {
+                    isPersonAccountEnabled = false;
+                }
+            }
+                
+            function loadResult(){
+                if(isNotNullOrEmptyArray(contacts)){
+                    //get the contact ID
+                    contactId = getActiveContactId();
+                    var temp = getSfResult();
+                    if(sfResult !== null && temp !== null && temp.cId !== sfResult.cId){
+                        sfResult = temp;
+                        //clear the previous result 
+                        j$("#divObjectList").empty();
+                        displayResult(sfResult.results.result);
+                    }else if(sfResult === null && temp !== null){
+                        sfResult = temp;
+                        j$("#divObjectList").empty();
+                        displayResult(sfResult.results.result);
+                    }
+                }
+            }
+            
+            function intialize(){
+                if (!(contactsList === undefined || contactsList === null || contactsList === '' || contactsList === 'undefined' || contactsList === 'null')) {
+                    contacts = JSON.parse(contactsList);
+                }
+                if (!(data === undefined || data === null || data === '' || data === 'undefined' || data === 'null')) {
+                    sfResults = JSON.parse(data);
+                }
+                if (window.addEventListener) {
+                    window.addEventListener("storage", onStorageUpdate, false);
+                } else {
+                    window.attachEvent("onstorage", onStorageUpdate);
+                }
+                checkPersonAccountEnabled();
+                loadResult();
+            }
+            
+            function onStorageUpdate(e) {
+                if (!e) {
+                    e = window.event;
+                }
+
+                if (e.key === 'contacts') {
+                    if (isNotNullOrEmpty(e.newValue)) {
+                        if (JSON.stringify(contacts) !== e.newValue) {
+                            contacts = j$.parseJSON(e.newValue);
+                        }
+                    }
+                } if (e.key === 'sfResult') {
+                    if (isNotNullOrEmpty(e.newValue)) {
+                        if (JSON.stringify(sfResults) !== e.newValue) {
+                            sfResults = j$.parseJSON(e.newValue);
+                        }
+                    } else {
+                        sfResults = [];
+                    }
+                }
+                loadResult();               
+            }
+            
+            function isNotNullOrEmpty(data) {
+                if (data === undefined || data === null || data === "") {
+                    return false;
+                }
+                return true;
+            }
+            
+            function getSfResult() {
+                var sfResult,
+                    i = 0;
+                if (isNotNullOrEmptyArray(sfResults)) {
+                    len = sfResults.length;
+                    for (i = 0; i < len; i++) {
+                        sfResult = sfResults[i];
+                        if (sfResult.cId === contactId) {
+                            return sfResult;
+                        }
+                    }
+                    return sfResults[0];
+                }
+                return null;
+            }
+            
+            function isNotNullOrEmptyArray(data) {
+                if (typeof data !== 'object' || !isNumber(data.length) || data.length === 0) {
+                    return false;
+                }
+                return true;
+            }
+            
+            function isNumber(n) {
+                return !isNaN(parseFloat(n)) && isFinite(n);
+            }
+            
+            function getActiveContactId() {
+                var len = contacts.length,
+                    i,
+                    contact;
+                //for getting the active contact id from the list
+                for (i = 0; i < len; i++) {
+                    contact = contacts[i];
+                    if (contact.contactType === 'ChatContactEvent' && contact.status === 'Active') {
+                        return contact.id;
+                    }
+                }
+                for (i = 0; i < contacts.length; i++) {
+                    contact = contacts[i];
+                    if (contact.type === 'Consult' || contact.contactType === 'ChatContactEvent') {
+                        continue;
+                    }
+                    return contact.id;
+                }
+                return '';
+            }
+            
+            var displayResult = function(result){
+                var currentType = '',
+                    tableItem,
+                    tbodyItem,
+                    itemCount = {},
+                    list = j$("<div id='dlObjResult'></div>"),
+                    jumpList = j$("<div class='link'></div>");
+
+                j$.each(result, function (key, val) {
+                if(currentType !== val.object){
+                        currentType = val.object;
+                        //if table for currentType(sObject) is available in the list fetch that table instance
+                        //and add a new row to it.
+                        //else create an new table and add column header row, 1st row
+                        if(list.find("#tbl"+currentType).attr("id") == 'tbl' + currentType){
+                            //we need the tbodyitem to add an new row to the existing table
+                            tbodyItem = list.find("#tbl"+currentType);
+                        }
+                        else{
+                            //create an new table, thead, tbody and also Header
+                            tableItem = j$("<table id='tbl"+currentType+"'></table>");
+                            tbodyItem = j$("<tbody id='tbody"+currentType+"'></tbody>");
+                            var theadItem = j$("<thead></thead>");
+                            theadItem.append(createHeader(val));
+                            tableItem.append(theadItem);
+                            tableItem.append(tbodyItem);
+                            //tableItem.tablesorter();
+                            var hdr1 = j$("<div class='tableContainer'></div>");
+                            hdr1.append(tableItem);
+                            var locObj = currentType.toUpperCase();
+                            locObj = localizedString.hasOwnProperty(locObj) ? localizedString[locObj] : locObj;
+                            var hdr = j$("<div class='container'><a name='"+currentType+"_target'></a> <div id='div"+currentType+"' class='title'>"+locObj +"</div></div>");
+                            hdr.append(hdr1);
+                            list.append(hdr);
+
+                            //delete searchObjects[currentType.toLowerCase()];
+                        }
+                    }
+                    tbodyItem.append(createRow(key,val));
+                    if(itemCount.hasOwnProperty(currentType)){
+                        itemCount[currentType] += 1;
+                    }else{
+                        itemCount[currentType] = 1;
+                    }
+                });
+                
+                j$("#divObjectList").append(list);
+                
+                var count = 0;
+                for (itemType in itemCount) {
+                    if (itemCount.hasOwnProperty(itemType)) {
+                        var locObj = itemType.toUpperCase();
+                        locObj = localizedString.hasOwnProperty(locObj) ? localizedString[locObj] : locObj;
+                        var val = locObj +  '  ['+itemCount[itemType]+']';
+                        j$("#tbl"+itemType ).tablesorter();
+                        j$("#div"+itemType ).text(val);
+                        if(count > 0){
+                            jumpList.append("<span class='pipe'>&nbsp;|&nbsp; </span>");
+                        }
+                        count += 1;
+                        jumpList.append("<a  href='#"+itemType+"_target'>"+val+"</a>");
+                    }
+                }
+                jumpList.insertBefore(list);
+            };
+
+            //Create a new column header for an sObject
+            var createHeader = function(result){
+                var trItem = j$("<tr></tr>"),
+                    type = result.object,
+                    thItem;
+                //create for the result
+                if(type == "Task"){
+                    thItem = j$("<th onmouseover ='columnMouseOver(this)' onmouseout='columnMouseOut(this)'>Subject</th>");
+                    trItem.append(thItem);
+                    j$.each(result, function (key, val) {
+                        if(key != "object" && key != "Subject" && key != "Id"){
+                            thItem = j$("<th onmouseover ='columnMouseOver(this)' onmouseout='columnMouseOut(this)'>"+key+"</th>");
+                            trItem.append(thItem);
+                        }
+                    });
+                }
+                else if(type == "Case"){
+                    thItem = j$("<th onmouseover ='columnMouseOver(this)' onmouseout='columnMouseOut(this)' >CaseNumber</th>");
+                    trItem.append(thItem);
+                    j$.each(result, function (key, val) {
+                        if(key != "object" && key != "CaseNumber" && key != "Id"){
+                            thItem = j$("<th onmouseover ='columnMouseOver(this)' onmouseout='columnMouseOut(this)'>"+key+"</th>");
+                            trItem.append(thItem);
+                        }
+                    });
+                }
+                else if(type == "Idea"){
+                    thItem = j$("<th onmouseover ='columnMouseOver(this)' onmouseout='columnMouseOut(this)'>Title</th>");
+                    trItem.append(thItem);
+                    j$.each(result, function (key, val) {
+                        if(key != "object" && key != "Title" && key != "Id"){
+                            thItem = j$("<th onmouseover ='columnMouseOver(this)' onmouseout='columnMouseOut(this)'>"+key+"</th>");
+                            trItem.append(thItem);
+                        }
+                    });
+                }
+                else if(type == "Contract"){
+                    thItem = j$("<th onmouseover ='columnMouseOver(this)' onmouseout='columnMouseOut(this)'>ContractNumber</th>");
+                    trItem.append(thItem);
+                    j$.each(result, function (key, val) {
+                        if(key != "object" && key != "ContractNumber" && key != "Id"){
+                            thItem = j$("<th onmouseover ='columnMouseOver(this)' onmouseout='columnMouseOut(this)'>"+key+"</th>");
+                            trItem.append(thItem);
+                        }
+                    });
+                }
+                else if(type == "Account"){
+                    thItem = j$("<th onmouseover ='columnMouseOver(this)' onmouseout='columnMouseOut(this)'>Name</th>");
+                    trItem.append(thItem);
+                    j$.each(result, function (key, val) {
+                        if(key != "object" && key != "Name" && key != "Id" && key != "displayName" && key != "personAccount" && key != "contactId"){
+                            thItem = j$("<th onmouseover ='columnMouseOver(this)' onmouseout='columnMouseOut(this)'>"+key+"</th>");
+                            trItem.append(thItem);
+                        }
+                    });  
+                    
+                    if(isPersonAccountEnabled && !sfResult.hasControlledSearch){
+                        thItem = j$("<th onmouseover ='columnMouseOver(this)' onmouseout='columnMouseOut(this)'>IsPersonAccount</th>");
+                        trItem.append(thItem);
+                        thItem = j$("<th onmouseover ='columnMouseOver(this)' onmouseout='columnMouseOut(this)'>ContactId</th>");
+                        trItem.append(thItem);
+                    } 
+                }
+                else{
+                    thItem = j$("<th onmouseover ='columnMouseOver(this)' onmouseout='columnMouseOut(this)'>Name</th>");
+                        trItem.append(thItem);
+                        j$.each(result, function (key, val) {
+                            if(key != "object" && key != "Name" && key != "Id" && key != "displayName"){
+                                thItem = j$("<th onmouseover ='columnMouseOver(this)' onmouseout='columnMouseOut(this)'>"+key+"</th>");
+                                trItem.append(thItem);
+                            }
+                        });
+                    }
+                return trItem;
+            };
+            //Create an row for the sObject
+            var createRow = function(id,result){
+                if(isSccView){
+                    id = 'javascript:sforce.console.openPrimaryTab(null,"' + '/'+ id +'",true)';
+                }else{
+                    id = '/' + id;
+                }
+                var trItem = j$("<tr onmouseover=\"this.style.backgroundColor='#E3F3FF'\" onmouseout=\"this.style.backgroundColor='#FFFFFF'\"></tr>"),
+                    type = result.object,
+                    tdItem;
+                //create for the result
+                if(type == "Task"){
+                    tdItem = j$("<td><a href='"+id+"'>"+result["Subject"]+"</a></td>");
+                    trItem.append(tdItem);
+                    j$.each(result, function (key, val) {
+                        if(key != "object" && key != "Subject"  && key != "Id"){
+                            tdItem = j$("<td>"+val+"</td>");
+                            trItem.append(tdItem);
+                        }
+                    });
+                }
+                else if(type == "Case"){
+                    tdItem = j$("<td> <a href='"+id+"'>"+result["CaseNumber"]+"</a></td>");
+                    trItem.append(tdItem);
+                    j$.each(result, function (key, val) {
+                        if(key != "object" && key != "CaseNumber"  && key != "Id"){
+                            tdItem = j$("<td>"+val+"</td>");
+                            trItem.append(tdItem);
+                        }
+                    });
+                }
+                else if(type == "Idea"){
+                    tdItem = j$("<td> <a href='"+id+"'>"+result["Title"]+"</a> </td>");
+                    trItem.append(tdItem);
+                    j$.each(result, function (key, val) {
+                        if(key != "object" && key != "Title"  && key != "Id"){
+                            tdItem = j$("<td>"+val+"</td>");
+                            trItem.append(tdItem);
+                        }
+                    });
+                }
+                else if(type == "Contract"){
+                    tdItem = j$("<td><a href='"+id+"'>"+result["ContractNumber"]+"</a> </td>");
+                    trItem.append(tdItem);
+                    j$.each(result, function (key, val) {
+                        if(key != "object" && key != "ContractNumber"  && key != "Id"){
+                            tdItem = j$("<td>"+val+"</td>");
+                            trItem.append(tdItem);
+                        }
+                    });
+                }
+                else if(type == "Account"){
+                    tdItem = j$("<td><a href='"+id+"'>"+result["Name"]+"</a> </td>");
+                    trItem.append(tdItem);
+                    j$.each(result, function (key, val) {
+                        if(key != "object" && key != "Name"  && key != "Id" && key != "displayName" && key != "personAccount" && key != "contactId"){
+                            tdItem = j$("<td>"+val+"</td>");
+                            trItem.append(tdItem);
+                        }
+                    });
+                    
+                    if(isPersonAccountEnabled && !sfResult.hasControlledSearch){
+                        var isPersonAcct = isNotNullOrEmpty(result["personAccount"]) ? true : false;
+                        var contactId = isNotNullOrEmpty(result["contactId"]) ? result["contactId"] : "-";
+                        tdItem = j$("<td>"+isPersonAcct+"</td>");
+                        trItem.append(tdItem);
+                        tdItem = j$("<td>"+contactId+"</td>");
+                        trItem.append(tdItem);
+                    } 
+                }
+                else{
+                    tdItem = j$("<td> <a href='"+id+"'>"+result["Name"]+"</a> </td>");
+                    trItem.append(tdItem);
+                    j$.each(result, function (key, val) {
+                        if(key != "object" && key != "Name"  && key != "Id" && key != "displayName"){
+                            tdItem = j$("<td>"+val+"</td>");
+                            trItem.append(tdItem);
+                        }
+                    });
+                }
+
+                return trItem;
+            };
+            intialize();
+        });
+        function columnMouseOver(obj){
+            obj.style.color = '#53B5CF';
+            obj.style.cursor = 'pointer';
+        }
+        function columnMouseOut(obj){
+            obj.style.color = 'black';
+            obj.style.cursor = 'default';
+        }
+    </script>
+    <style>
+        .pageHeaderSmall{
+            font-size:11px;
+        }
+        .pageHeaderLarge{
+            font-size:16px;
+            font-weight: bold;
+        }
+        .container{
+            background-color: #F8F8F8;
+            border-bottom: 1px solid #EAEAEA;
+            border-left: 1px solid #EAEAEA;
+            border-radius: 4px 4px 4px 4px;
+            border-right: 1px solid #EAEAEA;
+            border-top: 2px solid #1797C0;
+            margin-bottom: 20px;
+        }
+
+        .title{
+            font-size:16px;
+            font-weight:520;
+            border-bottom: 1px solid #DBDBDB;
+            padding:7px;
+        }
+
+        .tableContainer{
+            padding:10px;
+        }
+        .pipe{
+            text-decoration:none;
+        }
+        .link{
+            font-size:12px;
+            padding-left:20px;
+            padding-bottom:10px;
+            padding-top:10px;
+        }
+
+        .noMatchText{
+            font-weight:bold;
+        }
+        table{            
+            width:100%;
+            font-size:12px;
+        }
+        th{
+            background-color:#F2F3F3;
+        }
+        td{
+            background-color:#ffffff;
+        }
+        th.headerSortUp{
+            background-image: url({!URLFOR($Resource.AgentConsoleApp, 'css/images/sort-asc.png')});
+            background-repeat: no-repeat;
+            background-position: right center;
+        }
+        th.headerSortDown{
+            background-image: url({!URLFOR($Resource.AgentConsoleApp, 'css/images/sort-desc.png')});
+            background-repeat: no-repeat;
+            background-position: right center;
+        }
+    </style>
+</apex:page>

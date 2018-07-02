@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Invoice</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Invoices</value>
+    </caseValues>
+    <fields>
+        <label><!-- Bill To Address --></label>
+        <name>Bill_To_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bill To Number --></label>
+        <name>Bill_To_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bill To --></label>
+        <name>Bill_To__c</name>
+        <relationshipLabel><!-- Invoices --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Customer Number --></label>
+        <name>Customer_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deliveries --></label>
+        <name>Deliveries__c</name>
+        <relationshipLabel><!-- Invoices --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Delivery Number --></label>
+        <name>Delivery_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Delivery --></label>
+        <name>Delivery__c</name>
+        <relationshipLabel><!-- Invoices (Delivery) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Deposit Balance --></label>
+        <name>Deposit_Balance__c</name>
+    </fields>
+    <fields>
+        <label><!-- Discount --></label>
+        <name>Discount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Due Date --></label>
+        <name>Due_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- FOB --></label>
+        <name>FOB__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoice Amount --></label>
+        <name>Invoice_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoice Balance --></label>
+        <name>Invoice_Balance__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoice Date --></label>
+        <name>Invoice_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Number --></label>
+        <name>Order__c</name>
+        <relationshipLabel><!-- Invoices --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- PO --></label>
+        <name>PO__c</name>
+    </fields>
+    <fields>
+        <label><!-- Packing Slip ID --></label>
+        <name>Packing_Slip_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- SAP Customer Number --></label>
+        <name>SAP_Customer_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sales Order # --></label>
+        <name>Sales_Order__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sales Target --></label>
+        <name>Sales_Target__c</name>
+        <relationshipLabel><!-- Invoices --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Ship To Number --></label>
+        <name>Ship_To_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ship To --></label>
+        <name>Ship_To__c</name>
+        <relationshipLabel><!-- Invoices (Ship To) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Shipping Amount --></label>
+        <name>Shipping_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shipping Date --></label>
+        <name>Shipping_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sold To Number --></label>
+        <name>Sold_To_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sold To --></label>
+        <name>Sold_To__c</name>
+        <relationshipLabel><!-- Invoices (Sold To) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sub Total --></label>
+        <name>Sub_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tax --></label>
+        <name>Tax__c</name>
+    </fields>
+    <fields>
+        <label><!-- Terms --></label>
+        <name>Terms__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Before Discount --></label>
+        <name>Total_Before_Discount__c</name>
+    </fields>
+    <fields>
+        <label><!-- UPC --></label>
+        <name>UPC__c</name>
+    </fields>
+    <layouts>
+        <layout>Invoice Layout</layout>
+        <sections>
+            <label><!-- Billing Information --></label>
+            <section>Billing Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Shipping Information --></label>
+            <section>Shipping Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Invoice Layout - Dealers Community</layout>
+        <sections>
+            <label><!-- Billing Information --></label>
+            <section>Billing Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Shipping Information --></label>
+            <section>Shipping Information</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Print --></label>
+        <name>Print</name>
+    </webLinks>
+</CustomObjectTranslation>

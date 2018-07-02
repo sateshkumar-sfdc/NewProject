@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Friends &amp; Fam: Acceptance!</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Hello,
+
+Congratulations! You have officially been accepted into the YETI Pro Program.
+
+Now, let’s get you going. When you’re ready to place an order, follow these instructions:
+
+Your log-in information will be sent in a separate email.
+
+Sign into your account by clicking here or copy and paste this link into your browser: https://yeti.com/login
+
+Things to keep in mind:
+
+You must log into your account before placing an order online to receive the discount.
+
+Once you’ve logged in, your discount of 30% will be reflected on eligible products and in checkout.
+
+Discounted products are subject to availability. Licensed products and custom orders are not eligible.
+
+Exchanges and returns must be processed directly with YETI and never through authorized dealers.
+
+Shipping rates will apply.
+
+All shipments to Alaska or Hawaii must be shipped 2nd Day Air, no ground service available, and may incur an additional shipping charge based on weight or insured value of the package.
+
+Alaska and Hawaii are excluded from all Online Shipping specials.
+
+
+Please do not share your account information with anyone. This program is meant for you alone. Misuse of this program is grounds for disqualification.
+
+International orders and shipping are not eligible.
+
+YETI Coolers reserves the right to cancel/suspend this program at any time without prior notice.
+
+YETI Coolers reserves the right to change the discount and/or prices at any time without prior notice.
+
+We are excited to have you as part of the YETI Friends and Family Program! We hope you feel compelled to spread the word and encourage others to purchase their own YETI products.
+
+Let us know if you have questions.
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

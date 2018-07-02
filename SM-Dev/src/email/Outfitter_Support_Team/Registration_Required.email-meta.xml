@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Registration Required</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hello,
+
+Thanks so much for reaching out!
+
+We are happy to get your products registered but regardless, your products are still covered under our warranty. For further details regarding our warranties, please head over to yeti.com/warranty to get all the details.
+
+If you would like to get everything registered, please shoot me over what products you have and we will send some new codes your way.
+
+
+If we can help with anything else, never hesitate to reach out.
+
+Enjoy your YETI!
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Magslider Lids</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Hello,
+
+Thank you for reaching out to us regarding our MagSlider Lid.  The MagSlider Lid is not leak-proof, but is splash resistant.  Our Rambler tumbler is designed for a press fit lid interface and cannot be leak-proof.  Our Rambler bottles, with their threaded interface, are our leak-proof solution.
+
+You may notice that our MagSlider Lid resists spills and splashes with cold drinks better than hot beverages.  This has to do with water viscosity as cold liquids have a higher viscosity than hot liquids.  Cold drinks do not move or flow as fast.
+
+Please let us know if you have questions.
+
+Sincerely,
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

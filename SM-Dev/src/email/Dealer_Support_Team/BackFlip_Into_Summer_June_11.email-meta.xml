@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>BackFlip Into Summer – June 11</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>We’re down to the last week of the contest! Put the pedal to the metal and finish strong. Who knows? You could be the one to win one of our adventure trips!
+
+Here’s some last minute inspiration to get you pumped up for the week.
+
+As always, reach out to (insert TSM name) or me with any questions.
+
+Best of luck as you finish out the contest strong!
+
+P.S. - As a reminder, all sales from the 5th week of the contest must be submitted via the linked form below by 4pm CT today, June 11, to be eligible for this week’s prize: https://yeti.formstack.com/forms/backflip_into_summer
+
+If one of your sales associates wins a weekly prize, they will be notified directly by email.
+
+Terms and conditions apply. See full contest rules here.
+
+
+{!User.CommunityNickname}
+
+Account Management Team
+
+YETI
+
+512.394.0222
+
+sales@yeti.com
+
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

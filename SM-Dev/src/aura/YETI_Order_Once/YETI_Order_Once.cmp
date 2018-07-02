@@ -1,0 +1,724 @@
+<aura:component controller="OrderOnceController" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId">
+	<ltng:require styles="{!$Resource.SLDS_Winter_17 + '/assets/styles/salesforce-lightning-design-system-ltng.min.css'}"/>
+        
+    <aura:attribute name="recordId" type="Id"/> 
+
+      
+    <aura:attribute type="OrderOnceController.wOrderOnce" name="dval"/>
+	<aura:attribute type="String" name="ConfirmationMsg"/>	
+	<aura:attribute type="OrderOnceController.wSearchAccount[]" name="ShipToOptions"/>
+    
+    <aura:handler name="init" action="{!c.onloadpage}" value="{!this}"/>
+	
+    <div class="slds" style="padding:10px">
+    	<div class="slds-grid" >
+		  <div class="slds-panel slds-grid slds-grid_vertical slds-nowrap slds-is-editing">
+			<div class="slds-form slds-form_stacked slds-grow slds-scrollable_y">      
+			  <div class="slds-panel__section">
+				<h3 class="slds-text-heading_small slds-m-bottom_medium">PLACE ORDER</h3>
+				<table>
+					<tr>
+						<td style="padding-right:50px;">
+							<ul>
+							  <div class="slds-form-element">
+								
+								<div class="slds-grid" style="width:100%">
+									<!--<div class="slds-col">
+										<div class="slds-form-element__control" onkeyup="{!c.onAccountSearch}">
+											<ui:inputText aura:id="strShipTo"  label="Ship To"  value="{!v.dval.strShipTo}" placeholder="Search Account"/>
+										</div>
+									</div>	-->					
+										<div class="slds-col">							
+										<div class="slds-form-element__control" id="divaccount" >							
+											<!--<ui:inputSelect aura:id="productcategorylist" label="Account" value="{!v.dval.AccountId}"  change="{!c.onAccountChange}">
+												<aura:iteration items="{!v.dval.AccountOptions}" var="option">
+													<ui:inputSelectOption text="{!option.accountId}" label="{!option.accountName}"/>
+												</aura:iteration>
+											</ui:inputSelect>-->
+											
+											Account <b><ui:inputText value="{!v.dval.accountname}" disabled="true" /></b>
+
+										</div>
+									</div>
+									
+									<div class="slds-col" style="padding-left:10px">							
+										<div class="slds-form-element__control" id="divaccount2">
+											 <ui:inputSelect aura:id="productcategorylist2" label="Ship To Address " value="{!v.dval.AccountAddress}" >
+												<aura:iteration items="{!v.ShipToOptions}" var="o">
+													<ui:inputSelectOption text="{!o.accountAddress}" label="{!o.accountAddress}"/>
+												</aura:iteration>
+											</ui:inputSelect>
+											<!--Address<b><ui:inputText value="{!v.dval.AccountAddress}" /></b>-->
+										</div>
+									</div>
+								</div>
+							  </div>
+							  <div class="slds-form-element">
+								<label class="slds-form-element__label" for="text-input-01">PO Number</label>
+								<div id="divponumber" class="slds-form-element__control" style="width: 40%;"> 
+									<ui:inputText aura:id="oppnonumber1" value="{!v.dval.poNumber}"/>
+								</div>
+							  </div>
+							  <div class="slds-form-element">
+								<label class="slds-form-element__label" for="date-input-01">Need by date</label>
+								<div id="divneedbydate" class="slds-form-element__control" style="width: 40%;">
+									<ui:inputDate aura:id="oppneedbydate1" value="{!v.dval.needByDate}" displayDatePicker="true"/>
+								</div>
+							  </div>
+
+							</ul>
+						</td>
+						<td style="width:40%;vertical-align:top;">
+							<div style="border:1px solid darkgray;border-radius:5px;padding:5px;">
+								Items are subject to availability and may not be available for At-Once ordering. Check with your YETI Rep to verify that all items can be included. Note that freight charges may apply for orders less than $1,000.00.
+							</div>
+						</td>
+					</tr>
+				</table>
+				
+				
+				
+				<!--Selected Product-->
+			<div>
+				<br/>
+				
+				<table class="slds-table slds-table_bordered slds-table_cell-buffer">
+								  <thead>
+									<tr class="slds-text-title_caps">     
+									  <th scope="col">
+										<div class="slds-truncate">Action</div>
+									  </th>
+                            
+									  <th scope="col"> 
+										<div class="slds-truncate" title="Product / SKU">Product / SKU</div>
+									  </th>
+                                      <!--<th scope="col">
+                                        <div class="slds-truncate" title="Close Date">Product Code</div>
+                                      </th>-->
+									  <th scope="col">
+										<div class="slds-truncate" title="Stage">Product Description</div>
+									  </th>
+									  <!--<th scope="col">
+										<div class="slds-truncate" title="Confidence">Product Category</div>
+									  </th>
+									  <th scope="col">
+										<div class="slds-truncate" title="Amount">Expected Ship Date</div>
+									  </th>-->
+									  <th scope="col">
+										<div class="slds-truncate" title="Contact">Need By Date</div>
+									  </th>
+									  <!--<th scope="col">
+										<div class="slds-truncate" title="Contact">Sales Price</div>
+									  </th>-->
+									  <th scope="col">
+										<div class="slds-truncate" title="Contact">Quantity(Each)</div>
+									  </th>
+									  <!--<th scope="col">
+										<div class="slds-truncate" title="Contact">Discount Percent</div>
+									  </th>-->
+									  <th scope="col">
+										<div class="slds-truncate" title="Contact">Total Price</div>
+									  </th>
+									</tr>
+									 
+								  </thead>
+								  <tbody>
+									<aura:iteration items="{!v.dval.lstShipLine}" var="s">
+										<tr>
+											
+											<td data-label="Amount">
+												<lightning:button aura:id="{!s.pbeid}" label="Remove" name="{!s.pbeid}" onclick="{!c.onRemoveShipProduct}"/>
+											</td>
+											<td data-label="Amount">
+											<div class="slds-truncate" title="$25k">{!s.prd.Name}</div>
+											</td>
+											<!--<td data-label="Amount">
+											<div class="slds-truncate" title="$25k">{!s.prd.ProductCode}</div>
+											</td>-->
+											<td data-label="Amount">
+											<div class="slds-truncate" title="$25k">{!s.prd.Description}</div>
+											</td>
+											<!--<td data-label="Amount">
+											<div class="slds-truncate" title="$25k">{!s.prd.Product_Category__c}</div>
+											</td>
+											<td data-label="Amount">
+												<div class="slds-truncate">           
+													<ui:outputDate value="{!s.prd.Expected_Ship_Date__c}"/>
+												</div>
+											</td>-->
+											<td data-label="Need By date">
+												<div>
+													<ui:outputDate class="field"  value="{!s.lineNeedByDate}" />
+												</div>
+											</td>
+											<!--<td data-label="Amount">
+												<div class="slds-truncate" id="{!s.PriceBookEntryId+'-U'}">
+													<ui:outputNumber value="{!s.linePrice}"/>
+												</div>
+											</td>-->
+											<td data-label="Amount">
+												<div class="slds-truncate" id="{!s.PriceBookEntryId+'-Q'}">
+													<ui:outputNumber value="{!s.lineQuantity}"/>
+												</div>
+											</td>
+											<!--<td data-label="Amount">
+												<div class="slds-truncate" title="$25k">
+													<ui:outputText aura:id="discountpercent" value="{!s.lineDiscountPercent}"/>				
+												</div>
+											</td>-->
+											<td data-label="Amount">
+												<div class="slds-truncate" title="$25k">
+													<ui:outputnumber format="#,##,###.00" value="{!s.linecalcTotalPrice}" />
+												</div>
+											</td>
+
+										</tr>
+									</aura:iteration>
+								   
+								  </tbody>
+								</table>
+								<ui:outputText value="" aura:id="selectedproductlbl" class="errorlbl" />
+								
+
+			</div>
+			
+			  </div>
+			</div>
+			
+			
+			
+			
+			<div class="slds-panel__actions slds-border_top">
+			  <div class="slds-grid slds-grid_align-center">		
+				<ui:button aura:id="btnaddproduct" class="slds-button slds-button_brand AddBtnStyle" label="Add Product" press="{!c.showPopUp}"/>
+				<ui:button class="slds-button slds-button_brand AddBtnStyle" label="Place Order" press="{!c.sendOrderRequest}"/>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		
+		<!--Top 10 Opportunities-->
+		<!--
+		<div>
+			<br/>
+				<h3 class="slds-text-heading_small slds-m-bottom_medium">Dealer Products Opportunities</h3>
+				<table class="slds-table slds-table_bordered slds-table_cell-buffer">
+								  <thead>
+									<tr class="slds-text-title_caps">    
+										  <th scope="col">
+											<div class="slds-truncate" title="Account Name">Name</div>
+										  </th>
+										  <th scope="col">
+											<div class="slds-truncate" title="Close Date">Ship to</div>
+										  </th>
+										  <th scope="col">
+											<div class="slds-truncate" title="Stage">Stage Name</div>
+										  </th>
+										  <th scope="col">
+											<div class="slds-truncate" title="Confidence">Close Date</div>
+										  </th>
+										  <th scope="col">
+											<div class="slds-truncate" title="Amount">Owner</div>
+										  </th>
+										</tr>
+								</thead>
+								  <tbody>
+									<aura:iteration items="{!v.dval.lstLatestOpp}" var="s">
+										<tr>
+											
+										
+											<td data-label="Amount">
+												<div class="slds-truncate" title="$25k">
+                                                    <a href="javascript:void(0)" name="{!s.StageName}" id="{!s.Id}" onclick="{!c.onOpportunityClick}">{!s.Name}</a>
+                                                </div>
+											</td>
+											<td data-label="Amount">
+												<div class="slds-truncate" title="$25k">{!s.Ship_To__r.Name}</div>
+											</td>
+											<td data-label="Amount">
+												<div class="slds-truncate" title="$25k">{!s.StageName}</div>
+											</td>
+											
+											<td data-label="Close date">
+												<div>
+													<ui:outputDate class="field"  value="{!s.CloseDate}" />
+												</div>
+											</td>
+											
+											<td data-label="Amount">
+												{!s.Owner.Name}
+											</td>
+
+										</tr>
+									</aura:iteration>
+								   
+								  </tbody>
+								</table>
+								
+						
+
+		</div>
+		-->
+		
+		
+		<!--Add Product -->
+		
+			<div aria-hidden="true" role="dialog" class="slds-modal slds-modal--prompt slds-fade-in-hide" aura:id="modaldialog">
+				<div class="slds-modal__container" style="overflow-y:auto;height:650px;max-height:100%;overflow-x:auto;width:80%;max-width:100%;padding:0px !important;border:1px solid #A0A0A0" >
+					<div class="slds-modal__header slds-theme--info">
+						<button class="slds-button slds-button--icon-inverse slds-notify__close" onclick="{!c.hidePopup}">                    
+							<span class="slds-assistive-text">Close</span>
+						</button>
+						<h2 class="slds-text-heading--medium">New Product for {!v.dval.strShipTo}</h2>
+					</div>
+					<div class="slds-modal__content slds-p-around--medium" style="overflow-x:auto">
+						<div>
+						
+							<!--Filter-->
+							<div style="width: 440px;">
+								<div class="slds-form slds-form_compound">
+									<fieldset class="slds-form-element">
+									  <legend class="slds-form-element__label slds-text-title_caps">Material Search</legend>
+									  <div class="slds-form-element__group">
+										<div class="slds-form-element__row">
+										  <div class="slds-form-element slds-size_1-of-1">
+										
+											<div class="slds-form-element__control" onkeyup="{!c.onMaterialSearch}">
+												<ui:inputText aura:id="searchtext" label="Material:" value="" placeholder="Search Text"/>
+											</div>
+										  </div>										  
+										</div>
+                                        <!--<div class="slds-form-element__row">
+										  <div class="slds-form-element slds-size_1-of-1">
+											<div class="slds-form-element__control">
+												<ui:inputSelect aura:id="searchcategory" label="By Product Category" value="all" >
+													<ui:inputSelectOption text="All" label="All"/>  
+													<ui:inputSelectOption text="Accessories" label="Accessories"/>
+													<ui:inputSelectOption text="Custom Logo" label="Custom Logo"/>
+													<ui:inputSelectOption text="Gear" label="Gear"/>
+													<ui:inputSelectOption text="Hard Coolers" label="Hard Coolers"/>
+													<ui:inputSelectOption text="Parts" label="Parts"/>
+                           							<ui:inputSelectOption text="Soft Coolers" label="Soft Coolers"/>
+													<ui:inputSelectOption text="Other" label="Other"/>
+												</ui:inputSelect>
+                                            </div>
+                                              
+										  </div>										  
+                                          </div> -->
+										<!--<div class="slds-form-element__row">
+										  <div class="slds-form-element slds-size_1-of-1">
+											<ui:inputText aura:id="searchdescription" label="By Description:" value="" placeholder="Search Description"/>
+										  </div>										  
+										</div>-->
+										<div class="slds-form-element__row">
+										  <div class="slds-form-element slds-size_1-of-1">
+											<ui:button aura:id="searchbtn" buttonTitle="Search material" class="button" label="Search" press="{!c.onFindProduct}"/>
+										  </div>										  
+										</div>
+									  </div>
+									</fieldset>
+								</div>
+							</div>
+	
+							
+							<div>
+								
+								<div class="slds-col slds-p-horizontal_medium">
+									<div class="slds-align_absolute-center">
+										<div class="slds-grid slds-grid_pull-padded-medium" >
+											
+											<div class="slds-col slds-p-horizontal_medium">
+												<ui:button aura:id="button4" buttonTitle="Cancel" class="button" label="Cancel" press="{!c.hidePopUp}"/>
+											</div>
+											<div class="slds-col slds-p-horizontal_medium">
+												<ui:button aura:id="button2" buttonTitle="Save Opportunity Products" class="button" label="Save" press="{!c.onSaveOrderOnce}"/>
+											</div>
+
+										</div>
+									</div>
+								</div>
+								
+
+							</div>
+							<br/>
+							
+							<div id="availableproddiv"> 
+								<table class="slds-table slds-table_bordered slds-table_cell-buffer">
+								  <thead>
+									<tr class="slds-text-title_caps">
+								  <th scope="col">
+									<div class="slds-truncate" title="Add Item">Add Item</div>
+								  </th>
+								  <th scope="col">
+									<div class="slds-truncate" title="Product / SKU">Product / SKU</div>
+								  </th>
+								  <!--<th scope="col">
+									<div class="slds-truncate" title="Close Date">Product Code</div>
+								  </th>-->
+								  <th scope="col">
+									<div class="slds-truncate" title="Stage">Product Description</div>
+								  </th>
+								 <!--<th scope="col">
+									<div class="slds-truncate" title="Confidence">Product Category</div>
+								  </th>-->
+								  <!--<th scope="col">
+									<div class="slds-truncate" title="Amount">Expected Ship Date</div>
+								  </th>-->
+								  <th scope="col">
+									<div class="slds-truncate" title="Contact">Need By Date</div>
+								  </th>
+								  <!--<th scope="col">
+									<div class="slds-truncate" title="Contact">Sales Price</div>
+								  </th>-->
+								  <th scope="col">
+									<div class="slds-truncate" title="Contact">Quantity(each)</div>
+								  </th>
+								  <!--<th scope="col">
+									<div class="slds-truncate" title="Contact">Discount Percent</div>
+								  </th>-->
+								  <th scope="col">
+									<div class="slds-truncate" title="Contact">Total Price</div>
+								  </th>
+								</tr>
+									 
+								  </thead>
+								  <tbody>
+									<aura:iteration items="{!v.dval.lstAvaiLine}" var="s">
+										<tr>
+											<th scope="row" data-label="action">
+												<ui:inputCheckbox value="{!s.ischeck}" aura:id="{!'pr-'+s.pbeid}" class="CheckboxOuter" />
+											</th>
+											<td data-label="Amount">
+											<div class="slds-truncate" title="$25k">{!s.prd.Name}</div>
+											</td>
+											<!--<td data-label="Amount">
+											<div class="slds-truncate" title="$25k">{!s.prd.ProductCode}</div>
+											</td>-->
+											<td data-label="Amount">
+											<div class="slds-truncate" title="$25k">{!s.prd.Description}</div>
+											</td>
+											<!--<td data-label="Amount">
+											<div class="slds-truncate" title="$25k">{!s.prd.Product_Category__c}</div>
+											</td>
+											<td data-label="Amount">
+											<div class="slds-truncate">           
+											<ui:outputDate value="{!s.prd.Expected_Ship_Date__c}"/>
+											</div>
+											</td>-->
+											<td data-label="Need By date">
+											<div>
+											<ui:inputDate class="field" displayDatePicker="true" value="{!s.lineNeedByDate}" />
+											</div>
+											</td>
+											<!--<td data-label="Amount">
+											<div class="slds-truncate" id="{!s.PriceBookEntryId+'-U'}">
+											<ui:inputNumber value="{!s.linePrice}"  required="true"/>
+											</div>
+											</td>-->
+											<td data-label="Amount">
+											<div class="slds-truncate" id="{!s.PriceBookEntryId+'-Q'}">
+											<ui:inputNumber value="{!s.lineQuantity}" required="true"/>
+											</div>
+											</td>
+											<!--<td data-label="Amount">
+											<div class="slds-truncate" title="$25k">
+											<ui:inputText aura:id="discountpercent" value="{!s.lineDiscountPercent}"/>				
+											</div>
+											</td>-->
+											<td data-label="Amount">
+											<div class="slds-truncate" title="$25k"><ui:outputnumber format="#,##,###.00" value="{!s.linecalcTotalPrice}" /></div>
+											</td>
+
+										</tr>
+									</aura:iteration>
+								   
+								  </tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+		<!--End Add Product-->
+		
+		<!--Submit Opportunity Confirmation popup-->
+		<div aria-hidden="true" role="dialog" class="slds-modal slds-modal--prompt slds-fade-in-hide" aura:id="confirmmodaldialog">
+			<div class="slds-modal__container">
+				<div class="slds-modal__header slds-theme--info" style="padding:0px;">
+					<h2 class="slds-text-heading--medium">Alert</h2>
+				</div>
+				<div class="slds-modal__content slds-p-around--medium">
+					<div class="slds-align_absolute-center">					
+						<ui:outputText value="{!v.ConfirmationMsg}"/>
+					</div>
+					<br/>
+					<div class="slds-align_absolute-center">
+						<div class="slds-grid slds-grid_pull-padded-medium">
+							<div class="slds-col slds-p-horizontal_medium">
+								<ui:button aura:id="okbtn" buttonTitle="ok" class="slds-button slds-button_brand AddBtnStyle" label="ok" press="{!c.goToHome}"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--finish-->
+		
+		<!--Add New Opportunity-->
+		    <div aria-hidden="true" role="dialog" class="slds-modal slds-modal--prompt slds-fade-in-hide" aura:id="newmodaldialog">
+				<div class="slds-modal__container">
+					<div class="slds-modal__header slds-theme--info">
+						<button class="slds-button slds-button--icon-inverse slds-notify__close" onclick="{!c.newHidePopup}">                    
+							<span class="slds-assistive-text">Close</span>
+						</button>
+						<h2 class="slds-text-heading--medium">Order Summary</h2>
+					</div>
+					<div class="slds-modal__content slds-p-around--medium">
+						<div class="slds-align_absolute-center">
+							<div class="slds-grid slds-grid_pull-padded-medium">
+								
+								<!--<div class="slds-col slds-p-horizontal_medium">
+									<ui:button aura:id="saveoppbtn" buttonTitle="Save Opportunity"  class="slds-button slds-button_brand AddBtnStyle" label="Save" press="{!c.saveMOpportunity}"/>
+								</div>-->
+								<div class="slds-col slds-p-horizontal_medium">
+									<ui:button aura:id="canceloppbtn" buttonTitle="Cancel" class="slds-button slds-button_brand AddBtnStyle" label="Cancel" press="{!c.newHidePopUp}"/>
+								</div>
+								<div class="slds-col slds-p-horizontal_medium">
+									<ui:button aura:id="submitoppbtn" buttonTitle="Submit Opportunity" class="slds-button slds-button_brand AddBtnStyle" disabled="true" label="Submit Order" press="{!c.submitMOpportunity}"/>
+								</div>
+							</div>
+						</div>
+						<br/>
+						<fieldset class="slds-form-element">
+							<div class="slds-form-element__row">
+							  <div class="slds-form-element slds-size_2-of-2">
+								<div style="float:left;width:4%"><ui:inputCheckbox aura:id="termandcondition" change="{!c.onTermAndConditionCheck}" class="CheckboxOuter"/>
+								</div>
+								<div style="float:right;text-align:left;width:96%"><label class="slds-form-element__label" for="termandcondition">Accept Terms and Conditions</label>
+								</div>
+								
+																	
+							  </div>
+							</div>
+						</fieldset>
+						<br/>
+						<div>
+						<legend class="slds-form-element__label slds-text-title_caps"><b>Opportunity Information</b></legend>
+						  <div class="slds-form slds-form_compound">
+						
+						  
+						 
+							<fieldset class="slds-form-element">
+							  
+							  <div class="slds-form-element__group">
+								<div class="slds-form-element__row">
+								  <div class="slds-form-element slds-size_1-of-2">
+									<label class="slds-form-element__label" for="oppowner">Order Contact</label><br/>	
+									<ui:inputText aura:id="oppowner" value="{!v.dval.ownername}" disabled="true"/>
+								  </div>
+								  <div class="slds-form-element slds-size_1-of-2">
+									<label class="slds-form-element__label" for="input-02"><abbr class="slds-required" title="required">*</abbr>Today's Date</label>					
+									<ui:inputDate aura:id="oppclosedate" value="{!v.dval.oppObj.CloseDate}" displayDatePicker="true" />				
+								  </div>
+								</div>
+							  </div>
+							</fieldset>
+							
+							<!--<fieldset class="slds-form-element">
+							  <div class="slds-form-element__group">
+								
+								<div class="slds-form-element__row">
+								  <div class="slds-form-element slds-size_1-of-2">
+									<label class="slds-form-element__label" for="input-04">Sales Order</label>
+									<ui:inputText value="{!v.dval.oppObj.Sales_Order__c}"/>	
+								  </div>
+								  <div class="slds-form-element slds-size_1-of-2">
+									<label class="slds-form-element__label" for="input-05">Opportunity Record Type</label><br/>
+									<ui:outputText value="{!v.dval.recordtypename}"/>
+								  </div>
+								</div>
+								
+							  </div>
+							</fieldset>-->
+							<fieldset class="slds-form-element">
+							  <div class="slds-form-element__group">
+								
+								<div class="slds-form-element__row">
+								  <div class="slds-form-element slds-size_1-of-2">
+									<label class="slds-form-element__label" for="input-04"><abbr class="slds-required" title="required">*</abbr>Account Name</label>
+									<ui:inputText aura:id="oppaccname" value="{!v.dval.accountname}" disabled="true"/>
+								  </div>
+								  <!--<div class="slds-form-element slds-size_1-of-2">
+									<label class="slds-form-element__label" for="input-05">Probability (%)</label>
+									<ui:inputText value="{!v.dval.oppObj.Probability}"/>
+								  </div>-->
+								  <div class="slds-form-element slds-size_1-of-2">
+									<label class="slds-form-element__label" for="input-05"><abbr class="slds-required" title="required">*</abbr>Ship To</label>
+									
+									<!--<ui:inputSelect aura:id="oppshipto"  value="{!v.dval.shiptoname}">
+										<aura:iteration items="{!v.dval.ShipToOptions}" var="option">
+											<ui:inputSelectOption text="{!option.accountId}" label="{!option.accountName}"/>
+										</aura:iteration>
+									</ui:inputSelect>-->
+                                    <ui:inputSelect aura:id="oppshipto"  value="{!v.dval.shiptoname}" >
+                                        <aura:iteration items="{!v.ShipToOptions}" var="o">
+                                            <ui:inputSelectOption text="{!o.accountId}" label="{!o.accountAddress}"/>
+                                        </aura:iteration>
+                                    </ui:inputSelect>
+								  </div>
+								</div>
+								
+							  </div>
+							</fieldset>
+							<!--<fieldset class="slds-form-element">
+							  <div class="slds-form-element__group">
+								
+								<div class="slds-form-element__row">
+								  <div class="slds-form-element slds-size_1-of-2">
+									<label class="slds-form-element__label" for="input-04">Quote Number</label>
+									<ui:inputText value="{!v.dval.oppObj.ENSX_EDM__Quote_Number__c}"/>
+								  </div>
+								  <div class="slds-form-element slds-size_1-of-2">
+									<label class="slds-form-element__label" for="input-05">Amount</label>
+									<ui:inputText value="{!v.dval.oppObj.Amount}"/>
+								  </div>
+								</div>
+								
+							  </div>
+							</fieldset>
+							<fieldset class="slds-form-element">
+							  <div class="slds-form-element__group">
+								
+								<div class="slds-form-element__row">
+								  <div class="slds-form-element slds-size_1-of-2">
+									<label class="slds-form-element__label" for="input-04">Order Number</label>
+									<ui:inputText value="{!v.dval.oppObj.ENSX_EDM__OrderNumber__c}"/>
+								  </div>
+								  <div class="slds-form-element slds-size_1-of-2">
+									<label class="slds-form-element__label" for="input-05">Price Book</label>
+									<ui:inputText value="{!v.dval.oppObj.PriceBook2Id}"/>
+								  </div>
+								</div>
+								
+							  </div>
+							</fieldset>-->
+							
+							<fieldset class="slds-form-element">				
+								<!--<legend class="slds-form-element__label slds-text-title_caps"><b>ERP Sales Order Information</b></legend>-->
+								
+							  <div class="slds-form-element__group">
+								
+								
+								
+								<div class="slds-form-element__row">
+								  <!---<div class="slds-form-element slds-size_1-of-2">
+									<label class="slds-form-element__label" for="input-04">Credit Card Type</label>
+									<ui:inputText value="{!v.dval.oppObj.Credit_Card_Type__c}"/>
+								  </div>-->
+								   <div class="slds-form-element slds-size_1-of-2">
+									<label class="slds-form-element__label" for="input-04"><abbr class="slds-required" title="required">*</abbr>PO Number</label>
+									<ui:inputText aura:id="oppponumber" value="{!v.dval.oppObj.PO_Number__c}"/>
+								  </div>
+								  <!--<div class="slds-form-element slds-size_1-of-2">
+									<label class="slds-form-element__label" for="input-05"><abbr class="slds-required" title="required">*</abbr>Ship To</label>
+									<ui:inputText aura:id="oppshipto" value="{!v.dval.shiptoname}"/>
+								  </div>-->
+								</div>
+								
+							  
+								<!--<div class="slds-form-element__row">
+								  <div class="slds-form-element slds-size_1-of-2">
+									<label class="slds-form-element__label" for="input-04">Credit Card Number</label>
+									<ui:inputText value="{!v.dval.oppObj.Credit_Card_Number__c}"/>
+								  </div>
+								  <div class="slds-form-element slds-size_1-of-2">
+									<label class="slds-form-element__label" for="input-05">Ship To Contact</label>
+									<ui:inputText value="{!v.dval.oppObj.Ship_To_Contact__c}"/>
+								  </div>
+								</div>
+								
+								<div class="slds-form-element__row">
+								  <div class="slds-form-element slds-size_1-of-2">
+									<label class="slds-form-element__label" for="input-04">Credit Card Expiration Month</label>
+									<ui:inputText value="{!v.dval.oppObj.Credit_Card_Expiration_Month__c}"/>
+								  </div>
+								  <div class="slds-form-element slds-size_1-of-2">
+									<label class="slds-form-element__label" for="input-05">Ship Complete</label>
+									<ui:inputCheckbox value="{!v.dval.oppObj.Ship_Complete__c}"/>
+								  </div>
+								</div>
+								
+								<div class="slds-form-element__row">
+								  <div class="slds-form-element slds-size_1-of-2">
+									<label class="slds-form-element__label" for="input-04">Credit Card Expiration Year</label>
+									<ui:inputText value="{!v.dval.oppObj.Credit_Card_Expiration_Year__c}"/>
+								  </div>
+								  <div class="slds-form-element slds-size_1-of-2">
+									<label class="slds-form-element__label" for="input-05">Chase Profile Id</label>
+									<ui:inputText value="{!v.dval.oppObj.Chase_Profile_Id__c}"/>
+								  </div>
+								</div>
+								
+								<div class="slds-form-element__row">
+								  <div class="slds-form-element slds-size_1-of-2">
+									<label class="slds-form-element__label" for="input-04"><abbr class="slds-required" title="required">*</abbr>PO Number</label>
+									<ui:inputText aura:id="oppponumber" value="{!v.dval.oppObj.PO_Number__c}"/>
+								  </div>
+								  <div class="slds-form-element slds-size_1-of-2">
+									<label class="slds-form-element__label" for="input-05"><abbr class="slds-required" title="required">*</abbr>Need By Date</label>						
+									<ui:inputDate displayDatePicker="true"  aura:id="oppneedbydate" value="{!v.dval.oppObj.Need_By_Date__c}"/>
+								  </div>
+								</div>
+								<div class="slds-form-element__row">
+								  <div class="slds-form-element slds-size_1-of-1">
+									<label class="slds-form-element__label" for="input-04">Order Placed</label>
+									<ui:inputDatetime value="{!v.dval.oppObj.Order_Placed__c}" displayDatePicker="true" />	
+								  </div>
+								
+								</div>-->
+								
+							  </div>
+							</fieldset>
+							<!--
+							<br/><br/>
+							<fieldset class="slds-form-element">
+								
+							  <legend class="slds-form-element__label slds-text-title_caps"><b>Description Information</b></legend>
+							  
+							  <div class="slds-form-element__group">					
+								<div class="slds-form-element__row">
+								  <div class="slds-form-element slds-size_1-of-2">
+									<label class="slds-form-element__label" for="input-06">Description</label>
+									<textarea type="text" id="input-06" class="slds-input"/>
+								  </div>
+								</div>
+							  </div>
+							</fieldset>-->
+							
+
+
+						  </div>
+						</div>
+						
+						<div class="slds-align_absolute-center">
+							<div class="slds-grid slds-grid_pull-padded-medium">
+								
+								<!--<div class="slds-col slds-p-horizontal_medium">
+									<ui:button aura:id="saveoppbtn2" buttonTitle="Save Opportunity" class="slds-button slds-button_brand AddBtnStyle" label="Save" press="{!c.saveMOpportunity}"/>
+								</div>-->
+								<div class="slds-col slds-p-horizontal_medium">
+									<ui:button aura:id="canceloppbtn2" buttonTitle="Cancel" class="slds-button slds-button_brand AddBtnStyle" label="Cancel" press="{!c.newHidePopUp}"/>
+								</div>
+								<div class="slds-col slds-p-horizontal_medium">
+									<ui:button aura:id="submitoppbtn2" buttonTitle="Submit Opportunity" class="slds-button slds-button_brand AddBtnStyle" disabled="true" label="Submit Order" press="{!c.submitMOpportunity}"/>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<!--End Add New Opportunity-->
+    </div>
+	
+</aura:component>

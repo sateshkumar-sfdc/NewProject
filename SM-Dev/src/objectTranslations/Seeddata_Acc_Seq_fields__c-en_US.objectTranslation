@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Seeddata_Acc_Seq_Fields</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Seeddata_Acc_Seq_Fields</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account Sequence Description --></label>
+        <name>AccountSequenceDescription__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Sequence Name --></label>
+        <name>AccountSequenceName__c</name>
+    </fields>
+    <fields>
+        <label><!-- KEY FIELD NAME --></label>
+        <name>KEYFIELDNAME__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

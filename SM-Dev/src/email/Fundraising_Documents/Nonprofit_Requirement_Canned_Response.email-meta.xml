@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Nonprofit Requirement Canned Response</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Greetings,
+
+
+
+The YETI Fundraising Program was established to serve nonprofit organizations and assist them with their fundraising events. We utilize either a Federal IRS document called a 501C3 which is a letter issued by the IRS designating the organization as a nonprofit. It is also acceptable to utilize a state tax exemption document provided from your state. All organizations must be a verifiable nonprofit to qualify for the YETI Fundraising Program. We would be happy to answer questions you may have; you can reach a member of the fundraising team at 512-394-934.
+
+
+
+For more information feel free to visit https://yeti.formstack.com/forms/fundraising
+
+
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+
+The YETI Outfitters
+
+512.394.9384
+
+customerservice@yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

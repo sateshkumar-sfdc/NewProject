@@ -1,0 +1,23 @@
+.THIS {
+    font-family: token(fontFamily);
+    color: token(colorTextDefault);
+}
+.THIS h2.slds-text-heading--medium {
+    text-transform: uppercase;
+    font-size: 18px;
+}
+.THIS .slds-tabs--scoped__content, .THIS .slds-form-element__label, .THIS .slds-tabs--scoped__item {
+    font-size: 1rem;
+}
+.THIS .error-message {
+	display: none;
+}
+.THIS .hideSection {
+    display: none;
+}
+.THIS a.slds-tabs--scoped__link {
+    text-decoration: none !important;
+}
+.THIS .slds-tabs--scoped__content {
+    border-top: 1px solid #d8dde6 !important;
+}

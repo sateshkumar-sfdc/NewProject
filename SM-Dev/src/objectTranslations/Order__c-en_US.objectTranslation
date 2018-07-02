@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Order</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Orders</value>
+    </caseValues>
+    <fields>
+        <label><!-- Bill To Address --></label>
+        <name>Bill_To_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bill To Number --></label>
+        <name>Bill_To_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bill To --></label>
+        <name>Bill_To__c</name>
+        <relationshipLabel><!-- Orders --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Orders --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Credit Hold Status --></label>
+        <name>Credit_Hold_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Number --></label>
+        <name>Customer_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Discount Amount --></label>
+        <name>Discount_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Downgrade --></label>
+        <name>Downgrade__c</name>
+    </fields>
+    <fields>
+        <label><!-- EP Order Type --></label>
+        <name>EP_Order_Type__c</name>
+        <picklistValues>
+            <masterLabel>Free Part</masterLabel>
+            <translation><!-- Free Part --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RMA Replacement</masterLabel>
+            <translation><!-- RMA Replacement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Standard</masterLabel>
+            <translation><!-- Standard --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- FOB --></label>
+        <name>FOB__c</name>
+    </fields>
+    <fields>
+        <label><!-- Grand Total --></label>
+        <name>Grand_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Line Total --></label>
+        <name>Line_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Misc --></label>
+        <name>Misc__c</name>
+    </fields>
+    <fields>
+        <label><!-- Req. Delivery Date --></label>
+        <name>Need_By_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Old Process --></label>
+        <name>Old_Process__c</name>
+    </fields>
+    <fields>
+        <label><!-- Open Line Total --></label>
+        <name>Open_Line_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Open Line Unit Total --></label>
+        <name>Open_Line_Unit_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Comment --></label>
+        <name>Order_Comment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Date --></label>
+        <name>Order_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Held --></label>
+        <name>Order_Held__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Source --></label>
+        <name>Order_Source__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Status --></label>
+        <name>Order_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Subtotal --></label>
+        <name>Order_Subtotal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Total --></label>
+        <name>Order_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Type --></label>
+        <name>Order_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- PurchaseOrder --></label>
+        <name>PurchaseOrder__c</name>
+    </fields>
+    <fields>
+        <label><!-- RMA Number --></label>
+        <name>RMA_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- SAP Customer Number --></label>
+        <name>SAP_Customer_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ship By --></label>
+        <name>Ship_By__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ship Complete --></label>
+        <name>Ship_Complete__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ship To Number --></label>
+        <name>Ship_To_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ship To --></label>
+        <name>Ship_To__c</name>
+        <relationshipLabel><!-- Orders (Ship To) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Ship Via --></label>
+        <name>Ship_Via__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shipping --></label>
+        <name>Shipping_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sold To Number --></label>
+        <name>Sold_To_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sold To --></label>
+        <name>Sold_To__c</name>
+        <relationshipLabel><!-- Orders (Sold To) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Sub Total --></label>
+        <name>Sub_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tax --></label>
+        <name>Tax__c</name>
+    </fields>
+    <fields>
+        <label><!-- Terms --></label>
+        <name>Terms__c</name>
+    </fields>
+    <fields>
+        <label><!-- Upgrade Charge --></label>
+        <name>Upgrade_Charge__c</name>
+    </fields>
+    <layouts>
+        <layout>Order Layout</layout>
+        <sections>
+            <label><!-- Billing Information --></label>
+            <section>Billing Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Shipping Information --></label>
+            <section>Shipping Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Order Layout - Dealers Community</layout>
+        <sections>
+            <label><!-- Billing Information --></label>
+            <section>Billing Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Shipping Information --></label>
+            <section>Shipping Information</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Print --></label>
+        <name>Print</name>
+    </webLinks>
+</CustomObjectTranslation>

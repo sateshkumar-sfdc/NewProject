@@ -1,0 +1,233 @@
+<apex:page controller="UniqueEntry.ConfigurationController">
+<head>
+    <style>
+    .h1 {
+        color: #000000;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 9px 9px;
+    }
+    .topPanelBorder {
+        background-color: #E2E3E5;
+        border-radius: 4px 4px 4px 4px;
+        margin-bottom: 20px;
+        padding: 8px;
+    }
+    .fieldLabel {
+        margin: 20px 10px 0px 15px;
+        font-weight:bold
+    }
+    .fieldTypeSelect {
+        margin: 5px;
+    }
+    .btn.fieldTypeSubmit {
+        color: #000000 !important;
+        padding: 2px 3px;
+        margin: 2px 0 0 5px;
+        vertical-align: top;
+    }
+    .top20 {
+        margin-top: 20px;
+    }
+    .lookupIcon,
+    .lookupIconOn {
+        margin: 2px;
+        cursor: pointer;
+    }
+    .midAlign {
+        vertical-align: middle;
+    }
+    </style>
+    <apex:includeScript value="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" />
+    <script type="text/javascript">
+        $.noConflict();
+        var removeEntry = function(recordId) {
+                if (confirm('Are you sure?')) {
+                    deleteEntry(recordId);
+                }
+            },
+            removeDefaultEntry = function() {
+                if (confirm('Are you sure?')) {
+                    deleteDefaultEntry();
+                }
+            },
+            foreignKeyInputElement = null,
+            clearOwner = function() {
+                var ownerField = jQuery('input[id*=ownerName]');
+                if (typeof ownerField == 'object' && ownerField != null && typeof ownerField.val == 'function') {
+                    ownerField.val('');
+                }
+            },
+            doSearch = function() {
+                //openLookup('targetUrl?lkfm=<>&lknm=<>&lktp=<>', 670, '1', '&lksrch=<>');
+                var targetUrl = '/_ui/common/data/LookupPage',
+                    urlParts = {
+                        lkfm: '', //form id
+                        lknm: '', //input id
+                        lktp: '', //sObject key prefix
+                        lksrch: '' //search terms
+                    };
+                    var tp = jQuery('select[id*=ownerType]').val();
+                    if (typeof tp == 'string' && tp.length > 0) {
+                        urlParts.lktp = tp;
+                        var lkfm = jQuery('form[id*=orgSettingsForm]'),
+                            lknm = jQuery('input[id*=ownerName]');
+                        if (typeof lkfm == 'object' && lkfm != null && typeof lknm == 'object' && lknm != null && typeof lkfm.attr == 'function' && typeof lknm.attr == 'function') {
+                            urlParts.lkfm = lkfm.attr('id');
+                            urlParts.lknm = lknm.attr('id');
+                            if (typeof escapeUTF == 'function' && typeof lknm.val == 'function') {
+                                urlParts.lksrch = escapeUTF(lknm.val());
+                            }
+                            //TODO make sure ForeignKeyInputElement and its children exist
+                            if (typeof ForeignKeyInputElement == 'function') {
+                                foreignKeyInputElement = new ForeignKeyInputElement(urlParts.lknm, "/_ui/common/data/LookupValidationServlet", null, true, { "acent":urlParts.lktp });
+                                var hiddenId = urlParts.lknm + '_lkid',
+                                    hiddenIdOld = urlParts.lknm + '_lkold',
+                                    hiddenInput = getElementByIdCS(hiddenId);
+                                if (typeof hiddenInput != 'object' || (typeof hiddenInput == 'object' && hiddenInput == null)) {
+                                    lkfm.append(jQuery('<input type="hidden" name="'+ hiddenId +'" id="'+ hiddenId +'" />'));
+                                    lkfm.append(jQuery('<input type="hidden" name="'+ hiddenIdOld +'" id="'+ hiddenIdOld +'" />'));
+                                }
+                                var url = targetUrl +'?lkfm='+ encodeURIComponent(urlParts.lkfm) + '&lknm=' + encodeURIComponent(urlParts.lknm) +'&lktp=' + urlParts.lktp;
+                                //TODO make sure openLookup and all its functions exist
+                                openLookup(url, 670, '1', '&lksrch=' + urlParts.lksrch);
+                            }
+                        }
+                    }
+            };
+
+	    	function resizeParentFrame(){
+	    		if(window != window.parent){
+					parent.jQuery('iframe#countrySettingIframe').height(jQuery('html').height());
+				}
+	        }
+	        
+	        function onAjaxStop(){
+	        	resizeParentFrame();
+	        }
+	        
+	        jQuery(function(){
+	        	resizeParentFrame();
+            	jQuery(window).resize(resizeParentFrame);
+	        })
+        </script>
+</head>
+<body>
+	<c:overlayStatus />
+	
+    <apex:panelGrid columns="4">
+        <apex:image url="{!$Resource.UniqueEntry__DataCleansing}/images/sfLogo.png" width="68" height="59" />
+        <apex:outputLabel value="Admin" style="font-size: 16px;font-weight: bold;" />
+            <!-- <apex:outputLink title="About This Product" value="/apex/About" target="_blank" style="right:159px;color: #1491FF;position:absolute;text-decoration:none;font-weight:bold;margin-top:24px;">About</apex:outputLink>
+            <apex:image url="{!$Resource.DataCleansing}/images/HILogo.png" style="position: absolute;right: 10px;" /> -->
+    </apex:panelGrid>
+    <apex:pageMessages showDetail="true" />
+    <apex:form id="userSettings">
+        <apex:outputPanel id="personalSettingsWrapper">
+            <div class="topPanelBorder">
+                <apex:outputLabel styleClass="h1" value="Data Cleansing"></apex:outputLabel>
+            </div>
+            <apex:panelGrid columns="1">
+                <apex:panelGroup >
+                    <div class="formPanel">
+                        <apex:outputLabel value="Choose your country:" styleClass="fieldLabel" />
+                        <apex:selectList id="userCountry" value="{!userCountryCode}" size="1" styleClass="fieldTypeSubmit">
+                            <apex:selectOptions value="{!countryList}" />
+                        </apex:selectList>
+                        <apex:commandButton value="Save" action="{!saveUserCountry}" styleClass="fieldTypeSubmit" status="overlayStatus" rerender="pageMessages,blockWrapper,orgSettingsWrapper,personalSettingsWrapper,defaultOrgSettingsWrapper" />
+                    </div>
+                </apex:panelGroup>
+            </apex:panelGrid>
+        </apex:outputPanel>
+    </apex:form>
+
+    <apex:outputPanel rendered="{!isAdmin}" styleClass="top20" layout="block">
+        <apex:form id="orgSettingsForm">
+            <apex:actionFunction action="{!deleteEntry}" name="deleteEntry" status="overlayStatus" rerender="pageMessages,blockWrapper,orgSettingsWrapper,personalSettingsWrapper,defaultOrgSettingsWrapper">
+                <apex:param name="entryId" assignTo="{!entryId}" value="" />
+            </apex:actionFunction>
+            <apex:actionFunction action="{!deleteDefaultEntry}" name="deleteDefaultEntry" status="overlayStatus" rerender="pageMessages,blockWrapper,orgSettingsWrapper,personalSettingsWrapper,defaultOrgSettingsWrapper">
+            </apex:actionFunction>
+            
+            <apex:pageMessages id="pageMessages" showDetail="false"></apex:pageMessages>
+
+            <apex:outputPanel id="defaultOrgSettingsWrapper" layout="block">
+                <apex:pageBlock title="Set default organization country">
+                    <apex:pageBlockSection collapsible="false" rendered="{!hasOrgDefaultCountry}">
+                        <apex:outputPanel layout="block" styleClass="midAlign">
+                            The default organization country is set to <strong>{!orgDefaultCountry}</strong>. <input class="btn" type="button" value="Remove" onclick="removeDefaultEntry()" />
+                        </apex:outputPanel> 
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection collapsible="false" rendered="{!NOT(hasOrgDefaultCountry)}">
+                        <apex:selectList id="orgDefaultCountry" value="{!orgDefaultCountryCode}" size="1" styleClass="fieldTypeSubmit">
+                            <apex:selectOptions value="{!countryList}" />
+                        </apex:selectList>
+                    </apex:pageBlockSection>
+                    <apex:pageBlockButtons location="bottom" rendered="{!NOT(hasOrgDefaultCountry)}">
+                        <apex:commandButton action="{!addDefaultSetting}" value="Save" id="saveButton" status="overlayStatus" rerender="pageMessages,blockWrapper,orgSettingsWrapper,personalSettingsWrapper,defaultOrgSettingsWrapper" />
+                    </apex:pageBlockButtons>
+                </apex:pageBlock>
+            </apex:outputPanel> 
+                    
+            <apex:outputPanel id="orgSettingsWrapper">
+                <apex:pageBlock title="Add new custom country setting">
+                    <apex:pageBlockSection collapsible="false">
+                        <apex:panelGrid columns="2" columnClasses="labelCol,dataCol" width="100%">
+                            <apex:outputText value="Location" />
+                            <apex:panelGroup >
+                                <apex:outputPanel styleClass="requiredInput" layout="block">
+                                    <apex:outputPanel styleClass="requiredBlock" layout="block"></apex:outputPanel>
+                                    <apex:selectList id="ownerType" value="{!ownerType}" multiselect="false" size="1" onchange="clearOwner()">
+                                        <apex:selectOptions value="{!ownerTypes}" />
+                                    </apex:selectList>
+                                    <apex:inputText styleClass="requiredInput" value="{!ownerName}" id="ownerName" />
+                                    <apex:image url="/s.gif"
+                                        alt="Location Lookup (New Window)"
+                                        styleClass="lookupIcon"
+                                        title="Location Lookup (New Window)"
+                                        onmouseover="this.className = 'lookupIconOn'; this.className = 'lookupIconOn';"
+                                        onmouseout="this.className = 'lookupIcon'; this.className = 'lookupIcon';"
+                                        onclick="doSearch();"
+                                        />
+                                    <apex:actionRegion >
+                                        <apex:outputPanel layout="block" rendered="{!invalidOwnerError}" id="invalidOwnerError">
+                                            <div class="errorMsg"><strong>Error: </strong>You must enter a value</div>
+                                        </apex:outputPanel>
+                                        <apex:outputPanel layout="block" rendered="{!ownerNotFoundError}" id="ownerNotFoundError">
+                                            <div class="errorMsg"><strong>Error: </strong>No matches found</div>
+                                        </apex:outputPanel>
+                                    </apex:actionRegion>
+                                </apex:outputPanel>
+                            </apex:panelGroup>
+                            <apex:outputText value="Country" />
+                            <apex:selectList id="ownerCountry" value="{!ownerCountry}" size="1" styleClass="fieldTypeSubmit">
+                                <apex:selectOptions value="{!countryList}" />
+                            </apex:selectList>
+                        </apex:panelGrid>
+                    </apex:pageBlockSection>
+
+                    <apex:pageBlockButtons location="bottom">
+                        <apex:commandButton action="{!addSetting}" value="Save" id="saveButton" status="overlayStatus" rerender="pageMessages,blockWrapper,orgSettingsWrapper,personalSettingsWrapper,defaultOrgSettingsWrapper" />
+                    </apex:pageBlockButtons>
+                </apex:pageBlock>
+            </apex:outputPanel>
+
+            <apex:outputPanel id="blockWrapper">
+                <apex:pageBlock title="Custom country settings">
+                    <apex:pageBlockTable value="{!orgSettings}" var="os" rendered="{!(orgSettings.size != 0)}">
+                        <apex:column headerValue="Action" width="50px">
+                            <apex:outputLink value="#" onclick="removeEntry('{!os.recordId}');">Delete</apex:outputLink>
+                        </apex:column>
+                        <apex:column headerValue="Setup Owner">
+                            <apex:outputLink value="/{!os.ownerId}" target="_blank">{!os.ownerName}</apex:outputLink>
+                        </apex:column>
+                        <apex:column headerValue="Location" value="{!os.location}" />
+                        <apex:column headerValue="Country" value="{!os.country}" />
+                    </apex:pageBlockTable>
+                    <apex:outputText rendered="{!(orgSettings.size = 0)}" value="There are no saved settings." />
+                </apex:pageBlock>
+            </apex:outputPanel>
+        </apex:form>
+    </apex:outputPanel>
+</body>
+</apex:page>

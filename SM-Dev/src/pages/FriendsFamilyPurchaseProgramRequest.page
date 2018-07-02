@@ -1,0 +1,278 @@
+<!--
+/*
+Name                FriendsFamilyPurchaseProgramRequest
+Created By          Nitish Bansal
+Created Date        03/07/2016
+Purpose             T-482949
+*/
+-->
+<apex:page controller="WebCaseController" showHeader="false" sidebar="false" standardStylesheets="false">
+    <!--<apex:sectionHeader title="{!$Label.WEB_FORM}" subtitle="{!$Label.WARRANTY_REQUEST_FORM}"/>-->
+   
+  <apex:form >
+    <apex:pageMessages /> <!-- this is where the error messages will appear -->
+    <!--<apex:pageBlock title="{!$Label.Case_Information}">-->
+        <apex:pageBlock >
+            <apex:pageBlockSection showHeader="false" columns="1">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.FIRST_NAME}" />
+                    <apex:outputPanel layout="block" styleClass="requiredInput">
+                            <div class="requiredBlock"></div>
+                            <apex:inputText value="{!firstName}"/>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.LAST_NAME}" />
+                    <apex:outputPanel layout="block" styleClass="requiredInput">
+                            <div class="requiredBlock"></div>
+                            <apex:inputText value="{!lastName}"/>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$Label.EMAIL}" />
+                        <apex:outputPanel layout="block" styleClass="requiredInput">
+                                <div class="requiredBlock"></div>
+                                <apex:inputText value="{!email}"/>
+                        </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$Label.PHONE_NUMBER}" />
+                        <apex:outputPanel layout="block" styleClass="requiredInput">
+                                <div class="requiredBlock"></div>
+                                <apex:inputText value="{!phoneNumber}"/>
+                        </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.STREET_ADDRESS}" />
+                    <apex:outputPanel layout="block" styleClass="requiredInput">
+                            <div class="requiredBlock"></div>
+                            <apex:inputText value="{!streetLine1}"/>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+            
+                <apex:inputText style="width: 50% !important;" value="{!streetLine2}" label="{!$Label.ADDRESS_LINE_2}"/>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.CITY}" />
+                    <apex:outputPanel layout="block" styleClass="requiredInput">
+                            <div class="requiredBlock"></div>
+                            <apex:inputText value="{!city}"/>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.STATE}" />
+                    <apex:outputPanel layout="block" styleClass="requiredInput">
+                            <div class="requiredBlock"></div>
+                            <apex:selectList disabled="false" value="{!state}" size="1" multiselect="false" >
+                                <apex:selectOptions value="{!listStateCodes}" />
+                            </apex:selectList>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.ZIP_CODE}" />
+                    <apex:outputPanel layout="block" styleClass="requiredInput">
+                            <div class="requiredBlock"></div>
+                            <apex:inputText value="{!zipcode}"/>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.EMPLOYEE_FIRST_NAME}" />
+                        <apex:inputField value="{!newcase.Employee_First_Name__c}" required="true"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.EMPLOYEE_LAST_NAME}" />
+                        <apex:inputField value="{!newcase.Employee_Last_Name__c}" required="true"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.EMAIL_ADDRESS_OF_YETI_EMPLOYEE}" />
+                        <apex:inputField value="{!newcase.Employee_Email_Address__c}" required="true"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.CONFIRM_EMAIL}" />
+                    <apex:outputPanel layout="block" styleClass="requiredInput">
+                            <div class="requiredBlock"></div>
+                            <apex:inputText value="{!emailConfirmation}"/>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$Label.RELATION_TO_YETI_EMPLOYEE}" />
+                        <apex:outputPanel layout="block" styleClass="requiredInput">
+                                <div class="requiredBlock"></div>
+                                <apex:inputText value="{!empRelationship}"/>
+                        </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!$Label.I_AGREE_WITH_THE_YETI_FRIENDS_AND_FAMILY_PROGRAM_TERMS_AND_CONDITIONS}" style="font-weight: bold;"/> <apex:inputField value="{!newcase.T_C_Agreement__c}" label=" " required="true"/>
+                </apex:pageBlockSectionItem>
+                
+                <apex:outputLabel value="{!$Label.Terms_and_Conditions}" style="font-weight: bold;"/>
+                
+    
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton action="{!saveFamilyProgramRequest}" value="{!$Label.Submit}"/>
+            </apex:pageBlockButtons> 
+        </apex:pageBlock>
+    </apex:form>  
+     <style type="text/css">
+   label {
+        font: 700 normal 15px/20px museo-sans-rounded,sans-serif;
+        text-transform: uppercase;
+        width: 99%;
+        text-align: left;
+        color: #0a0b0b;
+    }
+    th, td[colspan="2"] {
+        text-align: left;
+        width: 90%;
+        display: block;
+        float: left;
+        margin: 10px 0 4px 0;
+    }
+    th.labelCol {
+        padding-left: 18px;
+    }
+    body {
+        padding-left: 20px;
+    }
+    table.detailList {
+        width: 100%;
+    }
+    td {
+        display: block;
+        float: left;
+        width: 100%;
+    }
+    .data2Col > div {
+        position: relative;
+        background: #f7f6f4;
+        float: left;
+        width: 52% !important;
+        clear: left;
+        padding: 5px;
+    }
+    input, button, select {
+        vertical-align: middle;
+        color: #8f8f8f;
+    }
+    input[type="text"]:focus, textarea:focus, keygen:focus, select:focus {
+        outline-offset: 0px;
+        outline: 5px solid #e7f0f7;
+    }
+    input[type="submit"] {
+        top: 5px;
+        vertical-align: middle;
+        position: relative;
+        width: 200px;
+        height: 50px;
+        background: #005596;
+        font: 400 normal 24px/50px alternate-gothic-no-3-d,sans-serif;
+        color: #fff;
+        text-align: center;
+        float: left;
+        text-transform: uppercase;
+        margin: 0;
+        display: block;
+        text-decoration: none;
+        padding: 0;
+        border: 0;
+        cursor: pointer;
+        -webkit-appearance: none;
+        -webkit-border-radius: 0;
+    }
+    input[type="submit"]:hover, input[type="submit"]:active {
+        background: #136EB4;
+    }
+    input[type="text"] {
+      /*  width: 504px;*/
+        width: 96% !important;
+        padding: 0 10px 0 14px;
+        border: 1px solid #ae9b84;
+        height: 46px;
+        font: 300 normal 18px/14px museo-sans-rounded,sans-serif;
+    }
+    select {
+        border: 1px solid #C8C1B8;
+        color: #8F8F8F;
+        font: 300 18px/48px museo-sans-rounded,sans-serif;
+        height: 48px;
+        padding: 12px 13px;
+       /* width: 528px;*/
+        width: 100% !important;
+        margin: 0;
+    }
+    input[type="file"] {
+        width: 250px;
+        padding: 10px 5px;
+        background: #f7f6f4;
+    }
+    .requiredBlock {
+        width: auto;
+        height: auto;
+        position: absolute;
+        top: -25px;
+        left: 5px;
+    }
+    .requiredBlock:after {
+        content: "*";
+        color: #be200b;
+        text-align: left;
+        font: 700 normal 15px/20px museo-sans-rounded,sans-serif;
+    }
+    .requiredInput {
+        position: relative;
+    }
+    .messageTable {
+        width: 100%;
+        margin-bottom: 20px!important;
+        font: 700 normal 15px/20px museo-sans-rounded,sans-serif;
+    }
+    .messageTable ul li {
+        font-weight: normal;
+    }
+    div.messageText {
+        font-weight: normal;
+    }
+    .infoM3 div.messageText {
+        text-transform: uppercase;
+    }
+    div.messageText > span > h4 {
+        margin-bottom: 0;
+        text-transform: uppercase;
+    }
+    .errorMsg {
+        color: #be200b;
+        padding-top: 2px;
+        font-size: 0.8em;
+        line-height: 1.5em;
+        clear: both;
+        font-family: sans-serif;
+        letter-spacing: normal;
+    }
+    .errorMsg strong {
+        font-weight: normal;
+    }
+    .data2Col > span {
+        font: 300 normal 18px/14px museo-sans-rounded,sans-serif;
+        text-transform: uppercase;
+        color: #8f8f8f;
+        padding: 8px 0 5px 18px;
+        display: block;
+        vertical-align: middle;
+    }
+    html{
+        width: 90% !important;
+    }
+</style> 
+</apex:page>

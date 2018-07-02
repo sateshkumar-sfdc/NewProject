@@ -1,0 +1,8 @@
+<aura:component implements="force:lightningQuickAction"  controller="AcceptAction">
+	<aura:attribute name="recordId" type="Id"/>
+    <aura:attribute type="String" name="pmessage"/>
+    <aura:handler name="init" action="{!c.onloadpage}" value="{!this}"/>
+    <center>
+    	<ui:outputText value="{!v.pmessage}"/>
+    </center>    
+</aura:component>

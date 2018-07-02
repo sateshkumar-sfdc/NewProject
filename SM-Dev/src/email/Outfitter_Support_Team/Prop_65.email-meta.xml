@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Prop 65</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hello,
+
+
+Thanks for reaching out! The Prop 65 warning on your Tundra is there because of the phthalates found in the gasket of the cooler. The inside of your cooler is food safe. We recommend treating your cooler just as you would a refrigerator as the components found in the gasket of a refrigerator are very similar to those found in the gasket of our Tundra.
+
+
+Sincerely,
+
+
+
+
+{!User.CommunityNickname}
+
+The YETI Outfitters
+
+512.394.9384
+
+customerservice@yeti.com
+
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

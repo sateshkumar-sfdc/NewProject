@@ -1,0 +1,6 @@
+Dear {!Case.Contact},
+
+{!Case.CaseNumber} has a new case comment. Please sign into the Trading Post to see this update.
+
+Thank you,
+YETI

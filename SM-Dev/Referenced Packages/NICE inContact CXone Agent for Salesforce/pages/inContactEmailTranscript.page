@@ -1,0 +1,476 @@
+<apex:page controller="icAgentConsole.incEmailTranscriptController" title="Salesforce Agent Email Transcript">
+    
+    <apex:includeScript value="{!URLFOR($Resource.icAgentConsole__AgentConsoleApp, 'js/lib/FileSaver.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.icAgentConsole__AgentConsoleApp, 'js/lib/jquery-1.10.2.min.js')}"/>
+    
+    <style type="text/css">
+        
+        .loginPanel .label{
+        text-align:left;
+        margin-left: 10px;
+        }
+        .loginPanel input {
+        margin: 10px;
+        padding: 8px !important;
+        
+        }
+        .loginPanel  .loginBtn,
+        .loginPanel  .cancelBtn
+        {
+        text-align: center;
+        background-color: #16325c;
+        border: 0px;
+        color: white;
+        border-radius: 2px;
+        width: 100px;
+        cursor:pointer;
+        margin-bottom: 0px;
+        background-image: none;
+        }
+        
+        .loginPanel .loginBtn:hover, .loginBtn:focus {
+        background-color: #0070d2;
+        }
+        .loginPanel .loginBtn:active {
+        background-color: #16325c;
+        }
+        
+        .loginPanel .cancelBtn{
+        background-color: gray;
+        }
+        
+        .loginPanel .cancelBtn:hover, .cancelBtn:focus {
+        background-color: #aaa;
+        }
+        .loginPanel .cancelBtn:active{
+        background-color: gray;
+        }
+        
+        .loginPanel {
+        text-align: center;
+        margin: 0 auto;
+        padding: 50px;
+        background-color: #E5F2F6;
+        border-radius: 5px;
+        border: 1px solid lightgray;
+        float: left;
+        margin-left: 35%;
+        }
+        
+        
+        .loginPanel .errormessage
+        {
+        position:absolute;
+        float: left;
+        overflow: hidden;
+        color: #e42600;
+        font-weight: bold;
+        text-overflow: ellipsis;
+        width: 250px;
+        text-align: left;
+        }
+        
+        
+        .emailmetaData
+        {
+        word-wrap: break-word;
+        }
+        
+        .keys{
+        width: 45px;
+        display: inline-block;
+        font-weight: bold;
+        padding: 2px;
+        text-align: right;
+        padding-right: 12px;
+        }
+        
+        .values{
+        padding:2px;
+        display:inline;
+        }
+        
+        .keyValue{
+        padding-bottom:4px;
+        }
+        
+        .homeTab .tertiaryPalette
+        {
+        background-color:#1797c0;
+        }
+        
+        .homeTab .bPageBlock{
+        border-top-color:transparent;
+        }
+        
+        #transcripterror
+        {
+        padding: 25px;
+        text-align: center;
+        }
+        #loginBtn
+        {
+        margin: 10px;
+        }
+        
+        #emailAttachmentLink .image
+        {
+        float:left;
+        padding-right:5px;
+        width:16px;
+        height:16px;
+        background-repeat: no-repeat;;
+        }
+        
+        #emailAttachmentLink
+        {
+        display:block;
+        padding:2px;
+        text-decoration: underline;
+        cursor:pointer;
+        color:blue;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        }
+    </style> 
+    
+    <apex:form id="emailTranscript">
+        
+        <div id="loginPanel" style="display:none">
+            <apex:pageBlock title="Salesforce Agent Account Login" >
+                <apex:pageBlockSection columns="1">
+                    <div class="loginPanel" id='login'>
+                        <div class='usernamegroup'>
+                            <div class='label' id="userNameLbl"></div>
+                            <input type="text" id="UserName" name="UserName" />
+                        </div>
+                        <div class='passwordgroup'>
+                            <div class='label' id="PasswordLbl"></div>
+                            <input type="password" id="Password" name="Password" />
+                        </div>
+                        <input type="button" value="Login" id="loginBtn" disabled='disabled' style="width: 100px;"/>
+                        <div class="errormessage" layout="block"  id="errorPanel"></div>
+                    </div>
+                    <!-- <apex:commandButton styleClass="cancelBtn"  value="Cancel"  action="{!cancel}"></apex:commandButton> -->
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+        </div>
+        
+        <div id="transcriptPanel" style="display:none">
+            <apex:pageBlock id="transcript" title="Salesforce Agent Email Transcript">
+                <apex:actionStatus id="status">
+                    <apex:facet name="start">
+                        <div style="text-align: center;margin:10px">
+                            Loading ...
+                        </div>
+                    </apex:facet>
+                </apex:actionStatus>
+                <div id="transcripterror" style="display:none"></div>
+                <div id="email_pageBlock" >
+                    <apex:repeat value="{! Transcript.emails}" var="email">
+                        <apex:pageBlockSection columns="3" title="{!email.emailActionName}">
+                            <apex:pageBlockSection columns="1">
+                                <apex:outputPanel >
+                                    <div name="emailSubjectDiv" class='emailmetaData' style="display:none" >
+                                        <div> 
+                                            <apex:outputLabel styleClass="keys" >Date</apex:outputLabel>
+                                            <apex:outputText value="{!email.formattedSentDate}"></apex:outputText>
+                                        </div>
+                                        
+                                        <div>
+                                            <apex:outputLabel styleClass="keys">From</apex:outputLabel>
+                                            <apex:outputText value="{!email.fromAddress}"></apex:outputText>
+                                        </div>
+                                        
+                                        <div>
+                                            <apex:outputLabel styleClass="keys">To</apex:outputLabel>
+                                            <apex:outputText value="{!email.toAddress}"></apex:outputText>
+                                        </div>
+                                        
+                                        <div>
+                                            <apex:outputLabel styleClass="keys">Cc</apex:outputLabel>
+                                            <apex:outputText value="{!email.ccAddress}"></apex:outputText>
+                                        </div>
+                                        
+                                        <div>
+                                            <apex:outputLabel styleClass="keys">Subject</apex:outputLabel>
+                                            <apex:outputText value="{!email.subject}"></apex:outputText>
+                                        </div>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:pageBlockSection> 
+                            
+                            <apex:pageBlockSection columns="1">
+                                <apex:outputPanel layout="block">
+                                    <div name='emailBodyDiv'  style="height:300px;background-color:white;padding:3px;border:1px solid gray;overflow:scroll;display:none">
+                                        {!email.bodyHtml}
+                                    </div> 
+                                </apex:outputPanel>
+                            </apex:pageBlockSection>
+                            <apex:pageBlockSection columns="1" title="Attachments" id="attachmentPanel" collapsible="false">
+                                <apex:pageBlockSectionItem labelStyle="padding:0px;margin:0px;">
+                                    <apex:outputPanel style="height:250px;overflow:auto"  layout="block">
+                                        <div name='emailAttachmentsDiv' style="display:none" >
+                                            <apex:repeat value="{! email.Attachments  }" var="attachment">
+                                                <div id='emailAttachmentLink' data-fileName='{!attachment.FileName }'
+                                                     data-serverPath="{!attachment.attachmentName}"
+                                                     title="click to download {!attachment.FileName}">
+                                                    <div class='image'></div> 
+                                                    <span style="white-space: nowrap;">{!attachment.FileName}</span>
+                                                    <script type='text/javascript'>
+                                                    jQ("div#emailAttachmentLink").off('click').click(downloadFile);
+                                                    </script>           
+                                                </div>
+                                            </apex:repeat>
+                                        </div>
+                                    </apex:outputPanel>
+                             </apex:pageBlockSectionItem>
+                            </apex:pageBlockSection>
+                        </apex:pageBlockSection>
+                    </apex:repeat>
+                </div>
+            </apex:pageBlock>
+        </div>
+        
+        <input type="hidden" name="tokenURL" id="tokenURL"/>
+        <input type="hidden" name="authKey" id="authKey"/>
+        
+        <apex:actionFunction name="updateUserInfo" action="{!updateUserInfo}"  oncomplete="updateUserInfoCompleted()"/> 
+        <apex:actionFunction name="authenticate" status="status"  reRender="status,loginPanel,transcript" action="{!authenticate}" oncomplete="authenticationCompleted('{! logInErrors}','{!showLoginPage}')" /> 
+        <apex:actionFunction name="loadEmailTranscript" status="status" reRender="status,loginPanel,transcript" action="{!loadEmailTranscript}" oncomplete="loadEmailTranscriptCompleted({! hasTranscript})"/> 
+    </apex:form> 
+    
+    <script type='text/javascript'>
+    // we must call jQuery.noConflict() otherwise the softphone will not get loaded.
+    var jQ =jQuery.noConflict(),
+        spinImage="{!URLFOR($Resource.AgentConsoleApp,'css/images/spinner.gif')}",
+        downloadedImage="{!URLFOR($Resource.AgentConsoleApp,'css/images/bumber-workitem-drop.png')}",
+        IC_emailTransLocal = {
+            usernameRequired: "{!JSENCODE($Label.usernameRequired)}",
+            usernameIsNotValid: "{!JSENCODE($Label.usernameIsNotValid)}",
+            passwordRequired: "{!JSENCODE($Label.passwordRequired)}",
+            incontactAgentName:"{!JSENCODE($Label.incontactAgentName)}",
+            inContactAgentPassword:"{!JSENCODE($Label.inContactAgentPassword)}",
+        };
+    
+    function onLogin() {
+        var errormessageElement=jQ(".errormessage");
+        errormessageElement.text("");
+        
+        var userName=jQ('#UserName').val();
+        var password=jQ('#Password').val();
+        
+        // check empty user Name
+        if(jQ.trim(userName).length==0)
+        {
+            errormessageElement.text(IC_emailTransLocal.usernameRequired);
+            return false;
+        }
+        //check valid user name
+        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if(!filter.test(userName))
+        {
+            errormessageElement.text(IC_emailTransLocal.usernameIsNotValid);
+            return false;
+        }
+        
+        // check empty password
+        if(jQ.trim(password).length==0)
+        {
+            errormessageElement.text(IC_emailTransLocal.passwordRequired);
+            return false;
+        }
+        jQ("#loginBtn").val("Please wait...").prop('disabled',true).removeClass('loginBtn').off('click');
+        updateUserInfo();
+    }
+    
+    jQ(document).ready(function(){
+        jQ("#userNameLbl").text(IC_emailTransLocal.incontactAgentName);
+        jQ("#PasswordLbl").text(IC_emailTransLocal.inContactAgentPassword);
+        
+        jQ("div#transcriptPanel").hide();
+        jQ("div#loginPanel").hide();
+    });
+    
+    // we should not override window.onload in order to load the softphone
+    jQ( window).on('load',function() {
+        
+        jQ("#loginBtn").click(onLogin).removeAttr("disabled").addClass("loginBtn");
+        
+        var winLoc=window.location,
+            defaultTokenURL='https://api.inContact.com/InContactAuthorizationServer/Token',
+            hasSavedCredentials='{!hasSavedCredentials}'=='true'?true:false,
+            isloggedIn='{!loggedIn}'=='true'?true:false;
+        
+        //getCallcenter settings
+        jQ.ajax({url:winLoc.protocol+'//'+winLoc.host+'/_ui/cti/callcenter/CallCenterSettingsServlet',
+                 method:'get',
+                 dataType:'text',
+                 success:function(data){
+                     try{
+                         data=data.substr(10);
+                         var callCenterSettings=eval("(" + data+ ")");
+                         callCenterSettings =JSON.parse(callCenterSettings.getCallCenterSettings);
+                         console.log(callCenterSettings);
+                         updateCallcenterSetting(callCenterSettings["/inContactSettings/inContactTokenServiceUri"],
+                                                 callCenterSettings["/inContactSettings/inContactApiAuthKey"]);
+                     }
+                     catch(error){
+                         useDefaultCallCenterSettings();
+                         console.log(error);
+                     }
+                     if(isloggedIn)
+                     {
+                         showTranscriptPage();
+                         loadEmailTranscript();
+                     }
+                     else if(hasSavedCredentials)
+                     {
+                         showTranscriptPage();
+                         authenticate();
+                     }
+                         else {
+                             showLoginPage();
+                         }
+                 },
+                 error:function(error){
+                     //if no call center file specified for the user
+                     useDefaultCallCenterSettings();
+                     if(hasSavedCredentials)
+                     {
+                         showTranscriptPage();
+                         authenticate();
+                     }
+                     else
+                     {
+                         showLoginPage();
+                     }
+                 }
+                });
+        
+        function updateCallcenterSetting(tokenURL,authKey) {
+            jQ("#tokenURL").val(tokenURL?tokenURL:defaultTokenURL);
+            jQ("#authKey").val(authKey?authKey:'');
+        }
+        
+        function useDefaultCallCenterSettings(){
+            updateCallcenterSetting(defaultTokenURL,'');
+        }
+    });
+    
+    function updateUserInfoCompleted(){
+        authenticate();
+    }
+    
+    function showLoginPage(){
+        jQ("div#transcriptPanel").hide();
+        jQ("div#loginPanel").show();
+    }
+    
+    function showTranscriptPage(){
+        jQ("div#transcriptPanel").show();
+        jQ("div#loginPanel").hide();
+    }
+    
+    function authenticationCompleted(errors,navigateToLoginPage){
+        jQ("#loginBtn").addClass('loginBtn').prop('disabled',false).on('click',onLogin).val("Login");
+        if(navigateToLoginPage=='true')
+        {
+            showLoginPage();
+            if(errors)
+            {
+                jQ(".errormessage").text(errors).attr('title',errors);;
+            }
+        }
+        else
+        {
+            showTranscriptPage();
+            loadEmailTranscript();
+        }
+    }
+    
+    function loadEmailTranscriptCompleted(hasTranscript){
+        if(hasTranscript==false)
+        {
+            jQ("#transcripterror").show()
+            jQ("#transcripterror").text("Transcript Not Available");
+        }
+        else{
+            jQ("#transcripterror").hide()
+            updateLayout();
+        }
+    }
+    
+    function updateLayout(){
+        // render the text as HTML
+        var emailBodyDivDivs=jQ("[Name='emailBodyDiv']"),
+            attachmentsDivs=jQ("[Name='emailAttachmentsDiv']"),
+            emailSubjectElement=jQ('[Name="emailSubjectDiv"]'),
+            element=null;
+       
+        // adjust the elements widths and then show those elements
+        var emailBodyWidth= document.getElementById('email_pageBlock').offsetWidth;
+        for(var idx=0,length=emailBodyDivDivs.length;idx<length;idx++)
+        {
+            element=jQ(emailBodyDivDivs[idx]);
+            element.html(getHTMLData(element.text())).css({display:'block','width':(emailBodyWidth*.45)+'px'});
+            jQ( emailSubjectElement[idx]).css({display:'block',width:(emailBodyWidth*.25)+'px'});
+            jQ(attachmentsDivs[idx]).css({display:'block', width:(emailBodyWidth*.15)+'px'});
+        }
+        
+        // convert the Email Body data as HTML
+        function getHTMLData(encodedData) {
+            try {
+                var temp = JSON.parse('{ "key":"' + encodedData + '"}');
+                return temp.key;
+            }
+            catch (err) { return encodedData; }
+        }
+    }
+    
+    // get the file content from the Server
+    function downloadFile(){
+        var element=jQ(this),
+            serverpath=element.attr('data-serverPath');
+       
+        element.off('click');
+        var statusImage= jQ('.image',element).css('background-image', "url("+spinImage+")");
+        
+        // Set timeout at page level
+        Visualforce.remoting.timeout = 120000; 
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.incEmailTranscriptController.getFileContent}', 
+            serverpath, 
+            function(result, event){
+                if(event.statusCode==200 && result)
+                {
+                    var data=JSON.parse(event.result);
+                    saveFile(data.files.fileName,data.files.file);
+                    statusImage.css('background-image',"url("+downloadedImage+")"); 
+                }
+                else
+                {
+                    statusImage.hide();
+                    console.error('getFileContent status code '+event.statusCode+' error detail '+event.result); 
+                }
+                element.on('click',downloadFile);
+            },
+            {escape:false}
+        );
+    }
+    
+    // save the file  in the client machine
+    function saveFile(fileName,fileContent){
+        var byteString = atob(fileContent),
+            ab = new ArrayBuffer(byteString.length),
+            ia = new Uint8Array(ab);
+        for (var i = 0; i < byteString.length; i++) {
+            ia[i] = byteString.charCodeAt(i);
+        }
+        var blob = new Blob([ia] ,{ type: "application/octet-stream" });
+        saveAs(blob, fileName); 
+    }
+    
+    </script>
+</apex:page>

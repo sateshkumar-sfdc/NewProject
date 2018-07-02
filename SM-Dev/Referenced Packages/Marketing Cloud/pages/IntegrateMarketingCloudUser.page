@@ -1,0 +1,27 @@
+<apex:page standardStylesheets="false" tabStyle="ExactTargetPhoenix__tab">
+    <apex:includeLightning />      
+        
+    <div id="lightning" />
+
+    <script>
+    $Lightning.use("et4ae5:IntegrateMarketingCloudUserApp", function() {
+        $Lightning.createComponent("et4ae5:IntegrateMarketingCloudUser", null, "lightning");      
+    });
+
+    </script>
+    <apex:outputPanel rendered="false">
+        <apex:outputText value="{!$Label.userCreds}"/>
+        <apex:outputText value="{!$Label.msg0084}"/>
+        <apex:outputText value="{!$Label.mcUsrCreds}"/>
+        <apex:outputText value="{!$Label.mcUsrAbbr}"/>
+        <apex:outputText value="{!$Label.msg0238}"/>
+        <apex:outputText value="{!$Label.msg0239}"/>
+        <apex:outputText value="{!$Label.slctABU}"/>
+        <apex:outputText value="{!$Label.msg0240}"/>
+        <apex:outputText value="{!$Label.msg0241}"/>
+        <apex:outputText value="{!$Label.slctABUToCnnct}"/>
+        <apex:outputText value="{!$Label.midNotFoundinJSON}"/>
+        <apex:outputText value="{!$Label.busUnit}" />
+        <apex:outputText value="{!$Label.mccBUs}"/>
+    </apex:outputPanel>	    
+</apex:page>

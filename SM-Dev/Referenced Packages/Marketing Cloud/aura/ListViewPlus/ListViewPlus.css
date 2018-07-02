@@ -1,0 +1,147 @@
+.THIS  {
+    font-family: Salesforce Sans, Proxima Nova, Arial, Sans-serif; 
+    font-size: medium;
+    font-weight: normal;    
+    color: #54698d;
+	background-color: #fff;
+}
+
+.THIS .center-component {
+    text-align: center!Important;
+}
+
+.THIS .background-component {
+	background-color: #fff!Important;    
+}
+
+.THIS .searchicon-component {
+    color: #54698d!important;
+}
+
+.THIS .center-component {
+	text-align: center!Important;
+	   
+}
+
+.THIS .dataTables_empty {
+	color: #54698d;	    
+}
+
+.THIS th {
+	font-weight: normal!Important;    
+}
+
+.THIS label {
+    font-weight: normal!Important;    
+}
+
+.THIS .border-component {
+    border-top: 2px solid #ddd!Important;
+    width: 1px;
+    white-space: nowrap;
+}
+
+.THIS .body-component {
+    white-space: nowrap;
+}
+
+.THIS .rowSpacer-component {
+    margin-top: 20px!important;
+}
+
+.THIS .rowSpacerSmall-component {
+    margin-top: 10px!important;
+}
+
+.THIS .rowSpacerFooter-component {
+	height: 75px!Important;
+}
+
+.THIS .uiButton.default {
+    box-shadow: none;
+    text-shadow: none;
+}
+
+.THIS .uiButton:hover {
+    color: #fff!important;
+    background: #54698d!important;
+}
+
+.THIS .uiButton {
+    min-width: 95px;
+    height: 35px;
+    background: #0070D2!important; 
+}
+
+.THIS .button-component {
+    padding: 0rem!important;
+    border-radius: 5px!important;
+    box-shadow: none;
+}
+
+.THIS .button-component .label {
+    color: #fff!important; 
+ 	font-size: 100%!important; 
+    text-shadow: none!important;
+}
+
+.THIS .buttoncancel-component:hover {
+	background: #fff!important;
+    color: #54698d!important;
+}
+
+.THIS .buttoncancel-component {
+    padding: 0rem!important;
+    border-radius: 5px!important;
+    background: #fff!important;
+    box-shadow: none;
+	border-top: 1px solid #0070D2!important;
+    border-bottom: 1px solid #0070D2!important;
+    border-left: 1px solid #0070D2!important;
+    border-right: 1px solid #0070D2!important;
+}
+
+.THIS .buttoncancel-component .label {
+    color: #0070D2!important; 
+ 	font-size: 100%!important; 
+    text-shadow: none!important;
+}
+
+@media (min-width:1200px) {
+    .THIS .uxds .container {
+    	width: 100%;
+    }
+}
+
+@media (min-width:970px) {
+    .THIS .uxds .container {
+    	width: 100%;
+    }
+}
+
+@media (min-width:768px) {
+    .THIS .uxds .container {
+    	width: 100%;
+    }
+}
+
+.THIS .pagination {
+	margin: 0px!Important;    
+}
+
+.THIS .paginate_button {
+    margin-left: 0!Important;
+}
+
+.THIS div.dataTables_paginate {
+    float: right!Important;
+    margin: 0;
+}
+
+.THIS div.dataTables_length {
+    margin: 15px;
+}
+
+.THIS div.dataTables_filter {
+    display: none!Important; 
+}

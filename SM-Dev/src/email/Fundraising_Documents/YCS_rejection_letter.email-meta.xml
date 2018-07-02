@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>YCS rejection letter</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hi,
+
+
+Thanks for submitting your application to the YETI Custom Shop Fundraising Program! We’ve been absolutely astounded by the number of requests that we have received. While we cannot accommodate all requests, we are honored that you thought of us. After careful review of your information, we are not able to grant your request. Declines are usually a result of capacity limits or insufficient time to process an order. We apologize for any inconvenience this may cause. Although we cannot accommodate your customization needs, please feel free to ask about our standard fundraising packages which include stainless steel drinkware at a 30% discount.
+
+Thank you for thinking of us and being a loyal YETI customer! We wish you the best of luck with your fundraising event.
+
+
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+
+The YETI Outfitters
+
+512.394.9384
+
+customerservice@yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

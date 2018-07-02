@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Hopper One Exchange</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hello,
+
+Thanks for reaching out to YETI!  While I&apos;m sorry to hear that you&apos;re having issues with your Hopper, at this time, we don&apos;t have a program to upgrade you from our Generation One to Generation Two Hopper.
+
+While we won&apos;t be able to exchange your Hopper, there are things that you can do to make it easier to utilize.  First and foremost, the Hopper does require some time to fully break-in, similar to a baseball glove.  To expedite this break-in period, we recommend storing the Hopper with the zipper open, propped wide with a book, a basketball, or anything to help that material stretch and expand.  In addition, when opening the cooler, applying pressure to the side (near the shoulder strap connection points) will allow that cooler to naturally flex, making it easier to to grab contents.  Finally, using the zipper lubricant that is included with the Hopper will always allow that zipper to easily slide and close.
+
+Thanks again, and let us know if you need anything further!
+
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com
+Save</textOnly>
+    <type>html</type>
+</EmailTemplate>

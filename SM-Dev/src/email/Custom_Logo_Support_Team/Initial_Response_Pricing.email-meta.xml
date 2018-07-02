@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Drinkware Initial Response- Pricing</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Thank you for reaching out to YETI and requesting a custom quote!
+
+YETI is proud to offer an exciting opportunity for corporate entities. We have a bulk discount structure that offers in-stock items to qualifying organizations for corporate or client gifting.
+
+We are currently waiving the $10 customization fee on single-sided logo&apos;d Ramblers. Double-sided marking is available, please contact us for details. Currently, we cannot produce color logos on our drinkware. Our stainless-steel drinkware is laser-marked to produce a permanent black logo with a matte black finish. On our DuraCoat drinkware, an ablation process removes the paint coating to reveal the logo on the underlying stainless steel.
+
+The minimum order quantity for our corporate program is 2 cases for stainless Ramblers. We are currently sold out of DuraCoat colors so you will only be able to place orders for stainless steel Ramblers at this time.
+
+Please see the attached price sheet for our customized corporate pricing. Unit pricing for single logo customization is located on the second page along with order increments. Typical turnaround time is about 2-3 weeks after your order has been confirmed which includes artwork approval and receipt of payment. The order will ship free of charge via standard FedEx ground.
+
+*Customized Ramblers must be ordered in case quantity to qualify for corporate pricing.
+
+After reviewing the attached pricing brochure, please confirm the details of your quote request below:
+
+1. Shipping &amp; Billing address(es)
+
+2. Rambler size, color, &amp; quantity of each product
+
+3. Your desired logo if you have not already submitted it already.
+- For logos, please submit an EPS, AI, or Hi-Res JPG/PDF file.
+
+We will provide a virtual proof for approval before orders are processed. Below are links to examples of printable areas on each product we offer:
+
+Printable Rambler Tumbler Areas
+Printable Rambler Bottle Areas
+
+Let me know if you have any questions and I look forward to hearing from you!
+
+Thanks,
+
+{!User.CommunityNickname}
+Business Development Team
+YETI
+512.402.5895
+corporatesales@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

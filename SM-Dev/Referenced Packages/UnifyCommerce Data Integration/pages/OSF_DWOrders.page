@@ -1,0 +1,50 @@
+<apex:page title=" " standardController="Account" extensions="OSF_DWback.OSF_DWOrdersController" id="dwOrders">
+<apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" />
+<script>
+function init() {
+    document.getElementById("salesforce_customerid").value = '{!HTMLENCODE(demandwareId)}';
+    document.getElementById("salesforce_login").value = '{!HTMLENCODE(salesforceLogin)}';
+    document.getElementById("salesforce_token").value = '{!HTMLENCODE(salesforceToken)}';
+    document.getElementById("salesforce_customerAddress").value = '{!JSENCODE(customerAddress)}';
+    if(!'{!demandwareId}') {
+        document.getElementById("salesforce_customerEmail").value = '{!HTMLENCODE(currentAccount.PersonEmail)}';
+        document.getElementById("salesforce_customerFirstname").value = '{!HTMLENCODE(currentAccount.FirstName)}';
+        document.getElementById("salesforce_customerLastname").value = '{!HTMLENCODE(currentAccount.LastName)}';
+    }
+    jQuery('[id*=dwfrm_csslogin_login]').trigger('click');
+}
+</script>
+<script> 
+var previousOnload = window.onload;
+window.onload = function() { 
+    if (previousOnload) { 
+        previousOnload();
+    } 
+    init(); 
+}
+
+</script>
+   
+
+    
+    <apex:form ><apex:pageMessages ></apex:pageMessages>
+    </apex:form>
+    <apex:outputPanel rendered="{! If(blnError ,false,true) }">   
+        
+        <iframe name="dwFrame"  width="100%" style= "min-height:800px;height:auto;overflow-y:hidden"  >
+        </iframe>
+        
+        <div class="loginform" style="display: none;">  
+            <form target="dwFrame" action="{!dmwOrderUrl}" id="dwfrm_csslogin" method="post">
+                <input type="hidden" id="salesforce_customerid"  name="salesforce_customerid" value="" />
+                <input type="hidden" id="salesforce_login" name="salesforce_login" value="" />
+                <input type="hidden" id="salesforce_token" name="salesforce_token" value="" />
+                <input type="hidden" id="salesforce_customerAddress" name="salesforce_customerAddress" value="" />
+                <input type="hidden" id="salesforce_customerEmail" name="salesforce_customerEmail" value="" />
+                <input type="hidden" id="salesforce_customerFirstname" name="salesforce_customerFirstname" value="" />
+                <input type="hidden" id="salesforce_customerLastname" name="salesforce_customerLastname" value="" />
+                <input class="button" id="dwfrm_csslogin_login" name="dwfrm_csslogin_login" type="submit" value="Logon"/>
+            </form>
+        </div>
+    </apex:outputPanel>
+</apex:page>

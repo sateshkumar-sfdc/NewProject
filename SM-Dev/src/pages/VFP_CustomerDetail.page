@@ -1,0 +1,161 @@
+<apex:page showHeader="true" controller="CTRL_CustomerDetail" title="Customer Detail" tabStyle="Account" sidebar="true" action="{!initDetail}" id="page">
+    <!--
+LINKS:
+Account | 'SAP Customer' | LNK_Account_CustomerDetail | /apex/VFP_CustomerDetail?SF_AcctId={!Account.Id}
+Case    | 'SAP Customer' | LNK_Case_Customer          | /apex/VFP_CustomerDetail?SF_CaseId={!Case.Id}
+-->
+    <apex:pageBlock rendered="{! !hasAccount }">
+        <apex:outputText value="Error: Case is missing an Account. Please attach an Account to the Case before trying again."/>
+        <apex:pageBlockButtons location="bottom">
+            <apex:form >
+                <c:CMP_NavButtons />
+            </apex:form>
+        </apex:pageBlockButtons>
+    </apex:pageBlock>
+    <apex:form id="mainform">
+        <c:CMP_Status />
+
+        <apex:pageBlock title="Account" rendered="{! null != a && hasAccount}" >
+            <apex:pageBlockSection columns="2" collapsible="false">
+                <apex:outputText label="Name:" value="{!a.Name}" />
+
+            </apex:pageBlockSection>
+
+            <apex:pageBlockButtons location="top">
+                <c:CMP_NavButtons />
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+
+        <c:CMP_CaseInfo caseId="{!caseid}" rendered="{! null != caseid && hasAccount }" />
+        <c:CMP_OpportunityInfo opportunityId="{!opportunityid}" accountId="{!accountid}" rendered="{! null != opportunityid && hasAccount}" />
+
+        <c:CMP_CustomerMissing rendered="{!null == customerid && hasAccount}" />
+        <apex:pageMessages id="messagediv" rendered="{! hasAccount}"/>
+
+        <apex:pageBlock title="SAP Customer Details:" id="updatediv" rendered="{! null != customerid && hasAccount}">
+            <apex:pageBlockSection columns="1" collapsible="false" id="pbsdiv" rendered="{! null != cDetail}">
+                <apex:outputText value="{!cDetail.CustomerNumber}" label="CustomerNumber:" />
+                <apex:outputText value="{!cDetail.BusinessPartnerCategoryDescription}" label="BP Category:"/>
+                <apex:outputText value="{!cDetail.BusinessPartnerTypeDescription}" label="BP Type:"/>
+                <apex:outputText value="{!cDetail.BPRoleDescription}" label="BP Role:"/>
+                <apex:outputText value="{!cDetail.Name}" label="Name:"/>
+                <apex:outputText value="{!cDetail.Name2}" label="Name2:"/>
+                <apex:outputText value="{!FormattedPhone}" label="Phone Number:"/>
+                <apex:outputText value="{!FormattedFax}" label="Fax Number:"/>
+                <apex:outputText value="{!cDetail.EmailAddress}" label="Email Address:"/>
+                <apex:outputText value="{!cDetail.Street}" label="Street:"/>
+                <apex:outputText value="{!cDetail.City}" label="City:"/>
+                <apex:outputText value="{!cDetail.RegionDescription}" label="Region:"/>
+                <apex:outputText value="{!cDetail.PostalCode}" label="Postal Code:"/>
+                <apex:outputText value="{!cDetail.CountryName}" label="Country:"/>
+
+            </apex:pageBlockSection>
+
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!updateSAPCustomer}" value="Update SAP Customer" reRender="mainform" status="status" />
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+
+        <apex:pageBlock id="resultdiv" title="Company Info" rendered="{! showCompanyInfo && hasAccount}">
+            <apex:pageblockTable value="{!CompanyList}" var="c">
+                <apex:column headerValue="Company Code" value="{!c.CompanyCodeDescription}"/>
+                <apex:column headerValue="Reconciliation Account" value="{!c.ReconciliationAccount}"/>
+                <apex:column headerValue="Terms of Payment" value="{!c.TermsOfPaymentDescription}"/>
+
+
+            </apex:pageblockTable>
+        </apex:pageBlock>
+
+        <apex:pageBlock title="SalesArea Info" rendered="{!showSalesAreas && hasAccount}">
+
+            <apex:pageblockTable value="{!SalesAreaList}" var="salesArea">
+                <apex:column headerValue="Sales Organization" value="{!salesArea.SalesOrganizationName}"/>
+                <apex:column headerValue="Distribution Channel" value="{!salesArea.DistributionChannelName}"/>
+                <apex:column headerValue="Division" value="{!salesArea.DivisionName}"/>
+                <apex:column headerValue="Sales District" value="{!salesArea.SalesDistrictName}"/>
+                <apex:column headerValue="Sales Office" value="{!salesArea.SalesOfficeName}"/>
+                <apex:column headerValue="Sales Group" value="{!salesArea.SalesGroupName}"/>
+                <apex:column headerValue="Delivery Plant" value="{!salesArea.DeliveryPlantName}"/>
+                <apex:column headerValue="Price Group" value="{!salesArea.PriceGroupDescription}"/>
+                <apex:column headerValue="Pricing Procedure" value="{!salesArea.CustomerPricProcedureDesc}"/>
+                <apex:column headerValue="Price List" value="{!salesArea.PriceListTypeDescription}"/>
+                <apex:column headerValue="Shipping Condition" value="{!salesArea.ShippingConditionDescription}"/>
+
+            </apex:pageblockTable>
+        </apex:pageBlock>
+
+        <apex:pageBlock id="creditlist" title="Credit Info" rendered="{! null != customerID && hasAccount}">
+            <apex:pageblockTable value="{!CreditList}" var="c">
+            <!--
+            <apex:column headerValue="Request Date" value="{!c.RequestDate}" />
+            <apex:column headerValue="Valid To" value="{!c.ValidToDate}" />
+            -->
+                <apex:column headerValue="Credit Limit">
+                    <apex:outputText value="{0} {1}">
+                        <apex:param value="{!c.CreditLimit}"/>
+                        <apex:param value="{!c.CurrencyKey}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column headerValue="Credit Available">
+                    <apex:outputText value="{0} {1}">
+                        <apex:param value="{!c.CreditAvailable}"/>
+                        <apex:param value="{!c.CurrencyKey}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column headerValue="Credit Block">
+                    <apex:outputText value="{0} {1}">
+                        <apex:param value="{!c.CreditManagmentBlock}"/>
+                        <apex:param value="{!c.CreditBlockReason}"/>
+                    </apex:outputText>
+                </apex:column>
+                <!--
+    	<apex:column headerValue="Changed" value="{!c.ChangeDate}" />
+    	-->
+                <apex:column headerValue="CreditAnalyst" value="{!c.CreditAnalyst}"/>
+                <apex:column headerValue="Customer Credit Group" value="{!c.CustomerCreditGroup}"/>
+                <!--
+    	<apex:column headerValue="ResubmissionDate" value="{!c.ResubmissionDate}" />
+    	-->
+                <apex:column headerValue="CalculatedCreditLimit" value="{!c.CalculatedCreditLimit}"/>
+                <apex:column headerValue="SpecialAttentonRequired" value="{!c.SpecialAttentonRequired}"/>
+                <apex:column headerValue="CreditLimitRequested" value="{!c.CreditLimitRequested}"/>
+                <apex:column headerValue="AutomaticLimitRequest" value="{!c.AutomaticLimitRequest}"/>
+                <!--
+    	<apex:column headerValue="RequestedValidToDate" value="{!c.RequestedValidToDate}" />
+    	-->
+
+
+            </apex:pageblockTable>
+        </apex:pageBlock>
+
+        <apex:pageBlock id="partners" title="Partners" rendered="{! null != customerID && hasAccount}">
+
+            <apex:actionFunction action="{!gotoCustomerPage}" name="gotoCustomerPage" reRender="page">
+                <apex:param name="selectedCustomerId" value=""/>
+            </apex:actionFunction>
+
+            <apex:pageblockTable value="{!PartnerList}" var="p">
+                <apex:column >
+                    <apex:commandButton onclick="gotoCustomerPage('{!p.PartnerNumber}');return false;" value="View Detail"/>
+                </apex:column>
+                <apex:column headerValue="Function" width="10%" value="{!p.PartnerFunctionName}"/>
+                <apex:column headerValue="Customer#" width="10%" value="{!p.PartnerNumber}"/>
+                <apex:column headerValue="Name" value="{!p.PartnerName}"/>
+                <apex:column headerValue="Address">
+                    <apex:outputText value="{0} {1}, {2} {3}">
+                        <apex:param value="{!p.Street}"/>
+                        <apex:param value="{!p.City}"/>
+                        <apex:param value="{!p.Region}"/>
+                        <apex:param value="{!p.PostalCode}"/>
+                    </apex:outputText>
+                </apex:column>
+            </apex:pageblockTable>
+
+            <apex:pageBlockButtons location="bottom" rendered="{!showShipToCreate}">
+                <apex:commandButton action="{!actionAddShipTo}" value="Add Ship To"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+
+    </apex:form>
+    <c:CMP_Footer />
+</apex:page>

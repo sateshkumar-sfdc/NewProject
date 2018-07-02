@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Over Charged On Website</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Hello,
+
+Thank you for your recent order and for reaching out to us.  The $xx.xx you are seeing is a pending authorization that our system looked at on DATE.  This is not a charge and will fall off your account.  Due to the fact that the true taxes are not calculated until the time of shipping your order, the amount you see at the time of check out is an estimate.  As stated on our website “tax is subject to change.&quot;  The amount we are actually collecting $TOTAL..
+
+I apologize for the confusion this may have caused.
+
+Thank you and have great day,
+
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

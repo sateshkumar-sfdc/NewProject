@@ -1,0 +1,3398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>accept</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Accept Button in Confirmation Dialog box</shortDescription>
+        <value>Accept</value>
+    </labels>
+    <labels>
+        <fullName>account</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Account</shortDescription>
+        <value>Account</value>
+    </labels>
+    <labels>
+        <fullName>active</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>call contact is in Active state</shortDescription>
+        <value>Active</value>
+    </labels>
+    <labels>
+        <fullName>activeCallShouldBePutOnHold</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The active call should be put on hold in order to place an outbound call. Do you</shortDescription>
+        <value>The active call should be put on hold in order to place an outbound call. Do you want to hold this call?</value>
+    </labels>
+    <labels>
+        <fullName>acw</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>acw</shortDescription>
+        <value>ACW</value>
+    </labels>
+    <labels>
+        <fullName>addCall</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tooltip for Add Call button - Adding new call</shortDescription>
+        <value>Add call</value>
+    </labels>
+    <labels>
+        <fullName>addChat</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tooltip for Add Chat button - Adding New chat contact</shortDescription>
+        <value>Add Chat</value>
+    </labels>
+    <labels>
+        <fullName>addChatErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error message for Unable to add the chat</shortDescription>
+        <value>Unable to add the chat.</value>
+    </labels>
+    <labels>
+        <fullName>addEntity</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Button label in the Agent configuration page to the add a new entity</shortDescription>
+        <value>Add Entity</value>
+    </labels>
+    <labels>
+        <fullName>addField</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Button label in the Agent configuration page to the add a new field</shortDescription>
+        <value>Add Field</value>
+    </labels>
+    <labels>
+        <fullName>addfeedbackAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error to submit the feedback form</shortDescription>
+        <value>Unable to submit the feedback.</value>
+    </labels>
+    <labels>
+        <fullName>additionalDisp</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Additional Disposition for Option</shortDescription>
+        <value>Additional Disp. (optional)</value>
+    </labels>
+    <labels>
+        <fullName>address</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label of the second field of the Hyper link dialog box</shortDescription>
+        <value>Address</value>
+    </labels>
+    <labels>
+        <fullName>addressBook</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The Address Book provides a single location to quickly access internal contact.</shortDescription>
+        <value>Address Book</value>
+    </labels>
+    <labels>
+        <fullName>addressBookTooltipTxt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Displays all custom address books assigned to your user account in Central. You</shortDescription>
+        <value>Displays all custom address books assigned to your user account in Central. You can search for an address book or use the drop-down to select one from a list. Clicking a contact in an address book displays that contact&apos;s details. You can click the mobile, email, or phone icon in the details to initiate a connection to that contact, based on the icon you click.</value>
+    </labels>
+    <labels>
+        <fullName>addressBooks</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The Address Book provides a single location to quickly access internal contacts.</shortDescription>
+        <value>Address Books</value>
+    </labels>
+    <labels>
+        <fullName>agent</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>A person who is handling contacts being delivered by the ACD.</shortDescription>
+        <value>Agent</value>
+    </labels>
+    <labels>
+        <fullName>agentConfigEntity</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Salesforce custom object.</shortDescription>
+        <value>Agent Configuration Entity</value>
+    </labels>
+    <labels>
+        <fullName>agentConfigField</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Salesforce custom object.</shortDescription>
+        <value>Agent Configuration Field</value>
+    </labels>
+    <labels>
+        <fullName>agentConfiguration</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Salesforce custom object.</shortDescription>
+        <value>Agent Configuration</value>
+    </labels>
+    <labels>
+        <fullName>agentConsoleConfiguration</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Agent Console Configuration</shortDescription>
+        <value>Salesforce Agent Settings</value>
+    </labels>
+    <labels>
+        <fullName>agentDeliverInboundCall</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Call delivery failed.</shortDescription>
+        <value>Call delivery failed.</value>
+    </labels>
+    <labels>
+        <fullName>agentDialLegErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error message if not able to dial the agent leg</shortDescription>
+        <value>Unable to dial the agent leg.</value>
+    </labels>
+    <labels>
+        <fullName>agentEndLegErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error message if not able to end the agent leg</shortDescription>
+        <value>Unable to end the agent leg.</value>
+    </labels>
+    <labels>
+        <fullName>agentHasLeftTheChat</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The agent has left the chat.</shortDescription>
+        <value>The agent has left the chat.</value>
+    </labels>
+    <labels>
+        <fullName>agentID</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The unique number assigned to an agent by the inContact system which they use to</shortDescription>
+        <value>Agent ID</value>
+    </labels>
+    <labels>
+        <fullName>agentInfo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Information related to an agent</shortDescription>
+        <value>Agent Information</value>
+    </labels>
+    <labels>
+        <fullName>agentInfoToolitipTxt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Displays basic information about you (the agent). At the bottom of the panel is</shortDescription>
+        <value>Displays basic information about you (the agent). At the bottom of the panel is a list of skills currently assigned to you.</value>
+    </labels>
+    <labels>
+        <fullName>agentLegConnected</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Agent leg icon shows tooltip when the agent leg is connected state</shortDescription>
+        <value>AgentLeg: Connected, click to disconnect.</value>
+    </labels>
+    <labels>
+        <fullName>agentLegDialing</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Agent leg icon shows tooltip when the agent leg is dialing state</shortDescription>
+        <value>AgentLeg: Dialing.</value>
+    </labels>
+    <labels>
+        <fullName>agentLegDisconnected</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Agent leg icon shows Tooltip when the agent leg is in disconnected state</shortDescription>
+        <value>AgentLeg: Disconnected, click to connect.</value>
+    </labels>
+    <labels>
+        <fullName>agentLegID</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Agent Extension</shortDescription>
+        <value>Agent Leg ID</value>
+    </labels>
+    <labels>
+        <fullName>agentListTooltipTxt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Displays a list of agents and their availability state. You can filter the list</shortDescription>
+        <value>Displays a list of agents and their availability state. You can filter the list or search for a specific agent. Clicking an agent in the list initiates an outbound call to that agent.</value>
+    </labels>
+    <labels>
+        <fullName>agentName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Name of the agent</shortDescription>
+        <value>Agent Name</value>
+    </labels>
+    <labels>
+        <fullName>agentReports</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Agent Reports</shortDescription>
+        <value>Agent Reports</value>
+    </labels>
+    <labels>
+        <fullName>agentReportsTooltipTxt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Display how many contacts you (the agent) handled in a day, how many of those we</shortDescription>
+        <value>Displays how many contacts you (the agent) handled in a day, how many of those were inbound and outbound. It also displays how much time and percentage of the day you (the agent) spent in Available, Working and Unavailable states</value>
+    </labels>
+    <labels>
+        <fullName>agentStateChangeErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error message if not able to set the agent state in State panel</shortDescription>
+        <value>Unable to set the agent state.</value>
+    </labels>
+    <labels>
+        <fullName>agents</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>A person who is handling contacts being delivered by the ACD.</shortDescription>
+        <value>Agents</value>
+    </labels>
+    <labels>
+        <fullName>alertMessageEmailNotDelivered</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Alert this message when the inbound mail is not received to the agent</shortDescription>
+        <value>Email delivery failed.</value>
+    </labels>
+    <labels>
+        <fullName>alertMessageEndContact</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Alert this message when the agent ends the inbound email contact without replyin</shortDescription>
+        <value>This will end this contact with no response.  Are you sure?</value>
+    </labels>
+    <labels>
+        <fullName>alertMessageHOP</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Alert this message when the agent try to transfer the contact to a skill which h</shortDescription>
+        <value>According to the hours of operation, this skill is not open. Are you sure you want to continue?</value>
+    </labels>
+    <labels>
+        <fullName>alertMessageLogout</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Alert this message when the agent tries to logout the session without completing</shortDescription>
+        <value>You cannot be logged off because you are handling one or more active contacts.  Complete your contacts and then logout.</value>
+    </labels>
+    <labels>
+        <fullName>alertMessageNotInitMail</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Alert this message when the agent not able to initiate an outbound mail contact</shortDescription>
+        <value>Unable to initiate the email contact</value>
+    </labels>
+    <labels>
+        <fullName>alertMessageSendMail1</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Alert this message when the agent try to send the mail without the subject line</shortDescription>
+        <value>Send this message without a subject or text in the body?</value>
+    </labels>
+    <labels>
+        <fullName>alertMessageSendMail2</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Alert this message when the agent try to send the mail without the subject line</shortDescription>
+        <value>Send this message without a subject ?</value>
+    </labels>
+    <labels>
+        <fullName>alignCenter</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tooltip label Align Center for the align center selection button in the email ed</shortDescription>
+        <value>Align Center</value>
+    </labels>
+    <labels>
+        <fullName>alignLeft</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tooltip label Align Left for the align left selection button in the email editor</shortDescription>
+        <value>Align Left</value>
+    </labels>
+    <labels>
+        <fullName>alignRight</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tooltip label Align Right for the align right selection button in the email edit</shortDescription>
+        <value>Align Right</value>
+    </labels>
+    <labels>
+        <fullName>all</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Logs all the information.</shortDescription>
+        <value>ALL</value>
+    </labels>
+    <labels>
+        <fullName>allAgents</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>To display all the agents list</shortDescription>
+        <value>All Agents</value>
+    </labels>
+    <labels>
+        <fullName>allFieldsAreRequired</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Shows error message in feedback form when click the submit button without select</shortDescription>
+        <value>All fields are required.</value>
+    </labels>
+    <labels>
+        <fullName>allSkills</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>All Skills is displaying in the agent list filter box</shortDescription>
+        <value>All Skills</value>
+    </labels>
+    <labels>
+        <fullName>allTeams</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>All Teams is displaying in the agent list filter box</shortDescription>
+        <value>All Teams</value>
+    </labels>
+    <labels>
+        <fullName>ani</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ANI</shortDescription>
+        <value>ANI</value>
+    </labels>
+    <labels>
+        <fullName>answeringMachine</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Call state in personal connection call. When the agent lands to an answerig mach</shortDescription>
+        <value>AnsweringMachine</value>
+    </labels>
+    <labels>
+        <fullName>apexDefaultErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Message displayed in the contact result panel, when an salesforce api call fails</shortDescription>
+        <value>Error in executing apex method, performing default search.</value>
+    </labels>
+    <labels>
+        <fullName>apexErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Message displayed in the contact result panel, when an salesforce api call fails</shortDescription>
+        <value>Error in executing apex method.</value>
+    </labels>
+    <labels>
+        <fullName>appErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error message displayed in user setting, when the application id for the busines</shortDescription>
+        <value>Invalid application id.</value>
+    </labels>
+    <labels>
+        <fullName>areYouSure</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Confirmation text in the contact transfer Dialog box</shortDescription>
+        <value>Are you sure?</value>
+    </labels>
+    <labels>
+        <fullName>assignTo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Assign to is a label to create promise for me or skill</shortDescription>
+        <value>Assign To</value>
+    </labels>
+    <labels>
+        <fullName>attachment</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tooltip label Attachment in the email editor panel</shortDescription>
+        <value>Attachment</value>
+    </labels>
+    <labels>
+        <fullName>attachmentError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Validation for the files size of the attachments in the email contact</shortDescription>
+        <value>Total size of files attached cannot exceed 10MB</value>
+    </labels>
+    <labels>
+        <fullName>attachmentError1</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Validation for the number of files to be attached in the email to be sent</shortDescription>
+        <value>Total Attachments cannot exceed 99</value>
+    </labels>
+    <labels>
+        <fullName>available</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Available</shortDescription>
+        <value>Available</value>
+    </labels>
+    <labels>
+        <fullName>away</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Away Label in Dynamic Address book Agent State</shortDescription>
+        <value>Away</value>
+    </labels>
+    <labels>
+        <fullName>backSpace</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>tooltip for the backspace button in bottom of the dial pad</shortDescription>
+        <value>Backspace</value>
+    </labels>
+    <labels>
+        <fullName>badNumber</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Call state. When the agent dialed number is invalid.</shortDescription>
+        <value>BadNumber</value>
+    </labels>
+    <labels>
+        <fullName>bcc</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Denotes the blind carbon copy address field of the emial contact</shortDescription>
+        <value>Bcc</value>
+    </labels>
+    <labels>
+        <fullName>bold</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tooltip label Bold for the bold selection button in the email editor tools</shortDescription>
+        <value>Bold</value>
+    </labels>
+    <labels>
+        <fullName>bulletedList</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tooltip label Bulleted List for the bulleted list selection button in the email</shortDescription>
+        <value>Bulleted list</value>
+    </labels>
+    <labels>
+        <fullName>busy</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Contact State</shortDescription>
+        <value>Busy</value>
+    </labels>
+    <labels>
+        <fullName>call</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Call</shortDescription>
+        <value>Call</value>
+    </labels>
+    <labels>
+        <fullName>callAbandoned</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Represent an Call state. When the call contact placed in hold is disconnected by</shortDescription>
+        <value>CallAbandoned</value>
+    </labels>
+    <labels>
+        <fullName>callBack</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Contact Status</shortDescription>
+        <value>Callback</value>
+    </labels>
+    <labels>
+        <fullName>callDirection</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Field displayed in Agent Configuration. Representing the contact direction.</shortDescription>
+        <value>CallDirection</value>
+    </labels>
+    <labels>
+        <fullName>callDurationInSec</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Field displayed in Agent Configuration. Total duration spend by the agent for an</shortDescription>
+        <value>CallDurationInSeconds</value>
+    </labels>
+    <labels>
+        <fullName>callEndDateTime</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Mappable CallInfo field in the Salesforce Agent Settings</shortDescription>
+        <value>Call End Date and Time</value>
+    </labels>
+    <labels>
+        <fullName>callInProgressNotReauthenticate</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Call in progress, could not reauthenticate. Please do a manual log out and log b</shortDescription>
+        <value>Call in progress, could not reauthenticate. Please do a manual log out and log back in.</value>
+    </labels>
+    <labels>
+        <fullName>callInfo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Object name displayed in Agent Configuration. Represent call related information</shortDescription>
+        <value>CallInfo</value>
+    </labels>
+    <labels>
+        <fullName>callProcessErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Message displayed in the contact result panel, on error occurred while processin</shortDescription>
+        <value>Error in processing call search response, performing default search.</value>
+    </labels>
+    <labels>
+        <fullName>callRinging</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Call Ringing</shortDescription>
+        <value>Call Ringing</value>
+    </labels>
+    <labels>
+        <fullName>callSearchErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Message displayed in the contact result panel, when custom search fails for a ca</shortDescription>
+        <value>Error in performing call custom search, performing default search.</value>
+    </labels>
+    <labels>
+        <fullName>callStartDateTime</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Mappable CallInfo field in the Salesforce Agent Settings</shortDescription>
+        <value>Call Start Date and Time</value>
+    </labels>
+    <labels>
+        <fullName>callbackCancelChanges</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Warning message displays in commitement manager - Do you want to cancel changes?</shortDescription>
+        <value>Do you want to cancel changes?</value>
+    </labels>
+    <labels>
+        <fullName>callbackTime</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Field displayed in Agent Configuration.</shortDescription>
+        <value>Callback Time</value>
+    </labels>
+    <labels>
+        <fullName>callerID</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The phone number an incoming call is originated from (Caller ID).</shortDescription>
+        <value>Caller ID</value>
+    </labels>
+    <labels>
+        <fullName>callsRinging</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Calls Ringing</shortDescription>
+        <value>Calls Ringing</value>
+    </labels>
+    <labels>
+        <fullName>campaign</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Campaign</shortDescription>
+        <value>Campaign</value>
+    </labels>
+    <labels>
+        <fullName>cancel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Cancel Button Label</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>case</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Case</shortDescription>
+        <value>Case</value>
+    </labels>
+    <labels>
+        <fullName>category</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Category</shortDescription>
+        <value>Category</value>
+    </labels>
+    <labels>
+        <fullName>cc</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Denotes the carbon copy address field of the email contact</shortDescription>
+        <value>Cc</value>
+    </labels>
+    <labels>
+        <fullName>chat</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Chat</shortDescription>
+        <value>Chat</value>
+    </labels>
+    <labels>
+        <fullName>chatContactWaiting</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>dialog box shows message, when the chat contact is waiting</shortDescription>
+        <value>There is a chat contact waiting. Do you want to accept it ?</value>
+    </labels>
+    <labels>
+        <fullName>chatInfo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Object name displayed in Agent Configuration. Represent Chat contact related inf</shortDescription>
+        <value>ChatInfo</value>
+    </labels>
+    <labels>
+        <fullName>chatNotes</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Chat Notes</shortDescription>
+        <value>Chat Notes</value>
+    </labels>
+    <labels>
+        <fullName>chatSessionEnded</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Ended the chat contact</shortDescription>
+        <value>Chat Session Ended</value>
+    </labels>
+    <labels>
+        <fullName>chatTranscript</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Chat history for an single contact.</shortDescription>
+        <value>ChatTranscript</value>
+    </labels>
+    <labels>
+        <fullName>close</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Close</shortDescription>
+        <value>Close</value>
+    </labels>
+    <labels>
+        <fullName>comment</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Comment</shortDescription>
+        <value>Comment</value>
+    </labels>
+    <labels>
+        <fullName>comments</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Comments</shortDescription>
+        <value>Comments</value>
+    </labels>
+    <labels>
+        <fullName>commit</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tooltip for the Commit button displayed in the call contact control panel</shortDescription>
+        <value>Commit</value>
+    </labels>
+    <labels>
+        <fullName>commitmentAmount</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Field displayed in Agent Configuration.</shortDescription>
+        <value>Commitment Amount</value>
+    </labels>
+    <labels>
+        <fullName>commitmentAutoPostpone</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>When we attempt to close the commitment reminder window we will be showing this</shortDescription>
+        <value>Your commitment will be rescheduled to the next 5 minutes</value>
+    </labels>
+    <labels>
+        <fullName>commitmentDate</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>widget name: Commitment - Date</shortDescription>
+        <value>Commitment - Date</value>
+    </labels>
+    <labels>
+        <fullName>commitmentDetails</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Commitment Details</shortDescription>
+        <value>Commitment Details</value>
+    </labels>
+    <labels>
+        <fullName>commitmentManager</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Commitment Manager</shortDescription>
+        <value>Commitment Manager</value>
+    </labels>
+    <labels>
+        <fullName>commitmentPending</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AgentState - CommitmentPending</shortDescription>
+        <value>CommitmentPending</value>
+    </labels>
+    <labels>
+        <fullName>commitmentRefusedTime</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Commitment will be refused in :  {0} : {1}</shortDescription>
+        <value>Commitment will be refused in :  {0} : {1}</value>
+    </labels>
+    <labels>
+        <fullName>commitmentReminder</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Commitment Reminder</shortDescription>
+        <value>Commitment Reminder</value>
+    </labels>
+    <labels>
+        <fullName>commitmentTooltipTxt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Allows you to create new commitments and displays a list of current commitments.</shortDescription>
+        <value>Allows you to create new commitments and displays a list of current commitments. Clicking on a commitment in the list will bring up details about that commitment and allow you to edit the commitment.</value>
+    </labels>
+    <labels>
+        <fullName>confTheExistingCalls</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The two existing calls must be conferenced before a new call can be placed. Do y</shortDescription>
+        <value>The two existing calls must be conferenced before a new call can be placed. Do you want to conference the existing calls?</value>
+    </labels>
+    <labels>
+        <fullName>conference</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Conference</shortDescription>
+        <value>Conference</value>
+    </labels>
+    <labels>
+        <fullName>conferenceErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error message. Unable to Conference the contacts.</shortDescription>
+        <value>Unable to Conference the contacts.</value>
+    </labels>
+    <labels>
+        <fullName>configSuccessfullySaved</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>displays a success message once we save the configuration page</shortDescription>
+        <value>Configuration successfully saved!</value>
+    </labels>
+    <labels>
+        <fullName>configWarning</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Only Salesforce.com fields with the &apos;update&apos; property may be selected for data m</shortDescription>
+        <value>Only Salesforce.com fields with the &apos;update&apos; property may be selected for data mapping. In addition, some fields on the Task object are automatically populated by the Salesforce Agent application therefore cannot be selected for data mapping. Fields that cannot be selected for datamapping do not appear in the field selection dropdown</value>
+    </labels>
+    <labels>
+        <fullName>configurationDetail</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>configurationDetail</shortDescription>
+        <value>Configuration Detail</value>
+    </labels>
+    <labels>
+        <fullName>configurationSettings</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Configuration settings that controls the behaviour of inContact agent console ap</shortDescription>
+        <value>Configuration settings that controls the behaviour of salesforce agent application</value>
+    </labels>
+    <labels>
+        <fullName>configure</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>configure</shortDescription>
+        <value>Configure</value>
+    </labels>
+    <labels>
+        <fullName>consultRequest</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Consult Request</shortDescription>
+        <value>Consult Request</value>
+    </labels>
+    <labels>
+        <fullName>consultRequestWaiting</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>There is a Consult Request waiting from</shortDescription>
+        <value>There is a Consult Request waiting from</value>
+    </labels>
+    <labels>
+        <fullName>contact</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Contact</shortDescription>
+        <value>Contact</value>
+    </labels>
+    <labels>
+        <fullName>contactDispErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to disposition the contact.</shortDescription>
+        <value>Unable to disposition the contact.</value>
+    </labels>
+    <labels>
+        <fullName>contactEndErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to end the contact.</shortDescription>
+        <value>Unable to end the contact.</value>
+    </labels>
+    <labels>
+        <fullName>contactHistory</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Contact History</shortDescription>
+        <value>Contact History</value>
+    </labels>
+    <labels>
+        <fullName>contactHistoryTooltipTxt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Displays your contact history. You can filter the list or search for a specific</shortDescription>
+        <value>Displays your contact history. You can filter the list or search for a specific contact. With phone contacts, clicking on the phone icon next to the record will initiate an outbound call to that contact.</value>
+    </labels>
+    <labels>
+        <fullName>contactId</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unique id to each contact</shortDescription>
+        <value>ContactId</value>
+    </labels>
+    <labels>
+        <fullName>contactNumberErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Number entered does not match contact&apos;s number</shortDescription>
+        <value>Number entered does not match contact&apos;s number</value>
+    </labels>
+    <labels>
+        <fullName>contactProcessErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Message displayed in the contact result panel, on error occurred while processin</shortDescription>
+        <value>Error processing contact custom search response.</value>
+    </labels>
+    <labels>
+        <fullName>contactRequiresConfirmation</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>This contact requires confirmation. Do you accept it?</shortDescription>
+        <value>This contact requires confirmation. Do you accept it?</value>
+    </labels>
+    <labels>
+        <fullName>contactSearchErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error in performing contact custom search.</shortDescription>
+        <value>Error in performing contact custom search.</value>
+    </labels>
+    <labels>
+        <fullName>createTask</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Create Task</shortDescription>
+        <value>Create Task</value>
+    </labels>
+    <labels>
+        <fullName>ctrl_C_ToCopy</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tooltip for chat copy text - Press CTRL-C to copy</shortDescription>
+        <value>Press CTRL-C to copy</value>
+    </labels>
+    <labels>
+        <fullName>currentContactErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>You need to complete the current contact to initiate another</shortDescription>
+        <value>You need to complete the current contact to initiate another</value>
+    </labels>
+    <labels>
+        <fullName>currentContacts</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Current Contacts</shortDescription>
+        <value>Current Contacts</value>
+    </labels>
+    <labels>
+        <fullName>currentTime</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Current Time</shortDescription>
+        <value>Current Time</value>
+    </labels>
+    <labels>
+        <fullName>custom</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Custom</shortDescription>
+        <value>Custom</value>
+    </labels>
+    <labels>
+        <fullName>customSearch</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Custom Search</shortDescription>
+        <value>Custom Search</value>
+    </labels>
+    <labels>
+        <fullName>customUrlPop</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Custom url pop</shortDescription>
+        <value>Custom url pop</value>
+    </labels>
+    <labels>
+        <fullName>customVal1</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CustomValue1</shortDescription>
+        <value>CustomValue1</value>
+    </labels>
+    <labels>
+        <fullName>customVal2</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>CustomValue2</shortDescription>
+        <value>CustomValue2</value>
+    </labels>
+    <labels>
+        <fullName>date</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Date</shortDescription>
+        <value>Date</value>
+    </labels>
+    <labels>
+        <fullName>dateRange</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Date Range</shortDescription>
+        <value>Date Range</value>
+    </labels>
+    <labels>
+        <fullName>dateTime</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Date and Time</shortDescription>
+        <value>Date and Time</value>
+    </labels>
+    <labels>
+        <fullName>debug</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DEBUG in log level</shortDescription>
+        <value>DEBUG</value>
+    </labels>
+    <labels>
+        <fullName>default</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>default</shortDescription>
+        <value>_default</value>
+    </labels>
+    <labels>
+        <fullName>dial</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Dial</shortDescription>
+        <value>Dial</value>
+    </labels>
+    <labels>
+        <fullName>dialAgentErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to dial the agent.</shortDescription>
+        <value>Unable to dial the agent.</value>
+    </labels>
+    <labels>
+        <fullName>dialErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to dial the call.</shortDescription>
+        <value>Unable to dial the call.</value>
+    </labels>
+    <labels>
+        <fullName>dialPad</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Dial pad</shortDescription>
+        <value>Dial pad</value>
+    </labels>
+    <labels>
+        <fullName>dialPadTooltipTxt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Displays a dial pad to initiate an outbound call using the keypad. Your availabi</shortDescription>
+        <value>Displays a dial pad to initiate an outbound call using the keypad. Your availability status does not need to be set to Available to make an outbound call. You can click the numbers or use your keyboard keypad to enter a number to dial.</value>
+    </labels>
+    <labels>
+        <fullName>dialSkillErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error for Unable to dial the skill.</shortDescription>
+        <value>Unable to dial the skill.</value>
+    </labels>
+    <labels>
+        <fullName>dialerLoginErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to Login to Dialer.</shortDescription>
+        <value>Unable to Login to Dialer.</value>
+    </labels>
+    <labels>
+        <fullName>dialerLogoutErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to Logout from Dialer.</shortDescription>
+        <value>Unable to Logout from Dialer.</value>
+    </labels>
+    <labels>
+        <fullName>dialing</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Dialing</shortDescription>
+        <value>Dialing</value>
+    </labels>
+    <labels>
+        <fullName>discard</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Button tooltip label denotes discard the contact</shortDescription>
+        <value>Discard</value>
+    </labels>
+    <labels>
+        <fullName>discarded</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Denotes the agent contact status when the contact ends</shortDescription>
+        <value>Discarded</value>
+    </labels>
+    <labels>
+        <fullName>disconnect</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Disconnect</shortDescription>
+        <value>Disconnect</value>
+    </labels>
+    <labels>
+        <fullName>disconnected</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Disconnected</shortDescription>
+        <value>Disconnected</value>
+    </labels>
+    <labels>
+        <fullName>dismiss</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Dismiss button in commitment reminder popout</shortDescription>
+        <value>Dismiss</value>
+    </labels>
+    <labels>
+        <fullName>dispSubmitBtn</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Disposition Submit Button</shortDescription>
+        <value>SUBMIT</value>
+    </labels>
+    <labels>
+        <fullName>disposition</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Disposition</shortDescription>
+        <value>Disposition</value>
+    </labels>
+    <labels>
+        <fullName>dispositionValue</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Disposition Value</shortDescription>
+        <value>DispositionValue</value>
+    </labels>
+    <labels>
+        <fullName>dnis</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DNIS</shortDescription>
+        <value>DNIS</value>
+    </labels>
+    <labels>
+        <fullName>doNotDisturb</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Do Not Disturb Label in Dynamic Address book Agent State</shortDescription>
+        <value>Do Not Disturb</value>
+    </labels>
+    <labels>
+        <fullName>doYouAcceptIt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Do you accept it?</shortDescription>
+        <value>Do you accept it?</value>
+    </labels>
+    <labels>
+        <fullName>done</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Done</shortDescription>
+        <value>Done</value>
+    </labels>
+    <labels>
+        <fullName>downloadLog</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Download Log</shortDescription>
+        <value>Download Log</value>
+    </labels>
+    <labels>
+        <fullName>durationInSec</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>DurationInSeconds</shortDescription>
+        <value>DurationInSeconds</value>
+    </labels>
+    <labels>
+        <fullName>edit</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>email</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tooltip label Email when mouse over on the email icon</shortDescription>
+        <value>Email</value>
+    </labels>
+    <labels>
+        <fullName>emailInfo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Object name displayed in Agent Configuration. Represent Emai contact related inf</shortDescription>
+        <value>Email Info</value>
+    </labels>
+    <labels>
+        <fullName>emailNotes</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tooltip for Email Notes button</shortDescription>
+        <value>Email Notes</value>
+    </labels>
+    <labels>
+        <fullName>emailTooltipTxt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Initiates an outbound email. If no email skill assigned to you, the email icon w</shortDescription>
+        <value>Initiates an outbound email. If no email skill assigned to you, the email icon will be grayed out and unavailable.</value>
+    </labels>
+    <labels>
+        <fullName>emailTranscript</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Mappable EmailInfo field in the Salesforce Agent Settings</shortDescription>
+        <value>Email Transcript</value>
+    </labels>
+    <labels>
+        <fullName>enableAgentPresenceSync</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label in Salesforce Agent settings page for Omni channel mappings</shortDescription>
+        <value>Enable Agent Presence Sync</value>
+    </labels>
+    <labels>
+        <fullName>enableAutoLogin</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Enable Automatic Login</shortDescription>
+        <value>Enable Automatic Login</value>
+    </labels>
+    <labels>
+        <fullName>enableTooltips</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>&quot;Enable Tooltips&quot; is a label in option panel</shortDescription>
+        <value>Enable Tooltips</value>
+    </labels>
+    <labels>
+        <fullName>endDate</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>End Date</shortDescription>
+        <value>End Date</value>
+    </labels>
+    <labels>
+        <fullName>enterAmount</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Enter amount</shortDescription>
+        <value>Enter amount</value>
+    </labels>
+    <labels>
+        <fullName>enterComments</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Enter Comments here</shortDescription>
+        <value>Enter Comments here</value>
+    </labels>
+    <labels>
+        <fullName>enterFirstName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error message</shortDescription>
+        <value>Enter First Name</value>
+    </labels>
+    <labels>
+        <fullName>enterLastName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error message - Enter Last Name</shortDescription>
+        <value>Enter Last Name</value>
+    </labels>
+    <labels>
+        <fullName>enterMessage</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Enter message here</shortDescription>
+        <value>Enter message here</value>
+    </labels>
+    <labels>
+        <fullName>enterNotes</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Place holder for the promise keeper text area</shortDescription>
+        <value>Enter notes here</value>
+    </labels>
+    <labels>
+        <fullName>enterPhoneNumber</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error message - Enter Phone number</shortDescription>
+        <value>Enter Phone Number</value>
+    </labels>
+    <labels>
+        <fullName>enterTheAmount</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Enter the Amount</shortDescription>
+        <value>Enter the Amount</value>
+    </labels>
+    <labels>
+        <fullName>enterValidDate</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Enter the Valid Date</shortDescription>
+        <value>Enter the Valid Date</value>
+    </labels>
+    <labels>
+        <fullName>enterValidPhoneNumber</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please enter the valid phone number</shortDescription>
+        <value>Please enter the valid phone number</value>
+    </labels>
+    <labels>
+        <fullName>error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ERROR in log level</shortDescription>
+        <value>ERROR</value>
+    </labels>
+    <labels>
+        <fullName>errorMsgBadMailId</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error displayed when the user enters invalid email address</shortDescription>
+        <value>The email address {0} is not recognized. Please fix it and try again.</value>
+    </labels>
+    <labels>
+        <fullName>errorMsgReqToAddr</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error message when the user try to send the mail with no TO address</shortDescription>
+        <value>To recipient is required.</value>
+    </labels>
+    <labels>
+        <fullName>errorMsgUnexpected</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Alert this message in the agent console when an unexpected error occurred</shortDescription>
+        <value>An unexpected error has occurred, please download the log and contact your System Administrator.</value>
+    </labels>
+    <labels>
+        <fullName>errorToFetchQuickReply</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to fetch quick reply for the agent</shortDescription>
+        <value>Unable to fetch quick reply for the agent</value>
+    </labels>
+    <labels>
+        <fullName>errorToGetScriptList</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to get script list</shortDescription>
+        <value>Unable to get script list</value>
+    </labels>
+    <labels>
+        <fullName>errorToPauseVoiceMail</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to pause voice mail</shortDescription>
+        <value>Unable to pause voice mail</value>
+    </labels>
+    <labels>
+        <fullName>errorToPlayVoiceMail</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to play voice mail</shortDescription>
+        <value>Unable to play voice mail</value>
+    </labels>
+    <labels>
+        <fullName>errorToSignalScript</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to signal script</shortDescription>
+        <value>Unable to signal script</value>
+    </labels>
+    <labels>
+        <fullName>errorToSpawnScript</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to spawn script</shortDescription>
+        <value>Unable to spawn script</value>
+    </labels>
+    <labels>
+        <fullName>event</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Event</shortDescription>
+        <value>Event</value>
+    </labels>
+    <labels>
+        <fullName>fatal</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FATAL in log level</shortDescription>
+        <value>FATAL</value>
+    </labels>
+    <labels>
+        <fullName>fax</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Fax</shortDescription>
+        <value>Fax</value>
+    </labels>
+    <labels>
+        <fullName>feedback</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Feedback</shortDescription>
+        <value>Feedback</value>
+    </labels>
+    <labels>
+        <fullName>fieldMappingRemoved</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>A Salesforce.com field {0}. {1} was mapped to an Salesforce Agent value {2}. {3}</shortDescription>
+        <value>A Salesforce.com field {0}. {1} was mapped to a Salesforce Agent value {2}. {3}. It appears that the Salesforce.com field no longer exists. The mapping will be removed.</value>
+    </labels>
+    <labels>
+        <fullName>fieldMappingRemovedonSave</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>A Salesforce.com field {0}. {1} was previously mapped to an inContact value {2}.</shortDescription>
+        <value>A Salesforce.com field {0}. {1} was previously mapped to a Salesforce Agent value {2}. {3}. It appears that the Salesforce.com field no longer exists. The mapping will be removed on Save.</value>
+    </labels>
+    <labels>
+        <fullName>fieldsEmpty</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>One or More Fields are Empty</shortDescription>
+        <value>One or More Fields are Empty</value>
+    </labels>
+    <labels>
+        <fullName>filter</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Filter</shortDescription>
+        <value>Filter</value>
+    </labels>
+    <labels>
+        <fullName>first</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>First Name</shortDescription>
+        <value>First</value>
+    </labels>
+    <labels>
+        <fullName>firstName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>First Name in Promise Keeper</shortDescription>
+        <value>First Name</value>
+    </labels>
+    <labels>
+        <fullName>font</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tooltip label Font for the font selection button in the email editor tools</shortDescription>
+        <value>Font</value>
+    </labels>
+    <labels>
+        <fullName>fontSize</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tooltip label Font Size for the font size selection button in the email editor t</shortDescription>
+        <value>Font Size</value>
+    </labels>
+    <labels>
+        <fullName>form</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Form</shortDescription>
+        <value>Form</value>
+    </labels>
+    <labels>
+        <fullName>forward</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Forward label in the menu of the inbound email contact</shortDescription>
+        <value>Forward</value>
+    </labels>
+    <labels>
+        <fullName>forwardShortForm</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>FW text in the subject line when the agent forward the inbound mail contact</shortDescription>
+        <value>FW</value>
+    </labels>
+    <labels>
+        <fullName>forwardTo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label of the To field when the agent click on the Forward option of the inbound</shortDescription>
+        <value>Forward To</value>
+    </labels>
+    <labels>
+        <fullName>friday</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Day in a Week</shortDescription>
+        <value>Friday</value>
+    </labels>
+    <labels>
+        <fullName>from</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Denotes the from address field of the mail contact</shortDescription>
+        <value>From</value>
+    </labels>
+    <labels>
+        <fullName>getAddressBookByAgentErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to fetch GetAddressBookByAgent.</shortDescription>
+        <value>Unable to fetch GetAddressBookByAgent.</value>
+    </labels>
+    <labels>
+        <fullName>getAddressBookByTeamErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to fetch GetAddressBookByTeam.</shortDescription>
+        <value>Unable to fetch GetAddressBookByTeam.</value>
+    </labels>
+    <labels>
+        <fullName>getAgentInfoErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to fetch GetAgentInfo.</shortDescription>
+        <value>Unable to fetch GetAgentInfo.</value>
+    </labels>
+    <labels>
+        <fullName>getAgentSkillAssignmentsErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to fetch GetAgentSkillAssignments.</shortDescription>
+        <value>Unable to fetch GetAgentSkillAssignments.</value>
+    </labels>
+    <labels>
+        <fullName>getAgentStateCacheError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error message displayed when the API call to get agent state cache fails</shortDescription>
+        <value>Unable to fetch agent state cache.</value>
+    </labels>
+    <labels>
+        <fullName>getAgentsSkillsErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to fetch GetAgentsSkills.</shortDescription>
+        <value>Unable to fetch GetAgentsSkills.</value>
+    </labels>
+    <labels>
+        <fullName>getAllSkillsErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to fetch GetAllSkills.</shortDescription>
+        <value>Unable to fetch GetAllSkills.</value>
+    </labels>
+    <labels>
+        <fullName>getAllUnavailableCodesErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to fetch GetAllUnavailableCodes.</shortDescription>
+        <value>Unable to fetch GetAllUnavailableCodes.</value>
+    </labels>
+    <labels>
+        <fullName>getNextErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Connection failed. Attempting to reconnect. If the error continues contact your</shortDescription>
+        <value>Connection failed. Attempting to reconnect. If the error continues contact your System Administrator</value>
+    </labels>
+    <labels>
+        <fullName>getTeamUnavailableCodesErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to fetch GetTeamUnavailableCodes.</shortDescription>
+        <value>Unable to fetch GetTeamUnavailableCodes.</value>
+    </labels>
+    <labels>
+        <fullName>getTeamsErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to fetch GetTeams.</shortDescription>
+        <value>Unable to fetch GetTeams.</value>
+    </labels>
+    <labels>
+        <fullName>handlingContactErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>You are handling contacts, could not logout from inContact platform.</shortDescription>
+        <value>You are handling contacts, could not logout from inContact platform.</value>
+    </labels>
+    <labels>
+        <fullName>heldPartyAbandoned</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Represent an Agent State. When the call contact placed in hold is disconnected b</shortDescription>
+        <value>HeldPartyAbandoned</value>
+    </labels>
+    <labels>
+        <fullName>help</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Help</shortDescription>
+        <value>Help</value>
+    </labels>
+    <labels>
+        <fullName>helpTooltipTxt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Redirects to the inContact help page.</shortDescription>
+        <value>Redirects to the inContact help page.</value>
+    </labels>
+    <labels>
+        <fullName>highlightColor</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tooltip label Highlight Color for the highlight color selection button in the em</shortDescription>
+        <value>Highlight color</value>
+    </labels>
+    <labels>
+        <fullName>hold</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hold</shortDescription>
+        <value>Hold</value>
+    </labels>
+    <labels>
+        <fullName>holdCurrentWorkItemContact</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>You must place your current Work Item contact on hold before attempting to dial</shortDescription>
+        <value>You must place your current Work Item contact on hold before attempting to dial another contact. Do you want to hold current Work Item contact?</value>
+    </labels>
+    <labels>
+        <fullName>holdErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to place the contact on hold.</shortDescription>
+        <value>Unable to place the contact on hold.</value>
+    </labels>
+    <labels>
+        <fullName>holding</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Holding</shortDescription>
+        <value>Holding</value>
+    </labels>
+    <labels>
+        <fullName>hour</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hour</shortDescription>
+        <value>Hour</value>
+    </labels>
+    <labels>
+        <fullName>hours</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Denotes the time of the agent state in a contact</shortDescription>
+        <value>hours</value>
+    </labels>
+    <labels>
+        <fullName>hyperlink</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tooltip label Hyperlink in the email editor panel</shortDescription>
+        <value>Hyperlink</value>
+    </labels>
+    <labels>
+        <fullName>id</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>ID</shortDescription>
+        <value>ID</value>
+    </labels>
+    <labels>
+        <fullName>inContact</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>InContact</shortDescription>
+        <value>inContact</value>
+    </labels>
+    <labels>
+        <fullName>inContactAgentPassword</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>inContact Agent Password</shortDescription>
+        <value>Agent Password</value>
+    </labels>
+    <labels>
+        <fullName>inContactAgentPhone</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>inContact Agent Phone</shortDescription>
+        <value>Agent Phone</value>
+    </labels>
+    <labels>
+        <fullName>inContactAgentStationID</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>inContact Agent Station ID</shortDescription>
+        <value>Agent Station ID</value>
+    </labels>
+    <labels>
+        <fullName>inContactDataStorage</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>inContact Data Storage</shortDescription>
+        <value>Data Storage</value>
+    </labels>
+    <labels>
+        <fullName>inValidDateTimeErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error message - when the call back date/time you entered has already passed for</shortDescription>
+        <value>The call back date/time you entered has already passed for the time zone you selected</value>
+    </labels>
+    <labels>
+        <fullName>inValidTimeFormatErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error message - When we provide invalid time format in promise keeper</shortDescription>
+        <value>Please provide time in valid format</value>
+    </labels>
+    <labels>
+        <fullName>inValidphoneNumber</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Phone Number must have at least 10 digits</shortDescription>
+        <value>Phone Number must have at least 10 digits</value>
+    </labels>
+    <labels>
+        <fullName>inbound</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Inbound</shortDescription>
+        <value>Inbound</value>
+    </labels>
+    <labels>
+        <fullName>inboundConsult</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>InboundConsult</shortDescription>
+        <value>InboundConsult</value>
+    </labels>
+    <labels>
+        <fullName>inboundContact</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>InboundContact</shortDescription>
+        <value>InboundContact</value>
+    </labels>
+    <labels>
+        <fullName>incoming</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Incoming</shortDescription>
+        <value>Incoming</value>
+    </labels>
+    <labels>
+        <fullName>incomingWorkItem</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Incoming Work Item</shortDescription>
+        <value>Incoming Work Item</value>
+    </labels>
+    <labels>
+        <fullName>incontactAgentName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>inContact Agent Name</shortDescription>
+        <value>Agent Name</value>
+    </labels>
+    <labels>
+        <fullName>info</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>INFO in log level</shortDescription>
+        <value>INFO</value>
+    </labels>
+    <labels>
+        <fullName>information</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Information</shortDescription>
+        <value>Information</value>
+    </labels>
+    <labels>
+        <fullName>insert</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Insert label of the button to insert quick response text</shortDescription>
+        <value>Insert</value>
+    </labels>
+    <labels>
+        <fullName>insertHyperLink</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Title of the Hyper link dialog box</shortDescription>
+        <value>Insert Hyperlink</value>
+    </labels>
+    <labels>
+        <fullName>interrupted</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Interrupted</shortDescription>
+        <value>Interrupted</value>
+    </labels>
+    <labels>
+        <fullName>invalidSFDCOrigin</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Invalid SFDC origin</shortDescription>
+        <value>Invalid sfdcIFrameOrigin</value>
+    </labels>
+    <labels>
+        <fullName>italic</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tooltip lable Italic for the italic selection button in the email editor tools</shortDescription>
+        <value>Italic</value>
+    </labels>
+    <labels>
+        <fullName>joined</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Joined</shortDescription>
+        <value>Joined</value>
+    </labels>
+    <labels>
+        <fullName>joinedSessionAlreadyInProgress</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>You have joined a session already in progress.  Your agent station/phone number</shortDescription>
+        <value>You have joined a session already in progress.  Your agent station/phone number is:</value>
+    </labels>
+    <labels>
+        <fullName>justify</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tooltip label Justify for the justify selection button in the email editor tools</shortDescription>
+        <value>Justify</value>
+    </labels>
+    <labels>
+        <fullName>keypadTones</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Keypad Tones</shortDescription>
+        <value>Keypad Tones</value>
+    </labels>
+    <labels>
+        <fullName>last</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Last Name</shortDescription>
+        <value>Last</value>
+    </labels>
+    <labels>
+        <fullName>last7days</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Last 7 is a date range which is displaying in agent reports performance</shortDescription>
+        <value>Last 7</value>
+    </labels>
+    <labels>
+        <fullName>lastName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Last Name in Promise Keeper</shortDescription>
+        <value>Last Name</value>
+    </labels>
+    <labels>
+        <fullName>lead</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Lead</shortDescription>
+        <value>Lead</value>
+    </labels>
+    <labels>
+        <fullName>loadAgainErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Trying to load again</shortDescription>
+        <value>Trying to load again</value>
+    </labels>
+    <labels>
+        <fullName>loading</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Loading</shortDescription>
+        <value>Loading</value>
+    </labels>
+    <labels>
+        <fullName>logLevel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Log Level</shortDescription>
+        <value>Log Level</value>
+    </labels>
+    <labels>
+        <fullName>loggedIn</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Logged In</shortDescription>
+        <value>Logged In</value>
+    </labels>
+    <labels>
+        <fullName>loggedOut</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Logged out</shortDescription>
+        <value>Logged out</value>
+    </labels>
+    <labels>
+        <fullName>loggingIn</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Logging in</shortDescription>
+        <value>Logging in</value>
+    </labels>
+    <labels>
+        <fullName>login</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Login</shortDescription>
+        <value>Login</value>
+    </labels>
+    <labels>
+        <fullName>loginFailedError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Login failed with error:</shortDescription>
+        <value>Login failed with error:</value>
+    </labels>
+    <labels>
+        <fullName>loginFailedErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error message to be displayed on login failure.</shortDescription>
+        <value>Login failed.</value>
+    </labels>
+    <labels>
+        <fullName>logout</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Logout</shortDescription>
+        <value>Logout</value>
+    </labels>
+    <labels>
+        <fullName>machine</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Machine</shortDescription>
+        <value>Machine</value>
+    </labels>
+    <labels>
+        <fullName>mask</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Mask</shortDescription>
+        <value>Mask</value>
+    </labels>
+    <labels>
+        <fullName>masking</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Masking</shortDescription>
+        <value>Masking</value>
+    </labels>
+    <labels>
+        <fullName>me</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Create promise keeper for me</shortDescription>
+        <value>Me</value>
+    </labels>
+    <labels>
+        <fullName>message</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Message</shortDescription>
+        <value>Message</value>
+    </labels>
+    <labels>
+        <fullName>min</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Minutes in short</shortDescription>
+        <value>Min</value>
+    </labels>
+    <labels>
+        <fullName>minute</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Minute</shortDescription>
+        <value>Minute</value>
+    </labels>
+    <labels>
+        <fullName>monday</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Day in a Week</shortDescription>
+        <value>Monday</value>
+    </labels>
+    <labels>
+        <fullName>more</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>&quot;More&quot; is a link that displaying in custom tooltip, if click that &quot;More&quot; its re</shortDescription>
+        <value>More</value>
+    </labels>
+    <labels>
+        <fullName>mute</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Mute</shortDescription>
+        <value>Mute</value>
+    </labels>
+    <labels>
+        <fullName>muteErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to Mute.</shortDescription>
+        <value>Unable to Mute.</value>
+    </labels>
+    <labels>
+        <fullName>new</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>New button label in Promise keeper</shortDescription>
+        <value>NEW</value>
+    </labels>
+    <labels>
+        <fullName>nextNextStateLabel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Denotes what state you will be in when when the call is over,</shortDescription>
+        <value>{0} will be your state, when the call is over.</value>
+    </labels>
+    <labels>
+        <fullName>nextStateTooltip</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>After the {0} state, you will be in the {1} state</shortDescription>
+        <value>After the {0} state, you will be in the {1} state</value>
+    </labels>
+    <labels>
+        <fullName>no</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No</shortDescription>
+        <value>No</value>
+    </labels>
+    <labels>
+        <fullName>noAnswer</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>NoAnswer</shortDescription>
+        <value>NoAnswer</value>
+    </labels>
+    <labels>
+        <fullName>noDataFound</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No Data Found</shortDescription>
+        <value>No Data Found</value>
+    </labels>
+    <labels>
+        <fullName>noObjectsFound</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No Objects found</shortDescription>
+        <value>No Objects found</value>
+    </labels>
+    <labels>
+        <fullName>noPorts</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No Ports</shortDescription>
+        <value>No Ports</value>
+    </labels>
+    <labels>
+        <fullName>noPromises</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>You have no promises.</shortDescription>
+        <value>You have no commitments.</value>
+    </labels>
+    <labels>
+        <fullName>none</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>None option for who and what fields in notes and disposition</shortDescription>
+        <value>None</value>
+    </labels>
+    <labels>
+        <fullName>notes</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Notes</shortDescription>
+        <value>Notes</value>
+    </labels>
+    <labels>
+        <fullName>objectMappingRemoved</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>A Salesforce.com object {0} was mapped and it appears that object no longer exis</shortDescription>
+        <value>A Salesforce.com object {0} was mapped and it appears that object no longer exists.  The mapping will be removed.</value>
+    </labels>
+    <labels>
+        <fullName>objectMappingRemovedonSave</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>A Salesforce.com object {0} was previously mapped and it appears that object no</shortDescription>
+        <value>A Salesforce.com object {0} was previously mapped and it appears that object no longer exists.  The mapping will be removed on Save.</value>
+    </labels>
+    <labels>
+        <fullName>off</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>OFF</shortDescription>
+        <value>OFF</value>
+    </labels>
+    <labels>
+        <fullName>offline</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Offline Label in Dynamic Address book Agent State</shortDescription>
+        <value>Offline</value>
+    </labels>
+    <labels>
+        <fullName>ok</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>OK</shortDescription>
+        <value>OK</value>
+    </labels>
+    <labels>
+        <fullName>opportunity</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Opportunity</shortDescription>
+        <value>Opportunity</value>
+    </labels>
+    <labels>
+        <fullName>options</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Options</shortDescription>
+        <value>Options</value>
+    </labels>
+    <labels>
+        <fullName>outbound</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Outbound</shortDescription>
+        <value>Outbound</value>
+    </labels>
+    <labels>
+        <fullName>outboundConsult</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>OutboundConsult</shortDescription>
+        <value>OutboundConsult</value>
+    </labels>
+    <labels>
+        <fullName>outboundContact</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>OutboundContact</shortDescription>
+        <value>OutboundContact</value>
+    </labels>
+    <labels>
+        <fullName>overall</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>&quot;Overall&quot; is a label which is displaying in agent performance reports</shortDescription>
+        <value>Overall</value>
+    </labels>
+    <labels>
+        <fullName>overallContactsHandled</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Overall Contacts Handled is a label in agent reports</shortDescription>
+        <value>Overall Contacts Handled</value>
+    </labels>
+    <labels>
+        <fullName>parkEmail</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tooltip will be display while hover the park email button in email contact panel</shortDescription>
+        <value>Park Email</value>
+    </labels>
+    <labels>
+        <fullName>parked</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Parked is tab name which is displaying in popout window, if we have parked email</shortDescription>
+        <value>Parked</value>
+    </labels>
+    <labels>
+        <fullName>parkedEmail</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label which is displaying in agent console parked email panel header</shortDescription>
+        <value>Parked Emails</value>
+    </labels>
+    <labels>
+        <fullName>parkedEmailTooltipTxt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tooltip for the Parked Emails icon in the Home Panel</shortDescription>
+        <value>Displays the list of your parked emails. If no emails are parked, this icon will be grayed out.</value>
+    </labels>
+    <labels>
+        <fullName>passwordRequired</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Password is required</shortDescription>
+        <value>Password is required</value>
+    </labels>
+    <labels>
+        <fullName>pause</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tooltip for voice mail pause button</shortDescription>
+        <value>Pause</value>
+    </labels>
+    <labels>
+        <fullName>paused</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Paused</shortDescription>
+        <value>Paused</value>
+    </labels>
+    <labels>
+        <fullName>payload</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Payload</shortDescription>
+        <value>Payload</value>
+    </labels>
+    <labels>
+        <fullName>performance</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Performance is label which is displaying in agent reports panel</shortDescription>
+        <value>Performance</value>
+    </labels>
+    <labels>
+        <fullName>personalConnection</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Personal Connection</shortDescription>
+        <value>Personal Connection</value>
+    </labels>
+    <labels>
+        <fullName>personalConnectionPending</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Personal Connection Pending</shortDescription>
+        <value>Personal Connection Pending</value>
+    </labels>
+    <labels>
+        <fullName>personalQueue</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Personal Queue</shortDescription>
+        <value>Personal Queue</value>
+    </labels>
+    <labels>
+        <fullName>phone</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Phone</shortDescription>
+        <value>Phone</value>
+    </labels>
+    <labels>
+        <fullName>phoneCall</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Phone Call</shortDescription>
+        <value>Phone Call</value>
+    </labels>
+    <labels>
+        <fullName>phoneErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Invalid Station or Phone Number.</shortDescription>
+        <value>Invalid Station or Phone Number.</value>
+    </labels>
+    <labels>
+        <fullName>phoneNumber</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Phone Number</shortDescription>
+        <value>Phone Number</value>
+    </labels>
+    <labels>
+        <fullName>phoneNumberIsNotValid</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Phone number is not valid. Please enter only + (at the beginning), digits, *, #,</shortDescription>
+        <value>Phone number is not valid. Please enter only + (at the beginning), digits, *, #, maximum 16 symbols.</value>
+    </labels>
+    <labels>
+        <fullName>phoneNumberOrStationIDRequired</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Phone number or station id is required</shortDescription>
+        <value>Phone number or station id is required</value>
+    </labels>
+    <labels>
+        <fullName>phoneStationIDUse</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Phone number or station ID is in use</shortDescription>
+        <value>Phone number or station ID is in use</value>
+    </labels>
+    <labels>
+        <fullName>play</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tooltip for voice mail play button</shortDescription>
+        <value>Play</value>
+    </labels>
+    <labels>
+        <fullName>popScreen</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to pop the screen</shortDescription>
+        <value>Unable to pop the screen</value>
+    </labels>
+    <labels>
+        <fullName>popScreenContactResult</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to pop the screen for Contact Result</shortDescription>
+        <value>Unable to pop the screen for Contact Result</value>
+    </labels>
+    <labels>
+        <fullName>popScreenContactSearch</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to pop the screen for Contact Search</shortDescription>
+        <value>Unable to pop the screen for Contact Search</value>
+    </labels>
+    <labels>
+        <fullName>popScreenIndicator</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to pop the screen for Indicator</shortDescription>
+        <value>Unable to pop the screen for Indicator</value>
+    </labels>
+    <labels>
+        <fullName>popScreenRunapp</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to pop the screen for Runapp</shortDescription>
+        <value>Unable to pop the screen for Runapp</value>
+    </labels>
+    <labels>
+        <fullName>popScreenTask</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to pop Task. Due to page in edit mode.</shortDescription>
+        <value>Unable to pop the screen for Task</value>
+    </labels>
+    <labels>
+        <fullName>popTask</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Pop Task</shortDescription>
+        <value>Pop Task</value>
+    </labels>
+    <labels>
+        <fullName>popin</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Popin</shortDescription>
+        <value>Popin</value>
+    </labels>
+    <labels>
+        <fullName>popout</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Popout</shortDescription>
+        <value>Popout</value>
+    </labels>
+    <labels>
+        <fullName>presenceMaster</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label in Salesforce Agent settings page for Omni channel mappings</shortDescription>
+        <value>Presence Master</value>
+    </labels>
+    <labels>
+        <fullName>presenceSyncSettings</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label in Salesforce Agent settings page for Omni channel mappings</shortDescription>
+        <value>inContact &amp; Salesforce Presence Sync Settings</value>
+    </labels>
+    <labels>
+        <fullName>preview</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Preview</shortDescription>
+        <value>Preview</value>
+    </labels>
+    <labels>
+        <fullName>priority</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Priority</shortDescription>
+        <value>Priority</value>
+    </labels>
+    <labels>
+        <fullName>proceed</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Proceed button in commitment reminder popout</shortDescription>
+        <value>Proceed</value>
+    </labels>
+    <labels>
+        <fullName>processing</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Processing</shortDescription>
+        <value>Processing</value>
+    </labels>
+    <labels>
+        <fullName>productivity</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Productivity is a label which is displaying in agentreports</shortDescription>
+        <value>Productivity</value>
+    </labels>
+    <labels>
+        <fullName>profile</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>profile</shortDescription>
+        <value>profile</value>
+    </labels>
+    <labels>
+        <fullName>profiles</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Profiles</shortDescription>
+        <value>Profiles</value>
+    </labels>
+    <labels>
+        <fullName>pwdErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error message displayed in user setting, when the agent enter invalid username/p</shortDescription>
+        <value>Invalid username or password.</value>
+    </labels>
+    <labels>
+        <fullName>queue</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Queue</shortDescription>
+        <value>Queue</value>
+    </labels>
+    <labels>
+        <fullName>quickResponse</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tooltip label Quick Response in the email editor panel</shortDescription>
+        <value>Quick Replies</value>
+    </labels>
+    <labels>
+        <fullName>readyAgentLegBadNumber</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Could not dial the agent leg because it is an invalid number.  Verify your stati</shortDescription>
+        <value>Could not dial the agent leg because it is an invalid number.  Verify your station ID or station phone number is correct.</value>
+    </labels>
+    <labels>
+        <fullName>readyAgentLegBusy</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Could not dial the Agent Leg because it was busy.  Hang up your phone and try ag</shortDescription>
+        <value>Could not dial the Agent Leg because it was busy.  Hang up your phone and try again.</value>
+    </labels>
+    <labels>
+        <fullName>readyAgentLegDropped</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Agent leg was disconnected before call was delivered. The call has been re-queue</shortDescription>
+        <value>Agent leg was disconnected before call was delivered. The call has been re-queued.</value>
+    </labels>
+    <labels>
+        <fullName>readyAgentLegError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Could not dial the Agent Leg.</shortDescription>
+        <value>Could not dial the Agent Leg.</value>
+    </labels>
+    <labels>
+        <fullName>readyAgentLegNoAnswer</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>You did not answer your Agent Leg.  Verify your station ID or station phone numb</shortDescription>
+        <value>You did not answer your Agent Leg.  Verify your station ID or station phone number is correct.</value>
+    </labels>
+    <labels>
+        <fullName>record</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Record</shortDescription>
+        <value>Record</value>
+    </labels>
+    <labels>
+        <fullName>recordInventoryLow</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Record inventory for skill is running low.</shortDescription>
+        <value>Record inventory for skill is running low.</value>
+    </labels>
+    <labels>
+        <fullName>recordingInProgress</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Recording in progress</shortDescription>
+        <value>Recording in progress</value>
+    </labels>
+    <labels>
+        <fullName>refused</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Refused</shortDescription>
+        <value>Refused</value>
+    </labels>
+    <labels>
+        <fullName>reject</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Reject</shortDescription>
+        <value>Reject</value>
+    </labels>
+    <labels>
+        <fullName>rejected</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Contact state. When an agent rejects an incoming contact.</shortDescription>
+        <value>Rejected</value>
+    </labels>
+    <labels>
+        <fullName>reminderWarning</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>You have at least one promise to complete within the next hour. Are you sure you</shortDescription>
+        <value>You have at least one commitment to complete within the next hour. Are you sure you want to log off?</value>
+    </labels>
+    <labels>
+        <fullName>remoteErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error message displayed in user setting, when the api url is not added in the sa</shortDescription>
+        <value>Check your remote site settings.</value>
+    </labels>
+    <labels>
+        <fullName>remove</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Remove</shortDescription>
+        <value>Remove</value>
+    </labels>
+    <labels>
+        <fullName>replaceVariables</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Title of the replace variables dialog box to replace the strings in quick reply</shortDescription>
+        <value>Replace Variables</value>
+    </labels>
+    <labels>
+        <fullName>reply</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Reply label in the menu of the inbound email contact</shortDescription>
+        <value>Reply</value>
+    </labels>
+    <labels>
+        <fullName>replyAction</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tooltip label Reply Action when mouse over on the reply arrow</shortDescription>
+        <value>Reply Action</value>
+    </labels>
+    <labels>
+        <fullName>replyAll</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Reply All label in the menu of the inbound email contact</shortDescription>
+        <value>Reply All</value>
+    </labels>
+    <labels>
+        <fullName>replyShortForm</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>RE text in the subject line when the agent reply to the inbound mail contact</shortDescription>
+        <value>RE</value>
+    </labels>
+    <labels>
+        <fullName>reschedule</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Reschedule</shortDescription>
+        <value>Reschedule</value>
+    </labels>
+    <labels>
+        <fullName>reskill</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Contact state</shortDescription>
+        <value>RESKILL</value>
+    </labels>
+    <labels>
+        <fullName>results</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Results</shortDescription>
+        <value>Results</value>
+    </labels>
+    <labels>
+        <fullName>resume</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Resume</shortDescription>
+        <value>Resume</value>
+    </labels>
+    <labels>
+        <fullName>resumeErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to resume the contact.</shortDescription>
+        <value>Unable to resume the contact.</value>
+    </labels>
+    <labels>
+        <fullName>returnCall</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Return Call</shortDescription>
+        <value>Return Call</value>
+    </labels>
+    <labels>
+        <fullName>ringing</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Ringing</shortDescription>
+        <value>Ringing</value>
+    </labels>
+    <labels>
+        <fullName>salesforce</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label in Salesforce Agent settings page for Omni channel mappings</shortDescription>
+        <value>Salesforce</value>
+    </labels>
+    <labels>
+        <fullName>salesforceAgent</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Salesforce Agent</shortDescription>
+        <value>Salesforce Agent</value>
+    </labels>
+    <labels>
+        <fullName>saturday</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Day in a Week</shortDescription>
+        <value>Saturday</value>
+    </labels>
+    <labels>
+        <fullName>save</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>save button in user settings option panel</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>saveError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error  in the agent configuration page</shortDescription>
+        <value>Save Error:</value>
+    </labels>
+    <labels>
+        <fullName>saving</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Saving - Button label in the Agent configuration page</shortDescription>
+        <value>Saving</value>
+    </labels>
+    <labels>
+        <fullName>scriptVariable</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Object name displayed in Agent Configuration. Represent script variable supplied</shortDescription>
+        <value>ScriptVariable</value>
+    </labels>
+    <labels>
+        <fullName>search</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search - to find the agent or Team or skills etc</shortDescription>
+        <value>Search</value>
+    </labels>
+    <labels>
+        <fullName>secondaryDispositionValue</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Secondary Disposition Value</shortDescription>
+        <value>SecondaryDispositionValue</value>
+    </labels>
+    <labels>
+        <fullName>select</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select</shortDescription>
+        <value>Select</value>
+    </labels>
+    <labels>
+        <fullName>selectDateRange</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select a Date Range</shortDescription>
+        <value>Select a Date Range</value>
+    </labels>
+    <labels>
+        <fullName>selectDisposition</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select Disposition</shortDescription>
+        <value>Select Disposition</value>
+    </labels>
+    <labels>
+        <fullName>selectOutboundSkills</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select Outbound Skills</shortDescription>
+        <value>Select Outbound Skills</value>
+    </labels>
+    <labels>
+        <fullName>selectSkill</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select Skill</shortDescription>
+        <value>Select Skill</value>
+    </labels>
+    <labels>
+        <fullName>selectTheDisposition</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select the Disposition</shortDescription>
+        <value>Select the Disposition</value>
+    </labels>
+    <labels>
+        <fullName>selectTheSkill</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error message - Select the skill</shortDescription>
+        <value>Select the skill</value>
+    </labels>
+    <labels>
+        <fullName>selectWhat</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>selectWhat</shortDescription>
+        <value>Select What</value>
+    </labels>
+    <labels>
+        <fullName>selectWho</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select Who</shortDescription>
+        <value>Select Who</value>
+    </labels>
+    <labels>
+        <fullName>send</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Denotes the label for the send button</shortDescription>
+        <value>Send</value>
+    </labels>
+    <labels>
+        <fullName>sendDTMFTonesError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to send the DTMF Tones.</shortDescription>
+        <value>Unable to send the DTMF Tones.</value>
+    </labels>
+    <labels>
+        <fullName>sent</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Denotes the sent field of the inbound mail contact</shortDescription>
+        <value>Sent</value>
+    </labels>
+    <labels>
+        <fullName>sessionEnded</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Your session has ended</shortDescription>
+        <value>Your session has ended</value>
+    </labels>
+    <labels>
+        <fullName>sessionErrorEnd</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Your session has ended. Please click OK to relog</shortDescription>
+        <value>Your session has ended. Please click OK to relog</value>
+    </labels>
+    <labels>
+        <fullName>sessionID</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Session ID</shortDescription>
+        <value>Session ID</value>
+    </labels>
+    <labels>
+        <fullName>sfdcCase</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SFDC CASE</shortDescription>
+        <value>SFDC CASE</value>
+    </labels>
+    <labels>
+        <fullName>sfdcQuery</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SFDC QUERY</shortDescription>
+        <value>SFDC QUERY</value>
+    </labels>
+    <labels>
+        <fullName>showAllTimes</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Show All Items</shortDescription>
+        <value>Show All Items</value>
+    </labels>
+    <labels>
+        <fullName>skill</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Skill</shortDescription>
+        <value>Skill</value>
+    </labels>
+    <labels>
+        <fullName>skillCacheErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to fetch RealTime event from Skill Queue Cache. If the error continues co</shortDescription>
+        <value>Unable to fetch RealTime event from Skill Queue Cache. If the error continues contact your System Administrator</value>
+    </labels>
+    <labels>
+        <fullName>skillList</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Skill List</shortDescription>
+        <value>Skill List</value>
+    </labels>
+    <labels>
+        <fullName>skillListTooltipTxt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Displays a list of skills for your business unit, the number of contacts in queu</shortDescription>
+        <value>Displays a list of skills for your business unit, the number of contacts in queue for the skill, and the longest wait time in each. You can search for a specific skill. Clicking a skill in the list initiates handling a contact in that skill.</value>
+    </labels>
+    <labels>
+        <fullName>skillName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Name of the skill</shortDescription>
+        <value>Skill Name</value>
+    </labels>
+    <labels>
+        <fullName>skillNotOpenError</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error message - Skill is not open, still you want continue</shortDescription>
+        <value>According to the hours of operation, this skill is not open. Are you sure you want to continue?</value>
+    </labels>
+    <labels>
+        <fullName>skillQueue</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SkillQueue</shortDescription>
+        <value>SkillQueue</value>
+    </labels>
+    <labels>
+        <fullName>skills</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>A category of agent abilities.</shortDescription>
+        <value>Skills</value>
+    </labels>
+    <labels>
+        <fullName>softphoneErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Message displayed in the contact result panel, when an softphone layout setting</shortDescription>
+        <value>Error in getting softphone layout setting.</value>
+    </labels>
+    <labels>
+        <fullName>startDate</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Start Date</shortDescription>
+        <value>Start Date</value>
+    </labels>
+    <labels>
+        <fullName>state</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>A state refers to the current condition of your call center agent</shortDescription>
+        <value>State</value>
+    </labels>
+    <labels>
+        <fullName>stateMappings</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label in Salesforce Agent settings page for Omni channel mappings</shortDescription>
+        <value>Master - Dependent State Mappings</value>
+    </labels>
+    <labels>
+        <fullName>station</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>A station is both the physical location where an agent will work and the relatio</shortDescription>
+        <value>Station</value>
+    </labels>
+    <labels>
+        <fullName>stationID</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>stationID</shortDescription>
+        <value>Station ID</value>
+    </labels>
+    <labels>
+        <fullName>stationIDErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Your configured station ID or phone number is different from the station ID/phon</shortDescription>
+        <value>Your configured station ID or phone number is different from the station ID/phone number currently in use. Your configured station ID/phone number is:</value>
+    </labels>
+    <labels>
+        <fullName>storeIncontactScriptVar</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Store inContact Script Variables</shortDescription>
+        <value>Store Salesforce Agent Script Variables</value>
+    </labels>
+    <labels>
+        <fullName>subject</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Denotes the subject field of the mail contact</shortDescription>
+        <value>Subject</value>
+    </labels>
+    <labels>
+        <fullName>submit</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Submit</shortDescription>
+        <value>Submit</value>
+    </labels>
+    <labels>
+        <fullName>submitFeedback</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Submit Feedback</shortDescription>
+        <value>Submit Feedback</value>
+    </labels>
+    <labels>
+        <fullName>sunday</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Day in a Week</shortDescription>
+        <value>Sunday</value>
+    </labels>
+    <labels>
+        <fullName>system</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>System</shortDescription>
+        <value>System</value>
+    </labels>
+    <labels>
+        <fullName>systemAdmin</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please contact your System Administrator</shortDescription>
+        <value>Please contact your System Administrator</value>
+    </labels>
+    <labels>
+        <fullName>task</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Task</shortDescription>
+        <value>Task</value>
+    </labels>
+    <labels>
+        <fullName>taskCreation</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Its label in Agent configuration page to create a new task</shortDescription>
+        <value>Task Creation</value>
+    </labels>
+    <labels>
+        <fullName>team</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>A team is an organizational group of Agents</shortDescription>
+        <value>Team</value>
+    </labels>
+    <labels>
+        <fullName>teamPercentage</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>percentage of team which is displaying in agent reports performance</shortDescription>
+        <value>% of Team</value>
+    </labels>
+    <labels>
+        <fullName>textColor</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tooltip label Text Color for the text color selection button in the email editor</shortDescription>
+        <value>Text Color</value>
+    </labels>
+    <labels>
+        <fullName>textToDisplay</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label of the first field of the Hyper link dialog box</shortDescription>
+        <value>Text to display</value>
+    </labels>
+    <labels>
+        <fullName>thisWeek</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>This Week</shortDescription>
+        <value>This Week</value>
+    </labels>
+    <labels>
+        <fullName>thursday</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Day in a Week</shortDescription>
+        <value>Thursday</value>
+    </labels>
+    <labels>
+        <fullName>time</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Time</shortDescription>
+        <value>Time</value>
+    </labels>
+    <labels>
+        <fullName>timeAndDate</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Time and Date</shortDescription>
+        <value>Time and Date</value>
+    </labels>
+    <labels>
+        <fullName>timeout</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>timeout</shortDescription>
+        <value>timeout</value>
+    </labels>
+    <labels>
+        <fullName>timezone</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Timezone is a label display in promise keeper - Date and Time</shortDescription>
+        <value>Timezone</value>
+    </labels>
+    <labels>
+        <fullName>to</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Denotes the to address field of the email contact</shortDescription>
+        <value>To</value>
+    </labels>
+    <labels>
+        <fullName>toTransferSelectAnAgentOrSkill</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>To transfer, select an agent or skill</shortDescription>
+        <value>To transfer, select an agent or skill</value>
+    </labels>
+    <labels>
+        <fullName>today</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Today</shortDescription>
+        <value>Today</value>
+    </labels>
+    <labels>
+        <fullName>tools</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tooltip label Tools in the email editor panel</shortDescription>
+        <value>Tools</value>
+    </labels>
+    <labels>
+        <fullName>trace</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TRACE in log level</shortDescription>
+        <value>TRACE</value>
+    </labels>
+    <labels>
+        <fullName>transfer</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Transfer</shortDescription>
+        <value>Transfer</value>
+    </labels>
+    <labels>
+        <fullName>transferChatAgentErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to Transfer chat to agent.</shortDescription>
+        <value>Unable to Transfer chat to agent.</value>
+    </labels>
+    <labels>
+        <fullName>transferChatSkillErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to Transfer chat to skill.</shortDescription>
+        <value>Unable to Transfer chat to skill.</value>
+    </labels>
+    <labels>
+        <fullName>transferComplete</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Contact state. When the transfer complete</shortDescription>
+        <value>TransferComplete</value>
+    </labels>
+    <labels>
+        <fullName>transferErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to Transfer the contact.</shortDescription>
+        <value>Unable to Transfer the contact.</value>
+    </labels>
+    <labels>
+        <fullName>transferWIAgentErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to Transfer workitem to agent.</shortDescription>
+        <value>Unable to Transfer workitem to agent.</value>
+    </labels>
+    <labels>
+        <fullName>transferWISkillErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to Transfer workitem to skill.</shortDescription>
+        <value>Unable to Transfer workitem to skill.</value>
+    </labels>
+    <labels>
+        <fullName>tuesday</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Day in a Week</shortDescription>
+        <value>Tuesday</value>
+    </labels>
+    <labels>
+        <fullName>type</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Type</shortDescription>
+        <value>Type</value>
+    </labels>
+    <labels>
+        <fullName>unParkEmail</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tooltip text will be display when hover the unpark email button in email contact</shortDescription>
+        <value>Unpark Email</value>
+    </labels>
+    <labels>
+        <fullName>unavailable</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>when the agent is not on the phone</shortDescription>
+        <value>Unavailable</value>
+    </labels>
+    <labels>
+        <fullName>underline</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tooltip label Underline for the underline selection button in the email editor t</shortDescription>
+        <value>Underline</value>
+    </labels>
+    <labels>
+        <fullName>unknownAgent</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Text displayed when the consult agentname is not available</shortDescription>
+        <value>Unknown Agent</value>
+    </labels>
+    <labels>
+        <fullName>unmask</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unmask</shortDescription>
+        <value>Unmask</value>
+    </labels>
+    <labels>
+        <fullName>unmute</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unmute</shortDescription>
+        <value>Unmute</value>
+    </labels>
+    <labels>
+        <fullName>unmuteErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unable to Unmute.</shortDescription>
+        <value>Unable to Unmute.</value>
+    </labels>
+    <labels>
+        <fullName>useDefault</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label in the Agent configuration page</shortDescription>
+        <value>Use&apos;_default&apos;</value>
+    </labels>
+    <labels>
+        <fullName>user</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>User</shortDescription>
+        <value>User</value>
+    </labels>
+    <labels>
+        <fullName>userSettingErrorAttempt</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error message displayed in user setting, when any error occurs on saving the use</shortDescription>
+        <value>Unable to save user settings.</value>
+    </labels>
+    <labels>
+        <fullName>usernameIsNotValid</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Username is not valid</shortDescription>
+        <value>Username is not valid</value>
+    </labels>
+    <labels>
+        <fullName>usernameRequired</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Username is required</shortDescription>
+        <value>Username is required</value>
+    </labels>
+    <labels>
+        <fullName>valueOne</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>value in the personal connection outbound skill panel</shortDescription>
+        <value>Value One</value>
+    </labels>
+    <labels>
+        <fullName>valueTwo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>value in the personal connection outbound skill panel</shortDescription>
+        <value>Value Two</value>
+    </labels>
+    <labels>
+        <fullName>version</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label for the version displayed in info panel</shortDescription>
+        <value>Version</value>
+    </labels>
+    <labels>
+        <fullName>voicemail</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>VoiceMail</shortDescription>
+        <value>VoiceMail</value>
+    </labels>
+    <labels>
+        <fullName>wait</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Wait</shortDescription>
+        <value>Wait</value>
+    </labels>
+    <labels>
+        <fullName>waitTime</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Agent spends waiting for a call</shortDescription>
+        <value>WaitTime</value>
+    </labels>
+    <labels>
+        <fullName>warn</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Use of deprecated APIs, poor use of API, &apos;almost&apos; errors, other runtime situatio</shortDescription>
+        <value>WARN</value>
+    </labels>
+    <labels>
+        <fullName>webServer</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>one of the label in Agent information panel</shortDescription>
+        <value>Web Server</value>
+    </labels>
+    <labels>
+        <fullName>wednesday</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Day in a Week</shortDescription>
+        <value>Wednesday</value>
+    </labels>
+    <labels>
+        <fullName>what</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>label in the disposition panel</shortDescription>
+        <value>What</value>
+    </labels>
+    <labels>
+        <fullName>who</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>label in the disposition panel</shortDescription>
+        <value>Who</value>
+    </labels>
+    <labels>
+        <fullName>workItem</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Work Item</shortDescription>
+        <value>Work Item</value>
+    </labels>
+    <labels>
+        <fullName>workItemInfo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>A work item is a generic task that can be routed through the system and assigned</shortDescription>
+        <value>WorkItemInfo</value>
+    </labels>
+    <labels>
+        <fullName>working</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>&quot;Working&quot; is a label which is displaying in agent reports productivity</shortDescription>
+        <value>Working</value>
+    </labels>
+    <labels>
+        <fullName>yes</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>yes button in dialog box</shortDescription>
+        <value>Yes</value>
+    </labels>
+    <labels>
+        <fullName>yesterday</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>yesterday is a date range which is displaying in agent reports performance</shortDescription>
+        <value>Yesterday</value>
+    </labels>
+    <labels>
+        <fullName>you</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>&quot;You&quot; is the default label in chat</shortDescription>
+        <value>You</value>
+    </labels>
+</CustomLabels>

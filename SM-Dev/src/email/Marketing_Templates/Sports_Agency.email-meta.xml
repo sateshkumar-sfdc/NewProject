@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Sports Agency</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>We are so flattered that you thought of us to help out your team!
+
+We’re excited to tell you about our new pricing structure for bulk orders - if you are interested, please contact Sharon at 512.551.1507, or at corporatesales@yeti.com, so that we can discuss your event in further detail.  We look forward to talking with you soon!
+
+Thanks for your support and good luck in your upcoming season!
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

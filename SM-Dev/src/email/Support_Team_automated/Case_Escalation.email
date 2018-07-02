@@ -1,0 +1,6 @@
+The following case has been escalated due to either a safety concern or upset customer. 
+
+Case:  {!Case.CaseNumber}
+Subject:  {!Case.Subject} 
+Description:  {!Case.Description}
+Case Link:   {!Case.Link}

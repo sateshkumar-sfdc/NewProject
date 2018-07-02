@@ -1,0 +1,32 @@
+<!--
+************************************************************
+** Name: CMP_OpportunityOwnerChange.cmp	 	              **
+** Copyright notice: 								      **
+** YETI Coolers										      **
+************************************************************
+** Purpose: (Omni Channel)								  **
+** This component is designed based on Omni Channel Work  **
+** Assignment, capture the Opportunity                    **
+** Assignment Record owner and update to Orginal          ** 
+** opportunity Owner.                                     **
+************************************************************
+** History:                                               **
+************************************************************
+** VERSION AUTHOR DATE DETAIL RELEASE/CSR                 **
+** 1.0 - Satesh Makineni 05/04/2018 INITIAL DEVELOPMENT   **
+** 2.0 -                                              	  **
+************************************************************
+-->
+
+<aura:component controller="UpdateOpportunityOwner" implements="flexipage:availableForAllPageTypes" access="global" >   
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <!-- This message will display in the Event Widget in the footer -->
+    <h1>Hi</h1>
+    <h1> This box using for capture the events for Back end process.</h1>
+    <h1> Please close this window.</h1>
+    <lightning:omniToolkitAPI aura:id="omniToolkit" />  
+    <aura:handler event="lightning:omniChannelWorkAccepted" action="{!c.onWorkAccepted }"/>
+</aura:component>

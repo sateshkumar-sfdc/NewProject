@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>BackFlip Into Summer – May 4</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>It’s here! The BackFlip Into Summer Sales Contest kicks off today.
+
+As a reminder, the contest will run through Sunday, June 17th.
+
+For tips on how to make the most of the contest, refer back to the BackFlip Into Summer: Tips for Success manual attached here. Additionally, if you haven’t had the chance to take your sales associates through YETI training, it’s not too late!
+
+
+- Reach out to (insert TSM name) to set up a clinic
+
+- Head to Experticity.com to take a Tundra, Hopper or Rambler module.
+
+- Share these training videos with your staff.
+
+Lastly, be sure you’re tracking sales for core products (not accessories) of the following categories on the provided backroom poster: Tundra, Hopper, Rambler and LoadOut.
+
+The first week of the contest will run from today, May 4 – Sunday, May 13. To be eligible for the prizes, be sure to submit your sales associates’ weekly sales by 4pm CT, Monday, May 14th on this form: https://yeti.formstack.com/forms/backflip_into_summer.
+
+Best of luck!
+
+Terms and conditions apply. See full contest rules here.
+
+
+{!User.CommunityNickname}
+
+Account Management Team
+
+YETI
+
+512.394.0222
+
+sales@yeti.com
+
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

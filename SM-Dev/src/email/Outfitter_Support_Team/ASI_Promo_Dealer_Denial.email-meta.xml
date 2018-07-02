@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>ASI/Promo Dealer Denial</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Hello,
+
+
+Thank you for your interest in partnering with YETI.
+
+We are experiencing incredible growth, which is outpacing our manufacturing facilities capacity. One of our current challenges is to deliver enough goods to meet demand to our existing dealer base. For this reason, we have paused the distribution of products into the corporate and promotional products channels. We are not currently accepting tax exemption forms for resale or offering bulk discounts. If you would like to place a large order, please visit yeti.com and purchase directly from our site.
+
+
+We do anticipate re-entering this marketplace in the future, once we are able to provide our current distribution partners with the necessary product to be successful.
+
+Please let us know if you have questions.
+
+
+
+Sincerely,
+
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

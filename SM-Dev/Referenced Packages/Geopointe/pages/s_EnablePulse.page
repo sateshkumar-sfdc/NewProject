@@ -1,0 +1,83 @@
+<apex:page controller="geopointe.s_EnablePulse" showHeader="true" sidebar="{!userSettings.geopointe__Hide_Sidebar__c = false}" tabStyle="Geopointe_Setup__tab" title="Geopointe - Pulse Terms">
+	<apex:stylesheet value="{!URLFOR($Resource.geopointe__jquery, '/css/common/common.css')}"/><!-- Geopointe common css -->
+
+	<apex:includeScript value="{!URLFOR($Resource.geopointe__jquery, '/jquery-1.8.3.min.js')}" /> <!-- core jQuery -->
+	<script type="text/javascript">
+		var win;
+		var checkConnect;
+
+		function openAuth() {
+			win = window.open('{!oauthSetupUrl}', 'Authorize Geopointe Pulse', 'width=860,height=680,modal=yes,alwaysRaised=yes');
+		};
+
+		checkConnect = setInterval(function() {
+			if (!win || !win.closed) return;
+			clearInterval(checkConnect);
+			window.location.href = '{!URLENCODE(retURL)}';
+		}, 100);
+	</script>
+
+	<style type="text/css">
+		.thisTitle       { font-size: 16pt; font-weight: bold; margin: 12px 0 10px 0; }
+		.thisTable       { font-size: 11pt; line-height: 125%; margin: 0px 30px;}
+		.thisTable ol    { font-size: 10pt; }
+		.thisTable ol b  { font-size: 11pt; }
+		.thisTable li    { margin-top: 14px; margin-bottom: 14px; }
+		.thisTable a.gp-btn { text-decoration: none; }
+		.thisTable input    { font-size: 11pt; line-height: 150%; }
+		.thisAuthSection    { width: 700px; border-top: solid 3px #027c6f; text-align: center; margin: 40px auto 20px auto; }
+		.thisTzSection      { margin:30px auto 22px auto; }
+	</style>
+
+	<apex:sectionHeader title="Geopointe" subtitle="Pulse Terms" rendered="{!canEnable}"/>
+	<apex:pageMessages id="pageMessages"></apex:pageMessages>
+	<apex:form >
+		<apex:outputPanel id="wrapperDIV" layout="block" style="margin: 0 10px;">
+			<apex:outputPanel id="breadcrumbDIV" layout="block" style="font-size: 8pt; margin: 0 0 3px 0;" >
+				<apex:commandLink value="« Back to Geopointe Setup" action="{!goToMainSetup}" />
+			</apex:outputPanel>
+			<apex:outputPanel id="noPerm" layout="block" rendered="{!NOT(canEnable)}">
+				<p style="font-size: 15pt;">Geopointe Pulse is not enabled for your org.  Please <a href="https://www.geopointe.com/pricing/#contact">contact Geopointe Sales</a> to enable.</p>
+			</apex:outputPanel>
+			<apex:outputPanel id="hasPerm" layout="block" rendered="{!canEnable}">
+				<apex:pageBlock >
+					<table class="thisTable"><tr><td>
+						<div class="thisTitle">Approve Use of Geopointe Pulse</div>
+						<div>
+							<p>
+							To use Geopointe Pulse, you will have to grant the Geopointe Connected App OAuth access to your org. <b>We recommend you use an integration user for authentication</b>.  Whether or not you use a regular user or an special "integration user" for authentication, the user will need to have a Geopointe license.  Learn more about Geopointe Pulse on our <a href="http://help.geopointe.com/" target="_blank">help site</a>.
+							</p><p>
+							You can revoke access at any time by going to Setup > Manage Apps > Connected Apps OAuth Usage.  Learn more about <a href="https://help.salesforce.com/articleView?id=connected_app_overview.htm" target="_blank">Salesforce Connected Apps</a>.
+							</p><p>
+							To authorize and enable Geopointe Pulse, you will need to do the following:</p> 
+							<ol>
+								<li><b>Set your Pulse Reference Timezone</b><br />The Pulse reference timezone will be used to determine when your Daily Summaries will start, e.g. "days" start at midnight Central Time (America/Chicago)</li>
+								<li><b>Click "Agree and Authorize"</b><br />This will open a popup window with a Salesforce login page.</li>
+								<li><b>Log in</b><br/> Log in with the user you want to use for Pulse data updates.  If you set up OAuth as a different user (i.e. log in as a different user), you will get logged out of this account.  After closing the popup window, you'll need to log back into your org as yourself.</li>
+							</ol>
+							<p>
+							<br/>If you understand the above and wish to utilize Geopointe Pulse, select your reference timezone and click the Agree and Authorize button to setup OAuth access.<br/>
+							</p>
+						</div>
+
+						<div class="thisAuthSection">
+							<div class="thisTzSection">
+								<apex:outputLabel value="Pulse Reference Timezone" style="margin-right:15px"/>
+								<apex:selectList value="{!selectedTimezone}" size="1" style="font-size:100%">
+									<apex:actionSupport event="onchange" action="{!saveTimezone}" rerender="hasPerm"/>
+									<apex:selectOptions value="{!pulseTimezones}"/>
+								</apex:selectList>
+							</div>
+							<apex:outputPanel layout="block" rendered="{!selectedTimezone!=''}">
+								<a href="#" class="gp-btn btn-lg btn-primary" onclick="openAuth();return false;">Agree and Authorize</a>
+							</apex:outputPanel>
+							<apex:outputPanel layout="block" rendered="{!selectedTimezone==''}">
+								<span href="#" class="gp-btn btn-lg btn-primary btn-disabled">Agree and Authorize</span>
+							</apex:outputPanel>
+						</div>
+					</td></tr></table>
+				</apex:pageBlock>
+			</apex:outputPanel>
+		</apex:outputPanel>
+	</apex:form>
+</apex:page>

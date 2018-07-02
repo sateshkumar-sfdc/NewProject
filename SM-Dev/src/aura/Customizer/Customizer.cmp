@@ -1,0 +1,54 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="jsonobj" type="string" />
+    <aura:attribute name="itemID" type="Id" />
+     <aura:registerEvent name="cmpEventtocaptureJsondata" type="c:Customizerobject"/>
+
+   
+    <aura:attribute name="UPK" type="string" />
+ 
+    
+   <!-- MODAL STARTS HERE-->
+
+  <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_medium">
+    <div class="slds-modal__container" style="padding-top: 34px;" >
+      
+
+        
+   <!--MODAL HEADER -->
+     <header class="slds-modal__header">
+        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+          <lightning:buttonIcon iconName="utility:close"  class="color-i"  variant="bare" onclick="{!c.closemodal}" alternativeText="Close window." />
+          <span class="slds-assistive-text">Close</span>
+        </button>
+        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">SELECT EMBELLISHMENT</h2>
+     </header>    
+  
+      
+  <div class="slds-modal__content slds-p-around--medium" style ="height: 100%;" >
+      
+   
+      <iframe aura:id="vfFrame"  src="/apex/testforcustomizer" onload="{!c.doaction}"  height="100%" width="100%"  scrolling ="yes" sandbox="allow-same-origin allow-scripts allow-forms"  ></iframe>
+  
+     
+     
+      
+     
+  </div>
+       
+     
+   
+   <!-- MODAL FOOTER -->
+   <footer class="slds-modal__footer">
+        
+       <button class="slds-button slds-button_neutral" onclick="{!c.closemodal}">Close</button>
+       <button class="slds-button slds-button_neutral" onclick="{!c.saveon}">Save</button>
+        
+   </footer>
+  </div>
+ </section>
+<div class="slds-backdrop slds-backdrop_open"></div>
+
+   
+ 
+</aura:component>

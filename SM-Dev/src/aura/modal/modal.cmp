@@ -1,0 +1,7 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	
+<div>
+    <img src = "https://s3.amazonaws.com/howard-sandbox/test/designs/premium/collegiate/arkansas-state-primary-mark-4/rambler-bottle-18oz/approval-front.pn"  onload = "{!c.myfunction}"></img>
+    
+    </div>
+</aura:component>

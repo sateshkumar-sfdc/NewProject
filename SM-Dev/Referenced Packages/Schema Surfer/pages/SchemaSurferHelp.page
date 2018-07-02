@@ -1,0 +1,66 @@
+<apex:page showHeader="false" >
+
+	<apex:stylesheet value="{!URLFOR($Resource.SchemaSurfer__SchemaSurferFiles, 'css/schemasurfer.css')}"/>
+	
+	<div id="helpWrapper">
+		<div class="helpTextOutput">
+			Use the sidebar to filter standard and custom objects. The filter text entered will always search both the object name and label 
+			but you can display the object label...
+			<div> <img class="helpImgSS" src="{!URLFOR($Resource.SchemaSurferFiles, 'img/filterByLabel.jpg')}"/></div>
+		</div>
+		<div class="helpTextOutput">	
+			...or the object name... 
+			<div> <img class="helpImgSS" src="{!URLFOR($Resource.SchemaSurferFiles, 'img/filterByName.jpg')}"/></div>
+		</div>
+		<div class="helpTextOutput">	
+			You can even search by object prefix...
+			<div><img class="helpImgSS" src="{!URLFOR($Resource.SchemaSurferFiles, 'img/filterByPrefix.jpg')}"/></div>
+		</div>
+		<div class="helpTextOutput">	
+			Hover over the items in the side bar to see more information.
+			<div ><img class="helpImgSS" src="{!URLFOR($Resource.SchemaSurferFiles, 'img/sideBarHover.jpg')}"/></div>
+		</div>
+		<div class="helpTextOutput">	
+			Select an object in the sidebar to load detailed information for that object.
+			<div><img class="helpImgSS" src="{!URLFOR($Resource.SchemaSurferFiles, 'img/objectDetail.jpg')}"/></div>
+		</div>
+		<div class="helpTextOutput">	
+			Additional information such as object fields, parent relationships, child relationships, and
+			record types are displayed in related lists under the object detail section.
+			<div><img class="helpImgSS" src="{!URLFOR($Resource.SchemaSurferFiles, 'img/relatedInfo.jpg')}"/></div>
+		</div>
+		<div class="helpTextOutput">	
+			In all of the related lists you can view the information in a grid layout...
+			<div><img class="helpImgSS" src="{!URLFOR($Resource.SchemaSurferFiles, 'img/fieldsGrid.jpg')}"/></div>
+		</div>
+		<div class="helpTextOutput">	
+			...or a table layout...
+			<div><img class="helpImgSS" src="{!URLFOR($Resource.SchemaSurferFiles, 'img/fieldsList.jpg')}"/></div>
+		</div>
+		<div class="helpTextOutput">	
+			You can filter the results by entering text in the Filter box. The filter 
+			text entered will always search both the name and label no matter which is currently displayed.
+			<div><img class="helpImgSS" src="{!URLFOR($Resource.SchemaSurferFiles, 'img/fieldFilter.jpg')}"/></div>
+		</div>
+		<div class="helpTextOutput">	
+			Use the Field Set picklist to only display fields in the selected Field Set.
+			<div><img class="helpImgSS" src="{!URLFOR($Resource.SchemaSurferFiles, 'img/fieldSets.jpg')}"/></div>
+		</div>
+		<div class="helpTextOutput">	
+			Hover over a grid item to see more information.
+			<div><img class="helpImgSS" src="{!URLFOR($Resource.SchemaSurferFiles, 'img/gridHover.jpg')}"/></div>
+		</div>
+		<div class="helpTextOutput">	
+			Selecting a field will displayed detailed information about that field.
+			<div><img class="helpImgSS" src="{!URLFOR($Resource.SchemaSurferFiles, 'img/fieldDetail.jpg')}"/></div>
+		</div>
+		<div class="helpTextOutput">	
+			Select the "Back to Field List" button to show the full list or grid of fields.
+			<div><img class="helpImgSS" src="{!URLFOR($Resource.SchemaSurferFiles, 'img/backToFieldsButton.jpg')}"/></div>
+		</div>
+		<div class="helpTextOutput">	
+			Happy surfing!
+		</div>
+	</div>
+	
+</apex:page>

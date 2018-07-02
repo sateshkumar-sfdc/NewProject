@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ComposeGmail</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>LogCall</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>MailMerge</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>RequestUpdate</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SendEmail</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ViewAll</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>ASAP_Order__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>ASAP Order</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Account_Review__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Review open orders 
+Review current blocks</inlineHelpText>
+        <label>Account Review</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Business_Plan_Discussion_Points__c</fullName>
+        <externalId>false</externalId>
+        <label>Business Plan Discussion Points</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Close_Tasks__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Used in Task list views to fire a workflow and close all selected tasks.</inlineHelpText>
+        <label>Close Tasks</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Converted_Order__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Placed Order</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Created_by_Current_User__c</fullName>
+        <description>Used in views/reports. Returns true if activity was created by current user.</description>
+        <externalId>false</externalId>
+        <formula>$User.Id =  CreatedBy.Id</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Used in views/reports. Returns true if activity was created by current user.</inlineHelpText>
+        <label>Created by Current User</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Dealer_Education_Discussion_Points__c</fullName>
+        <externalId>false</externalId>
+        <label>Dealer Education Discussion Points</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dealer_Picture_Uploaded__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Uploaded a picture of the display using Chatter</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Uploaded a picture of the display using Chatter</inlineHelpText>
+        <label>Dealer Picture Uploaded</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Display_Picture_Uploaded__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used Chatter to upload picture of the display</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used Chatter to upload picture of the display</inlineHelpText>
+        <label>Display Picture Uploaded</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Display_in_Good_Order__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Captured suggestions, determined if additional items are needed</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Captured suggestions, determined if additional items are needed</inlineHelpText>
+        <label>Display in Good Order</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Future_Order_del__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Future Order</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Inventory_Discussion_Points__c</fullName>
+        <externalId>false</externalId>
+        <label>Inventory Discussion Points</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Inventory_Review__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What are your top selling YETI SKUs? 
+What holes do you have in your inventory? What can we get on order for you? 
+Discuss new products (if applicable)</inlineHelpText>
+        <label>Inventory Review</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Merchandising_Discussion_Points__c</fullName>
+        <externalId>false</externalId>
+        <label>Merchandising Discussion Points</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Merchandising__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Captured suggestions, determined if additional items are needed</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Captured suggestions, determined if additional items are needed</inlineHelpText>
+        <label>Merchandising</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>No_Order_del__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>No Order</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Owner_Profile__c</fullName>
+        <description>Assigned Profile Name</description>
+        <externalId>false</externalId>
+        <formula>Owner:User.Profile.Name</formula>
+        <inlineHelpText>Assigned Profile Name</inlineHelpText>
+        <label>Owner Profile</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SAP_Customer_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>SAP Customer Number</label>
+        <length>50</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sales_Order_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Sales Order Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Sales_Order_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Sales Order Number</label>
+        <length>10</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sell_In_New_Product_Discussion_Points__c</fullName>
+        <externalId>false</externalId>
+        <label>Sell In/New Product Discussion Points</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sell_In_New_Products__c</fullName>
+        <defaultValue>true</defaultValue>
+        <externalId>false</externalId>
+        <label>Sell-In/New Products</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Sell_Through_Discussion_Points__c</fullName>
+        <externalId>false</externalId>
+        <label>Sell Through Discussion Points</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sell_Through__c</fullName>
+        <defaultValue>true</defaultValue>
+        <externalId>false</externalId>
+        <label>Sell Through</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Shared_Marketing_Promo__c</fullName>
+        <defaultValue>true</defaultValue>
+        <externalId>false</externalId>
+        <label>Dealer Education</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Shared_Video__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Have shown any relevant videos to the dealer</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Have shown any relevant videos to the dealer</inlineHelpText>
+        <label>Shared Video</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Subject_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Subject Type</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Account Setup</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Inbound Call</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Onsite Visit</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Outbound Call</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Status Update</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>System Email</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Email</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Lead Follow Up</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Sufficient_Inventory__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Ensured inventory is sufficient for product display area - Reviewed fast moving, out of stock items, Ensured additional product in the storage area</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Ensured inventory is sufficient for product display area - Reviewed fast moving, out of stock items, Ensured additional product in the storage area</inlineHelpText>
+        <label>Inventory</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>YETI_Updates__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Dealer Updates 
+Relevant Dealer Dispatch points 
+Discuss new products (if applicable)</inlineHelpText>
+        <label>YETI Updates</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <listViews>
+        <fullName>All_Tasks</fullName>
+        <columns>TASK.SUBJECT</columns>
+        <columns>TASK.WHO_NAME</columns>
+        <columns>TASK.WHAT_NAME</columns>
+        <columns>TASK.DUE_DATE</columns>
+        <columns>TASK.STATUS</columns>
+        <columns>TASK.CLOSED</columns>
+        <columns>TASK.PRIORITY</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>TASK.LAST_UPDATE</columns>
+        <columns>UPDATEDBY_USER.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Tasks</label>
+    </listViews>
+    <listViews>
+        <fullName>MyActivities_Closed14</fullName>
+        <columns>TASK.SUBJECT</columns>
+        <columns>TASK.WHO_NAME</columns>
+        <columns>TASK.WHAT_NAME</columns>
+        <columns>TASK.DUE_DATE</columns>
+        <columns>EVENT.START_DATE_TIME</columns>
+        <columns>TASK.STATUS</columns>
+        <columns>Close_Tasks__c</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>ACTIVITY.TASK</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>TASK.CLOSED</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>TASK.DUE_DATE</field>
+            <operation>equals</operation>
+            <value>LAST_N_DAYS:14</value>
+        </filters>
+        <label>My Tasks (Closed 14 Days)</label>
+    </listViews>
+    <listViews>
+        <fullName>MyActivities_Open</fullName>
+        <columns>TASK.SUBJECT</columns>
+        <columns>TASK.WHO_NAME</columns>
+        <columns>TASK.WHAT_NAME</columns>
+        <columns>TASK.DUE_DATE</columns>
+        <columns>EVENT.START_DATE_TIME</columns>
+        <columns>TASK.STATUS</columns>
+        <columns>Close_Tasks__c</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>ACTIVITY.TASK</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>TASK.STATUS</field>
+            <operation>notEqual</operation>
+            <value>Completed</value>
+        </filters>
+        <label>My Tasks (Open)</label>
+    </listViews>
+    <listViews>
+        <fullName>MyActivities_Overdue</fullName>
+        <columns>TASK.SUBJECT</columns>
+        <columns>TASK.WHO_NAME</columns>
+        <columns>TASK.WHAT_NAME</columns>
+        <columns>TASK.DUE_DATE</columns>
+        <columns>EVENT.START_DATE_TIME</columns>
+        <columns>TASK.STATUS</columns>
+        <columns>Close_Tasks__c</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>ACTIVITY.TASK</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>TASK.STATUS</field>
+            <operation>notEqual</operation>
+            <value>Completed</value>
+        </filters>
+        <filters>
+            <field>TASK.DUE_DATE</field>
+            <operation>lessOrEqual</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>My Tasks (Overdue)</label>
+    </listViews>
+    <listViews>
+        <fullName>MyDelegatedActivities</fullName>
+        <filterScope>Delegated</filterScope>
+        <label>My Delegated Activities</label>
+    </listViews>
+    <listViews>
+        <fullName>MyTeamsActivities</fullName>
+        <filterScope>Team</filterScope>
+        <label>My Team&apos;s Activities</label>
+    </listViews>
+    <listViews>
+        <fullName>Tasks_Created_by_Me_Closed14</fullName>
+        <columns>TASK.SUBJECT</columns>
+        <columns>TASK.WHO_NAME</columns>
+        <columns>TASK.WHAT_NAME</columns>
+        <columns>TASK.DUE_DATE</columns>
+        <columns>TASK.STATUS</columns>
+        <columns>TASK.PRIORITY</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>TASK.LAST_UPDATE</columns>
+        <columns>UPDATEDBY_USER.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Created_by_Current_User__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>TASK.CLOSED</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>TASK.DUE_DATE</field>
+            <operation>equals</operation>
+            <value>LAST_N_DAYS:14</value>
+        </filters>
+        <label>Tasks Created by Me (Closed 14 Days)</label>
+    </listViews>
+    <listViews>
+        <fullName>Tasks_Created_by_Me_Open</fullName>
+        <columns>TASK.SUBJECT</columns>
+        <columns>TASK.WHO_NAME</columns>
+        <columns>TASK.WHAT_NAME</columns>
+        <columns>TASK.DUE_DATE</columns>
+        <columns>TASK.STATUS</columns>
+        <columns>TASK.PRIORITY</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>TASK.LAST_UPDATE</columns>
+        <columns>UPDATEDBY_USER.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Created_by_Current_User__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>TASK.CLOSED</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>Tasks Created by Me (Open)</label>
+    </listViews>
+    <listViews>
+        <fullName>TodaysTasks</fullName>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>TASK.CLOSED</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <filters>
+            <field>ACTIVITY.TASK</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>TASK.DUE_DATE</field>
+            <operation>lessThan</operation>
+            <value>TOMORROW</value>
+        </filters>
+        <label>Today&apos;s Tasks</label>
+    </listViews>
+    <listViews>
+        <fullName>UpcomingEvents</fullName>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>ACTIVITY.TASK</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <filters>
+            <field>TASK.DUE_DATE</field>
+            <operation>greaterThan</operation>
+            <value>YESTERDAY</value>
+        </filters>
+        <label>Upcoming Events</label>
+    </listViews>
+    <listViews>
+        <fullName>geopointe__Geopointe_Activities_Last_7_Days</fullName>
+        <columns>TASK.SUBJECT</columns>
+        <columns>TASK.DUE_DATE</columns>
+        <columns>TASK.STATUS</columns>
+        <columns>CORE.USERS.FULL_NAME</columns>
+        <columns>TASK.LAST_UPDATE</columns>
+        <columns>UPDATEDBY_USER.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>TASK.SUBJECT</field>
+            <operation>startsWith</operation>
+            <value>Geopointe:</value>
+        </filters>
+        <filters>
+            <field>TASK.DUE_DATE</field>
+            <operation>equals</operation>
+            <value>LAST_N_DAYS:7</value>
+        </filters>
+        <label>Geopointe Activities (Last 7 Days)</label>
+    </listViews>
+    <listViews>
+        <fullName>geopointe__Geopointe_Activities_all</fullName>
+        <columns>TASK.SUBJECT</columns>
+        <columns>TASK.DUE_DATE</columns>
+        <columns>TASK.STATUS</columns>
+        <columns>CORE.USERS.FULL_NAME</columns>
+        <columns>TASK.LAST_UPDATE</columns>
+        <columns>UPDATEDBY_USER.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>TASK.SUBJECT</field>
+            <operation>startsWith</operation>
+            <value>Geopointe:</value>
+        </filters>
+        <label>Geopointe Activities (all)</label>
+    </listViews>
+    <listViews>
+        <fullName>geopointe__Geopointe_Activities_today</fullName>
+        <columns>TASK.SUBJECT</columns>
+        <columns>TASK.DUE_DATE</columns>
+        <columns>TASK.STATUS</columns>
+        <columns>CORE.USERS.FULL_NAME</columns>
+        <columns>TASK.LAST_UPDATE</columns>
+        <columns>UPDATEDBY_USER.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>TASK.SUBJECT</field>
+            <operation>startsWith</operation>
+            <value>Geopointe:</value>
+        </filters>
+        <filters>
+            <field>TASK.DUE_DATE</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>Geopointe Activities (today)</label>
+    </listViews>
+    <searchLayouts>
+        <searchResultsAdditionalFields>TASK.SUBJECT</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>TASK.WHO_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>TASK.WHAT_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>TASK.DUE_DATE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>TASK.CREATED_DATE</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+</CustomObject>

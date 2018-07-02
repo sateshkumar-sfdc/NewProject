@@ -1,0 +1,97 @@
+<aura:component controller="UniqueEntry.UeQScoreExt" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+     <!--<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:attribute name="card" type="Object" default="" />
+    <aura:attribute name="score" type="String" default="calculating..." />
+    <aura:attribute name="fields" type="Object[]" default="" />
+    <aura:attribute name="missingFields" type="Object[]" default="" />
+    <aura:attribute name="record" type="Object" default="" />
+    
+    <aura:attribute name="protentialScore" type="String" default="" />-->
+    
+   <!--<div class="slds-card myCard">
+        <div class="slds-card__header slds-grid">  
+            <div class="slds-media slds-mediacenter slds-has-flexi-truncate">
+                <div class="slds-media__figure">
+                    <span class="slds-icon_container slds-icon-standard-lead">
+                        <c:svg type="standard" name="lead" class="slds-icon slds-iconsmall"/>
+                    </span>
+                </div>
+                <div class="slds-media__body slds-truncate">
+                    <a href="javascript:void(0);" class="slds-text-linkreset">
+                        <span class="slds-text-headingsmall">
+                            Q-Score v19
+                            <span class="slds-badge">{!v.score}</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="slds-no-flex">
+                <button class="slds-button slds-buttonicon-border-filled slds-buttonicon-x" onclick="{!c.toggleCard}">
+                    <c:svg type="utility" name="down" class="slds-button__icon"/>
+                </button>
+            </div>
+        </div>
+        <div class="{!'slds-card__body ' + (v.card.visible ? '' : 'slds-hide')}">            
+            <div class="slds-media slds-m-aroundsmall">
+                <div class="slds-media__body Qscore-container">
+                    <div class="Qscore-left">      
+                        <div class="{! 'Qscore ' + (v.score > 95 ? 'Qscore-Aplus' :  
+                                    (v.score > 90 ? 'Qscore-A' :  
+                                    (v.score > 80 ? 'Qscore-B' :  
+                                    (v.score > 70 ? 'Qscore-C' :  
+                                    (v.score > 60 ? 'Qscore-D' :  'Qscore-F'))))) }">
+                            
+                            {! (v.score > 95 ? 'A+' :  (v.score > 90 ? 'A' :  
+                            (v.score > 80 ? 'B' :  
+                            (v.score > 70 ? 'C' :  
+                            (v.score > 60 ? 'D' :  'F')))))}
+                        </div>     
+                    </div>
+                    <div class="Qscore-right">
+                        <div class="Qscore-watermark">
+                            <aura:if isTrue="{! !(v.missingFields.length == 0 || !v.card.showList) }">
+                                <div class="{! 'ProtentialScore ' + (v.protentialScore > 95 ? 'Qscore-Aplus' : 
+                                            (v.protentialScore > 90 ? 'Qscore-A' :  
+                                            (v.protentialScore > 80 ? 'Qscore-B' :  
+                                            (v.protentialScore > 70 ? 'Qscore-C' :  
+                                            (v.protentialScore > 60 ? 'Qscore-D' :  'Qscore-F'))))) }">                            
+                                    {! (v.protentialScore > 95 ? 'A+' :  (v.protentialScore > 90 ? 'A' :  
+                                    (v.protentialScore > 80 ? 'B' :  
+                                    (v.protentialScore > 70 ? 'C' :  
+                                    (v.protentialScore > 60 ? 'D' :  'F')))))}
+                                </div>
+                            </aura:if>
+                        </div>
+                        <div class="Qscore-Field">
+                            <dl class="slds-dlhorizontal">
+                                <aura:if isTrue="{! !(v.missingFields.length == 0 || !v.card.showList) }">
+                                    <aura:iteration items="{!v.missingFields}" var="f">                
+                                        <dd class="slds-dlhorizontal__detail slds-tile__meta slds-text-alignleft">
+                                            <p class="slds-truncate" title="{!f.label}">{!f.label}</p>
+                                        </dd>
+                                    </aura:iteration>
+                                </aura:if>
+                                <aura:if isTrue="{! v.missingFields.length == 0  || !v.card.showList }">
+                                    {! v.card.message}
+                                </aura:if>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+        <div class="{!'slds-card__footer ' + (v.card.visible ? '' : 'slds-hide')}">
+            <div class="Qscore-Button">
+                <aura:if isTrue="{! !(v.missingFields.length == 0 || !v.card.showList) }">
+                    <button class="slds-button slds-buttonbrand stepAction current uiButton" style="border-radius: 16px;width: 57%;" onclick="{!c.onImproveButtonClick}">
+                        {! 'Improve to ' + (v.protentialScore > 95 ? 'an A+' :  (v.protentialScore > 90 ? 'an A' :  
+                        (v.protentialScore > 80 ? 'a B' :  
+                        (v.protentialScore > 70 ? 'a C' :  
+                        (v.protentialScore > 60 ? 'a D' :  'a F')))))}
+                    </button>
+                </aura:if>
+            </div>
+        </div>
+    </div>-->
+</aura:component>

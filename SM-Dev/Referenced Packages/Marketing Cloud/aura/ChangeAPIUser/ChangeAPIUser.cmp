@@ -1,0 +1,24 @@
+<aura:component implements="force:appHostable" extends="et4ae5:BaseComponent" controller="et4ae5.LightningChangeAPIUserControl">
+    
+    <!--Static Resources-->
+    <ltng:require scripts="/resource/et4ae5__jQuery,/resource/et4ae5__uxds/js/bootstrap.js" styles="/resource/et4ae5__uxds/css/uxds-bootstrap.min.css,/resource/et4ae5__LightningMarketingCloudStyles,/resource/et4ae5__modStyle"/>   
+    <!--Handlers-->
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+    <aura:handler event="et4ae5:ThrowErrorMessage" action="{!c.handleErrorMessage}" />
+    
+    <!--Attributes-->
+    <aura:attribute name="userCredsJSON" type="JSON" access="private"/>
+    
+    <!--Markup-->
+    <div class="uxds">  
+        <div class="uxds container">
+            <div class="uxds row rowSpacer-component">
+                <div class="center-block hide" style="width:400px;" aura:id="userCredsDiv">
+                    <et4ae5:UserCredential json="{!v.userCredsJSON}" aura:id="userCredsJSON"/>
+                </div>
+            </div>
+            <!-- v.body is used to create the message modal -->  
+		    {!v.body}
+        </div>
+	</div>
+</aura:component>

@@ -1,0 +1,80 @@
+<aura:component controller="RecordTypeSelectionController" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction,lightning:actionOverride" access="global">
+    
+    <aura:handler name="init" value="{!this}" action="{!c.fetchListOfRecordTypes}"/>
+    
+    <aura:attribute name="lstOfRecordType" type="RecordType[]" />
+    <aura:attribute name="isOpen" type="boolean" default="false" />
+    <!--aura:attribute name="radio" type="boolean" default="{!if(recType.Name == 'Account', true, false)}" /-->
+    
+    <aura:attribute name="defaultRecType" type="Id" default="012i0000000yQvFAAU"/>
+    <aura:attribute name="selectedRecordType" type="Id"/>
+
+    <aura:attribute name="Spinner" type="Boolean" default="false"/>
+    
+    <div>
+       <aura:if isTrue="{!v.Spinner}">  
+           <div class="demo-only" style="height: 6rem;">
+               <div role="status" class="slds-spinner slds-spinner_large slds-spinner_brand">
+                   <span class="slds-assistive-text">Loading</span>
+                   <div class="slds-spinner__dot-a"></div>
+                   <div class="slds-spinner__dot-b"></div>
+               </div>
+           </div>
+           
+       </aura:if>
+   </div>
+    
+    <!-- Model Box Start -->    
+    <aura:if isTrue="{!v.isOpen}">
+        <div role="dialog" tabindex="-1" aria-labelledby="header43" class="slds-modal slds-fade-in-open">
+           
+            <div class="slds-modal__container">
+                <div class="slds-modal__header ">
+                    <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModal}">
+                        X<span class="slds-assistive-text">Cancel</span>
+                    </button>
+                    <h2 id="header43" class="slds-text-heading--medium">New Account</h2>
+                </div>
+                
+                <div class="slds-modal__content slds-p-around--medium">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-size--1-of-2 slds-large-size--1-of-2">
+                            <div class="slds-align--absolute-center">Select a Record Type</div>                            
+                        </div>
+                        <div class="slds-size--1-of-2 slds-large-size--1-of-2">
+                           
+                            <fieldset class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <aura:iteration items="{!v.lstOfRecordType}" var="recType">
+                                    <label class="slds-radio slds-p-top--small">
+                                        <tr>
+                                            <td>
+                                                <ui:inputRadio aura:id="selectid" name="Record Types" text="{!recType.Id}" />
+                                                <span class="slds-radio--faux"></span>
+                                            </td>
+                                            <td>
+                                                <span class="slds-form-element__label">{!recType.Name}</span>
+                                            </td>
+                                        </tr>
+                                    </label>
+                                
+                               </aura:iteration>
+                             </div>
+                        </fieldset>
+                            
+                        </div>&nbsp; &nbsp;
+                    </div>                   
+                </div>
+                
+                <div class="slds-modal__footer">
+                    <lightning:button class="slds-button slds-button--neutral" onclick="{!c.closeModal}">Cancel</lightning:button>
+                    <lightning:button class="slds-button slds-button--brand" onclick="{!c.createRecord}">Next</lightning:button>
+                </div>
+            </div>
+        </div>
+	</aura:if>
+
+        <div class="slds-backdrop slds-backdrop--open"></div>
+        <div>{!v.body}</div>
+        
+</aura:component>

@@ -1,0 +1,25 @@
+<aura:component >
+        
+    <!-- Attributes -->
+    <aura:attribute name="record" type="User" required="true" />
+    
+    <!-- Events -->
+ 	<aura:registerEvent name="UpdateRecord" type="et4ae5:UpdateRecord"/>
+        
+    <!-- Component Body -->
+    <tr>      
+        <td>
+            <ui:outputText class="text-component" value="{!v.record.Name}" />
+     	</td>
+        <td align="center">
+			<input id="user" class="{!v.record.Id + 'user'}" type="checkbox" />
+        </td>
+        <td align="center">
+			<input id="admin" class="{!v.record.Id + 'admin'}" type="checkbox" />
+        </td>        
+        <td>
+            <ui:outputText class="text-component" value="{!v.record.Username}" />
+       	</td>
+    </tr>
+    
+</aura:component>

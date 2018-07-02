@@ -1,0 +1,21 @@
+<apex:component controller="CTRL_NavButtons">
+    <apex:attribute name="docNum" type="string" assignTo="{!docflowDocNum}" description="" />
+
+    <apex:commandButton rendered="{!null != accountId}" value="Back to Account"
+        action="{!actionGotoDoc}" status="status" rerender="mainform">
+        <apex:param name="docNum" value="{!accountId}" />
+    </apex:commandButton>
+
+    <apex:commandButton rendered="{!null != caseId}" value="Back to Case"
+        action="{!actionGotoDoc}" status="status" rerender="mainform">
+        <apex:param name="docNum" value="{!caseId}" />
+    </apex:commandButton>
+
+    <apex:commandButton rendered="{!null != opportunityId}" value="Back to Opportunity"
+        action="{!actionGotoDoc}" status="status" rerender="mainform">
+        <apex:param name="docNum" value="{!opportunityId}" />
+    </apex:commandButton>
+
+    <apex:commandButton rendered="{!null != docNum}" value="SD DocFlow"
+        action="{!actionGotoDocFlow}" status="status" rerender="mainform" />
+</apex:component>

@@ -1,0 +1,10 @@
+<apex:page >
+	<!--Empty page, remove from package after empty page is deployed in a package 
+
+    Stage 1: Edit the Visualforce Page to remove the references to the public Apex classes or Visualforce components, and then upload a version of your package. Upgrade your subscribers to the stage one version.
+
+    Stage 2: Delete the Visualforce Page—and, optionally, any other related components and classes—and upload another new version of your package. Upgrade your stage one subscribers to the stage two version.
+    
+    Visualforce Pages that refer to deleted public Apex classes or Visualforce components might stop functioning. Visualforce Pages that you delete from your package aren’t automatically deleted in subscribers’ organizations.
+   -->
+</apex:page>

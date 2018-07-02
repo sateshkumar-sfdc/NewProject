@@ -1,0 +1,97 @@
+<apex:page standardController="Contact" extensions="UniqueEntry.uniqueSF1ContactExt" docType="html-5.0" action="{!onPageLoad}">
+    <script>
+        var meta = {!Ext.Meta};
+    </script>
+
+    <script type="text/javascript" src="{!Ext.FTRConfigOverride}"></script>
+
+    <c:UE_SFC />
+
+    <apex:form >
+        <!-- support navigate after save record  - Start -->
+        <apex:actionfunction name="lookupDetail" action="{!lookupDetail}" rerender="pnlScriptDupes" />
+        <!-- support navigate after save record - End -->
+        <apex:actionfunction name="action_onSave" action="{!Ext.onSave}" rerender="pnlScriptDupes" oncomplete="app.sv.doSave_complete()" />
+        <apex:actionfunction name="action_onSaveAndNew" action="{!Ext.onSaveAndNew}" rerender="pnlScriptDupes" oncomplete="app.sv.doSave_complete()" />
+        <apex:actionfunction name="action_onSaveIgnoreAlert" action="{!Ext.onSaveIgnoreAlert}" rerender="pnlScriptDupes" oncomplete="app.sv.doSave_complete()" />
+        <apex:actionfunction name="action_onSaveAndNewIgnoreAlert" action="{!Ext.onSaveAndNewIgnoreAlert}" rerender="pnlScriptDupes" oncomplete="app.sv.doSave_complete()" />
+        <apex:actionfunction name="action_seekDupes" rerender="pnlScriptDupes" action="{!seekDupes}" oncomplete="app.sv.doSeek_complete(response)" immediate="true">
+            <apex:param assignto="{!deltaString}" name="deltaString" value="" />
+            <apex:param assignto="{!mappingFieldsJSON}" name="mappingFieldsJSON" value="" />
+        </apex:actionfunction>
+        <apex:actionfunction name="action_onCancel" action="{!Cancel}" />
+        <!-- // 2016.10.21 generate page layout by Connected App Start   -->
+        <apex:actionfunction name="action_onRefreshToken" action="{!Ext.gotoNavigationPage}" rerender="pnlScriptDupes"/>
+        <!-- // 2016.10.21 generate page layout by Connected App End     -->
+        <apex:sectionheader title="{!$ObjectType.Contact.Label} {!Ext.resxMap['btn.edit']}" id="sectionHeader" />
+        <apex:dynamiccomponent componentvalue="{!Ext.dynamicPageBlock}" rendered="{!Ext.recordTypeId!='noremotesite'}" />
+        <apex:pageblock rendered="{!Ext.recordTypeId=='noremotesite'}">
+            <apex:outputpanel >
+                <br />
+                {!Ext.resxMap['msg.info.remotesite']}<br />
+                <br />
+                {!Ext.resxMap['msg.info.remotesite.create']}<br />
+                <br />
+                <apex:commandbutton value="{!Ext.resxMap['btn.addremotesite']}" action="{!Ext.addRemoteSite}" /><br />
+                <br />
+            </apex:outputpanel>
+        </apex:pageblock>
+        <apex:outputpanel id="pnlScriptDupes">
+            <div id="pnl-hdn-messages" style="display:none">
+                <apex:messages />
+            </div>
+            <script>
+            response = {};
+            response.isAllowSave = "{!Ext['IsAllowSave']}" == 'true' || meta.settings.isUeEnabled;
+            response.goToUrl = "{!Ext['GoToUrl']}";
+            response.recordId = "{!Entity['Id']}";
+            response.hasMessages = app.vm.uiStates.isError = $('#pnl-hdn-messages').text().trim() != '';
+			response.message = $('#pnl-hdn-messages').html();
+            response.mapDupesString = response.hasMessages ? '{"lead":[],"contact":[],"paccount":[],"baccount":[]}' : '{!mapDupesString}';
+            response.exclamation = "{!JSENCODE(Ext['Exclamation'])}";
+            console.log('Connected App section');
+            // 2016.10.21 generate page layout by Connected App Start   
+            response.returnNavigation = "{!Ext['isNavigationPage']}";
+            // 2016.10.21 generate page layout by Connected App End
+            console.log('Connected App section ends');
+            </script>
+            <apex:inputhidden id="Contact_Dupes_Ignored__c" value="{!Entity['lead_dupes_ignored__c']}" />
+            <apex:inputhidden id="Lead_Dupes_Ignored__c" value="{!Entity['Contact_Dupes_Ignored__c']}" />
+        </apex:outputpanel>
+    </apex:form>
+
+    <script type="text/javascript">
+    function mailLink(){
+
+        var $mailSt = $("textarea[id$='FIELD-MailingStreet']");
+        var $othaSt = $("textarea[id$='FIELD-OtherStreet']");
+
+        if($mailSt.size()>0 && $othaSt.size()>0){
+
+            var $mailSection = $mailSt.parent().parent().parent().parent().parent().parent();
+            var $othaSection = $othaSt.parent().parent().parent().parent().parent().parent();
+
+            if($mailSection.attr("Id") == $othaSection.attr("Id")){
+                if($mailSection.children().first().hasClass("pbSubheader")){
+                    $mailSection.children().first().append('<a onclick="copyAddress()" style="font-weight:bold;font-size:90%;float:right;cursor:pointer;margin-right:10px;">Copy Mailing Address to Other Address</a>');
+                }
+            }
+        }
+    }
+
+    $(function(){mailLink()});
+
+    function copyAddress(){
+        $("textarea[id$='FIELD-OtherStreet']").attr("value",$("textarea[id$='FIELD-MailingStreet']").val());
+        $("input[id$='FIELD-OtherCity']").attr("value",$("input[id$='FIELD-MailingCity']").val());
+        $("input[id$='FIELD-OtherState']").attr("value",$("input[id$='FIELD-MailingState']").val());
+        $("input[id$='FIELD-OtherPostalCode']").attr("value",$("input[id$='FIELD-MailingPostalCode']").val());
+        $("input[id$='FIELD-OtherCountry']").attr("value",$("input[id$='FIELD-MailingCountry']").val());
+
+        $("select[id$='FIELD-OtherCountryCode']").attr("value",$("select[id$='FIELD-MailingCountryCode']").val());
+        $("select[id$='FIELD-OtherCountryCode']").trigger("change");
+        $("select[id$='FIELD-OtherStateCode']").attr("value", $("select[id$='FIELD-MailingStateCode']").val());
+
+    }
+    </script>
+</apex:page>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <block>
+        <blockInfo>
+            <blockId>B1</blockId>
+            <joinTable>Account</joinTable>
+        </blockInfo>
+        <currency>USD</currency>
+        <filter>
+            <criteriaItems>
+                <column>Account$SalesRepCode__c</column>
+                <isUnlocked>false</isUnlocked>
+                <operator>notEqual</operator>
+                <value>,areid,pp,tadams,YETI</value>
+            </criteriaItems>
+        </filter>
+        <format>Summary</format>
+        <name>Prior Fiscal Year</name>
+        <params>
+            <name>co</name>
+            <value>0</value>
+        </params>
+        <reportType>Accounts_and_Invoices__c</reportType>
+        <scope>organization</scope>
+        <timeFrameFilter>
+            <dateColumn>Account$CreatedDate</dateColumn>
+            <interval>INTERVAL_CUSTOM</interval>
+        </timeFrameFilter>
+    </block>
+    <block>
+        <blockInfo>
+            <blockId>B0</blockId>
+            <joinTable>Account</joinTable>
+        </blockInfo>
+        <columns>
+            <field>Account$TextName</field>
+        </columns>
+        <currency>USD</currency>
+        <filter>
+            <criteriaItems>
+                <column>Account$SalesRepCode__c</column>
+                <isUnlocked>false</isUnlocked>
+                <operator>notEqual</operator>
+                <value>,areid,pp,tadams,YETI</value>
+            </criteriaItems>
+        </filter>
+        <format>Summary</format>
+        <name>Current Fiscal Year</name>
+        <params>
+            <name>co</name>
+            <value>0</value>
+        </params>
+        <reportType>Accounts_and_Invoices__c</reportType>
+        <scope>organization</scope>
+        <timeFrameFilter>
+            <dateColumn>Account$CreatedDate</dateColumn>
+            <interval>INTERVAL_CUSTOM</interval>
+        </timeFrameFilter>
+    </block>
+    <blockInfo>
+        <blockId xsi:nil="true"/>
+        <joinTable>Account</joinTable>
+    </blockInfo>
+    <description>Sales by customer YoY</description>
+    <format>MultiBlock</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account$Owner</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account$Name</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>7. YoY Sales by Customers</name>
+    <reportType>Accounts_and_Invoices__c</reportType>
+    <showDetails>false</showDetails>
+</Report>

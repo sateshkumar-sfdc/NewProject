@@ -1,0 +1,271 @@
+<apex:page showHeader="true" docType="html-5.0" sidebar="false" title="Quote Detail" Controller="CTRL_Quote_Detail"
+           id="pagediv">
+<!--
+LINKS:
+Opportunity | 'SAP Quote Detail' | LNK_Opportunity_Quote_Detail | /apex/VFP_Quote_Detail?SAP_QuoteId={!Opportunity.ENSX_EDM__Quote_Number__c}&SF_OppId={!Opportunity.Id}
+-->
+
+    <c:CMP_Header />
+
+    <apex:form id="formdiv">
+        <c:CMP_Status />
+
+        <apex:pageBlock title="SAP Quote Detail" id="pbdiv" rendered="{! null != quoteDetail}">
+            <apex:pageMessages id="messagediv"/>
+            <apex:variable var="sale" value="{!quoteDetail.Sales}"/>
+            <apex:variable var="ship" value="{!quoteDetail.Shipping}"/>
+
+            <apex:pageBlockSection columns="2" collapsible="true" id="pbsdiv" title="Quote Header">
+
+                <apex:outputText value="{!quoteDetail.SalesDocument}" label="Quote Number:"/>
+
+                <apex:outputText value="{!sale.SalesDocumentTypeDescription}" label="Quote Type:"/>
+
+                <apex:outputText value="{0,date,MM/dd/yyyy}" label="Delivery Date:">
+                    <apex:param value="{!sale.RequestedDeliveryDate}"/>
+                </apex:outputText>
+
+                <apex:outputText value="{0,date,MM/dd/yyyy}" label="Create Date:">
+                    <apex:param value="{!sale.CreateDate}"/>
+                </apex:outputText>
+
+
+                <apex:outputText value="{!quoteDetail.SoldToParty}" label="Sold To:"/>
+                <apex:outputText value="{!ship.ShipToParty}" label="Ship To:"/>
+
+                <apex:outputText value="{!quoteDetail.SoldToPartyText}" label="Sold To Name:"/>
+                <apex:outputText value="{!ship.ShipToPartyText}" label="Ship To Name:"/>
+
+                <apex:outputText value="{!quoteDetail.CustomerPurchaseOrderNumber}" label="Customer PO:"/>
+                <apex:outputText value="{0,date,MM/dd/yyyy}" label="PO Date:">
+                    <apex:param value="{!quoteDetail.ORDERDATA.CustomerPurchaseOrderDate}"/>
+                </apex:outputText>
+
+                <apex:outputText value="{!quoteDetail.SALES.BillingBlock}" label="Billing Blocked:"/>
+                <apex:outputText value="{!quoteDetail.SALES.BillingBlockDescription}"
+                                 label="Billing Block Description:"/>
+
+                <apex:outputText value="{!quoteDetail.SALES.DeliveryBlock}" label="Delivery Blocked:"/>
+                <apex:outputText value="{!quoteDetail.SALES.DeliveryBlockDescription}"
+                                 label="Delivery Block Description:"/>
+                <apex:outputText value="{0} - {1}" label="Shipping Condition:">
+                    <apex:param value="{!quoteDetail.SHIPPING.ShippingConditions}"/>
+                    <apex:param value="{!quoteDetail.SHIPPING.ShippingConditionsDescription}"/>
+                </apex:outputText>
+                <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
+
+                <apex:outputText value="{!quoteDetail.NetOrderValue}" label="Net Quote Value:"/>
+                <apex:outputText value="{!quoteDetail.TaxAmount}" label="Tax:"/>
+                <apex:outputText value="{0,date,MM/dd/yyyy}" label="Valid From:">
+                    <apex:param value="{!quoteDetail.SALES.ValidFrom}"/>
+                </apex:outputText>
+                <apex:outputText value="{0,date,MM/dd/yyyy}" label="Valid To:">
+                    <apex:param value="{!quoteDetail.SALES.ValidTo}"/>
+                </apex:outputText>
+                <apex:outputText value="{0,date,MM/dd/yyyy}" label="Requested Delivery Date:">
+                    <apex:param value="{!quoteDetail.SALES.RequestedDeliveryDate}"/>
+                </apex:outputText>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection columns="1" collapsible="true" title="Partners">
+                <apex:actionFunction action="{!gotoCustomerPage}" name="gotoCustomerPage" reRender="page">
+                    <apex:param name="selectedCustomerId" value=""/>
+                </apex:actionFunction>
+
+                <apex:pageblockTable value="{!Partners}" var="p">
+                    <apex:column headerValue="Action" width="10%">
+                        <apex:commandButton onclick="gotoCustomerPage('{!p.CustomerNumber}');return false;"
+                                            value="Customer Detail"/>
+                    </apex:column>
+                    <apex:column headerValue="Function" value="{!p.PartnerFunctionName}"/>
+                    <apex:column headerValue="CustomerNumber" value="{!p.CustomerNumber}"/>
+                    <apex:column headerValue="Name" value="{!p.PartnerName}"/>
+                    <apex:column headerValue="Street" value="{!p.Street}"/>
+                    <apex:column headerValue="City" value="{!p.City}"/>
+                    <apex:column headerValue="Region" value="{!p.Region}"/>
+                    <apex:column headerValue="Postal Code" value="{!p.PostalCode}"/>
+                </apex:pageblockTable>
+
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection columns="1" collapsible="true" title="Items">
+
+                <apex:actionFunction id="itemdetail" action="{!ItemDetailPage}" name="itemdetail" rerender="formdiv"
+                                     status="status">
+                    <apex:param name="itemnumber" value=""/>
+                </apex:actionFunction>
+
+                <apex:pageblockTable value="{!Items}" var="o">
+                    <apex:column headerValue="Action">
+                        <apex:commandButton onclick="itemdetail('{!o.item.ItemNumber}');return false;"
+                                value="Item Detail"/>
+                    </apex:column>
+                    <apex:column headerValue="">
+                        <apex:outputText value="{! IF( o.item.ItemNumber == SelectedItem.ItemNumber, '↠','') }">
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Item Number" value="{!o.item.ItemNumber}"/>
+                    <apex:column headerValue="Material" value="{!o.item.Material}"/>
+                    <apex:column headerValue="Material Desc" value="{!o.item.ItemDescription}"/>
+                    <apex:column headerValue="Qty." value="{!o.item.OrderQuantity}"/>
+                    <apex:column headerValue="UOM" value="{!o.item.QuantityUOM}"/>
+                    <apex:column headerValue="Price Per">
+                        <apex:outputText value="{1,number,###,##0.00} {0}">
+                            <apex:param value="{!o.item.SalesDocumentCurrency}"/>
+                            <apex:param value="{!o.item.NetItemPrice}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Total" value="{!o.item.NetOrderValue}"/>
+                    <apex:column headerValue="Plant" value="{!o.item.Plant}"/>
+                    <apex:column headerValue="UOM" value="{!o.item.QuantityUOM}"/>
+                    <apex:column headerValue="Requested Ship">
+                        <apex:outputText value="{0}">
+                            <apex:param value="{!o.FormattedScheduleLineDate}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="ATP">
+                        <apex:outputText value="{0,date,MM/dd/yyyy}">
+                            <apex:param value="{!o.maxItemSchedule.ScheduleLineDate}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Item Cat">
+                        <apex:outputText value="{0} {1}">
+                            <apex:param value="{!o.item.ItemCategory}"/>
+                            <apex:param value="{!o.item.ItemCategoryDescription}"/>
+                        </apex:outputText>
+                    </apex:column>
+
+                    <apex:column headerValue="Billing Block">
+                        <apex:outputText value="{! IF(o.item.BillingBlockStatus == '','Not Blocked',o.item.BillingBlockStatus) }"/>
+                    </apex:column>
+                    <apex:column headerValue="Delivery Block">
+                        <apex:outputText value="{!IF(o.item.DeliveryBlockStatus == '','Not Blocked',o.item.DeliveryBlockStatus)}"/>
+                    </apex:column>
+
+                    <apex:column headerValue="Free Freight">
+                        <apex:outputText value="{!o.item.CustomerConditionGroup1Description}" />
+                    </apex:column>
+                    <apex:column headerValue="Discount">
+                        <apex:outputText value="{!o.item.CustomerConditionGroup2Description}" />
+                    </apex:column>
+                </apex:pageblockTable>
+
+            </apex:pageBlockSection>
+
+            <apex:pageBlockButtons >
+                <c:CMP_NavButtons docNum="{!quoteDetail.SalesDocument}" />
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+
+        <apex:pageBlock title="Item Detail" rendered="{! null != SelectedItem }">
+            <apex:pageBlockSection columns="2" collapsible="true" title="Item Header">
+
+                <apex:outputText value="{!SelectedItem.ItemNumber}" label="Item Number:"/>
+                <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
+
+                <apex:outputText value="{!SelectedItem.Material}" label="Material:"/>
+                <apex:outputText value="{!SelectedItem.ItemDescription}" label="Description:"/>
+
+                <apex:outputText value="{!SelectedItem.OrderQuantity}" label="Qty:"/>
+                <apex:outputText value="{!SelectedItem.QuantityUOM}" label="UCOM:"/>
+
+                <apex:outputText value="{1,number,###,##0.00} {0}" label="Price Per:">
+                    <apex:param value="{!SelectedItem.SalesDocumentCurrency}"/>
+                    <apex:param value="{!SelectedItem.NetItemPrice}"/>
+                </apex:outputText>
+                <apex:outputText value="{!SelectedItem.Plant}" label="Plant:"/>
+
+                <apex:outputText value="{1,number,###,##0.00} {0}" label="Total:">
+                    <apex:param value="{!SelectedItem.SalesDocumentCurrency}"/>
+                    <apex:param value="{!SelectedItem.NetOrderValue}"/>
+                </apex:outputText>
+                <apex:outputText value="{!SelectedItem.ItemCategory}" label="Item Cat:"/>
+
+                <apex:outputText value="{!SelectedItem.BillingBlockStatusDescription}" label="Billing Block:"/>
+
+                <apex:outputText value="{!SelectedItem.DeliveryBlockDescription}" label="Delivery Block:"/>
+
+                <apex:outputText value="{!SelectedItem.Route}" label="Route:"/>
+
+                <apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
+
+                <apex:outputText label="Free Freight:" value="{!SelectedItem.CustomerConditionGroup1Description}"/>
+
+                <apex:outputText label="Discount:" value="{!SelectedItem.CustomerConditionGroup2Description}"/>
+
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection columns="1" collapsible="true" title="Schedule Lines">
+                <apex:pageblockTable value="{!SelectedItemSchedule}" var="s">
+                    <apex:column headerValue="Schedule Line Number" value="{!s.ScheduleLineNumber}"/>
+                    <apex:column headerValue="Schedule Line Date">
+                        <apex:outputText value="{0,date,MM/dd/yyyy}">
+                            <apex:param value="{!s.ScheduleLineDate}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Quoted Quantity" value="{!s.OrderQuantity}"/>
+                    <apex:column headerValue="Confirmed Quantity" value="{!s.ConfirmedQuantity}"/>
+                    <apex:column headerValue="Description" value="{!s.ScheduleLineCategoryDescription}"/>
+                </apex:pageblockTable>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection columns="1" collapsible="true" title="Pricing Conditions" rendered="false">
+                <apex:pageblockTable value="{!SelectedConditions}" var="c">
+                    <apex:column headerValue="Type" value="{!c.ConditionType}" width="10%"/>
+                    <apex:column headerValue="Name" value="{!c.ConditionTypeName}"/>
+                    <apex:column headerValue="Rate">
+                        <apex:outputText value="{0,number,###,##0.00} {1}">
+                            <apex:param value="{!c.Rate}"/>
+                            <apex:param value="{!c.RateUnit}"/>
+                        </apex:outputText>
+                    </apex:column>
+
+                    <apex:column headerValue="Value">
+                        <apex:outputText value="{0,number,###,##0.00} {1}">
+                            <apex:param value="{!c.ConditionValue}"/>
+                            <apex:param value="{!c.CurrencyKey}"/>
+                        </apex:outputText>
+                    </apex:column>
+                </apex:pageblockTable>
+            </apex:pageBlockSection>
+
+        </apex:pageBlock>
+
+        <apex:pageBlock title="Payment Cards" rendered="{! quoteDetail!=null}">
+            <apex:pageBlockSection columns="1" collapsible="true" title="Payment Details">
+                <apex:pageblockTable value="{!PaymentCards}" var="c">
+                    <apex:column headerValue="Billing Plan" value="{!c.BillingPlan}"/>
+                    <apex:column headerValue="Billing Plan Item" value="{!c.BillingPlanItem}"/>
+                    <apex:column headerValue="Card Type" value="{!c.CreditCardType}"/>
+                    <apex:column headerValue="Card Number" value="{!c.CreditCardNumber}"/>
+                    <apex:column headerValue="Payment Card Suffix" value="{!c.PaymentCardSuffix}"/>
+                    <apex:column headerValue="Expiration Date">
+                        <apex:outputText value="{0,date,MM/yy}">
+                            <apex:param value="{!c.ValidToDate}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Cardholder name" value="{!c.CardholderName}"/>
+                    <apex:column headerValue="Bill Amount">
+                        <apex:outputText value="{0,number,###,##0.00}">
+                            <apex:param value="{!c.BillAmount}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Authorized Amount">
+                        <apex:outputText value="{0,number,###,##0.00}">
+                            <apex:param value="{!c.AuthorizedAmount}"/>
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column headerValue="Amount Changed" value="{!c.AmountChanged}"/>
+                    <apex:column headerValue="Authorization Type" value="{!c.AuthorizationType}"/>
+                    <apex:column headerValue="Billing Plan Authorization" value="{!c.BillingPlanAuthorization}"/>
+                    <apex:column headerValue="Result Code" value="{!c.ResultCode}"/>
+                    <apex:column headerValue="Result Text" value="{!c.ResultText}"/>
+                </apex:pageblockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+
+    </apex:form>
+
+    <c:CMP_Footer />
+
+</apex:page>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>RMA Support Team</name>
+    <publicFolderAccess>ReadOnly</publicFolderAccess>
+    <sharedTo>
+        <role>Custom_Logo_Support_Manager</role>
+        <role>Custom_Logo_Support_User</role>
+        <role>Customer_Experience_Director</role>
+        <role>Dealer_Support_Manager</role>
+        <role>Dealer_Support_User</role>
+        <role>Outfitter_Support_Manager</role>
+        <role>Outfitter_Support_User</role>
+    </sharedTo>
+</EmailFolder>

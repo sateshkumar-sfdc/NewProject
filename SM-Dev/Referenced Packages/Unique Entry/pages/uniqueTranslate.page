@@ -1,0 +1,61 @@
+<apex:page controller="UniqueEntry.uniqueTranslateController">
+	<c:overlayStatus />
+    <apex:includeScript value="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" />
+    
+    <script type="text/javascript">
+    	var isChanged = false;
+        
+        $j = jQuery.noConflict();
+        
+        function resizeParentFrame(){
+            if(window != window.parent){
+                parent.jQuery('iframe#multilingualIframe').height(jQuery('html').height());
+            }
+        }
+        
+        function onAjaxStop(){
+            resizeParentFrame();
+            isChanged = false;
+        }
+        
+		function save(){
+			jQuery('.btnSave').click();
+		}
+        
+        jQuery(function(){
+            resizeParentFrame();
+            jQuery(window).resize(resizeParentFrame);
+        })
+    </script>
+    
+    <style>
+    	html,body { margin:0!important; padding:0!important; background:#f1f1f1; }
+    </style>
+	<apex:form id="pb">
+		<apex:pagemessages />
+		<apex:pageblock mode="edit">
+			<apex:pageblocksection title="Language">
+				<apex:pageblocksectionitem >
+					<apex:outputtext value="Choose a language to translate" />
+                    <apex:outputPanel >
+                        <apex:selectlist value="{!CurrentLanguage}" multiselect="false" size="1" onchange="if(isChanged && confirm('You have unsaved changes. Do you want to save before switching language?')) jQuery('.btnSave').click(); jQuery('.btnDiscard').click();">
+                            <apex:selectoptions value="{!LanguageList}" />
+                        </apex:selectlist>
+                        <apex:commandbutton value="Save" action="{!btnSave_onClick}" status="overlayStatus" oncomplete="window.parent.child_configuration_onSave('multilingualIframe','success')" rerender="pb" styleclass="btnSave" />
+                        <apex:commandbutton value="Discard" action="{!btnDiscard_onClick}" status="overlayStatus" rerender="pb" styleclass="btnDiscard" />
+                    </apex:outputPanel>
+				</apex:pageblocksectionitem>
+			</apex:pageblocksection>
+			
+			<apex:pageblocksection title="Translate" columns="1">
+				<apex:pageblocktable var="key" value="{!keys}">
+					<apex:column style="width:1%;white-space:nowrap" headerValue="Phrases" value="{!key}"/>
+					<apex:column style="width:30%" headerValue="Default" value="{!MapResxBase[key]}"/>
+					<apex:column headerValue="{!CurrentLanguageText}">
+						<apex:inputtextarea value="{!MapResx[key]}" style="width:90%" rows="2" onchange="isChanged = true"/>
+					</apex:column>
+				</apex:pageblocktable>
+			</apex:pageblocksection>
+		</apex:pageblock>
+	</apex:form>
+</apex:page>

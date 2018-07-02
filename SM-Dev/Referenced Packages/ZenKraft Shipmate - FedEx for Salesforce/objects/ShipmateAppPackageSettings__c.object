@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>Used by ZenKraft to configure the app when building an app trial</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>UseAllianceCampaignStartPage__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Use Alliance Campaign Start Page</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>FedEx Shipmate App Package Settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

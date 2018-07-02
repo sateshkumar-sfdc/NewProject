@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Intgeration Log</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>IntgerationLogs</value>
+    </caseValues>
+    <fields>
+        <help><!-- If any error happen it will record --></help>
+        <label><!-- Log --></label>
+        <name>Log__c</name>
+    </fields>
+    <fields>
+        <label><!-- Object Name --></label>
+        <name>Object_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- RecordId --></label>
+        <name>RecordId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Name --></label>
+        <name>ServiceName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Target System --></label>
+        <name>Target_System__c</name>
+    </fields>
+    <fields>
+        <label><!-- Time Stamp --></label>
+        <name>Time_Stamp__c</name>
+    </fields>
+    <layouts>
+        <layout>WebService Log Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,39 @@
+<apex:page controller="geopointe.s_EnableTM" showHeader="true" sidebar="{!userSettings.geopointe__Hide_Sidebar__c = false}" tabStyle="Geopointe_Setup__tab" title="Geopointe - Thematic Map Terms">
+	<apex:sectionHeader title="Geopointe" subtitle="Thematic Map Terms" rendered="{! orgAccess = true }"/>
+	<apex:pageMessages id="pageMessages"></apex:pageMessages>
+	<apex:form >
+		<apex:outputPanel id="wrapperDIV" layout="block" style="margin: 0 10px;">
+			<apex:outputPanel id="breadcrumbDIV" layout="block" style="font-size: 8pt; margin: 0 0 3px 0;" >
+				<apex:commandLink value="« Back to Geopointe Setup" action="{!goToMainSetup}" />
+			</apex:outputPanel>
+			<apex:outputPanel id="noPerm" layout="block" rendered="{! orgAccess = false }">
+				<p>Thematic Maps has been disabled for your org.  Please contact Geopointe Support.</p>
+			</apex:outputPanel>
+			<apex:outputPanel id="hasPerm" layout="block" rendered="{! orgAccess = true }">
+				<apex:pageBlock >
+					<table style="margin: 0 auto;"><tr><td>
+						<div style="font-size: 16pt; font-weight: bold;">Approve Use of Thematic Maps</div>
+						<div style="width: 600px; font-size: 12pt; margin: 10px 0;">
+							<p>
+							To use Geopointe Thematic Maps, a very small amount of your Salesforce data needs to be 
+							securely sent to and stored on Geopointe's servers.  
+							</p>
+							<p>As an administrator, you have control over what data is sent to Geopointe and no data leaves Salesforce 
+							without explicit action on a user's part. Additionally, once the data is on Geopointe's secure servers, you 
+							have the ability to remotely delete it. You can read more about Geopointe's security practices on our 
+							<a href="http://help.geopointe.com/customer/en/portal/articles/1811020-data-security-practices" target="_blank">data security page</a>.
+							</p>
+							<p>
+							If you understand the above and wish to utilize Geopointe Thematic Maps, check the box below and click the Enable button.
+							</p> 
+						</div>
+						<div><apex:inputCheckbox value="{!acceptTerms}"/> I understand the above and wish to use Geopointe Thematic Maps.</div>
+						<div>
+							<apex:commandButton action="{!acceptTerms}" value="Enable"/>
+						</div>
+					</td></tr></table>
+				</apex:pageBlock>
+			</apex:outputPanel>
+		</apex:outputPanel>
+	</apex:form>
+</apex:page>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Return Request Confirmation (RMA)</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Your Return Request Confirmation
+
+Hello,
+
+We are so sorry that you have to return your YETI product.  We know how disappointing it can be to receive items and have them not work out for you, so we are going to do our best to make this process quick and easy.  This email highlights and explains the return process in order to give you a better understanding of how we do things!
+
+NOTE - You will need access to a printer to print off our return documents.
+
+
+Your Return Information:
+
+Your Return ID:
+
+RMA:
+
+Items returned:
+
+Case ID:
+
+
+
+To return your YETI product please follow the steps below:
+
+**IMPORTANT** We want you to have your replacement as quickly as possible so you can keep on using your YETI product!  In exchange, we ask that you have your return cooler back in our hands in 7 business days from the day you receive the new product. If the return product has not been received by the end of the 7th day, the card on file will be charged.
+After your new product arrives, print off the attached RMA form and include it with your package. (Please place it inside the cooler or along with the items you are returning.)
+Download and print the prepaid FedEx shipping label we emailed you to return your YETI product.
+A separate order confirmation email will be sent to you.
+
+** Please ask for a copy of your receipt confirming your drop off at FedEx and keep this for your records. **
+
+
+
+If you need to find an authorized FedEx location in your area that will accept the return product, please visit the FedEx.com website and use their Find a Location Tool.  *Note that drop boxes cannot accept these packages. Additionally, a FedEx pick up can be arranged. Please let us know if you need our assistance in scheduling a FedEx pick up. Please ensure your property is secure in the instance of a pick up.
+
+
+
+Please make sure your YETI is cleaned out and dry on the inside. We kindly ask that you protect your product during shipping by boxing your cooler.
+
+Once your return has been received at YETI, you will receive an email confirmation from FedEx.
+
+Please let us know if you have any questions throughout this process.
+
+If for any reason you feel that you will not be able to abide by these terms, please contact us immediately!
+
+Sincerely,
+
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+YETI
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

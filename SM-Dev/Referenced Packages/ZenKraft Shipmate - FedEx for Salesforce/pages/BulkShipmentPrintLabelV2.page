@@ -1,0 +1,43 @@
+<apex:page tabStyle="zkfedex__BulkShipment__c" standardController="zkfedex__BulkShipment__c" extensions="zkfedex.BulkShipmentPrintLabelV2Ctrl" action="{!init}">
+	<!--  Actual Page -->
+	<apex:form id="mainForm" >
+
+		<apex:sectionHeader title="Bulk Shipment" subtitle="Printing"/>
+
+		<apex:commandLink action="{!backToPreviousPage}" value="Back to Previous Page (will end printing)"/>
+
+		<apex:actionPoller interval="5" action="{!printLabels}" rerender="mainForm" enabled="{!start}"/>
+
+		<apex:pageBlock mode="detail">
+			<apex:pageMessage title="Note:" summary="Please do not leave this page until all labels are printed" severity="info" strength="1"/>
+			<c:MessageListDisplay id="MessageList" msgList="{!MessageList}"/>
+
+
+			<!-- Select Printer Section -->
+			<apex:pageBlockSection collapsible="false" title="Selected Printer">
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Selected Printer"/>
+					<apex:selectList value="{!selectedThermalPrinter}" size="1" multiselect="false" disabled="{!NOT(printEnabled)}">
+						<apex:actionSupport event="onchange"/>
+						<apex:selectOptions value="{!thermalPrinterNameOptions}"/>
+					</apex:selectList>
+				</apex:pageBlockSectionItem>
+			</apex:pageBlockSection>
+
+
+			<!-- Print Section -->
+			<apex:pageBlockSection collapsible="false" title="Print">
+				<!-- Bulk Shipment Name -->
+				<apex:outputField value="{!selectedShipment.Name}"/>
+
+				<!-- Start Button -->
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value=""/>
+					<apex:commandButton value="Start Printing" action="{!startPrinting}" disabled="{!NOT(printEnabled)}" reRender="mainForm"/>
+				</apex:pageBlockSectionItem>
+			</apex:pageBlockSection>
+
+		</apex:pageBlock>
+
+	</apex:form>
+</apex:page>

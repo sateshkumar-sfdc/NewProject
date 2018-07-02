@@ -1,0 +1,476 @@
+<apex:page standardController="Contact" extensions="UniqueEntry.uniqueContactExtension"  showHeader="false">
+  
+    <apex:includeScript value="{!$Resource.UniqueEntry__jQuery}" />
+    <apex:includeScript value="{!URLFOR($Resource.UniqueEntry__uniqueEntryResources, 'json2.js')}" />
+    <script src="{!$Site.prefix}/support/console/28.0/integration.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+    
+        var obj = 'Contact';
+       
+        function addToOnload(fn){
+            var old = window.onload;
+            window.onload = function(){
+                old(); fn();
+            }
+        }
+      
+        function newWindowOrTab(url, recordId){
+        
+           if(url.indexOf("visual.force") != -1)
+               {
+                    url = "{!$site.prefix}/"+recordId;
+               }
+           
+           url = url.trim();
+           if( (typeof sforce.one != 'undefined') && (sforce.one != null) ){
+               if(recordId != null && recordId != ''){
+                   sforce.one.navigateToSObject(recordId);
+               }
+           } else if(sforce.console.isInConsole()){
+               sforce.console.openPrimaryTab(null, url, true);
+                   
+           } else {
+               window.open(url);
+           }
+       }  
+    $(function(){
+            seekDupes();
+       }) 
+    
+    </script>
+
+    <apex:form >
+        <apex:actionfunction name="seekDupes" action="{!seekDupes}" rerender="dupes" status="initStatus"/>
+                
+        <apex:outputPanel id="dupes">
+        
+            <script type='text/javascript'>
+                $("a[href*='salesforce']").attr('target','_blank');
+            </script>
+
+            <apex:pageBlock mode="detail">
+            
+                <apex:actionStatus id="initStatus">
+                    <apex:facet name="start">
+                        <apex:outputpanel ><img src='/img/loading.gif' alt='...'/> loading ...</apex:outputpanel> 
+                    </apex:facet>
+                </apex:actionStatus>
+            
+            
+                <!-- CONTACTS -->
+                
+                <apex:pageBlockSection title="Related {!$ObjectType.Contact.labelPlural}" rendered="{!contactDupesFound}" columns="1">
+
+                    <apex:outputPanel >
+                        
+                        <apex:pageBlockTable style="table-layout:fixed;"
+                        id="contactDupes" value="{!contactDupes}" var="d"
+                        styleClass="dupeTable"
+                        onRowMouseOver="this.style.background='white';"
+                        onRowMouseOut="this.style.background='';">
+
+                            <apex:repeat var="fieldName" value="{!selectedContactFields}">
+                                <apex:column headerValue="{!IF(AND($ObjectType.Contact.Fields[fieldName].type='reference',RIGHT($ObjectType.Contact.Fields[fieldName].Label,3)=' ID'),LEFT($ObjectType.Contact.Fields[fieldName].Label,LEN($ObjectType.Contact.Fields[fieldName].Label)-3),$ObjectType.Contact.Fields[fieldName].Label)}"
+                                style="width:{!100/(selectedContactFields.size)}%"
+                                rendered="{!fieldName == 'name'}">
+                                
+                                    <!--Displays if User has access to Record -->
+                                    <apex:outputPanel rendered="{!d.readable}">
+                                        <a title="View (New Window)" href="#"
+                                        onclick="newWindowOrTab('{!URLFOR($Action.Contact.View,d.contact.Id)}', '{!d.contact.Id}');">
+                                            <apex:outputText escape="true">
+                                                {!d.contact.Name}
+                                            </apex:outputText>
+                                        </a>
+                                    </apex:outputPanel>
+                                
+                                    <!-- Displays if User does NOT have access to Record -->
+                                    <apex:outputPanel rendered="{!NOT(d.readable)}">
+                                        <a title="View (New Window)"
+                                        style="cursor: pointer; text-decoration: underline"
+                                        onclick="alert('You do not have access to view this record.\nYou should contact the owner(s) with any questions.');">
+                                            <apex:outputText escape="true">
+                                                {!d.contact.Name}
+                                            </apex:outputText>
+                                        </a>
+                                    </apex:outputPanel>
+                                </apex:column>
+
+                                <apex:column headerValue="{!IF(AND($ObjectType.Contact.Fields[fieldName].type='reference',RIGHT($ObjectType.Contact.Fields[fieldName].Label,3)=' ID'),LEFT($ObjectType.Contact.Fields[fieldName].Label,LEN($ObjectType.Contact.Fields[fieldName].Label)-3),$ObjectType.Contact.Fields[fieldName].Label)}"
+                                style="width:{!100/(selectedContactFields.size)}%"
+                                rendered="{!fieldName == 'ownerid'}">
+                                
+                                    <!-- Displays for Queue Owner -->
+                                    <apex:outputText escape="true" rendered="{!LEFT(d.contact.OwnerId,3)<>'005'}">
+                                        {!d.contact.Owner.Name}
+                                    </apex:outputText>
+                                    
+                                    <!-- Displays when Owner is NOT a Queue -->
+                                    <apex:outputPanel rendered="{!LEFT(d.contact.OwnerId,3)='005'}">
+                                        <a title="View (New Window)" href="#"
+                                        onclick="newWindowOrTab('{!$Site.prefix}/{!d.contact.ownerId}', '{!d.contact.ownerId}');">
+                                            <apex:outputText escape="true">
+                                                {!d.contact.Owner.Name}
+                                            </apex:outputText>
+                                        </a>
+                                    </apex:outputPanel>
+                                    
+                                    <!-- Displays when Owner NOT a Queue AND NOT the current user -->
+                                    <apex:outputPanel rendered="{!AND(LEFT(d.contact.OwnerId,3)='005',d.contact.OwnerId<>$User.Id)}">
+                                        <a title="Send Email" href="mailto:{!d.contact.owner.email}" target="_blank">
+                                            <apex:image value="{!URLFOR($Resource.UniqueEntry__uniqueEntryResources, 'envelope.jpg')}" alt="Send Email" styleClass="littleIcons" />
+                                        </a>
+                                    </apex:outputPanel>
+                                </apex:column>
+
+                                <apex:column headerValue="{!IF(AND($ObjectType.Contact.Fields[fieldName].type='reference',RIGHT($ObjectType.Contact.Fields[fieldName].Label,3)=' ID'),LEFT($ObjectType.Contact.Fields[fieldName].Label,LEN($ObjectType.Contact.Fields[fieldName].Label)-3),$ObjectType.Contact.Fields[fieldName].Label)}"
+                                style="width:{!100/(selectedContactFields.size)}%; white-space: normal; overflow: hidden; text-overflow: ellipsis;"
+                                rendered="{!fieldName != 'name' && fieldName != 'ownerid'}">
+                                    <span style="width: 100px;">
+                                        <c:displayAddress rendered="{!$ObjectType.Contact.Fields[fieldName].type=='address' && (settings.UniqueEntry__Contact_Security_Level__c=='low' || d.readable)}"
+	                                   		value="{!d.contact}" prefix="{!TRIM(SUBSTITUTE(fieldName,'address',''))}">
+	                                   	</c:displayAddress>
+	                                   	<apex:outputpanel rendered="{!$ObjectType.Contact.Fields[fieldName].type!='address'}">
+                                        	<apex:outputField value="{!d.contact[fieldName]}" rendered="{!OR(settings.UniqueEntry__Contact_Security_Level__c='low',d.readable)}" />
+                                        </apex:outputpanel>
+                                        <!-- <apex:outputField value="{!d.contact[fieldName]}" rendered="{!OR(settings.UniqueEntry__Contact_Security_Level__c='low',d.readable)}" /> -->
+                                        <apex:outputText escape="false" value="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" rendered="{!NOT(OR(settings.UniqueEntry__Contact_Security_Level__c='low',d.readable))}" />
+                                    </span>
+                                </apex:column>
+                            </apex:repeat>
+                            
+    <!--  FOR TESTING ONLY       -->
+    <apex:column headerValue="Score" rendered="{!diagnose}">
+        <a onclick="alert('{!d.breakdown}')">{!d.confidence}</a>
+    </apex:column>
+
+                        </apex:pageBlockTable>
+
+                        <apex:outputPanel rendered="{!moreContacts}" styleClass="dupeMoreLink" layout="block">
+                            {!currentContactDisplay}
+                            <apex:commandLink action="{!showMoreContacts}" reRender="dupes" immediate="true">
+                                show more...
+                            </apex:commandLink>
+                        </apex:outputPanel>
+                        
+                    </apex:outputPanel>
+                        
+                </apex:pageBlockSection>
+
+            
+                <!-- LEADS -->
+            
+                <apex:pageBlockSection title="Related {!$ObjectType.Lead.labelPlural}" rendered="{!leadDupesFound}" columns="1">
+
+                    <apex:outputPanel >
+
+                        <apex:pageBlockTable style="table-layout:fixed;" id="leadDupes" value="{!leadDupes}" var="d" styleClass="dupeTable"
+                        onRowMouseOver="this.style.background='white';"
+                        onRowMouseOut="this.style.background='';">
+
+                            <apex:repeat var="fieldName" value="{!selectedLeadFields}">
+                            
+                                <apex:column headerValue="{!IF(AND($ObjectType.Lead.Fields[fieldName].type='reference',RIGHT($ObjectType.Lead.Fields[fieldName].Label,3)=' ID'),LEFT($ObjectType.Lead.Fields[fieldName].Label,LEN($ObjectType.Lead.Fields[fieldName].Label)-3),$ObjectType.Lead.Fields[fieldName].Label)}"
+                                style="width:{!100/(selectedLeadFields.size)}%"
+                                rendered="{!fieldName == 'name'}">
+                                
+                                    <!-- Displays if User has access to Record -->
+                                    <apex:outputPanel rendered="{!d.readable}">
+                                        <a title="View (New Window)" href="#" onclick="newWindowOrTab('{!URLFOR($Action.Lead.View,d.lead.Id)}', '{!d.lead.Id}');">
+                                            <apex:outputText escape="true">
+                                                {!d.lead.Name}
+                                            </apex:outputText>
+                                        </a>
+                                    </apex:outputPanel>
+                                    
+                                    <!-- Displays if User does NOT have access to Record -->
+                                    <apex:outputPanel rendered="{!NOT(d.readable)}">
+                                        <a title="View (New Window)"
+                                        style="cursor: pointer; text-decoration: underline"
+                                        onclick="alert('You do not have access to view this record.\nYou should contact the owner(s) with any questions.');">
+                                            <apex:outputText escape="true">
+                                                {!d.lead.Name}
+                                            </apex:outputText>
+                                        </a>
+                                    </apex:outputPanel>
+                                </apex:column>
+
+                                <apex:column headerValue="{!IF(AND($ObjectType.Lead.Fields[fieldName].type='reference',RIGHT($ObjectType.Lead.Fields[fieldName].Label,3)=' ID'),LEFT($ObjectType.Lead.Fields[fieldName].Label,LEN($ObjectType.Lead.Fields[fieldName].Label)-3),$ObjectType.Lead.Fields[fieldName].Label)}"
+                                style="width:{!100/(selectedLeadFields.size)}%"
+                                rendered="{!fieldName == 'ownerid'}">
+                                
+                                    <!-- Displays for Queue Owner -->
+                                    <apex:outputText escape="true" rendered="{!LEFT(d.lead.OwnerId,3)<>'005'}">
+                                        {!d.lead.Owner.Name}
+                                    </apex:outputText>
+                                    
+                                    <!-- Displays when Owner is NOT a Queue -->
+                                    <apex:outputPanel rendered="{!LEFT(d.lead.OwnerId,3)='005'}">
+                                        <a title="View (New Window)" href="#"
+                                        onclick="newWindowOrTab('{!$Site.prefix}/{!d.lead.ownerId}', '{!d.lead.ownerId}');">
+                                            <apex:outputText escape="true">
+                                                {!d.lead.Owner.Name}
+                                            </apex:outputText>
+                                        </a>
+                                    </apex:outputPanel>
+                                    
+                                    <!-- Displays when Owner NOT a Queue AND NOT the current user -->
+                                    <apex:outputPanel rendered="{!AND(LEFT(d.lead.OwnerId,3)='005',d.lead.OwnerId<>$User.Id)}">
+                                        <a title="Send Email" href="mailto:{!d.lead.owner.email}" target="_blank">
+                                            <apex:image value="{!URLFOR($Resource.UniqueEntry__uniqueEntryResources, 'envelope.jpg')}" alt="Send Email" styleClass="littleIcons" />
+                                        </a>
+                                    </apex:outputPanel>
+                                </apex:column>
+
+                                <apex:column headerValue="{!IF(AND($ObjectType.Lead.Fields[fieldName].type='reference',RIGHT($ObjectType.Lead.Fields[fieldName].Label,3)=' ID'),LEFT($ObjectType.Lead.Fields[fieldName].Label,LEN($ObjectType.Lead.Fields[fieldName].Label)-3),$ObjectType.Lead.Fields[fieldName].Label)}"
+                                style="width:{!100/(selectedLeadFields.size)}%; white-space: normal; overflow: hidden; text-overflow: ellipsis;"
+                                rendered="{!fieldName != 'name' && fieldName != 'ownerid'}">
+                                    <span>
+                                        <c:displayAddress rendered="{!$ObjectType.Lead.Fields[fieldName].type=='address' && (settings.UniqueEntry__Lead_Security_Level__c=='low' || d.readable)}"
+	                                   		value="{!d.lead}" prefix="{!TRIM(SUBSTITUTE(fieldName,'address',''))}">
+	                                   	</c:displayAddress>
+	                                   	<apex:outputpanel rendered="{!$ObjectType.Lead.Fields[fieldName].type!='address'}">
+                                            <apex:outputField value="{!d.lead[fieldName]}" rendered="{!OR(settings.UniqueEntry__Lead_Security_Level__c='low',d.readable)}" />
+                                        </apex:outputpanel>
+                                        <!-- <apex:outputField value="{!d.lead[fieldName]}" rendered="{!OR(settings.UniqueEntry__Lead_Security_Level__c='low',d.readable)}" /> -->
+                                        <apex:outputText escape="false" value="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" rendered="{!NOT(OR(settings.UniqueEntry__Lead_Security_Level__c='low',d.readable))}" />
+                                    </span>
+                                </apex:column>
+                            </apex:repeat>
+                            
+    <!--  FOR TESTING ONLY       -->
+    <apex:column headerValue="Score" rendered="{!diagnose}">
+        <a onclick="alert('{!d.breakdown}')">{!d.confidence}</a>
+    </apex:column>
+
+                        </apex:pageBlockTable>
+                        
+                        <apex:outputPanel rendered="{!moreLeads}" styleClass="dupeMoreLink" layout="block">
+                            {!currentLeadDisplay}
+                            <apex:commandLink action="{!showMoreLeads}" reRender="dupes" immediate="true">
+                                show more...
+                            </apex:commandLink>
+                        </apex:outputPanel>
+                        
+                    </apex:outputPanel>
+                    
+                </apex:pageBlockSection>
+                
+
+                <!-- PERSON ACCOUNTS -->
+
+                <apex:pageBlockSection title="Related Person Accounts" rendered="{!pAccDupesFound}" columns="1">
+
+                    <apex:outputPanel >
+                    
+                        <apex:pageBlockTable style="table-layout:fixed;display:block;"
+                        id="pAccDupes" value="{!pAccDupes}" var="d"
+                        styleClass="dupeTable"
+                        onRowMouseOver="this.style.background='white';"
+                        onRowMouseOut="this.style.background='';">
+                        
+                            <apex:column style="max-width:40px;width:40px;min-width:40px;" headerValue="Action">
+                                <!-- Displays only if user has EDIT rights -->
+                                <apex:outputPanel rendered="{!d.editable}">
+                                    <a href="{!URLFOR($Action.Account.Edit,d.account.Id,[retURL=URLFOR($Action.Account.View,d.account.Id)])}" title="Edit">
+                                        Edit
+                                    </a>
+                                </apex:outputPanel>
+                            </apex:column>
+
+                            <apex:repeat var="fieldName" value="{!selectedPersonAccountFields}">
+                                
+                                <apex:column headerValue="{!IF(AND($ObjectType.Account.Fields[fieldName].type='reference',RIGHT($ObjectType.Account.Fields[fieldName].Label,3)=' ID'),LEFT($ObjectType.Account.Fields[fieldName].Label,LEN($ObjectType.Account.Fields[fieldName].Label)-3),$ObjectType.Account.Fields[fieldName].Label)}"
+                                style="width:{!98/(selectedPersonAccountFields.size)}%"
+                                rendered="{!fieldName == 'name'}">
+                                    
+                                    <!--Displays if User has access to Record -->
+                                    <apex:outputPanel rendered="{!d.readable}">
+                                        <a title="View (New Window)" href="#"
+                                        onclick="newWindowOrTab('{!URLFOR($Action.Account.View,d.account.Id)}', '{!d.account.Id}');">
+                                            <apex:outputText escape="true">
+                                                {!d.account.Name}
+                                            </apex:outputText>
+                                        </a>
+                                    </apex:outputPanel>
+                                    
+                                    <!-- Displays if User does NOT have access to Record -->
+                                    <apex:outputPanel rendered="{!NOT(d.readable)}">
+                                        <a title="View (New Window)" style="cursor: pointer; text-decoration: underline"
+                                        onclick="alert('You do not have access to view this record.\nYou should account the owner(s) with any questions.');">
+                                            <apex:outputText escape="true">
+                                                {!d.account.Name}
+                                            </apex:outputText>
+                                        </a>
+                                    </apex:outputPanel>
+                                    
+                                </apex:column>
+
+                                <apex:column headerValue="{!IF(AND($ObjectType.Account.Fields[fieldName].type='reference',RIGHT($ObjectType.Account.Fields[fieldName].Label,3)=' ID'),LEFT($ObjectType.Account.Fields[fieldName].Label,LEN($ObjectType.Account.Fields[fieldName].Label)-3),$ObjectType.Account.Fields[fieldName].Label)}"
+                                style="width:{!98/(selectedPersonAccountFields.size)}%"
+                                rendered="{!fieldName == 'ownerid'}">
+                                
+                                    <!-- Displays for Queue Owner -->
+                                    <apex:outputText escape="true" rendered="{!LEFT(d.account.OwnerId,3)<>'005'}">
+                                        {!d.account.Owner.Name}
+                                    </apex:outputText>
+                                    
+                                    <!-- Displays when Owner is NOT a Queue -->
+                                    <apex:outputPanel rendered="{!LEFT(d.account.OwnerId,3)='005'}">
+                                        <a title="View (New Window)" href="#" onclick="newWindowOrTab('{!$Site.prefix}/{!d.account.ownerId}', '{!d.account.ownerId}');">
+                                            <apex:outputText escape="true">
+                                                {!d.account.Owner.Name}
+                                            </apex:outputText>
+                                        </a>
+                                    </apex:outputPanel>
+                                    
+                                    <!-- Displays when Owner NOT a Queue AND NOT the current user -->
+                                    <apex:outputPanel rendered="{!AND(LEFT(d.account.OwnerId,3)='005',d.account.OwnerId<>$User.Id)}">
+                                        <a title="Send Email" href="mailto:{!d.account.owner.email}" target="_blank">
+                                            <apex:image value="{!URLFOR($Resource.UniqueEntry__uniqueEntryResources, 'envelope.jpg')}" alt="Send Email" styleClass="littleIcons" />
+                                        </a>
+                                    </apex:outputPanel>
+                                </apex:column>
+
+                                <apex:column headerValue="{!IF(AND($ObjectType.Account.Fields[fieldName].type='reference',RIGHT($ObjectType.Account.Fields[fieldName].Label,3)=' ID'),LEFT($ObjectType.Account.Fields[fieldName].Label,LEN($ObjectType.Account.Fields[fieldName].Label)-3),$ObjectType.Account.Fields[fieldName].Label)}"
+                                style="width:{!98/(selectedPersonAccountFields.size)}%; white-space: normal; overflow: hidden; text-overflow: ellipsis;"
+                                rendered="{!fieldName != 'name' && fieldName != 'ownerid'}">
+                                
+                                    <span style="width: 100px;">
+                                    	<c:displayAddress rendered="{!$ObjectType.Account.Fields[fieldName].type=='address' && (settings.UniqueEntry__Account_Security_Level__c=='low' || d.readable)}"
+                                    		value="{!d.account}" prefix="{!TRIM(SUBSTITUTE(fieldName,'address',''))}">
+                                    	</c:displayAddress>
+                                    	<apex:outputpanel rendered="{!$ObjectType.Account.Fields[fieldName].type!='address'}">
+											<apex:outputField value="{!d.account[fieldName]}" rendered="{!OR(settings.UniqueEntry__Account_Security_Level__c='low',d.readable)}" />
+                                        </apex:outputpanel>
+                                        <!-- <apex:outputField value="{!d.account[fieldName]}" rendered="{!OR(settings.Person_Account_Security_Level__c='low',d.readable)}" /> -->
+                                        <apex:outputText escape="false" value="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" rendered="{!NOT(OR(settings.UniqueEntry__Person_Account_Security_Level__c='low',d.readable))}" />
+                                    </span>
+                                </apex:column>
+                            </apex:repeat>
+                            
+    <!--  FOR TESTING ONLY       -->
+    <apex:column headerValue="Score" rendered="{!diagnose}">
+        <a onclick="alert('{!d.breakdown}')">{!d.confidence}</a>
+    </apex:column>
+                            
+                        </apex:pageBlockTable>
+
+                        <apex:outputPanel rendered="{!morePersonAccounts}" styleClass="dupeMoreLink" layout="block">
+                            {!currentPersonAccountDisplay}
+                            <apex:commandLink action="{!showMorePersonAccounts}" reRender="dupes" immediate="true">
+                                show more...
+                            </apex:commandLink>
+                        </apex:outputPanel>
+
+                    </apex:outputPanel>
+
+                </apex:pageBlockSection>
+
+
+                <!-- ACCOUNTS -->
+                
+                <apex:pageBlockSection title="Related {!$ObjectType.Account.labelPlural}" rendered="{!bAccDupesFound}" columns="1">
+                
+                    <apex:outputPanel >
+                
+                        <apex:pageBlockTable style="table-layout:fixed;" id="bAccDupes"
+                        value="{!bAccDupes}" var="d" styleClass="dupeTable"
+                        onRowMouseOver="this.style.background='white';"
+                        onRowMouseOut="this.style.background='';">
+
+                            <apex:repeat var="fieldName" value="{!selectedBusinessAccountFields}">
+                                <apex:column headerValue="{!IF(AND($ObjectType.Account.Fields[fieldName].type='reference',RIGHT($ObjectType.Account.Fields[fieldName].Label,3)=' ID'),LEFT($ObjectType.Account.Fields[fieldName].Label,LEN($ObjectType.Account.Fields[fieldName].Label)-3),$ObjectType.Account.Fields[fieldName].Label)}"
+                                style="width:{!100/(selectedBusinessAccountFields.size)}%"
+                                rendered="{!fieldName == 'name'}">
+                                
+                                    <!-- Displays if User has access to Record -->
+                                    <apex:outputPanel rendered="{!d.readable}">
+                                        <a title="View (New Window)" href="#" onclick="newWindowOrTab('{!URLFOR($Action.Account.View,d.account.Id)}', '{!d.account.Id}');">
+                                            <apex:outputText escape="true">
+                                                {!d.account.Name}
+                                            </apex:outputText>
+                                        </a>
+                                    </apex:outputPanel>
+                                    
+                                    <!-- Displays if User does NOT have access to Record -->
+                                    <apex:outputPanel rendered="{!NOT(d.readable)}">
+                                        <a title="View (New Window)"
+                                        style="cursor: pointer; text-decoration: underline"
+                                        onclick="alert('You do not have access to view this record.\nYou should account the owner(s) with any questions.');">
+                                            <apex:outputText escape="true">
+                                                {!d.account.Name}
+                                            </apex:outputText>
+                                        </a>
+                                    </apex:outputPanel>
+                                    
+                                </apex:column>
+
+                                <apex:column headerValue="{!IF(AND($ObjectType.Account.Fields[fieldName].type='reference',RIGHT($ObjectType.Account.Fields[fieldName].Label,3)=' ID'),LEFT($ObjectType.Account.Fields[fieldName].Label,LEN($ObjectType.Account.Fields[fieldName].Label)-3),$ObjectType.Account.Fields[fieldName].Label)}"
+                                style="width:{!100/(selectedBusinessAccountFields.size)}%"
+                                rendered="{!fieldName == 'ownerid'}">
+                                
+                                    <!-- Displays for Queue Owner -->
+                                    <apex:outputField value="{!d.account.OwnerId}" rendered="{!LEFT(d.account.OwnerId,3)<>'005'}">
+                                        {!d.account.OwnerId}
+                                    </apex:outputField>
+                                    
+                                    <!-- Displays when Owner is NOT a Queue -->
+                                    <apex:outputPanel rendered="{!LEFT(d.account.OwnerId,3)='005'}">
+                                        <a title="View (New Window)" href="#"
+                                        onclick="newWindowOrTab('{!$Site.prefix}/{!d.account.ownerId}' ,'{!d.account.ownerId}');">
+                                            <apex:outputField value="{!d.account.OwnerId}">
+                                            </apex:outputField>
+                                        </a>
+                                    </apex:outputPanel>
+                                    
+                                    <!-- Displays when Owner NOT a Queue AND NOT the current user -->
+                                    <apex:outputPanel rendered="{!AND(LEFT(d.account.OwnerId,3)='005',d.account.OwnerId<>$User.Id)}">
+                                        <a title="Send Email" href="mailto:{!d.account.owner.email}" target="_blank">
+                                            <apex:image value="{!URLFOR($Resource.UniqueEntry__uniqueEntryResources, 'envelope.jpg')}" alt="Send Email" styleClass="littleIcons" />
+                                        </a>
+                                    </apex:outputPanel>
+                                    
+                                </apex:column>
+
+                                <apex:column headerValue="{!IF(AND($ObjectType.Account.Fields[fieldName].type='reference',RIGHT($ObjectType.Account.Fields[fieldName].Label,3)=' ID'),LEFT($ObjectType.Account.Fields[fieldName].Label,LEN($ObjectType.Account.Fields[fieldName].Label)-3),$ObjectType.Account.Fields[fieldName].Label)}"
+                                style="width:{!100/(selectedBusinessAccountFields.size)}%; white-space: normal; overflow: hidden; text-overflow: ellipsis;"
+                                rendered="{!fieldName != 'name' && fieldName != 'ownerid'}">
+
+                                    <span style="width: 100px;">
+                                        <apex:outputField value="{!d.account[fieldName]}" rendered="{!OR(settings.UniqueEntry__Account_Security_Level__c='low',d.readable)}" />
+                                        <apex:outputText escape="false" value="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" rendered="{!NOT(OR(settings.UniqueEntry__Account_Security_Level__c='low',d.readable))}" />
+                                    </span>
+                                </apex:column>
+                                
+                            </apex:repeat>
+                            
+    <!--  FOR TESTING ONLY       -->
+    <apex:column headerValue="Score" rendered="{!diagnose}">
+        <a onclick="alert('{!d.breakdown}')">{!d.confidence}</a>
+    </apex:column>
+
+                        </apex:pageBlockTable>
+
+                        <apex:outputPanel rendered="{!moreAccounts}" styleClass="dupeMoreLink" layout="block">
+                            {!currentAccountDisplay}
+                            <apex:commandLink action="{!showMoreAccounts}" reRender="dupes" immediate="true">
+                                show more...
+                            </apex:commandLink>
+                        </apex:outputPanel>
+                    
+                    </apex:outputPanel>
+                    
+                </apex:pageBlockSection>
+                
+                
+                <apex:outputPanel rendered="{!AND(NOT(leadDupesFound),NOT(contactDupesFound),NOT(pAccDupesFound),NOT(bAccDupesFound),isSeekDupesRun)}">
+                    No related records were found.
+                </apex:outputPanel>
+            
+            </apex:pageBlock>
+            
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

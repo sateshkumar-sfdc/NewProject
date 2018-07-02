@@ -1,0 +1,74 @@
+<aura:component controller="ProductService" implements="force:lightningQuickActionWithoutHeader,force:hasRecordId" access="global" >  
+
+  <aura:attribute name="Street" type="string" default=""/>
+  <aura:attribute name="City" type="string" default=""/>
+  <aura:attribute name="State" type="string" default=""/>
+  <aura:attribute name="ZIPCode" type="string" default=""/>
+    <aura:attribute name="check" type="Boolean" />
+    <aura:attribute name="checked" type="Boolean" />
+     <aura:attribute name="Spinner" type="Boolean" />
+     <aura:attribute name="MESSAGE" type="Id" default="null"/>
+    
+    
+    <aura:if isTrue="{!v.Spinner}"> 
+        <div>
+    <div class="demo-only" style="height: 6rem;">
+     <div role="status" class="slds-spinner slds-spinner_large slds-spinner_brand">
+     <span class="slds-assistive-text">Loading</span>
+     <div class="slds-spinner__dot-a"></div>
+    <div class="slds-spinner__dot-b"></div>
+    </div>
+    </div>
+     </div>
+    </aura:if>
+    
+    <div  class="slds-align_absolute-center">
+        
+        <h2> Click this box to Change the Shipping Address </h2>&nbsp;
+        <ui:inputCheckbox aura:id="mcheck" value= "{!v.check}" click="{!c.clickcheck}"/><br/><br/>
+    </div>
+       
+    
+    
+    
+    <aura:if isTrue="{!v.checked}">
+    <div class="slds-align_absolute-center">
+ 
+        
+ <div class="demo-only" style="width: 440px;">
+  <div class="slds-form slds-form_compound">
+       <fieldset class="slds-form-element">
+      <legend class="slds-form-element__label slds-text-title_caps">Address</legend>
+      <div class="slds-form-element__group">
+        <div class="slds-form-element__row">
+          <div class="slds-form-element slds-size_1-of-1">
+            <label class="slds-form-element__label" for="input-03">Street</label>
+              <ui:inputText aura:id="mStreet"  value="{!v.Street}"  required="true"/>
+          </div>
+        </div>
+        <div class="slds-form-element__row">
+          <div class="slds-form-element slds-size_1-of-2">
+            <label class="slds-form-element__label" for="input-04">City</label>
+            <ui:inputText aura:id="mCity"  value="{!v.City}" required="true" />
+          </div>
+          <div class="slds-form-element slds-size_1-of-2">
+            <label class="slds-form-element__label" for="input-05">State</label>
+            <ui:inputText aura:id="mState"  value="{!v.State}"/>
+          </div>
+        </div>
+        <div class="slds-form-element__row">
+          <div class="slds-form-element slds-size_1-of-2">
+            <label class="slds-form-element__label" for="input-06">ZIP Code</label>
+            <ui:inputText aura:id="mZIPCode"  value="{!v.ZIPCode}"/>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
+   </div>
+      </aura:if>
+    
+   <div class="slds-align_absolute-center">  <lightning:button variant="brand" label="Create"  onclick="{!c.createorder}"/> </div>
+   
+</aura:component>

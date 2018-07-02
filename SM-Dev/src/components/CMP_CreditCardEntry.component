@@ -1,0 +1,45 @@
+<apex:component controller="CTRL_CreditCardEntry">
+    <apex:attribute name="receiver" type="CB_CardDetailsReceiver" assignTo="{!cardDetailsReceiver}" required="true" description=""/>
+    <apex:attribute name="submitAction" type="string" assignTo="{!jsSubmitMethodName}" required="true" description=""/>
+    <apex:attribute name="initAction" type="string" assignTo="{!jsinitMethodName}" description=""/>
+    <apex:attribute name="rerender" type="string" assignTo="{!parentRerender}" description=""/>
+
+    <apex:includeScript value="https://prdapp02.XiSecurenet.com/DIeComm/Scripts/XIFrame/XIFrame-1.1.0.js"/>
+
+    <apex:iframe id="CMP_CreditCardEntry_iframe" scrolling="false" src="{!TargetUrl}" html-seamless="seamless" html-style="border:0;" rendered="{!isFrameDisplayed}">
+    </apex:iframe>
+
+    <apex:actionFunction name="getCardDetails" action="{!actionGetCardDetails}" reRender="{!parentRerender}" status="status" />
+    <apex:actionFunction name="{!jsinitMethodName}" action="{!actionInitAccessToken}" reRender="{!parentRerender}" status="status" />
+
+    <script type="text/javascript">
+    $XIFrame.onload({
+        iFrameId: 'CMP_CreditCardEntry_iframe',
+        targetUrl: '{!targetUrl}',
+        autosizeheight: true,
+        autosizewidth: true,
+        onSuccess: function (e) {
+            //Successfully IFrame Loaded
+        },
+        onError: function (e) {
+            //Error on IFrame Loading
+        }
+    });
+
+    function {!jsSubmitMethodName}() {
+        $XIFrame.submit({
+            iFrameId: 'CMP_CreditCardEntry_iframe',
+            targetUrl: '{!targetUrl}',
+            onSuccess: function (msg) {
+                 //function triggered on success.
+                 console.debug(msg);
+                 getCardDetails();
+            },
+            onError: function (msg) {
+                 //function triggered on failure
+                 alert(msg);
+            }
+        });
+    }
+    </script>
+</apex:component>

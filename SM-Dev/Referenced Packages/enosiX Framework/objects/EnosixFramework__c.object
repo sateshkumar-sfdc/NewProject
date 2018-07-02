@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Configuration settings for the Enosix framework</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Customizing_ID__c</fullName>
+        <defaultValue>&quot;SDFC&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Customizing-ID</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Allows for overriding the Smart Business Object configuration in SAP for a specific environment or application</inlineHelpText>
+        <label>Customizing ID</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>HttpTrace_Class__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Custom class to handle http tracing</description>
+        <externalId>false</externalId>
+        <label>HttpTrace Class</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SAP_Client__c</fullName>
+        <defaultValue>&quot;000&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>SAP Client ID</description>
+        <externalId>false</externalId>
+        <label>SAP Client</label>
+        <length>3</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SAP_Host__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>SAP Host</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>SAP_Language__c</fullName>
+        <defaultValue>&quot;EN&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>SAP Language Identifier</description>
+        <externalId>false</externalId>
+        <label>SAP Language</label>
+        <length>2</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Timeout__c</fullName>
+        <defaultValue>30000</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Request timeout in milliseconds</description>
+        <externalId>false</externalId>
+        <label>Timeout</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Enosix Framework</label>
+    <visibility>Public</visibility>
+</CustomObject>

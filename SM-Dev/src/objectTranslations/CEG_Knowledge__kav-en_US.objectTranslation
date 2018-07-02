@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>CEG Knowledge</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>CEG Knowledge</value>
+    </caseValues>
+    <fields>
+        <label><!-- YETI.com --></label>
+        <name>Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- The YETI Outfitters --></label>
+        <name>The_YETI_Outfitters__c</name>
+    </fields>
+    <recordTypes>
+        <label><!-- CEG Knowledge --></label>
+        <name>CEG_Knowledge</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- YETI Logo --></label>
+        <name>YETI_Logo</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

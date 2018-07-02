@@ -1,0 +1,419 @@
+<apex:page standardController="geopointe__GP_Route_Plan__c" tabStyle="geopointe__GP_Route_Plan__c" extensions="geopointe.Localization,geopointe.RemoteAction,geopointe.Utils" sidebar="true" showheader="true" lightningStylesheets="false" standardStylesheets="false">
+
+	<apex:slds />
+
+	<script type="text/javascript" src="{!GOOGJsApiUrl}"></script>
+
+	<script src="{!URLFOR($Page.translations)}"></script> <!-- Geopointe translations -->
+    <script src="{!URLFOR($Resource.jquery, '/jquery-2.2.4.min.js')}"></script> <!-- core jQuery -->
+    <script src="{!URLFOR($Resource.jquery, '/ui/js/jquery-ui-1.9.2.custom.min.js')}"></script> <!-- jQuery UI -->
+    <script src="{!URLFOR($Resource.jquery, '/mixpanel/mixpanel.js')}"></script><!-- Mix Panel -->
+    <script src="{!URLFOR($Resource.jquery, '/fieldSelector/jquery.fieldselector.js')}"></script> <!-- fieldSelector plugin -->
+    <script src="{!URLFOR($Resource.jquery, '/js/common.js')}"></script> <!-- Generic JS use across entire app -->
+    <script src="{!URLFOR($Resource.jquery, '/js/lib/lodash.js')}"></script> <!-- lodash.js JavaScript utility library -->
+    <script src="{!URLFOR($Resource.js_api_v1)}"></script> <!-- Geopointe Javascript api -->
+
+    <link href="{!URLFOR($Resource.jquery, '/js/lib/jqueryui-editable/css/jqueryui-editable.css')}" rel="stylesheet"/>
+	<apex:stylesheet value="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700"/> <!-- open sans font -->
+	<apex:stylesheet value="{!URLFOR($Resource.geopointe__jquery, '/ui/css/smoothness/jquery-ui-1.9.2.custom.min.css')}"/> <!-- jQuery UI CSS -->
+	<apex:stylesheet value="{!URLFOR($Resource.geopointe__jquery, '/fieldSelector/css/fieldselector.css')}"/> <!-- FieldSelector plugin CSS -->
+    <apex:stylesheet value="{!URLFOR($Resource.geopointe__jquery, '/plugins/minicolor/jquery.minicolors.css')}"/> <!-- Color picker plugin CSS -->
+	<apex:stylesheet value="{!URLFOR($Resource.geopointe__jquery, '/css/common/common.css')}"/> <!-- Common geopointe CSS -->
+    <apex:stylesheet value="{!URLFOR($Resource.geopointe__jquery, '/lib/maki/maki-sprite.css')}"/> <!-- Maki icon css -->
+    <script src="{!URLFOR($Resource.jquery, '/js/lib/jqueryui-editable/js/jqueryui-editable.min.js')}"></script>
+    
+    <script src="{!URLFOR($Resource.jquery, '/js/lib/angular/angular-1.5.8.min.js')}"></script> <!-- Angular -->
+    <script src="{!URLFOR($Resource.jquery, '/js/lib/angular/angular-animate-1.5.8.min.js')}"></script>
+    <script src="{!URLFOR($Resource.jquery, '/js/lib/angular-ui-bootstrap/ui-bootstrap-tpls.js')}"></script>
+    <script src="{!URLFOR($Resource.jquery, '/js/lib/angular/angular-cookies-1.5.8.min.js')}"></script> <!-- Angular -->
+    <script src="{!URLFOR($Resource.jquery, '/js/lib/angular/locales/angular-locale_'& angularLocaleForCurrentUser &'.js')}"></script> <!-- Angular -->
+    <script src="{!URLFOR($Resource.jquery, '/js/lib/angular/lib/ui.sortable.min.js')}"></script> <!-- Angular jQuery UI sortable-->
+    <script src="{!URLFOR($Resource.jquery, '/js/lib/angular/lib/date.js')}"></script> <!-- Angular jQuery UI date picker-->
+    <script src="{!URLFOR($Resource.jquery, '/js/lib/moment/moment.min.js')}"></script> <!-- Moment.js for time formatting -->
+    <script src="{!URLFOR($Resource.jquery, '/js/lib/moment/moment-timezone.min.js')}"></script> <!-- Moment.js timezone functionality -->
+    <script src="{!URLFOR($Resource.jquery, '/js/lib/moment/lang/'& momentJSLangForCurrentUser &'.js')}"></script> <!-- Moment.js language file -->
+    <script src="{!URLFOR($Resource.jquery, '/js/lib/angular/lib/angular-moment.min.js')}"></script> <!-- Angular Moment.js-->
+    <script src="{!URLFOR($Resource.jquery, '/js/lib/angular/lib/select2.js')}"></script> <!-- Angular select2-->
+	<script src="{!URLFOR($Resource.jquery, '/js/lib/bluebird-3.4.7.min.js')}"></script>
+    <script src="{!URLFOR($Resource.jquery, 'js/lib/toastr/toastr.min.js')}"></script> <!-- toasr popup js-->
+    <script src="{!$Resource.GeopointeJS}"></script> <!-- Geopointe universal functions -->
+    <script type="text/javascript" src="{!URLFOR($Resource.jquery, 'js/lib/tooltipster/tooltipster.bundle.min.js')}"></script>
+    <script src="{!URLFOR($Resource.jquery, '/js/geopointeApp.js')}"></script> <!-- Starts the Angular geopointe app -->
+
+	<script src="{!URLFOR($Resource.jquery, '/js/controllers/RoutePlanController.js')}"></script> <!-- Starts the Angular geopointe app -->
+
+	<!-- Lightning -->
+	<apex:outputPanel layout="none" rendered="{!$User.UIThemeDisplayed == 'Theme4d'}">
+	    <style type="text/css">
+	    	body{
+	    		margin: -1px !important;
+	    		background: #b0c4df !important;
+	    	}
+	    </style>
+	</apex:outputPanel>
+
+	<!-- Classic -->
+	<apex:outputPanel layout="none" rendered="{!$User.UIThemeDisplayed == 'Theme3'}">
+	    <style type="text/css">
+	    	.slds-scope .slds-table td {
+			    display: table-cell;
+			    vertical-align: inherit;
+			}
+	    </style>
+	</apex:outputPanel>
+
+	<style type="text/css">
+    	.auto-width{
+    		width: auto !important;
+    	}
+    	.slds-icon{
+    		cursor: pointer !important;
+    	}
+    </style>
+
+    <script type="text/javascript">
+		var gpResourceJquery = '{!URLFOR($Resource.jquery)}';
+		var gpAssetSldsSprites = '{!URLFOR($Asset.SLDS, "assets/icons/standard-sprite/svg/symbols.svg")}';
+		var gpRemoteAction = '{!$RemoteAction.RemoteAction.doRemoteAction}';
+		var gpRemoteActionReadOnly = '{!$RemoteAction.RemoteAction.doRemoteActionReadOnly}';
+    </script>
+
+	<div class="slds-scope ng-cloak" id="ngApp" ng-app="GeopointeApp" ng-controller="RoutePlanController">
+
+		<div class="slds-brand-band slds-brand-band_medium"/>
+		
+		<div class="slds-p-around_small">
+			<div class="slds-page-header slds-p-around_small">
+				<div class="slds-grid">
+					<div class="slds-col slds-has-flexi-truncate">
+						<div class="slds-media slds-no-space slds-grow">
+							<div class="slds-media__figure">
+								<span class="slds-icon_container slds-icon-standard-business-hours" title="Description of icon when needed">
+									<svg class="slds-icon" aria-hidden="true">
+										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#business_hours')}" />
+									</svg>
+								</span>
+							</div>
+							<div class="slds-media__body">
+								<nav>
+									<ol class="slds-breadcrumb slds-line-height_reset">
+										<li class="slds-breadcrumb__item">
+											<span>Geopointe Route Plan</span>
+										</li>
+									</ol>
+								</nav>
+								<h1 class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate" ng-cloak="true">
+									<span ng-show="rp">{{rp.planName}}</span>
+								</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="slds-box slds-m-horizontal_small slds-m-bottom_small" style="background: white;">
+		
+			<div ng-show="!showConfirmation">
+				<p class="slds-m-horizontal_xx-small">
+					A Geopointe Route Plan has been assigned to you. This will automatically build daily Routes for you, but before we can build these routes we need to know where your
+					start and end locations are located, and the hours that you work.
+				</p>
+
+				<div class="slds-section slds-is-open">
+					<h3 class="slds-section__title slds-theme_shade">
+						<span class="slds-truncate slds-p-horizontal_small" title="Start/End Locations">Start/End Locations</span>
+					</h3>
+					<div aria-hidden="false" class="slds-section__content">
+						<div class="slds-grid slds-gutters slds-wrap">
+							<div class="slds-form-element slds-col slds-size_1-of-2 slds-max-small-size_1-of-1" ng-class="{'slds-has-error': fieldErrors['startAddress']}">
+								<label class="slds-form-element__label"><abbr class="slds-required" title="required">*</abbr>Start Location</label>
+								<div class="slds-form-element__control">
+									<input type="text" class="slds-input" placeholder="" ng-model="rp.startAddress" id="startAddress"/>
+								</div>
+								<div class="slds-form-element__help">{{fieldErrors['startAddress']}}</div>
+							</div>
+							<div class="slds-form-element slds-col slds-size_1-of-2 slds-max-small-size_1-of-1" ng-class="{'slds-has-error': fieldErrors['endAddress']}">
+								<label class="slds-form-element__label"><abbr class="slds-required" title="required">*</abbr>End Location</label>
+								<div class="slds-form-element__control">
+									<input type="text" class="slds-input" placeholder="" ng-model="rp.endAddress" id="endAddress"/>
+								</div>
+								<div class="slds-form-element__help">{{fieldErrors['endAddress']}}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="slds-section slds-is-open">
+					<h3 class="slds-section__title slds-theme_shade">
+						<span class="slds-truncate slds-p-horizontal_small" title="Stard/End Locations">Working Hours</span>
+					</h3>
+					<div aria-hidden="false" class="slds-section__content">
+						<table class="slds-table">
+							<tr>
+								<td style="width: 1px;">Sunday</td>
+								<td>
+									<span ng-show="rp.workHours['Sun']">
+										<select class="slds-select auto-width" ng-model="rp.workHours['Sun'][0]">
+											<option ng-repeat="t in visitingHourOptions" value="{{t.value}}">{{t.label}}</option>
+										</select>
+										-
+										<select class="slds-select auto-width" ng-model="rp.workHours['Sun'][1]">
+											<option ng-repeat="t in visitingHourOptions" value="{{t.value}}">{{t.label}}</option>
+										</select>
+										<span class="slds-m-left_xx-small slds-icon_container slds-icon_container_circle slds-icon-action-remove" title="Remove" ng-click="removeWorkingHours('Sun')">
+											<svg class="slds-icon slds-icon_xx-small" aria-hidden="true">
+												<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/action-sprite/svg/symbols.svg#remove')}" />
+											</svg>
+										</span>
+									</span>
+									<span ng-show="!rp.workHours['Sun']" ng-click="addWorkingHours('Sun')">
+										<span class="slds-m-left_xx-small slds-icon_container slds-icon_container_circle slds-icon-action-new" title="new">
+											<svg class="slds-icon slds-icon_xx-small" aria-hidden="true">
+												<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/action-sprite/svg/symbols.svg#new')}" />
+											</svg>
+										</span>
+										<a>Add Hours</a>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td>Monday</td>
+								<td>
+									<span ng-show="rp.workHours['Mon']">
+										<select class="slds-select auto-width" ng-model="rp.workHours['Mon'][0]">
+											<option ng-repeat="t in visitingHourOptions" value="{{t.value}}">{{t.label}}</option>
+										</select>
+										-
+										<select class="slds-select auto-width" ng-model="rp.workHours['Mon'][1]">
+											<option ng-repeat="t in visitingHourOptions" value="{{t.value}}">{{t.label}}</option>
+										</select>
+										<span class="slds-m-left_xx-small slds-icon_container slds-icon_container_circle slds-icon-action-remove" title="Remove" ng-click="removeWorkingHours('Mon')">
+											<svg class="slds-icon slds-icon_xx-small" aria-hidden="true">
+												<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/action-sprite/svg/symbols.svg#remove')}" />
+											</svg>
+										</span>
+									</span>
+									<span ng-show="!rp.workHours['Mon']" ng-click="addWorkingHours('Mon')">
+										<span class="slds-m-left_xx-small slds-icon_container slds-icon_container_circle slds-icon-action-new" title="new">
+											<svg class="slds-icon slds-icon_xx-small" aria-hidden="true">
+												<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/action-sprite/svg/symbols.svg#new')}" />
+											</svg>
+										</span>
+										<a>Add Hours</a>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td>Tuesday</td>
+								<td>
+									<span ng-show="rp.workHours['Tue']">
+										<select class="slds-select auto-width" ng-model="rp.workHours['Tue'][0]">
+											<option ng-repeat="t in visitingHourOptions" value="{{t.value}}">{{t.label}}</option>
+										</select>
+										-
+										<select class="slds-select auto-width" ng-model="rp.workHours['Tue'][1]">
+											<option ng-repeat="t in visitingHourOptions" value="{{t.value}}">{{t.label}}</option>
+										</select>
+										<span class="slds-m-left_xx-small slds-icon_container slds-icon_container_circle slds-icon-action-remove" title="Remove" ng-click="removeWorkingHours('Tue')">
+											<svg class="slds-icon slds-icon_xx-small" aria-hidden="true">
+												<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/action-sprite/svg/symbols.svg#remove')}" />
+											</svg>
+										</span>
+									</span>
+									<span ng-show="!rp.workHours['Tue']" ng-click="addWorkingHours('Tue')">
+										<span class="slds-m-left_xx-small slds-icon_container slds-icon_container_circle slds-icon-action-new" title="new">
+											<svg class="slds-icon slds-icon_xx-small" aria-hidden="true">
+												<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/action-sprite/svg/symbols.svg#new')}" />
+											</svg>
+										</span>
+										<a>Add Hours</a>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td>Wednesday</td>
+								<td>
+									<span ng-show="rp.workHours['Wed']">
+										<select class="slds-select auto-width" ng-model="rp.workHours['Wed'][0]">
+											<option ng-repeat="t in visitingHourOptions" value="{{t.value}}">{{t.label}}</option>
+										</select>
+										-
+										<select class="slds-select auto-width" ng-model="rp.workHours['Wed'][1]">
+											<option ng-repeat="t in visitingHourOptions" value="{{t.value}}">{{t.label}}</option>
+										</select>
+										<span class="slds-m-left_xx-small slds-icon_container slds-icon_container_circle slds-icon-action-remove" title="Remove" ng-click="removeWorkingHours('Wed')">
+											<svg class="slds-icon slds-icon_xx-small" aria-hidden="true">
+												<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/action-sprite/svg/symbols.svg#remove')}" />
+											</svg>
+										</span>
+									</span>
+									<span ng-show="!rp.workHours['Wed']" ng-click="addWorkingHours('Wed')">
+										<span class="slds-m-left_xx-small slds-icon_container slds-icon_container_circle slds-icon-action-new" title="new">
+											<svg class="slds-icon slds-icon_xx-small" aria-hidden="true">
+												<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/action-sprite/svg/symbols.svg#new')}" />
+											</svg>
+										</span>
+										<a>Add Hours</a>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td>Thursday</td>
+								<td>
+									<span ng-show="rp.workHours['Thu']">
+										<select class="slds-select auto-width" ng-model="rp.workHours['Thu'][0]">
+											<option ng-repeat="t in visitingHourOptions" value="{{t.value}}">{{t.label}}</option>
+										</select>
+										-
+										<select class="slds-select auto-width" ng-model="rp.workHours['Thu'][1]">
+											<option ng-repeat="t in visitingHourOptions" value="{{t.value}}">{{t.label}}</option>
+										</select>
+										<span class="slds-m-left_xx-small slds-icon_container slds-icon_container_circle slds-icon-action-remove" title="Remove" ng-click="removeWorkingHours('Thu')">
+											<svg class="slds-icon slds-icon_xx-small" aria-hidden="true">
+												<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/action-sprite/svg/symbols.svg#remove')}" />
+											</svg>
+										</span>
+									</span>
+									<span ng-show="!rp.workHours['Thu']" ng-click="addWorkingHours('Thu')">
+										<span class="slds-m-left_xx-small slds-icon_container slds-icon_container_circle slds-icon-action-new" title="new">
+											<svg class="slds-icon slds-icon_xx-small" aria-hidden="true">
+												<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/action-sprite/svg/symbols.svg#new')}" />
+											</svg>
+										</span>
+										<a>Add Hours</a>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td>Friday</td>
+								<td>
+									<span ng-show="rp.workHours['Fri']">
+										<select class="slds-select auto-width" ng-model="rp.workHours['Fri'][0]">
+											<option ng-repeat="t in visitingHourOptions" value="{{t.value}}">{{t.label}}</option>
+										</select>
+										-
+										<select class="slds-select auto-width" ng-model="rp.workHours['Fri'][1]">
+											<option ng-repeat="t in visitingHourOptions" value="{{t.value}}">{{t.label}}</option>
+										</select>
+										<span class="slds-m-left_xx-small slds-icon_container slds-icon_container_circle slds-icon-action-remove" title="Remove" ng-click="removeWorkingHours('Fri')">
+											<svg class="slds-icon slds-icon_xx-small" aria-hidden="true">
+												<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/action-sprite/svg/symbols.svg#remove')}" />
+											</svg>
+										</span>
+									</span>
+									<span ng-show="!rp.workHours['Fri']" ng-click="addWorkingHours('Fri')">
+										<span class="slds-m-left_xx-small slds-icon_container slds-icon_container_circle slds-icon-action-new" title="new">
+											<svg class="slds-icon slds-icon_xx-small" aria-hidden="true">
+												<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/action-sprite/svg/symbols.svg#new')}" />
+											</svg>
+										</span>
+										<a>Add Hours</a>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td>Saturday</td>
+								<td>
+									<span ng-show="rp.workHours['Sat']">
+										<select class="slds-select auto-width" ng-model="rp.workHours['Sat'][0]">
+											<option ng-repeat="t in visitingHourOptions" value="{{t.value}}">{{t.label}}</option>
+										</select>
+										-
+										<select class="slds-select auto-width" ng-model="rp.workHours['Sat'][1]">
+											<option ng-repeat="t in visitingHourOptions" value="{{t.value}}">{{t.label}}</option>
+										</select>
+										<span class="slds-m-left_xx-small slds-icon_container slds-icon_container_circle slds-icon-action-remove" title="Remove" ng-click="removeWorkingHours('Sat')">
+											<svg class="slds-icon slds-icon_xx-small" aria-hidden="true">
+												<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/action-sprite/svg/symbols.svg#remove')}" />
+											</svg>
+										</span>
+									</span>
+									<span ng-show="!rp.workHours['Sat']" ng-click="addWorkingHours('Sat')">
+										<span class="slds-m-left_xx-small slds-icon_container slds-icon_container_circle slds-icon-action-new" title="new">
+											<svg class="slds-icon slds-icon_xx-small" aria-hidden="true">
+												<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/action-sprite/svg/symbols.svg#new')}" />
+											</svg>
+										</span>
+										<a>Add Hours</a>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td>Lunch Break</td>
+								<td>
+									<span ng-show="rp.breaks['Sun']">
+										<select class="slds-select auto-width" ng-model="rp.breaks['Sun'][0]" ng-change="breakHoursChanged()">
+											<option ng-repeat="t in visitingHourOptions" value="{{t.value}}">{{t.label}}</option>
+										</select>
+										-
+										<select class="slds-select auto-width" ng-model="rp.breaks['Sun'][1]" ng-change="breakHoursChanged()">
+											<option ng-repeat="t in visitingHourOptions" value="{{t.value}}">{{t.label}}</option>
+										</select>
+										<span class="slds-m-left_xx-small slds-icon_container slds-icon_container_circle slds-icon-action-remove" title="Remove" ng-click="removeBreakHours()">
+											<svg class="slds-icon slds-icon_xx-small" aria-hidden="true">
+												<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/action-sprite/svg/symbols.svg#remove')}" />
+											</svg>
+										</span>
+									</span>
+									<span ng-show="!rp.breaks['Sun']" ng-click="addBreakHours()">
+										<span class="slds-m-left_xx-small slds-icon_container slds-icon_container_circle slds-icon-action-new" title="new">
+											<svg class="slds-icon slds-icon_xx-small" aria-hidden="true">
+												<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/action-sprite/svg/symbols.svg#new')}" />
+											</svg>
+										</span>
+										<a>Add Hours</a>
+									</span>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+
+				<div class="slds-section slds-is-open">
+					<h3 class="slds-section__title slds-theme_shade">
+						<span class="slds-truncate slds-p-horizontal_small" title="Stard/End Locations">Finish</span>
+					</h3>
+					<div aria-hidden="false" class="slds-section__content">
+						<p class="slds-m-horizontal_xx-small">
+							Once the information above is correct select the Create Routes button below and your Routes will be automatically created! You will
+							be notified by email when this is complete.
+						</p>
+
+						<p class="slds-align_absolute-center slds-p-top_large slds-p-bottom_x-small"><button ng-click="saveAndGenerateRoutes()" class="slds-button slds-button_success">Create Routes</button></p>
+					</div>
+				</div>
+			</div>
+
+			<div ng-show="showConfirmation">
+				<div class="slds-notify_container slds-is-relative slds-p-bottom_small">
+					<div class="slds-notify slds-notify_toast slds-theme_success" role="alert" style="min-width: auto;">
+						<span class="slds-assistive-text">success</span>
+						<span class="slds-icon_container slds-icon-utility-success slds-m-right_small slds-no-flex slds-align-top" title="Description of icon when needed">
+							<svg class="slds-icon slds-icon_small" aria-hidden="true">
+								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#success')}" />
+							</svg>
+						</span>
+						<div class="slds-notify__content">
+							<h2 class="slds-text-heading_small">Hooray! Your routes are being created!</h2>
+						</div>
+					</div>
+				</div>
+
+				<p class="slds-align_absolute-center">This may take a few minutes but we will send you an email once the route creation process is complete.</p>
+
+				<p class="slds-align_absolute-center"><img height="200px" style="height: 200px;" src="{!URLFOR($Resource.images, '/routePlanner/goingCamping.png')}"/></p>
+			</div>
+
+		</div>
+
+		<!-- Ajax spinner -->
+		<div class="slds-backdrop" ng-class="{'slds-backdrop_open': showSpinner}">
+			<div role="status" class="slds-spinner slds-spinner_large">
+				<span class="slds-assistive-text">Loading</span>
+				<div class="slds-spinner__dot-a"></div>
+				<div class="slds-spinner__dot-b"></div>
+			</div>
+		</div>
+	</div>
+</apex:page>

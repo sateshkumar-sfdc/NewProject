@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account$BillingStreet</field>
+    </columns>
+    <columns>
+        <field>Account$BillingCity</field>
+    </columns>
+    <columns>
+        <field>Account$BillingState</field>
+    </columns>
+    <columns>
+        <field>Account$BillingPostalCode</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Account.Cases$Case_Sub_Reason__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Catalog Removal</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>YETI Dispatch Removal</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Accounts_with_Cases__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account$CreatedDate</dateColumn>
+        <endDate>2017-11-29</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2017-11-01</startDate>
+    </timeFrameFilter>
+</Report>

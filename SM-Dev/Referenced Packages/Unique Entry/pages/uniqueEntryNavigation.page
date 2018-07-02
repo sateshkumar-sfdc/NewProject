@@ -1,0 +1,14 @@
+<apex:page controller="UniqueEntry.uniqueEntryNavigationController" sidebar="false" showheader="false">
+	<script>
+		
+		if('{!JSENCODE(msg)}' != ''){
+			alert('{!JSENCODE(msg)}');
+		}
+		if( (typeof sforce != 'undefined') && (sforce != null) ) {
+			sforce.one.back(true);
+		}
+		else if('{!retURL}' != ''){
+			 window.location.href = '{!retURL}';
+		}
+	</script>
+</apex:page>

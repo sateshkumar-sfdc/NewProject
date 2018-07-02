@@ -1,0 +1,829 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Case__c</fullName>
+        <externalId>false</externalId>
+        <label>Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Potential Orders</relationshipLabel>
+        <relationshipName>Potential_Orders</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Color__c</fullName>
+        <externalId>false</externalId>
+        <label>Color</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Product_Category__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Black</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Brick Red</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Camo</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Charcoal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Coral</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>High Country</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ice Blue</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Olive Green</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pink</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Seafoam</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sky Blue</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Stainless</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tahoe Blue</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tahoe Blue/ Fog Gray</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tan/Blaze Orange</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>White</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Tank</controllingFieldValue>
+                <controllingFieldValue>Loadout</controllingFieldValue>
+                <controllingFieldValue>Roadie</controllingFieldValue>
+                <valueName>Ice Blue</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tank</controllingFieldValue>
+                <controllingFieldValue>Tundra</controllingFieldValue>
+                <controllingFieldValue>Roadie</controllingFieldValue>
+                <valueName>Tan</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tank</controllingFieldValue>
+                <controllingFieldValue>Tundra</controllingFieldValue>
+                <controllingFieldValue>Drinkware</controllingFieldValue>
+                <controllingFieldValue>Loadout</controllingFieldValue>
+                <controllingFieldValue>Roadie</controllingFieldValue>
+                <valueName>White</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tundra</controllingFieldValue>
+                <valueName>Camo</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tundra</controllingFieldValue>
+                <controllingFieldValue>Drinkware</controllingFieldValue>
+                <valueName>Coral</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tundra</controllingFieldValue>
+                <valueName>High Country</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tundra</controllingFieldValue>
+                <controllingFieldValue>Drinkware</controllingFieldValue>
+                <controllingFieldValue>Roadie</controllingFieldValue>
+                <valueName>Pink</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tundra</controllingFieldValue>
+                <controllingFieldValue>Drinkware</controllingFieldValue>
+                <controllingFieldValue>Loadout</controllingFieldValue>
+                <controllingFieldValue>Roadie</controllingFieldValue>
+                <valueName>Seafoam</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Drinkware</controllingFieldValue>
+                <valueName>Black</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Drinkware</controllingFieldValue>
+                <valueName>Brick Red</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Drinkware</controllingFieldValue>
+                <valueName>Olive Green</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Drinkware</controllingFieldValue>
+                <valueName>Sky Blue</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Drinkware</controllingFieldValue>
+                <valueName>Stainless</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Drinkware</controllingFieldValue>
+                <valueName>Tahoe Blue</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Hopper</controllingFieldValue>
+                <valueName>Tahoe Blue/ Fog Gray</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Hopper</controllingFieldValue>
+                <valueName>Tan/Blaze Orange</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Loadout</controllingFieldValue>
+                <valueName>Charcoal</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Order_Request_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Order Request Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Product_Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Category</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Accessories</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Bags</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Chairs</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Drinkware</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Gear</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Hopper</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ice</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Loadout</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Parts</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Roadie</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tank</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tundra</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <externalId>false</externalId>
+        <label>Product</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Product_Category__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1/2 G</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>1 G</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>1 Gallon Jug</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>1 Pound</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>2 Pound</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>4 Pound</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Backflip 24</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Baskets</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Bottle Lid</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Bottle Opener</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Can Insulators</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Collegiate Cooler</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Colster</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cushions</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Decals</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Flip</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Flip 12</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Flip 18</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Flip 8</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Half Gallon Jug</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Hats</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Hondo</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Hopper 20</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Hopper 30</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Hopper 40</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Hopper Two 20</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Hopper Two 30</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Hopper Two 40</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Lid 10/20</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Lid 30</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Lowball 10oz</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Monogram</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Panga 100</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Panga 50</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Panga 75</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Parts</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rambler 14 oz</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rambler 20 oz</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rambler 30 oz</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rambler Bottle 18 oz</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rambler Bottle 26 oz</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rambler Bottle 36 oz</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rambler Bottle 64 oz</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Roadie 20</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SeaDeks</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sherpa</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Shirts</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>SideKick</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Straw Lid 20</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Straw Lid 30</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tank 45</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tank 85</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tie-Down</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tundra 105</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tundra 110</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tundra 125</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tundra 160</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tundra 210</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tundra 250</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tundra 35</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tundra 350</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tundra 45</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tundra 50</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tundra 65</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tundra 75</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Wine 10 oz</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Tank</controllingFieldValue>
+                <valueName>Tank 45</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tank</controllingFieldValue>
+                <valueName>Tank 85</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tundra</controllingFieldValue>
+                <valueName>Collegiate Cooler</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tundra</controllingFieldValue>
+                <controllingFieldValue>Roadie</controllingFieldValue>
+                <valueName>Monogram</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tundra</controllingFieldValue>
+                <valueName>Roadie 20</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tundra</controllingFieldValue>
+                <valueName>Tundra 105</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tundra</controllingFieldValue>
+                <valueName>Tundra 110</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tundra</controllingFieldValue>
+                <valueName>Tundra 125</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tundra</controllingFieldValue>
+                <valueName>Tundra 160</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tundra</controllingFieldValue>
+                <valueName>Tundra 210</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tundra</controllingFieldValue>
+                <valueName>Tundra 250</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tundra</controllingFieldValue>
+                <valueName>Tundra 35</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tundra</controllingFieldValue>
+                <valueName>Tundra 350</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tundra</controllingFieldValue>
+                <valueName>Tundra 45</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tundra</controllingFieldValue>
+                <valueName>Tundra 50</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tundra</controllingFieldValue>
+                <valueName>Tundra 65</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tundra</controllingFieldValue>
+                <valueName>Tundra 75</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Bags</controllingFieldValue>
+                <valueName>Panga 100</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Bags</controllingFieldValue>
+                <valueName>Panga 50</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Bags</controllingFieldValue>
+                <valueName>Panga 75</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Chairs</controllingFieldValue>
+                <valueName>Hondo</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Drinkware</controllingFieldValue>
+                <valueName>1 Gallon Jug</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Drinkware</controllingFieldValue>
+                <valueName>Bottle Lid</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Drinkware</controllingFieldValue>
+                <valueName>Colster</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Drinkware</controllingFieldValue>
+                <valueName>Half Gallon Jug</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Drinkware</controllingFieldValue>
+                <valueName>Lid 10/20</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Drinkware</controllingFieldValue>
+                <valueName>Lid 30</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Drinkware</controllingFieldValue>
+                <valueName>Lowball 10oz</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Drinkware</controllingFieldValue>
+                <valueName>Rambler 14 oz</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Drinkware</controllingFieldValue>
+                <valueName>Rambler 20 oz</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Drinkware</controllingFieldValue>
+                <valueName>Rambler 30 oz</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Drinkware</controllingFieldValue>
+                <valueName>Rambler Bottle 18 oz</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Drinkware</controllingFieldValue>
+                <valueName>Rambler Bottle 26 oz</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Drinkware</controllingFieldValue>
+                <valueName>Rambler Bottle 36 oz</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Drinkware</controllingFieldValue>
+                <valueName>Rambler Bottle 64 oz</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Drinkware</controllingFieldValue>
+                <valueName>Straw Lid 20</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Drinkware</controllingFieldValue>
+                <valueName>Straw Lid 30</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Drinkware</controllingFieldValue>
+                <valueName>Wine 10 oz</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Gear</controllingFieldValue>
+                <valueName>Decals</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Gear</controllingFieldValue>
+                <valueName>Hats</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Gear</controllingFieldValue>
+                <valueName>Shirts</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Hopper</controllingFieldValue>
+                <valueName>Backflip 24</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Hopper</controllingFieldValue>
+                <valueName>Flip 12</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Hopper</controllingFieldValue>
+                <valueName>Flip 18</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Hopper</controllingFieldValue>
+                <valueName>Flip 8</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Hopper</controllingFieldValue>
+                <valueName>Hopper 20</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Hopper</controllingFieldValue>
+                <valueName>Hopper 30</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Hopper</controllingFieldValue>
+                <valueName>Hopper 40</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Hopper</controllingFieldValue>
+                <valueName>Hopper Two 20</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Hopper</controllingFieldValue>
+                <valueName>Hopper Two 30</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Hopper</controllingFieldValue>
+                <valueName>Hopper Two 40</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Ice</controllingFieldValue>
+                <valueName>1 Pound</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Ice</controllingFieldValue>
+                <valueName>2 Pound</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Ice</controllingFieldValue>
+                <valueName>4 Pound</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Quantity__c</fullName>
+        <externalId>false</externalId>
+        <label>Quantity</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Value__c</fullName>
+        <externalId>false</externalId>
+        <label>Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <label>Potential Order</label>
+    <nameField>
+        <displayFormat>PP-{0000000}</displayFormat>
+        <label>Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Potential Orders</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

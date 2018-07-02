@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <block>
+        <blockInfo>
+            <blockId>B1</blockId>
+            <joinTable>Account</joinTable>
+        </blockInfo>
+        <currency>USD</currency>
+        <filter>
+            <booleanFilter>((1 OR 2) AND 3) AND 4</booleanFilter>
+            <criteriaItems>
+                <column>Account$AccountNumber</column>
+                <isUnlocked>false</isUnlocked>
+                <operator>equals</operator>
+                <value>10831,38717,11416,21790,22187</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>Account$Buying_Group__c</column>
+                <isUnlocked>false</isUnlocked>
+                <operator>equals</operator>
+                <value>NBS</value>
+            </criteriaItems>
+        </filter>
+        <format>Summary</format>
+        <name>Prior Fiscal Year</name>
+        <params>
+            <name>co</name>
+            <value>0</value>
+        </params>
+        <reportType>Accounts_and_Invoices__c</reportType>
+        <scope>organization</scope>
+        <timeFrameFilter>
+            <dateColumn>Account$CreatedDate</dateColumn>
+            <interval>INTERVAL_CUSTOM</interval>
+        </timeFrameFilter>
+    </block>
+    <block>
+        <blockInfo>
+            <blockId>B0</blockId>
+            <joinTable>Account</joinTable>
+        </blockInfo>
+        <columns>
+            <field>Account$TextName</field>
+        </columns>
+        <currency>USD</currency>
+        <filter>
+            <booleanFilter>((1 OR 2) AND 3) AND 4</booleanFilter>
+            <criteriaItems>
+                <column>Account$AccountNumber</column>
+                <isUnlocked>false</isUnlocked>
+                <operator>equals</operator>
+                <value>10831,38717,11416,21790,22187</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>Account$Buying_Group__c</column>
+                <isUnlocked>false</isUnlocked>
+                <operator>equals</operator>
+                <value>NBS</value>
+            </criteriaItems>
+        </filter>
+        <format>Summary</format>
+        <name>Current Fiscal Year</name>
+        <params>
+            <name>co</name>
+            <value>0</value>
+        </params>
+        <reportType>Accounts_and_Invoices__c</reportType>
+        <scope>organization</scope>
+        <timeFrameFilter>
+            <dateColumn>Account$CreatedDate</dateColumn>
+            <interval>INTERVAL_CUSTOM</interval>
+        </timeFrameFilter>
+    </block>
+    <blockInfo>
+        <blockId xsi:nil="true"/>
+        <joinTable>Account</joinTable>
+    </blockInfo>
+    <description>Sales tracking for Mark Andresen Customers</description>
+    <format>MultiBlock</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account$Buying_Group__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account$Name</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>YoY Sales by Customer - Andresen</name>
+    <reportType>Accounts_and_Invoices__c</reportType>
+    <showDetails>false</showDetails>
+</Report>

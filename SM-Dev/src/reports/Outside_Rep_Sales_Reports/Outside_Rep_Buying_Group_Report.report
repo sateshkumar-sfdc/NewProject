@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <block>
+        <blockInfo>
+            <blockId>B1</blockId>
+            <joinTable>a</joinTable>
+        </blockInfo>
+        <columns>
+            <field>ACCOUNT_NUMBER</field>
+        </columns>
+        <columns>
+            <field>ACCOUNT.NAME</field>
+        </columns>
+        <columns>
+            <field>Account.Invoice_Preference__c</field>
+        </columns>
+        <columns>
+            <field>ADDRESS2_LINE1</field>
+        </columns>
+        <columns>
+            <field>ADDRESS2_LINE2</field>
+        </columns>
+        <columns>
+            <field>ADDRESS2_LINE3</field>
+        </columns>
+        <columns>
+            <field>ADDRESS2_CITY</field>
+        </columns>
+        <columns>
+            <field>ADDRESS2_STATE</field>
+        </columns>
+        <columns>
+            <field>ADDRESS2_ZIP</field>
+        </columns>
+        <columns>
+            <field>ADDRESS2_COUNTRY</field>
+        </columns>
+        <currency>USD</currency>
+        <filter>
+            <criteriaItems>
+                <column>Account.Buying_Group__c</column>
+                <isUnlocked>false</isUnlocked>
+                <operator>notEqual</operator>
+                <value></value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>Account.SalesRepCode__c</column>
+                <isUnlocked>false</isUnlocked>
+                <operator>notEqual</operator>
+                <value>,areid,pp,tadams,YETI</value>
+            </criteriaItems>
+        </filter>
+        <format>Summary</format>
+        <name>Accounts block 1</name>
+        <params>
+            <name>co</name>
+            <value>1</value>
+        </params>
+        <reportType>AccountList</reportType>
+        <scope>organization</scope>
+        <timeFrameFilter>
+            <dateColumn>CREATED_DATE</dateColumn>
+            <interval>INTERVAL_CUSTOM</interval>
+        </timeFrameFilter>
+    </block>
+    <blockInfo>
+        <blockId xsi:nil="true"/>
+        <joinTable>a</joinTable>
+    </blockInfo>
+    <description>Customer List grouped by buying group (Ace, DIB, etc.)</description>
+    <format>MultiBlock</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account.Buying_Group__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>3. Buying Group Report</name>
+    <reportType>AccountList</reportType>
+    <showDetails>true</showDetails>
+</Report>

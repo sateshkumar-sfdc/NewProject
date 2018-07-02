@@ -1,0 +1,63 @@
+<apex:page controller="UniqueEntry.uniqueAuthorizeExt" showChat="false" showHeader="false" sidebar="false">
+	<apex:includeScript value="{!URLFOR($Resource.UniqueEntry__jQueryUI, 'jquery-1.9.1.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.UniqueEntry__jQueryUI, 'jquery-ui.js')}" />
+
+	<style type="text/css">
+		body { background-color: inherit !important; }
+		#infoGroup table { width: 99.5%; border-spacing: 0; border: 1px solid #e0e3e5; }
+		#infoGroup table thead td { font-weight: bold; background: #e0e3e5;}		
+		#infoGroup table tbody td { background: white; word-break: break-all;}
+		#infoGroup table td { border: 1px solid #ccc; padding: 5px; border-width: 0 0 1px 0; }
+
+		.clsLabel { width: 15%; }
+		.clsText { width: 85%; }
+		#btnGroup { margin-bottom: 10px; }
+	</style>
+	<script type="text/javascript">
+		$(function() {
+			var code = '{!JSENCODE($CurrentPage.parameters.code)}';
+			if(code == null || code == '' || code == undefined) {
+				jsBuildAccessCode();
+			}
+		});
+	</script>
+
+	<apex:form id="formAuth">
+		<apex:pageBlock >
+			<apex:pageMessages />
+			<apex:pageBlockButtons location="top">
+				<div id="btnGroup">
+					<!-- <apex:commandButton action="{!buildAccessCode}" value="Get Access Token" reRender="formAuth"/> -->
+					<apex:actionFunction name="jsBuildAccessCode" action="{!buildAccessCode}" reRender="formAuth"/>
+					<apex:commandButton action="{!saveAuthInfo}" value="Save Access Token" style="margin-left: 10px;" reRender="formAuth" rendered="{!isRender}" oncomplete="closePage()"/>
+				</div>
+			</apex:pageBlockButtons>
+			
+			<div id="infoGroup" style="margin: 10px 0; text-align: center;">
+				<apex:outputPanel rendered="{!isRender}">
+					<!-- <table>
+						<thead>
+							<tr><td class="clsLabel">Name</td><td class="clsText">Value</td></tr>
+						</thead>
+						<tbody>
+							<tr><td><apex:outputText value="Id"/></td><td><apex:outputText value="{!oauth.id}"/></td></tr>
+							<tr><td><apex:outputText value="Issued"/></td><td><apex:outputText value="{!oauth.issued_at}"/></td></tr>
+							<tr><td><apex:outputText value="Instance Url"/></td><td><apex:outputText value="{!oauth.instance_url}"/></td></tr>
+							<tr><td><apex:outputText value="Signature"/></td><td><apex:outputText value="{!oauth.signature}"/></td></tr>
+							<tr><td><apex:outputText value="Access Token"/></td><td><apex:outputText value="{!oauth.access_token}"/></td></tr>
+							<tr><td><apex:outputText value="Refresh Token"/></td><td><apex:outputText value="{!oauth.refresh_token}"/></td></tr>
+						</tbody>
+					</table> -->
+					<apex:outputText value="{!AuthMessage}" style="font-size: 11pt;" escape="false"/>
+				</apex:outputPanel>
+			</div>	
+		</apex:pageBlock>
+		<script type="text/javascript">
+			function closePage() {
+				if({!isSaved}) {
+					setTimeout(function(){ window.opener.closeWindow(); }, 1500);					
+				}
+			}
+		</script>
+	</apex:form>
+</apex:page>

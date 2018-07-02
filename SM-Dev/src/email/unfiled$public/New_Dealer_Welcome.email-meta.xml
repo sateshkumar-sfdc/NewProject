@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Automatically sent to new dealer contact when converted from lead.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>New Dealer Welcome</name>
+    <style>none</style>
+    <subject>YETI Coolers Dealer Approval &amp; Forms</subject>
+    <textOnly>Hello {{NAME}},
+
+Thank you for your order from Yeti Coolers. Once your package ships we will send an email with a link to track your order.  You can check the status of your order by logging into your account. If you have any questions about your order please contact us at support@example.com or call us Monday - Friday, 8am - 5pm PST.
+
+Your order confirmation is below. Thank you again for your business.
+
+order #{{ordernumber}} (placed on {{date}})
+
+Jane Smith
+123 Main Street
+Apt 210
+Montclair, NJ 07042
+United States
+T: 9737832783
+
+Jane Smith
+123 Main Street
+Montclair, NJ 07042
+United States
+T: 9737832783
+
+United Parcel Service - 2nd Day Air
+
+Card Type: VISA
+Credit Card Number: xxxx-1111
+
+items Ordered
+
+{{IMG}}
+
+United Parcel Service - 2nd Day Air  $99.99  1  $99.99
+
+$99.99
+$99.99
+$99.99
+
+$99.99
+
+{{PROMOTIONAL BANNER}}
+Yeti Coolers
+PO Box 163686
+Austin, TX 78716
+Phone: 512-394-9384
+customerservice@yeticoolers.com
+
+© 2013 YETI All Rights Reserved</textOnly>
+    <type>custom</type>
+</EmailTemplate>

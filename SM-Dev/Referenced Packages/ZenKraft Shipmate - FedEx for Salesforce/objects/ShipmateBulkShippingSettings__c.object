@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>ShipmentThermalLabelsPrintPerRound__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This is for the Bulk Shipping Platform&apos;s functionality for printing thermal labels. This indicates the number of Shipment labels to print per 5 second rounds.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is for the Bulk Shipping Platform&apos;s functionality for printing thermal labels. This indicates the number of Shipment labels to print per 5 second rounds.</inlineHelpText>
+        <label>Shipment Thermal Labels Print Per Round</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>FedEx Shipmate Bulk Shipping Settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

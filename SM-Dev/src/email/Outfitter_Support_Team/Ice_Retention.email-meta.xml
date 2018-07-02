@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Ice Retention</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>So you want to keep ice longer?
+
+Follow these four simple steps when loading your YETI Cooler to gain even better performance:
+
+
+The more ice, the better.
+
+We recommend 2:1 ice to contents ratio.  That’s 1 lb of ice for every 12 oz can; that’s 1/3 contents and 2/3 ice
+
+***For a Tundra 45 please use at least 25-35 lbs of ice depending upon how much product you are including too.
+
+
+Chill your contents (or freeze if possible)
+
+Air is the enemy.
+
+If you have extra space, fill it with ice!
+
+
+Use subzero ice.
+
+That means ice that is not wet or dripping and frozen to well below 32 degrees.
+
+
+
+Want to take your YETI to the EXTREME?
+
+Check out these tips and tricks gathered from outdoor professionals that require prolonged ice retention from their YETI Cooler:
+
+Start with a Cool Cooler - A cooler is designed to insulate which means it will retain heat as well as cold.  If stored in direct sunlight, a warm garage or a hot vehicle prior to use, a significant amount of ice will be wasted cooling the cooler itself. One way to cool the walls is to pre-load your cooler with a sacrificial bag of ice.  For extreme situations, many professionals even pre-chill their coolers by placing them in a commercial freezer prior to use.
+
+Ice Temperatures Vary Significantly - Warm ice, that is ice around 32 * F, is typically wet, dripping with water, and will not last very long. Ice can get much colder than the freezing point of 32 * F. Cold, sub-zero ice is relatively dry and will last substantially longer.
+
+Block Ice vs. Cubed Ice - The advantage of block ice is that it will melt at a much slower rate than cubed ice; however, smaller pieces of ice will chill a cooler and its contents more quickly, but won’t last as long. Most pros use a mixture of block and cube ice for the dual purposes of chilling contents and achieving long-term ice retention.
+
+Air is the Enemy - Large areas of air inside your cooler will accelerate ice melt since a portion of the ice is consumed with cooling the air. Air space voids are best filled completely with extra ice.  However, if weight is a concern, do like the pros and use other materials such as towels or crumpled newspaper to fill these air space voids.
+
+
+Don’t Drain the Water - Once your cooler is in use, we recommend that you do not empty the cold water if possible.  The water in your cooler will be almost as cold as the ice and will help insulate the remaining ice. However, it is advisable to keep exposed food and meat out of the water
+
+Sunlight is a Heat Source - When possible, keep your cooler out of direct sunlight. Ice can last up to twice as long in the shade.  Some pros even use tarps or towels to cover their coolers when they cannot find a shaded spot.
+
+Limit Cooler Access - Every time you open your cooler you are exchanging the cold air inside the cooler for warm air from the outside which must then be cooled. Limit cooler access and the time the cooler is open, especially when it is very warm outside. In extreme cases, professionals may limit their cooler access to one time per day.
+
+Dry Ice is Best - Dry ice is the frozen form of carbon dioxide and its -109° F temperature makes it perfect for freezing things quickly and keeping them frozen . YETI Coolers are designed to stand up to these extreme temperatures. Dry ice gives off more than twice the cooling power per pound versus regular ice. This translates into dramatic weight savings as well.
+
+Consider using dry ice in any situation where extended cooling power is necessary such as extended trips or power outages during hurricane season. Dry ice can be used by itself or in conjunction with regular ice. Many pros pack a small amount of dry ice in their coolers which will lower the temperature of the regular ice and contents.  This combination drastically increases the length of time a cooler will keep ice.
+
+Because dry ice is so cold, there are handling precautions to keep in mind.  Dry ice will likely freeze the contents in the cooler and can cause aluminum cans to rupture.  It must be handled with protective leather or cloth gloves (oven mitts or hand towels also work) to prevent a freezing burn. It is also advised to keep dry ice away from small children.
+
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

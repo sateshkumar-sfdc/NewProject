@@ -1,0 +1,23 @@
+<apex:page standardStylesheets="false" tabStyle="ExactTargetPhoenix__tab">
+    <apex:includeLightning />      
+        
+    <div id="lightning" />
+
+    <script>
+    $Lightning.use("et4ae5:ChangeAPIUserApp", function() {
+        $Lightning.createComponent("et4ae5:ChangeAPIUser", null, "lightning");      
+    });
+
+    </script>
+    <apex:outputPanel rendered="false">
+    <apex:outputText value="{!$Label.chngMCAPIUsr}"/>
+    <apex:outputText value="{!$Label.activeTS}"/>
+    <apex:outputText value="{!$Label.outstndgEmlSnds}"/>
+    <apex:outputText value="{!$Label.msg0251}"/>
+    <apex:outputText value="{!$Label.msg0250}"/>
+    <apex:outputText value="{!$Label.msg0249}"/>
+    <apex:outputText value="{!$Label.updtAPIUsr}"/>
+    <apex:outputText value="{!$Label.msg0248}"/>
+    <apex:outputText value="{!$Label.chngeAPIUsrWarn }"/>  
+    </apex:outputPanel>	    
+</apex:page>

@@ -1,0 +1,59 @@
+<!--
+************************************************************
+** Name: ReleaseButton.cmp          	 	              **
+** Copyright notice: 								      **
+** YETI Coolers										      **
+************************************************************
+** Purpose: (Omni Channel)								  **
+** This component is designed for when user click on      **
+** Account Detail Page Create SAP Cutomer                 **
+** Button then this component will fire and Run related   **
+** Client side controller "ReleaseButtonCmpController.js" **
+** to get the SAP customer number from SAP show on the    **
+** Account Detail Page                                    **
+************************************************************
+** History:                                               **
+************************************************************
+** VERSION AUTHOR DATE DETAIL RELEASE/CSR                 **
+** 1.0 - Satesh Makineni 05/20/2018 INITIAL DEVELOPMENT   **
+** 2.0 -                                              	  **
+************************************************************
+-->
+
+
+<aura:component controller = "AccountService" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <!-- using Dataservice and capture the current Record Id to pull the data and send to SAP for creation of Business Partner Account -->
+    <aura:attribute name="recordId" type="string"/>
+    <aura:attribute name="record" type="Object"/>
+    <aura:attribute name="simpleRecord" type="Object"/>
+    <aura:attribute name="recordError" type="String"/>
+    
+    <force:recordData aura:id="recordLoader"
+                      recordId="{!v.recordId}"
+                      layoutType="FULL"
+                      targetRecord="{!v.record}"
+                      targetFields="{!v.simpleRecord}"
+                      targetError="{!v.recordError}"
+                      recordUpdated="{!c.handleRecordUpdated}"
+                      />
+    
+    <!-- On load poup window shows with Spinner until http call completes-->
+    
+    <aura:attribute name="Spinner" type="Boolean" default="false"/>
+    <aura:attribute name="MESSAGE" type="String" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div class ="slds-align_absolute-center "><b>Waiting for response !</b></div>	
+    
+    <div>
+        <aura:if isTrue="{!v.Spinner}">  
+            <div class="demo-only" style="height: 6rem;">
+                <div role="status" class="slds-spinner slds-spinner_large slds-spinner_brand">
+                    <span class="slds-assistive-text">Loading</span>
+                    <div class="slds-spinner__dot-a"></div>
+                    <div class="slds-spinner__dot-b"></div>
+                </div>
+            </div>
+        </aura:if>
+    </div>
+</aura:component>

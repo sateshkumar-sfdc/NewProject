@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Seeddata_Key_Values</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Seeddata_Key_values</value>
+    </caseValues>
+    <fields>
+        <label><!-- Field Description --></label>
+        <name>FieldDescription__c</name>
+    </fields>
+    <fields>
+        <label><!-- Field Name --></label>
+        <name>FieldName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Field Value --></label>
+        <name>FieldValue__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

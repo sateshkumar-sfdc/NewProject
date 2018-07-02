@@ -1,0 +1,275 @@
+<apex:page showHeader="{!showHeader}" title="Daily Summary" standardStylesheets="false" sidebar="true" applyBodyTag="false" docType="html-5.0" controller="geopointe.DailySummary_Controller" extensions="geopointe.Localization">
+
+	<script src="{!googJSsrc}"></script> <!-- Google JavaScript API -->
+
+	<script src="{!URLFOR($Resource.jquery, '/jquery-2.2.4.min.js')}"></script> <!-- core jQuery -->
+	<script src="{!URLFOR($Resource.jquery, '/js/lib/angular/angular-1.5.8.min.js')}"></script> <!-- Angular -->
+	<script src="{!URLFOR($Resource.jquery, '/js/lib/angular/angular-animate-1.5.8.min.js')}"></script>
+	<script src="{!URLFOR($Resource.jquery, '/js/lib/angular/angular-cookies-1.5.8.min.js')}"></script> <!-- Angular -->
+    <script src="{!URLFOR($Resource.jquery, '/js/lib/angular/locales/angular-locale_'& angularLocaleForCurrentUser &'.js')}"></script> <!-- Angular -->
+    <script src="{!URLFOR($Resource.jquery, '/js/lib/angular/lib/date.js')}"></script>  <!-- Angular jQuery UI date picker-->
+    <script src="{!URLFOR($Resource.jquery, '/js/lib/moment/moment.min.js')}"></script> <!-- Moment.js for time formatting -->
+    <script src="{!URLFOR($Resource.jquery, '/js/lib/moment/moment-timezone.min.js')}"></script> <!-- Moment.js timezone functionality -->
+    <script src="{!URLFOR($Resource.jquery, '/js/lib/moment/lang/'& momentJSLangForCurrentUser &'.js')}"></script> <!-- Moment.js language file -->
+    <script src="{!URLFOR($Resource.jquery, '/js/lib/angular/lib/angular-moment.min.js')}"></script> <!-- Angular Moment.js-->
+    <script src="{!URLFOR($Resource.jquery, '/js/lib/angular/lib/select2.js')}"></script> <!-- Angular select2-->
+    <script src="{!URLFOR($Resource.jquery, '/js/lib/angular-ui-bootstrap/ui-bootstrap-tpls.js')}"></script>
+    <script src="{!URLFOR($Resource.jquery, '/js/lib/angular/lib/ui.sortable.min.js')}"></script> <!-- Angular jQuery UI sortable-->
+    <script src="{!URLFOR($Resource.jquery, '/js/lib/axios.min.js')}"></script> <!-- Promise based HTTP client for the browser and node.js -->
+    <script src="{!URLFOR($Resource.jquery, '/js/lib/oms.min.js')}"></script> <!-- Overlapping marker spider -->
+
+    <script src="{!URLFOR($Resource.jquery, '/js/geopointeApp.js')}"></script> <!-- Starts the Angular geopointe app -->
+ 	<script src="{!URLFOR($Resource.jquery, '/js/dailySummary/DailySummaryController.js')}"></script> <!-- Starts the Angular geopointe app -->
+
+
+	<apex:stylesheet value="{!URLFOR($Resource.geopointe__FontAwesome, '/css/font-awesome.min.css')}"/> <!--Font awesome library for icons and such -->
+
+    <style type="text/css">
+        .tripContainer{
+        	border-radius: 0.25rem;
+    		border: 1px solid #d8dde6;
+        }
+        .tripContainerHeader{
+        	border-radius: .25em .25em 0em 0em;
+        	background: #f7f9fb;
+        }
+    </style>
+
+    <script type="text/javascript">
+    	var gp_userSettings = {};
+        gp_userSettings.userInfo = {!userInfoJSON};
+
+        var thingId = '{!JSENCODE(thingId)}';
+        
+    </script>
+
+	<!-- Import SLDS styles -->
+	<apex:slds />
+
+	<!--wrapper for SLDS and angular controller-->
+	<div class="slds-scope" id="app" ng-app="GeopointeApp" ng-controller="DailySummary">
+
+		<!-- Header -->
+		<div class="slds-page-header">
+			<div class="slds-grid">
+				<div class="slds-col slds-has-flexi-truncate">
+					<div class="slds-media slds-no-space slds-grow">
+						<div class="slds-media__figure">
+							<span class="slds-icon_container slds-icon-standard-user">
+								<img height="32" style="height: 32px;" src="{!URLFOR($Resource.images, '/dailySummary/car.png')}"/>
+							</span>
+						</div>
+						<div class="slds-media__body">
+							<p class="slds-text-title_caps slds-line-height_reset">Daily Summary</p>
+							<h1 class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate" title="this should match the Record Title">
+								<a href="/{!record['id']}">{!record['name']}</a>
+							</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Daily nav buttons -->
+		<div class="slds-grid slds-wrap slds-grid_align-spread slds-m-top_x-small">
+			<div class=" slds-max-small-order_2">
+				<button class="slds-button slds-button_neutral" ng-click="prevDate()">
+					<i class="fa fa-fw fa-caret-left"></i>
+					{{selectedDate | amSubtract : '1' : 'day' | amDateFormat:'LL'}}
+				</button>
+			</div>
+
+			<div class="slds-text-heading_medium slds-align_absolute-center slds-max-small-size_1-of-1 slds-max-small-order_1">
+				{{selectedDate | amDateFormat:'dddd'}}, {{selectedDate | amDateFormat:'LL'}}
+			</div>
+
+			<div class="slds-max-small-order_3">
+				<button class="slds-button slds-button_neutral" ng-click="nextDate()" ng-disabled="disableNext()">
+					{{selectedDate | amAdd : '1' : 'day' | amDateFormat:'LL'}}
+					<i class="fa fa-fw fa-caret-right"></i>
+				</button>
+			</div>
+		</div>
+
+		<!-- No Trips Message -->
+		<div class="slds-notify_container slds-is-relative" ng-show="!fullDayTripId && tripsLoaded && trips.length == 0">
+			<div class="slds-notify slds-notify_toast slds-theme_info" role="alert">
+				<div class="slds-notify__content slds-align_absolute-center ">
+					<h2 class="slds-text-heading_small">There were no trips on this day.</h2>
+				</div>
+			</div>
+		</div>
+
+		<!-- Daily Overview -->
+		<div class="tripContainer slds-m-top_x-small" ng-show="fullDayTripId">
+			<div class="tripContainerHeader slds-p-around_x-small">
+				<span class="slds-text-heading_small">Full Day Overview: {{fullDayTrip.singleLineName}}</span>
+				<span class="slds-text-color_weak slds-p-left_x-small">{{fullDayTrip.summary.startDatetime | amDateFormat:'LT'}} - {{fullDayTrip.summary.endDatetime | amDateFormat:'LT'}}</span>
+			</div>
+			<div>
+				<div class="slds-grid slds-wrap">
+					<div class="slds-size_1-of-2 slds-max-small-size_1-of-1">
+						<div id="map-{{fullDayTripId}}" style="height: 400px; width: 100%;"/>
+					</div>
+					<div class="slds-size_1-of-2 slds-max-small-size_1-of-1">
+						<div class="slds-grid slds-wrap">
+							<div class="slds-form-element slds-has-divider_top slds-p-left_small slds-p-around_xx-small slds-size_1-of-2 slds-max-small-size_1-of-1">
+								<label class="slds-form-element__label">Distance</label>
+								<div class="slds-form-element__control">
+									{{ fullDayTrip.summary.distanceTraveledMi}} miles
+								</div>
+							</div>
+							<div class="slds-form-element slds-has-divider_top slds-p-left_small slds-p-around_xx-small slds-size_1-of-2 slds-max-small-size_1-of-1">
+								<label class="slds-form-element__label">Enging On Time</label>
+								<div class="slds-form-element__control">
+									{{formatDuration(fullDayTrip.summary.engineOnTimeMin)}}
+								</div>
+							</div>
+						</div>
+						<div class="slds-grid slds-wrap">
+							<div class="slds-form-element slds-has-divider_top slds-p-left_small slds-p-around_xx-small slds-size_1-of-2 slds-max-small-size_1-of-1">
+								<label class="slds-form-element__label">Fuel Economy</label>
+								<div class="slds-form-element__control">
+									{{fullDayTrip.summary.fuelEconomyMPG}} MPG
+								</div>
+							</div>
+							<div class="slds-form-element slds-has-divider_top slds-p-left_small slds-p-around_xx-small slds-size_1-of-2 slds-max-small-size_1-of-1">
+								<label class="slds-form-element__label">Max Speed</label>
+								<div class="slds-form-element__control">
+									{{fullDayTrip.summary.maxSpeedMPH}} MPH
+								</div>
+							</div>
+						</div>
+						<div class="slds-grid slds-wrap">
+							<div class="slds-form-element slds-has-divider_top slds-p-left_small slds-p-around_xx-small slds-size_1-of-2 slds-max-small-size_1-of-1">
+								<label class="slds-form-element__label">Max Speed Over Limit</label>
+								<div class="slds-form-element__control">
+									{{fullDayTrip.summary.maxSpeedOverageMPH}} MPH
+								</div>
+							</div>
+							<div class="slds-form-element slds-has-divider_top slds-p-left_small slds-p-around_xx-small slds-size_1-of-2 slds-max-small-size_1-of-1">
+								<label class="slds-form-element__label"># of Harsh Events</label>
+								<div class="slds-form-element__control">
+									{{fullDayTrip.summary.numOfHarshEvents}}
+								</div>
+							</div>
+						</div>
+						<div class="slds-grid slds-wrap">
+							<div class="slds-form-element slds-has-divider_top slds-p-left_small slds-p-around_xx-small slds-size_1-of-2 slds-max-small-size_1-of-1">
+								<label class="slds-form-element__label">Total Idle Time</label>
+								<div class="slds-form-element__control">
+									{{formatDuration(fullDayTrip.summary.idleDurationMin)}}
+								</div>
+							</div>
+							<div class="slds-form-element slds-has-divider_top slds-p-left_small slds-p-around_xx-small slds-size_1-of-2 slds-max-small-size_1-of-1">
+								<label class="slds-form-element__label">Longest Idle	</label>
+								<div class="slds-form-element__control">
+									{{formatDuration(fullDayTrip.summary.maxIdleDurationMin)}}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Trip Segments Seperator -->
+		<div class="slds-section slds-is-open" ng-if="tripsLoaded && trips.length > 0">
+			<h3 class="slds-section__title slds-theme_shade">
+				<span class="slds-truncate slds-p-horizontal_small slds-text-heading_medium" title="Section Title">Trip Segments</span>
+			</h3>
+		</div>
+
+		<!-- Trip list -->
+		<div class="tripContainer slds-m-top_x-small" ng-repeat="t in trips track by $index">
+			<div class="tripContainerHeader slds-p-around_x-small">
+				<span class="slds-text-heading_small">{{t.singleLineName}}</span>
+				<span class="slds-text-color_weak slds-p-left_x-small">{{t.summary.startDatetime | amDateFormat:'LT'}} - {{t.summary.endDatetime | amDateFormat:'LT'}}</span>
+			</div>
+			<div>
+				<div class="slds-grid slds-wrap">
+
+					<div class="slds-size_1-of-2 slds-max-small-size_1-of-1">
+						<div id="map-{{t.id}}" style="height: 300px; width: 100%;"/>
+					</div>
+
+					<div class="slds-form slds-size_1-of-2 slds-max-small-size_1-of-1">
+						<div class="slds-grid slds-wrap">
+							<div class="slds-form-element slds-has-divider_top slds-p-left_small slds-p-around_xx-small slds-size_1-of-2 slds-max-small-size_1-of-1">
+								<label class="slds-form-element__label">Distance</label>
+								<div class="slds-form-element__control">
+									{{t.summary.distanceTraveledMi}} miles
+								</div>
+							</div>
+							<div class="slds-form-element slds-has-divider_top slds-p-left_small slds-p-around_xx-small slds-size_1-of-2 slds-max-small-size_1-of-1">
+								<label class="slds-form-element__label">Duration</label>
+								<div class="slds-form-element__control">
+									{{formatDuration(t.summary.durationMin)}}
+								</div>
+							</div>
+						</div>
+						<div class="slds-grid slds-wrap">
+							<div class="slds-form-element slds-has-divider_top slds-p-left_small slds-p-around_xx-small slds-size_1-of-2 slds-max-small-size_1-of-1">
+								<label class="slds-form-element__label">Fuel Economy</label>
+								<div class="slds-form-element__control">
+									{{t.summary.fuelEconomyMPG}} MPG
+								</div>
+							</div>
+							<div class="slds-form-element slds-has-divider_top slds-p-left_small slds-p-around_xx-small slds-size_1-of-2 slds-max-small-size_1-of-1">
+								<label class="slds-form-element__label">Max Speed</label>
+								<div class="slds-form-element__control">
+									{{t.summary.maxSpeedMPH}} MPH
+								</div>
+							</div>
+						</div>
+						<div class="slds-grid slds-wrap">
+							<div class="slds-form-element slds-has-divider_top slds-p-left_small slds-p-around_xx-small slds-size_1-of-2 slds-max-small-size_1-of-1">
+								<label class="slds-form-element__label">Max Speed Over Limit</label>
+								<div class="slds-form-element__control">
+									{{t.summary.maxSpeedOverageMPH}} MPH
+								</div>
+							</div>
+							<div class="slds-form-element slds-has-divider_top slds-p-left_small slds-p-around_xx-small slds-size_1-of-2 slds-max-small-size_1-of-1">
+								<label class="slds-form-element__label"># of Harsh Events</label>
+								<div class="slds-form-element__control">
+									{{t.summary.numOfHarshEvents}}
+								</div>
+							</div>
+						</div>
+						<div class="slds-grid slds-wrap">
+							<div class="slds-form-element slds-has-divider_top slds-p-left_small slds-p-around_xx-small slds-size_1-of-2 slds-max-small-size_1-of-1">
+								<label class="slds-form-element__label">Total Idle Time</label>
+								<div class="slds-form-element__control">
+									{{formatDuration(t.summary.idleDurationMin)}}
+								</div>
+							</div>
+							<div class="slds-form-element slds-has-divider_top slds-p-left_small slds-p-around_xx-small slds-size_1-of-2 slds-max-small-size_1-of-1">
+								<label class="slds-form-element__label">Longest Idle	</label>
+								<div class="slds-form-element__control">
+									{{formatDuration(t.summary.maxIdleDurationMin)}}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Daily nav buttons button -->
+		<div class="slds-grid slds-grid_align-spread slds-m-top_x-small" ng-show="trips.length > 0">
+			<div>
+				<button class="slds-button slds-button_neutral" ng-click="prevDate()">
+					<i class="fa fa-fw fa-caret-left"></i>
+					{{selectedDate | amSubtract : '1' : 'day' | amDateFormat:'LL'}}
+				</button>
+			</div>
+			<div>
+				<button class="slds-button slds-button_neutral" ng-click="nextDate()" ng-disabled="disableNext()">
+					{{selectedDate | amAdd : '1' : 'day' | amDateFormat:'LL'}}
+					<i class="fa fa-fw fa-caret-right"></i>
+				</button>
+			</div>
+		</div>
+	</div>
+
+</apex:page>

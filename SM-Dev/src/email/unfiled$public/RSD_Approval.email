@@ -1,0 +1,7 @@
+Please click on the link below to Review the Lead Record and provide your Approval. 
+
+Company: 
+{!Lead.Company} 
+
+Link: 
+{!Lead.Link}

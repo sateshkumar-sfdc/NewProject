@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Outside Sales in Stock Email</name>
+    <style>none</style>
+    <subject>YETI | Buy Now Ship Immediately</subject>
+    <textOnly>BUY NOW
+
+AVAILABLE TO SHIP IMMEDIATELY
+FOR FALL/WINTER 2017
+
+Please see attached sheet for Fall/Winter 2017. Please note that all Limited Edition Pink products are sold out. We do have a limited amout of Limited Edition High Country Tundra 45 available. Now is your last chance to order all other products for the 2017 Holiday Season.
+
+Please email POs/orders to
+{!User.Email} and sales@yeti.com
+
+Ramblers
+Colster
+Rambler Colster Stainless
+Rambler Colster Seafoam
+Rambler Colster Tahoe Blue
+Rambler Colster Olive Green
+Rambler Colster Black
+10 oz Lowball
+Rambler 10 Stainless
+Rambler 10 Black
+Rambler 20 oz Tumbler
+W/ magslider lid
+Rambler 20 Stainless
+Rambler 20 Seafoam
+Rambler 20 Tahoe Blue
+Rambler 30 oz Tumbler
+W/ magslider lid
+Rambler 30 Stainless
+Rambler 30 Seafoam
+Rambler 18 oz Bottle
+Rambler 18 Stainless
+Rambler 26 oz Bottle
+Rambler 26 Seafoam
+Rambler 26 Tahoe Blue
+Rambler 26 Black
+Rambler 26 Olive Green
+Rambler 36 oz Bottle
+Rambler 36 Stainless
+Rambler 36 Olive Green
+Rambler 36 Brick Red
+Rambler JUGS
+Rambler Gallon Jug
+	
+Roadie / Tundras
+
+Roadie 20
+White
+Tan
+Blue
+
+TUNDRA 35, 45, 50, 60, 75
+White
+Tan
+Blue
+
+TUNDRA 105
+White
+Tan
+
+TUNDRA 110, 125, 160, 210, 250, 350
+White
+Hoppers
+
+Hopper Two 20, 30, 40
+Fog Gray
+Field Tan
+
+Hopper Flip 8, 12
+Field Tan
+Loadout
+
+Loadout Bucket
+Charcoal
+Tan
+Seafoam
+White
+
+Accessories
+Loadout Bucket Lid
+Loadout Bucket Gear Belt
+Rambler 10 oz Lowball Handle
+Rambler 20 oz Tumbler Handle
+Rambler 30 oz Tumbler Handle
+Rambler Tumbler 20 oz Straw Lid
+Rambler Tumbler 30 oz Straw Lid
+Rambler 10/20 oz MagSlider Lid
+Rambler 30 oz MagSlider Lid
+ICE 1 LB
+ICE 2 LB
+ICE 4 LB
+
+*Quantities subject to change*
+
+Please email POs/orders to
+{!User.Email} and sales@yeti.com</textOnly>
+    <type>custom</type>
+</EmailTemplate>

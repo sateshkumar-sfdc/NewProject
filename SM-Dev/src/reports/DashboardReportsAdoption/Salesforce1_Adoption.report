@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>User.IdpEventLog$UserId$App</field>
+    </columns>
+    <columns>
+        <field>User.IdpEventLog$UserId$Timestamp</field>
+    </columns>
+    <columns>
+        <field>User.IdpEventLog$UserId$ErrorCode</field>
+    </columns>
+    <columns>
+        <field>User.IdpEventLog$UserId$InitiatedBy</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>User.IdpEventLog$UserId$App</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>salesforce1</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>User$Name</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Salesforce1 Adoption</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Login_History_by_User__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>User$LastLoginDate</dateColumn>
+        <interval>INTERVAL_LAST7</interval>
+    </timeFrameFilter>
+</Report>

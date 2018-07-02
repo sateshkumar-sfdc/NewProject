@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>YCS request for information letter</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hi,
+
+
+
+Thank you for reaching out to YETI Coolers! We are honored by your request to customize your drinkware. We have a talented team of artists waiting to create your magic. We want to make sure you receive exceptional customer service and a quality product.
+
+
+
+We are managing the number of orders we can efficiently manage per week. Attached to this letter you will find a request for information we need to approve your request for process. We ask for your assistance completing the document and returning it to this email address.
+
+Please note:
+
+· Allow 8 weeks from approval to delivery (Logos that require licensing approval can take an additional 4 weeks)
+
+· Minimum order = 120 pieces
+
+· Allow 7 days for your order to be approved for processing – Once approved changes cannot be made and no refunds will be granted
+
+
+We look forward to receiving your request and we will send you an email regarding the status of your application. If approved, we can move forward with your request.
+
+
+
+Sincerely,
+
+
+
+{!User.CommunityNickname}
+
+The YETI Outfitters
+
+512.394.9384 customerservice@yeti.com
+
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

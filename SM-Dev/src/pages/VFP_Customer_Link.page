@@ -1,0 +1,64 @@
+<apex:page showHeader="true" controller="CTRL_CustomerLink" title="Link Account to SAP Customer" tabStyle="Account" sidebar="true" >
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"/>
+    <c:CMP_Status />
+
+    <apex:form id="mainform">
+        <apex:pageMessages id="messagediv" />
+
+        <apex:pageBlock title="Account" >
+            <apex:pageBlockSection columns="2" collapsible="false">
+                <apex:outputText label="Name:" value="{!a.Name}" />
+            </apex:pageBlockSection>
+
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton onclick="window.location.href='/{!a.Id}';return false;" value="Return to Account"/>
+                <apex:commandButton action="{!GoToCreateCustomer}" value="Create Customer"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+
+        <apex:pageBlock id="searchdiv" title="Search for SAP Customers">
+            <apex:actionFunction name="findMatchingCustomers" action="{!actionCustomerSearch}" status="status" rerender="mainform" />
+            <apex:pageBlockSection columns="1" collapsible="false">
+                <apex:inputText value="{!customerName}" label="Customer Name:" />
+                <apex:inputText value="{!postalCode}" label="Postal Code:" />
+                <apex:inputText value="{!phoneNumber}" label="Phone Number:" />
+                <apex:inputText value="{!email}" label="Email:" />
+                <apex:commandButton onclick="findMatchingCustomers(); return false" value="Search For Matching Customers"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+
+        <apex:pageBlock id="resultdiv" title="SAP Customers Matching This Account">
+
+            <apex:pageBlockTable value="{!matching_customers}" var="c">
+                <apex:column headerValue="Link">
+                    <apex:commandButton value="Link Account" action="{!actionLinkAccount}" reRender="mainform" status="status">
+                        <apex:param name="linkedCustomerNumber" value="{!c.CustomerNumber}" />
+                    </apex:commandButton>
+                </apex:column>
+                <apex:column headerValue="Customer Number" value="{!c.CustomerNumber}" />
+                <apex:column headerValue="Name" value="{!c.Name}" />
+                <apex:column headerValue="Street" value="{!c.Street}" />
+                <apex:column headerValue="City" value="{!c.City}" />
+                <apex:column headerValue="Region/Desc" value="{!c.Region}" />
+                <apex:column headerValue="Postal Code" value="{!c.PostalCode}" />
+                <apex:column headerValue="Telephone Number" value="{!c.TelephoneNumber}" />
+                <apex:column headerValue="Email" value="{!c.EmailAddress}" />
+            </apex:pageBlockTable>
+
+        </apex:pageBlock>
+
+    </apex:form>
+
+    <c:CMP_Footer />
+
+    <script>
+    
+    // Enter key initiates search while in search fields
+    $(document).on('keypress', '[id$="searchdiv"] input', function(event) {
+        if (event.which === 13) {
+            findMatchingCustomers();
+            return false;
+        }
+    });
+    </script>
+</apex:page>

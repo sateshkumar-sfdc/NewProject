@@ -1,0 +1,150 @@
+<aura:component extends="et4ae5:BaseComponent" extensible="true" abstract="true" controller="et4ae5.LightningListViewPlusControl">
+    
+    <!-- Scripts -->
+    <ltng:require scripts="/resource/et4ae5__jQuery,/resource/et4ae5__uxds/js/bootstrap.js,/resource/et4ae5__uxds/js/datatables.min.js" styles="/resource/et4ae5__uxds/css/uxds-bootstrap.min.css" afterScriptsLoaded="{!c.afterScriptsLoaded}" />
+     
+    <!-- Handlers -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <!-- Attributes -->
+    <aura:attribute name="returnPage" type="String" default="/apex/MarketingCloudSettings" />
+    <aura:attribute name="updatedRecords" type="sObject[]" />
+    <aura:attribute name="tableBuilt" type="Boolean" default="false" />
+    <aura:attribute name="jqueryDataTableBuilt" type="Boolean" default="false" />
+    <aura:attribute name="tableHeaders" type="String[]" />
+    
+    <!-- External Attributes -->
+    <aura:attribute name="renderSelectAllCheckbox" type="Boolean" required="true" />
+    <aura:attribute name="sObjectAPIName" type="String" required="true" />
+    <aura:attribute name="sObjectFields" type="String"  required="true" />
+    <aura:attribute name="updateButtonLabel" type="String"  required="true" />
+    <aura:attribute name="cancelButtonLabel" type="String"  required="true" />
+    <aura:attribute name="buildingTableLabel" type="String"  required="true" />
+    <aura:attribute name="pageTitleLabel" type="String"  required="true" /> 
+    <aura:attribute name="pageSubTitleLabel" type="String"  required="true" />
+    <aura:attribute name="tableHeaderLabels" type="String"  required="true" />
+    <aura:attribute name="infoLabelPrefix" type="String"  required="true" />
+    <aura:attribute name="infoLabelMid1" type="String"  required="true" />
+    <aura:attribute name="infoLabelMid2" type="String"  required="true" />
+    <aura:attribute name="infoLabelSuffix" type="String"  required="true" />
+    <aura:attribute name="entriesPerPageLabelPrefix" type="String"  required="true" />
+    <aura:attribute name="entriesPerPageLabelSuffix" type="String"  required="true" />
+    <aura:attribute name="filteredLabelPrefix" type="String"  required="true" />
+    <aura:attribute name="filteredLabelSuffix" type="String"  required="true" />
+    <aura:attribute name="paginatePreviousLabel" type="String"  required="true" />
+    <aura:attribute name="paginateNextLabel" type="String"  required="true" />
+    <aura:attribute name="noDataLabel" type="String"  required="true" />
+    <aura:attribute name="noDataMessage" type="String"  required="true" />
+    <aura:attribute name="noDataFilterMessage" type="String"  required="true" />
+    <aura:attribute name="saveErrorTitleLabel" type="String"  required="true" />
+    <aura:attribute name="saveErrorLabel" type="String"  required="true" />
+    <aura:attribute name="saveServerErrorTitleLabel" type="String"  required="true" />
+    <aura:attribute name="saveServerErrorLabel" type="String"  required="true" />
+    <aura:attribute name="saveNoChangeTitleLabel" type="String"  required="true" />
+    <aura:attribute name="saveNoChangeLabel" type="String"  required="true" />
+    <aura:attribute name="recordLimitLoadTitleLabel" type="String"  required="true" />
+    <aura:attribute name="recordLimitLoadLabel" type="String"  required="true" />
+    <aura:attribute name="recordLoadErrorTitleLabel" type="String"  required="true" />
+    <aura:attribute name="recordLoadErrorLabel" type="String"  required="true" />
+	<aura:attribute name="saveSuccessTitleLabel" type="String"  required="true" />
+    <aura:attribute name="saveSuccessLabel" type="String"  required="true" />
+    <aura:attribute name="initialLoadFinished" type="Boolean" access="private" default="false"/>
+    
+    <!-- Events -->
+    <aura:handler event="et4ae5:UpdateRecord" action="{!c.updateEvent}" name="UpdateRecord" />
+    <aura:handler event="aura:doneRendering" action="{!c.doneRendering}"/>
+
+	<!-- Component Body -->    
+    <div aura:id="mainDiv" class="uxds">
+        <div class="uxds-body">
+            <div class="uxds main_container">
+                <div class="uxds container">
+                    <div class="uxds row rowSpacer-component">
+                        <div class="uxds col-sm-12">
+                            <h1><ui:outputText value="{!v.pageTitleLabel}" /></h1>                       
+                        </div>
+                    </div>
+                    <div class="uxds row rowSpacerSmall-component">
+                        <div class="uxds col-sm-12">
+                            <aura:unescapedHtml value="{!v.pageSubTitleLabel}"/>                        
+                        </div>
+                    </div>
+                    <div class="uxds row rowSpacer-component">
+                        <div class="uxds col-sm-12">
+                        </div>
+                    </div>
+                    <div class="uxds row rowSpacer-component">
+                        <div class="uxds col-sm-6">
+                        	<div class="uxds input-group">
+                                <span class="uxds input-group-addon background-component" >
+                            		<span class="uxds glyphicon glyphicon-search"></span>
+                                </span>
+                                <input id="searchText" type="text" class="uxds form-control" />
+                            </div>
+                        </div>
+                        <div class="uxds col-sm-6 text-right">
+                            <div>
+                                <span>
+                            		<ui:button aura:id="cancelButton" class="buttoncancel-component" press="{!c.cancel}" /> 
+                            	</span>
+                                <span style="margin-left:5px;" >
+                                    <ui:button aura:id="updateButton" class="button-component" press="{!c.update}" /> 
+                           		</span>
+                            </div>
+                		</div>
+                    </div>                  
+                    <div class="uxds row rowSpacer-component">
+                        <div class="uxds col-sm-12">
+                            <div id="buildTableDiv">
+                                <ui:outputText value="{!v.buildingTableLabel}" /> 
+                            </div>
+                            <div id="tableDiv">
+                                <span>
+                                    <table id="mainTable" class="uxds table table-hover" >
+                                        <thead>
+                                            <tr>
+                                                <aura:iteration items="{!v.tableHeaders}" var="header">
+                                                    <aura:if isTrue="{!header == 'USER' || header == 'ADMIN'}" >
+                                                        <th class="border-component center-component" >
+                                                            {!header}
+                                                        </th>
+                                                        <aura:set attribute="else">
+                                                            <aura:if isTrue="{!header == 'SELECTALL'}" >
+                                                                <th class="border-component center-component" >
+                                                					<input type="checkbox" id="selectAllCheckbox" />
+                                            					</th>
+                                                                <aura:set attribute="else">
+                                                                    <th class="border-component" >
+                                                                        {!header}
+                                                                    </th>
+                                                                </aura:set>
+                                                            </aura:if>
+                                                        </aura:set>
+                                                    </aura:if>
+                                                </aura:iteration>   
+                                            </tr>
+                                        </thead>
+                                        <tbody class="body-component ">
+                                             {!v.body}                                                 
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="{!v.tableHeaders.length}" class="border-component">
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </span>
+                        	</div>        
+                        </div>
+                    </div>
+                    <div class="uxds row rowSpacerFooter-component">
+                        <div class="uxds col-sm-12">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    
+</aura:component>

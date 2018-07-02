@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Rambler: Water Spots</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hello,
+
+
+Thank you so much for your response and photos. The discoloration you’re experiencing typically is a result of hard water staining. As the water evaporates while drying, excessive mineral content in the water is left behind, leaving visible residue in the form of spots.  Typically, this is more visible on our darker colored Duracoat colors, however it can occur on any of our Duracoated Ramblers.
+
+To remove hard water spots from your Rambler, try soaking the Rambler in piping hot water for a few hours and then drying thoroughly.  The heat will help re-dissolve those minerals back in the water, removing the spots and getting your Rambler looking brand new again!  I typically do this in the sink, but make sure you take the proper safety precautions to stay safe when handling hot water.  Alternatively, make sure that your dishwasher is set to the highest water temperature setting to help prevent this from occurring in the future.
+
+Finally, there are detergents and additives you can purchase that are specifically designed to work around hard water. While I recommend checking out your dishwasher’s manufacture guidelines for specific recommendations, Finish Power Up, Glisten, and Lemi Shine are all concentrated detergents intended for homes dealing with this issue.
+
+Please reach out with any additional questions you might have, as we are always happy to help out.
+
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+
+The YETI Outfitters
+
+512.394.9384
+
+customerservice@yeti.com
+
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

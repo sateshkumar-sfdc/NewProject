@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>PROMO Goods Dealer Request</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Hello,
+
+YETI has experienced unprecedented growth since its inception.  YETI&apos;s ever-growing popularity is outpacing our manufacturing facilities capacity and is currently unable to deliver enough good to meet our demands.
+
+Due to these constraints YETI has paused the distribution of our products into the Corporate, Premium and Promotional Products channel.  We may reconsider re-entering into this marketplace in the future but not until we are able to provide our distribution partners the necessary product availability to be successful
+
+Sincerely,
+
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

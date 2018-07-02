@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Outside Sales in Stock Email- Q1 18</name>
+    <style>none</style>
+    <subject>YETI | Buy Now to Ship Immediately</subject>
+    <textOnly>TIME TO RESTOCK THE SHELVES
+
+Products Available to Ship At Once
+FOR SPRING/SUMMER 2018
+
+Please email POs/orders to
+{!User.Email} and sales@yeti.com
+
+Rambler®
+Colster®
+Rambler Colster Stainless
+Rambler Colster Seafoam
+Rambler Colster Olive Green
+Rambler Colster Black
+Rambler Colster Brick Red
+
+10 oz. Lowball
+Rambler 10 Stainless
+
+Rambler 20 oz. Tumbler
+W/ magslider lid
+Rambler 20 Stainless
+Rambler 20 Seafoam
+Rambler 20 Brick Red
+Rambler 30 oz. Tumbler
+W/ magslider lid
+
+Rambler 30 Stainless
+Rambler 30 Seafoam
+Rambler 30 Black
+Rambler 30 Olive Green
+
+Rambler 18 oz. Bottle
+Rambler 18 Stainless
+Rambler 18 Seafoam
+
+Rambler 26 oz. Bottle
+Rambler 26 Seafoam
+Rambler 36 oz. Bottle
+
+Rambler 36 Stainless
+Rambler 36 Olive Green
+
+Rambler JUGS
+Rambler Half Gallon Jug
+Rambler Gallon Jug
+
+Roadie® / Tundra®
+Roadie 20
+White
+Tan
+Blue
+
+TUNDRA 35*, 45*, 50*, 65*, 75
+White
+Tan
+Blue
+* Take advantage of the recently reduced wholesale pricing. Contact your territory sales manager for details
+
+TUNDRA 105
+White
+Tan
+
+TUNDRA 110, 125, 160, 210
+White
+Hopper®
+
+Hopper Two 30™
+Fog Gray
+Field Tan
+
+Hopper Flip® 8
+Field Tan
+
+Hopper Flip® 18
+Fog Gray
+Field Tan
+Loadout
+
+Loadout™ Bucket
+Charcoal
+Tan
+Seafoam
+White
+
+Accessories
+Rambler 10 oz. Lowball Handle
+Rambler 20 oz. Tumbler Handle
+Rambler 30 oz. Tumbler Handle
+Rambler Tumbler 20 oz. Straw Lid
+Rambler Tumbler 30 oz. Straw Lid
+Rambler 10/20 oz. MagSlider Lid
+Rambler 30 oz. MagSlider Lid
+ICE 1 LB
+ICE 2 LB
+ICE 4 LB
+
+*Quantities subject to change*
+
+Please email POs/orders to
+{!User.Email} and sales@yeti.com
+
+© 2018 YETI ALL RIGHTS RESERVED</textOnly>
+    <type>custom</type>
+</EmailTemplate>

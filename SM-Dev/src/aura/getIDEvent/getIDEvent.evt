@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT">
+    
+    <aura:attribute name="OrdID" type="Id"/>
+</aura:event>

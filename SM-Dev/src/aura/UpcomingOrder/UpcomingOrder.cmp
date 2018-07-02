@@ -1,0 +1,223 @@
+<aura:component controller="UpcomingOrderController" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId">
+	<aura:attribute type="Order__c[]" name="orders"/>
+    <aura:handler name="init" action="{!c.onloadpage}" value="{!this}"/>
+    <div data-aura-rendered-by="7:583;a" class="forceCommunityRecordListStandard forceCommunityObjectHome" data-aura-class="forceCommunityRecordListStandard forceCommunityObjectHome">
+    <h2 class="listTitle" data-aura-rendered-by="10:893;a">Open Orders</h2>
+    <!--render facet: 8:583;a-->
+    <div class="recordListStandard" data-aura-rendered-by="11:583;a">
+        <div class="useHeaderBarFix forceBaseListView" data-aura-rendered-by="27:583;a" data-aura-class="forceBaseListView">
+            <div class="spinnerWrapper hideSpinner hideEl forceComponentSpinner--default forceComponentSpinner" data-aura-class="forceComponentSpinner--default forceComponentSpinner" data-aura-rendered-by="30:583;a">
+                <div class="indicator  hideEl forceInlineSpinner" aria-hidden="true" role="alert" data-aura-rendered-by="33:583;a" data-aura-class="forceInlineSpinner">
+                    <!--render facet: 34:583;a-->
+                </div>
+            </div>
+            <div data-aura-rendered-by="46:583;a" class="hidden forceListViewPlaceholder" data-aura-class="forceListViewPlaceholder">
+                <div data-aura-rendered-by="49:583;a" class="forcePlaceholder" data-aura-class="forcePlaceholder">
+                    <div class="placeholder table_list_line_item ">
+                        <div class="body border-bottom">
+                            <div class="text-body-col">
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-aura-rendered-by="52:583;a" class="forcePlaceholder" data-aura-class="forcePlaceholder">
+                    <div class="placeholder table_list_line_item opacity90">
+                        <div class="body border-bottom">
+                            <div class="text-body-col">
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-aura-rendered-by="55:583;a" class="forcePlaceholder" data-aura-class="forcePlaceholder">
+                    <div class="placeholder table_list_line_item opacity80">
+                        <div class="body border-bottom">
+                            <div class="text-body-col">
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-aura-rendered-by="58:583;a" class="forcePlaceholder" data-aura-class="forcePlaceholder">
+                    <div class="placeholder table_list_line_item opacity70">
+                        <div class="body border-bottom">
+                            <div class="text-body-col">
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-aura-rendered-by="61:583;a" class="forcePlaceholder" data-aura-class="forcePlaceholder">
+                    <div class="placeholder table_list_line_item opacity60">
+                        <div class="body border-bottom">
+                            <div class="text-body-col">
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-aura-rendered-by="64:583;a" class="forcePlaceholder" data-aura-class="forcePlaceholder">
+                    <div class="placeholder table_list_line_item opacity50">
+                        <div class="body border-bottom">
+                            <div class="text-body-col">
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-aura-rendered-by="67:583;a" class="forcePlaceholder" data-aura-class="forcePlaceholder">
+                    <div class="placeholder table_list_line_item opacity40">
+                        <div class="body border-bottom">
+                            <div class="text-body-col">
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-aura-rendered-by="70:583;a" class="forcePlaceholder" data-aura-class="forcePlaceholder">
+                    <div class="placeholder table_list_line_item opacity30">
+                        <div class="body border-bottom">
+                            <div class="text-body-col">
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-aura-rendered-by="73:583;a" class="forcePlaceholder" data-aura-class="forcePlaceholder">
+                    <div class="placeholder table_list_line_item opacity20">
+                        <div class="body border-bottom">
+                            <div class="text-body-col">
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-aura-rendered-by="76:583;a" class="forcePlaceholder" data-aura-class="forcePlaceholder">
+                    <div class="placeholder table_list_line_item opacity10">
+                        <div class="body border-bottom">
+                            <div class="text-body-col">
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                                <div class="text text-short"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="listViewContent" data-aura-rendered-by="77:583;a">
+                <!--render facet: 90:583;a-->
+                <div class="scrollable uiScroller scroller-wrapper scroll-bidirectional native" style="" data-aura-rendered-by="92:583;a" data-aura-class="uiScroller">
+                    <div data-aura-rendered-by="93:583;a" class="scroller actionBarPlugin fixedHeaderPlugin">
+                        <table class="forceRecordLayout uiVirtualDataGrid--default uiVirtualDataGrid" data-aura-class="uiVirtualDataGrid--default uiVirtualDataGrid" data-aura-rendered-by="83:583;a">
+                            <thead data-aura-rendered-by="84:583;a">
+                                <tr data-aura-rendered-by="85:583;a">
+                                     <th class="initialSortDesc " scope="col" style="" title="Need By Date" data-aura-rendered-by="33:890;a">
+                                        <!--render facet: 34:890;a-->Need By Date
+                                        <span class="assistiveText" data-aura-rendered-by="91:890;a"></span>
+                                        <!--render facet: 43:890;a-->
+                                        <!--render facet: 44:890;a-->
+                                    </th>
+                                    <th class="initialSortAsc ascending" scope="col" style="" title="Order Number" data-aura-rendered-by="5:890;a">
+                                        <!--render facet: 6:890;a-->Order Number
+                                        <span class="assistiveText" data-aura-rendered-by="85:890;a"></span>
+                                        <!--render facet: 15:890;a-->
+                                        <!--render facet: 16:890;a-->
+                                    </th>
+                                    <th class="initialSortAsc " scope="col" style="" title="Purchase Order" data-aura-rendered-by="19:890;a">
+                                        <!--render facet: 20:890;a-->Purchase Order
+                                        <span class="assistiveText" data-aura-rendered-by="88:890;a"></span>
+                                        <!--render facet: 29:890;a-->
+                                        <!--render facet: 30:890;a-->
+                                    </th>
+                                   
+                                     <!--<th class="initialSortAsc " scope="col" style="" title="Order Status" data-aura-rendered-by="47:890;a">
+                                        Order Status
+                                        <span class="assistiveText" data-aura-rendered-by="94:890;a"></span>
+                                        
+                                    </th>-->
+                                   
+                                    <!--render facet: 86:583;a-->
+                                </tr>
+                            </thead>
+                            <tfoot data-aura-rendered-by="87:583;a"></tfoot>
+                            <tbody data-aura-rendered-by="88:583;a">
+								<aura:iteration items="{!v.orders}" var="o">
+									<tr>
+                                        <td>
+											<span data-aura-rendered-by="80:890;a" class="uiOutputDate" data-aura-class="uiOutputDate">{!o.Need_By_Date__c}</span>
+										</td>
+                                        
+										<td>
+											<a href="javascript:void(0)" name="{!o.Name}" id="{!o.Id}" onclick="{!c.onOrderClick}">{!o.Name}</a>											
+										</td>
+										<td>
+											<span data-aura-rendered-by="77:890;a" class="uiOutputText" data-aura-class="uiOutputText" title="{!o.Name}">{!o.PurchaseOrder__c}</span>
+										</td>
+										
+										<!--<td>
+											<span data-aura-rendered-by="83:890;a" class="uiOutputText" data-aura-class="uiOutputText" title="{!o.Order_Status__c}">{!o.Order_Status__c}</span>
+										</td>-->
+									</tr>
+								</aura:iteration>
+                            </tbody>
+                        </table>
+                        <!--render facet: 95:583;a-->
+                        <div class="infinite-loading">
+                            <span class="il"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="emptyContent hidden" data-aura-rendered-by="96:583;a">
+                <div class="emptyContentInner" data-aura-rendered-by="97:583;a">
+                    <!--render facet: 98:583;a-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="viewAllLink" data-aura-rendered-by="12:893;a">
+        <a href="javascript:void(0);" data-aura-rendered-by="13:893;a" onclick="{!c.onViewAllClick}">View All</a>
+       								
+    </div>
+    <!--render facet: 99:583;a-->
+</div>
+</aura:component>

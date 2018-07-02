@@ -1,0 +1,420 @@
+<apex:page tabStyle="icAgentConsole__incAgentConfiguration__c" controller="icAgentConsole.inContactAgentConfigController">
+  <style>
+
+    .loading-icn {
+    background-image: url("{!URLFOR($Resource.icAgentConsole__AgentConsoleApp,'css/images/spinner.gif')}");
+    background-repeat: no-repeat;
+    text-align: right;
+    position: absolute !important;
+    padding-top: 1px;
+    z-index: 9999;
+    padding-left: 93px;
+    width: 20px;
+    height: 20px;
+    }
+
+    .loading-layer {
+    background-color: black;
+    opacity: 0.20;
+    filter: alpha(opacity = 20);
+    width: 82%;
+    height: 58%;
+    top: 0;
+    left: 226px;
+    z-index: 998;
+    position: absolute;
+    }
+
+    .loading-panel {
+    left: 52%;
+    top: 28%;
+    z-index: 999;
+    position: absolute;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    padding: 10px;
+    }
+
+    .loading-txt {
+    color: #000000;
+    padding-left: 20px;
+    margin-top: 2px;
+    padding-right: 10px;
+    }
+
+  </style>
+  <apex:includeScript value="{!URLFOR($Resource.icAgentConsole__AgentConsoleApp, 'js/lib/jquery-1.10.2.min.js')}"/>
+  <apex:outputPanel layout="block"  rendered="{! !IsTokenAvailable}">
+    <c:inContactAuthentication ></c:inContactAuthentication>
+    <apex:form >
+      <apex:actionfunction name="loggedIn" action="{!loggedIn}"></apex:actionfunction>
+    </apex:form>
+  </apex:outputPanel>
+  <apex:outputPanel layout="block" rendered="{!IsTokenAvailable}">
+    <apex:sectionHeader title="{!$Label.icagentconsole__agentConsoleConfiguration}"
+                        description="{!$Label.icagentconsole__configurationSettings}" />
+    <!--    description="Only Salesforce.com fields with the 'update' property may be selected for data mapping. In addition, some fields on the Task object are automatically populated by the Agent Console application therefore cannot be selected for data mapping. Fields that cannot be selected for datamapping do not appear in the field selection dropdown" /> -->
+    <apex:pageMessages id="messages"/>
+    <apex:form >
+
+      <apex:pageBlock title="{!$Label.icagentconsole__configurationDetail}">
+        <apex:pageBlockButtons location="top" >
+          <apex:actionStatus id="saveConfigStatus">
+            <apex:facet name="start">
+              <apex:commandButton value="{!$Label.icagentconsole__saving}" disabled="true" status="saveConfigStatus" reRender="messages"/>
+            </apex:facet>
+            <apex:facet name="stop">
+              <apex:commandButton value="{!$Label.icagentconsole__save}" action="{!saveConfiguration}" status="saveConfigStatus" reRender="parentOutputPanel,messages" />
+            </apex:facet>
+          </apex:actionStatus>
+          <apex:commandButton title="{!$Label.icagentconsole__cancel}" value="{!$Label.icagentconsole__cancel}" action="{!cancelConfiguration}" reRender="parentOutputPanel, messages" />
+        </apex:pageBlockButtons>
+
+        <table style="width:100%;">
+          <tr>
+            <td style="width:20%; vertical-align:top;horizontal-align:left;" >
+              <span style="font-weight: bold;">{!$Label.profiles}</span>
+              <br />
+              <br />
+              <apex:selectlist id="ddlProfileNames" multiselect="false"
+                               onchange="actionProfileSelected()" value="{!selectedProfileId}" >
+                <apex:selectOptions value="{!profileNames}"></apex:selectOptions>
+              </apex:selectlist>
+            </td>
+            <td style="width:80%; vertical-align:top;horizontal-align:left;">
+              <apex:actionStatus id="updateProfileStatus">
+                <apex:facet name="start">
+                  <div>
+                    <div class="loading-layer" />
+                    <div class="loading-panel">
+                      <span class="loading-icn"></span>
+                      <span class="loading-txt">{!$Label.processing}...</span>
+                    </div>
+                  </div>
+                </apex:facet>
+                <apex:facet name="stop">
+                  <apex:outputPanel id="parentOutputPanel">
+                    <apex:outputText >
+                      {!$Label.icagentconsole__configure} <b>{!SelectedProfileName}</b> {!$Label.icagentconsole__profile}
+                    </apex:outputText>
+                    <apex:panelGroup id="profileOptionsGroup" rendered="{!selectedProfileId != '_default'}">
+                      <apex:selectRadio id="profileOptions" value="{!selectedProfileOption}"
+                                        onclick="actionSettingSelectionChanged()" >
+                        <apex:selectOption id="optionDefault"
+                                           itemLabel="{!$Label.icagentconsole__useDefault}"
+                                           itemDisabled="{!DisableDefault}"
+                                           itemValue="_default"></apex:selectOption>
+                        <apex:selectOption id="optionCustom"
+                                           itemLabel="{!$Label.icagentconsole__custom}"
+                                           itemValue="custom"></apex:selectOption>
+                      </apex:selectRadio>
+                    </apex:panelGroup>
+                    <apex:actionStatus id="customSettingStatus">
+                      <apex:facet name="start">
+                        <div>
+                          <div class="loading-layer" />
+                          <div class="loading-panel">
+                            <span class="loading-icn"></span>
+                            <span class="loading-txt">{!$Label.processing}...</span>
+                          </div>
+                        </div>
+                      </apex:facet>
+                      <apex:facet name="stop">
+                        <apex:outputPanel id="cutomProfileOptionPanel" >
+                          <apex:outputpanel rendered="{!selectedProfileOption == 'custom'}">
+                            <table style="width:100%;">
+                              <!--ST-->
+                              <tr>
+                                <td style="width:100%;display:{!IF(isOmniChannelEnabled == true ,'block','none')}">
+                                  <div style="padding-top: 10px;">
+                                    <span style="font-weight: bold;">{!$Label.presenceSyncSettings}</span>
+                                    <div style="padding-top: 4px;padding-bottom: 5px;">
+                                      <!--onchange="toggleAgentSync(this.checked)"-->
+                                      <apex:inputcheckbox id="chkAgentAppSync" value="{!canAgentAppSync}" >
+                                        <apex:actionSupport event="onchange" rerender="cutomProfileOptionPanel" status="updateProfileStatus" action="{!ResetAgentSyncSelection}"/>
+                                      </apex:inputcheckbox>
+                                      {!$Label.enableAgentPresenceSync}
+                                      <br />
+                                      <div style="margin-top: 10px;display:{!IF(canAgentAppSync == true ,'block','none')}">
+                                        <span style="font-weight: bold;display:block">{!$Label.presenceMaster}</span>
+
+                                        <apex:selectRadio id="isMasterApp" value="{!isMasterApp}" >
+                                          <apex:selectOption itemValue="inContact" itemLabel="{!$Label.icagentconsole__inContact}"/>
+                                          <apex:selectOption itemValue="Salesforce" itemLabel="{!$Label.icagentconsole__salesforce}" />
+                                          <apex:actionSupport event="onchange" rerender="cutomProfileOptionPanel" status="updateProfileStatus" action="{!changeMaster}"/>
+                                        </apex:selectRadio>
+
+                                        <span style="font-weight: bold;padding-top: 1px;">{!$Label.stateMappings}</span>
+
+                                        <div id="agentSyncStateUn" style="margin-top:6px;">
+                                          <div style="padding-top: 2px;display:{!IF(isMasterApp == 'Salesforce','block','none')};" id="inContactState">
+                                            <div style="float:left;white-space: nowrap;padding-right:6px;padding-left: 6px;max-width: 90px;overflow: hidden;text-overflow: ellipsis;margin-top: 2px;">{!$Label.unavailable}</div>
+                                            <div style="float:left;">
+                                              <apex:selectList value="{!selectedInContactUnavailableCodes}" multiselect="false" size="1" style="width:100px;margin-right:4px;" disabled="{!IF(InContactUnavailableCodes.size==0,true,false)}">
+                                                <apex:selectOptions value="{!InContactUnavailableCodes}"></apex:selectOptions>
+                                              </apex:selectList>
+                                            </div>
+                                          </div>
+
+                                          <div style="display:{!IF(isMasterApp == 'inContact' ,'block','none')}">
+
+                                            <div style="padding-top: 2px;" id="salesforceState" >
+                                              <div style="float:left;white-space: nowrap;padding-right:6px;padding-left: 6px;max-width: 90px;overflow: hidden;text-overflow: ellipsis;margin-top: 2px;">{!$Label.unavailable}</div>
+                                              <div style="float:left;">
+                                                <apex:selectList value="{!selectedUnavailableCodes}" multiselect="false" size="1" style="width:100px;margin-right:4px;"  disabled="{!IF(SFUnavailableCodes.size==0,true,false)}">
+                                                  <apex:selectOptions value="{!SFUnavailableCodes}"></apex:selectOptions>
+                                                </apex:selectList>
+                                              </div>
+                                            </div>
+
+                                            <div style="width:100%;padding-right: 10px;">
+                                              <div style="padding-top: 2px; width:100%;">
+                                                <div style="float:left;white-space: nowrap;padding-right:6px;max-width: 90px;overflow: hidden;text-overflow: ellipsis;margin-top: 2px;">{!$Label.icagentconsole__available}</div>
+                                                <div style="float:left;">
+                                                  <apex:selectList value="{!selectedAvailableCodes}" multiselect="false" size="1" style="width:100px;"  disabled="{!IF(SFAvailableCodes.size==0,true,false)}">
+                                                    <apex:selectOptions value="{!SFAvailableCodes}"></apex:selectOptions>
+                                                  </apex:selectList>
+                                                </div>
+                                              </div>
+                                            </div>
+
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+
+                              <!--ED-->
+
+                              <tr>
+                                <td style="width:50%;">
+                                  <div style="padding-top: 10px;">
+                                    <span style="font-weight: bold;">{!$Label.taskCreation}</span>
+                                    <div style="padding-top: 10px;">
+                                      <apex:inputcheckbox id="chkCreateTask" value="{!canCreateTask}"></apex:inputcheckbox>
+                                      {!$Label.createTask}<br />
+                                      <apex:inputcheckbox id="chkPopTask" value="{!canPopTask}"></apex:inputcheckbox>
+                                      {!$Label.icagentconsole__popTask}
+                                    </div>
+                                  </div>
+                                </td>
+                                <td style="width:50%;">
+                                  <div style="padding-top: 10px; width:100%;">
+                                    <span style="font-weight: bold;">{!$Label.icagentconsole__inContactDataStorage}</span>
+                                    <div style="padding-top: 10px; width:100%;">
+                                      <apex:inputcheckbox id="chkStoreVar" value="{!canStoreVaribles}"></apex:inputcheckbox>
+                                      {!$Label.icagentconsole__storeIncontactScriptVar}
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td colspan="2">
+                                  <apex:actionStatus id="entityCollectionStatus">
+                                    <apex:facet name="start">
+                                      <div>
+                                        <div class="loading-layer" />
+                                        <div class="loading-panel">
+                                          <span class="loading-icn"></span>
+                                          <span class="loading-txt">{!$Label.processing}...</span>
+                                        </div>
+                                      </div>
+                                    </apex:facet>
+                                    <apex:facet name="stop">
+                                      <apex:outputPanel id="entityCollectionPanel" >
+                                        <table width="100%">
+                                          <tr>
+                                            <td>
+                                              <apex:selectList value="{!selectedEntityName}" multiselect="false" size="1">
+                                                <apex:selectOptions value="{!EntityNames}"></apex:selectOptions>
+                                              </apex:selectList>
+                                              &nbsp;&nbsp;&nbsp;
+                                              <apex:commandButton action="{!addEntity}" status="entityCollectionStatus" value="{!$Label.icagentconsole__addEntity}" reRender="pnlFieldContainer, messages"/>
+                                            </td>
+                                            <td>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td colspan="2">
+                                              <br/>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td colspan="2">
+                                              <div class="message infoM4">
+                                                <table class="messageTable" cellspacing="0" cellpadding="0" border="0" style="padding:0px;margin:0px;">
+                                                  <tr>
+                                                    <td>
+                                                      <img class="msgIcon" title="info" src="/s.gif" alt="info" />
+                                                    </td>
+                                                    <td class="messageCell">
+                                                      <div class="messageText">
+                                                        {!$Label.configWarning}
+                                                      </div>
+                                                    </td>
+                                                  </tr>
+                                                </table>
+                                              </div>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td colspan="2">
+                                              <br/>
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td colspan="2">
+                                              <apex:outputPanel id="pnlFieldContainer">
+                                                <apex:repeat value="{!entityDetails}" var="entity">
+                                                  <apex:outputPanel id="pnlInfoItems">
+                                                    <apex:pageBlock >
+                                                      <apex:commandButton value="{!$Label.icagentconsole__remove}" action="{!removeEntity}" reRender="pnlFieldContainer, messages">
+                                                        <apex:param name="EntityName" assignTo="{!entityName}" value="{!entity.entityName}"/>
+                                                      </apex:commandButton>&nbsp;&nbsp;
+                                                      <span style="font-weight:bold;font-size:large;padding-left:20px;"> {!entity.entityLabel} &nbsp; &nbsp;&nbsp; &nbsp;</span>
+                                                      <apex:commandButton value="{!$Label.icagentconsole__addField}" status="entityCollectionStatus" action="{!addEntityField}" reRender="pnlFieldContainer, messages">
+                                                        <apex:param name="EntityName" assignTo="{!entityName}" value="{!entity.entityName}"/>
+                                                      </apex:commandButton>
+                                                      <apex:variable value="{!0}" var="index"/>
+                                                      <apex:pageBlockTable value="{!entity.configFields}" var="field" columns="6">
+                                                        <apex:column style="padding-left:10px; width:5%;">
+                                                          <apex:commandButton id="btnRemoveField" Value="{!$Label.icagentconsole__remove}" action="{!removeEntityField}" reRender="pnlFieldContainer, messages" >
+                                                            <apex:param name="EntityName" assignTo="{!entityName}" value="{!entity.entityName}"/>
+                                                            <apex:param name="FieldIndex" assignTo="{!removeIndex}" value="{!index}"/>
+                                                          </apex:commandButton>
+                                                          <apex:variable value="{!index + 1}" var="index"/>
+                                                        </apex:column>
+                                                        <apex:column style="padding-left:10px; width:30%" >
+                                                          <apex:selectList value="{!field.fieldName}" size="1" multiselect="false" style="width:100%;" >
+                                                            <apex:selectOptions value="{!entity.entityFields}"></apex:selectOptions>
+                                                          </apex:selectList>
+                                                        </apex:column>
+                                                        <apex:column style="width:2%;">
+                                                          =
+                                                        </apex:column>
+                                                        <apex:column style="padding-left:10px; width:26%;">
+                                                          <apex:selectList value="{!field.valueObject}" id="ddlValObjects" size="1" style="width:100%;"
+                                                                           onchange="return onValueObjectChange(this)" multiselect="false">
+                                                            <apex:selectOption itemValue="--SELECT--"></apex:selectOption>
+                                                            <apex:selectOptions value="{!ValueObjects}"></apex:selectOptions>
+                                                          </apex:selectList>
+                                                        </apex:column>
+                                                        <apex:column style="width:2%;">
+                                                          -
+                                                        </apex:column>
+                                                        <apex:column style="padding-left:10px; padding-right:10px; width:35%;">
+                                                          <apex:selectList value="{!field.valueFieldCall}" id="ddlCallInfoItems" size="1"  multiselect="false" style="{!IF(field.valueObject == 'CallInfo','display:block;width:100%','display:none;width:100%;')}">
+                                                            <apex:selectOptions value="{!CallInfoItems}"></apex:selectOptions>
+                                                          </apex:selectList>
+                                                          <apex:inputtext maxlength="50" value="{!field.valueFieldScript}" id="txtScriptVariable" style="{!IF(field.valueObject  == 'ScriptVariable','display:block;width:100%;','display:none;width:100%;')}" />
+                                                          <apex:selectList value="{!field.valueFieldWorkItem}" id="ddlWorkItems" size="1"  multiselect="false" style="{!IF(field.valueObject  == 'WorkItemInfo','display:block;width:100%;','display:none;width:100%')}">
+                                                            <apex:selectOptions value="{!WorkItemInfoItems}"></apex:selectOptions>
+                                                          </apex:selectList>
+                                                          <apex:selectList value="{!field.valueFieldChat}" id="ddlChatInfoItems" size="1"  multiselect="false" style="{!IF(field.valueObject  == 'ChatInfo','display:block;width:100%;','display:none;width:100%')}">
+                                                            <apex:selectOptions value="{!ChatInfoItems}"></apex:selectOptions>
+                                                          </apex:selectList>
+                                                          <apex:selectList value="{!field.valueFieldEmail}" id="ddlEmailInfoItems" size="1"  multiselect="false" style="{!IF(field.valueObject  == 'EmailInfo','display:block;width:100%;','display:none;width:100%')}">
+                                                            <apex:selectOptions value="{!EmailInfoItems}"></apex:selectOptions>
+                                                          </apex:selectList>
+
+                                                        </apex:column>
+                                                      </apex:pageBlockTable>
+                                                    </apex:pageBlock>
+                                                  </apex:outputPanel>
+                                                </apex:repeat>
+                                              </apex:outputPanel>
+                                            </td>
+                                          </tr>
+                                        </table>
+                                      </apex:outputPanel>
+                                    </apex:facet>
+                                  </apex:actionStatus>
+                                </td>
+                              </tr>
+                            </table>
+                          </apex:outputpanel>
+                        </apex:outputPanel>
+                      </apex:facet>
+                    </apex:actionStatus>
+                  </apex:outputPanel>
+                </apex:facet>
+              </apex:actionStatus>
+            </td>
+          </tr>
+        </table>
+      </apex:pageBlock>
+
+      <apex:actionfunction name="actionProfileSelected" status="updateProfileStatus" action="{!onProfileSelected}" rerender="parentOutputPanel, messages">
+      </apex:actionfunction>
+      <apex:actionfunction name="actionSettingSelectionChanged" status="customSettingStatus" rerender="cutomProfileOptionPanel, messages">
+      </apex:actionfunction>
+      <apex:actionfunction name="resetAgentSyncSelection" action="{!ResetAgentSyncSelection}" status="customSettingStatus" rerender="cutomProfileOptionPanel, messages">
+      </apex:actionfunction>
+    </apex:form>
+  </apex:outputPanel>
+  <script type="text/javascript">
+
+    function onLoginSuccess()
+    {
+    loggedIn();
+    }
+
+    function onValueObjectChange(selectList) {
+    var element = selectList,
+    infoType = selectList.options[selectList.selectedIndex].value,
+    ddlCallInfo = selectList.id.replace('ddlValObjects','ddlCallInfoItems'),
+    ddlWorkItemInfo = selectList.id.replace('ddlValObjects','ddlWorkItems'),
+    ddlChatInfo = selectList.id.replace('ddlValObjects','ddlChatInfoItems'),
+    ddlEmailInfo = selectList.id.replace('ddlValObjects','ddlEmailInfoItems'),
+    txtScriptvar = element.id.replace('ddlValObjects','txtScriptVariable'),
+    pnlInfoItem = element.id.replace('ddlValObjects','pnlInfoItems');
+    if(infoType === 'ScriptVariable'){
+    document.getElementById(ddlEmailInfo).style.display='none';
+    document.getElementById(ddlCallInfo).style.display='none';
+    document.getElementById(ddlWorkItemInfo).style.display='none';
+    document.getElementById(ddlChatInfo).style.display='none';
+    document.getElementById(txtScriptvar).style.display='block';
+    document.getElementById(txtScriptvar).style.width='100%';
+    } else if(infoType === 'CallInfo'){
+    document.getElementById(ddlEmailInfo).style.display='none';
+    document.getElementById(ddlCallInfo).style.display='block';
+    document.getElementById(ddlCallInfo).style.width='100%';
+    document.getElementById(ddlWorkItemInfo).style.display='none';
+    document.getElementById(ddlChatInfo).style.display='none';
+    document.getElementById(txtScriptvar).style.display='none';
+    } else if(infoType === 'WorkItemInfo') {
+    document.getElementById(ddlEmailInfo).style.display='none';
+    document.getElementById(ddlCallInfo).style.display='none';
+    document.getElementById(ddlWorkItemInfo).style.display='block';
+    document.getElementById(ddlWorkItemInfo).style.width='100%';
+    document.getElementById(ddlChatInfo).style.display='none';
+    document.getElementById(txtScriptvar).style.display='none';
+    }else if (infoType === 'ChatInfo'){
+    document.getElementById(ddlEmailInfo).style.display='none';
+    document.getElementById(ddlCallInfo).style.display='none';
+    document.getElementById(ddlWorkItemInfo).style.display='none';
+    document.getElementById(ddlChatInfo).style.display='block';
+    document.getElementById(ddlChatInfo).style.width='100%';
+    document.getElementById(txtScriptvar).style.display='none';
+    } else if (infoType === 'EmailInfo'){
+    document.getElementById(ddlChatInfo).style.display='none';
+    document.getElementById(ddlCallInfo).style.display='none';
+    document.getElementById(ddlWorkItemInfo).style.display='none';
+    document.getElementById(txtScriptvar).style.display='none';
+    document.getElementById(ddlEmailInfo).style.display='block';
+    document.getElementById(ddlEmailInfo).style.width='100%';
+    }
+    else {
+    document.getElementById(ddlEmailInfo).style.display='none';
+    document.getElementById(ddlCallInfo).style.display='none';
+    document.getElementById(ddlWorkItemInfo).style.display='none';
+    document.getElementById(ddlChatInfo).style.display='none';
+    document.getElementById(txtScriptvar).style.display='none';
+    }
+    return false;
+    }
+  </script>
+</apex:page>

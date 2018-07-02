@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>BackFlip Into Summer – Weekly Winner</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Winner, winner, chicken dinner.
+
+Congratulations! You were one of the top 3 YETI sales associates in your entire territory this week!
+
+As a prize, you’ll receive $75 + free shipping toward your next purchase on YETI.com.
+
+
+A few important details about redeeming your prize:
+
+- Here is your discount code: (enter discount code here)
+
+- It’s a one-time use code redeemable solely on YETI.com. Your code expires on July 31, 2018.
+
+- Exclusions Apply. Code is not applicable to the Hondo, Hondo accessories, licensed or custom products.
+
+- Be sure to use the entire $75 on your purchase, as the amount cannot be spread out over multiple purchases. (i.e. If you use the discount code to purchase a Rambler for $34.99, your discount code is used. You will not have the balance leftover to use on a future purchase.) Moral of the story – make sure your purchase is at least $75 when you checkout to maximize your discount.
+
+-    Lastly, YETI.com currently cannot process an order that totals $0. After applying your discount code, be sure your order total is greater than $0 to avoid any processing issues.
+
+
+
+To use your code:
+
+- Login to your account on YETI.com
+
+- Add all desired items to your cart
+
+- Click on “Cart” in the upper left hand corner, and select View Cart.
+
+- In the Promo Code field, enter your discount code and hit Apply.
+
+- Once your see your discount applied correctly, hit Checkout to complete your purchase.
+
+- If you have any questions while placing an order, please reach out to the Outfitter team at 512-394-9384 or customerservice@yeti.com.
+
+
+
+Congrats, again! We know you’ll love your new YETI.
+
+Terms and conditions apply. See full contest rules here.
+
+
+{!User.CommunityNickname}
+
+Account Management Team
+
+YETI
+
+512.394.0222
+
+sales@yeti.com
+
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

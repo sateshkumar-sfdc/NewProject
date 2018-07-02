@@ -1,0 +1,27 @@
+<aura:component >
+    <aura:attribute name="json" type="JSON" required="true" />
+    <aura:attribute name="items" type="Map" />
+    <aura:attribute name="labels" type="String[]" />
+    <p>
+        {!$Label.et4ae5.msg0210}
+    </p>
+  	<div class="uxds row" >
+    	<div class="uxds col-xs-3">   
+           <div class="list-group list-custom" >
+				<aura:iteration items="{!v.labels}" var="label" indexVar="i" >
+                    <aura:if isTrue="{!i == 0}">
+						<ui:outputURL value="#" class="list-group-item active" label="{!label}" click="{!c.setTextArea}" />
+						<aura:set attribute="else">
+							<ui:outputURL value="#" class="list-group-item" label="{!label}" click="{!c.setTextArea}" />
+                        </aura:set>
+                    </aura:if>
+                </aura:iteration>
+            </div>
+        </div>
+        <div id="divTextArea" class="uxds col-xs-9 textarea-custom">
+            <p>
+                <aura:unescapedHtml aura:id="optTextArea" value="" />
+            </p>
+        </div>
+    </div>
+</aura:component>

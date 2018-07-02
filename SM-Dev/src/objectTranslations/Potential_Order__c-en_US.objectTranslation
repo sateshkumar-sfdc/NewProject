@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Potential Order</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Potential Orders</value>
+    </caseValues>
+    <fields>
+        <label><!-- Case --></label>
+        <name>Case__c</name>
+        <relationshipLabel><!-- Potential Orders --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Color --></label>
+        <name>Color__c</name>
+        <picklistValues>
+            <masterLabel>Black</masterLabel>
+            <translation><!-- Black --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Brick Red</masterLabel>
+            <translation><!-- Brick Red --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Camo</masterLabel>
+            <translation><!-- Camo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Charcoal</masterLabel>
+            <translation><!-- Charcoal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coral</masterLabel>
+            <translation><!-- Coral --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>High Country</masterLabel>
+            <translation><!-- High Country --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ice Blue</masterLabel>
+            <translation><!-- Ice Blue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Olive Green</masterLabel>
+            <translation><!-- Olive Green --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pink</masterLabel>
+            <translation><!-- Pink --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Seafoam</masterLabel>
+            <translation><!-- Seafoam --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sky Blue</masterLabel>
+            <translation><!-- Sky Blue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stainless</masterLabel>
+            <translation><!-- Stainless --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tahoe Blue</masterLabel>
+            <translation><!-- Tahoe Blue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tahoe Blue/ Fog Gray</masterLabel>
+            <translation><!-- Tahoe Blue/ Fog Gray --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tan</masterLabel>
+            <translation><!-- Tan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tan/Blaze Orange</masterLabel>
+            <translation><!-- Tan/Blaze Orange --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>White</masterLabel>
+            <translation><!-- White --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Order Request Date --></label>
+        <name>Order_Request_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Category --></label>
+        <name>Product_Category__c</name>
+        <picklistValues>
+            <masterLabel>Accessories</masterLabel>
+            <translation><!-- Accessories --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bags</masterLabel>
+            <translation><!-- Bags --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chairs</masterLabel>
+            <translation><!-- Chairs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Drinkware</masterLabel>
+            <translation><!-- Drinkware --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gear</masterLabel>
+            <translation><!-- Gear --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hopper</masterLabel>
+            <translation><!-- Hopper --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ice</masterLabel>
+            <translation><!-- Ice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loadout</masterLabel>
+            <translation><!-- Loadout --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parts</masterLabel>
+            <translation><!-- Parts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Roadie</masterLabel>
+            <translation><!-- Roadie --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tank</masterLabel>
+            <translation><!-- Tank --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra</masterLabel>
+            <translation><!-- Tundra --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>Product__c</name>
+        <picklistValues>
+            <masterLabel>1 G</masterLabel>
+            <translation><!-- 1 G --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1 Gallon Jug</masterLabel>
+            <translation><!-- 1 Gallon Jug --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1 Pound</masterLabel>
+            <translation><!-- 1 Pound --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1/2 G</masterLabel>
+            <translation><!-- 1/2 G --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2 Pound</masterLabel>
+            <translation><!-- 2 Pound --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4 Pound</masterLabel>
+            <translation><!-- 4 Pound --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Backflip 24</masterLabel>
+            <translation><!-- Backflip 24 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Baskets</masterLabel>
+            <translation><!-- Baskets --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bottle Lid</masterLabel>
+            <translation><!-- Bottle Lid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bottle Opener</masterLabel>
+            <translation><!-- Bottle Opener --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Can Insulators</masterLabel>
+            <translation><!-- Can Insulators --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Collegiate Cooler</masterLabel>
+            <translation><!-- Collegiate Cooler --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Colster</masterLabel>
+            <translation><!-- Colster --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cushions</masterLabel>
+            <translation><!-- Cushions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Decals</masterLabel>
+            <translation><!-- Decals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Flip</masterLabel>
+            <translation><!-- Flip --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Flip 12</masterLabel>
+            <translation><!-- Flip 12 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Flip 18</masterLabel>
+            <translation><!-- Flip 18 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Flip 8</masterLabel>
+            <translation><!-- Flip 8 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Half Gallon Jug</masterLabel>
+            <translation><!-- Half Gallon Jug --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hats</masterLabel>
+            <translation><!-- Hats --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hondo</masterLabel>
+            <translation><!-- Hondo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hopper 20</masterLabel>
+            <translation><!-- Hopper 20 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hopper 30</masterLabel>
+            <translation><!-- Hopper 30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hopper 40</masterLabel>
+            <translation><!-- Hopper 40 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hopper Two 20</masterLabel>
+            <translation><!-- Hopper Two 20 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hopper Two 30</masterLabel>
+            <translation><!-- Hopper Two 30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hopper Two 40</masterLabel>
+            <translation><!-- Hopper Two 40 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lid 10/20</masterLabel>
+            <translation><!-- Lid 10/20 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lid 30</masterLabel>
+            <translation><!-- Lid 30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lowball 10oz</masterLabel>
+            <translation><!-- Lowball 10oz --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monogram</masterLabel>
+            <translation><!-- Monogram --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Panga 100</masterLabel>
+            <translation><!-- Panga 100 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Panga 50</masterLabel>
+            <translation><!-- Panga 50 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Panga 75</masterLabel>
+            <translation><!-- Panga 75 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parts</masterLabel>
+            <translation><!-- Parts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rambler 14 oz</masterLabel>
+            <translation><!-- Rambler 14 oz --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rambler 20 oz</masterLabel>
+            <translation><!-- Rambler 20 oz --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rambler 30 oz</masterLabel>
+            <translation><!-- Rambler 30 oz --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rambler Bottle 18 oz</masterLabel>
+            <translation><!-- Rambler Bottle 18 oz --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rambler Bottle 26 oz</masterLabel>
+            <translation><!-- Rambler Bottle 26 oz --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rambler Bottle 36 oz</masterLabel>
+            <translation><!-- Rambler Bottle 36 oz --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rambler Bottle 64 oz</masterLabel>
+            <translation><!-- Rambler Bottle 64 oz --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Roadie 20</masterLabel>
+            <translation><!-- Roadie 20 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SeaDeks</masterLabel>
+            <translation><!-- SeaDeks --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sherpa</masterLabel>
+            <translation><!-- Sherpa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shirts</masterLabel>
+            <translation><!-- Shirts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SideKick</masterLabel>
+            <translation><!-- SideKick --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Straw Lid 20</masterLabel>
+            <translation><!-- Straw Lid 20 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Straw Lid 30</masterLabel>
+            <translation><!-- Straw Lid 30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tank 45</masterLabel>
+            <translation><!-- Tank 45 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tank 85</masterLabel>
+            <translation><!-- Tank 85 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tie-Down</masterLabel>
+            <translation><!-- Tie-Down --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 105</masterLabel>
+            <translation><!-- Tundra 105 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 110</masterLabel>
+            <translation><!-- Tundra 110 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 125</masterLabel>
+            <translation><!-- Tundra 125 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 160</masterLabel>
+            <translation><!-- Tundra 160 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 210</masterLabel>
+            <translation><!-- Tundra 210 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 250</masterLabel>
+            <translation><!-- Tundra 250 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 35</masterLabel>
+            <translation><!-- Tundra 35 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 350</masterLabel>
+            <translation><!-- Tundra 350 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 45</masterLabel>
+            <translation><!-- Tundra 45 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 50</masterLabel>
+            <translation><!-- Tundra 50 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 65</masterLabel>
+            <translation><!-- Tundra 65 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 75</masterLabel>
+            <translation><!-- Tundra 75 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wine 10 oz</masterLabel>
+            <translation><!-- Wine 10 oz --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Quantity --></label>
+        <name>Quantity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Value --></label>
+        <name>Value__c</name>
+    </fields>
+    <layouts>
+        <layout>Potential Order Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

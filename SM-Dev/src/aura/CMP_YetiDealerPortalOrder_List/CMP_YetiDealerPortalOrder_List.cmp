@@ -1,0 +1,10 @@
+<aura:component controller="CTRL_Order_ListController" implements="forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="accountParam" type="String" default=""/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div role="status" class="slds-spinner slds-spinner--medium" aura:id="spinner">
+        <span class="slds-assistive-text">Loading...</span>
+        <div class="slds-spinner__dot-a"></div>
+        <div class="slds-spinner__dot-b"></div>
+    </div>
+    <iframe onload="{!c.iframeOnLoad}" allowfullscreen="true" frameBorder="0" src="{!'../VFP_YetiDealerPortalOrder_List' + v.accountParam}" class="vsp_iframe"/>
+</aura:component>

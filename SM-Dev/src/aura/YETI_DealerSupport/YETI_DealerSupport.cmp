@@ -1,0 +1,185 @@
+<aura:component controller="DealerSupportController" implements="force:lightningQuickAction,lightning:actionOverride,forceCommunity:availableForAllPageTypes">
+	<ltng:require styles="{!$Resource.SLDS_Winter_17 + '/assets/styles/salesforce-lightning-design-system-ltng.min.css'}"/>
+	<aura:attribute type="wDealerCase" name="dval"/>
+    <div class="slds" style="padding:10px">
+    	<div class="slds-grid" >
+		  <div class="slds-panel slds-grid slds-grid_vertical slds-nowrap slds-is-editing" style="padding:0px;text-align:right;">
+			
+			<div class="slds-panel__actions slds-border_top">
+			  <div class="slds-grid" style="padding:0px;text-align:right;">		
+				<ui:button class="slds-button" label="Create Support Case" press="{!c.sendOrderRequest}"/>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		
+		
+		    <div aria-hidden="true" role="dialog" class="slds-modal slds-modal--prompt slds-fade-in-hide" aura:id="newmodaldialog">
+				<div class="slds-modal__container">
+					<div class="slds-modal__header slds-theme--info">
+						<button class="slds-button slds-button--icon-inverse slds-notify__close" onclick="{!c.newHidePopup}">                    
+							<span class="slds-assistive-text">Close</span>
+						</button>
+						<h2 class="slds-text-heading--medium">New Case: Dealer</h2>
+					</div>
+					<div class="slds-modal__content slds-p-around--medium">
+						
+						<div>
+						  <div class="slds-form slds-form_compound">
+						
+							<legend class="slds-form-element__label slds-text-title_caps"><b>Case Overview</b></legend>
+						 
+							<fieldset class="slds-form-element">
+							  
+							  <div class="slds-form-element__group">
+								<div class="slds-form-element__row">
+								  <div class="slds-form-element slds-size_1-of-2">
+									<label class="slds-form-element__label" for="oppowner">Case Number</label><br/>
+									<ui:outputText value=""/>	
+								  </div>
+								  <div class="slds-form-element slds-size_1-of-2">
+									<label class="slds-form-element__label" for="input-02">Case Owner</label>					
+									<ui:outputText aura:id="c_CaseOwnerName" value="{!v.dval.CaseOwnerName}"/>			
+								  </div>
+								</div>
+							  </div>
+							</fieldset>
+							
+							<fieldset class="slds-form-element">
+							  
+							  <div class="slds-form-element__group">
+								<div class="slds-form-element__row">
+								  <div class="slds-form-element slds-size_1-of-2">
+									<label class="slds-form-element__label" for="oppowner">Account Name</label><br/>
+									<b><ui:inputText value="{!v.dval.AccountName}" disabled="true" /></b>
+								  </div>
+								  <div class="slds-form-element slds-size_1-of-2">
+									<label class="slds-form-element__label" for="input-02"><abbr class="slds-required" title="required">*</abbr>Status</label>					
+									<ui:inputSelect aura:id="c_Status" value="{!v.dval.Status}" disabled="true" >
+										<ui:inputSelectOption text="" label="--None--"/>  
+										<ui:inputSelectOption text="New" label="New"/>
+										<ui:inputSelectOption text="Working" label="Working"/>
+										<ui:inputSelectOption text="Awaiting Response" label="Awaiting Response"/>
+										<ui:inputSelectOption text="Escalated" label="Escalated"/>
+										<ui:inputSelectOption text="Closed" label="Closed"/>
+										<ui:inputSelectOption text="Reopened" label="Reopened"/>										
+									</ui:inputSelect>									
+								  </div>
+								</div>
+							  </div>
+							</fieldset>
+							
+							<fieldset class="slds-form-element">
+							  
+							  <div class="slds-form-element__group">
+								<div class="slds-form-element__row">
+								  <div class="slds-form-element slds-size_1-of-2">
+									<label class="slds-form-element__label" for="oppowner">Contact Name</label><br/>
+									<b><ui:inputText value="{!v.dval.ContactName}" disabled="true" /></b>
+								  </div>
+								  <div class="slds-form-element slds-size_1-of-2">
+									<label class="slds-form-element__label" for="input-02"><abbr class="slds-required" title="required">*</abbr>Priority</label>					
+									<ui:inputSelect aura:id="c_Priority" value="{!v.dval.Priority}"  >
+										<ui:inputSelectOption text="" label="--None--"/>  
+										<ui:inputSelectOption text="High" label="High"/>
+										<ui:inputSelectOption text="Medium" label="Medium"/>
+										<ui:inputSelectOption text="Low" label="Low"/>								
+									</ui:inputSelect>									
+								  </div>
+								</div>
+							  </div>
+							</fieldset>
+							
+							<fieldset class="slds-form-element">
+							  
+							  <div class="slds-form-element__group">
+								<div class="slds-form-element__row">
+								  
+									  <div class="slds-form-element slds-size_1-of-2">
+										<label class="slds-form-element__label" for="input-02"><abbr class="slds-required" title="required">*</abbr>Case Currency</label>					
+										<ui:inputSelect aura:id="c_CaseCurrency" value="{!v.dval.CaseCurrency}" >
+											<ui:inputSelectOption text="" label="--None--"/>  
+											<ui:inputSelectOption text="CAD" label="Canadian Dollar"/>
+											<ui:inputSelectOption text="USD" label="U.S. Dollar"/>							
+										</ui:inputSelect>									
+									  </div>
+								
+									<div class="slds-form-element slds-size_1-of-2">
+									  
+										<table>
+											<tr>
+												<td style="width:120px"><label class="slds-form-element__label" for="c_TradingPostVisible">Trading Post Visible</label></td>
+												<td style="text-align:left"><ui:inputCheckbox aura:id="c_TradingPostVisible" value="{!v.dval.TradingPostVisible}" class="CheckboxOuter"/></td>
+											</tr>
+										</table>
+										
+										
+									</div>
+								</div>
+							  </div>
+							</fieldset>
+							<br/>
+							<fieldset class="slds-form-element">				
+								<legend class="slds-form-element__label slds-text-title_caps"><b>Case Details</b></legend>
+								
+								  <div class="slds-form-element__group">
+									<div class="slds-form-element__row">								 
+									   <div class="slds-form-element slds-size_1-of-1">
+										<label class="slds-form-element__label" for="input-04"><abbr class="slds-required" title="required">*</abbr>Subject</label>
+										<ui:inputText aura:id="c_Subject" value="{!v.dval.Subject}"/>
+									  </div>								  
+									</div>
+								  </div>
+							</fieldset>
+							
+							<fieldset class="slds-form-element">				
+								 <div class="slds-form-element__group">
+									<div class="slds-form-element__row">								 
+									   <div class="slds-form-element slds-size_1-of-1">
+										<label class="slds-form-element__label" for="input-04"><abbr class="slds-required" title="required">*</abbr>Description</label>
+										<ui:inputTextArea aura:id="c_Description" value="{!v.dval.Description}" rows="3"/>
+									  </div>								  
+									</div>
+								  </div>
+							</fieldset>
+							<fieldset class="slds-form-element">				
+								 <div class="slds-form-element__group">
+									<div class="slds-form-element__row">								 
+									   <div class="slds-form-element slds-size_1-of-1">
+										<label class="slds-form-element__label" for="input-02"><abbr class="slds-required" title="required">*</abbr>Case Origin</label>					
+										<ui:inputSelect aura:id="c_CaseOrigin" value="{!v.dval.CaseOrigin}" >
+											<ui:inputSelectOption text="" label="--None--"/>  
+											<ui:inputSelectOption text="Email" label="Email"/>
+											<ui:inputSelectOption text="Phone" label="Phone"/>
+											<ui:inputSelectOption text="Web" label="Web"/>	
+											<ui:inputSelectOption text="Fax" label="Fax"/>
+											<ui:inputSelectOption text="Mail" label="Mail"/>
+											<ui:inputSelectOption text="Trading Post" label="Trading Post"/>
+											<ui:inputSelectOption text="Other" label="Other"/>									
+										</ui:inputSelect>	
+									  </div>								  
+									</div>
+								  </div>
+							</fieldset>
+							
+
+						  </div>
+						</div>
+						
+						<br/>
+						<br/>
+						<div class="slds-align_absolute-right" style="text-align:right">
+							<div class="slds-grid slds-grid_pull-padded-medium">
+								
+								<div class="slds-col slds-p-horizontal_medium">
+									<ui:button aura:id="canceloppbtn2" buttonTitle="Cancel" class="slds-button" label="Cancel" press="{!c.HidePopUp}"/>&nbsp;&nbsp;
+									<ui:button aura:id="saveoppbtn2" buttonTitle="Save Case" class="slds-button slds-button_brand AddBtnStyle" label="Save" press="{!c.saveMCase}"/>
+								</div>								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+    </div>
+	
+</aura:component>

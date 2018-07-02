@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Order- Damaged in Shipping</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Thank you for reaching out to us here at YETI, and we are so sorry to hear that your order arrived damaged. To better assist you, can you please reply to this email with a photo of the damage and a photo of the shipping box if it was also damaged? This will allow us to follow up with our warehouse and/or shipping partners to investigate this issue. Once I receive these photos I will contact you to go over the next steps to get this replaced. I look forward to your response!
+
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

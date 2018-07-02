@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>BackFlip Into Summer – April 30</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hi (insert name of account) team,
+
+Are you ready to BackFlip Into Summer?
+
+The contest begins this Friday, May 4th and runs through Sunday, June 17th.
+
+Your YETI display is in tip-top shape. Your staff can answer any question about YETI without missing a beat. You can’t wait until Friday. We feel you!
+
+
+Here are a few last minute things to do this week to make sure you’re 100% prepared:
+
+
+- Build buzz about YETI on social media
+
+o Utilize your social media platforms to post about new products in your store (live videos of your expert staff talking about what makes YETI awesome is always a plus too!)
+
+o Post using the hashtag #BackFlipIntoSummer so we can see all your awesome photos!
+
+
+- Build buzz with your staff about the contest (in case you forgot, there are some pretty sweet prizes).
+
+o Every week of the contest, the top 3 individual sellers in each territory wins $75 toward their next YETI.com purchase.
+
+o PLUS, if one of your sales associates is the top seller in your entire region, they win an adventure trip on YETI! Picture a deep sea fishing trip in Florida, or gator hunting in Louisiana with a YETI ambassador.
+
+
+- Logistics, logistics
+
+o Be sure you have received your backroom poster, and have it displayed. Make sure you’ve developed a plan for marking down sales with your staff.
+
+o Save this URL: https://yeti.formstack.com/forms/backflip_into_summer
+
+§ By 4pm CT on the Monday following each week of the contest, you’ll need to submit the sales for each of your participating associates for them to be counted in the contest.
+
+o Contest schedule:
+
+§ Week 1: May 4 – May 13
+
+§ Week 2: May 14 – May 20
+
+§ Week 3: May 21 – May 27
+
+§ Week 4: May 28 – June 3
+
+§ Week 5: June 4 – June 10
+
+§ Week 6: June 11 – June 17
+
+(Insert TSM name here) or I are available for any questions. We’re looking forward to kicking off the contest this Friday!
+
+Terms and conditions apply. See full contest rules here.
+
+
+{!User.CommunityNickname}
+
+Account Management Team
+
+YETI
+
+512.394.0222
+
+sales@yeti.com
+
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

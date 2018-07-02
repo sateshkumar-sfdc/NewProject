@@ -1,0 +1,713 @@
+<apex:page tabStyle="zkfedex__CustomAddressSource__c" standardController="zkfedex__CustomAddressSource__c" extensions="zkfedex.CustomAddressSourceController"  action="{! init }">
+<apex:includeScript value="{!URLFOR($Resource.zkfedex__Jquery, '/jquery/jquery-1.4.2.js')}"  />
+<apex:stylesheet value="{!$Resource.zkfedex__WizardCSS}"/>
+<style>
+    .lightboxWizard {       
+        display: none;
+        background: #FFFFFF;
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: 1000;
+    }  
+</style>
+    <c:Loading id="LoadingControl"/>
+
+    <apex:sectionHeader title="Custom Address Source Edit"  subtitle="New Custom Address Source"/>
+        <apex:form >
+
+        <script>
+            $j = jQuery.noConflict();
+
+            function IsShowLightbox(whichLoading) {
+                $j('.lightboxWizard').show();
+            };
+
+            function IsOnlyLoading(whichLoading) {
+                $j('.' + whichLoading).toggle();
+            };
+
+            function IsLoadingIcon(whichLoading) {
+                $j('.lightboxWizard').show();
+                $j('.' + whichLoading).toggle();
+            };
+
+            function IsLoadingIconComplete() {
+                $j('.lightboxWizard').hide();
+            };
+        </script>
+
+        <apex:pageBlock title="Custom Address Source Edit" mode="detail">
+
+            <!-- pageBlockButtons -->
+            <!-- Dont specify rerender field. rerender whole page -->
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!saveNewCustomAddressSource}" value="Save"/>
+                <apex:commandButton action="{!cancelNewCustomAddressSource}" immediate="true" value="Cancel"/>
+            </apex:pageBlockButtons>
+
+
+            <!-- Error Messages -->
+            <apex:outputPanel id="customAddressSourceErrMsg">
+                <apex:pageMessage title="Error:" summary="{!CustomAddressSourceErrMsg}" rendered="{!CustomAddressSourceErrMsgRendered}" severity="error" strength="1"/>
+            </apex:outputPanel>
+
+
+            <!-- Record Name Section -->
+            <apex:outputPanel id="casNameSection">
+            <apex:pageBlockSection collapsible="false" title="Custom Address Source Name (* Denotes required field)">
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Custom Address Source Name *"/>
+                    <apex:inputField required="false" value="{!CustomAddressSource.Name}"/>
+                </apex:pageBlockSectionItem>
+
+            </apex:pageBlockSection>
+            </apex:outputPanel>
+
+
+            <!-- Custom Address Source Object Section -->
+            <apex:outputPanel id="casObjectSection">
+            <apex:pageBlockSection collapsible="false" columns="1" title="Custom Address Source Object (* Denotes required field)">
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Filter (Starts With)"/>
+                    <apex:selectList value="{!SelectedObjectFilter}" size="1" multiselect="false" >
+                        <apex:actionSupport event="onchange" onsubmit="IsLoading();" oncomplete="FinishLoading();"/>
+                        <apex:selectOptions value="{!SourceObjectFilterOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Object *"/>
+                    <apex:selectList value="{!SelectedCustomAddressSourceObject}" size="1" multiselect="false" >
+                        <apex:actionSupport event="onchange" action="{!customAddressSourceObjectSelectRefresh}" onsubmit="IsLoading();" oncomplete="FinishLoading();"/>
+                        <apex:selectOptions value="{!SourceObjectOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+            </apex:pageBlockSection>
+            </apex:outputPanel>
+
+
+            <!-- Shipment Object Lookup Field Section -->
+            <apex:outputPanel id="lookupFieldSection">
+            <apex:pageBlockSection collapsible="false" title="Shipment Object Lookup Field (* Denotes required field)">
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Shipment Object Lookup Field *"/>
+                    <apex:selectList value="{!SelectedShipmentObjectLookupField}" size="1" multiselect="false" disabled="{!ShipmentLookupFieldOptionsDisabled}" >
+                        <apex:selectOptions value="{!ShipmentLookupFieldOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+            </apex:pageBlockSection>
+            </apex:outputPanel>
+
+
+            <!-- Recipient Fields Section -->
+            <apex:outputPanel id="fieldsSection">
+            <apex:pageBlockSection collapsible="false" title="Recipient Address Fields">
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Recipient Name"/>
+                    <apex:selectList value="{!SelectedRecipientNameField}" size="1" multiselect="false" disabled="{!StringFieldOptionsDisabled}" >
+                        <apex:selectOptions value="{!StringFieldOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Recipient Email"/>
+                    <apex:selectList value="{!SelectedRecipientEmailField}" size="1" multiselect="false" disabled="{!StringFieldOptionsDisabled}" >
+                        <apex:selectOptions value="{!StringFieldOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Recipient Company Name"/>
+                    <apex:selectList value="{!SelectedRecipientCompanyNameField}" size="1" multiselect="false" disabled="{!StringFieldOptionsDisabled}" >
+                        <apex:selectOptions value="{!StringFieldOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Recipient Phone"/>
+                    <apex:selectList value="{!SelectedRecipientPhoneField}" size="1" multiselect="false" disabled="{!StringFieldOptionsDisabled}" >
+                        <apex:selectOptions value="{!StringFieldOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Recipient Street (TextArea option)"/>
+                    <apex:selectList value="{!SelectedRecipientStreetTextareaField}" size="1" multiselect="false" disabled="{!TextareaFieldOptionsDisabled}" >
+                        <apex:selectOptions value="{!TextareaFieldOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Recipient City"/>
+                    <apex:selectList value="{!SelectedRecipientCityField}" size="1" multiselect="false" disabled="{!StringFieldOptionsDisabled}" >
+                        <apex:selectOptions value="{!StringFieldOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Recipient Street Line 1 (TextLine option)"/>
+                    <apex:selectList value="{!SelectedRecipientStreetTextLine1Field}" size="1" multiselect="false" disabled="{!StringFieldOptionsDisabled}" >
+                        <apex:selectOptions value="{!StringFieldOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Recipient State"/>
+                    <apex:selectList value="{!SelectedRecipientStateField}" size="1" multiselect="false" disabled="{!StringFieldOptionsDisabled}" >
+                        <apex:selectOptions value="{!StringFieldOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Recipient Street Line 2 (TextLine option)"/>
+                    <apex:selectList value="{!SelectedRecipientStreetTextLine2Field}" size="1" multiselect="false" disabled="{!StringFieldOptionsDisabled}" >
+                        <apex:selectOptions value="{!StringFieldOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Recipient Postal Code"/>
+                    <apex:selectList value="{!SelectedRecipientPostalCodeField}" size="1" multiselect="false" disabled="{!StringFieldOptionsDisabled}" >
+                        <apex:selectOptions value="{!StringFieldOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Recipient Country"/>
+                    <apex:selectList value="{!SelectedRecipientCountryField}" size="1" multiselect="false" disabled="{!StringFieldOptionsDisabled}" >
+                        <apex:selectOptions value="{!StringFieldOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Is Residential"/>
+                    <apex:selectList value="{!SelectedRecipientIsResidenceField}" size="1" multiselect="false" disabled="{!BooleanFieldOptionsDisabled}" >
+                        <apex:selectOptions value="{!BooleanFieldOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+            </apex:pageBlockSection>
+            </apex:outputPanel>
+
+            <!-- Billing Fields Section -->
+            <apex:outputPanel id="billFieldsSection">
+                <apex:pageBlockSection collapsible="false" title="Billing Fields">
+
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Bill Transportation To"/>
+                        <apex:selectList value="{! selectedBillingField }" size="1" multiselect="false" disabled="{! stringFieldOptionsDisabled }" >
+                            <apex:selectOptions value="{! stringFieldOptions }"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Billing Account Number"/>
+                        <apex:selectList value="{! selectedBillingAccountField }" size="1" multiselect="false" disabled="{! stringFieldOptionsDisabled }" >
+                            <apex:selectOptions value="{! stringFieldOptions }"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+
+                    <apex:pageBlockSectionItem >
+                    </apex:pageBlockSectionItem>
+
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Billing Country"/>
+                        <apex:selectList value="{! selectedBillingCountryField }" size="1" multiselect="false" disabled="{! stringFieldOptionsDisabled }" >
+                            <apex:selectOptions value="{! stringFieldOptions }"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+
+                    <apex:pageBlockSectionItem helpText="Allowed values: SENDER, RECIPIENT, THIRD_PARTY">
+                        <apex:outputLabel value="Bill Duties/Taxes To"/>
+                        <apex:selectList value="{! selectedBillDutiesField }" size="1" multiselect="false" disabled="{! stringFieldOptionsDisabled }" >
+                            <apex:selectOptions value="{! stringFieldOptions }"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Bill Duties Account Number"/>
+                        <apex:selectList value="{! selectedBillDutiesAccountField }" size="1" multiselect="false" disabled="{! stringFieldOptionsDisabled }" >
+                            <apex:selectOptions value="{! stringFieldOptions }"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+
+                    <apex:pageBlockSectionItem >
+                    </apex:pageBlockSectionItem>
+
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Bill Duties Country"/>
+                        <apex:selectList value="{! selectedBillDutiesCountryField }" size="1" multiselect="false" disabled="{! stringFieldOptionsDisabled }" >
+                            <apex:selectOptions value="{! stringFieldOptions }"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+
+            <!-- Reference Fields Section -->
+            <apex:outputPanel id="refFieldsSection">
+            <apex:pageBlockSection collapsible="false" title="Reference Fields">
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Reference - Your Reference"/>
+                    <apex:selectList value="{!SelectedReferenceYourReferenceField}" size="1" multiselect="false" disabled="{!StringFieldOptionsDisabled}" >
+                        <apex:selectOptions value="{!StringFieldOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Reference - P.O. Number"/>
+                    <apex:selectList value="{!SelectedReferencePoNumberField}" size="1" multiselect="false" disabled="{!StringFieldOptionsDisabled}" >
+                        <apex:selectOptions value="{!StringFieldOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Reference - Invoice Number"/>
+                    <apex:selectList value="{!SelectedReferenceInvoiceNumberField}" size="1" multiselect="false" disabled="{!StringFieldOptionsDisabled}" >
+                        <apex:selectOptions value="{!StringFieldOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Reference - Department Number"/>
+                    <apex:selectList value="{!SelectedReferenceDeptNumberField}" size="1" multiselect="false" disabled="{!StringFieldOptionsDisabled}" >
+                        <apex:selectOptions value="{!StringFieldOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Reference - RMA Number"/>
+                    <apex:selectList value="{!SelectedReferenceRmaNumberField}" size="1" multiselect="false" disabled="{!StringFieldOptionsDisabled}" >
+                        <apex:selectOptions value="{!StringFieldOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+            </apex:pageBlockSection>
+            </apex:outputPanel>
+
+             <!-- TIN Fields Section -->
+            <apex:outputPanel id="taxFieldsSection">
+                <apex:pageBlockSection collapsible="false" title="Tax Identification Number (TIN) Fields">
+
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Sender Tax ID"/>
+                        <apex:selectList value="{! selectedSenderTaxIDField }" size="1" multiselect="false" disabled="{! stringFieldOptionsDisabled }" >
+                            <apex:selectOptions value="{! stringFieldOptions }"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+
+                    <apex:pageBlockSectionItem helpText="Allowed values: EIN, Business National, Business State, Business Union, Personal National, Personal State">
+                        <apex:outputLabel value="Sender Tax ID Type"/>
+                        <apex:selectList value="{! selectedSenderTaxIDTypeField }" size="1" multiselect="false" disabled="{! stringFieldOptionsDisabled }" >
+                            <apex:selectOptions value="{! stringFieldOptions }"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Recipient Tax ID"/>
+                        <apex:selectList value="{! selectedRecipientTaxIDField }" size="1" multiselect="false" disabled="{! stringFieldOptionsDisabled }" >
+                            <apex:selectOptions value="{! stringFieldOptions }"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+
+                    <apex:pageBlockSectionItem helpText="Allowed values: EIN, Business National, Business State, Business Union, Personal National, Personal State">
+                        <apex:outputLabel value="Recipient Tax ID Type"/>
+                        <apex:selectList value="{! selectedRecipientTaxIDTypeField }" size="1" multiselect="false" disabled="{! stringFieldOptionsDisabled }" >
+                            <apex:selectOptions value="{! stringFieldOptions }"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Recipient Customs ID"/>
+                        <apex:selectList value="{! selectedRecipientCustomsIDField }" size="1" multiselect="false" disabled="{! stringFieldOptionsDisabled }" >
+                            <apex:selectOptions value="{! stringFieldOptions }"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+
+                    <apex:pageBlockSectionItem helpText="Allowed values: COMPANY, INDIVIDUAL, PASSPORT">
+                        <apex:outputLabel value="Recipient Customs ID Type"/>
+                        <apex:selectList value="{! selectedRecipientCustomsIDTypeField }" size="1" multiselect="false" disabled="{! stringFieldOptionsDisabled }" >
+                            <apex:selectOptions value="{! stringFieldOptions }"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+
+            <!-- Email Recipient Fields Section -->
+            <apex:outputPanel id="emailRecipFieldsSection">
+            <apex:pageBlockSection collapsible="false" title="Email Recipient Fields">
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Email Recipient 3"/>
+                    <apex:selectList value="{!SelectedEmailRecipient3Field}" size="1" multiselect="false" disabled="{!StringFieldOptionsDisabled}" >
+                        <apex:selectOptions value="{!StringFieldOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Email Recipient 4"/>
+                    <apex:selectList value="{!SelectedEmailRecipient4Field}" size="1" multiselect="false" disabled="{!StringFieldOptionsDisabled}" >
+                        <apex:selectOptions value="{!StringFieldOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Email Recipient 5"/>
+                    <apex:selectList value="{!SelectedEmailRecipient5Field}" size="1" multiselect="false" disabled="{!StringFieldOptionsDisabled}" >
+                        <apex:selectOptions value="{!StringFieldOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Email Recipient 6"/>
+                    <apex:selectList value="{!SelectedEmailRecipient6Field}" size="1" multiselect="false" disabled="{!StringFieldOptionsDisabled}" >
+                        <apex:selectOptions value="{!StringFieldOptions}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            </apex:outputPanel>
+
+            <!-- Shipmate Preference Field Section-->
+            <apex:outputPanel id="shipmatePreferenceFieldSection">
+                <apex:pageBlockSection collapsible="false" title="Shipmate Preference">
+
+                    <apex:pageBlockSectionItem helpText="Shipmate Preference Name">
+                        <apex:outputLabel value="Shipmate Preference"/>
+                        <apex:selectList value="{! selectedShipmatePreferenceField }" size="1" multiselect="false" disabled="{! stringFieldOptionsDisabled }" >
+                            <apex:selectOptions value="{! stringFieldOptions }"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+
+            <!-- Service Type Fields Section -->
+            <apex:outputPanel id="serviceTypeFieldsSection">
+                <apex:pageBlockSection collapsible="false" title="Service Types">
+
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Domestic Service Type"/>
+                        <apex:selectList value="{! selectedDomesticServiceTypeField }" size="1" multiselect="false" disabled="{! stringFieldOptionsDisabled }" >
+                            <apex:selectOptions value="{! stringFieldOptions }"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="International Service Type"/>
+                        <apex:selectList value="{! selectedInternationalServiceTypeField }" size="1" multiselect="false" disabled="{! stringFieldOptionsDisabled }" >
+                            <apex:selectOptions value="{! stringFieldOptions }"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+
+            <!-- Default Package Type -->
+            <apex:outputPanel id="defaultPackageTypeFieldsSection">
+                <apex:pageBlockSection collapsible="false" title="Package Types">
+
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Default Packaging Type"/>
+                        <apex:selectList value="{! selectedDefaultPackageTypeField }" size="1" multiselect="false" disabled="{! stringFieldOptionsDisabled }" >
+                            <apex:selectOptions value="{! stringFieldOptions }"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+
+            <!-- Packages -->
+            <apex:outputPanel id="packagesSection">
+                <apex:pageBlockSection collapsible="false" title="Packages" columns="1">
+                    <apex:pageBlockTable value="{! CasEntry.CustomAddressSourcePackages }" var="packageRecord" width="100%" title="Packages">
+                        <apex:column >
+                            <apex:facet name="header">Entry No. (Number option)</apex:facet>
+                            <apex:outputText value="{!packageRecord.zkfedex__Index__c}"/>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header">Quantity (Number option)</apex:facet>
+                            <apex:selectList value="{! packageRecord.QuantityField__c }" size="1" multiselect="false" disabled="{! numberFieldOptionsDisabled }" >
+                                <apex:selectOptions value="{! numberFieldOptions }"/>
+                            </apex:selectList>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header">Weight (Number option)</apex:facet>
+                            <apex:selectList value="{! packageRecord.WeightField__c }" size="1" multiselect="false" disabled="{! numberFieldOptionsDisabled }" >
+                                <apex:selectOptions value="{! numberFieldOptions }"/>
+                            </apex:selectList>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header">Declared Value (Number option)</apex:facet>
+                            <apex:selectList value="{! packageRecord.DeclaredValueField__c }" size="1" multiselect="false" disabled="{! numberFieldOptionsDisabled }" >
+                                <apex:selectOptions value="{! numberFieldOptions }"/>
+                            </apex:selectList>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header">Length (Number option)</apex:facet>
+                            <apex:selectList value="{! packageRecord.LengthField__c }" size="1" multiselect="false" disabled="{! numberFieldOptionsDisabled }" >
+                                <apex:selectOptions value="{! numberFieldOptions }"/>
+                            </apex:selectList>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header">Width (Number option)</apex:facet>
+                            <apex:selectList value="{! packageRecord.WidthField__c }" size="1" multiselect="false" disabled="{! numberFieldOptionsDisabled }" >
+                                <apex:selectOptions value="{! numberFieldOptions }"/>
+                            </apex:selectList>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header">Height (Number option)</apex:facet>
+                            <apex:selectList value="{! packageRecord.HeightField__c }" size="1" multiselect="false" disabled="{! numberFieldOptionsDisabled }" >
+                                <apex:selectOptions value="{! numberFieldOptions }"/>
+                            </apex:selectList>
+                        </apex:column>
+                        <apex:column >
+                            <apex:commandButton action="{! doRemovePackage }" value="Remove" onclick="IsLoading();" oncomplete="FinishLoading();" reRender="packagesSection,packageSSSection" disabled="{! numberFieldOptionsDisabled }">
+                                <apex:param name="idx" value="{! packageRecord.Index__c }" />
+                            </apex:commandButton>
+                        </apex:column>
+                    </apex:pageBlockTable>
+                </apex:pageBlockSection>
+
+                <apex:commandButton action="{! CasEntry.addEmptyPackageObject }" value="New" onclick="IsLoading();" oncomplete="FinishLoading();" reRender="packagesSection,packageSSSection" disabled="{! numberFieldOptionsDisabled }"/>
+            </apex:outputPanel>
+
+            <!-- Shipment Type -->
+            <apex:outputPanel id="shipmentTypeFieldsSection">
+                <apex:pageBlockSection collapsible="false" title="Shipment Type">
+
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Shipment Type"/>
+                        <apex:selectList value="{! selectedShipmentTypeField }" size="1" multiselect="false" disabled="{! stringFieldOptionsDisabled }" >
+                            <apex:selectOptions value="{! stringFieldOptions }"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+
+            <!-- Special Services -->
+            <apex:outputPanel id="shipSpecialServicesFieldsSection">
+                <apex:pageBlockSection collapsible="false" title="Shipment Special Services">
+
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="FedEx One Rate®"/>
+                        <apex:outputPanel >
+                            <apex:selectList value="{! selectedOneRateField }" size="1" multiselect="false" disabled="{! booleanFieldOptionsDisabled }" >
+                                <apex:selectOptions value="{! booleanFieldOptions }"/>
+                            </apex:selectList>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+
+                    <apex:pageBlockSectionItem >
+                    </apex:pageBlockSectionItem>
+
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="FedEx Home Delivery® Premium Type"/>
+                        <apex:outputPanel >
+                            <apex:selectList value="{! selectedHomeDeliveryTypeField }" size="1" multiselect="false">
+                                <apex:actionSupport event="onchange" onsubmit="IsLoadingIcon('loadingSSHomeDelivery');" oncomplete="IsLoadingIconComplete();" reRender="shipSpecialServicesFieldsSection" />
+                                <apex:selectOptions value="{! homeDeliveryTypeOptions }"/>
+                            </apex:selectList>
+                            <apex:image id="loadingSSHomeDelivery" styleClass="loadingSSHomeDelivery" value="{!$Resource.zkfedex__LoadingImage2}" />
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+
+                    <apex:pageBlockSectionItem rendered="{! AND(selectedHomeDeliveryTypeField != null, selectedHomeDeliveryTypeField == 'DATE_CERTAIN') }">
+                        <apex:outputLabel value="FedEx Date Certain Home Delivery® Date Field"/>
+                        <apex:selectList value="{! selectedDateCertainHDPField }" size="1" multiselect="false" disabled="{! dateFieldOptionsDisabled }" >
+                            <apex:selectOptions value="{! dateFieldOptions }"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+
+                    <apex:pageBlockSectionItem rendered="{! AND(selectedHomeDeliveryTypeField != null, selectedHomeDeliveryTypeField != 'DATE_CERTAIN') }">
+                    </apex:pageBlockSectionItem>
+
+                    <apex:pageBlockSectionItem rendered="{! selectedHomeDeliveryTypeField == null }">
+                    </apex:pageBlockSectionItem>                  
+
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="FedEx® Delivery Signature Options"/>
+                        <apex:outputPanel >
+                            <apex:selectList value="{! selectedDeliverySignatureOptionField }" size="1" multiselect="false" disabled="{! stringFieldOptionsDisabled }">
+                                <apex:actionSupport event="onchange" onsubmit="IsLoadingIcon('loadingSelectedSignatureOption');" oncomplete="IsLoadingIconComplete();" reRender="shipSpecialServicesFieldsSection" />
+                                <apex:selectOptions value="{! stringFieldOptions }"/>
+                            </apex:selectList>
+                            <apex:image id="loadingSelectedSignatureOption" styleClass="loadingSelectedSignatureOption" value="{!$Resource.zkfedex__LoadingImage2}" />
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+
+                    <apex:pageBlockSectionItem rendered="{! selectedDeliverySignatureOptionField != null}">
+                        <apex:outputLabel value="Signature Release Number Field"/>
+                        <apex:selectList value="{! selectedSignatureReleaseNumberField }" size="1" multiselect="false" disabled="{! stringFieldOptionsDisabled }" >
+                            <apex:selectOptions value="{! stringFieldOptions }"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+
+                    <apex:pageBlockSectionItem rendered="{! selectedDeliverySignatureOptionField == null }">
+                    </apex:pageBlockSectionItem>                    
+                </apex:pageBlockSection>
+
+            </apex:outputPanel>
+
+            <!-- Packages -->
+            <apex:outputPanel id="packageSSSection">                
+                <apex:pageBlockSection collapsible="false" title="Package Special Services" columns="1">
+                
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Dangerous Goods"/>
+                        <apex:outputPanel >
+                            <apex:inputCheckbox value="{! packageDangerousGoodsCheckbox }" >
+                                <apex:actionSupport event="onclick" action="{! doClearPackageField }" onsubmit="IsLoadingIcon('loadingDangerousGoodsClick');" oncomplete="IsLoadingIconComplete();" reRender="packageSSSection"/>
+                            </apex:inputCheckbox>
+                            <apex:image id="loadingDangerousGoodsClick" styleClass="loadingDangerousGoodsClick" value="{!$Resource.zkfedex__LoadingImage2}" />                            
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+
+                    <apex:pageBlockSectionItem rendered="{! packageDangerousGoodsCheckbox }">
+                        <apex:outputLabel value="Cargo Aircraft Only"/> <!-- CargoAircraftOnlyField__c -->
+                        <apex:selectList value="{! selectedCargoAircraftOnlyField }" size="1" multiselect="false" disabled="{! booleanFieldOptionsDisabled }" >
+                            <apex:selectOptions value="{! booleanFieldOptions }"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+
+                    <apex:pageBlockSectionItem rendered="{! NOT(packageDangerousGoodsCheckbox) }">
+                    </apex:pageBlockSectionItem>
+
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Dry Ice"/>
+                        <apex:outputPanel >
+                            <apex:inputCheckbox value="{! packageDryIceCheckbox }" >
+                                <apex:actionSupport event="onclick" action="{! doClearPackageField }" onsubmit="IsLoadingIcon('loadingDryIce');" oncomplete="IsLoadingIconComplete();" reRender="packageSSSection"/>
+                            </apex:inputCheckbox>
+                            <apex:image id="loadingDryIce" styleClass="loadingDryIce" value="{!$Resource.zkfedex__LoadingImage2}" />
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Non Standard Packaging"/>
+                        <apex:outputPanel >
+                            <apex:inputCheckbox value="{! packageNonStandardCheckbox }" >
+                                <apex:actionSupport event="onclick" action="{! doClearPackageField }" onsubmit="IsLoadingIcon('loadingNonStandardPackaging');" oncomplete="IsLoadingIconComplete();" reRender="packageSSSection"/>
+                            </apex:inputCheckbox>
+                            <apex:image id="loadingNonStandardPackaging" styleClass="loadingNonStandardPackaging" value="{!$Resource.zkfedex__LoadingImage2}" />
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Priority Alert"/>
+                        <apex:outputPanel >
+                            <apex:inputCheckbox value="{! packagePriorityAlertCheckbox }" >
+                                <apex:actionSupport event="onclick" action="{! doClearPackageField }"  onsubmit="IsLoadingIcon('loadingPriorityAlert');" oncomplete="IsLoadingIconComplete();" reRender="packageSSSection"/>
+                            </apex:inputCheckbox>
+                            <apex:image id="loadingPriorityAlert" styleClass="loadingPriorityAlert" value="{!$Resource.zkfedex__LoadingImage2}" />
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>                    
+
+                    <apex:pageBlockTable value="{! CasEntry.CustomAddressSourcePackages }" var="packageRecord" width="100%" title="Packages" rendered="{! IsPackageSpecialServicesRendered }">
+                        <apex:column >
+                            <apex:facet name="header">Package No.</apex:facet>
+                            <apex:outputText value="{0, number, 0}">
+                                <apex:param value="{!packageRecord.zkfedex__Index__c}" />
+                            </apex:outputText>
+                        </apex:column>
+                        <apex:column rendered="{! packageDangerousGoodsCheckbox }">
+                            <apex:facet name="header">Dangerous Goods Accessibility</apex:facet>
+                            <apex:selectList value="{! packageRecord.DangerousGoodsAccessibilityField__c }" size="1" multiselect="false" disabled="{! stringFieldOptionsDisabled }" >
+                                <apex:selectOptions value="{! stringFieldOptions }"/>
+                            </apex:selectList>
+                        </apex:column> 
+                        <apex:column rendered="{! packageDryIceCheckbox }">
+                            <apex:facet name="header">Dry Ice Weight (KG)</apex:facet>
+                            <apex:selectList value="{! packageRecord.DryIceWeightField__c }" size="1" multiselect="false" disabled="{! numberFieldOptionsDisabled }" >
+                                <apex:selectOptions value="{! numberFieldOptions }"/>
+                            </apex:selectList>
+                        </apex:column>                      
+                        <apex:column rendered="{! packageNonStandardCheckbox }">
+                            <apex:facet name="header">Non Standard</apex:facet>
+                            <apex:selectList value="{! packageRecord.NonStandardPackagingField__c }" size="1" multiselect="false" disabled="{! booleanFieldOptionsDisabled }" >
+                                <apex:selectOptions value="{! booleanFieldOptions }"/>
+                            </apex:selectList>
+                        </apex:column>
+                        <apex:column rendered="{! packagePriorityAlertCheckbox }">
+                            <apex:facet name="header">Priority Alert®</apex:facet>
+                            <apex:selectList value="{! packageRecord.PriorityAlertField__c }" size="1" multiselect="false" disabled="{! booleanFieldOptionsDisabled }" >
+                                <apex:selectOptions value="{! booleanFieldOptions }"/>
+                            </apex:selectList>
+                        </apex:column>
+                         <apex:column rendered="{! packagePriorityAlertCheckbox }">
+                            <apex:facet name="header">Priority Alert Plus™</apex:facet>
+                            <apex:selectList value="{! packageRecord.PriorityAlertPlusField__c }" size="1" multiselect="false" disabled="{! booleanFieldOptionsDisabled }" >
+                                <apex:selectOptions value="{! booleanFieldOptions }"/>
+                            </apex:selectList>
+                        </apex:column>
+                         <apex:column rendered="{! packagePriorityAlertCheckbox }">
+                            <apex:facet name="header">Priority Alert Content</apex:facet>
+                            <apex:selectList value="{! packageRecord.PriorityAlertContentField__c }" size="1" multiselect="false" disabled="{! stringFieldOptionsDisabled }" >
+                                <apex:selectOptions value="{! stringFieldOptions }"/>
+                            </apex:selectList>
+                        </apex:column>
+                    </apex:pageBlockTable>  
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+
+            <!-- SmartPost fields -->
+            <apex:outputPanel id="smartPostSection">
+                <apex:pageBlockSection collapsible="false" title="SmartPost Fields" columns="2">
+
+                   <apex:pageBlockSectionItem helpText="Allowed values: PARCEL_SELECT, PRESORTED_STANDARD, PRESORTED_BOUND_PRINTED_MATTER, MEDIA_MAIL">
+                        <apex:outputLabel value="SmartPost Indicia Field"/>
+                        <apex:selectList value="{! selectedSmartPostIndiciaField }" size="1" multiselect="false" disabled="{! stringFieldOptionsDisabled }" >
+                            <apex:selectOptions value="{! stringFieldOptions }"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+
+                    <apex:pageBlockSectionItem helpText="Allowed values: ADDRESS_CORRECTION, CARRIER_LEAVE_IF_NO_RESPONSE, CHANGE_SERVICE, FORWARDING_SERVICE, RETURN_SERVICE">
+                        <apex:outputLabel value="SmartPost Ancillary Endorsement Field"/>
+                        <apex:selectList value="{! selectedSmartPostAncillaryEndorsementField }" size="1" multiselect="false" disabled="{! stringFieldOptionsDisabled }" >
+                            <apex:selectOptions value="{! stringFieldOptions }"/>
+                        </apex:selectList>
+                    </apex:pageBlockSectionItem>
+
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+
+            <!-- Shipment Auto-create -->
+            <apex:outputPanel id="autoCreateSection">
+                <apex:pageBlockSection collapsible="false" title="Shipment Auto-create">
+
+                    <apex:pageBlockSectionItem >
+                        <apex:inputCheckbox value="{! CustomAddressSource.AutoCreateShipment__c }" />
+                        <apex:outputLabel value="Auto-create shipment if all required fields are set"/>
+                    </apex:pageBlockSectionItem>
+
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+
+            <!-- Shipment Auto-create -->
+            <apex:outputPanel id="autoPrintSection">
+                <apex:pageBlockSection collapsible="false" title="Auto Printing">
+                    <apex:pageBlockSectionItem >
+                        <apex:inputCheckbox value="{! CustomAddressSource.AutoPrint__c }" />
+                        <apex:outputLabel value="Auto print labels after creating shipment"/>
+                    </apex:pageBlockSectionItem>
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+
+        </apex:pageBlock>
+    <div class="lightboxWizard">
+    </div>
+    </apex:form>
+</apex:page>

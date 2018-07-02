@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Idea Submission</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Hello!
+
+
+Thank you so much for reaching out to YETI. We love hearing your thoughts!
+
+
+Before you submit any ideas to YETI, please make sure all information is non-confidential, is not the intellectual property of any third-party, and that you disclose if there are any relevant patents related to your idea. If you believe your idea includes novel material, you may want to consider filing a patent application prior to sending. Remember, YETI has sole discretion in acknowledging or paying for any ideas submitted.
+
+
+If you wish to submit your idea, simply head to this page to fill out theIdea Submission Form. Make sure to review all the details and holler if you have any questions.
+
+
+We appreciate your interest so much and look forward to getting your feedback to the right people.
+
+
+Sincerely,
+
+
+
+
+{!User.CommunityNickname}
+
+The YETI Outfitters
+
+512.394.9384
+
+customerservice@yeti.com
+
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

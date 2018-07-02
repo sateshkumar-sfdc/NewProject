@@ -1,0 +1,96 @@
+<apex:page standardController="Account" extensions="UniqueEntry.uniqueSF1AccountExt" docType="html-5.0" sidebar="false" showheader="false" action="{!onPageLoad}" applyHtmlTag="false" applyBodyTag="false"
+standardStylesheets="false">
+	
+	<html>
+			
+		<head>
+			<script>
+				var meta = {!Ext.Meta};
+			</script>
+			
+			<script type="text/javascript" src="{!Ext.FTRConfigOverride}"></script>
+			<!--<c:UniqueSF1_JS />-->
+			<!--<c:UniqueSF1_FTR rendered="{!Ext.FTRActivation}" />-->
+			
+			<c:UE_LE />
+		</head>
+		
+		<body class="bootstrap-sf1">
+			<c:overlayStatus />
+			<!--<c:UniqueSF1_HTML />-->
+			
+			<apex:form html-novalidate="novalidate">
+				
+				<apex:outputpanel id="pnlScriptDupes">
+					<div id="pnl-hdn-messages" style="display:none">
+						<apex:messages />
+					</div>
+					<script>
+						response = {};
+						response.isAllowSave = "{!Ext['IsAllowSave']}" == 'true' || meta.settings.isUeEnabled;
+			            response.goToUrl = "{!Ext['GoToUrl']}";
+			            response.recordId = "{!Entity['Id']}";
+						response.hasMessages = app.vm.uiStates.isError = $('#pnl-hdn-messages').text().trim() != '';  
+						response.message = $('#pnl-hdn-messages').html();
+						response.mapDupesString = response.hasMessages ? '{"lead":[],"contact":[],"paccount":[],"baccount":[]}' : '{!mapDupesString}';
+						response.exclamation = "{!JSENCODE(Ext['Exclamation'])}";
+						meta.tmEvaluate = '{!TMEvaluate}' == 'true';
+						console.log('Connected App section');
+			            // 2016.10.21 generate page layout by Connected App Start   
+			            response.returnNavigation = "{!Ext['isNavigationPage']}";
+			            // 2016.10.21 generate page layout by Connected App End
+			            console.log('Connected App section ends');
+					</script>
+					<apex:inputhidden id="Account_Dupes_Ignored__c" value="{!Entity['Account_Dupes_Ignored__c']}" />
+				</apex:outputpanel>
+				
+				<apex:actionFunction name="action_seekDupes" action="{!seekDupes}" immediate="true" reRender="pnlScriptDupes" oncomplete="app.sv.doSeek_complete(response)">
+					<apex:param assignTo="{!deltaString}" name="deltaString" value=""/>
+					<apex:param assignTo="{!mappingFieldsJSON}" name="mappingFieldsJSON" value=""/>
+				</apex:actionFunction>
+				
+				<apex:actionFunction name="action_onSave" action="{!onSave}" reRender="pnlScriptDupes" oncomplete="app.sv.doSave_complete(response)"/>
+				<apex:actionFunction name="action_onSaveIgnoreAlert" action="{!onSaveIgnoreAlert}" reRender="pnlScriptDupes" oncomplete="app.sv.doSave_complete(response)"/>
+				<!-- // 2016.10.21 generate page layout by Connected App Start   -->
+		        <apex:actionfunction name="action_onRefreshToken" action="{!Ext.gotoNavigationPage}" rerender="pnlScriptDupes"/>
+		        <!-- // 2016.10.21 generate page layout by Connected App End     -->
+		        <!-- support navigate after save record  - Start -->
+		        <apex:actionfunction name="lookupDetail" action="{!lookupDetail}" rerender="pnlScriptDupes" />
+		        <!-- support navigate after save record - End -->	
+				<nav class="navbar navbar-title navbar-fixed-top cmain" id="cmain-nav">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-xs-3">
+								
+							</div>
+							<div class="col-xs-6">
+								<h1 style="margin:5px;">{!Ext.Obj}</h1>
+							</div>
+							<div class="col-xs-3 text-right">
+								<apex:outputpanel rendered="{!Ext.recordTypeId!='noremotesite'}">
+									<button class="btn btn-primary" id="cmain-btn-save" onclick="ev.saveClick(); return false;">Save</button>
+								</apex:outputpanel>
+							</div>
+						</div>
+					</div>
+				</nav>
+				
+				<div class="page-container cmain" role="main" id="cmain-main">
+					<div class="container-fluid">    
+						<apex:dynamicComponent componentValue="{!dynamicPageBlock1}" rendered="{!Ext.recordTypeId!='noremotesite'}"/>
+						
+						<apex:outputPanel rendered="{!Ext.recordTypeId='noremotesite'}">
+							<br/>
+							{!Ext.resxMap['msg.info.remotesite']}<br/>
+							<br/>
+							{!Ext.resxMap['msg.info.remotesite.create']}<br/>
+							<br/>
+							<apex:commandbutton styleclass="btn btn-primary" value="{!Ext.resxMap['btn.addremotesite']}" action="{!Ext.addRemoteSite}"/><br/>
+							<br/>
+						</apex:outputPanel>
+					</div>
+				</div> 
+			</apex:form>            
+		</body>
+	</html>
+</apex:page>

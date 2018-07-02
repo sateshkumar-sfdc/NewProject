@@ -1,0 +1,4447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- FedEx Account Email --></label>
+        <name>Account_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Form Received Date --></label>
+        <name>Account_Form_Received_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Form Received_Notes --></label>
+        <name>Account_Form_Received_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Form Received --></label>
+        <name>Account_Form_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Additional Pictures Requested --></label>
+        <name>Additional_Pictures_Requested__c</name>
+    </fields>
+    <fields>
+        <label><!-- Approval Received Date --></label>
+        <name>Approval_Received_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Approval Received Notes --></label>
+        <name>Approval_Received_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Approval Received --></label>
+        <name>Approval_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Artwork Received Date --></label>
+        <name>Artwork_Received_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Artwork Received Notes --></label>
+        <name>Artwork_Received_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Artwork Received --></label>
+        <name>Artwork_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bulk Invoice Sent --></label>
+        <name>Bulk_Invoice_Sent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bulk Order Created Date --></label>
+        <name>Bulk_Order_Created_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bulk Order Created --></label>
+        <name>Bulk_Order_Created__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bulk Order Date --></label>
+        <name>Bulk_Order_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bulk Order Number --></label>
+        <name>Bulk_Order_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bulk Payment Captured Date --></label>
+        <name>Bulk_Payment_Captured_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bulk Payment Captured --></label>
+        <name>Bulk_Payment_Captured__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bulk Shipping Confirmation Sent --></label>
+        <name>Bulk_Shipping_Confirmation_Sent__c</name>
+    </fields>
+    <fields>
+        <label><!-- CC Status --></label>
+        <name>CC_Status__c</name>
+        <picklistValues>
+            <masterLabel>CC Approved</masterLabel>
+            <translation><!-- CC Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CC Denied</masterLabel>
+            <translation><!-- CC Denied --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- CL Status --></label>
+        <name>CL_Status__c</name>
+        <picklistValues>
+            <masterLabel>Waiting for Approval/Account Form</masterLabel>
+            <translation><!-- Waiting for Approval/Account Form --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for Cooler Payment</masterLabel>
+            <translation><!-- Waiting for Cooler Payment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for Freight Quote</masterLabel>
+            <translation><!-- Waiting for Freight Quote --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for Logo Payment</masterLabel>
+            <translation><!-- Waiting for Logo Payment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for Mock Up</masterLabel>
+            <translation><!-- Waiting for Mock Up --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for PO</masterLabel>
+            <translation><!-- Waiting for PO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for Pantone(s)</masterLabel>
+            <translation><!-- Waiting for Pantone(s) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for Parts</masterLabel>
+            <translation><!-- Waiting for Parts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for Proof</masterLabel>
+            <translation><!-- Waiting for Proof --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting on Artwork</masterLabel>
+            <translation><!-- Waiting on Artwork --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Case Sub-Reason --></label>
+        <name>Case_Sub_Reason__c</name>
+        <picklistValues>
+            <masterLabel>20 oz Lid Gasket</masterLabel>
+            <translation><!-- 20 oz Lid Gasket --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30 oz Lid Gasket</masterLabel>
+            <translation><!-- 30 oz Lid Gasket --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Account Information Update</masterLabel>
+            <translation><!-- Account Information Update --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Account Registration</masterLabel>
+            <translation><!-- Account Registration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Account Status</masterLabel>
+            <translation><!-- Account Status --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BarBQ/ Brew Master</masterLabel>
+            <translation><!-- BarBQ/ Brew Master --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Big Box Dealer Return</masterLabel>
+            <translation><!-- Big Box Dealer Return --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bottle Key</masterLabel>
+            <translation><!-- Bottle Key --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bottle Round-Up</masterLabel>
+            <translation><!-- Bottle Round-Up --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bowed Lid</masterLabel>
+            <translation><!-- Bowed Lid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancel Order</masterLabel>
+            <translation><!-- Cancel Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancelled but Still Shipped</masterLabel>
+            <translation><!-- Cancelled but Still Shipped --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Carrier Issue</masterLabel>
+            <translation><!-- Carrier Issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Catalog</masterLabel>
+            <translation><!-- Catalog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Catalog Removal</masterLabel>
+            <translation><!-- Catalog Removal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Check Received</masterLabel>
+            <translation><!-- Check Received --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Checkout</masterLabel>
+            <translation><!-- Checkout --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Collegiate</masterLabel>
+            <translation><!-- Collegiate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Compliance</masterLabel>
+            <translation><!-- Compliance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Complimentary Registration Gift</masterLabel>
+            <translation><!-- Complimentary Registration Gift --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Component Install on Cooler</masterLabel>
+            <translation><!-- Component Install on Cooler --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contest</masterLabel>
+            <translation><!-- Contest --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Card</masterLabel>
+            <translation><!-- Credit Card --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Card Decline</masterLabel>
+            <translation><!-- Credit Card Decline --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Limit Question</masterLabel>
+            <translation><!-- Credit Limit Question --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Status</masterLabel>
+            <translation><!-- Credit Status --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Logo Inquiry</masterLabel>
+            <translation><!-- Custom Logo Inquiry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Logo Reorder</masterLabel>
+            <translation><!-- Custom Logo Reorder --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Order Process</masterLabel>
+            <translation><!-- Custom Order Process --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Service</masterLabel>
+            <translation><!-- Customer Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customization</masterLabel>
+            <translation><!-- Customization --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Damaged in Shipping</masterLabel>
+            <translation><!-- Damaged in Shipping --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer Agreement</masterLabel>
+            <translation><!-- Dealer Agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer Employee</masterLabel>
+            <translation><!-- Dealer Employee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer Inquiry</masterLabel>
+            <translation><!-- Dealer Inquiry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer Locator</masterLabel>
+            <translation><!-- Dealer Locator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer Resources</masterLabel>
+            <translation><!-- Dealer Resources --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Defective</masterLabel>
+            <translation><!-- Defective --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Delam</masterLabel>
+            <translation><!-- Delam --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Detached Bottom</masterLabel>
+            <translation><!-- Detached Bottom --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Discount</masterLabel>
+            <translation><!-- Discount --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Discount Issue</masterLabel>
+            <translation><!-- Discount Issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Domestic Request/ American Made</masterLabel>
+            <translation><!-- Domestic Request/ American Made --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Donation</masterLabel>
+            <translation><!-- Donation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Edit Order</masterLabel>
+            <translation><!-- Edit Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email Issue</masterLabel>
+            <translation><!-- Email Issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Employment</masterLabel>
+            <translation><!-- Employment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Expedited Shipping</masterLabel>
+            <translation><!-- Expedited Shipping --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FAQ</masterLabel>
+            <translation><!-- FAQ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Field Day</masterLabel>
+            <translation><!-- Field Day --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Field Days</masterLabel>
+            <translation><!-- Field Days --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fraud</masterLabel>
+            <translation><!-- Fraud --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Free Lowball Lid</masterLabel>
+            <translation><!-- Free Lowball Lid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Friends &amp; Family</masterLabel>
+            <translation><!-- Friends &amp; Family --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fundraiser</masterLabel>
+            <translation><!-- Fundraiser --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fundraiser/Donation</masterLabel>
+            <translation><!-- Fundraiser/Donation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gift Card</masterLabel>
+            <translation><!-- Gift Card --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hopper Inquiry</masterLabel>
+            <translation><!-- Hopper Inquiry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IPO</masterLabel>
+            <translation><!-- IPO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ice Retention</masterLabel>
+            <translation><!-- Ice Retention --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Incorrect Charges</masterLabel>
+            <translation><!-- Incorrect Charges --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Industry</masterLabel>
+            <translation><!-- Industry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inquiry</masterLabel>
+            <translation><!-- Inquiry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>International</masterLabel>
+            <translation><!-- International --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Invoice</masterLabel>
+            <translation><!-- Invoice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Invoices</masterLabel>
+            <translation><!-- Invoices --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Label Created - No Movement</masterLabel>
+            <translation><!-- Label Created - No Movement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Leaking</masterLabel>
+            <translation><!-- Leaking --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Logo Error</masterLabel>
+            <translation><!-- Logo Error --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lost/ Missing Shipment</masterLabel>
+            <translation><!-- Lost/ Missing Shipment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing</masterLabel>
+            <translation><!-- Marketing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing Email</masterLabel>
+            <translation><!-- Marketing Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Military/ First Responder</masterLabel>
+            <translation><!-- Military/ First Responder --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NRA</masterLabel>
+            <translation><!-- NRA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Navigation</masterLabel>
+            <translation><!-- Navigation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Account</masterLabel>
+            <translation><!-- New Account --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Dealer</masterLabel>
+            <translation><!-- New Dealer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Product Suggestion</masterLabel>
+            <translation><!-- New Product Suggestion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Newsletter Sign-up</masterLabel>
+            <translation><!-- Newsletter Sign-up --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Office Error-Wrong Item</masterLabel>
+            <translation><!-- Office Error-Wrong Item --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Office Error-Wrong Qty</masterLabel>
+            <translation><!-- Office Error-Wrong Qty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Office Error-Wrong Ship Date</masterLabel>
+            <translation><!-- Office Error-Wrong Ship Date --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Office Error-Wrong/No Ship To</masterLabel>
+            <translation><!-- Office Error-Wrong/No Ship To --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open Order Report</masterLabel>
+            <translation><!-- Open Order Report --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order Status</masterLabel>
+            <translation><!-- Order Status --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order Verification</masterLabel>
+            <translation><!-- Order Verification --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Department</masterLabel>
+            <translation><!-- Other Department --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outside Rep-Never Ordered</masterLabel>
+            <translation><!-- Outside Rep-Never Ordered --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outside Rep-Wrong Item</masterLabel>
+            <translation><!-- Outside Rep-Wrong Item --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outside Rep-Wrong Qty</masterLabel>
+            <translation><!-- Outside Rep-Wrong Qty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Overcharged</masterLabel>
+            <translation><!-- Overcharged --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>POP Kit Materials</masterLabel>
+            <translation><!-- POP Kit Materials --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Packaging Issue</masterLabel>
+            <translation><!-- Packaging Issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Packing Slip</masterLabel>
+            <translation><!-- Packing Slip --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parts</masterLabel>
+            <translation><!-- Parts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Place Order</masterLabel>
+            <translation><!-- Place Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Political Issue</masterLabel>
+            <translation><!-- Political Issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Porosity</masterLabel>
+            <translation><!-- Porosity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pricing</masterLabel>
+            <translation><!-- Pricing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pro Guide</masterLabel>
+            <translation><!-- Pro Guide --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Availability</masterLabel>
+            <translation><!-- Product Availability --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product FAQ</masterLabel>
+            <translation><!-- Product FAQ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Registration Issue</masterLabel>
+            <translation><!-- Product Registration Issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Program Decline</masterLabel>
+            <translation><!-- Program Decline --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pronghorn</masterLabel>
+            <translation><!-- Pronghorn --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rambler Inquiry</masterLabel>
+            <translation><!-- Rambler Inquiry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rambler Scratch</masterLabel>
+            <translation><!-- Rambler Scratch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RamblerOn</masterLabel>
+            <translation><!-- RamblerOn --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ratings &amp; Review</masterLabel>
+            <translation><!-- Ratings &amp; Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Repair</masterLabel>
+            <translation><!-- Repair --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Request Credit</masterLabel>
+            <translation><!-- Request Credit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rerouted Shipment</masterLabel>
+            <translation><!-- Rerouted Shipment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Return</masterLabel>
+            <translation><!-- Return --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Returned Shipment Refused</masterLabel>
+            <translation><!-- Returned Shipment Refused --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shipment Shortage/ Overage</masterLabel>
+            <translation><!-- Shipment Shortage/ Overage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shipment Tracking</masterLabel>
+            <translation><!-- Shipment Tracking --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shipping</masterLabel>
+            <translation><!-- Shipping --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Site Issues</masterLabel>
+            <translation><!-- Site Issues --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Size/ What size to order</masterLabel>
+            <translation><!-- Size/ What size to order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Social Media</masterLabel>
+            <translation><!-- Social Media --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stainless Adjustment</masterLabel>
+            <translation><!-- Stainless Adjustment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Straw Lid 20 oz</masterLabel>
+            <translation><!-- Straw Lid 20 oz --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Straw Lid 30 oz</masterLabel>
+            <translation><!-- Straw Lid 30 oz --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suspect Source - Brand Protection</masterLabel>
+            <translation><!-- Suspect Source - Brand Protection --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Swag Request</masterLabel>
+            <translation><!-- Swag Request --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sweating</masterLabel>
+            <translation><!-- Sweating --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>System Error</masterLabel>
+            <translation><!-- System Error --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tax Resale Cert</masterLabel>
+            <translation><!-- Tax Resale Cert --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unsubscribe</masterLabel>
+            <translation><!-- Unsubscribe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vendor/Supplier</masterLabel>
+            <translation><!-- Vendor/Supplier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wheels</masterLabel>
+            <translation><!-- Wheels --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wrong Product Shipped</masterLabel>
+            <translation><!-- Wrong Product Shipped --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>YETI Flagship</masterLabel>
+            <translation><!-- YETI Flagship --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>YETI Select</masterLabel>
+            <translation><!-- YETI Select --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Zipper Issue</masterLabel>
+            <translation><!-- Zipper Issue --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Chase ID --></label>
+        <name>Chase_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Color --></label>
+        <name>Color__c</name>
+        <picklistValues>
+            <masterLabel>Black</masterLabel>
+            <translation><!-- Black --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Brick Red</masterLabel>
+            <translation><!-- Brick Red --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Camo</masterLabel>
+            <translation><!-- Camo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Charcoal</masterLabel>
+            <translation><!-- Charcoal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coral</masterLabel>
+            <translation><!-- Coral --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Everglade Sand</masterLabel>
+            <translation><!-- Everglade Sand --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>High Country</masterLabel>
+            <translation><!-- High Country --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ice Blue</masterLabel>
+            <translation><!-- Ice Blue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Olive Green</masterLabel>
+            <translation><!-- Olive Green --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pink</masterLabel>
+            <translation><!-- Pink --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Seafoam</masterLabel>
+            <translation><!-- Seafoam --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sky Blue</masterLabel>
+            <translation><!-- Sky Blue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stainless</masterLabel>
+            <translation><!-- Stainless --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Storm Gray</masterLabel>
+            <translation><!-- Storm Gray --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tahoe Blue</masterLabel>
+            <translation><!-- Tahoe Blue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tahoe Blue/ Fog Gray</masterLabel>
+            <translation><!-- Tahoe Blue/ Fog Gray --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tan</masterLabel>
+            <translation><!-- Tan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tan/Blaze Orange</masterLabel>
+            <translation><!-- Tan/Blaze Orange --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>White</masterLabel>
+            <translation><!-- White --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Company --></label>
+        <name>CompanyPicklist__c</name>
+        <picklistValues>
+            <masterLabel>Al Hansen</masterLabel>
+            <translation><!-- Al Hansen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Backbone Media</masterLabel>
+            <translation><!-- Backbone Media --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bazaarvoice</masterLabel>
+            <translation><!-- Bazaarvoice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bruckman Rubber</masterLabel>
+            <translation><!-- Bruckman Rubber --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CHP</masterLabel>
+            <translation><!-- CHP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Carlson Print</masterLabel>
+            <translation><!-- Carlson Print --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ColorFX Des Moines Plant Only</masterLabel>
+            <translation><!-- ColorFX Des Moines Plant Only --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Corra</masterLabel>
+            <translation><!-- Corra --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Curbell Plastics</masterLabel>
+            <translation><!-- Curbell Plastics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DFM</masterLabel>
+            <translation><!-- DFM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dutchland Plastics</masterLabel>
+            <translation><!-- Dutchland Plastics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Elgin Fasteners - India</masterLabel>
+            <translation><!-- Elgin Fasteners - India --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Elgin Fasteners - Tennessee</masterLabel>
+            <translation><!-- Elgin Fasteners - Tennessee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Erin Rope</masterLabel>
+            <translation><!-- Erin Rope --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Falcon Plastics</masterLabel>
+            <translation><!-- Falcon Plastics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ferry Industries</masterLabel>
+            <translation><!-- Ferry Industries --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Field Scout</masterLabel>
+            <translation><!-- Field Scout --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GVL Poly</masterLabel>
+            <translation><!-- GVL Poly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Great Lakes Metal Stamping</masterLabel>
+            <translation><!-- Great Lakes Metal Stamping --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hammerhead Industries</masterLabel>
+            <translation><!-- Hammerhead Industries --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hard Candy Shell</masterLabel>
+            <translation><!-- Hard Candy Shell --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>International Print and Packaging New York</masterLabel>
+            <translation><!-- International Print and Packaging New York --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>International Print and Packaging Texas</masterLabel>
+            <translation><!-- International Print and Packaging Texas --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MCGarrah Jessee</masterLabel>
+            <translation><!-- MCGarrah Jessee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Master Loc</masterLabel>
+            <translation><!-- Master Loc --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>McCann Plastics</masterLabel>
+            <translation><!-- McCann Plastics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Metal Tech</masterLabel>
+            <translation><!-- Metal Tech --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mhollad</masterLabel>
+            <translation><!-- Mhollad --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mold In Graphics</masterLabel>
+            <translation><!-- Mold In Graphics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NC Accessory (ASI)</masterLabel>
+            <translation><!-- NC Accessory (ASI) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OHL</masterLabel>
+            <translation><!-- OHL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Omaha Box</masterLabel>
+            <translation><!-- Omaha Box --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Omega Plastics, LLOC.</masterLabel>
+            <translation><!-- Omega Plastics, LLOC. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>P2/Owner Revolution</masterLabel>
+            <translation><!-- P2/Owner Revolution --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Packaging Corporation of America - Wisconsin Plant Only</masterLabel>
+            <translation><!-- Packaging Corporation of America - Wisconsin Plant Only --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pierry Software</masterLabel>
+            <translation><!-- Pierry Software --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Plastic Professionals</masterLabel>
+            <translation><!-- Plastic Professionals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarter-20</masterLabel>
+            <translation><!-- Quarter-20 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>R&amp;D Molding</masterLabel>
+            <translation><!-- R&amp;D Molding --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RR Donnelley</masterLabel>
+            <translation><!-- RR Donnelley --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rackspace</masterLabel>
+            <translation><!-- Rackspace --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Redwood Sourcing, Inc</masterLabel>
+            <translation><!-- Redwood Sourcing, Inc --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RiverCity Sportsware</masterLabel>
+            <translation><!-- RiverCity Sportsware --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rocky Mountain Cord Company</masterLabel>
+            <translation><!-- Rocky Mountain Cord Company --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Saddle Creek Logistics</masterLabel>
+            <translation><!-- Saddle Creek Logistics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sea Dek</masterLabel>
+            <translation><!-- Sea Dek --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Soloar Plastics</masterLabel>
+            <translation><!-- Soloar Plastics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spark Media</masterLabel>
+            <translation><!-- Spark Media --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stephen-Gould</masterLabel>
+            <translation><!-- Stephen-Gould --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>StrapWorks</masterLabel>
+            <translation><!-- StrapWorks --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Strategic Growth</masterLabel>
+            <translation><!-- Strategic Growth --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tempress</masterLabel>
+            <translation><!-- Tempress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vantec Inc.</masterLabel>
+            <translation><!-- Vantec Inc. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wisconsin Coil</masterLabel>
+            <translation><!-- Wisconsin Coil --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wisconsin Engraving</masterLabel>
+            <translation><!-- Wisconsin Engraving --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>inMotionNow</masterLabel>
+            <translation><!-- inMotionNow --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- inContact Id --></label>
+        <name>ContactId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cooler Payment Received Date --></label>
+        <name>Cooler_Payment_Received_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cooler Payment Received Notes --></label>
+        <name>Cooler_Payment_Received_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cooler Payment Received --></label>
+        <name>Cooler_Payment_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>Country__c</name>
+        <picklistValues>
+            <masterLabel>Afghanistan</masterLabel>
+            <translation><!-- Afghanistan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Albania</masterLabel>
+            <translation><!-- Albania --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Algeria</masterLabel>
+            <translation><!-- Algeria --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>American Samoa</masterLabel>
+            <translation><!-- American Samoa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Andorra</masterLabel>
+            <translation><!-- Andorra --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Angola</masterLabel>
+            <translation><!-- Angola --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Anguilla</masterLabel>
+            <translation><!-- Anguilla --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Antigua and Barbuda</masterLabel>
+            <translation><!-- Antigua and Barbuda --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Argentina</masterLabel>
+            <translation><!-- Argentina --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Armenia</masterLabel>
+            <translation><!-- Armenia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aruba</masterLabel>
+            <translation><!-- Aruba --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Australia</masterLabel>
+            <translation><!-- Australia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Austria</masterLabel>
+            <translation><!-- Austria --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Azerbaijan</masterLabel>
+            <translation><!-- Azerbaijan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bahamas</masterLabel>
+            <translation><!-- Bahamas --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bahrain</masterLabel>
+            <translation><!-- Bahrain --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bangladesh</masterLabel>
+            <translation><!-- Bangladesh --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Barbados</masterLabel>
+            <translation><!-- Barbados --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Belarus</masterLabel>
+            <translation><!-- Belarus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Belgium</masterLabel>
+            <translation><!-- Belgium --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Belize</masterLabel>
+            <translation><!-- Belize --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Benin</masterLabel>
+            <translation><!-- Benin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bermuda</masterLabel>
+            <translation><!-- Bermuda --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bhutan</masterLabel>
+            <translation><!-- Bhutan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bolivia</masterLabel>
+            <translation><!-- Bolivia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bonaire</masterLabel>
+            <translation><!-- Bonaire --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bosnia-Herzegovina</masterLabel>
+            <translation><!-- Bosnia-Herzegovina --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Botswana</masterLabel>
+            <translation><!-- Botswana --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bouvet Island</masterLabel>
+            <translation><!-- Bouvet Island --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Brazil</masterLabel>
+            <translation><!-- Brazil --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Brunei</masterLabel>
+            <translation><!-- Brunei --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bulgaria</masterLabel>
+            <translation><!-- Bulgaria --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Burkina Faso</masterLabel>
+            <translation><!-- Burkina Faso --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Burundi</masterLabel>
+            <translation><!-- Burundi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cambodia</masterLabel>
+            <translation><!-- Cambodia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cameroon</masterLabel>
+            <translation><!-- Cameroon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Canada</masterLabel>
+            <translation><!-- Canada --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cape Verde</masterLabel>
+            <translation><!-- Cape Verde --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cayman Islands</masterLabel>
+            <translation><!-- Cayman Islands --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Central African Republic</masterLabel>
+            <translation><!-- Central African Republic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chad</masterLabel>
+            <translation><!-- Chad --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chile</masterLabel>
+            <translation><!-- Chile --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>China</masterLabel>
+            <translation><!-- China --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Christmas Island</masterLabel>
+            <translation><!-- Christmas Island --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cocos (Keeling) Islands</masterLabel>
+            <translation><!-- Cocos (Keeling) Islands --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Colombia</masterLabel>
+            <translation><!-- Colombia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Comoros</masterLabel>
+            <translation><!-- Comoros --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Congo, Democratic Republic of the (Zaire)</masterLabel>
+            <translation><!-- Congo, Democratic Republic of the (Zaire) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Congo, Republic of</masterLabel>
+            <translation><!-- Congo, Republic of --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cook Islands</masterLabel>
+            <translation><!-- Cook Islands --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Costa Rica</masterLabel>
+            <translation><!-- Costa Rica --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Croatia</masterLabel>
+            <translation><!-- Croatia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cuba</masterLabel>
+            <translation><!-- Cuba --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Curacao</masterLabel>
+            <translation><!-- Curacao --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cyprus</masterLabel>
+            <translation><!-- Cyprus --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Czech Republic</masterLabel>
+            <translation><!-- Czech Republic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Denmark</masterLabel>
+            <translation><!-- Denmark --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Djibouti</masterLabel>
+            <translation><!-- Djibouti --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dominica</masterLabel>
+            <translation><!-- Dominica --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dominican Republic</masterLabel>
+            <translation><!-- Dominican Republic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ecuador</masterLabel>
+            <translation><!-- Ecuador --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Egypt</masterLabel>
+            <translation><!-- Egypt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>El Salvador</masterLabel>
+            <translation><!-- El Salvador --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Equatorial Guinea</masterLabel>
+            <translation><!-- Equatorial Guinea --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eritrea</masterLabel>
+            <translation><!-- Eritrea --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Estonia</masterLabel>
+            <translation><!-- Estonia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ethiopia</masterLabel>
+            <translation><!-- Ethiopia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Falkland Islands</masterLabel>
+            <translation><!-- Falkland Islands --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Faroe Islands</masterLabel>
+            <translation><!-- Faroe Islands --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fiji</masterLabel>
+            <translation><!-- Fiji --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finland</masterLabel>
+            <translation><!-- Finland --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>France</masterLabel>
+            <translation><!-- France --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>French Guiana</masterLabel>
+            <translation><!-- French Guiana --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gabon</masterLabel>
+            <translation><!-- Gabon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gambia</masterLabel>
+            <translation><!-- Gambia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Georgia</masterLabel>
+            <translation><!-- Georgia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Germany</masterLabel>
+            <translation><!-- Germany --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ghana</masterLabel>
+            <translation><!-- Ghana --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gibraltar</masterLabel>
+            <translation><!-- Gibraltar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greece</masterLabel>
+            <translation><!-- Greece --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greenland</masterLabel>
+            <translation><!-- Greenland --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Grenada</masterLabel>
+            <translation><!-- Grenada --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Guadeloupe (French)</masterLabel>
+            <translation><!-- Guadeloupe (French) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Guam (USA)</masterLabel>
+            <translation><!-- Guam (USA) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Guatemala</masterLabel>
+            <translation><!-- Guatemala --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Guinea</masterLabel>
+            <translation><!-- Guinea --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Guinea Bissau</masterLabel>
+            <translation><!-- Guinea Bissau --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Guyana</masterLabel>
+            <translation><!-- Guyana --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Haiti</masterLabel>
+            <translation><!-- Haiti --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Holy See</masterLabel>
+            <translation><!-- Holy See --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Honduras</masterLabel>
+            <translation><!-- Honduras --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hong Kong</masterLabel>
+            <translation><!-- Hong Kong --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hungary</masterLabel>
+            <translation><!-- Hungary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Iceland</masterLabel>
+            <translation><!-- Iceland --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>India</masterLabel>
+            <translation><!-- India --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Indonesia</masterLabel>
+            <translation><!-- Indonesia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Iran</masterLabel>
+            <translation><!-- Iran --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Iraq</masterLabel>
+            <translation><!-- Iraq --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ireland</masterLabel>
+            <translation><!-- Ireland --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Israel</masterLabel>
+            <translation><!-- Israel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Italy</masterLabel>
+            <translation><!-- Italy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ivory Coast (Cote D`Ivoire)</masterLabel>
+            <translation><!-- Ivory Coast (Cote D`Ivoire) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jamaica</masterLabel>
+            <translation><!-- Jamaica --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Japan</masterLabel>
+            <translation><!-- Japan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jordan</masterLabel>
+            <translation><!-- Jordan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kazakhstan</masterLabel>
+            <translation><!-- Kazakhstan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kenya</masterLabel>
+            <translation><!-- Kenya --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kiribati</masterLabel>
+            <translation><!-- Kiribati --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kosovo</masterLabel>
+            <translation><!-- Kosovo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kuwait</masterLabel>
+            <translation><!-- Kuwait --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kyrgyzstan</masterLabel>
+            <translation><!-- Kyrgyzstan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Laos</masterLabel>
+            <translation><!-- Laos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Latvia</masterLabel>
+            <translation><!-- Latvia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lebanon</masterLabel>
+            <translation><!-- Lebanon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lesotho</masterLabel>
+            <translation><!-- Lesotho --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Liberia</masterLabel>
+            <translation><!-- Liberia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Libya</masterLabel>
+            <translation><!-- Libya --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Liechtenstein</masterLabel>
+            <translation><!-- Liechtenstein --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lithuania</masterLabel>
+            <translation><!-- Lithuania --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Luxembourg</masterLabel>
+            <translation><!-- Luxembourg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Macau</masterLabel>
+            <translation><!-- Macau --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Macedonia</masterLabel>
+            <translation><!-- Macedonia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Madagascar</masterLabel>
+            <translation><!-- Madagascar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Malawi</masterLabel>
+            <translation><!-- Malawi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Malaysia</masterLabel>
+            <translation><!-- Malaysia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maldives</masterLabel>
+            <translation><!-- Maldives --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mali</masterLabel>
+            <translation><!-- Mali --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Malta</masterLabel>
+            <translation><!-- Malta --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marshall Islands</masterLabel>
+            <translation><!-- Marshall Islands --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Martinique (French)</masterLabel>
+            <translation><!-- Martinique (French) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mauritania</masterLabel>
+            <translation><!-- Mauritania --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mauritius</masterLabel>
+            <translation><!-- Mauritius --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mayotte</masterLabel>
+            <translation><!-- Mayotte --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mexico</masterLabel>
+            <translation><!-- Mexico --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Micronesia</masterLabel>
+            <translation><!-- Micronesia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Moldova</masterLabel>
+            <translation><!-- Moldova --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monaco</masterLabel>
+            <translation><!-- Monaco --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mongolia</masterLabel>
+            <translation><!-- Mongolia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Montenegro</masterLabel>
+            <translation><!-- Montenegro --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Montserrat</masterLabel>
+            <translation><!-- Montserrat --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Morocco</masterLabel>
+            <translation><!-- Morocco --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mozambique</masterLabel>
+            <translation><!-- Mozambique --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Myanmar</masterLabel>
+            <translation><!-- Myanmar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Namibia</masterLabel>
+            <translation><!-- Namibia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nauru</masterLabel>
+            <translation><!-- Nauru --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nepal</masterLabel>
+            <translation><!-- Nepal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Netherlands</masterLabel>
+            <translation><!-- Netherlands --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Netherlands Antilles</masterLabel>
+            <translation><!-- Netherlands Antilles --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Caledonia (French)</masterLabel>
+            <translation><!-- New Caledonia (French) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Zealand</masterLabel>
+            <translation><!-- New Zealand --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nicaragua</masterLabel>
+            <translation><!-- Nicaragua --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Niger</masterLabel>
+            <translation><!-- Niger --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nigeria</masterLabel>
+            <translation><!-- Nigeria --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Niue</masterLabel>
+            <translation><!-- Niue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Norfolk Island</masterLabel>
+            <translation><!-- Norfolk Island --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>North Korea</masterLabel>
+            <translation><!-- North Korea --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Northern Mariana Islands</masterLabel>
+            <translation><!-- Northern Mariana Islands --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Norway</masterLabel>
+            <translation><!-- Norway --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oman</masterLabel>
+            <translation><!-- Oman --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pakistan</masterLabel>
+            <translation><!-- Pakistan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Palau</masterLabel>
+            <translation><!-- Palau --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Panama</masterLabel>
+            <translation><!-- Panama --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Papua New Guinea</masterLabel>
+            <translation><!-- Papua New Guinea --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Paraguay</masterLabel>
+            <translation><!-- Paraguay --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Peru</masterLabel>
+            <translation><!-- Peru --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Philippines</masterLabel>
+            <translation><!-- Philippines --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pitcairn Island</masterLabel>
+            <translation><!-- Pitcairn Island --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Poland</masterLabel>
+            <translation><!-- Poland --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Polynesia (French)</masterLabel>
+            <translation><!-- Polynesia (French) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Portugal</masterLabel>
+            <translation><!-- Portugal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Puerto Rico</masterLabel>
+            <translation><!-- Puerto Rico --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Qatar</masterLabel>
+            <translation><!-- Qatar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reunion</masterLabel>
+            <translation><!-- Reunion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Romania</masterLabel>
+            <translation><!-- Romania --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Russia</masterLabel>
+            <translation><!-- Russia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rwanda</masterLabel>
+            <translation><!-- Rwanda --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Saint Helena</masterLabel>
+            <translation><!-- Saint Helena --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Saint Kitts and Nevis</masterLabel>
+            <translation><!-- Saint Kitts and Nevis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Saint Lucia</masterLabel>
+            <translation><!-- Saint Lucia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Saint Pierre and Miquelon</masterLabel>
+            <translation><!-- Saint Pierre and Miquelon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Saint Vincent and Grenadines</masterLabel>
+            <translation><!-- Saint Vincent and Grenadines --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Samoa</masterLabel>
+            <translation><!-- Samoa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>San Marino</masterLabel>
+            <translation><!-- San Marino --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sao Tome and Principe</masterLabel>
+            <translation><!-- Sao Tome and Principe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Saudi Arabia</masterLabel>
+            <translation><!-- Saudi Arabia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Senegal</masterLabel>
+            <translation><!-- Senegal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Serbia</masterLabel>
+            <translation><!-- Serbia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Seychelles</masterLabel>
+            <translation><!-- Seychelles --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sierra Leone</masterLabel>
+            <translation><!-- Sierra Leone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Singapore</masterLabel>
+            <translation><!-- Singapore --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sint Maarten</masterLabel>
+            <translation><!-- Sint Maarten --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Slovakia</masterLabel>
+            <translation><!-- Slovakia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Slovenia</masterLabel>
+            <translation><!-- Slovenia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Solomon Islands</masterLabel>
+            <translation><!-- Solomon Islands --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Somalia</masterLabel>
+            <translation><!-- Somalia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>South Africa</masterLabel>
+            <translation><!-- South Africa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>South Georgia and South Sandwich Islands</masterLabel>
+            <translation><!-- South Georgia and South Sandwich Islands --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>South Korea</masterLabel>
+            <translation><!-- South Korea --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>South Sudan</masterLabel>
+            <translation><!-- South Sudan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spain</masterLabel>
+            <translation><!-- Spain --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sri Lanka</masterLabel>
+            <translation><!-- Sri Lanka --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sudan</masterLabel>
+            <translation><!-- Sudan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suriname</masterLabel>
+            <translation><!-- Suriname --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Svalbard and Jan Mayen Islands</masterLabel>
+            <translation><!-- Svalbard and Jan Mayen Islands --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Swaziland</masterLabel>
+            <translation><!-- Swaziland --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sweden</masterLabel>
+            <translation><!-- Sweden --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Switzerland</masterLabel>
+            <translation><!-- Switzerland --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Syria</masterLabel>
+            <translation><!-- Syria --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Taiwan</masterLabel>
+            <translation><!-- Taiwan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tajikistan</masterLabel>
+            <translation><!-- Tajikistan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tanzania</masterLabel>
+            <translation><!-- Tanzania --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Thailand</masterLabel>
+            <translation><!-- Thailand --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Timor-Leste (East Timor)</masterLabel>
+            <translation><!-- Timor-Leste (East Timor) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Togo</masterLabel>
+            <translation><!-- Togo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tokelau</masterLabel>
+            <translation><!-- Tokelau --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tonga</masterLabel>
+            <translation><!-- Tonga --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trinidad and Tobago</masterLabel>
+            <translation><!-- Trinidad and Tobago --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tunisia</masterLabel>
+            <translation><!-- Tunisia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Turkey</masterLabel>
+            <translation><!-- Turkey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Turkmenistan</masterLabel>
+            <translation><!-- Turkmenistan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Turks and Caicos Islands</masterLabel>
+            <translation><!-- Turks and Caicos Islands --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tuvalu</masterLabel>
+            <translation><!-- Tuvalu --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Uganda</masterLabel>
+            <translation><!-- Uganda --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ukraine</masterLabel>
+            <translation><!-- Ukraine --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>United Arab Emirates</masterLabel>
+            <translation><!-- United Arab Emirates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>United Kingdom</masterLabel>
+            <translation><!-- United Kingdom --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>United States</masterLabel>
+            <translation><!-- United States --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Uruguay</masterLabel>
+            <translation><!-- Uruguay --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Uzbekistan</masterLabel>
+            <translation><!-- Uzbekistan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vanuatu</masterLabel>
+            <translation><!-- Vanuatu --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Venezuela</masterLabel>
+            <translation><!-- Venezuela --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vietnam</masterLabel>
+            <translation><!-- Vietnam --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Virgin Islands</masterLabel>
+            <translation><!-- Virgin Islands --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wallis and Futuna Islands</masterLabel>
+            <translation><!-- Wallis and Futuna Islands --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yemen</masterLabel>
+            <translation><!-- Yemen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Zambia</masterLabel>
+            <translation><!-- Zambia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Zimbabwe</masterLabel>
+            <translation><!-- Zimbabwe --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Customer Compliment --></label>
+        <name>Customer_Compliment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Number --></label>
+        <name>Customer_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Purchase/Years Owned --></label>
+        <name>Date_Purchase_Years_Owned__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date of Purchase --></label>
+        <name>Date_of_Purchase__c</name>
+    </fields>
+    <fields>
+        <label><!-- Delivery Method --></label>
+        <name>Delivery_Method__c</name>
+        <picklistValues>
+            <masterLabel>Carrier Shipment</masterLabel>
+            <translation><!-- Carrier Shipment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Pickup</masterLabel>
+            <translation><!-- Customer Pickup --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Due/Follow Up Date --></label>
+        <name>Due_FollowUp_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Duration by Hours --></label>
+        <name>Duration_by_Hours__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>ENSX_EDM__Product_del__c</name>
+        <picklistValues>
+            <masterLabel>GC1020</masterLabel>
+            <translation><!-- GC1020 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GC1040</masterLabel>
+            <translation><!-- GC1040 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GC1060</masterLabel>
+            <translation><!-- GC1060 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GC3020</masterLabel>
+            <translation><!-- GC3020 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GC3040</masterLabel>
+            <translation><!-- GC3040 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GC3060</masterLabel>
+            <translation><!-- GC3060 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GC5020</masterLabel>
+            <translation><!-- GC5020 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GC5040</masterLabel>
+            <translation><!-- GC5040 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GC5060</masterLabel>
+            <translation><!-- GC5060 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Return Order Number --></label>
+        <name>ENSX_EDM__Return_Order_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- ERP Case Number --></label>
+        <name>ERP_Case_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- ERP Created By --></label>
+        <name>ERP_Created_By__c</name>
+    </fields>
+    <fields>
+        <help><!-- Checked when a new email is received on the case. --></help>
+        <label><!-- Email Response --></label>
+        <name>Email_Response__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employee Email Address --></label>
+        <name>Employee_Email_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employee First Name --></label>
+        <name>Employee_First_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employee ID --></label>
+        <name>Employee_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employee Last Name --></label>
+        <name>Employee_Last_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Epicor Case --></label>
+        <name>Epicor_Case__c</name>
+    </fields>
+    <fields>
+        <label><!-- Escalated Reason --></label>
+        <name>Escalated_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Allergy</masterLabel>
+            <translation><!-- Allergy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Burn</masterLabel>
+            <translation><!-- Burn --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Capacity</masterLabel>
+            <translation><!-- Capacity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cut/Laceration</masterLabel>
+            <translation><!-- Cut/Laceration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legal/Lawsuit</masterLabel>
+            <translation><!-- Legal/Lawsuit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Issue</masterLabel>
+            <translation><!-- Product Issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prop 65</masterLabel>
+            <translation><!-- Prop 65 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Est. Number --></label>
+        <name>Est_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Estimated Cost --></label>
+        <name>Estimated_Cost__c</name>
+    </fields>
+    <fields>
+        <label><!-- ExternalId --></label>
+        <name>ExternalId__c</name>
+    </fields>
+    <fields>
+        <label><!-- FedEx Email --></label>
+        <name>FedEx_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- FedEx Packaging Type --></label>
+        <name>FedEx_Packaging_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- FedEx Phone --></label>
+        <name>FedEx_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- FedEx Postal Code --></label>
+        <name>FedEx_Postal_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- FedEx Service Type --></label>
+        <name>FedEx_Service_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- FedEx ShipmentType --></label>
+        <name>FedEx_ShipmentType__c</name>
+    </fields>
+    <fields>
+        <label><!-- FedEx Shipment --></label>
+        <name>FedEx_Shipment__c</name>
+        <relationshipLabel><!-- Cases --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Fed Ex Case ID --></label>
+        <name>Fed_Ex_Case_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fed Ex City --></label>
+        <name>Fed_Ex_City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fed Ex Country --></label>
+        <name>Fed_Ex_Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fed Ex Delivery Status --></label>
+        <name>Fed_Ex_Delivery_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fed Ex Shipmate Pref --></label>
+        <name>Fed_Ex_Shipmate_Pref__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fed Ex State --></label>
+        <name>Fed_Ex_State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fed Ex Street --></label>
+        <name>Fed_Ex_Street__c</name>
+    </fields>
+    <fields>
+        <label><!-- FexEx Customer Name --></label>
+        <name>FexEx_Customer_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Final Logo Received Date --></label>
+        <name>Final_Logo_Received_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Final Logo Received Notes --></label>
+        <name>Final_Logo_Received_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Final Logo Received --></label>
+        <name>Final_Logo_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Firm In Hands Date --></label>
+        <name>Firm_In_Hands_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- FirstResponse --></label>
+        <name>FirstRespond__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Response --></label>
+        <name>First_Response__c</name>
+    </fields>
+    <fields>
+        <label><!-- Follow Up Date --></label>
+        <name>Follow_Up_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Free Part --></label>
+        <name>Free_Part__c</name>
+    </fields>
+    <fields>
+        <label><!-- Free Products --></label>
+        <name>Free_Products__c</name>
+        <picklistValues>
+            <masterLabel>Badge</masterLabel>
+            <translation><!-- Badge --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Catalog</masterLabel>
+            <translation><!-- Catalog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Drain Plugs</masterLabel>
+            <translation><!-- Drain Plugs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Feet</masterLabel>
+            <translation><!-- Feet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gasket</masterLabel>
+            <translation><!-- Gasket --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Handle</masterLabel>
+            <translation><!-- Handle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hopper Strap</masterLabel>
+            <translation><!-- Hopper Strap --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rambler Lid</masterLabel>
+            <translation><!-- Rambler Lid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stash Can</masterLabel>
+            <translation><!-- Stash Can --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sticker</masterLabel>
+            <translation><!-- Sticker --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Swag Request</masterLabel>
+            <translation><!-- Swag Request --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra Latches</masterLabel>
+            <translation><!-- Tundra Latches --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Zipper Lube</masterLabel>
+            <translation><!-- Zipper Lube --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Fundraiser Inquiry --></label>
+        <name>Fundraiser_Inquiry__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hear of Us --></label>
+        <name>Hear_of_Us__c</name>
+        <picklistValues>
+            <masterLabel>Friend</masterLabel>
+            <translation><!-- Friend --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Magazine</masterLabel>
+            <translation><!-- Magazine --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Store</masterLabel>
+            <translation><!-- Store --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TV</masterLabel>
+            <translation><!-- TV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Website</masterLabel>
+            <translation><!-- Website --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- In Hands Date --></label>
+        <name>In_Hands_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Industry Program --></label>
+        <name>Industry_Program__c</name>
+        <picklistValues>
+            <masterLabel>BBQ Pitmaster</masterLabel>
+            <translation><!-- BBQ Pitmaster --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>First responders</masterLabel>
+            <translation><!-- First responders --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Industry</masterLabel>
+            <translation><!-- Industry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Military</masterLabel>
+            <translation><!-- Military --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pro/guide</masterLabel>
+            <translation><!-- Pro/guide --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Industry --></label>
+        <name>Industry__c</name>
+    </fields>
+    <fields>
+        <label><!-- Inside Ownership --></label>
+        <name>Inside_Ownership__c</name>
+    </fields>
+    <fields>
+        <label><!-- Inside Sales Rep --></label>
+        <name>Inside_Sales_Rep__c</name>
+    </fields>
+    <fields>
+        <label><!-- Interests --></label>
+        <name>Interests__c</name>
+        <picklistValues>
+            <masterLabel>BBQ &amp; Backyard Cookouts</masterLabel>
+            <translation><!-- BBQ &amp; Backyard Cookouts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Biking</masterLabel>
+            <translation><!-- Biking --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Boating</masterLabel>
+            <translation><!-- Boating --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Camping</masterLabel>
+            <translation><!-- Camping --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fishing</masterLabel>
+            <translation><!-- Fishing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hiking &amp; Climbing</masterLabel>
+            <translation><!-- Hiking &amp; Climbing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hunting</masterLabel>
+            <translation><!-- Hunting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Music</masterLabel>
+            <translation><!-- Music --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Paddle Sports</masterLabel>
+            <translation><!-- Paddle Sports --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rodeo</masterLabel>
+            <translation><!-- Rodeo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tailgating</masterLabel>
+            <translation><!-- Tailgating --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Team Sports</masterLabel>
+            <translation><!-- Team Sports --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Invoice Sent --></label>
+        <name>Invoice_Sent__c</name>
+    </fields>
+    <fields>
+        <help><!-- If the final automated-email has been sent. --></help>
+        <label><!-- Is Final Email Sent --></label>
+        <name>IsFinalEmailSent__c</name>
+    </fields>
+    <fields>
+        <help><!-- If the system&apos;s first automated-email has been sent. --></help>
+        <label><!-- Is Initial Email Sent --></label>
+        <name>IsInitialEmailSent__c</name>
+    </fields>
+    <fields>
+        <help><!-- If the assigned phone-call task has been completed by the case owner. --></help>
+        <label><!-- Is Phone Task Completed By User --></label>
+        <name>IsPhoneTaskCompletedByUser__c</name>
+    </fields>
+    <fields>
+        <help><!-- Populated only if applicable when the customer contact&apos;s account does not exist in Salesforce/ --></help>
+        <label><!-- Lead Name --></label>
+        <name>Lead_Name__c</name>
+        <relationshipLabel><!-- Cases --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- License/ID Number --></label>
+        <name>License_ID_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Logo Payment Received Date --></label>
+        <name>Logo_Payment_Received_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Logo Payment Received Notes --></label>
+        <name>Logo_Payment_Received_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Logo Payment Received --></label>
+        <name>Logo_Payment_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lowball 1 Verification --></label>
+        <name>Lowball_1_Verification__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lowball 2 Verification --></label>
+        <name>Lowball_2_Verification__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lowball 3 Verification --></label>
+        <name>Lowball_3_Verification__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lowball 4 Verification --></label>
+        <name>Lowball_4_Verification__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lowball 5 Verification --></label>
+        <name>Lowball_5_Verification__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lowball 6 Verification --></label>
+        <name>Lowball_6_Verification__c</name>
+    </fields>
+    <fields>
+        <label><!-- Manager Email --></label>
+        <name>Manager_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Manager First Name --></label>
+        <name>Manager_First_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Manager Last Name --></label>
+        <name>Manager_Last_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Model/Color --></label>
+        <name>Model_Color__c</name>
+        <picklistValues>
+            <masterLabel>Hopper 20 Fog Grey</masterLabel>
+            <translation><!-- Hopper 20 Fog Grey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hopper 30 Fog Gray</masterLabel>
+            <translation><!-- Hopper 30 Fog Gray --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>I do not see my model</masterLabel>
+            <translation><!-- I do not see my model --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rambler 20</masterLabel>
+            <translation><!-- Rambler 20 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rambler 30</masterLabel>
+            <translation><!-- Rambler 30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rambler Colster</masterLabel>
+            <translation><!-- Rambler Colster --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rambler Lowball</masterLabel>
+            <translation><!-- Rambler Lowball --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Roadie 20 Ice Blue</masterLabel>
+            <translation><!-- Roadie 20 Ice Blue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Roadie 20 Tan</masterLabel>
+            <translation><!-- Roadie 20 Tan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Roadie 20 White</masterLabel>
+            <translation><!-- Roadie 20 White --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 105 Tan</masterLabel>
+            <translation><!-- Tundra 105 Tan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 105 White</masterLabel>
+            <translation><!-- Tundra 105 White --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 110 White</masterLabel>
+            <translation><!-- Tundra 110 White --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 120 Tan</masterLabel>
+            <translation><!-- Tundra 120 Tan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 125 White</masterLabel>
+            <translation><!-- Tundra 125 White --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 155 Tan</masterLabel>
+            <translation><!-- Tundra 155 Tan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 155 White</masterLabel>
+            <translation><!-- Tundra 155 White --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 160 White</masterLabel>
+            <translation><!-- Tundra 160 White --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 210 White</masterLabel>
+            <translation><!-- Tundra 210 White --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 250 White</masterLabel>
+            <translation><!-- Tundra 250 White --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 35 Ice Blue</masterLabel>
+            <translation><!-- Tundra 35 Ice Blue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 35 Tan</masterLabel>
+            <translation><!-- Tundra 35 Tan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 35 White</masterLabel>
+            <translation><!-- Tundra 35 White --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 420 White</masterLabel>
+            <translation><!-- Tundra 420 White --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 45 Ice Blue</masterLabel>
+            <translation><!-- Tundra 45 Ice Blue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 45 Tan</masterLabel>
+            <translation><!-- Tundra 45 Tan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 45 White</masterLabel>
+            <translation><!-- Tundra 45 White --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 50 Ice Blue</masterLabel>
+            <translation><!-- Tundra 50 Ice Blue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 50 Tan</masterLabel>
+            <translation><!-- Tundra 50 Tan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 50 White</masterLabel>
+            <translation><!-- Tundra 50 White --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 65 Ice Blue</masterLabel>
+            <translation><!-- Tundra 65 Ice Blue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 65 Tan</masterLabel>
+            <translation><!-- Tundra 65 Tan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 65 White</masterLabel>
+            <translation><!-- Tundra 65 White --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 75 Tan</masterLabel>
+            <translation><!-- Tundra 75 Tan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 75 White</masterLabel>
+            <translation><!-- Tundra 75 White --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 85 Tan</masterLabel>
+            <translation><!-- Tundra 85 Tan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 85 White</masterLabel>
+            <translation><!-- Tundra 85 White --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Name of Event --></label>
+        <name>Name_of_Event__c</name>
+    </fields>
+    <fields>
+        <label><!-- Non-Return Charged --></label>
+        <name>Non_Return_Charged__c</name>
+    </fields>
+    <fields>
+        <label><!-- Non-Return Declined --></label>
+        <name>Non_Return_Declined__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Coolers --></label>
+        <name>Number_of_Coolers__c</name>
+        <picklistValues>
+            <masterLabel>20-30</masterLabel>
+            <translation><!-- 20-30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>31-50</masterLabel>
+            <translation><!-- 31-50 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>50+</masterLabel>
+            <translation><!-- 50+ --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Number of Points Sold --></label>
+        <name>Number_of_Points_Sold__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- Cases --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Order Created --></label>
+        <name>Order_Created__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Date --></label>
+        <name>Order_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Number --></label>
+        <name>Order_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Original SO --></label>
+        <name>Original_SO__c</name>
+    </fields>
+    <fields>
+        <label><!-- Outfitter Inquiry --></label>
+        <name>Outfitter_Inquiry__c</name>
+    </fields>
+    <fields>
+        <label><!-- Owner Manager --></label>
+        <name>Owner_Manager__c</name>
+        <relationshipLabel><!-- Cases --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- PO Created Date --></label>
+        <name>PO_Created_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- PO Created --></label>
+        <name>PO_Created__c</name>
+    </fields>
+    <fields>
+        <label><!-- Delivery Order --></label>
+        <name>Pack_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment Captured Date --></label>
+        <name>Payment_Captured_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment Captured --></label>
+        <name>Payment_Captured__c</name>
+    </fields>
+    <fields>
+        <label><!-- Place of Purchase --></label>
+        <name>Place_of_Purchase__c</name>
+        <picklistValues>
+            <masterLabel>Big Box</masterLabel>
+            <translation><!-- Big Box --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Flagship</masterLabel>
+            <translation><!-- Flagship --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Local Dealer</masterLabel>
+            <translation><!-- Local Dealer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pronghorn/eBay</masterLabel>
+            <translation><!-- Pronghorn/eBay --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unauthorized 3rd Party</masterLabel>
+            <translation><!-- Unauthorized 3rd Party --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>YETI.com</masterLabel>
+            <translation><!-- YETI.com --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- PrePaid Order --></label>
+        <name>PrePaid_Order__c</name>
+    </fields>
+    <fields>
+        <label><!-- Previous RMA Case # --></label>
+        <name>Previous_RMA_Case__c</name>
+    </fields>
+    <fields>
+        <label><!-- Previous RMA&apos;s --></label>
+        <name>Previous_RMA_s__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Category --></label>
+        <name>Product_Category__c</name>
+        <picklistValues>
+            <masterLabel>Accessories</masterLabel>
+            <translation><!-- Accessories --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bags</masterLabel>
+            <translation><!-- Bags --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chairs</masterLabel>
+            <translation><!-- Chairs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Drinkware</masterLabel>
+            <translation><!-- Drinkware --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gear</masterLabel>
+            <translation><!-- Gear --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Haul</masterLabel>
+            <translation><!-- Haul --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hopper</masterLabel>
+            <translation><!-- Hopper --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ice</masterLabel>
+            <translation><!-- Ice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loadout</masterLabel>
+            <translation><!-- Loadout --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parts</masterLabel>
+            <translation><!-- Parts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Roadie</masterLabel>
+            <translation><!-- Roadie --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tank</masterLabel>
+            <translation><!-- Tank --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra</masterLabel>
+            <translation><!-- Tundra --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>Product_Picklist__c</name>
+        <picklistValues>
+            <masterLabel>1 G</masterLabel>
+            <translation><!-- 1 G --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1 Gallon Jug</masterLabel>
+            <translation><!-- 1 Gallon Jug --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1 Pound</masterLabel>
+            <translation><!-- 1 Pound --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1/2 G</masterLabel>
+            <translation><!-- 1/2 G --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2 Pound</masterLabel>
+            <translation><!-- 2 Pound --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4 Pound</masterLabel>
+            <translation><!-- 4 Pound --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Backflip 24</masterLabel>
+            <translation><!-- Backflip 24 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Baskets</masterLabel>
+            <translation><!-- Baskets --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bottle Lid</masterLabel>
+            <translation><!-- Bottle Lid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bottle Opener</masterLabel>
+            <translation><!-- Bottle Opener --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Camino 35</masterLabel>
+            <translation><!-- Camino 35 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Can Insulators</masterLabel>
+            <translation><!-- Can Insulators --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Collegiate Cooler</masterLabel>
+            <translation><!-- Collegiate Cooler --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Colster</masterLabel>
+            <translation><!-- Colster --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cushions</masterLabel>
+            <translation><!-- Cushions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Decals</masterLabel>
+            <translation><!-- Decals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Flip</masterLabel>
+            <translation><!-- Flip --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Flip 12</masterLabel>
+            <translation><!-- Flip 12 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Flip 18</masterLabel>
+            <translation><!-- Flip 18 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Flip 8</masterLabel>
+            <translation><!-- Flip 8 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Half Gallon Jug</masterLabel>
+            <translation><!-- Half Gallon Jug --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hats</masterLabel>
+            <translation><!-- Hats --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hondo</masterLabel>
+            <translation><!-- Hondo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hopper 20</masterLabel>
+            <translation><!-- Hopper 20 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hopper 30</masterLabel>
+            <translation><!-- Hopper 30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hopper 40</masterLabel>
+            <translation><!-- Hopper 40 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hopper Two 20</masterLabel>
+            <translation><!-- Hopper Two 20 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hopper Two 30</masterLabel>
+            <translation><!-- Hopper Two 30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hopper Two 40</masterLabel>
+            <translation><!-- Hopper Two 40 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lid 10/20</masterLabel>
+            <translation><!-- Lid 10/20 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lid 30</masterLabel>
+            <translation><!-- Lid 30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lowball 10oz</masterLabel>
+            <translation><!-- Lowball 10oz --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monogram</masterLabel>
+            <translation><!-- Monogram --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Panga 100</masterLabel>
+            <translation><!-- Panga 100 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Panga 28</masterLabel>
+            <translation><!-- Panga 28 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Panga 50</masterLabel>
+            <translation><!-- Panga 50 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Panga 75</masterLabel>
+            <translation><!-- Panga 75 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parts</masterLabel>
+            <translation><!-- Parts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rambler 14 oz</masterLabel>
+            <translation><!-- Rambler 14 oz --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rambler 20 oz</masterLabel>
+            <translation><!-- Rambler 20 oz --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rambler 30 oz</masterLabel>
+            <translation><!-- Rambler 30 oz --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rambler Bottle 18 oz</masterLabel>
+            <translation><!-- Rambler Bottle 18 oz --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rambler Bottle 26 oz</masterLabel>
+            <translation><!-- Rambler Bottle 26 oz --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rambler Bottle 36 oz</masterLabel>
+            <translation><!-- Rambler Bottle 36 oz --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rambler Bottle 64 oz</masterLabel>
+            <translation><!-- Rambler Bottle 64 oz --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Roadie 20</masterLabel>
+            <translation><!-- Roadie 20 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SeaDeks</masterLabel>
+            <translation><!-- SeaDeks --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sherpa</masterLabel>
+            <translation><!-- Sherpa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shirts</masterLabel>
+            <translation><!-- Shirts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SideKick</masterLabel>
+            <translation><!-- SideKick --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Straw Lid 20</masterLabel>
+            <translation><!-- Straw Lid 20 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Straw Lid 30</masterLabel>
+            <translation><!-- Straw Lid 30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tank 45</masterLabel>
+            <translation><!-- Tank 45 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tank 85</masterLabel>
+            <translation><!-- Tank 85 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tie-Down</masterLabel>
+            <translation><!-- Tie-Down --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 105</masterLabel>
+            <translation><!-- Tundra 105 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 110</masterLabel>
+            <translation><!-- Tundra 110 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 125</masterLabel>
+            <translation><!-- Tundra 125 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 160</masterLabel>
+            <translation><!-- Tundra 160 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 210</masterLabel>
+            <translation><!-- Tundra 210 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 250</masterLabel>
+            <translation><!-- Tundra 250 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 35</masterLabel>
+            <translation><!-- Tundra 35 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 350</masterLabel>
+            <translation><!-- Tundra 350 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 45</masterLabel>
+            <translation><!-- Tundra 45 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 50</masterLabel>
+            <translation><!-- Tundra 50 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 65</masterLabel>
+            <translation><!-- Tundra 65 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tundra 75</masterLabel>
+            <translation><!-- Tundra 75 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wine 10 oz</masterLabel>
+            <translation><!-- Wine 10 oz --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wine Tumbler 2 pack</masterLabel>
+            <translation><!-- Wine Tumbler 2 pack --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>Product__c</name>
+        <relationshipLabel><!-- Cases --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Production Date --></label>
+        <name>Production_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Proof Approval Received --></label>
+        <name>Proof_Approval_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Proof Approved --></label>
+        <name>Proof_Approved__c</name>
+    </fields>
+    <fields>
+        <label><!-- Proof Received Date --></label>
+        <name>Proof_Received_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Proof Received Notes --></label>
+        <name>Proof_Received_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Proof Received --></label>
+        <name>Proof_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- Proof Sent --></label>
+        <name>Proof_Sent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Proof and PO sent to MIGS --></label>
+        <name>Proof_and_PO_sent_to_MIGS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Purchase Date --></label>
+        <name>Purchase_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Purchase Location --></label>
+        <name>Purchase_Location__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quantity --></label>
+        <name>Quantity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quantity of Lowballs --></label>
+        <name>Quantity_of_Lowballs__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote Received Date --></label>
+        <name>Quote_Received_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote Received Notes --></label>
+        <name>Quote_Received_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote Received --></label>
+        <name>Quote_Received__c</name>
+    </fields>
+    <fields>
+        <label><!-- RMA Approved --></label>
+        <name>RMA_Approved__c</name>
+    </fields>
+    <fields>
+        <label><!-- RMA Denied Reason --></label>
+        <name>RMA_Denied_Reason__c</name>
+        <picklistValues>
+            <masterLabel>3rd Party Customization</masterLabel>
+            <translation><!-- 3rd Party Customization --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accidental Damage</masterLabel>
+            <translation><!-- Accidental Damage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fraudulent Request</masterLabel>
+            <translation><!-- Fraudulent Request --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legacy Product</masterLabel>
+            <translation><!-- Legacy Product --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-YETI/Counterfeit</masterLabel>
+            <translation><!-- Non-YETI/Counterfeit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Warranty Issue</masterLabel>
+            <translation><!-- Not Warranty Issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Previous Non-return</masterLabel>
+            <translation><!-- Previous Non-return --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- RMA Denied --></label>
+        <name>RMA_Denied__c</name>
+    </fields>
+    <fields>
+        <label><!-- RMA Number --></label>
+        <name>RMA_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- RMA Order Number --></label>
+        <name>RMA_Order_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- RMA Process --></label>
+        <name>RMA_Process__c</name>
+        <picklistValues>
+            <masterLabel>New Process</masterLabel>
+            <translation><!-- New Process --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Old Process No Answer</masterLabel>
+            <translation><!-- Old Process No Answer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Old Process Only*</masterLabel>
+            <translation><!-- Old Process Only* --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- RMA Resolution --></label>
+        <name>RMA_Resolution__c</name>
+        <picklistValues>
+            <masterLabel>Big Box Dealer Return</masterLabel>
+            <translation><!-- Big Box Dealer Return --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bowed Lid</masterLabel>
+            <translation><!-- Bowed Lid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancelled Order</masterLabel>
+            <translation><!-- Cancelled Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Component Install on Cooler</masterLabel>
+            <translation><!-- Component Install on Cooler --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Service</masterLabel>
+            <translation><!-- Customer Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Damaged in Shipping</masterLabel>
+            <translation><!-- Damaged in Shipping --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Defective-Hopper</masterLabel>
+            <translation><!-- Defective-Hopper --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Defective-Lock</masterLabel>
+            <translation><!-- Defective-Lock --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Defective-Rambler</masterLabel>
+            <translation><!-- Defective-Rambler --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Defective-YETI Ice</masterLabel>
+            <translation><!-- Defective-YETI Ice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Delam</masterLabel>
+            <translation><!-- Delam --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ice Retention</masterLabel>
+            <translation><!-- Ice Retention --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lay-By Cancellation</masterLabel>
+            <translation><!-- Lay-By Cancellation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Leaking</masterLabel>
+            <translation><!-- Leaking --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Logo Error</masterLabel>
+            <translation><!-- Logo Error --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MISC Defect</masterLabel>
+            <translation><!-- MISC Defect --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Sealing</masterLabel>
+            <translation><!-- Not Sealing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Office Error-Wrong Item</masterLabel>
+            <translation><!-- Office Error-Wrong Item --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Office Error-Wrong Qty</masterLabel>
+            <translation><!-- Office Error-Wrong Qty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Office Error-Wrong Ship Date</masterLabel>
+            <translation><!-- Office Error-Wrong Ship Date --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Office Error-Wrong/No Ship To</masterLabel>
+            <translation><!-- Office Error-Wrong/No Ship To --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outside Rep-Never Ordered</masterLabel>
+            <translation><!-- Outside Rep-Never Ordered --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outside Rep-WRong Qty</masterLabel>
+            <translation><!-- Outside Rep-WRong Qty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outside Rep-Wrong Item</masterLabel>
+            <translation><!-- Outside Rep-Wrong Item --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Porosity</masterLabel>
+            <translation><!-- Porosity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Sample</masterLabel>
+            <translation><!-- Product Sample --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Refund</masterLabel>
+            <translation><!-- Refund --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Repair</masterLabel>
+            <translation><!-- Repair --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Return-OHL Return</masterLabel>
+            <translation><!-- Return-OHL Return --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Returned Shipment Refused</masterLabel>
+            <translation><!-- Returned Shipment Refused --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shipping Error-Misc</masterLabel>
+            <translation><!-- Shipping Error-Misc --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shipping Error-Wrong Item</masterLabel>
+            <translation><!-- Shipping Error-Wrong Item --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shipping Error-Wrong Qty</masterLabel>
+            <translation><!-- Shipping Error-Wrong Qty --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>System Error</masterLabel>
+            <translation><!-- System Error --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Void for POS</masterLabel>
+            <translation><!-- Void for POS --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- RMA Status --></label>
+        <name>RMA_Status__c</name>
+        <picklistValues>
+            <masterLabel>1st Attempt</masterLabel>
+            <translation><!-- 1st Attempt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2nd Attempt</masterLabel>
+            <translation><!-- 2nd Attempt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3rd Attempt/Call</masterLabel>
+            <translation><!-- 3rd Attempt/Call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Charged</masterLabel>
+            <translation><!-- Charged --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Transit</masterLabel>
+            <translation><!-- In Transit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Needing Chase Profile ID</masterLabel>
+            <translation><!-- Needing Chase Profile ID --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- RMA Type --></label>
+        <name>RMA_Type__c</name>
+        <picklistValues>
+            <masterLabel>CC Declined</masterLabel>
+            <translation><!-- CC Declined --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Exchange</masterLabel>
+            <translation><!-- Exchange --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Old Process</masterLabel>
+            <translation><!-- Old Process --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Refund</masterLabel>
+            <translation><!-- Refund --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Upgrade</masterLabel>
+            <translation><!-- Upgrade --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Write Off</masterLabel>
+            <translation><!-- Write Off --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Reason Web --></label>
+        <name>ReasonWeb__c</name>
+    </fields>
+    <fields>
+        <label><!-- Received Logo Date --></label>
+        <name>Received_Logo_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Received Logo --></label>
+        <name>Received_Logo__c</name>
+    </fields>
+    <fields>
+        <label><!-- Received Resell Agreement --></label>
+        <name>Received_Resell_Agreement__c</name>
+    </fields>
+    <fields>
+        <label><!-- Refund --></label>
+        <name>Refund__c</name>
+    </fields>
+    <fields>
+        <label><!-- Requsting Item --></label>
+        <name>Requsting_Item__c</name>
+        <picklistValues>
+            <masterLabel>Catalog</masterLabel>
+            <translation><!-- Catalog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sticker</masterLabel>
+            <translation><!-- Sticker --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Resolution --></label>
+        <name>Resolution_Picklist__c</name>
+        <picklistValues>
+            <masterLabel>Called Customer</masterLabel>
+            <translation><!-- Called Customer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Create Order</masterLabel>
+            <translation><!-- Create Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Create RMA</masterLabel>
+            <translation><!-- Create RMA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Emailed Customer</masterLabel>
+            <translation><!-- Emailed Customer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>First Call Resolution</masterLabel>
+            <translation><!-- First Call Resolution --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Response Necessary</masterLabel>
+            <translation><!-- No Response Necessary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Registered Product</masterLabel>
+            <translation><!-- Registered Product --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SPAM</masterLabel>
+            <translation><!-- SPAM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent to Outside Rep</masterLabel>
+            <translation><!-- Sent to Outside Rep --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transfered to Outfitter</masterLabel>
+            <translation><!-- Transfered to Outfitter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transferred to Other Department</masterLabel>
+            <translation><!-- Transferred to Other Department --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Updated Account</masterLabel>
+            <translation><!-- Updated Account --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Respond Time In Hours/Min --></label>
+        <name>Respond_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Root Cause Sub Reason --></label>
+        <name>Root_Cause_Sub_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Associate Error</masterLabel>
+            <translation><!-- Associate Error --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Damage</masterLabel>
+            <translation><!-- Damage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Delivered to the wrong address</masterLabel>
+            <translation><!-- Delivered to the wrong address --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lost in Carrier System</masterLabel>
+            <translation><!-- Lost in Carrier System --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Missing Cartons</masterLabel>
+            <translation><!-- Missing Cartons --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order Entry Error</masterLabel>
+            <translation><!-- Order Entry Error --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Potential Theft</masterLabel>
+            <translation><!-- Potential Theft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shortage</masterLabel>
+            <translation><!-- Shortage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>System Error</masterLabel>
+            <translation><!-- System Error --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Root Cause --></label>
+        <name>Root_Cause__c</name>
+        <picklistValues>
+            <masterLabel>Carrier Issue</masterLabel>
+            <translation><!-- Carrier Issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OHL Issue</masterLabel>
+            <translation><!-- OHL Issue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>YETI Internal Issue</masterLabel>
+            <translation><!-- YETI Internal Issue --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Safety Concern Reason --></label>
+        <name>Safety_Concern_Reason__c</name>
+        <picklistValues>
+            <masterLabel>BPA</masterLabel>
+            <translation><!-- BPA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>California Prop 65</masterLabel>
+            <translation><!-- California Prop 65 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Capacity</masterLabel>
+            <translation><!-- Capacity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Injury</masterLabel>
+            <translation><!-- Injury --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Property Damage</masterLabel>
+            <translation><!-- Property Damage --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Safety Concern Sub Reason --></label>
+        <name>Safety_Concern_Sub_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Allergy</masterLabel>
+            <translation><!-- Allergy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Blood</masterLabel>
+            <translation><!-- Blood --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Broken bones</masterLabel>
+            <translation><!-- Broken bones --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bruise</masterLabel>
+            <translation><!-- Bruise --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Burn</masterLabel>
+            <translation><!-- Burn --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Car Interior</masterLabel>
+            <translation><!-- Car Interior --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Complensate</masterLabel>
+            <translation><!-- Complensate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cut/ Laceration</masterLabel>
+            <translation><!-- Cut/ Laceration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Doctor</masterLabel>
+            <translation><!-- Doctor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Floor</masterLabel>
+            <translation><!-- Floor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hospital</masterLabel>
+            <translation><!-- Hospital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lawsuit</masterLabel>
+            <translation><!-- Lawsuit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lawyer</masterLabel>
+            <translation><!-- Lawyer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Bills</masterLabel>
+            <translation><!-- Medical Bills --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pinch</masterLabel>
+            <translation><!-- Pinch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Slip/Trip</masterLabel>
+            <translation><!-- Slip/Trip --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tendonitis</masterLabel>
+            <translation><!-- Tendonitis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wall</masterLabel>
+            <translation><!-- Wall --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Checking this box will escalate the case to your manager. --></help>
+        <label><!-- Safety Concern --></label>
+        <name>Safety_Concern__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check this box to indicate if the sales team referred this support request. --></help>
+        <label><!-- Sales Handoff --></label>
+        <name>Sales_Handoff__c</name>
+    </fields>
+    <fields>
+        <label><!-- Select Approve --></label>
+        <name>Select_Approve__c</name>
+    </fields>
+    <fields>
+        <label><!-- Select Denied --></label>
+        <name>Select_Denied__c</name>
+    </fields>
+    <fields>
+        <label><!-- Select Program --></label>
+        <name>Select_Program__c</name>
+    </fields>
+    <fields>
+        <label><!-- Send To ERP --></label>
+        <name>Send_To_ERP__c</name>
+    </fields>
+    <fields>
+        <label><!-- Serial Number --></label>
+        <name>Serial_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ship Date --></label>
+        <name>Ship_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shipped Date after Production Date --></label>
+        <name>Shipped_Date_after_Production_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shipping Confirmation Sent To Customer --></label>
+        <name>Shipping_Confirmation_Sent_To_Customer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sponsorship Type --></label>
+        <name>Sponsorship_Type__c</name>
+        <picklistValues>
+            <masterLabel>Advertising Request</masterLabel>
+            <translation><!-- Advertising Request --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sponsorship</masterLabel>
+            <translation><!-- Sponsorship --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- State --></label>
+        <name>State__c</name>
+        <picklistValues>
+            <masterLabel>--None--</masterLabel>
+            <translation><!-- - - None- -  --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Alabama</masterLabel>
+            <translation><!-- Alabama --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Alaska</masterLabel>
+            <translation><!-- Alaska --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Arizona</masterLabel>
+            <translation><!-- Arizona --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Arkansas</masterLabel>
+            <translation><!-- Arkansas --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Armed Forces Americas</masterLabel>
+            <translation><!-- Armed Forces Americas --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Armed Forces Europe</masterLabel>
+            <translation><!-- Armed Forces Europe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Armed Forces Pacific</masterLabel>
+            <translation><!-- Armed Forces Pacific --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>California</masterLabel>
+            <translation><!-- California --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Colorado</masterLabel>
+            <translation><!-- Colorado --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Connecticut</masterLabel>
+            <translation><!-- Connecticut --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Delaware</masterLabel>
+            <translation><!-- Delaware --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>District of Columbia</masterLabel>
+            <translation><!-- District of Columbia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Florida</masterLabel>
+            <translation><!-- Florida --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Georgia</masterLabel>
+            <translation><!-- Georgia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hawaii</masterLabel>
+            <translation><!-- Hawaii --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Idaho</masterLabel>
+            <translation><!-- Idaho --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Illinois</masterLabel>
+            <translation><!-- Illinois --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Indiana</masterLabel>
+            <translation><!-- Indiana --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Iowa</masterLabel>
+            <translation><!-- Iowa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kansas</masterLabel>
+            <translation><!-- Kansas --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kentucky</masterLabel>
+            <translation><!-- Kentucky --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Louisiana</masterLabel>
+            <translation><!-- Louisiana --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maine</masterLabel>
+            <translation><!-- Maine --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maryland</masterLabel>
+            <translation><!-- Maryland --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Massachusetts</masterLabel>
+            <translation><!-- Massachusetts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Michigan</masterLabel>
+            <translation><!-- Michigan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Minnesota</masterLabel>
+            <translation><!-- Minnesota --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mississippi</masterLabel>
+            <translation><!-- Mississippi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Missouri</masterLabel>
+            <translation><!-- Missouri --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Montana</masterLabel>
+            <translation><!-- Montana --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nebraska</masterLabel>
+            <translation><!-- Nebraska --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nevada</masterLabel>
+            <translation><!-- Nevada --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Hampshire</masterLabel>
+            <translation><!-- New Hampshire --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Jersey</masterLabel>
+            <translation><!-- New Jersey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Mexico</masterLabel>
+            <translation><!-- New Mexico --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New York</masterLabel>
+            <translation><!-- New York --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>North Carolina</masterLabel>
+            <translation><!-- North Carolina --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>North Dakota</masterLabel>
+            <translation><!-- North Dakota --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ohio</masterLabel>
+            <translation><!-- Ohio --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oklahoma</masterLabel>
+            <translation><!-- Oklahoma --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oregon</masterLabel>
+            <translation><!-- Oregon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pennsylvania</masterLabel>
+            <translation><!-- Pennsylvania --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rhode Island</masterLabel>
+            <translation><!-- Rhode Island --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>South Carolina</masterLabel>
+            <translation><!-- South Carolina --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>South Dakota</masterLabel>
+            <translation><!-- South Dakota --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tennessee</masterLabel>
+            <translation><!-- Tennessee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Texas</masterLabel>
+            <translation><!-- Texas --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Utah</masterLabel>
+            <translation><!-- Utah --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vermont</masterLabel>
+            <translation><!-- Vermont --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Virginia</masterLabel>
+            <translation><!-- Virginia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Washington</masterLabel>
+            <translation><!-- Washington --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>West Virginia</masterLabel>
+            <translation><!-- West Virginia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wisconsin</masterLabel>
+            <translation><!-- Wisconsin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wyoming</masterLabel>
+            <translation><!-- Wyoming --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Status Changed --></label>
+        <name>Status_Changed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Store Name --></label>
+        <name>Store_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Store Phone Number --></label>
+        <name>Store_Phone_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sub Status --></label>
+        <name>Sub_Status__c</name>
+        <picklistValues>
+            <masterLabel>CC Declined/Write Off</masterLabel>
+            <translation><!-- CC Declined/Write Off --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Charged</masterLabel>
+            <translation><!-- Charged --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Hold</masterLabel>
+            <translation><!-- Credit Hold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Declined CC</masterLabel>
+            <translation><!-- Declined CC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Transit</masterLabel>
+            <translation><!-- In Transit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non Return</masterLabel>
+            <translation><!-- Non Return --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order Cancelled</masterLabel>
+            <translation><!-- Order Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order Submitted</masterLabel>
+            <translation><!-- Order Submitted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Refund</masterLabel>
+            <translation><!-- Refund --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for Approval/Account Form</masterLabel>
+            <translation><!-- Waiting for Approval/Account Form --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for Cooler Payment</masterLabel>
+            <translation><!-- Waiting for Cooler Payment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for Freight Quote</masterLabel>
+            <translation><!-- Waiting for Freight Quote --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for Logo Payment</masterLabel>
+            <translation><!-- Waiting for Logo Payment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for Mock Up</masterLabel>
+            <translation><!-- Waiting for Mock Up --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for PO</masterLabel>
+            <translation><!-- Waiting for PO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for Pantone(s)</masterLabel>
+            <translation><!-- Waiting for Pantone(s) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for Parts</masterLabel>
+            <translation><!-- Waiting for Parts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for Proof</masterLabel>
+            <translation><!-- Waiting for Proof --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Write Off</masterLabel>
+            <translation><!-- Write Off --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sync with ERP --></label>
+        <name>Sync_with_ERP__c</name>
+    </fields>
+    <fields>
+        <label><!-- T&amp;C Agreement --></label>
+        <name>T_C_Agreement__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>TestProduct__c</name>
+        <relationshipLabel><!-- Cases (Product) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Tolling Order --></label>
+        <name>Tolling_Order__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Resolution Time --></label>
+        <name>Total_Resolution_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tracking Email --></label>
+        <name>Tracking_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tracking Number1 --></label>
+        <name>Tracking_Number1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tracking Number --></label>
+        <name>Tracking_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Trading Post Visible --></label>
+        <name>Trading_Post_Visible__c</name>
+    </fields>
+    <fields>
+        <label><!-- Updated Status --></label>
+        <name>Updated_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Upgrade --></label>
+        <name>Upgrade__c</name>
+    </fields>
+    <fields>
+        <help><!-- Checking this box will escalate the case to your manager. --></help>
+        <label><!-- Upset Customer --></label>
+        <name>Upset_Customer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Warranty/Free Part Order # --></label>
+        <name>Warranty_Free_Part_Order__c</name>
+    </fields>
+    <fields>
+        <label><!-- Warranty Part --></label>
+        <name>Warranty_Part__c</name>
+    </fields>
+    <fields>
+        <label><!-- Web Form Email --></label>
+        <name>Web_Form_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Web Order --></label>
+        <name>Web_Order__c</name>
+    </fields>
+    <fields>
+        <help><!-- Reference to the Geocode object holding all of mapping information for the record. --></help>
+        <label><!-- Geocode --></label>
+        <name>geopointe__Geocode__c</name>
+        <relationshipLabel><!-- Cases --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- lc_OwnerLKP_Done --></label>
+        <name>lc_OwnerLKP_Done__c</name>
+    </fields>
+    <fields>
+        <label><!-- lc_Owner_ExternalID --></label>
+        <name>lc_Owner_ExternalID__c</name>
+    </fields>
+    <fields>
+        <label><!-- lc ProductLKP Done --></label>
+        <name>lc_ProductLKP_Done__c</name>
+    </fields>
+    <fields>
+        <label><!-- lc Product ExternalID --></label>
+        <name>lc_Product_ExternalID__c</name>
+    </fields>
+    <layouts>
+        <layout>Canada Case Layout</layout>
+        <sections>
+            <label><!-- Case Details --></label>
+            <section>Case Details</section>
+        </sections>
+        <sections>
+            <label><!-- Case Overview --></label>
+            <section>Case Overview</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Order Details --></label>
+            <section>Order Details</section>
+        </sections>
+        <sections>
+            <label><!-- Product Details --></label>
+            <section>Product Details</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- Web Form Details --></label>
+            <section>Web Form Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Case Layout</layout>
+        <sections>
+            <label><!-- ERP Information --></label>
+            <section>ERP Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Close Case Layout</layout>
+        <layoutType>CaseClose</layoutType>
+        <sections>
+            <label><!-- Close Comments --></label>
+            <section>Close Comments</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Custom Logo Case Layout (Feed)</layout>
+        <sections>
+            <label><!-- Additional Details --></label>
+            <section>Additional Details</section>
+        </sections>
+        <sections>
+            <label><!-- Bulk Order --></label>
+            <section>Bulk Order</section>
+        </sections>
+        <sections>
+            <label><!-- Case Details --></label>
+            <section>Case Details</section>
+        </sections>
+        <sections>
+            <label><!-- Case Overview --></label>
+            <section>Case Overview</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Customized Coolers --></label>
+            <section>Customized Coolers</section>
+        </sections>
+        <sections>
+            <label><!-- Customized Stainless --></label>
+            <section>Customized Stainless</section>
+        </sections>
+        <sections>
+            <label><!-- Resolution Details --></label>
+            <section>Resolution Details</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Dealer Case Layout (Feed)</layout>
+        <sections>
+            <label><!-- Case Details --></label>
+            <section>Case Details</section>
+        </sections>
+        <sections>
+            <label><!-- Case Overview --></label>
+            <section>Case Overview</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Order Details --></label>
+            <section>Order Details</section>
+        </sections>
+        <sections>
+            <label><!-- Product Details --></label>
+            <section>Product Details</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Dealer Case Layout (Feed) - Dealers Community</layout>
+        <sections>
+            <label><!-- Case Details --></label>
+            <section>Case Details</section>
+        </sections>
+        <sections>
+            <label><!-- Case Overview --></label>
+            <section>Case Overview</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Delear Corporate Case Layout</layout>
+        <sections>
+            <label><!-- ERP Information --></label>
+            <section>ERP Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Finance Case Layout (Feed)</layout>
+        <sections>
+            <label><!-- Case Details --></label>
+            <section>Case Details</section>
+        </sections>
+        <sections>
+            <label><!-- Case Overview --></label>
+            <section>Case Overview</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Order Details --></label>
+            <section>Order Details</section>
+        </sections>
+        <sections>
+            <label><!-- Product Details --></label>
+            <section>Product Details</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Outfitter Case Layout (Feed)</layout>
+        <sections>
+            <label><!-- Case Details --></label>
+            <section>Case Details</section>
+        </sections>
+        <sections>
+            <label><!-- Case Overview --></label>
+            <section>Case Overview</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Order Details --></label>
+            <section>Order Details</section>
+        </sections>
+        <sections>
+            <label><!-- Product Details --></label>
+            <section>Product Details</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- Warranty/Return Details --></label>
+            <section>Warranty/Return Details</section>
+        </sections>
+        <sections>
+            <label><!-- Web Form Details --></label>
+            <section>Web Form Details</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Accept Owner Change --></label>
+        <name>Accept_Owner_Change</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewChildCase --></label>
+        <name>NewChildCase</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- SendEmail --></label>
+        <name>SendEmail</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- Canada Account --></label>
+        <name>Canada_Account</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Corporate Sales --></label>
+        <name>Custom_Logo</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Dealer --></label>
+        <name>Dealer</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Finance --></label>
+        <name>Finance</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Outfitter --></label>
+        <name>Outfitter</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- Subject contains &apos;Automatic Reply&apos; --></errorMessage>
+        <name>Automatic_Reply</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This Email is blocked --></errorMessage>
+        <name>Block_Email_Address</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must enter a value --></errorMessage>
+        <name>Pack_ID</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must populate either a contact or lead record except for when reason is No Response Necessary or SPAM. --></errorMessage>
+        <name>Require_Either_Contact_or_Lead</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Accept --></label>
+        <name>Accept</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LNK_CASE_RMA_DETAIL --></label>
+        <name>LNK_CASE_RMA_DETAIL</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LNK_Case_CreateRMAOrder --></label>
+        <name>LNK_Case_CreateRMAOrder</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LNK_Case_Customer --></label>
+        <name>LNK_Case_Customer</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LNK_Case_SAP_RMA_Search --></label>
+        <name>LNK_Case_SAP_RMA_Search</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Manage_Commerce_Cloud_Orders --></label>
+        <name>OSF_DWback__Manage_Commerce_Cloud_Orders</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_with_DocuSign --></label>
+        <name>dsfs__Send_with_DocuSign</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Map --></label>
+        <name>geopointe__Map</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Map_Records_Case --></label>
+        <name>geopointe__Map_Records_Case</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Map_newWindow --></label>
+        <name>geopointe__Map_newWindow</name>
+    </webLinks>
+    <workflowTasks>
+        <name>Burn_Coolers_with_Custom_Logo</name>
+        <subject><!-- g. Burn Coolers with Custom Logo --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <name>Create_Logo_Parts_in_ERP</name>
+        <subject><!-- c. Create Logo Parts in ERP --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <name>Send_Approved_Proof_to_MIG</name>
+        <subject><!-- f. Send Approved Proof to MIG --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <name>Send_Artwork_to_MIG</name>
+        <subject><!-- a. Send Artwork to MIG --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <name>Send_Final_Payment_Request_to_Customer</name>
+        <subject><!-- j. Send Final Payment Request to Customer --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <name>Send_PO_to_MIG</name>
+        <subject><!-- b. Send PO to MIG --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <name>Send_Payment_Request_to_Customer</name>
+        <subject><!-- e. Send Payment Request to Customer --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <name>Send_Proof_to_Customer</name>
+        <subject><!-- d. Send Proof to Customer --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <name>Ship_Order_to_Customer</name>
+        <subject><!-- h. Ship Order to Customer --></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <name>Update_Order_Status_in_ERP</name>
+        <subject><!-- i. Update Order Status in ERP --></subject>
+    </workflowTasks>
+</CustomObjectTranslation>

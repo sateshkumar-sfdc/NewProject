@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Dealer Mark Up on YETI Products</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Hello,
+
+
+Thank you for bringing this information to our attention. We will reach out to DEALER NAME.
+
+
+Within our dealer contract, both parties agree not to sell below a certain price point, however, we don’t currently regulate a company’s mark up. We appreciate you sending this over so that we can look into it. We apologize for any inconvenience and would encourage you to check out another YETI Authorized Dealer or try yeti.com.
+
+
+Sincerely,
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

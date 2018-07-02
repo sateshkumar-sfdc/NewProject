@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>RMA Received</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Valued YETI Customer,
+
+RMA [  ] received here at YETI Coolers.  This email is to confirm receipt of your product.  No further action is required from you at this time.
+
+If you have any questions please contact yetireturns@yeticoolers.com, or call the YETI Outfitters at 512-394-9384 for assistance.
+
+If your return was in regards to a refund, we will do our best to complete your refund within 7 business days of receiving your product. During peak season times it may take up to 15 business days.
+
+
+Thank you for being a YETI customer.
+
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeticoolers.com
+yeticoolers.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

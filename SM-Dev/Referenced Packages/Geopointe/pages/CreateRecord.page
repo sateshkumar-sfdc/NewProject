@@ -1,0 +1,218 @@
+<apex:page controller="geopointe.CreateRecord_Controller" extensions="geopointe.RemoteAction" standardStylesheets="false" showHeader="false" sidebar="false" action="{!initMain}" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0">
+	
+	<script src="{!URLFOR($Resource.jquery, '/jquery-1.8.3.min.js')}"></script> <!-- core jQuery -->
+	<script src="{!URLFOR($Resource.jquery, '/ui/js/jquery-ui-1.9.2.custom.min.js')}"></script>
+    <script src="{!URLFOR($Resource.jquery, '/js/common.js')}"></script> <!-- Generic JS use across entire app -->
+    <script src="{!$Resource.GeopointeJS}"></script>
+    <apex:stylesheet value="{!URLFOR($Resource.geopointe__jquery, '/ui/css/smoothness/jquery-ui-1.9.2.custom.min.css')}"/> <!--jQuery UI-->
+    <apex:stylesheet value="{!URLFOR($Resource.geopointe__jquery, '/css/common/common.css')}"/> <!-- Common geopointe CSS --> 
+    <apex:stylesheet value="{!URLFOR($Resource.geopointe__SLDS, '/0.8.0/assets/styles/salesforce-lightning-design-system-vf.min.css')}"/> <!-- Salesforce Lightning Design System -->
+    <apex:stylesheet value="{!URLFOR($Resource.geopointe__jquery, '/css/common/common-lightning.css')}"/> <!-- Common geopointe CSS for lightning styled pages--> 
+
+	<style>
+		.slds td.pbButton, .slds td.pbButtonb { text-align: center; }
+		.uiInput--input input.input, .uiInput--input textarea { width: 300px; }
+	</style>
+
+	<!-- localize.js -->
+    <script src="https://cdn.localizejs.com/localize.js"></script>
+    <script>!function(a){if(!a.Localize){a.Localize={};for(var e=["translate","untranslate","phrase","initialize","translatePage","setLanguage","getLanguage","detectLanguage","untranslatePage","bootstrap","prefetch","on","off"],t=0;t<e.length;t++)a.Localize[e[t]]=function(){}}}(window);</script>
+
+    <script>
+        Localize.initialize({
+            key: '1SeX6sYAXWLng', 
+            rememberLanguage: false,
+            saveNewPhrases: false,
+            translateBody: true,
+        });
+        Localize.setLanguage('{!userLanguage}');
+    </script>
+
+	<style type="text/css">
+		.labelCol{
+			white-space: nowrap !important;
+		}
+		.data2Col input{
+			min-width: 200px !important;
+		}
+		.data2Col textarea{
+			min-width: 200px !important;
+    		min-height: 42px !important;
+		}
+	</style>
+
+	<div class="slds slds-p-around--xx-large slds-container--large slds-container--center">
+	<apex:form >	
+		<apex:outputPanel id="pageBlocksWrapper">
+			<apex:pageMessages rendered="{!showPageMessages}"/>
+
+			<!-- Step 1, select record type if necessary -->
+			<apex:pageBlock tabStyle="{!IF(tabStyle == 'lead','lead','account')}" rendered="{!renderSection == 'recordType'}" mode="edit">
+				<div class="slds-card slds-m-bottom--medium">
+					<header class="slds-card__header slds-grid">
+						<h3 class="slds-text-heading--small slds-truncate">Select Record Type</h3>
+					</header>
+
+					<section class="slds-card__body slds-text-body--regular slds-p-horizontal--medium uiInput--input">
+						<apex:outputLabel value="Record Type of new record"/>
+						<apex:selectList value="{!selectedRecordTypId}" size="1">
+							<apex:selectOptions value="{!recordTypeSelectOptions}"/>
+						</apex:selectList>
+					</section>
+				</div>
+
+				<apex:pageBlockButtons location="bottom">
+					<apex:commandButton styleClass="slds-button slds-button--neutral" value="Continue" action="{!selectRecordType}" reRender="pageBlocksWrapper" oncomplete="resetIFrameHeight();"/>
+				</apex:pageBlockButtons>
+			</apex:pageBlock>
+
+			<!-- Step 2, enter fields -->
+			<apex:pageBlock tabStyle="{!IF(tabStyle == 'lead','lead','account')}" rendered="{!renderSection == 'fields'}" mode="edit">
+				<div class="slds-card slds-m-vertical--medium slds-p-bottom--medium">
+					<apex:outputPanel id="fieldValues">
+						<section class="slds-card__body slds-text-body--regular slds-p-horizontal--medium uiInput--input">
+							<apex:repeat value="{!fieldSetToUse}" var="f">
+								<apex:outputLabel value="{!f.label}" rendered="{!AND(f.fieldPath != 'RecordTypeId',$ObjectType[action.geopointe__Create_Record_SObject__c].Fields[f.fieldPath].Createable)}"/>
+								<apex:inputField styleClass="input" value="{!obj[f.fieldPath]}" required="{!OR(f.required, f.dbrequired)}" rendered="{!AND(f.fieldPath != 'RecordTypeId',$ObjectType[action.geopointe__Create_Record_SObject__c].Fields[f.fieldPath].Createable)}"/>
+							</apex:repeat>
+						</section>
+					</apex:outputPanel>
+				</div>
+
+				<apex:pageBlockButtons location="top">
+					<apex:actionStatus id="saveStatus1">
+						<apex:facet name="start">
+							<apex:commandButton styleClass="slds-button slds-button--neutral gpDisabledSaveBtn" value="Saving..." disabled="true"/>
+						</apex:facet>
+						<apex:facet name="stop">
+							<apex:commandButton id="saveButton" status="saveStatus1" styleClass="slds-button slds-button--neutral gpSaveBtn" value="Save" action="{!save}" reRender="pageBlocksWrapper" onClick="disableSaveButtons();" oncomplete="enableSaveButtons(); parent.gp_scrollActionIframeToTop(); resetIFrameHeight();"/>
+						</apex:facet>
+					</apex:actionStatus>	
+				</apex:pageBlockButtons>
+
+				<apex:pageBlockButtons location="bottom">
+					<apex:actionStatus id="saveStatus2">
+						<apex:facet name="start">
+							<apex:commandButton styleClass="slds-button slds-button--neutral gpDisabledSaveBtn" value="Saving..." disabled="true"/>
+						</apex:facet>
+						<apex:facet name="stop">
+							<apex:commandButton id="saveButton" status="saveStatus2" styleClass="slds-button slds-button--neutral gpSaveBtn" value="Save" action="{!save}" reRender="pageBlocksWrapper" onClick="disableSaveButtons();" oncomplete="enableSaveButtons(); parent.gp_scrollActionIframeToTop(); resetIFrameHeight();"/>
+						</apex:facet>
+					</apex:actionStatus>	
+				</apex:pageBlockButtons>
+
+				<apex:outputPanel >
+					<script type="text/javascript">
+						var uLat;
+						var uLng;
+						var uLocFieldsMapped = {!userLocationFieldsMapped};
+						var uLocRequired = {!userLocationRequiredForAction};
+
+						var uLocAvailable = false;
+
+						jQuery(document).ready(function(){
+							parent.gp_setActionIframeAutoHeight(jQuery("html").height());
+							if (uLocFieldsMapped) {
+								getLatLng();
+							}
+						});
+
+						function setSaveButtonState(required, available) {
+							geopointeAjaxEnd();
+							if (required && !available) {
+								gp_alert('Unable to perform action. Required user location data is not available. Please ensure GPS functionality is enabled for this device, or contact your Geopointe Administrator.');
+							}
+							else {
+								jQuery("input[id$='saveButton']").prop('disabled', false);
+							}
+						}
+
+						function getLatLng(){
+							jQuery("input[id$='saveButton']").prop('disabled', true);
+							geopointeAjaxStart('body', 'Getting User Location...');
+							if(navigator.geolocation) {
+								//Get user position
+								navigator.geolocation.getCurrentPosition(
+									function(position) { //Success
+										uLat = position.coords.latitude;
+										uLng = position.coords.longitude;
+										uLocAvailable = true;
+										refreshMappedFields(uLat, uLng);
+										setSaveButtonState(uLocRequired, uLocAvailable);
+									},
+									function(error) { //Error
+										uLocAvailable = false;
+										setSaveButtonState(uLocRequired, uLocAvailable);
+									},
+									{ //Geolocation options
+										enableHighAccuracy: true, 
+										maximumAge        : 30000, 
+										timeout           : 30000
+									}
+								);
+							} else {
+								//Doesn't have geolocation capabilities
+								uLocAvailable = false;
+								setSaveButtonState(uLocRequired, uLocAvailable);
+							} 
+						}
+					</script>
+				</apex:outputPanel>
+				<apex:actionFunction name="refreshMappedFields" action="{!selectRecordType}" rerender="fieldValues" immediate="true">
+					<apex:param name="uLat" value="0.0" assignTo="{!userLat}"/>
+					<apex:param name="uLng" value="0.0" assignTo="{!userLng}"/>
+				</apex:actionFunction>
+			</apex:pageBlock>
+
+			<!-- Save complete -->
+			<apex:outputPanel rendered="{!renderSection == 'complete'}">
+				<apex:pageMessage title="Record Created Successfully!" severity="confirm" strength="1">
+					<div style="margin-left: 8px;">
+						<strong>
+							<a href="{!URLFOR($Action[action.Create_Record_SObject__c].View, obj['id'])}" onclick="goToRecord('{!URLFOR($Action[action.Create_Record_SObject__c].View, obj['id'])}',event);">{!newRecordName}</a>
+						</strong> &nbsp;
+						<a href="{!URLFOR($Action[action.Create_Record_SObject__c].View, obj['id'])}" onclick="window.open('{!URLFOR($Action[action.Create_Record_SObject__c].View, obj['id'])}'); return false;">(open in new window)</a>
+					</div>
+				</apex:pageMessage>
+			</apex:outputPanel>
+
+		</apex:outputPanel>
+	</apex:form>
+	</div>
+
+	<script type="text/javascript">
+
+		function disableSaveButtons(){
+			//Set timeout as we need to wait for DOM changes that sfdc does first
+			setTimeout(function(){
+				//Check to see if the start facet is displayed anywhere, salesforces only shows this was form has actually been submitted after required fields are entered
+				var disabledSaveBtns = jQuery(".gpDisabledSaveBtn:visible");
+
+				//Ajax form as actually been submitted, disable other buttons.
+				if(disabledSaveBtns.length > 0){
+					jQuery(".gpSaveBtn").val('Saving...').prop('disabled',true);
+				}
+			},1);
+		}
+
+		function enableSaveButtons(){
+			jQuery(".gpSaveBtn").val('Save').prop('disabled',false);
+		}
+
+		function resetIFrameHeight(){
+			parent.gp_setActionIframeAutoHeight(jQuery("html").height());
+		}
+
+		function goToRecord(url,event){
+			if(event.which == 2){
+				window.open(url); 
+			}else{
+				window.top.location.href = url; 
+			}
+
+			event.preventDefault();
+			return false;
+		}
+	</script>
+
+</apex:page>

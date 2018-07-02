@@ -1,0 +1,22 @@
+<aura:component >
+    
+    <!-- Attributes -->
+    <aura:attribute name="record" type="et4ae5__Business_Unit__c" required="true" />
+    
+    <!-- Events -->
+ 	<aura:registerEvent name="UpdateRecord" type="et4ae5:UpdateRecord"/>
+        
+    <!-- Component Body -->
+    <tr>
+        <td align="center">
+			<input class="{!v.record.Id}" type="checkbox" />
+        </td>
+        <td>
+            <ui:outputText class="text-component" value="{!v.record.et4ae5__Business_Unit_Name__c}" /> 
+     	</td>
+        <td>
+            <ui:outputText class="text-component" value="{!v.record.et4ae5__Business_Unit_ID__c}" />
+       	</td>
+    </tr>
+    
+</aura:component>

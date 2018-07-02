@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Sponsorship_Received</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Hello,
+
+This email is confirmation that we have received your sponsorship request. Due to the high volume of inquiries, we are unable to personally respond to each. Currently, we are prioritizing opportunities within our core markets which include hunting, fishing, beer/BBQ, ranch/rodeo, and outdoor.
+
+We appreciate you considering YETI for your event.
+
+
+Sincerely,
+
+{!User.CommunityNickname}
+The YETI Outfitters
+512.394.9384
+customerservice@yeti.com
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

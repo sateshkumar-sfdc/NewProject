@@ -1,0 +1,180 @@
+<aura:component controller="SeedDataProcessorApex" >
+    <aura:attribute name="resultSalesOrgList" type="List" />
+    <aura:attribute name="paymentList" type="List" />
+    <aura:attribute name="resultDistChanList" type="List" />
+    <aura:attribute name="divisionList" type="List" />
+    <aura:attribute name="salesOffList" type="List" />
+    <aura:attribute name="salesgrpList" type="List" />
+    <aura:attribute name="districtList" type="List" />
+    <aura:attribute name="priceGroupList" type="List" />
+    <aura:attribute name="pricingList" type="List" />
+    <aura:attribute name="priceProcedureList" type="List" />
+    <aura:attribute name="shippingCondList" type="List" />
+    <aura:attribute name="shippingcondition" type="String"/>
+    <aura:attribute name="SeedDataWrapper" type="SeedDataProcessorApex.SeedDataWrapper"  />
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <div class="demo-only" style="height: 640px;">
+<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+<div class="slds-modal__container">
+<header class="slds-modal__header">
+<button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+         
+          <span class="slds-assistive-text">Close</span>
+        </button>
+<h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Seed Data Processor</h2>
+</header>
+
+<article class="slds-card">
+<div class="slds-card__body slds-card__body_inner">
+    
+      <div class="slds-section slds-is-open">
+                                <h3 class="slds-section__title slds-theme--shade primaryPaletteBorder test-id__section-header-container">
+                                    <span class="test-id__section-header-title section-header-title slds-p-horizontal--small slds-truncate" title="Section Title" ><b>Sales </b></span>
+                                </h3>
+                                <div class="slds-p-bottom_x-small"></div>
+                                <form class="slds-form--stacked">
+                                    <div class="slds">
+                                        <div class="slds-grid slds-wrap slds-grid_align-center slds-grid_align-space ">
+                                            <div class="slds-col--padded slds-size--1-of-2 slds-medium-size--1-of-2">
+                                                <!--div class="slds-form-element">
+                                                    <div class="slds-form-element__control">
+                                                        <label class="slds-form-element__label" for="companycodeId">
+                                                            <abbr class="slds-required" title="required">*</abbr>Company Code</label>
+                                                        <ui:inputText aura:id="companycodeId" value="{!v.companycode}" disabled="true" />
+                                                    </div>
+                                                </div-->
+                                                
+                                                <!--div class="slds-form-element ">
+                                                    <div class="slds-form-element__control">
+                                                        <lightning:input type="text" aura:id="companycodeId" label="Company Code" name="companycode" value="{!v.companycode}" disabled="true" />
+                                                    </div>
+                                                </div--> 
+                                                
+                                                <div class="slds-form-element">
+                                                    <lightning:select  name="salesorg" label="Sales Org" aura:id="salesorgId" required="true" messageWhenValueMissing = "Please select a value" onchange="{!c.getDependantValues}" >
+                                                        <option value="">Select a value</option>
+                                                        <aura:iteration items="{!v.resultSalesOrgList}" var="os">
+                                                            <option text="{!os.FieldDescription__c}" value="{!os.FieldValue__c}">{!os.label}</option>
+                                                        </aura:iteration>
+                                                    </lightning:select>
+                                                </div>
+                                                
+                                                <div class="slds-form-element">
+                                                    <lightning:select  name="distChan" label="Distribution Channel" aura:id="distributionchannelId" required="true" messageWhenValueMissing = "Please select a value" onchange="{!c.getDependantValues}" >
+                                                        <option text="Select a value" value=""/>
+                                                        <aura:iteration items="{!v.resultDistChanList}" var="dc">
+                                                            <option text="{!dc.FieldDescription__c}" value="{!dc.FieldValue__c}"/>
+                                                        </aura:iteration>
+                                                    </lightning:select>
+                                                </div>
+                                                
+                                                <div class="slds-form-element">
+                                                    <lightning:select  name="division" label="Division" aura:id="divisionId" required="true" messageWhenValueMissing = "Please select a value" onchange="{!c.getDependantValues}" >
+                                                        <option text="Select a value" value=""/>
+                                                        <aura:iteration items="{!v.divisionList}" var="dv">
+                                                            <option text="{!dv.FieldDescription__c}" value="{!dv.FieldValue__c}"/>
+                                                        </aura:iteration>
+                                                    </lightning:select>
+                                                </div>
+                                                
+                                                <div class="slds-form-element">
+                                                    <lightning:select  name="salesoffice" label="Sales Office" aura:id="salesofficeId" required="true" messageWhenValueMissing = "Please select a value" onchange="{!c.getDependantValues}" >
+                                                        <option text="Select a value" value=""/>
+                                                        <aura:iteration items="{!v.salesOffList}" var="sof">
+                                                            <option text="{!sof.FieldDescription__c}" value="{!sof.FieldValue__c}"/>
+                                                        </aura:iteration>
+                                                    </lightning:select>
+                                                </div>
+                                                
+                                                <div class="slds-form-element">
+                                                    <lightning:select  name="salesgroup" label="Sales Group" aura:id="salesgroupId" required="true" messageWhenValueMissing = "Please select a value" >
+                                                        <option text="Select a value" value=""/>
+                                                        <aura:iteration items="{!v.salesgrpList}" var="sg">
+                                                            <option text="{!sg.FieldDescription__c}" value="{!sg.FieldValue__c}"/>
+                                                        </aura:iteration>
+                                                    </lightning:select>
+                                                </div>
+                                                
+                                                <div class="slds-form-element">
+                                                    <lightning:select  name="salesdst" label="Sales District" aura:id="salesdistrictId" required="true" messageWhenValueMissing = "Please select a value" >
+                                                        <option text="Select a value" value=""/>
+                                                        <aura:iteration items="{!v.districtList}" var="dl">
+                                                            <option text="{!dl.FieldDescription__c}" value="{!dl.FieldValue__c}"/>
+                                                        </aura:iteration>
+                                                    </lightning:select>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="slds-col--padded slds-size--1-of-2 slds-medium-size--1-of-2">
+                                               
+                                   
+                                       
+                                           
+                                                <div class="slds-form-element">
+                                                    <lightning:select  name="payterms" label="Payment Terms" aura:id="paymentTermsId" required="true" messageWhenValueMissing = "Please enter a value" >
+                                                        <option text="Select a value" value=""/>
+                                                        <aura:iteration items="{!v.paymentList}" var="pt">
+                                                            <option text="{!pt.FieldDescription__c}" value="{!pt.FieldValue__c}"/>
+                                                        </aura:iteration>
+                                                    </lightning:select>
+                                                </div>
+                                                
+                                                <div class="slds-form-element">
+                                                    <lightning:select  name="pricegrp" label="Price Group" aura:id="pricinggroupId" required="true" messageWhenValueMissing = "Please enter a value" >
+                                                        <option text="Select a value" value=""/>
+                                                        <aura:iteration items="{!v.priceGroupList}" var="pgl">
+                                                            <option text="{!pgl.FieldDescription__c}" value="{!pgl.FieldValue__c}"/>
+                                                        </aura:iteration>
+                                                    </lightning:select>
+                                                </div>
+                                                
+                                                <div class="slds-form-element">
+                                                    <lightning:select  name="priceproc" label="Price Procedure" aura:id="priceprocedureId" required="true" messageWhenValueMissing = "Please enter a value" >
+                                                        <option text="Select a value" value=""/>
+                                                        <aura:iteration items="{!v.priceProcedureList}" var="ppl">
+                                                            <option text="{!ppl.FieldDescription__c}" value="{!ppl.FieldValue__c}"/>
+                                                        </aura:iteration>
+                                                    </lightning:select>
+                                                </div>
+  
+                                                <div class="slds-form-element">
+                                                    <lightning:select  name="pricelist" label="Price List" aura:id="pricelistId" required="true" messageWhenValueMissing = "Please enter a value" >
+                                                        <option text="Select a value" value=""/>
+                                                        <aura:iteration items="{!v.pricingList}" var="pl">
+                                                            <option text="{!pl.FieldDescription__c}" value="{!pl.FieldValue__c}"/>
+                                                        </aura:iteration>
+                                                    </lightning:select>
+                                                </div>
+                                                
+                                                <div class="slds-form-element">
+                                                    <lightning:select  name="shipCond" label="Ship Condition" aura:id="shipconditionId" required="true" messageWhenValueMissing = "Please enter a value" >
+                                                        <option text="Select a value" value=""/>
+                                                        <aura:iteration items="{!v.shippingCondList}" var="ship">
+                                                            <option text="{!ship.FieldDescription__c}" value="{!ship.FieldValue__c}"/>
+                                                        </aura:iteration>
+                                                    </lightning:select>
+                                                </div>
+            
+                                            </div>
+                                        </div>	
+                                    </div>
+                                </form>    
+                            </div>
+    
+    </div>
+<footer class="slds-card__footer">
+</footer>
+</article>
+    
+    
+<footer class="slds-modal__footer">
+<button class="slds-button slds-button_neutral">Cancel</button>
+<button class="slds-button slds-button_brand">Save</button>
+</footer>
+</div>
+</section>
+<div class="slds-backdrop slds-backdrop_open"></div>
+</div>
+    
+</aura:component>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>International YETI Pro request denial</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>International YETI Pro request denial</name>
+    <style>freeForm</style>
+    <subject>RE:  {!Case.Subject}</subject>
+    <textOnly>Hi,
+
+
+Thanks for submitting your application for the YETI Pro Program. We are pumped that you want to partner with us.
+
+
+The program is not currently set up to support our International friends just yet but we are working on this! Please check base with us in 2019 for an update.
+
+
+As always, reach out if you have any questions. We love hearing from our YETI partners.
+
+
+Happy Adventures
+
+
+!User.CommunityNickname}
+
+The YETI Outfitters
+
+512.394.9384
+
+customerservice@yeti.com
+
+yeti.com</textOnly>
+    <type>html</type>
+</EmailTemplate>

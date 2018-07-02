@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>CustomOpportunity</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>CustomOpportunities</value>
+    </caseValues>
+    <fields>
+        <label><!-- Accept --></label>
+        <name>Accept__c</name>
+    </fields>
+    <fields>
+        <label><!-- OpportunityName --></label>
+        <name>OpportunityName__c</name>
+        <relationshipLabel><!-- CustomOpportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- OwnerUpdated --></label>
+        <name>OwnerUpdated__c</name>
+    </fields>
+    <fields>
+        <label><!-- testfield --></label>
+        <name>testfield__c</name>
+    </fields>
+    <layouts>
+        <layout>CustomOpportunity Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

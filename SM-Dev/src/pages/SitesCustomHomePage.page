@@ -1,0 +1,30 @@
+<!--
+/*
+Name                SitesCustomHomePage
+Created By          Nitish Bansal
+Created Date        03/04/2016
+Purpose             T-482556
+*/
+-->
+
+<apex:page controller="WebCaseController" showHeader="true" sidebar="false">
+    <apex:sectionHeader title="{!$Label.WEB_FORM}"/>
+
+  <apex:form >
+    <apex:pageMessages /> <!-- this is where the error messages will appear -->
+    <apex:pageBlock title="{!$Label.Web_Form_Names}">
+        <apex:pageBlockSection showHeader="false" columns="1">
+            <apex:pageBlockSectionItem >
+                <apex:outputLabel value="{!$Label.Select_a_web_form}" />
+                <apex:selectList disabled="false" value="{!selectedForm}" size="1" multiselect="false" >
+                    <apex:selectOptions value="{!listWebForms}" />
+                </apex:selectList>
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+        <apex:pageBlockButtons location="bottom">
+                <apex:commandButton action="{!openForm}" value="{!$Label.Submit}"/>
+        </apex:pageBlockButtons>
+    </apex:pageBlock>
+        
+  </apex:form>  
+</apex:page>

@@ -1,0 +1,317 @@
+<apex:page standardController="zkfedex__Pickup__c" extensions="zkfedex.PickupController" action="{! init }">
+	<apex:includeScript value="{!URLFOR($Resource.zkfedex__Jquery, '/jquery/jquery-1.4.2.js')}"  />
+	<apex:stylesheet value="{!$Resource.zkfedex__WizardCSS}"/>
+	
+	<script>
+		$j = jQuery.noConflict();
+		$j(document).ready(function() {
+			$j('.inputFieldRequired').before('<span class="inputFieldRequiredBar">&nbsp;</span>'); 
+		});
+		
+		function IsLoading(whichLoading) {
+			$j('.' + whichLoading).toggle(); 
+		};
+	</script>
+	
+	
+	<apex:sectionHeader title="Schedule A Pickup"  subtitle="Schedule A Pickup"/>
+	<apex:form >		
+		<apex:pageBlock title="Schedule A Pickup" mode="detail">
+			<c:MessageListDisplay msgList="{! messageList }"/>
+
+			<apex:pageBlockButtons >
+				<apex:commandButton action="{! doSaveNewSchedulePickup }" value="Schedule Pickup" />				
+				<apex:commandButton action="{! doCancelNewSchedulePickup }" immediate="true" value="Cancel" />
+			</apex:pageBlockButtons>
+
+			<apex:pageBlockSection collapsible="false" title="Shipmate Preference" columns="1">
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Preference"/>
+						<apex:outputPanel >
+						<apex:selectList value="{! selectedShipmatePreference }" size="1" multiselect="false"  >
+							<apex:actionSupport event="onchange" action="{! shipmatePreferenceSelectRefresh }" onsubmit="IsLoading('loadingShipmatePreference');"/>
+							<apex:selectOptions value="{! alternativePreferenceOptions }"/>
+						</apex:selectList>
+						<apex:image id="loadingShipmatePreference" styleClass="loadingShipmatePreference" value="{!$Resource.zkfedex__LoadingImage2}"/>
+					</apex:outputPanel>
+				</apex:pageBlockSectionItem>
+			</apex:pageBlockSection>
+
+			<apex:pageBlockSection id="pickupInformationBlock" collapsible="false" title="Pickup Information & Location" columns="2">
+
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Contact Name"/>
+					<apex:inputField value="{! pickup.ContactName__c }" styleClass="inputFieldRequired"  />
+				</apex:pageBlockSectionItem>
+
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Email"/>
+					<apex:inputField value="{! pickup.ContactEmail__c }" />
+				</apex:pageBlockSectionItem> 
+			
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Company Name"/>
+					<apex:inputField value="{! pickup.CompanyName__c }" styleClass="inputFieldRequired" />
+				</apex:pageBlockSectionItem>
+
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Phone"/>
+					<apex:inputField value="{! pickup.ContactPhone__c }"  styleClass="inputFieldRequired"  />
+				</apex:pageBlockSectionItem>                	                 	                
+				
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Street"  />
+					<apex:inputField value="{! pickup.Street__c }" styleClass="inputFieldRequired"  />
+				</apex:pageBlockSectionItem>
+				
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="City"/>
+					<apex:inputField value="{! pickup.City__c }" styleClass="inputFieldRequired"  />
+				</apex:pageBlockSectionItem>
+
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="State"/>
+					<apex:inputField value="{! pickup.State__c }"  />
+				</apex:pageBlockSectionItem>
+				
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Postal Code"/>
+					<apex:inputField value="{! pickup.PostalCode__c }" styleClass="inputFieldRequired"  />
+				</apex:pageBlockSectionItem>
+				
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Country"/>
+					<apex:inputField value="{! pickup.Country__c }" styleClass="inputFieldRequired"  />
+				</apex:pageBlockSectionItem>
+				
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Residential Address"/>
+					<apex:inputField value="{! pickup.isResidential__c }"/>
+				</apex:pageBlockSectionItem>
+
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Package Location"/>
+					<apex:selectList value="{! pickup.PackageLocation__c }" size="1" multiselect="false">
+						<apex:selectOptions value="{! packageLocationOptions }"/>
+					</apex:selectList> 
+				</apex:pageBlockSectionItem>
+
+				<apex:pageBlockSectionItem >
+				</apex:pageBlockSectionItem>
+
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Building Type"/>
+					<apex:selectList value="{! pickup.BuildingType__c }" size="1" multiselect="false">
+						<apex:selectOptions value="{! buildingTypeOptions }"/>
+					</apex:selectList> 
+				</apex:pageBlockSectionItem>
+
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Building Type Description"/>
+					<apex:inputField value="{! pickup.BuildingTypeDescription__c }" />
+				</apex:pageBlockSectionItem>
+				
+<!--                 	<apex:pageBlockSectionItem />
+									
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Preferred Pickup Location"/>
+					<apex:selectList value="{!pickup.PickupPoint__c}" size="1" multiselect="false">
+						<apex:selectOptions value="{!PickupPointOptions}"/>
+					</apex:selectList> 
+				</apex:pageBlockSectionItem>  -->
+				
+			</apex:pageBlockSection>
+
+			<apex:pageBlockSection collapsible="false" title="Pickup Date and Time" columns="1">
+				
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Ready Date/Time"/>
+					<apex:inputField value="{! pickup.ReadyTime__c }"/>
+				</apex:pageBlockSectionItem>
+
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Company Close Time (hour)"/>
+					<apex:selectList value="{! pickup.CloseTimeHour__c }" size="1" multiselect="false"> 
+						<apex:selectOptions value="{! closeTimeHourOptions }"/>
+					</apex:selectList>
+				</apex:pageBlockSectionItem>
+				
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Company Close Time (minute)"/>
+					<apex:selectList value="{! pickup.CloseTimeMinute__c }" size="1" multiselect="false">
+						<apex:selectOptions value="{! closeTimeMinuteOptions }"/>
+					</apex:selectList>
+				</apex:pageBlockSectionItem> 
+			
+			</apex:pageBlockSection>
+
+			<apex:pageBlockSection collapsible="false" title="Pickup Details" columns="2">
+				<apex:pageBlockSectionItem >		
+					<apex:outputLabel value="Pickup Service Category"/>
+					<apex:selectList value="{! pickup.PickupServiceCategory__c }" size="1" multiselect="false"> 
+						<apex:selectOptions value="{! pickupServiceCategoryOptions }"/>
+					</apex:selectList>				
+				</apex:pageBlockSectionItem>
+
+				<apex:pageBlockSectionItem >		
+					<apex:outputLabel value="Carrier Code"/>
+					<apex:selectList value="{! pickup.CarrierCode__c }" size="1" multiselect="false"> 
+						<apex:selectOptions value="{! carrierCodeOptions }"/>
+					</apex:selectList>				
+				</apex:pageBlockSectionItem>		
+				
+			</apex:pageBlockSection>
+
+			<apex:pageBlockSection collapsible="false" title="Shipments" columns="1">
+				<p>
+					Please select the shipments that you'd like to be picked up below:
+				</p>
+			</apex:pageBlockSection>
+			<div style="overflow: scroll; height: 300px;">
+				<apex:pageBlockTable value="{! pickupPieceEntryList }" var="entry">
+					<apex:column width="5%">
+						<apex:facet name="header">Select</apex:facet>
+						<apex:inputCheckbox value="{! entry.selected }" />
+					</apex:column>
+					<apex:column width="10%">
+						<apex:facet name="header">Name</apex:facet>
+						<apex:outputText value="{! entry.shipment.Name }"/>						
+					</apex:column>
+					<apex:column width="15%">
+						<apex:facet name="header">Recipient Name</apex:facet>
+						<apex:outputText value="{!entry.shipment.zkfedex__RecipientName__c}"/> 
+					</apex:column>
+					<apex:column width="15%">
+						<apex:facet name="header">Recipient Company</apex:facet>
+						<apex:outputText value="{!entry.shipment.zkfedex__RecipientCompany__c}"/> 
+					</apex:column>
+					<apex:column width="10%">
+						<apex:facet name="header">Service Type</apex:facet>
+						<apex:outputText value="{!entry.shipment.zkfedex__ServiceTypeName__c}"/> 
+					</apex:column>
+					<apex:column width="45%">
+						<apex:facet name="header">Packages</apex:facet>
+						<apex:pageBlockTable value="{! entry.packageList }" var="pck">
+							<apex:column >
+								<apex:facet name="header">N</apex:facet>
+								<apex:outputText value="{! pck.pck.SequenceNumber__c }" />
+							</apex:column>
+							<apex:column >
+								<apex:facet name="header">Type</apex:facet>
+								<apex:outputText value="{! pck.pck.Package__r.PackagingTypeName__c }" />
+							</apex:column>
+							<apex:column >
+								<apex:facet name="header">Weight</apex:facet>
+								<apex:outputText value="{! pck.pck.Package__r.Weight__c }" />
+							</apex:column>
+						</apex:pageBlockTable>
+					</apex:column>
+				</apex:pageBlockTable>				
+			</div>
+
+			<apex:pageBlockSection id="pckDetailsPnl" collapsible="false" title="Packages Details" columns="2">
+
+				<apex:pageBlockSectionItem >
+					<apex:commandButton action="{! doCalculateDetails }" value="Calculate Packages Details" reRender="pckDetailsPnl" onclick="IsLoading('loadingRates');" />
+					<apex:image id="loadingRates" styleClass="loadingRates" value="{!$Resource.zkfedex__LoadingImage2}" />
+				</apex:pageBlockSectionItem>
+
+				<apex:pageBlockSectionItem >
+				</apex:pageBlockSectionItem>	
+
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Allow Edit"/>
+					<apex:outputPanel >
+						<apex:inputCheckbox value="{! allowEditPackage }">
+							<apex:actionSupport event="onchange" reRender="pckDetailsPnl" onsubmit="IsLoading('loadingAllowEdit');"/>
+						</apex:inputCheckbox>
+						<apex:image id="loadingAllowEdit" styleClass="loadingAllowEdit" value="{!$Resource.zkfedex__LoadingImage2}"/>
+					</apex:outputPanel>
+				</apex:pageBlockSectionItem>
+
+				<apex:pageBlockSectionItem >
+				</apex:pageBlockSectionItem>
+
+				<apex:pageBlockSectionItem rendered="{! allowEditPackage }">
+					<apex:outputLabel value="Package Count" />
+					<apex:inputField value="{! pickup.PackageCount__c }"/>
+				</apex:pageBlockSectionItem>
+
+				<apex:pageBlockSectionItem rendered="{! NOT(allowEditPackage) }">
+					<apex:outputLabel value="Package Count" />
+					<apex:outputField value="{! pickup.PackageCount__c }"/>
+				</apex:pageBlockSectionItem>
+
+				<apex:pageBlockSectionItem >
+				</apex:pageBlockSectionItem>				
+
+				<apex:pageBlockSectionItem rendered="{! allowEditPackage }">
+					<apex:outputLabel value="Weight"/>
+					<apex:inputField value="{! pickup.Weight__c }"/>
+				</apex:pageBlockSectionItem>
+
+				<apex:pageBlockSectionItem rendered="{! NOT(allowEditPackage) }">
+					<apex:outputLabel value="Weight"/>
+					<apex:outputField value="{! pickup.Weight__c }"/>
+				</apex:pageBlockSectionItem>
+
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Weight Units"/>
+					<apex:selectList value="{! pickup.WeightUnits__c }" size="1" multiselect="false"> 
+						<apex:selectOptions value="{! weightUnitOptions }"/>
+					</apex:selectList>	
+				</apex:pageBlockSectionItem>
+			</apex:pageBlockSection>
+
+			<apex:pageBlockSection collapsible="false" title="Courier Remarks" columns="1">
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Courier Remarks"/>
+					<apex:inputField value="{! pickup.CourierRemarks__c }" />
+				</apex:pageBlockSectionItem>
+			</apex:pageBlockSection>
+
+			<apex:pageBlockSection collapsible="false" title="Pickup Availability" columns="1">
+				<apex:commandButton action="{! doPickupAvailability }" value="Check Pickup Availability" />
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel value="Request Timestamp"/>
+					<apex:outputText value="{! wsAvailabilityReply.RequestTimestamp }"/>
+				</apex:pageBlockSectionItem>
+				<apex:pageBlockTable value="{! wsAvailabilityReply.options }" var="opt" >
+					<apex:column >
+						<apex:facet name="header">Carrier</apex:facet>
+						<apex:outputText value="{! opt.Carrier }"/>
+					</apex:column>
+					<apex:column >
+						<apex:facet name="header">Schedule Day</apex:facet>
+						<apex:outputText value="{! opt.ScheduleDay }"/>
+					</apex:column>
+					<apex:column >
+						<apex:facet name="header">Available</apex:facet>
+						<apex:inputCheckbox value="{! opt.Available }" disabled="true"/>
+					</apex:column>
+					<apex:column >
+						<apex:facet name="header">Pickup Date</apex:facet>
+						<apex:outputText value=" {0,date,EEE MMM d, yyyy}">
+							<apex:param value="{! opt.PickupDate }"/>
+						</apex:outputText>
+					</apex:column>
+					<apex:column >
+						<apex:facet name="header">CutOff Time</apex:facet>
+						<apex:outputText value="{! opt.CutOffTime }"/>
+					</apex:column>
+					<apex:column >
+						<apex:facet name="header">Access Time</apex:facet>
+						<apex:outputText value="{! opt.AccessTime }"/>
+					</apex:column>
+					<apex:column >
+						<apex:facet name="header">Residential Available</apex:facet>
+						<apex:inputCheckbox value="{! opt.ResidentialAvailable }" disabled="true"/>
+					</apex:column>
+				</apex:pageBlockTable>
+			</apex:pageBlockSection>
+			
+
+		</apex:pageBlock>
+	</apex:form>
+	
+</apex:page>

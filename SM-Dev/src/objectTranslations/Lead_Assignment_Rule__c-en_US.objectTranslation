@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Lead Assignment Rule</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Lead Assignment Rules</value>
+    </caseValues>
+    <fields>
+        <label><!-- Sales Rep --></label>
+        <name>Sales_Rep__c</name>
+        <relationshipLabel><!-- Lead Assignment Rules --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- State --></label>
+        <name>State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Zip Code --></label>
+        <name>Zip_Code__c</name>
+    </fields>
+    <layouts>
+        <layout>By State</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>By Zip</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- By State --></label>
+        <name>By_State</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- By Zip --></label>
+        <name>By_Zip</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- A zip code value is not allowed for the By State record type. --></errorMessage>
+        <name>By_State</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- A state value is not allowed for the By Zip record type. --></errorMessage>
+        <name>By_Zip</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- A valid Sales Rep is required. --></errorMessage>
+        <name>Sales_Rep_Is_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- State is required for By State record Type. --></errorMessage>
+        <name>State_is_Required_for_By_State_RT</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Zip Code is required for By Zip record Type. --></errorMessage>
+        <name>Zip_Code_is_Required_for_By_Zip_RT</name>
+    </validationRules>
+</CustomObjectTranslation>

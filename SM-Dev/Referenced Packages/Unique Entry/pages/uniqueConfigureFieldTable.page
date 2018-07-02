@@ -1,0 +1,153 @@
+<apex:page controller="UniqueEntry.UniqueConfigureFieldTable" >
+    <apex:includeScript value="{!URLFOR($Resource.UniqueEntry__jQueryUI, 'jquery-1.9.1.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.UniqueEntry__jQueryUI, 'jquery-ui.js')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.UniqueEntry__jQueryUI, 'jquery-ui.css')}" /> 
+    <apex:styleSheet value="{!URLFOR($Resource.UniqueEntry__uniqueEntryResources, 'uniqueStyle.css')}" />
+    
+    <style>
+    	body { background-color: inherit!important; }
+    </style>
+	<script type="text/javascript">
+        $j = jQuery.noConflict();
+        var isIframe = window != window.parent;
+        var isSaving = false;
+        
+        function resizeParentFrame(){
+            if(isIframe){
+                parent.$j('iframe#{!$CurrentPage.Parameters.iframeId}').height($j('html').height());
+            }
+        }
+        
+        function onAjaxStop(){
+            resizeParentFrame();
+        }
+        
+        $j(function(){
+            resizeParentFrame();
+            $j(window).resize(resizeParentFrame);
+        })
+        
+		function deleteConfiguration(){
+			if(confirm("Are you sure you want to delete this Configuration?")){
+				action_deleteConfiguration();
+			}
+		}
+		function saveConfigurationAs(){
+			var configName = prompt('Please enter new configuration name','');
+			if(configName != null && configName.trim() != ''){
+				action_saveConfigurationAs(configName);
+			}
+		}
+		
+		function save(){
+			action_onSave();
+		}
+		
+		function save_complete(){
+			if(helpMessage != ''){
+				notify_configuration_onSave('error', helpMessage);
+			}
+			else{
+				notify_configuration_onSave('success');
+			}
+		}
+		
+		function change_complete(){
+			if(helpMessage != ''){
+				alert(helpMessage);
+			}
+			else{
+				notify_configuration_onChange();
+			}
+		}
+		
+		function notify_configuration_onSave(status, message){
+           	window.parent.child_configuration_onSave('{!$CurrentPage.Parameters.iframeId}', status, message);
+		}
+		
+		function notify_configuration_onChange(){
+            window.parent.child_configuration_onChange('{!settingName}',$j('.ddl-configuration').val());
+		}
+	</script>
+	
+	<c:overlayStatus />
+	 
+	<apex:form >
+	
+		<apex:actionFunction name="action_refreshTable" action="{!refreshTable}" status="overlayStatus" rerender="mainForm"/>
+		<apex:actionFunction name="action_onSave" action="{!onSave}" oncomplete="save_complete()" status="overlayStatus" rerender="mainForm"/>
+		<apex:actionFunction name="action_changeConfiguration" action="{!changeConfiguration}" oncomplete="change_complete()" status="overlayStatus" rerender="mainForm" />
+		<apex:actionFunction name="action_saveConfigurationAs" action="{!saveConfigurationAs}" oncomplete="change_complete()" status="overlayStatus" rerender="mainForm" >
+		 	<apex:param name="saveConfigurationAs" value=""/>
+		</apex:actionFunction>
+		<apex:actionFunction name="action_deleteConfiguration" action="{!deleteConfiguration}" oncomplete="change_complete()" status="overlayStatus" rerender="mainForm" />
+	     
+        
+        <apex:outputText rendered="{!!IsRelated}">
+            You can customize which fields are utilized when 
+            Unique Entry seeks duplicates and tell us how important each field 
+            is to your organization for identifying duplicates using the accompanying 
+            slider. Don't feel like messing around? Just select from our list of 
+            preset configurations instead.
+        </apex:outputText>
+        
+        <apex:outputText rendered="{!IsRelated}">
+        	Unique Entry provides three additional Visualforce Pages that can be added to your 
+            Page layouts so that your users can see related records when viewing an existing Account, Contact, or Lead.
+            You can customize which fields are utilized for this purpose. Don't feel like messing around? Just select from our list of 
+            preset configurations instead.
+        </apex:outputText>
+        
+        <apex:outputpanel id="mainForm">
+			<script>
+				helpMessage = '{!HelpMessage}';
+			</script>
+		
+	        <apex:panelGrid columns="4" styleClass="presetConfiguration">
+	            <apex:outputText >Preset and Saved Configurations</apex:outputText>
+	            <apex:selectList size="1" value="{!configuration.id}" styleclass="ddl-configuration"
+	                onchange="action_changeConfiguration()" style="margin-left:20px;" >
+	                <apex:selectOptions value="{!availableConfigurations}"/>
+	            </apex:selectList>
+	            <apex:commandButton value="Save Configuration As..." onclick="saveConfigurationAs(); return false;" />
+	           
+	            <apex:commandLink value="Delete Configuration" style="text-decoration: none; color: grey; vertical-align: middle;"
+	                rendered="{! !configuration.isPreset__c}" onclick="deleteConfiguration();return false;">
+	            </apex:commandLink>
+	        </apex:panelGrid>
+	        
+	        <apex:dataTable value="{!table}" var="scannedField" cellspacing="10" styleClass="presetConfiguration">
+	            <apex:column style="text-align: left; vertical-align: middle; padding-right:5px;">
+	                <apex:commandLink action="{!removeRow}" value="X" style="text-decoration: none;"
+	                        status="overlayStatus" rerender="mainForm" title="Remove this row" rendered="{! !configuration.isPreset__c}">
+	                    <apex:param name="RowId" value="{!scannedField.id}" assignTo="{!rowId}" />
+	                </apex:commandLink>
+	            </apex:column>
+	            <apex:column headerValue="Field">
+	                <apex:selectList size="1" value="{!scannedField.selectedField}" onchange="action_refreshTable()"
+	                    style="margin-right:20px;" disabled="{!configuration.UniqueEntry__isPreset__c}">
+	                    <apex:selectOptions value="{!scannedField.allFields}" />
+	                </apex:selectList>
+	            </apex:column>
+	            <apex:column headerValue="Match Type">
+	                <apex:selectList size="1" onchange="action_refreshTable()"
+	                    value="{!scannedField.selectedMatchType}" disabled="{!configuration.UniqueEntry__isPreset__c}"
+	                    style="margin-right:20px;">
+	                    <apex:selectOptions value="{!scannedField.matchTypes}" />
+	                </apex:selectList>
+	            </apex:column>
+	            <apex:column headerValue="Importance" >
+	                <c:slider sliderId="{!scannedField.id}" 
+	                    rendered="{!scannedField.selectedMatchType != 'mustMatchExactly'}"
+	                    value="{!scannedField.importance}" 
+	                    disabled="{!configuration.UniqueEntry__isPreset__c}"/> 
+	            </apex:column>
+	        </apex:dataTable>
+	        
+	        <apex:commandLink value="Add Fields..." style="text-decoration: none; color: blue;" title="Add a new field"
+	            rendered="{!!configuration.UniqueEntry__isPreset__c}"
+	            action="{!addRow}"
+	            status="overlayStatus" rerender="mainForm" />
+    	</apex:outputpanel>
+	</apex:form>
+</apex:page>

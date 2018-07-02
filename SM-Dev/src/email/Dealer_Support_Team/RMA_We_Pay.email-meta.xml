@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>RMA - We Pay</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Your Return Request Confirmation
+
+Hello,
+
+We are sorry that you have to return your YETI product.  We are going to do our best to make this process quick and easy.  This email highlights and explains the return process in order to give you a better understanding of how we do things!
+
+Your Return Information:
+
+Your Return ID:  Return Order #: *** Items returned:   ***
+
+**Important**
+
+
+To return your YETI product please follow the steps below:
+
+We ask to have the returned product 30 days from when the new product ships.  Any delays in returning the product may result in your account going on hold.
+Please print off the return packing slip you receive in a separate email and include it with your package. (Please place it inside the cooler or along with the items you are returning.)
+Please download and print the prepaid FedEx shipping label that will be emailed to you.  Please cover up or black out any existing shipping labels.
+Please review the your return Sales Order for your replacement product to be shipped within the next 24 hours.
+
+
+If the returned product has been used, please make sure your YETI is cleaned out and dry on the inside.  When possible, we kindly ask that you protect your product during shipping by boxing your product. Once your return has been received at YETI Coolers, you will receive an email confirmation from FedEx.
+
+{!User.CommunityNickname}
+Account Management Team
+YETI
+512.394.0222
+sales@yeti.com
+yeti.com
+
+
+CONFIDENTIAL INFORMATION OF YETI COOLERS, LLC. THIS DOCUMENT IS INTENDED FOR USE ONLY BY YETI’S AUTHORIZED DEALERS. ANY DISCLOSURE, REPRODUCTION, DISTRIBUTION, OR OTHER USE OF THIS DOCUMENT IS PROHIBITED AND MAY RESULT IN ACCOUNT CLOSURE, IN ADDITION TO OTHER REMEDIES AVAILABLE AT LAW.</textOnly>
+    <type>html</type>
+</EmailTemplate>

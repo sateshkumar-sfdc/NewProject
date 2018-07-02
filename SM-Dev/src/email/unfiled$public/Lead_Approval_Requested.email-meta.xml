@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>false</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Lead Approval Requested</name>
+    <style>none</style>
+    <subject>Lead Approval Requested - {!Lead.Company}</subject>
+    <textOnly>Link:
+{!Lead.Link}
+
+Owner:
+{!Lead.OwnerFullName}
+
+Company:
+{!Lead.Company}
+
+Name:
+{!Lead.Name}
+
+City:
+{!Lead.City}
+
+State:
+{!Lead.State}
+
+Source:
+{!Lead.LeadSource}
+
+Trade Channel:
+{!Lead.00Ni0000009tT1M}
+
+Area Population:
+{!Lead.Area_Population__c}
+
+Retail Location:
+{!Lead.Retail_Location__c}
+
+Multiple Locations:
+{!Lead.Multiple_Locations__c}
+
+Buying Group/Central Biller:
+{!Lead.00Ni0000009tT9L}
+
+Buying Group:
+{!Lead.Buying_Group__c}
+
+Years in Business:
+{!Lead.Years_In_Business__c}</textOnly>
+    <type>custom</type>
+</EmailTemplate>

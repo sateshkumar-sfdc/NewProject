@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>CiMarksAndNumbers__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>CI Marks and Numbers</label>
+        <length>15</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CountryOfManufacture__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Country of Manufacture</label>
+        <length>2</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CustomsValueCurrency__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Customs Value Currency</label>
+        <length>3</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CustomsValue__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Customs Value</label>
+        <precision>17</precision>
+        <required>false</required>
+        <scale>6</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DocumentCommodityDescription__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Document Commodity Description</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Correspondence/No Commercial Value</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Accounting Documents</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Analysis Reports</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Applications (Completed)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Bank Statements</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Bid Quotations</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Birth Certificates</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Bills of Sale</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Bonds</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Business Correspondence</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Checks (Completed)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Claim Files</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Closing Statements</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Conference Reports</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Contracts</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cost Estimates</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Court Transcripts</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Credit Applications</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Data Sheets</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Deeds</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Employment Papers</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Escrow Instructions</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Export Papers</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Financial Statements</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Immigration Papers</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Income Statements</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Insurance Documents</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Interoffice Memos</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Inventory Reports</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Invoices (Completed)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Leases</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Legal Documents</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Letters and Cards</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Letter of Credit Packets</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Loan Documents</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Marriage Certificates</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Medical Records</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Office Records</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Operating Agreements</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Patent Applications</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Permits</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Photocopies</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Proposals</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Prospectuses</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Purchase Orders</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Quotations</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Reservation Confirmation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Resumes</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Agreements</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sales Reports</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Shipping Documents</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Statements/Reports</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Statistical Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Stock Information</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tax Papers</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Trade Confirmation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Transcripts</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Warranty Deeds</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Your Document Description</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ExportLicenseExpirationDate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Export License Expiration Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ExportLicenseNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Export License Number</label>
+        <length>12</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>HarmonizedCode__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Harmonized Code</label>
+        <length>14</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>InternationalCommodityData__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>International Commodity Data</label>
+        <referenceTo>InternationalCommodityData__c</referenceTo>
+        <relationshipLabel>FedEx Queued International Commodities</relationshipLabel>
+        <relationshipName>Queued_International_Commodities</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ModKey__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>ModKey</label>
+        <length>12</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NaftaNetCostDateRangeEnd__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Net Cost Date Range End</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>NaftaNetCostDateRangeStart__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Net Cost Date Range Start</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>NaftaNetCostMethod__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Net Cost Method</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NaftaPreferenceCriterion__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Preference Criterion</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NaftaProducerDetermination__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Producer Determination</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NumberOfPieces__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Number of Pieces</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PartNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Part Number</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>QuantityUnits__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Quantity Units</label>
+        <length>3</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quantity__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Quantity</label>
+        <precision>9</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>QueuedShipment__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>FedEx Queued Shipment</label>
+        <referenceTo>QueuedShipment__c</referenceTo>
+        <relationshipLabel>FedEx Queued International Commodities</relationshipLabel>
+        <relationshipName>FedEx_Queued_International_Commodities</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>SequenceNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Package Sequence Number</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TrackingId__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Package Tracking Number</label>
+        <length>30</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>UnitPriceCurrency__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Unit Price Currency</label>
+        <length>3</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>UnitPrice__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Unit Price</label>
+        <precision>17</precision>
+        <required>false</required>
+        <scale>6</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>WeightUnits__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Weight Units</label>
+        <length>5</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Weight__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Weight</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>FedEx Queued International Commodity</label>
+    <nameField>
+        <label>Queued International Commodity Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>FedEx Queued International Commodities</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

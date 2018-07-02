@@ -1,0 +1,51 @@
+<apex:page tabStyle="zkfedex__Pickup__c" standardController="zkfedex__Pickup__c" extensions="zkfedex.PickupCancelController" action="{! init }"> 
+	<c:Loading id="LoadingControl"/>
+
+	<apex:sectionHeader title="Cancel Pickup"/>
+	<apex:form >
+
+	  <apex:commandLink action="{! backToPreviousPage }" value="Back to Previous Page"/>
+
+	  <apex:pageBlock >   
+		
+		<!-- Error Messages -->
+		<!-- Custom Component: c:MessageListDisplay -->
+		<c:MessageListDisplay id="pickupDeleteMessageList" msgList="{! messageList }"/>
+		
+		
+		<!-- Delete Shipment Section -->
+		<apex:outputPanel >
+		<apex:pageBlockSection collapsible="false" columns="1" title="Cancel Pickup">
+		  
+		  <!-- Description -->
+		  This will cancel the Pickup from FedEx.<br/>
+		  <b>Note:</b> This will not delete the Shipment record from Salesforce. You can delete the Pickup record by pressing the <b>Delete</b> button on the Pickup record.
+		  <p/>
+		  
+		  <apex:pageBlockSectionItem >
+			<apex:outputLabel value="Pickup Confirmation Number"/>     
+			<apex:outputText value="{! pickup.PickupConfirmationNumber__c }"/>
+		  </apex:pageBlockSectionItem>
+		  
+		  <apex:pageBlockSectionItem > 
+			<apex:outputLabel value="Yes, I want to cancel this Pickup"/>
+			<apex:inputCheckbox value="{! confirmPickupDelete }" disabled="{! pickupDeleteDisabled }"/>
+		  </apex:pageBlockSectionItem>
+
+		  <apex:pageBlockSectionItem >
+		  	<apex:outputLabel value="Reason"/>
+			<apex:inputField value="{! pickup.CancelReason__c }" required="true"/>
+		  </apex:pageBlockSectionItem>
+		  
+		  <apex:pageBlockSectionItem >
+			<apex:outputLabel value=""/>
+			<apex:commandButton action="{! doCancelPickup }" value="Cancel Pickup" disabled="{! pickupDeleteDisabled }" />
+		  </apex:pageBlockSectionItem>
+		
+		</apex:pageBlockSection>
+		</apex:outputPanel>
+
+			  
+	  </apex:pageBlock>
+	</apex:form>
+</apex:page>

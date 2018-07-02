@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Support_Team</letterhead>
+    <name>Sales Order Hold - Declined CC</name>
+    <style>freeForm</style>
+    <subject>RE: {!Case.Subject}.</subject>
+    <textOnly>Hi,
+
+We have an order for your location on hold within in our system for a declining credit card.
+
+If this card has been compromised, or if you would like for us to use a new card, please give us a call and we will confidentially take your information over the phone.
+
+You can reach us at 512.394.0222 and please reference Sales Order #
+
+Thank you for your continued business.
+
+{!User.CommunityNickname}
+Account Management Team
+YETI
+512.394.0222
+sales@yeti.com
+yeti.com
+
+
+CONFIDENTIAL INFORMATION OF YETI COOLERS, LLC. THIS DOCUMENT IS INTENDED FOR USE ONLY BY YETI’S AUTHORIZED DEALERS. ANY DISCLOSURE, REPRODUCTION, DISTRIBUTION, OR OTHER USE OF THIS DOCUMENT IS PROHIBITED AND MAY RESULT IN ACCOUNT CLOSURE, IN ADDITION TO OTHER REMEDIES AVAILABLE AT LAW.</textOnly>
+    <type>html</type>
+</EmailTemplate>
